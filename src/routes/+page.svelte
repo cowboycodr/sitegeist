@@ -144,11 +144,8 @@
 					? 20
 					: Math.min(34, Math.max(22, window.innerWidth * 0.02));
 				if (Math.abs(progress - lastProgress) > 0.0001) {
-					const remaining = 1 - progress;
-					collectionElement.style.setProperty('--collection-inset', `${maximumInset * remaining}px`);
-					collectionElement.style.setProperty('--collection-radius', `${maximumRadius * remaining}px`);
-					collectionElement.style.setProperty('--collection-edge-scale', `${remaining}`);
-					collectionElement.style.setProperty('--collection-mobile-radius', `${(maximumRadius + maximumInset) * remaining}px`);
+					collectionElement.style.setProperty('--collection-inset', `${maximumInset * (1 - progress)}px`);
+					collectionElement.style.setProperty('--collection-radius', `${maximumRadius * (1 - progress)}px`);
 					lastProgress = progress;
 				}
 			});
@@ -408,10 +405,7 @@
 	}
 
 	@media (max-width: 720px) {
-		.collection { --collection-inset: clamp(8px, 3vw, 12px); --collection-radius: 20px; position: relative; margin-inline: 0; border-radius: var(--collection-mobile-radius, calc(20px + clamp(8px, 3vw, 12px))) var(--collection-mobile-radius, calc(20px + clamp(8px, 3vw, 12px))) 0 0; }
-		.collection::before, .collection::after { content: ''; position: absolute; z-index: 50; top: 0; width: clamp(8px, 3vw, 12px); height: 100vh; background: #f2f0e9; pointer-events: none; will-change: transform; }
-		.collection::before { left: 0; transform: scaleX(var(--collection-edge-scale, 1)); transform-origin: left center; }
-		.collection::after { right: 0; transform: scaleX(var(--collection-edge-scale, 1)); transform-origin: right center; }
+		.collection { --collection-inset: clamp(8px, 3vw, 12px); --collection-radius: 20px; }
 		.intro-grid { gap: 24px; padding: 42px 0 30px; }
 		.intro h1 { font-size: clamp(48px, 12vw, 64px); line-height: 0.86; }
 		.intro-aside { gap: 18px; }
