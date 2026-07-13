@@ -15,6 +15,35 @@
 		{ name: 'Fable 5', available: false },
 		{ name: 'Grok 4.5', available: false }
 	];
+	const PAGE_THEME_COLOR = 'rgb(242, 240, 233)';
+	const SHELL_THEME_COLOR = 'rgb(17, 18, 16)';
+
+	type PreviewPointerGesture = {
+		pointerId: number;
+		trigger: HTMLElement;
+		startX: number;
+		startY: number;
+		startScrollY: number;
+		blocked: boolean;
+	};
+
+	type PullGesture = {
+		identifier: number;
+		phase: 'pending' | 'dragging';
+		startX: number;
+		startY: number;
+		rawY: number;
+		renderedY: number;
+		viewportHeight: number;
+		scale: number;
+		backdropOpacity: number;
+		controlsOpacity: number;
+		controlsOffset: number;
+		surfaceTransform: string;
+		controlsTransform: string;
+		samples: Array<{ y: number; time: number }>;
+		frame: number;
+	};
 
 	let selected = $state<ShowcaseSite | null>(null);
 	let filter = $state('5.6 Sol');
@@ -25,24 +54,88 @@
 	let filterRowElement: HTMLDivElement;
 	let stickyBrandElement: HTMLDivElement;
 	let shellMasksElement: HTMLDivElement;
+	let viewerEntryElement = $state<HTMLDivElement>();
+	let viewerSurfaceElement = $state<HTMLDivElement>();
+	let viewerSiteElement = $state<HTMLDivElement>();
+	let viewerBackdropElement = $state<HTMLDivElement>();
+	let viewerControlsElement = $state<HTMLDivElement>();
 	let showReturnToTop = $state(false);
 	let filtersPinned = $state(false);
-	let pullStartY: number | null = null;
-	let pullDistance = 0;
+	let shellThemeActive = $state(false);
+	let viewerGesturePrepared = $state(false);
+	let viewerDragActive = $state(false);
+	let viewerSettling = $state(false);
 	let wheelPull = 0;
 	let wheelResetTimer: ReturnType<typeof setTimeout> | undefined;
+	let previewPointerGesture: PreviewPointerGesture | null = null;
+	let blockedPreviewTrigger: HTMLElement | null = null;
+	let blockedPreviewUntil = 0;
+	let pullGesture: PullGesture | null = null;
+	let viewerAnimations: Animation[] = [];
+	let viewerGestureSequence = 0;
 
 	let visibleSites = $derived(sites);
+	let themeColor = $derived(Boolean(selected) || shellThemeActive ? SHELL_THEME_COLOR : PAGE_THEME_COLOR);
+
+	const clamp = (minimum: number, value: number, maximum: number) =>
+		Math.min(maximum, Math.max(minimum, value));
+
+	function findTouch(touches: TouchList, identifier: number) {
+		for (let index = 0; index < touches.length; index += 1) {
+			const touch = touches.item(index);
+			if (touch?.identifier === identifier) return touch;
+		}
+		return null;
+	}
+
+	function stopViewerAnimations() {
+		viewerGestureSequence += 1;
+		for (const animation of viewerAnimations) animation.cancel();
+		viewerAnimations = [];
+	}
+
+	function clearPullGesture() {
+		if (pullGesture?.frame) cancelAnimationFrame(pullGesture.frame);
+		pullGesture = null;
+		viewerGesturePrepared = false;
+	}
+
+	function clearViewerGestureStyles() {
+		viewerSurfaceElement?.style.removeProperty('transform');
+		viewerBackdropElement?.style.removeProperty('opacity');
+		viewerControlsElement?.style.removeProperty('opacity');
+		viewerControlsElement?.style.removeProperty('transform');
+		viewerDragActive = false;
+		viewerSettling = false;
+	}
+
+	function resetViewerGesture() {
+		stopViewerAnimations();
+		clearPullGesture();
+		clearViewerGestureStyles();
+	}
 
 	function syncFromHash() {
 		if (!browser) return;
 		const slug = window.location.hash.startsWith('#site/') ? window.location.hash.slice(6) : '';
+		resetViewerGesture();
 		expandOrigin = null;
 		selected = slug ? siteBySlug.get(slug) ?? null : null;
 	}
 
 	function openSite(site: ShowcaseSite, event: MouseEvent) {
 		const trigger = event.currentTarget as HTMLElement;
+		if (
+			event.detail !== 0 &&
+			blockedPreviewTrigger === trigger &&
+			performance.now() < blockedPreviewUntil
+		) {
+			event.preventDefault();
+			event.stopPropagation();
+			blockedPreviewTrigger = null;
+			return;
+		}
+
 		const preview = trigger.querySelector('.preview-window') as HTMLElement | null;
 		const rect = (preview ?? trigger).getBoundingClientRect();
 		expandOrigin = {
@@ -55,9 +148,54 @@
 		if (browser) history.pushState(null, '', `#site/${site.slug}`);
 	}
 
-	function closeSite() {
-		pullStartY = null;
-		pullDistance = 0;
+	function handlePreviewPointerDown(event: PointerEvent) {
+		// A new intentional interaction supersedes any synthesized click we were waiting to suppress.
+		blockedPreviewTrigger = null;
+		if (event.pointerType !== 'touch' || !event.isPrimary) return;
+		previewPointerGesture = {
+			pointerId: event.pointerId,
+			trigger: event.currentTarget as HTMLElement,
+			startX: event.clientX,
+			startY: event.clientY,
+			startScrollY: window.scrollY,
+			blocked: false
+		};
+	}
+
+	function handlePreviewPointerMove(event: PointerEvent) {
+		const gesture = previewPointerGesture;
+		if (!gesture || gesture.pointerId !== event.pointerId) return;
+		const moved = Math.hypot(event.clientX - gesture.startX, event.clientY - gesture.startY) > 9;
+		const scrolled = Math.abs(window.scrollY - gesture.startScrollY) > 2;
+		if (moved || scrolled) gesture.blocked = true;
+	}
+
+	function finishPreviewPointer(event: PointerEvent, cancelled = false) {
+		const gesture = previewPointerGesture;
+		if (!gesture || gesture.pointerId !== event.pointerId) return;
+		const moved = Math.hypot(event.clientX - gesture.startX, event.clientY - gesture.startY) > 9;
+		const scrolled = Math.abs(window.scrollY - gesture.startScrollY) > 2;
+		if (gesture.blocked || moved || scrolled || cancelled) {
+			blockedPreviewTrigger = gesture.trigger;
+			// Safari may cancel the pointer as soon as scrolling begins, long before the finger lifts.
+			// Keep that click blocked until the next pointerdown rather than expiring mid-scroll.
+			blockedPreviewUntil = cancelled ? Number.POSITIVE_INFINITY : performance.now() + 700;
+		}
+		previewPointerGesture = null;
+	}
+
+	function handlePreviewPointerUp(event: PointerEvent) {
+		finishPreviewPointer(event);
+	}
+
+	function handlePreviewPointerCancel(event: PointerEvent) {
+		finishPreviewPointer(event, true);
+	}
+
+	function completeCloseSite() {
+		clearPullGesture();
+		viewerDragActive = false;
+		viewerSettling = false;
 		wheelPull = 0;
 		if (wheelResetTimer) clearTimeout(wheelResetTimer);
 		selected = null;
@@ -65,25 +203,252 @@
 		if (browser) history.pushState(null, '', window.location.pathname + window.location.search);
 	}
 
+	function closeSite() {
+		resetViewerGesture();
+		completeCloseSite();
+	}
+
+	function activatePullGesture(gesture: PullGesture) {
+		gesture.phase = 'dragging';
+		expandOrigin = null;
+		for (const animation of viewerEntryElement?.getAnimations() ?? []) animation.cancel();
+		for (const animation of viewerControlsElement?.getAnimations() ?? []) animation.cancel();
+		viewerDragActive = true;
+	}
+
+	function renderPullGesture() {
+		const gesture = pullGesture;
+		if (
+			!gesture ||
+			gesture.phase !== 'dragging' ||
+			!viewerSurfaceElement ||
+			!viewerBackdropElement ||
+			!viewerControlsElement
+		) return;
+		gesture.frame = 0;
+		const linearLimit = gesture.viewportHeight * 0.36;
+		const distance = gesture.rawY <= linearLimit
+			? gesture.rawY
+			: linearLimit + (gesture.rawY - linearLimit) * 0.32;
+		const progress = Math.min(1, distance / (gesture.viewportHeight * 0.42));
+		const easedProgress = progress * progress * (3 - 2 * progress);
+		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		gesture.renderedY = distance;
+		gesture.scale = reducedMotion ? 1 : 1 - easedProgress * 0.035;
+		gesture.backdropOpacity = reducedMotion ? 1 : 1 - easedProgress * 0.82;
+		gesture.controlsOpacity = reducedMotion ? 1 : Math.max(0, 1 - progress * 1.7);
+		gesture.controlsOffset = reducedMotion ? 0 : Math.min(22, distance * 0.075);
+		gesture.surfaceTransform = `translate3d(0, ${distance}px, 0) scale(${gesture.scale})`;
+		gesture.controlsTransform = `translate3d(-50%, ${gesture.controlsOffset}px, 0) scale(${1 - easedProgress * 0.025})`;
+
+		viewerSurfaceElement.style.transform = gesture.surfaceTransform;
+		viewerBackdropElement.style.opacity = String(gesture.backdropOpacity);
+		viewerControlsElement.style.opacity = String(gesture.controlsOpacity);
+		viewerControlsElement.style.transform = gesture.controlsTransform;
+	}
+
+	function requestPullGestureRender() {
+		if (!pullGesture || pullGesture.frame) return;
+		pullGesture.frame = requestAnimationFrame(renderPullGesture);
+	}
+
 	function handleViewerTouchStart(event: TouchEvent) {
-		const viewerSite = event.currentTarget as HTMLDivElement;
-		pullStartY = viewerSite.scrollTop <= 0 ? event.touches[0]?.clientY ?? null : null;
-		pullDistance = 0;
+		if (viewerSettling || event.touches.length !== 1 || !viewerSiteElement || viewerSiteElement.scrollTop > 1) return;
+		const touch = event.changedTouches.item(0);
+		if (!touch) return;
+		stopViewerAnimations();
+		clearPullGesture();
+		pullGesture = {
+			identifier: touch.identifier,
+			phase: 'pending',
+			startX: touch.clientX,
+			startY: touch.clientY,
+			rawY: 0,
+			renderedY: 0,
+			viewportHeight: Math.max(1, window.innerHeight),
+			scale: 1,
+			backdropOpacity: 1,
+			controlsOpacity: 1,
+			controlsOffset: 0,
+			surfaceTransform: 'translate3d(0, 0, 0) scale(1)',
+			controlsTransform: 'translate3d(-50%, 0, 0) scale(1)',
+			samples: [{ y: 0, time: event.timeStamp }],
+			frame: 0
+		};
+		// Give WebKit the touch-slop window to promote the full-screen surface before it moves.
+		viewerGesturePrepared = true;
 	}
 
 	function handleViewerTouchMove(event: TouchEvent) {
-		const viewerSite = event.currentTarget as HTMLDivElement;
-		if (pullStartY === null || viewerSite.scrollTop > 0) return;
-		pullDistance = Math.max(0, (event.touches[0]?.clientY ?? pullStartY) - pullStartY);
-		if (pullDistance >= 110) closeSite();
+		const gesture = pullGesture;
+		if (!gesture || !viewerSiteElement) return;
+		if (event.touches.length !== 1) {
+			if (gesture.phase === 'dragging') void settlePullGesture(false);
+			else clearPullGesture();
+			return;
+		}
+
+		const touch = findTouch(event.touches, gesture.identifier);
+		if (!touch) return;
+		const deltaX = touch.clientX - gesture.startX;
+		const deltaY = touch.clientY - gesture.startY;
+		if (gesture.phase === 'pending') {
+			const movement = Math.hypot(deltaX, deltaY);
+			if (movement < 9) return;
+			if (deltaY <= 0 || deltaY <= Math.abs(deltaX) * 1.15 || viewerSiteElement.scrollTop > 1) {
+				clearPullGesture();
+				return;
+			}
+			activatePullGesture(gesture);
+		}
+
+		event.preventDefault();
+		gesture.rawY = Math.max(0, deltaY);
+		gesture.samples.push({ y: gesture.rawY, time: event.timeStamp });
+		while (gesture.samples.length > 2 && gesture.samples[0].time < event.timeStamp - 120) {
+			gesture.samples.shift();
+		}
+		requestPullGestureRender();
 	}
 
-	function handleViewerTouchEnd() {
-		pullStartY = null;
-		pullDistance = 0;
+	async function settlePullGesture(shouldDismiss: boolean) {
+		const gesture = pullGesture;
+		if (
+			!gesture ||
+			gesture.phase !== 'dragging' ||
+			viewerSettling ||
+			!viewerSurfaceElement ||
+			!viewerBackdropElement ||
+			!viewerControlsElement
+		) return;
+		if (gesture.frame) {
+			cancelAnimationFrame(gesture.frame);
+			gesture.frame = 0;
+			renderPullGesture();
+		}
+
+		stopViewerAnimations();
+		const sequence = viewerGestureSequence;
+		viewerDragActive = false;
+		viewerSettling = true;
+		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		if (reducedMotion) {
+			if (shouldDismiss) completeCloseSite();
+			else {
+				clearPullGesture();
+				clearViewerGestureStyles();
+			}
+			return;
+		}
+
+		const samples = gesture.samples;
+		const firstSample = samples[0];
+		const lastSample = samples[samples.length - 1];
+		const elapsed = Math.max(1, lastSample.time - firstSample.time);
+		const velocity = Math.max(0, (lastSample.y - firstSample.y) / elapsed);
+		const offscreenY = gesture.viewportHeight + 48;
+		const targetSurfaceTransform = shouldDismiss
+			? `translate3d(0, ${offscreenY}px, 0) scale(${Math.max(0.93, gesture.scale - 0.012)})`
+			: 'translate3d(0, 0, 0) scale(1)';
+		const targetControlsTransform = shouldDismiss
+			? 'translate3d(-50%, 28px, 0) scale(0.96)'
+			: 'translate3d(-50%, 0, 0) scale(1)';
+		const duration = shouldDismiss
+			? clamp(220, (offscreenY - gesture.renderedY) / Math.max(velocity, 1.8), 390)
+			: clamp(280, 300 + gesture.renderedY * 0.18, 380);
+		const easing = shouldDismiss
+			? 'cubic-bezier(.22,1,.36,1)'
+			: 'cubic-bezier(.2,.85,.25,1)';
+
+		const surfaceAnimation = viewerSurfaceElement.animate(
+			[
+				{ transform: gesture.surfaceTransform },
+				{ transform: targetSurfaceTransform }
+			],
+			{ duration, easing, fill: 'forwards' }
+		);
+		const backdropAnimation = viewerBackdropElement.animate(
+			[
+				{ opacity: gesture.backdropOpacity },
+				{ opacity: shouldDismiss ? 0 : 1 }
+			],
+			{ duration, easing, fill: 'forwards' }
+		);
+		const controlsAnimation = viewerControlsElement.animate(
+			[
+				{ opacity: gesture.controlsOpacity, transform: gesture.controlsTransform },
+				{ opacity: shouldDismiss ? 0 : 1, transform: targetControlsTransform }
+			],
+			{ duration: Math.min(duration, 320), easing, fill: 'forwards' }
+		);
+		viewerAnimations = [surfaceAnimation, backdropAnimation, controlsAnimation];
+
+		try {
+			await surfaceAnimation.finished;
+		} catch {
+			return;
+		}
+		if (sequence !== viewerGestureSequence) return;
+		if (shouldDismiss) {
+			viewerAnimations = [];
+			completeCloseSite();
+		} else {
+			for (const animation of viewerAnimations) animation.cancel();
+			viewerAnimations = [];
+			clearPullGesture();
+			clearViewerGestureStyles();
+		}
+	}
+
+	function handleViewerTouchEnd(event: TouchEvent) {
+		const gesture = pullGesture;
+		if (!gesture) return;
+		const touch = findTouch(event.changedTouches, gesture.identifier);
+		if (!touch) return;
+		if (gesture.phase !== 'dragging') {
+			clearPullGesture();
+			return;
+		}
+
+		gesture.rawY = Math.max(0, touch.clientY - gesture.startY);
+		gesture.samples.push({ y: gesture.rawY, time: event.timeStamp });
+		while (gesture.samples.length > 2 && gesture.samples[0].time < event.timeStamp - 120) {
+			gesture.samples.shift();
+		}
+		const firstSample = gesture.samples[0];
+		const lastSample = gesture.samples[gesture.samples.length - 1];
+		const velocity = Math.max(0, (lastSample.y - firstSample.y) / Math.max(1, lastSample.time - firstSample.time));
+		const projectedY = gesture.rawY + velocity * 160;
+		const threshold = Math.min(180, gesture.viewportHeight * 0.24);
+		const fastFlick = velocity > 0.75 && gesture.rawY > 44;
+		void settlePullGesture(fastFlick || projectedY >= threshold);
+	}
+
+	function handleViewerTouchCancel() {
+		if (pullGesture?.phase === 'dragging') void settlePullGesture(false);
+		else clearPullGesture();
+	}
+
+	function pullToDismiss(node: HTMLDivElement) {
+		node.addEventListener('touchstart', handleViewerTouchStart, { passive: true });
+		node.addEventListener('touchmove', handleViewerTouchMove, { passive: false });
+		node.addEventListener('touchend', handleViewerTouchEnd, { passive: true });
+		node.addEventListener('touchcancel', handleViewerTouchCancel, { passive: true });
+		return {
+			destroy() {
+				node.removeEventListener('touchstart', handleViewerTouchStart);
+				node.removeEventListener('touchmove', handleViewerTouchMove);
+				node.removeEventListener('touchend', handleViewerTouchEnd);
+				node.removeEventListener('touchcancel', handleViewerTouchCancel);
+				stopViewerAnimations();
+				clearPullGesture();
+			}
+		};
 	}
 
 	function handleViewerWheel(event: WheelEvent) {
+		if (viewerSettling) return;
 		const viewerSite = event.currentTarget as HTMLDivElement;
 		if (viewerSite.scrollTop > 0 || event.deltaY >= 0) {
 			wheelPull = 0;
@@ -97,7 +462,9 @@
 	}
 
 	function step(direction: number) {
-		if (!selected) return;
+		if (!selected || viewerSettling) return;
+		resetViewerGesture();
+		expandOrigin = null;
 		const current = sites.findIndex((site) => site.id === selected?.id);
 		const next = sites[(current + direction + sites.length) % sites.length];
 		selected = next;
@@ -105,16 +472,29 @@
 	}
 
 	function handleKeydown(event: KeyboardEvent) {
-		if (!selected) return;
+		if (!selected || viewerSettling) return;
 		if (event.key === 'Escape') closeSite();
 		if (event.key === 'ArrowLeft') step(-1);
 		if (event.key === 'ArrowRight') step(1);
 	}
 
 	onMount(() => {
-		syncFromHash();
-		window.addEventListener('hashchange', syncFromHash);
-		return () => window.removeEventListener('hashchange', syncFromHash);
+		const syncNavigation = () => {
+			syncFromHash();
+			if (!collectionElement) return;
+			const collectionTop = collectionElement.getBoundingClientRect().top + window.scrollY;
+			shellThemeActive = window.scrollY >= collectionTop;
+		};
+
+		syncNavigation();
+		window.addEventListener('hashchange', syncNavigation);
+		window.addEventListener('popstate', syncNavigation);
+		window.addEventListener('pageshow', syncNavigation);
+		return () => {
+			window.removeEventListener('hashchange', syncNavigation);
+			window.removeEventListener('popstate', syncNavigation);
+			window.removeEventListener('pageshow', syncNavigation);
+		};
 	});
 
 	onMount(() => {
@@ -199,6 +579,7 @@
 			filterRowElement.style.setProperty('--sticky-brand-shift', `${stickyBrandWidth + 8}px`);
 			shellMasksElement.style.setProperty('--shell-scroll-end', `${collectionTop}px`);
 			showReturnToTop = scrollPosition > collectionTop;
+			shellThemeActive = scrollPosition >= collectionTop;
 			filtersPinned = scrollPosition >= filterStickyStart;
 			lastRawProgress = -1;
 
@@ -220,8 +601,9 @@
 			(entries) => {
 				for (const entry of entries) {
 					const hasPassedViewportTop = !entry.isIntersecting && entry.boundingClientRect.top < 0;
-					if (entry.target === collectionTopSentinelElement && showReturnToTop !== hasPassedViewportTop) {
-						showReturnToTop = hasPassedViewportTop;
+					if (entry.target === collectionTopSentinelElement) {
+						if (showReturnToTop !== hasPassedViewportTop) showReturnToTop = hasPassedViewportTop;
+						if (shellThemeActive !== hasPassedViewportTop) shellThemeActive = hasPassedViewportTop;
 					}
 					if (entry.target === filterSentinelElement && filtersPinned !== hasPassedViewportTop) {
 						filtersPinned = hasPassedViewportTop;
@@ -254,11 +636,24 @@
 		document.documentElement.style.overflow = selected ? 'hidden' : '';
 		return () => (document.documentElement.style.overflow = '');
 	});
+
+	$effect(() => {
+		if (!browser) return;
+		const previousHtmlBackground = document.documentElement.style.backgroundColor;
+		const previousBodyBackground = document.body.style.backgroundColor;
+		document.documentElement.style.backgroundColor = themeColor;
+		document.body.style.backgroundColor = themeColor;
+		return () => {
+			document.documentElement.style.backgroundColor = previousHtmlBackground;
+			document.body.style.backgroundColor = previousBodyBackground;
+		};
+	});
 </script>
 
 <svelte:head>
 	<title>100 Sites — Can AI create without repeating itself?</title>
 	<meta name="description" content="One hundred generated websites testing how well leading models maintain visual quality, consistency, and originality." />
+	<meta name="theme-color" content={themeColor} />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="100 Sites — Can AI create without repeating itself?" />
 	<meta property="og:description" content="One hundred generated websites testing how well leading models maintain visual quality, consistency, and originality." />
@@ -336,7 +731,15 @@
 		<div class="site-grid">
 			{#each visibleSites as site (site.id)}
 				<article class="site-card" style={`--delay:${(site.id % 8) * 35}ms`}>
-					<button class="preview-button-wrap" onclick={(event) => openSite(site, event)} aria-label={`Open ${site.name}: ${site.tagline}`}>
+					<button
+						class="preview-button-wrap"
+						onpointerdown={handlePreviewPointerDown}
+						onpointermove={handlePreviewPointerMove}
+						onpointerup={handlePreviewPointerUp}
+						onpointercancel={handlePreviewPointerCancel}
+						onclick={(event) => openSite(site, event)}
+						aria-label={`Open ${site.name}: ${site.tagline}`}
+					>
 						<div class="preview-window">
 							<div class="window-chrome"><i></i><i></i><i></i><span>{site.slug}.studio</span></div>
 							<div class="preview-viewport"><SitePreview {site} /></div>
@@ -368,23 +771,29 @@
 	<div
 		class="viewer"
 		class:from-card={Boolean(expandOrigin)}
+		class:preparing={viewerGesturePrepared}
+		class:dragging={viewerDragActive}
+		class:settling={viewerSettling}
 		style={expandOrigin ? `--expand-x:${expandOrigin.x}px; --expand-y:${expandOrigin.y}px; --expand-scale-x:${expandOrigin.scaleX}; --expand-scale-y:${expandOrigin.scaleY};` : ''}
 		role="dialog"
 		aria-modal="true"
 		aria-label={`${selected.name} website`}
 	>
-		<div
-			class="viewer-site"
-			role="document"
-			onwheel={handleViewerWheel}
-			ontouchstart={handleViewerTouchStart}
-			ontouchmove={handleViewerTouchMove}
-			ontouchend={handleViewerTouchEnd}
-			ontouchcancel={handleViewerTouchEnd}
-		>
-			<SiteExperience site={selected} />
+		<div class="viewer-backdrop" bind:this={viewerBackdropElement} aria-hidden="true"></div>
+		<div class="viewer-entry" bind:this={viewerEntryElement}>
+			<div class="viewer-surface" bind:this={viewerSurfaceElement}>
+				<div
+					class="viewer-site"
+					bind:this={viewerSiteElement}
+					use:pullToDismiss
+					role="document"
+					onwheel={handleViewerWheel}
+				>
+					<SiteExperience site={selected} />
+				</div>
+			</div>
 		</div>
-		<div class="viewer-controls">
+		<div class="viewer-controls" bind:this={viewerControlsElement}>
 			<button class="close-control" onclick={closeSite} aria-label="Close site and return to gallery" title="Close"><X size={16} strokeWidth={2.2} /></button>
 			<div class="viewer-id"><span>{String(selected.id).padStart(3, '0')}</span></div>
 			<div class="right-controls">
@@ -441,7 +850,8 @@
 	.collection h2 { margin: 0; font-size: clamp(36px, 3.7vw, 58px); font-weight: 610; line-height: 0.9; letter-spacing: -0.065em; }
 
 	.filter-sticky-sentinel { height: 1px; margin-bottom: -1px; pointer-events: none; }
-	.filter-row { position: sticky; z-index: 40; top: 0; display: block; margin: 0 clamp(-34px, -3vw, -24px); padding: 12px clamp(24px, 3vw, 34px) 14px; overflow-x: auto; background: #111210; scrollbar-width: none; }
+	.filter-row { position: relative; z-index: 40; display: block; margin: 0 clamp(-34px, -3vw, -24px); padding: 12px clamp(24px, 3vw, 34px) 14px; overflow-x: auto; background: #111210; scrollbar-width: none; }
+	.filter-row.pinned { position: sticky; top: 0; }
 	.filter-row::-webkit-scrollbar { display: none; }
 	.filter-track { position: relative; width: max-content; min-width: 100%; padding-right: var(--sticky-brand-shift, 86px); }
 	.filter-buttons { display: flex; width: max-content; align-items: center; gap: 8px; transform: translateX(0); transition: transform 620ms cubic-bezier(.16,1,.3,1); }
@@ -457,7 +867,7 @@
 
 	.site-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: clamp(16px, 2vw, 32px); row-gap: clamp(45px, 6vw, 88px); }
 	.site-card { min-width: 0; content-visibility: auto; contain-intrinsic-size: auto calc(clamp(230px, 24vw, 360px) + 55px); }
-	.preview-button-wrap { display: block; width: 100%; padding: 0; border: 0; background: transparent; color: inherit; text-align: left; cursor: pointer; }
+	.preview-button-wrap { display: block; width: 100%; padding: 0; border: 0; background: transparent; color: inherit; text-align: left; touch-action: pan-y; cursor: pointer; }
 	.preview-window { position: relative; overflow: hidden; border-radius: 7px; background: #292a27; box-shadow: 0 18px 42px rgba(0, 0, 0, 0.25); transition: transform 350ms cubic-bezier(.2,.8,.2,1), box-shadow 350ms ease; }
 	.preview-button-wrap:hover .preview-window, .preview-button-wrap:focus-visible .preview-window { transform: translateY(-9px) rotate(-0.35deg); box-shadow: 0 32px 70px rgba(0, 0, 0, 0.42); }
 	.preview-button-wrap:focus-visible { outline: 2px solid var(--gallery-accent); outline-offset: 4px; }
@@ -485,9 +895,18 @@
 	.return-to-top:hover { background: #fff; transform: translateY(-3px) scale(1); }
 	.return-to-top:focus-visible { outline: 2px solid var(--gallery-accent); outline-offset: 3px; }
 
-	.viewer { position: fixed; z-index: 1000; inset: 0; overflow: hidden; background: #0c0c0b; }
-	.viewer-site { height: 100%; overflow: auto; overscroll-behavior: contain; }
-	.viewer.from-card .viewer-site { transform-origin: top left; animation: site-expand 640ms cubic-bezier(0.22, 1, 0.36, 1) both; will-change: transform, border-radius, box-shadow; }
+	.viewer { position: fixed; z-index: 1000; inset: 0; overflow: hidden; background: transparent; }
+	.viewer-backdrop { position: absolute; z-index: 0; inset: 0; background: #0c0c0b; }
+	.viewer-entry, .viewer-surface { position: absolute; inset: 0; }
+	.viewer-entry { z-index: 1; overflow: hidden; }
+	.viewer-surface { overflow: hidden; background: #0c0c0b; transform-origin: 50% 10%; backface-visibility: hidden; }
+	.viewer-site { height: 100%; overflow: auto; overscroll-behavior: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; }
+	.viewer.preparing .viewer-surface { will-change: transform; }
+	.viewer.preparing .viewer-backdrop { will-change: opacity; }
+	.viewer.dragging .viewer-surface, .viewer.settling .viewer-surface { border-radius: clamp(20px, 5vw, 28px); box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42); }
+	.viewer.dragging .viewer-controls, .viewer.settling .viewer-controls { background: rgba(20, 20, 19, 0.985); -webkit-backdrop-filter: none; backdrop-filter: none; will-change: transform, opacity; }
+	.viewer.settling { pointer-events: none; }
+	.viewer.from-card .viewer-entry { transform-origin: top left; animation: site-expand 640ms cubic-bezier(0.22, 1, 0.36, 1) both; will-change: transform, border-radius, box-shadow; }
 	.viewer.from-card .viewer-controls { animation: toolbar-enter 220ms ease 430ms both; }
 	@keyframes site-expand {
 		0% { border-radius: 7px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45); transform: translate(var(--expand-x), var(--expand-y)) scale(var(--expand-scale-x), var(--expand-scale-y)); }
@@ -548,6 +967,6 @@
 		.preview-window, .open-cue, .return-to-top, .sticky-brand, .filter-buttons { transition: none; }
 		.collection-shell-side { animation: none !important; transform: scaleX(0) !important; }
 		.collection-shell-corner { animation: none !important; transform: scale(0) !important; }
-		.viewer.from-card .viewer-site, .viewer.from-card .viewer-controls { animation: none; }
+		.viewer.from-card .viewer-entry, .viewer.from-card .viewer-controls { animation: none; }
 	}
 </style>
