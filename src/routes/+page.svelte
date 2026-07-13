@@ -20,6 +20,11 @@
 	let filter = $state('5.6 Sol');
 	let expandOrigin = $state<{ x: number; y: number; scaleX: number; scaleY: number } | null>(null);
 	let collectionElement: HTMLElement;
+	let showReturnToTop = $state(false);
+	let pullStartY: number | null = null;
+	let pullDistance = 0;
+	let wheelPull = 0;
+	let wheelResetTimer: ReturnType<typeof setTimeout> | undefined;
 
 	let visibleSites = $derived(sites);
 
@@ -45,9 +50,44 @@
 	}
 
 	function closeSite() {
+		pullStartY = null;
+		pullDistance = 0;
+		wheelPull = 0;
+		if (wheelResetTimer) clearTimeout(wheelResetTimer);
 		selected = null;
 		expandOrigin = null;
 		if (browser) history.pushState(null, '', window.location.pathname + window.location.search);
+	}
+
+	function handleViewerTouchStart(event: TouchEvent) {
+		const viewerSite = event.currentTarget as HTMLDivElement;
+		pullStartY = viewerSite.scrollTop <= 0 ? event.touches[0]?.clientY ?? null : null;
+		pullDistance = 0;
+	}
+
+	function handleViewerTouchMove(event: TouchEvent) {
+		const viewerSite = event.currentTarget as HTMLDivElement;
+		if (pullStartY === null || viewerSite.scrollTop > 0) return;
+		pullDistance = Math.max(0, (event.touches[0]?.clientY ?? pullStartY) - pullStartY);
+		if (pullDistance >= 110) closeSite();
+	}
+
+	function handleViewerTouchEnd() {
+		pullStartY = null;
+		pullDistance = 0;
+	}
+
+	function handleViewerWheel(event: WheelEvent) {
+		const viewerSite = event.currentTarget as HTMLDivElement;
+		if (viewerSite.scrollTop > 0 || event.deltaY >= 0) {
+			wheelPull = 0;
+			return;
+		}
+
+		wheelPull += -event.deltaY;
+		if (wheelResetTimer) clearTimeout(wheelResetTimer);
+		wheelResetTimer = setTimeout(() => (wheelPull = 0), 180);
+		if (wheelPull >= 180) closeSite();
 	}
 
 	function step(direction: number) {
@@ -79,6 +119,7 @@
 				if (!collectionElement) return;
 				const collectionTop = collectionElement.offsetTop;
 				const scrollPosition = window.scrollY;
+				showReturnToTop = scrollPosition > collectionTop;
 				const progress = Math.min(1, Math.max(0, scrollPosition / Math.max(collectionTop, 1)));
 				const overscrollProgress = Math.min(1, Math.max(0, -scrollPosition / 96));
 				const insetProgress = Math.max(progress, overscrollProgress);
@@ -139,7 +180,7 @@
 					<a class="profile-pill x-profile" href="https://x.com/kianmckenn" target="_blank" rel="noreferrer" aria-label="Follow @kianmckenn on X">
 						<span class="profile-icon"><svg class="x-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2h3.7l-8.1 9.2L24 22h-7.4l-5.8-7.6L4.2 22H.5l8.6-9.8L0 2h7.6l5.2 6.9L18.9 2Zm-1.3 18.1h2L6.5 3.8H4.4l13.2 16.3Z" /></svg></span>
 						<span class="profile-divider" aria-hidden="true">/</span>
-						<span>@kianmckenn</span>
+						<span>kianmckenn</span>
 					</a>
 					<a class="profile-pill site-profile" href="https://kian.im" target="_blank" rel="noreferrer" aria-label="Visit Kian McKenna's personal website">
 						<span class="profile-icon avatar-icon"><img src="/kian-avatar.png" alt="" /></span>
@@ -155,7 +196,7 @@
 	<section class="collection" id="collection" bind:this={collectionElement}>
 		<div class="collection-head">
 			<div>
-				<h2>The collection.</h2>
+				<h2>The benchmark.</h2>
 			</div>
 		</div>
 
@@ -186,10 +227,19 @@
 		</div>
 
 		<footer class="gallery-footer">
-			<p>One hundred websites.<br />A study in style, repetition, and surprise.</p>
-			<a href="#top" aria-label="Back to the top" title="Back to the top"><ArrowUp size={20} strokeWidth={2.2} /></a>
+			<p>A study in style, repetition, and surprise.</p>
 		</footer>
 	</section>
+
+	<a
+		class="return-to-top"
+		class:visible={showReturnToTop}
+		href="#top"
+		aria-label="Back to the top"
+		title="Back to the top"
+		aria-hidden={!showReturnToTop}
+		tabindex={showReturnToTop ? 0 : -1}
+	><ArrowUp size={20} strokeWidth={2.2} /></a>
 </main>
 
 {#if selected}
@@ -201,12 +251,20 @@
 		aria-modal="true"
 		aria-label={`${selected.name} website`}
 	>
-		<div class="viewer-site">
+		<div
+			class="viewer-site"
+			role="document"
+			onwheel={handleViewerWheel}
+			ontouchstart={handleViewerTouchStart}
+			ontouchmove={handleViewerTouchMove}
+			ontouchend={handleViewerTouchEnd}
+			ontouchcancel={handleViewerTouchEnd}
+		>
 			<SiteExperience site={selected} />
 		</div>
 		<div class="viewer-controls">
 			<button class="close-control" onclick={closeSite} aria-label="Close site and return to gallery" title="Close"><X size={16} strokeWidth={2.2} /></button>
-			<div class="viewer-id"><span>{String(selected.id).padStart(3, '0')}</span><i></i><span>100</span></div>
+			<div class="viewer-id"><span>{String(selected.id).padStart(3, '0')}</span></div>
 			<div class="right-controls">
 				<button class="step-control" onclick={() => step(-1)} aria-label="Previous website" title="Previous site"><ChevronLeft size={19} strokeWidth={2.3} /></button>
 				<button class="step-control" onclick={() => step(1)} aria-label="Next website" title="Next site"><ChevronRight size={19} strokeWidth={2.3} /></button>
@@ -272,11 +330,12 @@
 	.card-caption h3 { margin: 0; overflow: hidden; font-size: 16px; font-weight: 650; letter-spacing: -0.035em; text-overflow: ellipsis; white-space: nowrap; }
 	.card-caption p { flex: none; margin: 2px 0 0; color: #85877f; font: 700 8px/1 ui-monospace, monospace; letter-spacing: 0.07em; text-transform: uppercase; }
 
-	.gallery-footer { display: grid; grid-template-columns: 1fr auto; gap: 60px; margin-top: 80px; padding: 40px 0 50px; }
+	.gallery-footer { margin-top: 80px; padding: 40px 0 50px; }
 	.gallery-footer p { margin: 0; font-size: clamp(42px, 6vw, 90px); font-weight: 600; line-height: 0.88; letter-spacing: -0.07em; }
-	.gallery-footer > a { display: inline-flex; width: 48px; height: 48px; align-items: center; justify-content: center; align-self: end; border-radius: 50%; background: #f3f1e9; color: #111210; text-decoration: none; transition: transform 180ms ease, background 180ms ease; }
-	.gallery-footer > a:hover { background: #fff; transform: translateY(-3px); }
-	.gallery-footer > a:focus-visible { outline: 2px solid var(--gallery-accent); outline-offset: 3px; }
+	.return-to-top { position: fixed; z-index: 80; right: clamp(16px, 2vw, 28px); bottom: clamp(16px, 2vw, 28px); display: inline-flex; width: 48px; height: 48px; align-items: center; justify-content: center; border-radius: 50%; background: #f3f1e9; color: #111210; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); text-decoration: none; opacity: 0; visibility: hidden; transform: translateY(10px) scale(0.92); pointer-events: none; transition: opacity 240ms ease, visibility 0s linear 240ms, transform 320ms cubic-bezier(.2,.8,.2,1), background 180ms ease; }
+	.return-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0) scale(1); pointer-events: auto; transition-delay: 0s; }
+	.return-to-top:hover { background: #fff; transform: translateY(-3px) scale(1); }
+	.return-to-top:focus-visible { outline: 2px solid var(--gallery-accent); outline-offset: 3px; }
 
 	.viewer { position: fixed; z-index: 1000; inset: 0; overflow: hidden; background: #0c0c0b; }
 	.viewer-site { height: 100%; overflow: auto; overscroll-behavior: contain; }
@@ -297,8 +356,7 @@
 	.viewer-controls button:hover, .viewer-controls button:focus-visible { background: rgba(255, 255, 255, 0.1); }
 	.viewer-controls button:focus-visible { outline: 1px solid rgba(255, 255, 255, 0.7); outline-offset: -1px; }
 	.close-control { display: grid; width: 34px; place-items: center; margin-right: 4px; padding: 0; background: #fff !important; color: #111 !important; box-shadow: 5px 0 0 -4px rgba(255, 255, 255, 0.18) !important; cursor: pointer; }
-	.viewer-id { display: flex; align-items: center; gap: 6px; margin-right: 2px; padding: 0 11px 0 8px; border-radius: 0; box-shadow: 1px 0 0 rgba(255, 255, 255, 0.14); font: 750 7px/1 ui-monospace, monospace; pointer-events: none; }
-	.viewer-id i { width: 18px; height: 1px; background: rgba(255, 255, 255, 0.38); }
+	.viewer-id { display: flex; align-items: center; margin-right: 2px; padding: 0 13px 0 10px; border-radius: 0; box-shadow: 1px 0 0 rgba(255, 255, 255, 0.14); font: 750 11px/1 ui-monospace, monospace; pointer-events: none; }
 	.right-controls { display: flex; gap: 2px; pointer-events: auto; }
 	.right-controls button { display: grid; min-width: 32px; padding: 0; place-items: center; cursor: pointer; }
 	.right-controls .step-control { min-width: 35px; }
@@ -323,23 +381,20 @@
 		.site-grid { grid-template-columns: 1fr; row-gap: 55px; }
 		.preview-viewport { height: clamp(280px, 71vw, 460px); }
 		.card-caption h3 { font-size: 18px; }
-		.gallery-footer { grid-template-columns: 1fr; }
-		.gallery-footer > a { justify-self: end; }
 	}
 
 	@media (max-width: 430px) {
 		.preview-viewport { height: 280px; }
 		.card-caption p { display: none; }
 		.viewer-controls { bottom: 8px; max-width: calc(100vw - 12px); }
-		.viewer-id { padding-inline: 7px 9px; }
-		.viewer-id i { width: 14px; }
+		.viewer-id { padding-inline: 9px 11px; }
 		.right-controls button { min-width: 30px; }
 		.right-controls .step-control { min-width: 33px; }
 	}
 
 	@media (prefers-reduced-motion: reduce) {
 		:global(html) { scroll-behavior: auto; }
-		.preview-window, .open-cue { transition: none; }
+		.preview-window, .open-cue, .return-to-top { transition: none; }
 		.viewer.from-card .viewer-site, .viewer.from-card .viewer-controls { animation: none; }
 	}
 </style>

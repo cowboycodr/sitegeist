@@ -12,7 +12,7 @@
 </script>
 
 <article
-	class="experience {site.layout} {site.pattern} {site.typeface}"
+	class="experience site-{site.id} {site.layout} {site.pattern} {site.typeface}"
 	style="--site-bg:{site.palette.bg}; --site-ink:{site.palette.ink}; --site-accent:{site.palette.accent}; --site-accent-2:{site.palette.accent2}; --site-muted:{site.palette.muted};"
 >
 	<div class="atmosphere" aria-hidden="true"></div>
@@ -353,6 +353,9 @@
 	.condensed h1 { font-family: Impact, 'Arial Narrow', sans-serif; font-weight: 500; letter-spacing: -0.045em; text-transform: uppercase; }
 	.display h1 { font-family: 'Bodoni 72', Didot, Georgia, serif; font-weight: 500; letter-spacing: -0.075em; }
 	.humanist h1 { font-family: Optima, Candara, sans-serif; font-weight: 600; letter-spacing: -0.06em; }
+
+	/* Site 004: preserve the poster scale without colliding letterforms. */
+	.site-4 .poster-main h1 { max-width: 84vw; font-family: 'Inter Variable', Inter, system-ui, sans-serif; font-size: clamp(82px, 12vw, 190px); font-weight: 780; line-height: 0.79; letter-spacing: -0.055em; text-wrap: balance; }
 
 	@media (max-width: 860px) {
 		.site-nav nav { display: none; }
