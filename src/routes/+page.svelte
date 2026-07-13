@@ -20,7 +20,9 @@
 	let filter = $state('5.6 Sol');
 	let expandOrigin = $state<{ x: number; y: number; scaleX: number; scaleY: number } | null>(null);
 	let collectionElement: HTMLElement;
+	let filterSentinelElement: HTMLDivElement;
 	let showReturnToTop = $state(false);
+	let filtersPinned = $state(false);
 	let pullStartY: number | null = null;
 	let pullDistance = 0;
 	let wheelPull = 0;
@@ -120,6 +122,7 @@
 				const collectionTop = collectionElement.offsetTop;
 				const scrollPosition = window.scrollY;
 				showReturnToTop = scrollPosition > collectionTop;
+				filtersPinned = filterSentinelElement?.getBoundingClientRect().top <= 0 && scrollPosition > 0;
 				const progress = Math.min(1, Math.max(0, scrollPosition / Math.max(collectionTop, 1)));
 				const overscrollProgress = Math.min(1, Math.max(0, -scrollPosition / 96));
 				const insetProgress = Math.max(progress, overscrollProgress);
@@ -200,7 +203,12 @@
 			</div>
 		</div>
 
-		<div class="filter-row" aria-label="Choose benchmark model">
+		<div class="filter-sticky-sentinel" bind:this={filterSentinelElement} aria-hidden="true"></div>
+		<div class="filter-row" class:pinned={filtersPinned} aria-label="Choose benchmark model">
+			<div class="sticky-brand" aria-hidden={!filtersPinned}>
+				<span>Sitegeist</span>
+				<i></i>
+			</div>
 			{#each filters as item}
 				<button
 					class:active={filter === item.name}
@@ -303,8 +311,13 @@
 	.collection-head { padding-bottom: 8px; }
 	.collection h2 { margin: 0; font-size: clamp(36px, 3.7vw, 58px); font-weight: 610; line-height: 0.9; letter-spacing: -0.065em; }
 
-	.filter-row { position: sticky; z-index: 40; top: 0; display: flex; gap: 6px; margin: 0 clamp(-34px, -3vw, -24px); padding: 12px clamp(24px, 3vw, 34px) 14px; overflow-x: auto; background: #111210; scrollbar-width: none; }
+	.filter-sticky-sentinel { height: 0; }
+	.filter-row { position: sticky; z-index: 40; top: 0; display: flex; align-items: center; gap: 6px; margin: 0 clamp(-34px, -3vw, -24px); padding: 12px clamp(24px, 3vw, 34px) 14px; overflow-x: auto; background: #111210; scrollbar-width: none; }
 	.filter-row::-webkit-scrollbar { display: none; }
+	.sticky-brand { display: flex; width: 0; min-width: 0; align-items: center; gap: 14px; overflow: hidden; color: #f3f1e9; opacity: 0; transform: translateX(-12px); transition: width 360ms cubic-bezier(.22,1,.36,1), min-width 360ms cubic-bezier(.22,1,.36,1), opacity 220ms ease, transform 360ms cubic-bezier(.22,1,.36,1); }
+	.sticky-brand span { flex: none; font-size: 15px; font-weight: 650; letter-spacing: -0.035em; }
+	.sticky-brand i { width: 1px; height: 22px; flex: none; background: #474843; }
+	.filter-row.pinned .sticky-brand { width: 104px; min-width: 104px; opacity: 1; transform: translateX(0); }
 	.filter-row button { display: inline-flex; flex: none; align-items: center; padding: 10px 15px; border: 1px solid #474843; border-radius: 99px; background: transparent; color: #a3a59d; font: 600 11px/1 'Inter Variable', Inter, sans-serif; letter-spacing: -0.015em; cursor: pointer; transition: background 180ms ease, color 180ms ease, border-color 180ms ease; }
 	.filter-row button:hover, .filter-row button.active { border-color: #f3f1e9; background: #f3f1e9; color: #111210; }
 	.filter-row button:disabled { opacity: 0.42; cursor: not-allowed; }
@@ -394,7 +407,7 @@
 
 	@media (prefers-reduced-motion: reduce) {
 		:global(html) { scroll-behavior: auto; }
-		.preview-window, .open-cue, .return-to-top { transition: none; }
+		.preview-window, .open-cue, .return-to-top, .sticky-brand { transition: none; }
 		.viewer.from-card .viewer-site, .viewer.from-card .viewer-controls { animation: none; }
 	}
 </style>
