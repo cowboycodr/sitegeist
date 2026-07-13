@@ -19,20 +19,6 @@ export const siteArtifacts: SiteArtifact[] =
 /* SITEGEIST_REGISTRY_JSON_START */
 [
 	{
-		"id": 1,
-		"slug": "lumen-quantum",
-		"title": "Lumen Quantum",
-		"category": "Deep Tech",
-		"tagline": "Computing beyond certainty.",
-		"description": "A quantum computing laboratory turning probabilistic research into practical infrastructure.",
-		"artifactUrl": "/sites/001-lumen-quantum/index.html",
-		"posterUrl": "/sites/001-lumen-quantum/_preview/poster.svg",
-		"desktopAuditUrl": null,
-		"mobileAuditUrl": null,
-		"sourceHash": "6393bfd4d0498f9268a3bf11d48aeb108933fbc203314bb5e486e0bf72755f38",
-		"distHash": "6393bfd4d0498f9268a3bf11d48aeb108933fbc203314bb5e486e0bf72755f38"
-	},
-	{
 		"id": 2,
 		"slug": "form-haus",
 		"title": "Form Haus",

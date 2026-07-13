@@ -54,13 +54,13 @@ Pass `--replace` only when intentionally rebuilding an existing `dist/`.
 ```json
 {
   "schemaVersion": 1,
-  "id": 1,
-  "slug": "lumen-quantum",
-  "artifactDirectory": "001-lumen-quantum",
-  "title": "Lumen Quantum",
-  "category": "Technology",
-  "tagline": "Computing beyond certainty.",
-  "description": "A quantum systems laboratory turning probabilistic research into practical infrastructure."
+  "id": 2,
+  "slug": "form-haus",
+  "artifactDirectory": "002-form-haus",
+  "title": "Form Haus",
+  "category": "Architecture",
+  "tagline": "Space, reduced to its essence.",
+  "description": "A Copenhagen practice creating monumental spaces with a disciplined, deeply human point of view."
 }
 ```
 
@@ -153,7 +153,7 @@ JSON or TypeScript registry selected by the caller:
 
 ```sh
 node scripts/benchmark/import-site.mjs \
-  --submission /isolated-results/001-lumen-quantum \
+  --submission /isolated-results/002-form-haus \
   --registry src/lib/generated/site-artifacts.ts
 ```
 

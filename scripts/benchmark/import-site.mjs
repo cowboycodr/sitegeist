@@ -139,13 +139,11 @@ async function installArtifact(validated, staticRoot, replace) {
 			errorOnExist: true,
 			force: false
 		});
-		if (validated.preview.authored) {
-			await cp(validated.previewDirectory, join(staging, '_preview'), {
-				recursive: true,
-				errorOnExist: true,
-				force: false
-			});
-		}
+		await cp(validated.previewDirectory, join(staging, '_preview'), {
+			recursive: true,
+			errorOnExist: true,
+			force: false
+		});
 		await copyOptionalFile(
 			validated.auditPaths.desktop,
 			join(staging, '_audit', 'desktop.webp')

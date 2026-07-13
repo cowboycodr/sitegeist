@@ -180,7 +180,6 @@ async function readBriefs(directory) {
 	for (let id = 2; id <= 101; id += 1) {
 		if (!ids.has(id)) throw new Error(`Neutral brief id ${id} is missing`);
 	}
-	if (slugs.has('lumen-quantum')) throw new Error('The neutral batch cannot contain the modified Lumen example');
 	return briefs.sort((a, b) => a.id - b.id);
 }
 
