@@ -116,18 +116,25 @@
 
 	onMount(() => {
 		let frame = 0;
+		let lastProgress = -1;
+		let collectionTop = 1;
+		let filterStickyStart = Number.POSITIVE_INFINITY;
 		const measureStickyBrand = () => {
 			if (!stickyBrandElement) return;
 			stickyBrandElement.style.setProperty('--sticky-brand-width', `${stickyBrandElement.scrollWidth}px`);
+		};
+		const measureScrollGeometry = () => {
+			if (!collectionElement || !filterSentinelElement) return;
+			collectionTop = collectionElement.offsetTop;
+			filterStickyStart = filterSentinelElement.getBoundingClientRect().top + Math.max(0, window.scrollY);
 		};
 		const updateCollectionInset = () => {
 			cancelAnimationFrame(frame);
 			frame = requestAnimationFrame(() => {
 				if (!collectionElement) return;
-				const collectionTop = collectionElement.offsetTop;
 				const scrollPosition = Math.max(0, window.scrollY);
 				showReturnToTop = scrollPosition > collectionTop;
-				filtersPinned = filterSentinelElement?.getBoundingClientRect().top <= 0 && scrollPosition > 0;
+				filtersPinned = scrollPosition >= filterStickyStart;
 				const rawProgress = Math.min(1, scrollPosition / Math.max(collectionTop, 1));
 				const progress = rawProgress * rawProgress * (3 - 2 * rawProgress);
 				const maximumInset = window.innerWidth <= 720
@@ -136,12 +143,17 @@
 				const maximumRadius = window.innerWidth <= 720
 					? 20
 					: Math.min(34, Math.max(22, window.innerWidth * 0.02));
-				collectionElement.style.setProperty('--collection-inset', `${maximumInset * (1 - progress)}px`);
-				collectionElement.style.setProperty('--collection-radius', `${maximumRadius * (1 - progress)}px`);
+				if (Math.abs(progress - lastProgress) > 0.0001) {
+					collectionElement.style.setProperty('--collection-inset', `${maximumInset * (1 - progress)}px`);
+					collectionElement.style.setProperty('--collection-radius', `${maximumRadius * (1 - progress)}px`);
+					lastProgress = progress;
+				}
 			});
 		};
 		const updateLayout = () => {
+			lastProgress = -1;
 			measureStickyBrand();
+			measureScrollGeometry();
 			updateCollectionInset();
 		};
 
@@ -315,7 +327,7 @@
 	.avatar-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
 	.profile-divider { opacity: 0.32; font-weight: 500; }
 
-	.collection { margin: 0 var(--collection-inset, clamp(24px, 2vw, 36px)); padding: clamp(24px, 3vw, 34px) clamp(24px, 3vw, 34px) 0; border-radius: var(--collection-radius, clamp(22px, 2vw, 34px)) var(--collection-radius, clamp(22px, 2vw, 34px)) 0 0; background: #111210; color: #f3f1e9; will-change: margin-inline, border-radius; }
+	.collection { margin: 0 var(--collection-inset, clamp(24px, 2vw, 36px)); padding: clamp(24px, 3vw, 34px) clamp(24px, 3vw, 34px) 0; border-radius: var(--collection-radius, clamp(22px, 2vw, 34px)) var(--collection-radius, clamp(22px, 2vw, 34px)) 0 0; background: #111210; color: #f3f1e9; }
 	.collection-head { padding-bottom: 8px; }
 	.collection h2 { margin: 0; font-size: clamp(36px, 3.7vw, 58px); font-weight: 610; line-height: 0.9; letter-spacing: -0.065em; }
 
@@ -332,7 +344,7 @@
 	.filter-row button:disabled:hover { border-color: #474843; background: transparent; color: #a3a59d; }
 
 	.site-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: clamp(16px, 2vw, 32px); row-gap: clamp(45px, 6vw, 88px); }
-	.site-card { min-width: 0; }
+	.site-card { min-width: 0; content-visibility: auto; contain-intrinsic-size: auto calc(clamp(230px, 24vw, 360px) + 55px); }
 	.preview-button-wrap { display: block; width: 100%; padding: 0; border: 0; background: transparent; color: inherit; text-align: left; cursor: pointer; }
 	.preview-window { position: relative; overflow: hidden; border-radius: 7px; background: #292a27; box-shadow: 0 18px 42px rgba(0, 0, 0, 0.25); transition: transform 350ms cubic-bezier(.2,.8,.2,1), box-shadow 350ms ease; }
 	.preview-button-wrap:hover .preview-window, .preview-button-wrap:focus-visible .preview-window { transform: translateY(-9px) rotate(-0.35deg); box-shadow: 0 32px 70px rgba(0, 0, 0, 0.42); }
@@ -388,6 +400,7 @@
 
 	@media (max-width: 1040px) {
 		.site-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		.site-card { contain-intrinsic-size: auto calc(clamp(250px, 34vw, 370px) + 55px); }
 		.preview-viewport { height: clamp(250px, 34vw, 370px); }
 	}
 
@@ -400,6 +413,7 @@
 		.collection h2 { font-size: clamp(38px, 9vw, 52px); }
 		.filter-row { padding-top: 11px; padding-bottom: 13px; }
 		.site-grid { grid-template-columns: 1fr; row-gap: 55px; }
+		.site-card { contain-intrinsic-size: auto calc(clamp(280px, 71vw, 460px) + 58px); }
 		.preview-viewport { height: clamp(280px, 71vw, 460px); }
 		.card-caption h3 { font-size: 18px; }
 	}
