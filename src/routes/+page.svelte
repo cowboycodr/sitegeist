@@ -20,8 +20,11 @@
 	let filter = $state('5.6 Sol');
 	let expandOrigin = $state<{ x: number; y: number; scaleX: number; scaleY: number } | null>(null);
 	let collectionElement: HTMLElement;
+	let collectionTopSentinelElement: HTMLDivElement;
 	let filterSentinelElement: HTMLDivElement;
+	let filterRowElement: HTMLDivElement;
 	let stickyBrandElement: HTMLDivElement;
+	let shellMasksElement: HTMLDivElement;
 	let showReturnToTop = $state(false);
 	let filtersPinned = $state(false);
 	let pullStartY: number | null = null;
@@ -116,54 +119,133 @@
 
 	onMount(() => {
 		let frame = 0;
-		let lastProgress = -1;
+		let framePending = false;
+		let lastRawProgress = -1;
+		let lastViewportWidth = -1;
 		let collectionTop = 1;
-		let filterStickyStart = Number.POSITIVE_INFINITY;
-		const measureStickyBrand = () => {
-			if (!stickyBrandElement) return;
-			stickyBrandElement.style.setProperty('--sticky-brand-width', `${stickyBrandElement.scrollWidth}px`);
-		};
-		const measureScrollGeometry = () => {
-			if (!collectionElement || !filterSentinelElement) return;
-			collectionTop = collectionElement.offsetTop;
-			filterStickyStart = filterSentinelElement.getBoundingClientRect().top + Math.max(0, window.scrollY);
-		};
-		const updateCollectionInset = () => {
-			cancelAnimationFrame(frame);
-			frame = requestAnimationFrame(() => {
-				if (!collectionElement) return;
-				const scrollPosition = Math.max(0, window.scrollY);
-				showReturnToTop = scrollPosition > collectionTop;
-				filtersPinned = scrollPosition >= filterStickyStart;
-				const rawProgress = Math.min(1, scrollPosition / Math.max(collectionTop, 1));
-				const progress = rawProgress * rawProgress * (3 - 2 * rawProgress);
-				const maximumInset = window.innerWidth <= 720
-					? Math.min(12, Math.max(8, window.innerWidth * 0.03))
-					: Math.min(36, Math.max(24, window.innerWidth * 0.02));
-				const maximumRadius = window.innerWidth <= 720
-					? 20
-					: Math.min(34, Math.max(22, window.innerWidth * 0.02));
-				if (Math.abs(progress - lastProgress) > 0.0001) {
-					collectionElement.style.setProperty('--collection-inset', `${maximumInset * (1 - progress)}px`);
-					collectionElement.style.setProperty('--collection-radius', `${maximumRadius * (1 - progress)}px`);
-					lastProgress = progress;
-				}
-			});
-		};
-		const updateLayout = () => {
-			lastProgress = -1;
-			measureStickyBrand();
-			measureScrollGeometry();
-			updateCollectionInset();
+		let isMobileLayout = window.innerWidth <= 720;
+		let listeningForScroll = false;
+		let mounted = true;
+		const shellSides = Array.from(collectionElement.querySelectorAll<HTMLElement>('.collection-shell-side'));
+		const shellCorners = Array.from(collectionElement.querySelectorAll<HTMLElement>('.collection-shell-corner'));
+		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		const supportsNativeScrollTimeline =
+			CSS.supports('animation-timeline: scroll(root block)') &&
+			CSS.supports('animation-range: 0px 1px');
+		const usesNativeScrollTimeline = () =>
+			isMobileLayout && !prefersReducedMotion && supportsNativeScrollTimeline;
+
+		const setMobileShellProgress = (rawProgress: number) => {
+			const clampedProgress = Math.min(1, Math.max(0, rawProgress));
+			if (Math.abs(clampedProgress - lastRawProgress) <= 0.0001) return;
+			const easedProgress = clampedProgress * clampedProgress * (3 - 2 * clampedProgress);
+			const remaining = 1 - easedProgress;
+			for (const side of shellSides) side.style.transform = `scaleX(${remaining})`;
+			for (const corner of shellCorners) corner.style.transform = `scale(${remaining})`;
+			lastRawProgress = clampedProgress;
 		};
 
-		updateLayout();
-		window.addEventListener('scroll', updateCollectionInset, { passive: true });
-		window.addEventListener('resize', updateLayout);
-		return () => {
+		const setDesktopShellProgress = (rawProgress: number) => {
+			const clampedProgress = Math.min(1, Math.max(0, rawProgress));
+			if (Math.abs(clampedProgress - lastRawProgress) <= 0.0001) return;
+			const easedProgress = clampedProgress * clampedProgress * (3 - 2 * clampedProgress);
+			const maximumInset = Math.min(36, Math.max(24, window.innerWidth * 0.02));
+			const maximumRadius = Math.min(34, Math.max(22, window.innerWidth * 0.02));
+			collectionElement.style.setProperty('--collection-inset', `${maximumInset * (1 - easedProgress)}px`);
+			collectionElement.style.setProperty('--collection-radius', `${maximumRadius * (1 - easedProgress)}px`);
+			lastRawProgress = clampedProgress;
+		};
+
+		const updateShell = () => {
+			framePending = false;
+			const rawProgress = Math.max(0, window.scrollY) / Math.max(collectionTop, 1);
+			if (isMobileLayout) setMobileShellProgress(rawProgress);
+			else setDesktopShellProgress(rawProgress);
+		};
+
+		const requestShellUpdate = () => {
+			if (framePending || usesNativeScrollTimeline() || (prefersReducedMotion && isMobileLayout)) return;
+			if (window.scrollY >= collectionTop && lastRawProgress >= 1) return;
+			framePending = true;
+			frame = requestAnimationFrame(updateShell);
+		};
+
+		const syncScrollListener = () => {
+			const shouldListen = !usesNativeScrollTimeline() && (!prefersReducedMotion || !isMobileLayout);
+			if (shouldListen && !listeningForScroll) {
+				window.addEventListener('scroll', requestShellUpdate, { passive: true });
+				listeningForScroll = true;
+			} else if (!shouldListen && listeningForScroll) {
+				window.removeEventListener('scroll', requestShellUpdate);
+				listeningForScroll = false;
+			}
+		};
+
+		const measureLayout = (force = false) => {
+			const viewportWidth = Math.round(window.innerWidth);
+			if (!force && viewportWidth === lastViewportWidth) return;
+
+			// Keep all geometry reads together so none of the writes below can force a second layout.
+			const scrollPosition = Math.max(0, window.scrollY);
+			const measuredCollectionTop = collectionElement.getBoundingClientRect().top + scrollPosition;
+			const filterStickyStart = filterSentinelElement.getBoundingClientRect().top + scrollPosition;
+			const stickyBrandWidth = Math.ceil(stickyBrandElement.getBoundingClientRect().width);
+
 			cancelAnimationFrame(frame);
-			window.removeEventListener('scroll', updateCollectionInset);
-			window.removeEventListener('resize', updateLayout);
+			framePending = false;
+			collectionTop = Math.max(1, measuredCollectionTop);
+			lastViewportWidth = viewportWidth;
+			isMobileLayout = viewportWidth <= 720;
+			filterRowElement.style.setProperty('--sticky-brand-shift', `${stickyBrandWidth + 8}px`);
+			shellMasksElement.style.setProperty('--shell-scroll-end', `${collectionTop}px`);
+			showReturnToTop = scrollPosition > collectionTop;
+			filtersPinned = scrollPosition >= filterStickyStart;
+			lastRawProgress = -1;
+
+			if (isMobileLayout) {
+				collectionElement.style.removeProperty('--collection-inset');
+				collectionElement.style.removeProperty('--collection-radius');
+			}
+			if (usesNativeScrollTimeline()) {
+				for (const mask of [...shellSides, ...shellCorners]) mask.style.removeProperty('transform');
+			} else {
+				const initialProgress = prefersReducedMotion && isMobileLayout ? 1 : scrollPosition / collectionTop;
+				if (isMobileLayout) setMobileShellProgress(initialProgress);
+				else setDesktopShellProgress(initialProgress);
+			}
+			syncScrollListener();
+		};
+
+		const sentinelObserver = new IntersectionObserver(
+			(entries) => {
+				for (const entry of entries) {
+					const hasPassedViewportTop = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+					if (entry.target === collectionTopSentinelElement && showReturnToTop !== hasPassedViewportTop) {
+						showReturnToTop = hasPassedViewportTop;
+					}
+					if (entry.target === filterSentinelElement && filtersPinned !== hasPassedViewportTop) {
+						filtersPinned = hasPassedViewportTop;
+					}
+				}
+			},
+			{ threshold: 0 }
+		);
+
+		sentinelObserver.observe(collectionTopSentinelElement);
+		sentinelObserver.observe(filterSentinelElement);
+		measureLayout(true);
+		const handleResize = () => measureLayout();
+		window.addEventListener('resize', handleResize);
+		void document.fonts?.ready.then(() => {
+			if (mounted) measureLayout(true);
+		});
+
+		return () => {
+			mounted = false;
+			cancelAnimationFrame(frame);
+			sentinelObserver.disconnect();
+			window.removeEventListener('scroll', requestShellUpdate);
+			window.removeEventListener('resize', handleResize);
 		};
 	});
 
@@ -217,6 +299,14 @@
 	</section>
 
 	<section class="collection" id="collection" bind:this={collectionElement}>
+		<div class="collection-shell-masks" bind:this={shellMasksElement} aria-hidden="true">
+			<i class="collection-shell-side left"></i>
+			<i class="collection-shell-side right"></i>
+			<i class="collection-shell-corner left"></i>
+			<i class="collection-shell-corner right"></i>
+		</div>
+		<div class="collection-top-sentinel" bind:this={collectionTopSentinelElement} aria-hidden="true"></div>
+
 		<div class="collection-head">
 			<div>
 				<h2>The benchmark.</h2>
@@ -224,19 +314,23 @@
 		</div>
 
 		<div class="filter-sticky-sentinel" bind:this={filterSentinelElement} aria-hidden="true"></div>
-		<div class="filter-row" class:pinned={filtersPinned} aria-label="Choose benchmark model">
-			<div class="sticky-brand" bind:this={stickyBrandElement} aria-hidden={!filtersPinned}>
-				<span>Sitegeist</span>
-				<i></i>
+		<div class="filter-row" class:pinned={filtersPinned} bind:this={filterRowElement} aria-label="Choose benchmark model">
+			<div class="filter-track">
+				<div class="sticky-brand" bind:this={stickyBrandElement} aria-hidden={!filtersPinned}>
+					<span>Sitegeist</span>
+					<i></i>
+				</div>
+				<div class="filter-buttons">
+					{#each filters as item}
+						<button
+							class:active={filter === item.name}
+							disabled={!item.available}
+							title={item.available ? item.name : `${item.name} benchmark coming soon`}
+							onclick={() => (filter = item.name)}
+						>{item.name}</button>
+					{/each}
+				</div>
 			</div>
-			{#each filters as item}
-				<button
-					class:active={filter === item.name}
-					disabled={!item.available}
-					title={item.available ? item.name : `${item.name} benchmark coming soon`}
-					onclick={() => (filter = item.name)}
-				>{item.name}</button>
-			{/each}
 		</div>
 
 		<div class="site-grid">
@@ -307,7 +401,7 @@
 	:global(*) { box-sizing: border-box; }
 	:global(button), :global(a) { -webkit-tap-highlight-color: transparent; }
 
-	.gallery-shell { --gallery-accent: rgba(56, 88, 233, 1); overflow: clip; background: #f2f0e9; font-family: 'Inter Variable', Inter, sans-serif; }
+	.gallery-shell { --gallery-accent: rgba(56, 88, 233, 1); --gallery-page: #f2f0e9; overflow: clip; background: var(--gallery-page); font-family: 'Inter Variable', Inter, sans-serif; }
 	.intro { position: relative; padding: 0 clamp(20px, 3vw, 48px); overflow: hidden; background: #f2f0e9; }
 
 	.intro-grid { display: flex; flex-direction: column; align-items: center; gap: clamp(26px, 3.5vh, 38px); padding: clamp(54px, 8vh, 88px) 0 clamp(36px, 5vh, 54px); text-align: center; }
@@ -327,17 +421,35 @@
 	.avatar-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
 	.profile-divider { opacity: 0.32; font-weight: 500; }
 
-	.collection { margin: 0 var(--collection-inset, clamp(24px, 2vw, 36px)); padding: clamp(24px, 3vw, 34px) clamp(24px, 3vw, 34px) 0; border-radius: var(--collection-radius, clamp(22px, 2vw, 34px)) var(--collection-radius, clamp(22px, 2vw, 34px)) 0 0; background: #111210; color: #f3f1e9; }
+	.collection { --shell-inset-max: clamp(24px, 2vw, 36px); --shell-radius-max: clamp(22px, 2vw, 34px); position: relative; margin: 0 var(--collection-inset, clamp(24px, 2vw, 36px)); padding: clamp(24px, 3vw, 34px) clamp(24px, 3vw, 34px) 0; border-radius: var(--collection-radius, clamp(22px, 2vw, 34px)) var(--collection-radius, clamp(22px, 2vw, 34px)) 0 0; background: #111210; color: #f3f1e9; }
+	.collection-shell-masks { position: absolute; z-index: 50; inset: 0 0 auto; display: none; height: 100vh; height: 100lvh; overflow: hidden; pointer-events: none; }
+	.collection-shell-side, .collection-shell-corner { position: absolute; top: 0; display: block; margin: 0; will-change: transform; backface-visibility: hidden; }
+	.collection-shell-side { width: var(--shell-inset-max); height: 100%; background: var(--gallery-page); }
+	.collection-shell-side.left { left: 0; transform: scaleX(1); transform-origin: left center; }
+	.collection-shell-side.right { right: 0; transform: scaleX(1); transform-origin: right center; }
+	.collection-shell-corner { width: calc(var(--shell-inset-max) + var(--shell-radius-max)); height: var(--shell-radius-max); }
+	.collection-shell-corner.left { left: 0; background: radial-gradient(circle var(--shell-radius-max) at 100% 100%, transparent calc(var(--shell-radius-max) - 0.75px), var(--gallery-page) var(--shell-radius-max)); transform: scale(1); transform-origin: left top; }
+	.collection-shell-corner.right { right: 0; background: radial-gradient(circle var(--shell-radius-max) at 0 100%, transparent calc(var(--shell-radius-max) - 0.75px), var(--gallery-page) var(--shell-radius-max)); transform: scale(1); transform-origin: right top; }
+	@supports (animation-timeline: scroll(root block)) and (animation-range: 0px 1px) {
+		.collection-shell-side { animation: shell-side-open 1ms cubic-bezier(.333333,0,.666667,1) both; animation-timeline: scroll(root block); animation-range: 0px var(--shell-scroll-end, 1px); }
+		.collection-shell-corner { animation: shell-corner-open 1ms cubic-bezier(.333333,0,.666667,1) both; animation-timeline: scroll(root block); animation-range: 0px var(--shell-scroll-end, 1px); }
+	}
+	@keyframes shell-side-open { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+	@keyframes shell-corner-open { from { transform: scale(1); } to { transform: scale(0); } }
+	.collection-top-sentinel { position: absolute; top: 0; left: 0; width: 1px; height: 1px; pointer-events: none; }
 	.collection-head { padding-bottom: 8px; }
 	.collection h2 { margin: 0; font-size: clamp(36px, 3.7vw, 58px); font-weight: 610; line-height: 0.9; letter-spacing: -0.065em; }
 
-	.filter-sticky-sentinel { height: 0; }
-	.filter-row { position: sticky; z-index: 40; top: 0; display: flex; align-items: center; gap: 8px; margin: 0 clamp(-34px, -3vw, -24px); padding: 12px clamp(24px, 3vw, 34px) 14px; overflow-x: auto; background: #111210; scrollbar-width: none; }
+	.filter-sticky-sentinel { height: 1px; margin-bottom: -1px; pointer-events: none; }
+	.filter-row { position: sticky; z-index: 40; top: 0; display: block; margin: 0 clamp(-34px, -3vw, -24px); padding: 12px clamp(24px, 3vw, 34px) 14px; overflow-x: auto; background: #111210; scrollbar-width: none; }
 	.filter-row::-webkit-scrollbar { display: none; }
-	.sticky-brand { display: flex; width: 0; flex: none; align-items: center; gap: 8px; overflow: hidden; color: #f3f1e9; opacity: 0; transform: translateX(-6px); transition: width 620ms cubic-bezier(.16,1,.3,1), opacity 420ms ease, transform 620ms cubic-bezier(.16,1,.3,1); }
+	.filter-track { position: relative; width: max-content; min-width: 100%; padding-right: var(--sticky-brand-shift, 86px); }
+	.filter-buttons { display: flex; width: max-content; align-items: center; gap: 8px; transform: translateX(0); transition: transform 620ms cubic-bezier(.16,1,.3,1); }
+	.sticky-brand { position: absolute; top: 50%; left: 0; display: flex; width: max-content; align-items: center; gap: 8px; color: #f3f1e9; opacity: 0; transform: translate(-6px, -50%); pointer-events: none; transition: opacity 420ms ease, transform 620ms cubic-bezier(.16,1,.3,1); }
 	.sticky-brand span { flex: none; font-size: 15px; font-weight: 650; letter-spacing: -0.035em; }
 	.sticky-brand i { width: 1px; height: 22px; flex: none; background: #474843; }
-	.filter-row.pinned .sticky-brand { width: var(--sticky-brand-width, 78px); opacity: 1; transform: translateX(0); }
+	.filter-row.pinned .sticky-brand { opacity: 1; transform: translate(0, -50%); }
+	.filter-row.pinned .filter-buttons { transform: translateX(var(--sticky-brand-shift, 86px)); }
 	.filter-row button { display: inline-flex; flex: none; align-items: center; padding: 10px 15px; border: 1px solid #474843; border-radius: 99px; background: transparent; color: #a3a59d; font: 600 11px/1 'Inter Variable', Inter, sans-serif; letter-spacing: -0.015em; cursor: pointer; transition: background 180ms ease, color 180ms ease, border-color 180ms ease; }
 	.filter-row button:hover, .filter-row button.active { border-color: #f3f1e9; background: #f3f1e9; color: #111210; }
 	.filter-row button:disabled { opacity: 0.42; cursor: not-allowed; }
@@ -354,9 +466,12 @@
 	.window-chrome i:first-child { background: #ff5b3a; }
 	.window-chrome span { margin-left: auto; margin-right: auto; transform: translateX(-10px); color: #77746d; font: 600 6px/1 ui-monospace, monospace; letter-spacing: 0.03em; }
 	.preview-viewport { height: clamp(230px, 24vw, 360px); }
-	.open-cue { position: absolute; z-index: 20; inset: 24px 0 0; display: flex; align-items: center; justify-content: center; gap: 10px; background: rgba(17, 18, 16, 0.7); color: #fff; font: 650 11px/1 'Inter Variable', Inter, sans-serif; letter-spacing: 0.035em; opacity: 0; backdrop-filter: blur(8px) saturate(90%); transition: opacity 220ms ease; }
+	.open-cue { position: absolute; z-index: 20; inset: 24px 0 0; display: flex; align-items: center; justify-content: center; gap: 10px; background: rgba(17, 18, 16, 0.7); color: #fff; font: 650 11px/1 'Inter Variable', Inter, sans-serif; letter-spacing: 0.035em; opacity: 0; transition: opacity 220ms ease; }
 	.cue-icon { display: grid; width: 32px; aspect-ratio: 1; place-items: center; border-radius: 50%; background: var(--gallery-accent); color: #fff; }
 	.preview-button-wrap:hover .open-cue, .preview-button-wrap:focus-visible .open-cue { opacity: 1; }
+	@media (hover: hover) and (pointer: fine) {
+		.open-cue { backdrop-filter: blur(8px) saturate(90%); }
+	}
 	.card-caption { display: flex; align-items: start; justify-content: space-between; gap: 15px; padding-top: 15px; }
 	.card-caption > div { display: flex; align-items: baseline; gap: 11px; min-width: 0; }
 	.card-caption span { flex: none; color: #74766f; font: 700 8px ui-monospace, monospace; }
@@ -405,7 +520,8 @@
 	}
 
 	@media (max-width: 720px) {
-		.collection { --collection-inset: clamp(8px, 3vw, 12px); --collection-radius: 20px; }
+		.collection { --shell-inset-max: clamp(8px, 3vw, 12px); --shell-radius-max: 20px; margin: 0; border-radius: 0; }
+		.collection-shell-masks { display: block; }
 		.intro-grid { gap: 24px; padding: 42px 0 30px; }
 		.intro h1 { font-size: clamp(48px, 12vw, 64px); line-height: 0.86; }
 		.intro-aside { gap: 18px; }
@@ -429,7 +545,9 @@
 
 	@media (prefers-reduced-motion: reduce) {
 		:global(html) { scroll-behavior: auto; }
-		.preview-window, .open-cue, .return-to-top, .sticky-brand { transition: none; }
+		.preview-window, .open-cue, .return-to-top, .sticky-brand, .filter-buttons { transition: none; }
+		.collection-shell-side { animation: none !important; transform: scaleX(0) !important; }
+		.collection-shell-corner { animation: none !important; transform: scale(0) !important; }
 		.viewer.from-card .viewer-site, .viewer.from-card .viewer-controls { animation: none; }
 	}
 </style>
