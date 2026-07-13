@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import SiteExperience from '$lib/components/SiteExperience.svelte';
 	import SitePreview from '$lib/components/SitePreview.svelte';
+	import { siteArtifactBySlug } from '$lib/generated/site-artifacts';
 	import { siteBySlug, sites } from '$lib/sites';
 	import type { ShowcaseSite } from '$lib/site-types';
 	import type { PageData } from './$types';
@@ -27,6 +28,22 @@
 		blocked: boolean;
 	};
 	type PreviewOrigin = { x: number; y: number; width: number; height: number };
+	type PullPoint = { identifier: number; x: number; y: number; time: number };
+	type ArtifactBridgeMessage = {
+		protocol: 'sitegeist-embed';
+		version: 1;
+		slug: string;
+		channel: string;
+		kind: 'ready' | 'scroll' | 'pull-start' | 'pull-move' | 'pull-end' | 'pull-cancel' | 'key' | 'wheel';
+		identifier?: number;
+		screenX?: number;
+		screenY?: number;
+		timeStamp?: number;
+		scrollTop?: number;
+		claimed?: boolean;
+		key?: string;
+		deltaY?: number;
+	};
 
 	type PullGesture = {
 		identifier: number;
@@ -62,6 +79,7 @@
 	let viewerSurfaceElement = $state<HTMLDivElement>();
 	let viewerContentElement = $state<HTMLDivElement>();
 	let viewerSiteElement = $state<HTMLDivElement>();
+	let viewerFrameElement = $state<HTMLIFrameElement>();
 	let viewerBackdropElement = $state<HTMLDivElement>();
 	let viewerControlsElement = $state<HTMLDivElement>();
 	let showReturnToTop = $state(false);
@@ -70,6 +88,8 @@
 	let viewerGesturePrepared = $state(false);
 	let viewerDragActive = $state(false);
 	let viewerSettling = $state(false);
+	let viewerArtifactReady = $state(false);
+	let artifactChannel = $state('');
 	let wheelPull = 0;
 	let wheelResetTimer: ReturnType<typeof setTimeout> | undefined;
 	let previewPointerGesture: PreviewPointerGesture | null = null;
@@ -82,6 +102,12 @@
 	let viewerGestureSequence = 0;
 
 	let visibleSites = $derived(sites);
+	let selectedArtifact = $derived(selected ? siteArtifactBySlug.get(selected.slug) ?? null : null);
+	let selectedArtifactUrl = $derived(
+		selectedArtifact && artifactChannel
+			? `${selectedArtifact.artifactUrl}?sitegeistSlug=${encodeURIComponent(selectedArtifact.slug)}&sitegeistChannel=${encodeURIComponent(artifactChannel)}`
+			: ''
+	);
 	let themeColor = $derived(Boolean(selected) || shellThemeActive ? SHELL_THEME_COLOR : PAGE_THEME_COLOR);
 
 	const clamp = (minimum: number, value: number, maximum: number) =>
@@ -194,14 +220,43 @@
 			: null;
 	}
 
+	function createArtifactChannel(site: ShowcaseSite | null) {
+		if (!browser || !site || !siteArtifactBySlug.has(site.slug)) return '';
+		try {
+			if (typeof crypto.randomUUID === 'function') return crypto.randomUUID();
+		} catch {
+			// LAN HTTP and older embedded WebViews can expose crypto without randomUUID.
+		}
+		const bytes = crypto.getRandomValues(new Uint8Array(24));
+		return Array.from(bytes, (byte) => byte.toString(16).padStart(2, '0')).join('');
+	}
+
+	function postArtifactControl(kind: 'pull-settled') {
+		if (!selectedArtifact || !artifactChannel || !viewerFrameElement?.contentWindow) return;
+		viewerFrameElement.contentWindow.postMessage(
+			{
+				protocol: 'sitegeist-embed',
+				version: 1,
+				slug: selectedArtifact.slug,
+				channel: artifactChannel,
+				kind
+			},
+			'*'
+		);
+	}
+
 	function syncFromHash() {
 		if (!browser) return;
 		const slug = window.location.hash.startsWith('#site/') ? window.location.hash.slice(6) : '';
+		const nextSite = slug ? siteBySlug.get(slug) ?? null : null;
+		if (nextSite?.slug === selected?.slug) return;
 		resetViewerGesture();
 		returnPreviewElement = null;
 		returnPreviewOrigin = null;
 		expandOrigin = null;
-		selected = slug ? siteBySlug.get(slug) ?? null : null;
+		viewerArtifactReady = false;
+		artifactChannel = createArtifactChannel(nextSite);
+		selected = nextSite;
 	}
 
 	function openSite(site: ShowcaseSite, event: MouseEvent) {
@@ -221,6 +276,8 @@
 		const rect = (preview ?? trigger).getBoundingClientRect();
 		returnPreviewElement = trigger;
 		returnPreviewOrigin = { x: rect.left, y: rect.top, width: rect.width, height: rect.height };
+		viewerArtifactReady = false;
+		artifactChannel = createArtifactChannel(site);
 		expandOrigin = {
 			x: rect.left,
 			y: rect.top,
@@ -282,6 +339,8 @@
 		wheelPull = 0;
 		if (wheelResetTimer) clearTimeout(wheelResetTimer);
 		selected = null;
+		viewerArtifactReady = false;
+		artifactChannel = '';
 		expandOrigin = null;
 		returnPreviewElement = null;
 		returnPreviewOrigin = null;
@@ -340,18 +399,16 @@
 		pullGesture.frame = requestAnimationFrame(renderPullGesture);
 	}
 
-	function handleViewerTouchStart(event: TouchEvent) {
-		if (viewerSettling || event.touches.length !== 1 || !viewerSiteElement || viewerSiteElement.scrollTop > 1) return;
-		const touch = event.changedTouches.item(0);
-		if (!touch) return;
+	function beginPullGesture(point: PullPoint, scrollTop: number) {
+		if (viewerSettling || scrollTop > 1) return;
 		stopViewerAnimations();
 		clearPullGesture();
 		captureReturnPreviewOrigin();
 		pullGesture = {
-			identifier: touch.identifier,
+			identifier: point.identifier,
 			phase: 'pending',
-			startX: touch.clientX,
-			startY: touch.clientY,
+			startX: point.x,
+			startY: point.y,
 			rawY: 0,
 			renderedY: 0,
 			surfaceX: 0,
@@ -364,11 +421,67 @@
 			controlsOffset: 0,
 			surfaceTransform: 'translate3d(0, 0, 0) scale(1)',
 			controlsTransform: 'translate3d(-50%, 0, 0) scale(1)',
-			samples: [{ y: 0, time: event.timeStamp }],
+			samples: [{ y: 0, time: point.time }],
 			frame: 0
 		};
 		// Give WebKit the touch-slop window to promote the full-screen surface before it moves.
 		viewerGesturePrepared = true;
+	}
+
+	function updatePullGesture(point: PullPoint, scrollTop: number) {
+		const gesture = pullGesture;
+		if (!gesture || gesture.identifier !== point.identifier) return false;
+		const deltaX = point.x - gesture.startX;
+		const deltaY = point.y - gesture.startY;
+		if (gesture.phase === 'pending') {
+			const movement = Math.hypot(deltaX, deltaY);
+			if (movement < 9) return false;
+			if (deltaY <= 0 || deltaY <= Math.abs(deltaX) * 1.15 || scrollTop > 1) {
+				clearPullGesture();
+				return false;
+			}
+			activatePullGesture(gesture);
+		}
+
+		gesture.rawY = Math.max(0, deltaY);
+		gesture.samples.push({ y: gesture.rawY, time: point.time });
+		while (gesture.samples.length > 2 && gesture.samples[0].time < point.time - 120) {
+			gesture.samples.shift();
+		}
+		requestPullGestureRender();
+		return true;
+	}
+
+	function finishPullGesture(point: PullPoint) {
+		const gesture = pullGesture;
+		if (!gesture || gesture.identifier !== point.identifier) return;
+		if (gesture.phase !== 'dragging') {
+			clearPullGesture();
+			return;
+		}
+
+		gesture.rawY = Math.max(0, point.y - gesture.startY);
+		gesture.samples.push({ y: gesture.rawY, time: point.time });
+		while (gesture.samples.length > 2 && gesture.samples[0].time < point.time - 120) {
+			gesture.samples.shift();
+		}
+		const firstSample = gesture.samples[0];
+		const lastSample = gesture.samples[gesture.samples.length - 1];
+		const velocity = Math.max(0, (lastSample.y - firstSample.y) / Math.max(1, lastSample.time - firstSample.time));
+		const projectedY = gesture.rawY + velocity * 160;
+		const threshold = Math.min(180, gesture.viewportHeight * 0.24);
+		const fastFlick = velocity > 0.75 && gesture.rawY > 44;
+		void settlePullGesture(fastFlick || projectedY >= threshold);
+	}
+
+	function handleViewerTouchStart(event: TouchEvent) {
+		if (event.touches.length !== 1 || !viewerSiteElement) return;
+		const touch = event.changedTouches.item(0);
+		if (!touch) return;
+		beginPullGesture(
+			{ identifier: touch.identifier, x: touch.clientX, y: touch.clientY, time: event.timeStamp },
+			viewerSiteElement.scrollTop
+		);
 	}
 
 	function handleViewerTouchMove(event: TouchEvent) {
@@ -382,25 +495,11 @@
 
 		const touch = findTouch(event.touches, gesture.identifier);
 		if (!touch) return;
-		const deltaX = touch.clientX - gesture.startX;
-		const deltaY = touch.clientY - gesture.startY;
-		if (gesture.phase === 'pending') {
-			const movement = Math.hypot(deltaX, deltaY);
-			if (movement < 9) return;
-			if (deltaY <= 0 || deltaY <= Math.abs(deltaX) * 1.15 || viewerSiteElement.scrollTop > 1) {
-				clearPullGesture();
-				return;
-			}
-			activatePullGesture(gesture);
-		}
-
-		event.preventDefault();
-		gesture.rawY = Math.max(0, deltaY);
-		gesture.samples.push({ y: gesture.rawY, time: event.timeStamp });
-		while (gesture.samples.length > 2 && gesture.samples[0].time < event.timeStamp - 120) {
-			gesture.samples.shift();
-		}
-		requestPullGestureRender();
+		const claimed = updatePullGesture(
+			{ identifier: touch.identifier, x: touch.clientX, y: touch.clientY, time: event.timeStamp },
+			viewerSiteElement.scrollTop
+		);
+		if (claimed) event.preventDefault();
 	}
 
 	async function settlePullGesture(shouldDismiss: boolean) {
@@ -428,6 +527,7 @@
 		if (reducedMotion) {
 			if (shouldDismiss) completeCloseSite();
 			else {
+				postArtifactControl('pull-settled');
 				clearPullGesture();
 				clearViewerGestureStyles();
 			}
@@ -539,6 +639,7 @@
 		} else {
 			for (const animation of viewerAnimations) animation.cancel();
 			viewerAnimations = [];
+			postArtifactControl('pull-settled');
 			clearPullGesture();
 			clearViewerGestureStyles();
 		}
@@ -549,28 +650,84 @@
 		if (!gesture) return;
 		const touch = findTouch(event.changedTouches, gesture.identifier);
 		if (!touch) return;
-		if (gesture.phase !== 'dragging') {
-			clearPullGesture();
-			return;
-		}
-
-		gesture.rawY = Math.max(0, touch.clientY - gesture.startY);
-		gesture.samples.push({ y: gesture.rawY, time: event.timeStamp });
-		while (gesture.samples.length > 2 && gesture.samples[0].time < event.timeStamp - 120) {
-			gesture.samples.shift();
-		}
-		const firstSample = gesture.samples[0];
-		const lastSample = gesture.samples[gesture.samples.length - 1];
-		const velocity = Math.max(0, (lastSample.y - firstSample.y) / Math.max(1, lastSample.time - firstSample.time));
-		const projectedY = gesture.rawY + velocity * 160;
-		const threshold = Math.min(180, gesture.viewportHeight * 0.24);
-		const fastFlick = velocity > 0.75 && gesture.rawY > 44;
-		void settlePullGesture(fastFlick || projectedY >= threshold);
+		finishPullGesture({
+			identifier: touch.identifier,
+			x: touch.clientX,
+			y: touch.clientY,
+			time: event.timeStamp
+		});
 	}
 
 	function handleViewerTouchCancel() {
 		if (pullGesture?.phase === 'dragging') void settlePullGesture(false);
 		else clearPullGesture();
+	}
+
+	function readArtifactPullPoint(message: ArtifactBridgeMessage): PullPoint | null {
+		if (
+			typeof message.identifier !== 'number' || !Number.isFinite(message.identifier) ||
+			typeof message.screenX !== 'number' || !Number.isFinite(message.screenX) || Math.abs(message.screenX) > 100_000 ||
+			typeof message.screenY !== 'number' || !Number.isFinite(message.screenY) || Math.abs(message.screenY) > 100_000 ||
+			typeof message.timeStamp !== 'number' || !Number.isFinite(message.timeStamp) || message.timeStamp < 0
+		) return null;
+		return {
+			identifier: message.identifier,
+			x: message.screenX,
+			y: message.screenY,
+			time: message.timeStamp
+		};
+	}
+
+	function handleArtifactMessage(event: MessageEvent) {
+		if (
+			!selected ||
+			!selectedArtifact ||
+			!artifactChannel ||
+			!viewerFrameElement ||
+			event.source !== viewerFrameElement.contentWindow ||
+			event.origin !== 'null'
+		) return;
+		const message = event.data as Partial<ArtifactBridgeMessage> | null;
+		if (
+			!message ||
+			message.protocol !== 'sitegeist-embed' ||
+			message.version !== 1 ||
+			message.slug !== selected.slug ||
+			message.channel !== artifactChannel ||
+			typeof message.kind !== 'string'
+		) return;
+		if (message.kind === 'ready') {
+			viewerArtifactReady = true;
+			return;
+		}
+		if (message.kind === 'key') {
+			if (message.key === 'Escape' || message.key === 'ArrowLeft' || message.key === 'ArrowRight') {
+				handleViewerShortcut(message.key);
+			}
+			return;
+		}
+		if (message.kind === 'wheel') {
+			if (
+				typeof message.deltaY === 'number' && Number.isFinite(message.deltaY) &&
+				Math.abs(message.deltaY) <= 10_000
+			) {
+				const wheelScrollTop = typeof message.scrollTop === 'number' && Number.isFinite(message.scrollTop)
+					? clamp(0, message.scrollTop, 1_000_000)
+					: 0;
+				handleViewerWheelDelta(message.deltaY, wheelScrollTop);
+			}
+			return;
+		}
+		if (message.kind === 'scroll') return;
+
+		const point = readArtifactPullPoint(message as ArtifactBridgeMessage);
+		const scrollTop = typeof message.scrollTop === 'number' && Number.isFinite(message.scrollTop)
+			? clamp(0, message.scrollTop, 1_000_000)
+			: 0;
+		if (message.kind === 'pull-start' && point) beginPullGesture(point, scrollTop);
+		if (message.kind === 'pull-move' && message.claimed === true && point) updatePullGesture(point, scrollTop);
+		if (message.kind === 'pull-end' && point) finishPullGesture(point);
+		if (message.kind === 'pull-cancel') handleViewerTouchCancel();
 	}
 
 	function pullToDismiss(node: HTMLDivElement) {
@@ -590,18 +747,22 @@
 		};
 	}
 
-	function handleViewerWheel(event: WheelEvent) {
+	function handleViewerWheelDelta(deltaY: number, scrollTop: number) {
 		if (viewerSettling) return;
-		const viewerSite = event.currentTarget as HTMLDivElement;
-		if (viewerSite.scrollTop > 0 || event.deltaY >= 0) {
+		if (scrollTop > 0 || deltaY >= 0) {
 			wheelPull = 0;
 			return;
 		}
 
-		wheelPull += -event.deltaY;
+		wheelPull += -deltaY;
 		if (wheelResetTimer) clearTimeout(wheelResetTimer);
 		wheelResetTimer = setTimeout(() => (wheelPull = 0), 180);
 		if (wheelPull >= 180) closeSite();
+	}
+
+	function handleViewerWheel(event: WheelEvent) {
+		const viewerSite = event.currentTarget as HTMLDivElement;
+		handleViewerWheelDelta(event.deltaY, viewerSite.scrollTop);
 	}
 
 	function step(direction: number) {
@@ -610,17 +771,23 @@
 		expandOrigin = null;
 		returnPreviewElement = null;
 		returnPreviewOrigin = null;
+		viewerArtifactReady = false;
 		const current = sites.findIndex((site) => site.id === selected?.id);
 		const next = sites[(current + direction + sites.length) % sites.length];
+		artifactChannel = createArtifactChannel(next);
 		selected = next;
 		if (browser) history.replaceState(null, '', `#site/${next.slug}`);
 	}
 
-	function handleKeydown(event: KeyboardEvent) {
+	function handleViewerShortcut(key: string) {
 		if (!selected || viewerSettling) return;
-		if (event.key === 'Escape') closeSite();
-		if (event.key === 'ArrowLeft') step(-1);
-		if (event.key === 'ArrowRight') step(1);
+		if (key === 'Escape') closeSite();
+		if (key === 'ArrowLeft') step(-1);
+		if (key === 'ArrowRight') step(1);
+	}
+
+	function handleKeydown(event: KeyboardEvent) {
+		handleViewerShortcut(event.key);
 	}
 
 	onMount(() => {
@@ -811,7 +978,7 @@
 	<meta name="twitter:image" content={`${data.origin}/og.png`} />
 </svelte:head>
 
-<svelte:window onkeydown={handleKeydown} />
+<svelte:window onkeydown={handleKeydown} onmessage={handleArtifactMessage} />
 
 <main class="gallery-shell">
 	<section class="intro" id="top">
@@ -875,6 +1042,7 @@
 
 		<div class="site-grid">
 			{#each visibleSites as site (site.id)}
+				{@const artifact = siteArtifactBySlug.get(site.slug)}
 				<article class="site-card" style={`--delay:${(site.id % 8) * 35}ms`}>
 					<button
 						class="preview-button-wrap"
@@ -888,7 +1056,15 @@
 					>
 						<div class="preview-window">
 							<div class="window-chrome"><i></i><i></i><i></i><span>{site.slug}.studio</span></div>
-							<div class="preview-viewport"><SitePreview {site} /></div>
+							<div class="preview-viewport">
+								{#if artifact}
+									<div class="artifact-card-preview">
+										<img src={artifact.posterUrl} alt="" loading="lazy" decoding="async" />
+									</div>
+								{:else}
+									<SitePreview {site} />
+								{/if}
+							</div>
 							<div class="open-cue"><span>OPEN SITE</span><span class="cue-icon"><ArrowUpRight size={16} strokeWidth={2.2} /></span></div>
 						</div>
 					</button>
@@ -929,15 +1105,37 @@
 		<div class="viewer-entry" bind:this={viewerEntryElement}>
 			<div class="viewer-surface" bind:this={viewerSurfaceElement}>
 				<div class="viewer-content" bind:this={viewerContentElement}>
-					<div
-						class="viewer-site"
-						bind:this={viewerSiteElement}
-						use:pullToDismiss
-						role="document"
-						onwheel={handleViewerWheel}
-					>
-						<SiteExperience site={selected} />
-					</div>
+					{#if selectedArtifact}
+						<div class="viewer-site artifact-shell" class:ready={viewerArtifactReady} role="document">
+							<img
+								class="artifact-viewer-poster"
+								src={selectedArtifact.posterUrl}
+								alt=""
+								aria-hidden="true"
+							/>
+							<iframe
+								class="artifact-frame"
+								bind:this={viewerFrameElement}
+								src={selectedArtifactUrl}
+								title={`${selected.name} standalone website`}
+								sandbox="allow-scripts"
+								referrerpolicy="no-referrer"
+								allow="camera 'none'; geolocation 'none'; microphone 'none'; payment 'none'"
+								loading="eager"
+								onload={() => (viewerArtifactReady = true)}
+							></iframe>
+						</div>
+					{:else}
+						<div
+							class="viewer-site"
+							bind:this={viewerSiteElement}
+							use:pullToDismiss
+							role="document"
+							onwheel={handleViewerWheel}
+						>
+							<SiteExperience site={selected} />
+						</div>
+					{/if}
 				</div>
 			</div>
 		</div>
@@ -1023,7 +1221,9 @@
 	.window-chrome i { width: 5px; height: 5px; border-radius: 50%; background: #aaa79e; }
 	.window-chrome i:first-child { background: #ff5b3a; }
 	.window-chrome span { margin-left: auto; margin-right: auto; transform: translateX(-10px); color: #77746d; font: 600 6px/1 ui-monospace, monospace; letter-spacing: 0.03em; }
-	.preview-viewport { height: clamp(230px, 24vw, 360px); }
+	.preview-viewport { aspect-ratio: 4 / 3; height: auto; }
+	.artifact-card-preview, .artifact-card-preview img { display: block; width: 100%; height: 100%; }
+	.artifact-card-preview img { background: #06110f; object-fit: contain; }
 	.open-cue { position: absolute; z-index: 20; inset: 24px 0 0; display: flex; align-items: center; justify-content: center; gap: 10px; background: rgba(17, 18, 16, 0.7); color: #fff; font: 650 11px/1 'Inter Variable', Inter, sans-serif; letter-spacing: 0.035em; opacity: 0; transition: opacity 220ms ease; }
 	.cue-icon { display: grid; width: 32px; aspect-ratio: 1; place-items: center; border-radius: 50%; background: var(--gallery-accent); color: #fff; }
 	.preview-button-wrap:hover .open-cue, .preview-button-wrap:focus-visible .open-cue { opacity: 1; }
@@ -1054,6 +1254,12 @@
 	.viewer-surface { overflow: hidden; background: #0c0c0b; transform-origin: top left; backface-visibility: hidden; }
 	.viewer-content { transform-origin: top left; backface-visibility: hidden; }
 	.viewer-site { height: 100%; overflow: auto; overscroll-behavior: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; }
+	.artifact-shell { position: relative; overflow: hidden; background: #07090d; }
+	.artifact-viewer-poster, .artifact-frame { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+	.artifact-viewer-poster { z-index: 2; background: #06110f; object-fit: contain; opacity: 1; pointer-events: none; transition: opacity 220ms ease; }
+	.artifact-frame { z-index: 1; border: 0; background: #07090d; opacity: 0; pointer-events: none; transition: opacity 220ms ease; }
+	.artifact-shell.ready .artifact-viewer-poster { opacity: 0; }
+	.artifact-shell.ready .artifact-frame { opacity: 1; pointer-events: auto; }
 	.viewer.preparing .viewer-surface { border-radius: 0; box-shadow: 0 24px 70px rgba(0, 0, 0, 0); will-change: transform; }
 	.viewer.preparing .viewer-content { will-change: transform; }
 	.viewer.preparing .viewer-backdrop { will-change: opacity; }
@@ -1089,7 +1295,6 @@
 	@media (max-width: 1040px) {
 		.site-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 		.site-card { contain-intrinsic-size: auto calc(clamp(250px, 34vw, 370px) + 55px); }
-		.preview-viewport { height: clamp(250px, 34vw, 370px); }
 	}
 
 	@media (max-width: 720px) {
@@ -1103,12 +1308,10 @@
 		.filter-row { padding-top: 11px; padding-bottom: 13px; }
 		.site-grid { grid-template-columns: 1fr; row-gap: 55px; }
 		.site-card { contain-intrinsic-size: auto calc(clamp(280px, 71vw, 460px) + 58px); }
-		.preview-viewport { height: clamp(280px, 71vw, 460px); }
 		.card-caption h3 { font-size: 18px; }
 	}
 
 	@media (max-width: 430px) {
-		.preview-viewport { height: 280px; }
 		.card-caption p { display: none; }
 		.viewer-controls { bottom: 8px; max-width: calc(100vw - 12px); }
 		.viewer-id { padding-inline: 9px 11px; }
@@ -1118,7 +1321,7 @@
 
 	@media (prefers-reduced-motion: reduce) {
 		:global(html) { scroll-behavior: auto; }
-		.preview-window, .open-cue, .return-to-top, .sticky-brand, .filter-buttons { transition: none; }
+		.preview-window, .open-cue, .return-to-top, .sticky-brand, .filter-buttons, .artifact-viewer-poster, .artifact-frame { transition: none; }
 		.collection-shell-side { animation: none !important; transform: scaleX(0) !important; }
 		.collection-shell-corner { animation: none !important; transform: scale(0) !important; }
 		.viewer.from-card .viewer-entry, .viewer.from-card .viewer-controls { animation: none; }
