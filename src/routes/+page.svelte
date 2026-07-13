@@ -312,12 +312,12 @@
 	.collection h2 { margin: 0; font-size: clamp(36px, 3.7vw, 58px); font-weight: 610; line-height: 0.9; letter-spacing: -0.065em; }
 
 	.filter-sticky-sentinel { height: 0; }
-	.filter-row { position: sticky; z-index: 40; top: 0; display: flex; align-items: center; gap: 6px; margin: 0 clamp(-34px, -3vw, -24px); padding: 12px clamp(24px, 3vw, 34px) 14px; overflow-x: auto; background: #111210; scrollbar-width: none; }
+	.filter-row { position: sticky; z-index: 40; top: 0; display: flex; align-items: center; gap: 8px; margin: 0 clamp(-34px, -3vw, -24px); padding: 12px clamp(24px, 3vw, 34px) 14px; overflow-x: auto; background: #111210; scrollbar-width: none; }
 	.filter-row::-webkit-scrollbar { display: none; }
-	.sticky-brand { display: flex; width: 0; min-width: 0; align-items: center; gap: 14px; overflow: hidden; color: #f3f1e9; opacity: 0; transform: translateX(-12px); transition: width 360ms cubic-bezier(.22,1,.36,1), min-width 360ms cubic-bezier(.22,1,.36,1), opacity 220ms ease, transform 360ms cubic-bezier(.22,1,.36,1); }
+	.sticky-brand { display: flex; width: max-content; max-width: 0; flex: none; align-items: center; gap: 8px; overflow: hidden; color: #f3f1e9; opacity: 0; transform: translateX(-12px); transition: max-width 360ms cubic-bezier(.22,1,.36,1), opacity 220ms ease, transform 360ms cubic-bezier(.22,1,.36,1); }
 	.sticky-brand span { flex: none; font-size: 15px; font-weight: 650; letter-spacing: -0.035em; }
 	.sticky-brand i { width: 1px; height: 22px; flex: none; background: #474843; }
-	.filter-row.pinned .sticky-brand { width: 104px; min-width: 104px; opacity: 1; transform: translateX(0); }
+	.filter-row.pinned .sticky-brand { max-width: 120px; opacity: 1; transform: translateX(0); }
 	.filter-row button { display: inline-flex; flex: none; align-items: center; padding: 10px 15px; border: 1px solid #474843; border-radius: 99px; background: transparent; color: #a3a59d; font: 600 11px/1 'Inter Variable', Inter, sans-serif; letter-spacing: -0.015em; cursor: pointer; transition: background 180ms ease, color 180ms ease, border-color 180ms ease; }
 	.filter-row button:hover, .filter-row button.active { border-color: #f3f1e9; background: #f3f1e9; color: #111210; }
 	.filter-row button:disabled { opacity: 0.42; cursor: not-allowed; }
