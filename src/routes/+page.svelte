@@ -26,6 +26,7 @@
 		startScrollY: number;
 		blocked: boolean;
 	};
+	type PreviewOrigin = { x: number; y: number; width: number; height: number };
 
 	type PullGesture = {
 		identifier: number;
@@ -34,6 +35,9 @@
 		startY: number;
 		rawY: number;
 		renderedY: number;
+		surfaceX: number;
+		surfaceY: number;
+		viewportWidth: number;
 		viewportHeight: number;
 		scale: number;
 		backdropOpacity: number;
@@ -56,6 +60,7 @@
 	let shellMasksElement: HTMLDivElement;
 	let viewerEntryElement = $state<HTMLDivElement>();
 	let viewerSurfaceElement = $state<HTMLDivElement>();
+	let viewerContentElement = $state<HTMLDivElement>();
 	let viewerSiteElement = $state<HTMLDivElement>();
 	let viewerBackdropElement = $state<HTMLDivElement>();
 	let viewerControlsElement = $state<HTMLDivElement>();
@@ -70,6 +75,8 @@
 	let previewPointerGesture: PreviewPointerGesture | null = null;
 	let blockedPreviewTrigger: HTMLElement | null = null;
 	let blockedPreviewUntil = 0;
+	let returnPreviewElement: HTMLElement | null = null;
+	let returnPreviewOrigin: PreviewOrigin | null = null;
 	let pullGesture: PullGesture | null = null;
 	let viewerAnimations: Animation[] = [];
 	let viewerGestureSequence = 0;
@@ -79,6 +86,54 @@
 
 	const clamp = (minimum: number, value: number, maximum: number) =>
 		Math.min(maximum, Math.max(minimum, value));
+	const lerp = (start: number, end: number, progress: number) =>
+		start + (end - start) * progress;
+
+	function createPreviewReturnKeyframes(
+		gesture: PullGesture,
+		origin: PreviewOrigin,
+		targetScaleX: number,
+		targetScaleY: number,
+		releaseSurfaceVelocity: number,
+		duration: number
+	) {
+		const surface: Keyframe[] = [];
+		const content: Keyframe[] = [];
+		const targetContentScale = Math.max(targetScaleX, targetScaleY);
+		const momentumY = Math.min(
+			releaseSurfaceVelocity * duration,
+			gesture.viewportHeight * 0.75
+		);
+		const steps = 32;
+
+		for (let index = 0; index <= steps; index += 1) {
+			const offset = index / steps;
+			const squared = offset * offset;
+			const cubed = squared * offset;
+			const startWeight = 2 * cubed - 3 * squared + 1;
+			const momentumWeight = cubed - 2 * squared + offset;
+			const endWeight = -2 * cubed + 3 * squared;
+			const scaleProgress = 1 - Math.pow(1 - offset, 3);
+			const scaleX = lerp(gesture.scale, targetScaleX, scaleProgress);
+			const scaleY = lerp(gesture.scale, targetScaleY, scaleProgress);
+			const contentScale = lerp(gesture.scale, targetContentScale, scaleProgress);
+			const x = startWeight * gesture.surfaceX + endWeight * origin.x;
+			const y =
+				startWeight * gesture.surfaceY +
+				momentumWeight * momentumY +
+				endWeight * origin.y;
+			surface.push({
+				offset,
+				transform: `translate3d(${x}px, ${y}px, 0) scale3d(${scaleX}, ${scaleY}, 1)`
+			});
+			content.push({
+				offset,
+				transform: `scale3d(${contentScale / scaleX}, ${contentScale / scaleY}, 1)`
+			});
+		}
+
+		return { surface, content };
+	}
 
 	function findTouch(touches: TouchList, identifier: number) {
 		for (let index = 0; index < touches.length; index += 1) {
@@ -102,6 +157,7 @@
 
 	function clearViewerGestureStyles() {
 		viewerSurfaceElement?.style.removeProperty('transform');
+		viewerContentElement?.style.removeProperty('transform');
 		viewerBackdropElement?.style.removeProperty('opacity');
 		viewerControlsElement?.style.removeProperty('opacity');
 		viewerControlsElement?.style.removeProperty('transform');
@@ -115,10 +171,35 @@
 		clearViewerGestureStyles();
 	}
 
+	function resolveReturnPreviewElement() {
+		if (
+			returnPreviewElement?.isConnected &&
+			returnPreviewElement.dataset.siteSlug === selected?.slug
+		) return returnPreviewElement;
+		if (!selected || !collectionElement) return null;
+		return collectionElement.querySelector<HTMLElement>(`[data-site-slug="${selected.slug}"]`);
+	}
+
+	function captureReturnPreviewOrigin(trigger = resolveReturnPreviewElement()) {
+		if (!trigger?.isConnected) {
+			returnPreviewElement = null;
+			returnPreviewOrigin = null;
+			return;
+		}
+		returnPreviewElement = trigger;
+		const preview = trigger.querySelector('.preview-viewport') as HTMLElement | null;
+		const rect = (preview ?? trigger).getBoundingClientRect();
+		returnPreviewOrigin = rect.width > 0 && rect.height > 0
+			? { x: rect.left, y: rect.top, width: rect.width, height: rect.height }
+			: null;
+	}
+
 	function syncFromHash() {
 		if (!browser) return;
 		const slug = window.location.hash.startsWith('#site/') ? window.location.hash.slice(6) : '';
 		resetViewerGesture();
+		returnPreviewElement = null;
+		returnPreviewOrigin = null;
 		expandOrigin = null;
 		selected = slug ? siteBySlug.get(slug) ?? null : null;
 	}
@@ -136,8 +217,10 @@
 			return;
 		}
 
-		const preview = trigger.querySelector('.preview-window') as HTMLElement | null;
+		const preview = trigger.querySelector('.preview-viewport') as HTMLElement | null;
 		const rect = (preview ?? trigger).getBoundingClientRect();
+		returnPreviewElement = trigger;
+		returnPreviewOrigin = { x: rect.left, y: rect.top, width: rect.width, height: rect.height };
 		expandOrigin = {
 			x: rect.left,
 			y: rect.top,
@@ -200,6 +283,8 @@
 		if (wheelResetTimer) clearTimeout(wheelResetTimer);
 		selected = null;
 		expandOrigin = null;
+		returnPreviewElement = null;
+		returnPreviewOrigin = null;
 		if (browser) history.pushState(null, '', window.location.pathname + window.location.search);
 	}
 
@@ -236,10 +321,12 @@
 
 		gesture.renderedY = distance;
 		gesture.scale = reducedMotion ? 1 : 1 - easedProgress * 0.035;
+		gesture.surfaceX = reducedMotion ? 0 : gesture.viewportWidth * 0.5 * (1 - gesture.scale);
+		gesture.surfaceY = distance + (reducedMotion ? 0 : gesture.viewportHeight * 0.1 * (1 - gesture.scale));
 		gesture.backdropOpacity = reducedMotion ? 1 : 1 - easedProgress * 0.82;
 		gesture.controlsOpacity = reducedMotion ? 1 : Math.max(0, 1 - progress * 1.7);
 		gesture.controlsOffset = reducedMotion ? 0 : Math.min(22, distance * 0.075);
-		gesture.surfaceTransform = `translate3d(0, ${distance}px, 0) scale(${gesture.scale})`;
+		gesture.surfaceTransform = `translate3d(${gesture.surfaceX}px, ${gesture.surfaceY}px, 0) scale(${gesture.scale})`;
 		gesture.controlsTransform = `translate3d(-50%, ${gesture.controlsOffset}px, 0) scale(${1 - easedProgress * 0.025})`;
 
 		viewerSurfaceElement.style.transform = gesture.surfaceTransform;
@@ -259,6 +346,7 @@
 		if (!touch) return;
 		stopViewerAnimations();
 		clearPullGesture();
+		captureReturnPreviewOrigin();
 		pullGesture = {
 			identifier: touch.identifier,
 			phase: 'pending',
@@ -266,7 +354,10 @@
 			startY: touch.clientY,
 			rawY: 0,
 			renderedY: 0,
-			viewportHeight: Math.max(1, window.innerHeight),
+			surfaceX: 0,
+			surfaceY: 0,
+			viewportWidth: Math.max(1, viewerSurfaceElement?.clientWidth ?? window.innerWidth),
+			viewportHeight: Math.max(1, viewerSurfaceElement?.clientHeight ?? window.innerHeight),
 			scale: 1,
 			backdropOpacity: 1,
 			controlsOpacity: 1,
@@ -319,6 +410,7 @@
 			gesture.phase !== 'dragging' ||
 			viewerSettling ||
 			!viewerSurfaceElement ||
+			!viewerContentElement ||
 			!viewerBackdropElement ||
 			!viewerControlsElement
 		) return;
@@ -348,26 +440,61 @@
 		const elapsed = Math.max(1, lastSample.time - firstSample.time);
 		const velocity = Math.max(0, (lastSample.y - firstSample.y) / elapsed);
 		const offscreenY = gesture.viewportHeight + 48;
+		const previewOrigin = shouldDismiss ? returnPreviewOrigin : null;
+		const previewScaleX = previewOrigin ? previewOrigin.width / gesture.viewportWidth : null;
+		const previewScaleY = previewOrigin ? previewOrigin.height / gesture.viewportHeight : null;
+		const fallbackScale = Math.max(0.93, gesture.scale - 0.012);
+		const fallbackX = gesture.viewportWidth * 0.5 * (1 - fallbackScale);
 		const targetSurfaceTransform = shouldDismiss
-			? `translate3d(0, ${offscreenY}px, 0) scale(${Math.max(0.93, gesture.scale - 0.012)})`
+			? previewOrigin && previewScaleX && previewScaleY
+				? `translate3d(${previewOrigin.x}px, ${previewOrigin.y}px, 0) scale(${previewScaleX}, ${previewScaleY})`
+				: `translate3d(${fallbackX}px, ${offscreenY}px, 0) scale(${fallbackScale})`
 			: 'translate3d(0, 0, 0) scale(1)';
 		const targetControlsTransform = shouldDismiss
 			? 'translate3d(-50%, 28px, 0) scale(0.96)'
 			: 'translate3d(-50%, 0, 0) scale(1)';
+		const returnTravel = previewOrigin && previewScaleX && previewScaleY
+			? Math.hypot(previewOrigin.x - gesture.surfaceX, previewOrigin.y - gesture.surfaceY) +
+				Math.max(
+					Math.abs(previewScaleX - gesture.scale) * gesture.viewportWidth,
+					Math.abs(previewScaleY - gesture.scale) * gesture.viewportHeight
+				) * 0.35
+			: 0;
 		const duration = shouldDismiss
-			? clamp(220, (offscreenY - gesture.renderedY) / Math.max(velocity, 1.8), 390)
+			? previewOrigin
+				? clamp(300, 420 + Math.min(90, returnTravel * 0.1) - Math.min(150, velocity * 75), 520)
+				: clamp(220, (offscreenY - gesture.renderedY) / Math.max(velocity, 1.8), 390)
 			: clamp(280, 300 + gesture.renderedY * 0.18, 380);
 		const easing = shouldDismiss
 			? 'cubic-bezier(.22,1,.36,1)'
 			: 'cubic-bezier(.2,.85,.25,1)';
+		const releaseSurfaceVelocity = velocity * (
+			gesture.rawY <= gesture.viewportHeight * 0.36 ? 1 : 0.32
+		);
+		const previewReturnKeyframes = previewOrigin && previewScaleX && previewScaleY
+			? createPreviewReturnKeyframes(
+				gesture,
+				previewOrigin,
+				previewScaleX,
+				previewScaleY,
+				releaseSurfaceVelocity,
+				duration
+			)
+			: null;
 
 		const surfaceAnimation = viewerSurfaceElement.animate(
-			[
+			previewReturnKeyframes?.surface ?? [
 				{ transform: gesture.surfaceTransform },
 				{ transform: targetSurfaceTransform }
 			],
-			{ duration, easing, fill: 'forwards' }
+			{ duration, easing: previewReturnKeyframes ? 'linear' : easing, fill: 'forwards' }
 		);
+		const contentAnimation = previewReturnKeyframes
+			? viewerContentElement.animate(
+				previewReturnKeyframes.content,
+				{ duration, easing: 'linear', fill: 'forwards' }
+			)
+			: null;
 		const backdropAnimation = viewerBackdropElement.animate(
 			[
 				{ opacity: gesture.backdropOpacity },
@@ -382,7 +509,23 @@
 			],
 			{ duration: Math.min(duration, 320), easing, fill: 'forwards' }
 		);
-		viewerAnimations = [surfaceAnimation, backdropAnimation, controlsAnimation];
+		const surfaceHandoffAnimation = shouldDismiss && previewOrigin
+			? viewerSurfaceElement.animate(
+				[
+					{ opacity: 1 },
+					{ opacity: 1, offset: 0.84 },
+					{ opacity: 0 }
+				],
+				{ duration, easing: 'linear', fill: 'forwards' }
+			)
+			: null;
+		viewerAnimations = [
+			surfaceAnimation,
+			...(contentAnimation ? [contentAnimation] : []),
+			backdropAnimation,
+			controlsAnimation,
+			...(surfaceHandoffAnimation ? [surfaceHandoffAnimation] : [])
+		];
 
 		try {
 			await surfaceAnimation.finished;
@@ -465,6 +608,8 @@
 		if (!selected || viewerSettling) return;
 		resetViewerGesture();
 		expandOrigin = null;
+		returnPreviewElement = null;
+		returnPreviewOrigin = null;
 		const current = sites.findIndex((site) => site.id === selected?.id);
 		const next = sites[(current + direction + sites.length) % sites.length];
 		selected = next;
@@ -733,6 +878,7 @@
 				<article class="site-card" style={`--delay:${(site.id % 8) * 35}ms`}>
 					<button
 						class="preview-button-wrap"
+						data-site-slug={site.slug}
 						onpointerdown={handlePreviewPointerDown}
 						onpointermove={handlePreviewPointerMove}
 						onpointerup={handlePreviewPointerUp}
@@ -782,14 +928,16 @@
 		<div class="viewer-backdrop" bind:this={viewerBackdropElement} aria-hidden="true"></div>
 		<div class="viewer-entry" bind:this={viewerEntryElement}>
 			<div class="viewer-surface" bind:this={viewerSurfaceElement}>
-				<div
-					class="viewer-site"
-					bind:this={viewerSiteElement}
-					use:pullToDismiss
-					role="document"
-					onwheel={handleViewerWheel}
-				>
-					<SiteExperience site={selected} />
+				<div class="viewer-content" bind:this={viewerContentElement}>
+					<div
+						class="viewer-site"
+						bind:this={viewerSiteElement}
+						use:pullToDismiss
+						role="document"
+						onwheel={handleViewerWheel}
+					>
+						<SiteExperience site={selected} />
+					</div>
 				</div>
 			</div>
 		</div>
@@ -854,12 +1002,12 @@
 	.filter-row.pinned { position: sticky; top: 0; }
 	.filter-row::-webkit-scrollbar { display: none; }
 	.filter-track { position: relative; width: max-content; min-width: 100%; padding-right: var(--sticky-brand-shift, 86px); }
-	.filter-buttons { display: flex; width: max-content; align-items: center; gap: 8px; transform: translateX(0); transition: transform 620ms cubic-bezier(.16,1,.3,1); }
-	.sticky-brand { position: absolute; top: 50%; left: 0; display: flex; width: max-content; align-items: center; gap: 8px; color: #f3f1e9; opacity: 0; transform: translate(-6px, -50%); pointer-events: none; transition: opacity 420ms ease, transform 620ms cubic-bezier(.16,1,.3,1); }
+	.filter-buttons { display: flex; width: max-content; align-items: center; gap: 8px; transform: translate3d(0, 0, 0); will-change: transform; transition: transform 520ms cubic-bezier(.4,0,.2,1) 60ms; }
+	.sticky-brand { position: absolute; top: 50%; left: 0; display: flex; width: max-content; align-items: center; gap: 8px; color: #f3f1e9; opacity: 0; transform: translate3d(-18px, -50%, 0) scale(.985); transform-origin: left center; backface-visibility: hidden; will-change: transform, opacity; pointer-events: none; transition: transform 320ms cubic-bezier(.4,0,.2,1), opacity 170ms ease-out; }
 	.sticky-brand span { flex: none; font-size: 15px; font-weight: 650; letter-spacing: -0.035em; }
 	.sticky-brand i { width: 1px; height: 22px; flex: none; background: #474843; }
-	.filter-row.pinned .sticky-brand { opacity: 1; transform: translate(0, -50%); }
-	.filter-row.pinned .filter-buttons { transform: translateX(var(--sticky-brand-shift, 86px)); }
+	.filter-row.pinned .sticky-brand { opacity: 1; transform: translate3d(0, -50%, 0) scale(1); transition: transform 600ms cubic-bezier(.22,0,.16,1) 70ms, opacity 300ms cubic-bezier(.2,0,.2,1) 130ms; }
+	.filter-row.pinned .filter-buttons { transform: translate3d(var(--sticky-brand-shift, 86px), 0, 0); transition: transform 720ms cubic-bezier(.22,0,.16,1); }
 	.filter-row button { display: inline-flex; flex: none; align-items: center; padding: 10px 15px; border: 1px solid #474843; border-radius: 99px; background: transparent; color: #a3a59d; font: 600 11px/1 'Inter Variable', Inter, sans-serif; letter-spacing: -0.015em; cursor: pointer; transition: background 180ms ease, color 180ms ease, border-color 180ms ease; }
 	.filter-row button:hover, .filter-row button.active { border-color: #f3f1e9; background: #f3f1e9; color: #111210; }
 	.filter-row button:disabled { opacity: 0.42; cursor: not-allowed; }
@@ -897,13 +1045,15 @@
 
 	.viewer { position: fixed; z-index: 1000; inset: 0; overflow: hidden; background: transparent; }
 	.viewer-backdrop { position: absolute; z-index: 0; inset: 0; background: #0c0c0b; }
-	.viewer-entry, .viewer-surface { position: absolute; inset: 0; }
+	.viewer-entry, .viewer-surface, .viewer-content { position: absolute; inset: 0; }
 	.viewer-entry { z-index: 1; overflow: hidden; }
-	.viewer-surface { overflow: hidden; background: #0c0c0b; transform-origin: 50% 10%; backface-visibility: hidden; }
+	.viewer-surface { overflow: hidden; background: #0c0c0b; transform-origin: top left; backface-visibility: hidden; }
+	.viewer-content { transform-origin: top left; backface-visibility: hidden; }
 	.viewer-site { height: 100%; overflow: auto; overscroll-behavior: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; }
-	.viewer.preparing .viewer-surface { will-change: transform; }
+	.viewer.preparing .viewer-surface { border-radius: 0; box-shadow: 0 24px 70px rgba(0, 0, 0, 0); will-change: transform; }
+	.viewer.preparing .viewer-content { will-change: transform; }
 	.viewer.preparing .viewer-backdrop { will-change: opacity; }
-	.viewer.dragging .viewer-surface, .viewer.settling .viewer-surface { border-radius: clamp(20px, 5vw, 28px); box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42); }
+	.viewer.dragging .viewer-surface, .viewer.settling .viewer-surface { border-radius: clamp(14px, 4vw, 22px); box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42); }
 	.viewer.dragging .viewer-controls, .viewer.settling .viewer-controls { background: rgba(20, 20, 19, 0.985); -webkit-backdrop-filter: none; backdrop-filter: none; will-change: transform, opacity; }
 	.viewer.settling { pointer-events: none; }
 	.viewer.from-card .viewer-entry { transform-origin: top left; animation: site-expand 640ms cubic-bezier(0.22, 1, 0.36, 1) both; will-change: transform, border-radius, box-shadow; }
