@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { ArrowLeft, ArrowUp, ArrowUpRight, ChevronLeft, ChevronRight, Share2 } from '@lucide/svelte';
+	import { ArrowUp, ArrowUpRight, ChevronLeft, ChevronRight, X } from '@lucide/svelte';
 	import { onMount } from 'svelte';
 	import SiteExperience from '$lib/components/SiteExperience.svelte';
 	import SitePreview from '$lib/components/SitePreview.svelte';
@@ -18,7 +18,6 @@
 
 	let selected = $state<ShowcaseSite | null>(null);
 	let filter = $state('5.6 Sol');
-	let copied = $state(false);
 	let expandOrigin = $state<{ x: number; y: number; scaleX: number; scaleY: number } | null>(null);
 	let collectionElement: HTMLElement;
 
@@ -42,14 +41,12 @@
 			scaleY: rect.height / window.innerHeight
 		};
 		selected = site;
-		copied = false;
 		if (browser) history.pushState(null, '', `#site/${site.slug}`);
 	}
 
 	function closeSite() {
 		selected = null;
 		expandOrigin = null;
-		copied = false;
 		if (browser) history.pushState(null, '', window.location.pathname + window.location.search);
 	}
 
@@ -58,7 +55,6 @@
 		const current = sites.findIndex((site) => site.id === selected?.id);
 		const next = sites[(current + direction + sites.length) % sites.length];
 		selected = next;
-		copied = false;
 		if (browser) history.replaceState(null, '', `#site/${next.slug}`);
 	}
 
@@ -67,13 +63,6 @@
 		if (event.key === 'Escape') closeSite();
 		if (event.key === 'ArrowLeft') step(-1);
 		if (event.key === 'ArrowRight') step(1);
-	}
-
-	async function copyLink() {
-		if (!browser || !selected) return;
-		await navigator.clipboard?.writeText(window.location.href);
-		copied = true;
-		window.setTimeout(() => (copied = false), 1600);
 	}
 
 	onMount(() => {
@@ -197,7 +186,7 @@
 		</div>
 
 		<footer class="gallery-footer">
-			<p>One hundred websites.<br />Some more alike than others.</p>
+			<p>One hundred websites.<br />A study in style, repetition, and surprise.</p>
 			<a href="#top" aria-label="Back to the top" title="Back to the top"><ArrowUp size={20} strokeWidth={2.2} /></a>
 		</footer>
 	</section>
@@ -216,10 +205,9 @@
 			<SiteExperience site={selected} />
 		</div>
 		<div class="viewer-controls">
-			<button class="close-control" onclick={closeSite} aria-label="Close site and return to gallery" title="Back to gallery"><ArrowLeft size={16} strokeWidth={2.2} /></button>
+			<button class="close-control" onclick={closeSite} aria-label="Close site and return to gallery" title="Close"><X size={16} strokeWidth={2.2} /></button>
 			<div class="viewer-id"><span>{String(selected.id).padStart(3, '0')}</span><i></i><span>100</span></div>
 			<div class="right-controls">
-				<button class:copied onclick={copyLink} aria-label="Copy link to this site" title={copied ? 'Copied' : 'Share'}><Share2 size={15} strokeWidth={2.1} /></button>
 				<button class="step-control" onclick={() => step(-1)} aria-label="Previous website" title="Previous site"><ChevronLeft size={19} strokeWidth={2.3} /></button>
 				<button class="step-control" onclick={() => step(1)} aria-label="Next website" title="Next site"><ChevronRight size={19} strokeWidth={2.3} /></button>
 			</div>
@@ -246,18 +234,18 @@
 	.profile-pill:hover { filter: brightness(1.1); transform: scale(1.035); }
 	.profile-pill:focus-visible { outline: 2px solid var(--gallery-accent); outline-offset: 2px; }
 	.x-profile { background: #1b1c19; }
-	.site-profile { background: #355a4b; }
+	.site-profile { background: var(--gallery-accent); }
 	.profile-icon { display: grid; width: 16px; flex: none; place-items: center; }
 	.profile-icon .x-mark { width: 14px; height: 14px; fill: currentColor; }
 	.avatar-icon { width: 20px; height: 20px; overflow: hidden; border-radius: 50%; background: #fff; }
 	.avatar-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
 	.profile-divider { opacity: 0.32; font-weight: 500; }
 
-	.collection { margin: 0 var(--collection-inset, clamp(24px, 2vw, 36px)); padding: clamp(24px, 3vw, 34px) clamp(20px, 3vw, 48px) 0; border-radius: var(--collection-radius, clamp(22px, 2vw, 34px)) var(--collection-radius, clamp(22px, 2vw, 34px)) 0 0; background: linear-gradient(180deg, #1b1c19 0, #111210 220px); color: #f3f1e9; will-change: margin-inline, border-radius; }
+	.collection { margin: 0 var(--collection-inset, clamp(24px, 2vw, 36px)); padding: clamp(24px, 3vw, 34px) clamp(24px, 3vw, 34px) 0; border-radius: var(--collection-radius, clamp(22px, 2vw, 34px)) var(--collection-radius, clamp(22px, 2vw, 34px)) 0 0; background: #111210; color: #f3f1e9; will-change: margin-inline, border-radius; }
 	.collection-head { padding-bottom: 8px; }
 	.collection h2 { margin: 0; font-size: clamp(36px, 3.7vw, 58px); font-weight: 610; line-height: 0.9; letter-spacing: -0.065em; }
 
-	.filter-row { position: sticky; z-index: 40; top: 0; display: flex; gap: 6px; margin: 0 clamp(-48px, -3vw, -20px); padding: 12px clamp(20px, 3vw, 48px) 14px; overflow-x: auto; background: rgba(17, 18, 16, 0.94); backdrop-filter: blur(16px) saturate(130%); scrollbar-width: none; }
+	.filter-row { position: sticky; z-index: 40; top: 0; display: flex; gap: 6px; margin: 0 clamp(-34px, -3vw, -24px); padding: 12px clamp(24px, 3vw, 34px) 14px; overflow-x: auto; background: #111210; scrollbar-width: none; }
 	.filter-row::-webkit-scrollbar { display: none; }
 	.filter-row button { display: inline-flex; flex: none; align-items: center; padding: 10px 15px; border: 1px solid #474843; border-radius: 99px; background: transparent; color: #a3a59d; font: 600 11px/1 'Inter Variable', Inter, sans-serif; letter-spacing: -0.015em; cursor: pointer; transition: background 180ms ease, color 180ms ease, border-color 180ms ease; }
 	.filter-row button:hover, .filter-row button.active { border-color: #f3f1e9; background: #f3f1e9; color: #111210; }
@@ -269,14 +257,14 @@
 	.preview-button-wrap { display: block; width: 100%; padding: 0; border: 0; background: transparent; color: inherit; text-align: left; cursor: pointer; }
 	.preview-window { position: relative; overflow: hidden; border-radius: 7px; background: #292a27; box-shadow: 0 18px 42px rgba(0, 0, 0, 0.25); transition: transform 350ms cubic-bezier(.2,.8,.2,1), box-shadow 350ms ease; }
 	.preview-button-wrap:hover .preview-window, .preview-button-wrap:focus-visible .preview-window { transform: translateY(-9px) rotate(-0.35deg); box-shadow: 0 32px 70px rgba(0, 0, 0, 0.42); }
-	.preview-button-wrap:focus-visible { outline: 2px solid #e6ff4a; outline-offset: 5px; }
+	.preview-button-wrap:focus-visible { outline: 2px solid var(--gallery-accent); outline-offset: 4px; }
 	.window-chrome { display: flex; align-items: center; gap: 5px; height: 24px; padding: 0 9px; background: #e7e5dd; color: #111; }
 	.window-chrome i { width: 5px; height: 5px; border-radius: 50%; background: #aaa79e; }
 	.window-chrome i:first-child { background: #ff5b3a; }
 	.window-chrome span { margin-left: auto; margin-right: auto; transform: translateX(-10px); color: #77746d; font: 600 6px/1 ui-monospace, monospace; letter-spacing: 0.03em; }
 	.preview-viewport { height: clamp(230px, 24vw, 360px); }
-	.open-cue { position: absolute; z-index: 20; inset: 24px 0 0; display: flex; align-items: center; justify-content: center; gap: 10px; background: rgba(10, 10, 9, 0.74); color: #fff; font: 800 10px/1 ui-monospace, monospace; letter-spacing: 0.1em; opacity: 0; backdrop-filter: blur(4px); transition: opacity 250ms ease; }
-	.cue-icon { display: grid; width: 32px; aspect-ratio: 1; place-items: center; border-radius: 50%; background: #e6ff4a; color: #10100f; }
+	.open-cue { position: absolute; z-index: 20; inset: 24px 0 0; display: flex; align-items: center; justify-content: center; gap: 10px; background: rgba(17, 18, 16, 0.7); color: #fff; font: 650 11px/1 'Inter Variable', Inter, sans-serif; letter-spacing: 0.035em; opacity: 0; backdrop-filter: blur(8px) saturate(90%); transition: opacity 220ms ease; }
+	.cue-icon { display: grid; width: 32px; aspect-ratio: 1; place-items: center; border-radius: 50%; background: var(--gallery-accent); color: #fff; }
 	.preview-button-wrap:hover .open-cue, .preview-button-wrap:focus-visible .open-cue { opacity: 1; }
 	.card-caption { display: flex; align-items: start; justify-content: space-between; gap: 15px; padding-top: 15px; }
 	.card-caption > div { display: flex; align-items: baseline; gap: 11px; min-width: 0; }
@@ -313,7 +301,6 @@
 	.viewer-id i { width: 18px; height: 1px; background: rgba(255, 255, 255, 0.38); }
 	.right-controls { display: flex; gap: 2px; pointer-events: auto; }
 	.right-controls button { display: grid; min-width: 32px; padding: 0; place-items: center; cursor: pointer; }
-	.right-controls button.copied { background: rgba(255, 255, 255, 0.16); color: #b9ffcf; }
 	.right-controls .step-control { min-width: 35px; }
 
 	@media (max-width: 1500px) {
