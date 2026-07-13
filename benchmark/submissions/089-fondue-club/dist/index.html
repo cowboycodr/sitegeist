@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A roving supper club serving bubbling cheese, cold wine, and very unserious evenings.">
+  <meta name="theme-color" content="#f4ac1b">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; style-src 'self'; script-src 'self'; img-src 'self' data:">
+  <title>Fondue Club — Dip irresponsibly.</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the good stuff</a>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Fondue Club home">
+      <span class="brand-mark" aria-hidden="true">FC</span>
+      <span>Fondue Club</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#menu">The melt</a>
+      <a href="#about">The deal</a>
+      <button class="nav-seat" type="button" data-open-reserve>Grab a seat</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span aria-hidden="true"></span> Next melt / Friday 8 PM</p>
+        <h1 id="hero-title">Dip<br><em>irresponsibly.</em></h1>
+        <p class="intro">Bubbling cheese. Cold wine. Absolutely no sensible decisions.</p>
+        <div class="actions">
+          <button class="button button-dark" type="button" data-open-reserve>Grab a seat <span aria-hidden="true">↗</span></button>
+          <a class="button button-ghost" href="#menu">Inspect the menu <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="An illustrated pot of fondue with bread ready to dip">
+        <svg viewBox="0 0 680 690" role="img" aria-labelledby="art-title art-desc">
+          <title id="art-title">Friday night's fondue</title>
+          <desc id="art-desc">A red fondue pot full of golden cheese, surrounded by bread and a wine glass.</desc>
+          <path class="sun" d="M86 310C43 207 99 101 197 58c110-48 235-29 316 59 77 84 97 214 35 307-58 89-179 125-288 93C169 490 122 403 86 310Z"/>
+          <path class="wine" d="M483 143h91c-2 72-17 116-45 118-29-2-44-46-46-118Z"/>
+          <path class="wine-line" d="M492 187h73M529 260v87m-36 8h73"/>
+          <path class="fork" d="M97 79l169 271M83 69l33-21m-18 45l33-21"/>
+          <g class="bread-on-fork">
+            <path d="M65 52c4-31 49-47 74-24l34 52-72 45-33-43c-7-9-8-20-3-30Z"/>
+            <path d="m88 55 55 36M79 78l53 35"/>
+          </g>
+          <path class="cheese-pull" d="M279 324c17-40-28-95-5-134 7-13 18-26 19-41 1-19-12-36-20-53 33 16 63 40 77 73 16 37 7 81-18 112-11 14-27 28-25 46Z"/>
+          <ellipse class="pot-rim" cx="347" cy="369" rx="190" ry="69"/>
+          <path class="cheese" d="M168 363c8-30 83-55 179-55s171 25 180 55c-10 37-85 61-180 61s-170-24-179-61Z"/>
+          <path class="pot" d="M172 374h351l-38 207c-7 37-49 64-99 64h-78c-50 0-92-27-99-64Z"/>
+          <path class="pot-shine" d="M228 411h31l19 156c4 31 32 48 55 57-48 2-85-20-91-58Z"/>
+          <path class="handle left" d="M185 423H82c-36 0-39 64-7 75h121"/>
+          <path class="handle right" d="M510 423h102c37 0 39 64 8 75H499"/>
+          <g class="bread bread-one"><path d="M45 553c8-29 52-48 80-21l36 74-103 35-19-48c-5-13-3-28 6-40Z"/><path d="m68 555 62 34m-69-9 79 43"/></g>
+          <g class="bread bread-two"><path d="M540 562c7-30 50-48 79-23l32 68-95 36-23-42c-7-13-5-28 7-39Z"/><path d="m562 564 57 31m-66-8 73 39"/></g>
+          <g class="spark"><path d="M589 69v47M566 92h47"/><path d="M193 168v37m-18-18h37"/></g>
+        </svg>
+        <p class="scribble">This is your sign →</p>
+      </div>
+      <div class="drip" aria-hidden="true"></div>
+    </section>
+
+    <section class="marquee" aria-label="Fondue Club highlights">
+      <div>CHEESE <span>✦</span> WINE <span>✦</span> GOOD NONSENSE <span>✦</span> CHEESE <span>✦</span> WINE <span>✦</span> GOOD NONSENSE</div>
+    </section>
+
+    <section class="menu-section" id="menu" aria-labelledby="menu-title">
+      <div class="section-head">
+        <div>
+          <p class="kicker">On the table</p>
+          <h2 id="menu-title">The Friday melt</h2>
+        </div>
+        <p>One long table. Three bubbling pots. Plenty to pass around.</p>
+      </div>
+      <div class="menu-grid">
+        <article class="menu-card yellow">
+          <p class="number">01</p>
+          <div class="menu-icon" aria-hidden="true">♨</div>
+          <p class="course">To start</p>
+          <h3>The Classic</h3>
+          <p>Gruyère, Emmental, dry white wine, garlic &amp; dangerous confidence.</p>
+        </article>
+        <article class="menu-card cream">
+          <p class="number">02</p>
+          <div class="menu-icon" aria-hidden="true">◆</div>
+          <p class="course">For dipping</p>
+          <h3>The Pile</h3>
+          <p>Crusty bread, tiny potatoes, tart apples, cornichons &amp; seasonal oddballs.</p>
+        </article>
+        <article class="menu-card red">
+          <p class="number">03</p>
+          <div class="menu-icon" aria-hidden="true">●</div>
+          <p class="course">To finish</p>
+          <h3>The Dark Side</h3>
+          <p>Bittersweet chocolate, sea salt, strawberries &amp; things worth staining a shirt for.</p>
+        </article>
+      </div>
+      <p class="menu-note">Menu is vegetarian-ish. Tell us your dietary plot twists when booking.</p>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="about-stamp" aria-hidden="true"><span>EST.</span><strong>’24</strong><span>MELT</span></div>
+      <div>
+        <p class="kicker">The deal</p>
+        <h2 id="about-title">Less fine dining.<br>More <em>fine dipping.</em></h2>
+      </div>
+      <div class="about-copy">
+        <p>We pop up in different rooms around the city, put big pots of cheese on the table, chill too much wine, and let strangers become the kind of friends who share the last potato.</p>
+        <dl>
+          <div><dt>Where?</dt><dd>Revealed to guests</dd></div>
+          <div><dt>How much?</dt><dd>$48 all-in</dd></div>
+          <div><dt>Dress code?</dt><dd>Napkin-ready</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <p class="kicker">Friday / 8 PM / 16 seats</p>
+      <h2 id="cta-title">Come get<br><em>in the pot.</em></h2>
+      <button class="button button-light" type="button" data-open-reserve>Grab a seat <span aria-hidden="true">↗</span></button>
+      <p class="micro">Location lands in your inbox 24 hours before.</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true">FC</span><span>Fondue Club</span></a>
+    <p>Made with cheese &amp; poor restraint.</p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <dialog class="reserve" aria-labelledby="reserve-title">
+    <button class="close" type="button" data-close-reserve aria-label="Close reservation details">×</button>
+    <p class="kicker">You’re almost in</p>
+    <h2 id="reserve-title">Save your Friday.</h2>
+    <p>Seats for the next melt are reserved by email. Drop us a line with your name, party size, and any dietary plot twists.</p>
+    <div class="email-card">
+      <span>Email us at</span>
+      <strong>seats@fondue.club</strong>
+    </div>
+    <button class="button button-dark" type="button" data-copy-email>Copy email address</button>
+    <p class="copy-status" role="status" aria-live="polite"></p>
+  </dialog>
+</body>
+</html>

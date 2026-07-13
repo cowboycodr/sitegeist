@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b0a">
+  <meta name="description" content="Continuous security maps exposure, verifies controls, and responds at machine speed.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Monolith Shield — Continuous security posture</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Monolith Shield home">
+      <svg viewBox="0 0 28 32" aria-hidden="true"><path d="M14 1 26 7v9c0 7-4.8 12.4-12 15C6.8 28.4 2 23 2 16V7L14 1Z"/><path d="m9 16 3.2 3.2L19 12.4"/></svg>
+      <span>MONOLITH <b>SHIELD</b></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#platform">Platform</a><a href="#signals">Signals</a><a href="#method">Method</a>
+    </nav>
+    <button class="nav-action" data-open-assessment>Assess exposure <span>↗</span></button>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="grid-plane" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> Security posture / Live</div>
+        <h1>Know what<br><em>touches</em> your<br>systems.</h1>
+        <p class="lede">Continuous security maps exposure, verifies controls, and responds at machine speed.</p>
+        <div class="hero-actions">
+          <button class="button button-primary" data-open-assessment>Run an assessment <span>↗</span></button>
+          <a class="button button-ghost" href="#signals">View threat brief <span>↓</span></a>
+        </div>
+        <div class="trust-line"><span>Trusted telemetry across</span><b>EDGE</b><b>CLOUD</b><b>IDENTITY</b></div>
+      </div>
+
+      <div class="radar-wrap" id="platform" aria-label="Live exposure visualization">
+        <div class="radar-head"><span>EXPOSURE SURFACE</span><span class="status">MONITORING</span></div>
+        <div class="radar" role="img" aria-label="Network map with 34 verified assets, 7 monitored edges, and one isolated anomaly">
+          <div class="sweep"></div><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+          <span class="axis axis-x"></span><span class="axis axis-y"></span>
+          <button class="node core" data-node="Core / Verified" aria-label="Core systems, verified"><i></i></button>
+          <button class="node n1" data-node="Edge 04 / Observed" aria-label="Edge 04, observed"><i></i></button>
+          <button class="node n2" data-node="Identity / Verified" aria-label="Identity, verified"><i></i></button>
+          <button class="node n3 alert" data-node="Unknown / Isolated" aria-label="Unknown asset, isolated"><i></i></button>
+          <button class="node n4" data-node="Cloud 12 / Verified" aria-label="Cloud 12, verified"><i></i></button>
+          <svg class="connections" viewBox="0 0 500 500" aria-hidden="true"><path d="M250 250 120 165M250 250 350 118M250 250 397 315M250 250 170 390"/></svg>
+          <div class="node-readout" aria-live="polite"><small>SELECTED NODE</small><strong id="nodeLabel">Core / Verified</strong></div>
+        </div>
+        <div class="radar-stats">
+          <div><strong>34</strong><span>Assets verified</span></div>
+          <div><strong>07</strong><span>Edges watched</span></div>
+          <div><strong>1.8<small>s</small></strong><span>Response time</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="signal-strip" id="signals" aria-label="Current security signals">
+      <div class="section-code">01 — SIGNALS</div>
+      <div class="signal-intro"><h2>One field of view.<br><span>No blind spots.</span></h2><p>From first contact to containment, every signal is correlated against your real attack surface.</p></div>
+      <div class="signal-grid">
+        <article><span class="card-no">01</span><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17"/><path d="M24 7v34M7 24h34M12 12l24 24M36 12 12 36"/></svg><h3>Map exposure</h3><p>See public, private, and inherited paths as a living system—not a static inventory.</p><a href="#method">Explore surface <span>↗</span></a></article>
+        <article><span class="card-no">02</span><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 25 18 34 40 12"/><path d="M39 24v15H8V9h23"/></svg><h3>Verify controls</h3><p>Continuously prove whether protections work against the techniques they claim to stop.</p><a href="#method">Inspect controls <span>↗</span></a></article>
+        <article><span class="card-no">03</span><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M27 5 10 27h13l-2 16 17-24H25l2-14Z"/></svg><h3>Respond in-line</h3><p>Contain high-confidence threats in seconds while preserving evidence and human control.</p><a href="#method">See response <span>↗</span></a></article>
+      </div>
+    </section>
+
+    <section class="method" id="method">
+      <div class="section-code">02 — OPERATING METHOD</div>
+      <div class="method-copy"><p class="kicker">BUILT FOR CONTINUOUS PRESSURE</p><h2>Your environment changes.<br>Your defense should <em>move first.</em></h2></div>
+      <ol class="steps">
+        <li><span>01</span><div><b>DISCOVER</b><p>Observe every reachable asset and relationship.</p></div><strong>Always on</strong></li>
+        <li><span>02</span><div><b>VALIDATE</b><p>Challenge controls safely with current adversary behavior.</p></div><strong>Evidence led</strong></li>
+        <li><span>03</span><div><b>CONTAIN</b><p>Take precise action at the point of contact.</p></div><strong>Machine speed</strong></li>
+      </ol>
+    </section>
+
+    <section class="closing">
+      <div><span class="live-dot"></span> READY WHEN YOU ARE</div>
+      <h2>Turn uncertainty into<br><em>verified posture.</em></h2>
+      <button class="button button-primary" data-open-assessment>Run an assessment <span>↗</span></button>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#top"><svg viewBox="0 0 28 32" aria-hidden="true"><path d="M14 1 26 7v9c0 7-4.8 12.4-12 15C6.8 28.4 2 23 2 16V7L14 1Z"/><path d="m9 16 3.2 3.2L19 12.4"/></svg><span>MONOLITH <b>SHIELD</b></span></a><p>Continuous exposure management<br>for systems that cannot stop.</p><span>© 2026 / SECURE BY DESIGN</span></footer>
+
+  <dialog id="assessment" aria-labelledby="dialogTitle">
+    <button class="dialog-close" aria-label="Close assessment">×</button>
+    <div class="dialog-code">SECURE INTAKE / 001</div>
+    <h2 id="dialogTitle">Start with your<br>exposure surface.</h2>
+    <p>Choose the environment you want to assess. This local demo does not transmit or store data.</p>
+    <div class="options" role="group" aria-label="Environment type"><button>Cloud</button><button>Hybrid</button><button>On-prem</button></div>
+    <div class="demo-response" aria-live="polite"></div>
+  </dialog>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Narra connects sources, notes, and ideas into clear narrative maps.">
+  <meta name="theme-color" content="#f3f0e8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Narra — Turn research into a living story</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Narra home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 28V12l12 16V12l12 16"/><circle cx="8" cy="12" r="3"/><circle cx="20" cy="28" r="3"/><circle cx="32" cy="12" r="3"/></svg>
+      <span>Narra</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#method">Method</a>
+      <a href="#workspace">Workspace</a>
+      <a href="#stories">Stories</a>
+    </nav>
+    <button class="nav-cta" data-open-builder>Start mapping <span aria-hidden="true">↗</span></button>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Context, connected</p>
+        <h1>Turn research into a <em>living story.</em></h1>
+        <p class="dek">Narra is a shared space to trace evidence, connect ideas, and shape a point of view—without losing the thread.</p>
+        <div class="hero-actions">
+          <button class="primary" data-open-builder>Build a narrative <span aria-hidden="true">→</span></button>
+          <button class="text-button" id="watch-overview"><span class="play" aria-hidden="true">▶</span> Watch overview</button>
+        </div>
+        <div class="trusted">
+          <div class="faces" aria-hidden="true"><span>AM</span><span>KL</span><span>JS</span></div>
+          <p><strong>2,400+ curious minds</strong><br>finding the signal together</p>
+        </div>
+      </div>
+
+      <div class="map-wrap" aria-label="Example narrative map showing connected research" id="workspace">
+        <div class="map-toolbar">
+          <span class="project-dot"></span>
+          <div><small>NARRATIVE / 04</small><strong>The quiet infrastructure</strong></div>
+          <span class="collab">+3</span>
+          <button aria-label="More options">•••</button>
+        </div>
+        <div class="map-stage">
+          <svg class="connections" viewBox="0 0 680 500" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M142 93 C250 93 226 238 340 238 S455 380 552 380"/>
+            <path d="M143 93 C240 93 285 72 392 72"/>
+            <path d="M338 238 C420 238 442 192 529 192"/>
+            <circle cx="143" cy="93" r="5"/><circle cx="340" cy="238" r="5"/><circle cx="552" cy="380" r="5"/>
+          </svg>
+          <article class="node source-node">
+            <div class="node-type">SOURCE <span>01</span></div>
+            <div class="source-image" role="img" aria-label="Abstract architectural arches"><i></i><i></i><i></i></div>
+            <h3>A city beneath the city</h3>
+            <p>Field notes · May 14</p>
+          </article>
+          <article class="node quote-node">
+            <div class="node-type">EXCERPT <span>03</span></div>
+            <blockquote>“What we don’t see is often what holds everything else together.”</blockquote>
+            <footer>— L. Mendes, interview</footer>
+          </article>
+          <article class="node insight-node">
+            <div class="node-type">INSIGHT <span>07</span></div>
+            <h3>Maintenance is a form of memory.</h3>
+            <div class="tags"><span>care</span><span>systems</span></div>
+          </article>
+          <div class="mini-note note-a"><span></span>Invisible systems</div>
+          <div class="mini-note note-b"><span></span>Public trust</div>
+          <div class="map-hint">Drag to explore <span>↔</span></div>
+        </div>
+      </div>
+      <div class="hero-index" aria-hidden="true">01—04</div>
+    </section>
+
+    <section class="manifesto" id="method">
+      <p class="section-label">A better way to think together</p>
+      <p class="statement">Research rarely arrives in a straight line.<br><span>Narra helps you find the shape within it.</span></p>
+      <div class="steps">
+        <article><span class="step-no">01</span><div class="step-icon">⌁</div><h2>Gather the fragments</h2><p>Bring notes, sources, interviews, and sparks of thought into one calm, shared space.</p></article>
+        <article><span class="step-no">02</span><div class="step-icon">⌘</div><h2>Trace the connections</h2><p>Link evidence to insight. See themes emerge, tensions surface, and gaps become clear.</p></article>
+        <article><span class="step-no">03</span><div class="step-icon">↝</div><h2>Shape the story</h2><p>Turn the map into a narrative with a point of view—and keep every claim close to its source.</p></article>
+      </div>
+    </section>
+
+    <section class="story" id="stories">
+      <div><p class="eyebrow"><span></span> From map to meaning</p><h2>A shared understanding<br>you can <em>keep building.</em></h2></div>
+      <blockquote>“Narra changed our review from a pile of findings into a conversation everyone could enter.”<footer>Marin Okafor · Research Lead</footer></blockquote>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="brand" href="#top"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 28V12l12 16V12l12 16"/><circle cx="8" cy="12" r="3"/><circle cx="20" cy="28" r="3"/><circle cx="32" cy="12" r="3"/></svg><span>Narra</span></a><p>Clarity is a collective act.</p><span>© 2026 Narra</span></footer>
+
+  <dialog id="builder-dialog" aria-labelledby="builder-title">
+    <button class="dialog-close" aria-label="Close">×</button>
+    <p class="eyebrow"><span></span> A new thread</p>
+    <h2 id="builder-title">What are you trying to understand?</h2>
+    <p>Choose a starting point. You can change the shape of your narrative anytime.</p>
+    <div class="starting-points">
+      <button data-choice="Question"><i>?</i><strong>A question</strong><small>Explore what you don't know yet</small></button>
+      <button data-choice="Source"><i>⌁</i><strong>A source</strong><small>Follow an interesting thread</small></button>
+      <button data-choice="Project"><i>↝</i><strong>A project</strong><small>Organize a body of research</small></button>
+    </div>
+    <p class="choice-status" role="status"></p>
+  </dialog>
+
+  <dialog id="overview-dialog" aria-labelledby="overview-title">
+    <button class="dialog-close" aria-label="Close">×</button>
+    <div class="overview-art" aria-hidden="true"><span></span><span></span><span></span><i></i><i></i></div>
+    <p class="eyebrow"><span></span> 60-second overview</p>
+    <h2 id="overview-title">Follow the thread.</h2>
+    <p>Collect evidence, make connections, then arrange what you find into a clear narrative. Narra keeps the context attached as your thinking evolves.</p>
+    <button class="primary dialog-build">Build a narrative <span aria-hidden="true">→</span></button>
+  </dialog>
+</body>
+</html>

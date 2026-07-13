@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kinetic Type creates experimental typefaces for screens, identities, motion systems, and formats still to come.">
+  <meta name="theme-color" content="#f1ff3f">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+  <title>Kinetic Type — Letters made to move.</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Kinetic Type, home">K<span aria-hidden="true">↗</span>T</a>
+    <nav aria-label="Primary navigation">
+      <a href="#faces">Typefaces</a>
+      <a href="#lab">Variable lab</a>
+      <a href="#about">About</a>
+    </nav>
+    <span class="edition">Est. 2026 / CHI</span>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-meta">
+        <p>Independent type foundry</p>
+        <p>Type for now<br>and whatever’s next.</p>
+      </div>
+      <h1 id="hero-title"><span>Letters</span><span>made to</span><span class="move-word">move<i aria-hidden="true">.</i></span></h1>
+      <div class="hero-foot">
+        <p>Experimental typefaces for screens, identities, motion systems, and formats still to come.</p>
+        <div class="actions">
+          <a class="pill pill-dark" href="#faces">Browse typefaces <span aria-hidden="true">↓</span></a>
+          <a class="pill" href="#lab">Try the variable lab <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="orbit orbit-one" aria-hidden="true"></div>
+      <div class="orbit orbit-two" aria-hidden="true"></div>
+    </section>
+
+    <section class="ticker" aria-label="Foundry features">
+      <div class="ticker-track"><span>VARIABLE FONTS</span><b>✳</b><span>DISPLAY FAMILIES</span><b>✳</b><span>CUSTOM TYPE</span><b>✳</b><span>VARIABLE FONTS</span><b>✳</b><span>DISPLAY FAMILIES</span><b>✳</b><span>CUSTOM TYPE</span><b>✳</b></div>
+    </section>
+
+    <section class="faces" id="faces" aria-labelledby="faces-title">
+      <div class="section-head">
+        <p class="index">01 — RELEASES</p>
+        <h2 id="faces-title">Three voices.<br>No indoor voices.</h2>
+        <p class="count">3 families<br>18 styles</p>
+      </div>
+      <div class="face-grid">
+        <article class="face-card card-shift">
+          <div class="card-top"><span>KT—001</span><span>12 styles</span></div>
+          <div class="specimen" aria-label="Shift typeface specimen">Sh<span>i</span>ft</div>
+          <div class="card-bottom"><h3>Shift Variable</h3><p>Grotesk / Variable<br>Weight + Slant</p><button class="round" type="button" aria-label="View Shift Variable specimen">↗</button></div>
+        </article>
+        <article class="face-card card-loop">
+          <div class="card-top"><span>KT—002</span><span>4 styles</span></div>
+          <div class="specimen" aria-label="Loop typeface specimen">L<span>oo</span>p</div>
+          <div class="card-bottom"><h3>Loop Display</h3><p>Display / Soft<br>OpenType alternates</p><button class="round" type="button" aria-label="View Loop Display specimen">↗</button></div>
+        </article>
+        <article class="face-card card-pulse">
+          <div class="card-top"><span>KT—003</span><span>2 styles</span></div>
+          <div class="specimen" aria-label="Pulse typeface specimen">Puls<span>e</span></div>
+          <div class="card-bottom"><h3>Pulse Mono</h3><p>Monospace / Optical<br>Text + display</p><button class="round" type="button" aria-label="View Pulse Mono specimen">↗</button></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="lab" id="lab" aria-labelledby="lab-title">
+      <div class="lab-head">
+        <p class="index">02 — VARIABLE LAB</p>
+        <h2 id="lab-title">Make it<br><em>move.</em></h2>
+        <p>Type something. Push the axes.<br>Find the version that feels alive.</p>
+      </div>
+      <div class="lab-panel">
+        <div class="lab-toolbar">
+          <span>SHIFT VARIABLE</span>
+          <button id="motion-toggle" class="motion-toggle" type="button" aria-pressed="true"><span></span> Motion on</button>
+        </div>
+        <label class="sr-only" for="type-input">Editable type specimen</label>
+        <textarea id="type-input" class="type-input" rows="2" spellcheck="false">SOMETHING
+NEW</textarea>
+        <div class="controls">
+          <label>WEIGHT <output id="weight-output" for="weight">760</output><input id="weight" type="range" min="200" max="900" value="760"></label>
+          <label>WIDTH <output id="width-output" for="width">84%</output><input id="width" type="range" min="60" max="110" value="84"></label>
+          <label>SLANT <output id="slant-output" for="slant">−8°</output><input id="slant" type="range" min="-16" max="0" value="-8"></label>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <p class="index">03 — THE STUDIO</p>
+      <h2 id="about-title">Built in motion.<br>Drawn with intent.</h2>
+      <div class="about-copy"><p>We make type that does more than sit still. Every family begins with a behavior: stretch, bounce, tilt, respond.</p><p>For designers, studios, and brands who see typography as a living part of the system.</p></div>
+      <a class="pill pill-light" href="#lab">Start a project <span aria-hidden="true">↗</span></a>
+      <div class="glyph" aria-hidden="true">K</div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand">KINETIC<br>TYPE<span>®</span></div>
+    <div><p>Letters made to move.</p><p>© 2026 Kinetic Type</p></div>
+    <div><a href="#faces">Typefaces</a><a href="#lab">Variable lab</a><a href="#about">Studio</a></div>
+    <a class="back-top" href="#top" aria-label="Back to top">↑</a>
+  </footer>
+</body>
+</html>

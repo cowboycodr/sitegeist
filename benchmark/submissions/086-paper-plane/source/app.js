@@ -1,0 +1,12 @@
+const menuButton=document.querySelector('.menu');
+const mobileNav=document.querySelector('#mobile-nav');
+menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));mobileNav.hidden=open});
+mobileNav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{mobileNav.hidden=true;menuButton.setAttribute('aria-expanded','false')}));
+document.querySelectorAll('[data-scroll]').forEach(button=>button.addEventListener('click',()=>document.getElementById(button.dataset.scroll).scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})));
+const storyButton=document.querySelector('[data-toggle]');
+storyButton.addEventListener('click',()=>{const target=document.getElementById(storyButton.dataset.toggle);const open=storyButton.getAttribute('aria-expanded')==='true';target.hidden=open;storyButton.setAttribute('aria-expanded',String(!open));storyButton.firstChild.textContent=open?'Continue reading ':'Fold the note '});
+const stopData=[['Stop 01','Best before 10:00','Look for Soviet-era film cameras, enamel pins, and hand-drawn maps.'],['Stop 02','Pause for provisions','Buy strings of walnuts, sour plums, and a bunch of garden flowers.'],['Stop 03','Take the long stairs','The climb is steep; the view across red roofs pays it back.'],['Stop 04','Book a private room','An hour in the hot sulphur water is the proper end to the walk.']];
+const detail=document.querySelector('.map-detail');
+const points=document.querySelectorAll('.map-points g');
+document.querySelectorAll('[data-stop]').forEach(button=>button.addEventListener('click',()=>{const index=Number(button.dataset.stop),data=stopData[index];document.querySelectorAll('.stops li').forEach(li=>li.classList.remove('active'));button.closest('li').classList.add('active');points.forEach(point=>point.classList.remove('active'));points[index].classList.add('active');detail.innerHTML=`<span>${data[0]}</span><strong>${data[1]}</strong><p>${data[2]}</p>`}));
+points[0].classList.add('active');

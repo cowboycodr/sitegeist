@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#062b35">
+  <meta name="description" content="Common Blue connects coastal restoration projects, field data, and local volunteers.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Common Blue — Coastal action network</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Common Blue, home">
+      <svg viewBox="0 0 42 42" aria-hidden="true"><path d="M4 21c7-12 13 12 20 0S35 9 39 21c-7 12-13-12-20 0S8 33 4 21Z"/></svg>
+      <span>Common Blue</span>
+    </a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span class="sr-only">Open menu</span></button>
+    <nav id="site-nav" aria-label="Primary navigation">
+      <a href="#projects">Projects</a>
+      <a href="#impact">Field data</a>
+      <a href="#about">About us</a>
+      <a class="nav-cta" href="#join">Find your coast <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Coastal action network</p>
+        <h1>The ocean<br>belongs to<br><em>everyone.</em></h1>
+        <p class="hero-intro">Good coastal work is already happening. We connect the people doing it—with shared field data, practical resources, and more hands on deck.</p>
+        <div class="actions">
+          <a class="button button-primary" href="#projects">Join a local project <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="#impact">See our impact <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="hero-map" aria-label="Illustrated coastal field map showing three active restoration sites" role="img">
+        <svg viewBox="0 0 700 720" aria-hidden="true">
+          <defs><pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="#a8e7df" opacity=".22"/></pattern></defs>
+          <rect width="700" height="720" fill="url(#dots)"/>
+          <path class="contour c1" d="M-50 55C128 1 131 168 292 139s138-154 314-74 149 241-10 257-217-51-322 65S42 490-46 427"/>
+          <path class="contour c2" d="M-79 95c180-49 225 91 357 71S454 37 608 105s130 188-7 210-248-29-326 84S42 484-61 445"/>
+          <path class="contour c3" d="M-66 536c113-96 203 18 299-63s171-124 276-39 159 63 227-4"/>
+          <path class="coast" d="M700 349c-56 29-94 21-130 1-56-31-85 35-145 37-81 3-90 83-161 102-64 17-83 79-124 99-44 21-94 3-140 57v75h700Z"/>
+          <path class="shore" d="M701 349c-56 29-94 21-130 1-56-31-85 35-145 37-81 3-90 83-161 102-64 17-83 79-124 99-44 21-94 3-140 57"/>
+          <g class="map-pin" transform="translate(518 303)"><circle r="22"/><circle r="7"/><text x="34" y="-4">DUNE 07</text><text class="pin-sub" x="34" y="14">ACTIVE TODAY</text></g>
+          <g class="map-pin" transform="translate(355 411)"><circle r="22"/><circle r="7"/><text x="34" y="-4">MARSH 12</text><text class="pin-sub" x="34" y="14">18 VOLUNTEERS</text></g>
+          <g class="map-pin" transform="translate(182 531)"><circle r="22"/><circle r="7"/><text x="34" y="-4">REEF 03</text><text class="pin-sub" x="34" y="14">DATA UPDATED</text></g>
+          <path class="route" d="M524 327C481 377 444 374 377 412S264 498 191 532"/>
+        </svg>
+        <div class="map-note"><span>43.2° N</span><strong>Coast is a commons.</strong><span>70.1° W</span></div>
+      </div>
+      <p class="hero-index" aria-hidden="true">EST. <strong>2018</strong></p>
+    </section>
+
+    <section class="ticker" aria-label="Network highlights"><div><span>84 active projects</span><b>✦</b><span>12,480 field hours</span><b>✦</b><span>One shared coastline</span><b>✦</b><span>84 active projects</span><b>✦</b></div></section>
+
+    <section class="projects section" id="projects">
+      <div class="section-heading">
+        <div><p class="eyebrow dark"><span></span> Get your hands salty</p><h2>Find your place<br>on the coast.</h2></div>
+        <div class="project-controls" role="group" aria-label="Filter projects"><button class="filter active" data-filter="all" aria-pressed="true">All projects</button><button class="filter" data-filter="weekend" aria-pressed="false">This weekend</button><button class="filter" data-filter="field" aria-pressed="false">Field science</button></div>
+      </div>
+      <div class="project-grid">
+        <article class="project-card featured" data-tags="weekend">
+          <div class="project-visual dunes"><span class="date-badge"><b>20</b> JUL</span><svg viewBox="0 0 600 300" aria-hidden="true"><path d="M0 220c95-30 129-2 208-51s136-72 217-21 107 12 175-34v186H0Z"/><path d="M0 250c122-58 174 12 287-50s201 13 313-46"/><g><path d="M187 217l-14-72m12 58 29-47m-35 17-25-22M400 174l19-75m-14 47-24-31m20 14 32-20"/></g></svg></div>
+          <div class="card-body"><p class="card-meta">South Shore · 8:00–11:30</p><h3>Dune grass planting</h3><p>Rebuild a natural line of defense with neighbors and the South Shore land team.</p><a href="#join" aria-label="Join Dune grass planting">12 spots open <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article class="project-card" data-tags="field">
+          <div class="project-visual marsh"><span class="date-badge"><b>27</b> JUL</span><svg viewBox="0 0 600 300" aria-hidden="true"><path d="M0 193c78-17 112 31 194 9s147-13 222 11 115-14 184-18v105H0Z"/><g><path d="M80 251l24-116m-9 44-27-31m30 10 29-43M205 242l-10-136m8 53 31-40m-33 73-43-49M492 263l-4-137m2 43 34-35m-36 79-39-45M380 252l18-111m-11 47-31-38"/></g></svg></div>
+          <div class="card-body"><p class="card-meta">River Mouth · 6:30–9:00</p><h3>Salt marsh survey</h3><p>Measure water, grasses, and shoreline change. Training and field kit provided.</p><a href="#join" aria-label="Join Salt marsh survey">6 spots open <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article class="project-card" data-tags="weekend field">
+          <div class="project-visual reef"><span class="date-badge"><b>03</b> AUG</span><svg viewBox="0 0 600 300" aria-hidden="true"><path d="M0 229c82-41 121 2 196-23s138-4 196 14 132-28 208-11v91H0Z"/><g><path d="M150 241c-22-45 5-64 18-84 12 27 3 49-18 84Zm28 4c2-41 38-60 55-72-3 38-23 65-55 72Zm188-5c-13-41 13-72 29-91 8 36-3 72-29 91Zm35 8c8-39 42-50 64-53-14 35-34 52-64 53Z"/></g></svg></div>
+          <div class="card-body"><p class="card-meta">North Jetty · 9:00–12:00</p><h3>Oyster reef build</h3><p>Build living reef modules that clean water and create habitat below the tide.</p><a href="#join" aria-label="Join Oyster reef build">21 spots open <span aria-hidden="true">→</span></a></div>
+        </article>
+      </div>
+      <p class="empty-state" hidden>No projects match this view right now.</p>
+    </section>
+
+    <section class="impact" id="impact">
+      <div class="impact-intro"><p class="eyebrow"><span></span> Open field data</p><h2>Small actions.<br><em>Visible change.</em></h2><p>Every project follows shared methods, so volunteer observations become reliable coastal knowledge. Our dashboard is updated after every field day.</p><a class="button button-light" href="#data">Explore the field notes <span aria-hidden="true">→</span></a></div>
+      <div class="impact-data" id="data">
+        <div class="metric"><span class="metric-no">01</span><strong>18.6<small> km</small></strong><p>shoreline restored</p><i></i></div>
+        <div class="metric"><span class="metric-no">02</span><strong>42,810</strong><p>native plants in ground</p><i></i></div>
+        <div class="metric"><span class="metric-no">03</span><strong>91<small>%</small></strong><p>monitoring sites reporting</p><i></i></div>
+        <div class="data-note"><span>Latest reading</span><b>Water clarity improving</b><span>Updated 12 JUL · Field station 08</span></div>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="about-mark" aria-hidden="true"><span>COMMON</span><svg viewBox="0 0 240 160"><path d="M4 80c39-61 72 61 111 0s72 61 121 0"/><path d="M4 112c39-61 72 61 111 0s72 61 121 0"/></svg><span>BLUE</span></div>
+      <div class="about-copy"><p class="eyebrow dark"><span></span> Shared by nature</p><h2>No velvet ropes.<br>No sidelines.</h2><p>Common Blue is a nonprofit network built around a simple idea: local people should have the tools, data, and invitation to care for their coast.</p><p>We partner with community groups and scientists to turn scattered efforts into shared momentum.</p></div>
+    </section>
+
+    <section class="join" id="join">
+      <p class="eyebrow"><span></span> Your coast needs you</p><h2>Bring what you’ve got.<br><em>We’ll show you where.</em></h2>
+      <div class="join-options">
+        <a href="#projects"><span>01</span><b>Give a morning</b><small>Find a local field day</small><i aria-hidden="true">↗</i></a>
+        <a href="#data"><span>02</span><b>Share observations</b><small>Add to open field data</small><i aria-hidden="true">↗</i></a>
+        <a href="#projects"><span>03</span><b>Start a chapter</b><small>Bring Common Blue home</small><i aria-hidden="true">↗</i></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#top"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M4 21c7-12 13 12 20 0S35 9 39 21c-7 12-13-12-20 0S8 33 4 21Z"/></svg><span>Common Blue</span></a>
+    <p>Many hands. One coast.</p><div><a href="#projects">Projects</a><a href="#impact">Impact</a><a href="#about">Our network</a></div><small>© 2026 Common Blue · Built for the coast</small>
+  </footer>
+</body>
+</html>

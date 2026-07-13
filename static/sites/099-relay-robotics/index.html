@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Friendly autonomous robots handling indoor logistics across hospitals, hotels, and campuses.">
+  <meta name="theme-color" content="#f6f4ee">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Relay Robotics — Robots that work the room.</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Relay Robotics home">
+      <svg viewBox="0 0 42 42" aria-hidden="true"><path d="M8 21a13 13 0 0 1 21-10M34 21a13 13 0 0 1-21 10"/><path d="m25 6 5 5-6 3M17 36l-5-5 6-3"/></svg>
+      <span>relay</span><b>robotics</b>
+    </a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span class="sr-only">Toggle menu</span></button>
+    <nav id="site-nav" aria-label="Main navigation">
+      <a href="#how">How it works</a>
+      <a href="#spaces">Where it works</a>
+      <a href="#impact">Impact</a>
+      <a class="nav-cta" href="#contact">Start a conversation <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Autonomy for everyday spaces</p>
+        <h1>Robots that<br><em>work the room.</em></h1>
+        <p class="hero-intro">Relay One moves the things your people shouldn’t have to—so every team has more time for the work only people can do.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#relay-one">Meet Relay One <span aria-hidden="true">→</span></a>
+          <button class="text-button" type="button" data-open-demo><span class="play" aria-hidden="true">▶</span> Watch it work</button>
+        </div>
+      </div>
+
+      <div class="hero-stage" aria-label="Relay One navigating an indoor route">
+        <div class="route-label route-label-a"><i></i> Request received</div>
+        <div class="route-label route-label-b"><i></i> Delivery complete</div>
+        <svg class="route" viewBox="0 0 600 650" aria-hidden="true">
+          <path class="route-shadow" d="M66 60C390 5 512 130 455 250S104 330 102 477c-1 85 91 111 184 111"/>
+          <path class="route-line" d="M66 60C390 5 512 130 455 250S104 330 102 477c-1 85 91 111 184 111"/>
+          <circle cx="66" cy="60" r="8"/><circle cx="286" cy="588" r="8"/>
+        </svg>
+        <div class="robot" aria-hidden="true">
+          <div class="antenna"><b></b></div>
+          <div class="robot-head"><span></span><span></span><i></i></div>
+          <div class="robot-neck"></div>
+          <div class="robot-body"><div class="cargo"><b>12</b><small>ROOM</small></div><div class="relay-mark">r</div></div>
+          <div class="robot-base"><span></span><span></span></div>
+          <div class="robot-shadow"></div>
+        </div>
+        <p class="stage-note">autonomous indoor logistics<br><strong>without changing your space</strong></p>
+      </div>
+      <div class="hero-ticker" aria-hidden="true"><span>HOSPITALITY</span><i>✦</i><span>HEALTHCARE</span><i>✦</i><span>CAMPUSES</span><i>✦</i><span>HOSPITALITY</span></div>
+    </section>
+
+    <section class="intro-section" id="relay-one">
+      <div class="section-tag">01 — Meet Relay One</div>
+      <div class="intro-heading">
+        <h2>Small footprint.<br><em>Big assist.</em></h2>
+        <p>Built to share busy indoor spaces, Relay One rides elevators, navigates crowds, and makes secure deliveries around the clock.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature feature-yellow">
+          <div class="feature-icon orbit-icon"><span></span></div>
+          <span class="feature-number">01</span>
+          <h3>Finds its own way</h3>
+          <p>Maps dynamic routes in real time and safely moves around people and objects.</p>
+        </article>
+        <article class="feature feature-blue">
+          <div class="feature-icon elevator-icon"><span>↑</span><span>↓</span></div>
+          <span class="feature-number">02</span>
+          <h3>Works the whole building</h3>
+          <p>Calls elevators and opens connected doors without human help.</p>
+        </article>
+        <article class="feature feature-coral">
+          <div class="feature-icon cargo-icon"><span></span></div>
+          <span class="feature-number">03</span>
+          <h3>Keeps every handoff secure</h3>
+          <p>Locks every delivery inside and alerts the recipient when it arrives.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="how-section" id="how">
+      <div class="how-copy">
+        <div class="section-tag light">02 — One smooth relay</div>
+        <h2>From “we need it”<br>to <em>“it’s here.”</em></h2>
+        <p>A request becomes a completed delivery in minutes—no radio calls, no unnecessary steps, no team member pulled away.</p>
+        <ol class="steps">
+          <li><span>1</span><div><strong>Request</strong><small>Send a delivery from the Relay dashboard.</small></div></li>
+          <li><span>2</span><div><strong>Load</strong><small>Place items inside and choose a destination.</small></div></li>
+          <li><span>3</span><div><strong>Relay</strong><small>The robot navigates there and confirms arrival.</small></div></li>
+        </ol>
+      </div>
+      <div class="delivery-card" aria-hidden="true">
+        <div class="mini-map"><span class="map-room r1">312</span><span class="map-room r2">314</span><span class="map-room r3">316</span><span class="hall"></span><span class="map-bot">r</span></div>
+        <div class="delivery-status"><span class="status-dot"></span><div><small>DELIVERY IN PROGRESS</small><strong>Room 314</strong></div><b>2:14</b></div>
+      </div>
+    </section>
+
+    <section class="spaces-section" id="spaces">
+      <div class="spaces-top">
+        <div><div class="section-tag">03 — Made for your world</div><h2>Give your team<br><em>their time back.</em></h2></div>
+        <p>One dependable platform. Dozens of daily trips. Select a space to see where Relay fits in.</p>
+      </div>
+      <div class="space-tabs" role="tablist" aria-label="Industries">
+        <button role="tab" aria-selected="true" aria-controls="space-panel" id="tab-hotels" data-space="hotels">Hotels <span>01</span></button>
+        <button role="tab" aria-selected="false" aria-controls="space-panel" id="tab-hospitals" data-space="hospitals" tabindex="-1">Hospitals <span>02</span></button>
+        <button role="tab" aria-selected="false" aria-controls="space-panel" id="tab-campuses" data-space="campuses" tabindex="-1">Campuses <span>03</span></button>
+      </div>
+      <article class="space-panel" id="space-panel" role="tabpanel" aria-labelledby="tab-hotels">
+        <div class="space-art" data-art="hotels"><div class="window w1"></div><div class="window w2"></div><div class="door"></div><div class="plant">✦</div><div class="mini-relay"><i></i><b>r</b></div></div>
+        <div class="space-copy"><p class="space-kicker">HOSPITALITY</p><h3>Service that never keeps a guest waiting.</h3><p data-space-description>Send towels, amenities, and room service upstairs while your team stays focused on a warm welcome.</p><ul data-space-list><li>Guest amenity delivery</li><li>Room service support</li><li>Front desk relief</li></ul></div>
+      </article>
+    </section>
+
+    <section class="impact-section" id="impact">
+      <div class="section-tag light">04 — More human time</div>
+      <div class="impact-title"><h2>Measure the miles<br><em>you didn’t walk.</em></h2><p>Relay turns routine trips into time your teams can spend with patients, guests, and each other.</p></div>
+      <div class="metrics">
+        <div><strong><span data-count="10">10</span>k+</strong><p>deliveries completed by a single robot each year</p></div>
+        <div><strong><span data-count="300">300</span>+</strong><p>staff hours returned to higher-value work</p></div>
+        <div><strong><span data-count="24">24</span>/7</strong><p>reliable support across every shift</p></div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="contact-orbit" aria-hidden="true"><span></span><i></i><b>r</b></div>
+      <p class="eyebrow"><span></span> Ready when you are</p>
+      <h2>Put the busywork<br><em>in motion.</em></h2>
+      <p>Let’s find the right route for Relay in your space.</p>
+      <a class="button button-dark" href="#relay-one">Explore Relay One <span aria-hidden="true">↑</span></a>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#top"><span>relay</span><b>robotics</b></a>
+    <p>Robots that work the room.</p>
+    <p class="copyright">© <span id="year">2026</span> Relay Robotics</p>
+  </footer>
+
+  <dialog class="demo-dialog" aria-labelledby="demo-title">
+    <button class="dialog-close" type="button" aria-label="Close demo">×</button>
+    <div class="demo-visual" aria-hidden="true"><div class="demo-route"></div><div class="demo-bot">r</div><span class="demo-start">SUPPLY</span><span class="demo-end">ROOM 314</span></div>
+    <div class="demo-copy"><p class="space-kicker">A 30-SECOND RELAY</p><h2 id="demo-title">One request.<br><em>Zero detours.</em></h2><p>Relay One securely carries supplies from pickup to destination, navigates the elevator, and lets the recipient know it has arrived.</p><button class="button button-dark dialog-done" type="button">Got it <span aria-hidden="true">✓</span></button></div>
+  </dialog>
+</body>
+</html>

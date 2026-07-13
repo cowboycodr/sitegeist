@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070908">
+  <meta name="description" content="Adaptive zero-trust infrastructure protecting critical systems without slowing the people who run them.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Monolith Security — Nothing gets through.</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="overrides.css">
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Monolith Security home">
+      <svg class="brand-mark" viewBox="0 0 30 36" aria-hidden="true"><path d="M2 34V8L15 2l13 6v26H2Z"/><path d="M9 29V12l6-3 6 3v17"/></svg>
+      <span>MONOLITH<span class="brand-sub">/ SECURITY</span></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#platform">Platform</a><a href="#research">Research</a><a href="#company">Company</a>
+    </nav>
+    <button class="nav-cta" type="button" data-open-dialog>Request access <span aria-hidden="true">↗</span></button>
+    <button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span class="sr-only">Open navigation</span></button>
+    <div id="mobile-nav" class="mobile-nav" hidden><a href="#platform">Platform</a><a href="#research">Research</a><a href="#company">Company</a><button type="button" data-open-dialog>Request access</button></div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="gridlines" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Zero-trust infrastructure</p>
+        <h1>NOTHING<br>GETS <em>THROUGH.</em></h1>
+        <p class="intro">Adaptive infrastructure protecting critical systems without slowing the people who run them.</p>
+        <div class="hero-actions">
+          <button class="button primary" type="button" data-open-dialog>Secure your stack <span aria-hidden="true">↗</span></button>
+          <a class="button quiet" href="#research">View threat research <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="assurance" aria-label="Service assurances">
+          <span><b>99.999%</b> enforcement uptime</span><span><b>&lt; 12ms</b> median decision latency</span><span><b>24 / 7</b> threat operations</span>
+        </div>
+      </div>
+
+      <div class="core-wrap" aria-label="Monolith adaptive defense visualization">
+        <div class="orbit orbit-a" aria-hidden="true"></div><div class="orbit orbit-b" aria-hidden="true"></div>
+        <div class="signal s1" aria-hidden="true"></div><div class="signal s2" aria-hidden="true"></div><div class="signal s3" aria-hidden="true"></div>
+        <div class="core">
+          <div class="core-top"><span>MONOLITH CORE</span><span class="live"><i></i> LIVE</span></div>
+          <svg class="shield" viewBox="0 0 190 230" aria-hidden="true"><path class="shield-outer" d="M95 5 178 36v69c0 54-30 93-83 119C42 198 12 159 12 105V36L95 5Z"/><path class="shield-mid" d="M95 23 160 48v58c0 42-23 74-65 96-42-22-65-54-65-96V48l65-25Z"/><path class="shield-inner" d="M95 54 132 68v39c0 26-12 47-37 63-25-16-37-37-37-63V68l37-14Z"/><path class="m" d="M70 128V83l25 18 25-18v45"/></svg>
+          <div class="core-readout"><span>POLICY NODES</span><b>2,184</b><span>STATUS</span><b class="green">SEALED</b></div>
+        </div>
+        <div class="threat-card threat-one"><span>EDGE / 04</span><b>SCAN BLOCKED</b><small>198.51.100.24</small></div>
+        <div class="threat-card threat-two"><span>IDENTITY / 11</span><b>ACCESS VERIFIED</b><small>Risk score 0.02</small></div>
+      </div>
+      <p class="side-label" aria-hidden="true">ADAPTIVE DEFENSE NETWORK / 01</p>
+    </section>
+
+    <section class="ticker" aria-label="Protection capabilities"><div>IDENTITY-AWARE ACCESS <i>◆</i> RUNTIME ISOLATION <i>◆</i> POLICY AS CODE <i>◆</i> CONTINUOUS VERIFICATION <i>◆</i> IDENTITY-AWARE ACCESS</div></section>
+
+    <section class="platform" id="platform">
+      <div class="section-heading">
+        <p class="eyebrow"><span></span> The platform</p>
+        <h2>ONE CONTROL PLANE.<br><em>EVERY ATTACK SURFACE.</em></h2>
+        <p>Monolith fuses identity, network, and runtime signals into one adaptive enforcement layer.</p>
+      </div>
+      <div class="capability-grid">
+        <article><span class="number">01</span><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="23" r="10"/><path d="M13 57c2-15 9-22 19-22s17 7 19 22M5 14h8M9 10v8M51 14h8M55 10v8"/></svg><h3>Identity defense</h3><p>Continuous risk signals verify every human, service, and workload before access is granted.</p><button type="button" data-open-dialog>Explore identity <span>↗</span></button></article>
+        <article><span class="number">02</span><svg viewBox="0 0 64 64" aria-hidden="true"><path d="m32 4 23 9v18c0 15-8 24-23 29C17 55 9 46 9 31V13l23-9Z"/><path d="m21 32 7 7 16-17"/></svg><h3>Adaptive segmentation</h3><p>Dynamic, least-privilege boundaries follow resources across cloud, edge, and on-prem systems.</p><button type="button" data-open-dialog>Explore segmentation <span>↗</span></button></article>
+        <article><span class="number">03</span><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 47 32 7l24 40H8Z"/><path d="M32 24v10M32 42v1"/></svg><h3>Threat containment</h3><p>High-confidence detections trigger precise isolation in milliseconds—without operational drag.</p><a href="#research">Explore response <span>↗</span></a></article>
+      </div>
+    </section>
+
+    <section class="research" id="research">
+      <div class="research-visual" aria-hidden="true"><div class="radar"><i></i><b></b><span></span></div><p>THREAT MAP / LIVE MODEL</p></div>
+      <div class="research-copy"><p class="eyebrow"><span></span> Field intelligence / 024</p><h2>THE 18-MINUTE<br><em>INTRUSION WINDOW</em></h2><p>Our threat unit analyzed 4.2 billion authorization events to map the critical moments between initial access and lateral movement.</p><div class="research-meta"><span>RESEARCH BRIEF</span><span>8 MIN READ</span><span>JUL 2026</span></div><a class="button primary" href="#report-note">Read the findings <span>↗</span></a><p id="report-note" class="report-note" tabindex="-1">Finding 01 — identity context cut median containment time by 73%.</p></div>
+    </section>
+  </main>
+
+  <footer id="company">
+    <div><a class="brand footer-brand" href="#top"><svg class="brand-mark" viewBox="0 0 30 36" aria-hidden="true"><path d="M2 34V8L15 2l13 6v26H2Z"/><path d="M9 29V12l6-3 6 3v17"/></svg><span>MONOLITH<span class="brand-sub">/ SECURITY</span></span></a><p>Critical systems deserve absolute confidence.</p></div>
+    <div><span>PLATFORM</span><a href="#platform">Identity defense</a><a href="#platform">Segmentation</a><a href="#platform">Containment</a></div>
+    <div><span>COMPANY</span><a href="#research">Research</a><a href="#company">About</a><button type="button" data-open-dialog>Contact</button></div>
+    <p class="copyright">© 2026 MONOLITH SECURITY <span>BUILT FOR WHAT MATTERS.</span></p>
+  </footer>
+
+  <dialog id="access-dialog" aria-labelledby="dialog-title">
+    <button class="close" type="button" aria-label="Close dialog">×</button>
+    <p class="eyebrow"><span></span> Protected onboarding</p><h2 id="dialog-title">SECURE YOUR<br><em>STACK.</em></h2><p>Talk with a security architect about your environment and risk model.</p>
+    <div class="contact-grid"><strong>access@monolith.security</strong><span>RESPONSE TARGET<br><b>ONE BUSINESS DAY</b></span></div>
+  </dialog>
+</body>
+</html>

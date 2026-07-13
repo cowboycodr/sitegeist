@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Tidepool Lab is a field station mapping biodiversity, temperature shifts, and resilient marine habitats.">
+  <meta name="theme-color" content="#062a33">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+  <title>Tidepool Lab — Reading the edge of the sea</title>
+  <style>
+    :root{--ink:#062a33;--deep:#0a3e48;--cyan:#67e1d0;--foam:#d9f5e9;--paper:#f1ead9;--coral:#ff7c61;--line:rgba(6,42,51,.2);--sans:Arial,Helvetica,sans-serif;--serif:Georgia,'Times New Roman',serif}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);overflow-x:hidden}
+    a{color:inherit} button{font:inherit}
+    .skip{position:absolute;left:1rem;top:-4rem;background:var(--foam);padding:.8rem 1rem;z-index:20}.skip:focus{top:1rem}
+    header{position:absolute;inset:0 0 auto;z-index:5;padding:1.5rem 4vw;display:flex;align-items:center;justify-content:space-between;color:var(--foam)}
+    .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;font-weight:800;letter-spacing:-.02em}
+    .brand-mark{width:34px;height:34px;border:1px solid currentColor;border-radius:50%;display:grid;place-items:center;position:relative}
+    .brand-mark:before,.brand-mark:after{content:"";position:absolute;border:1px solid currentColor;border-radius:50%}.brand-mark:before{width:20px;height:20px}.brand-mark:after{width:6px;height:6px;background:currentColor}
+    nav{display:flex;align-items:center;gap:2rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.13em}nav a{text-decoration:none}nav a:hover,nav a:focus{text-decoration:underline;text-underline-offset:.35rem}
+    .status{display:flex;align-items:center;gap:.55rem}.status i{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 4px rgba(103,225,208,.18)}
+    .hero{min-height:760px;height:100vh;background:var(--ink);color:var(--foam);position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(390px,.95fr);overflow:hidden}
+    .hero-copy{padding:10.5rem 4vw 5rem;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+    .eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;display:flex;align-items:center;gap:1rem;margin:0 0 2rem}.eyebrow:before{content:"";width:34px;height:1px;background:currentColor}
+    h1{font-family:var(--serif);font-weight:400;font-size:clamp(4.5rem,8vw,8.7rem);letter-spacing:-.065em;line-height:.78;margin:0;max-width:760px}h1 em{font-weight:400;color:var(--cyan)}
+    .intro{font-family:var(--serif);font-size:clamp(1.15rem,1.5vw,1.45rem);line-height:1.5;max-width:540px;margin:2.5rem 0;color:#bfe0d8}
+    .actions{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 1.25rem;border:1px solid var(--cyan);text-decoration:none;text-transform:uppercase;letter-spacing:.12em;font-size:.68rem;font-weight:700}.btn-primary{background:var(--cyan);color:var(--ink)}.btn:hover,.btn:focus{background:var(--coral);border-color:var(--coral);color:var(--ink)}
+    .hero-art{position:relative;background:#0a4650;overflow:hidden;border-left:1px solid rgba(217,245,233,.2)}
+    .hero-art:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(103,225,208,.22),transparent 28%),linear-gradient(165deg,transparent 48%,rgba(0,0,0,.22) 48.2%,transparent 49%);opacity:.9}
+    .orbit{position:absolute;left:50%;top:50%;width:min(38vw,520px);aspect-ratio:1;transform:translate(-46%,-45%);border:1px solid rgba(217,245,233,.35);border-radius:50%}
+    .orbit:before,.orbit:after{content:"";position:absolute;border:1px solid rgba(217,245,233,.26);border-radius:50%;inset:10%}.orbit:after{inset:26%;border-style:dashed}
+    .pool{position:absolute;inset:19%;border-radius:47% 53% 44% 56% / 56% 39% 61% 44%;background:var(--cyan);box-shadow:inset -30px -25px 0 rgba(6,42,51,.13),0 0 70px rgba(103,225,208,.2)}
+    .pool:before{content:"";position:absolute;inset:24%;border:2px solid var(--ink);border-radius:52% 48% 59% 41%;opacity:.55}.pool:after{content:"";position:absolute;width:18%;height:18%;left:17%;top:18%;border:8px dotted var(--coral);border-radius:50%}
+    .cross{position:absolute;inset:0}.cross:before,.cross:after{content:"";position:absolute;background:rgba(217,245,233,.25)}.cross:before{width:1px;height:100%;left:50%}.cross:after{height:1px;width:100%;top:50%}
+    .specimen{position:absolute;padding:.8rem;border:1px solid rgba(217,245,233,.3);font-size:.65rem;letter-spacing:.13em;text-transform:uppercase;color:var(--foam);background:rgba(6,42,51,.72)}.s1{top:22%;left:7%}.s2{right:7%;bottom:18%}.s3{left:9%;bottom:9%;color:var(--cyan)}
+    .depth{position:absolute;right:1.5rem;top:7rem;bottom:2rem;width:25px;border-right:1px solid rgba(217,245,233,.35);background:repeating-linear-gradient(to bottom,transparent 0 19px,rgba(217,245,233,.4) 20px 21px);font-size:.55rem}.depth span{position:absolute;right:8px;bottom:0;writing-mode:vertical-rl;letter-spacing:.16em;text-transform:uppercase}
+    .ticker{background:var(--cyan);color:var(--ink);min-height:57px;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--ink)}.ticker-track{display:flex;min-width:max-content;gap:2.5rem;padding:0 1.25rem;font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em}.ticker b{font-size:1rem;font-family:var(--serif);font-weight:400;letter-spacing:0}.ticker .dot{color:var(--coral)}
+    .section{padding:7rem 4vw}.section-head{display:grid;grid-template-columns:1fr 2fr;gap:2rem;margin-bottom:4rem}.kicker{text-transform:uppercase;font-size:.69rem;letter-spacing:.16em;font-weight:700}.section h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.8rem,5vw,5.6rem);line-height:.96;letter-spacing:-.04em;margin:0;max-width:850px}
+    .readings{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}.reading{padding:2rem 2.5rem 2.4rem 0;min-height:230px;border-right:1px solid var(--line);position:relative}.reading+ .reading{padding-left:2.5rem}.reading:last-child{border-right:0}.reading-num{font-family:var(--serif);font-size:clamp(3.3rem,6vw,6rem);letter-spacing:-.05em}.reading-num small{font:400 1rem var(--sans);letter-spacing:0}.reading p{max-width:260px;line-height:1.55;margin:1rem 0 0;color:#31545a}.trend{position:absolute;right:1.5rem;top:2.5rem;color:var(--coral);font-size:.7rem;font-weight:700;letter-spacing:.08em}
+    .transect{background:var(--ink);color:var(--foam);padding:7rem 4vw;display:grid;grid-template-columns:.72fr 1.28fr;gap:7vw}.transect h2{font:400 clamp(3rem,5vw,5.5rem)/.95 var(--serif);letter-spacing:-.04em;margin:.6rem 0 1.8rem}.transect-copy p{color:#b7d8d2;line-height:1.7;max-width:440px}.micro{margin-top:3rem;display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}.micro div{border-top:1px solid #3c6670;padding-top:1rem}.micro b{display:block;color:var(--cyan);font:400 1.8rem var(--serif)}.micro span{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em}
+    .chart{min-height:490px;position:relative;border-left:1px solid #315a64;border-bottom:1px solid #315a64;background:repeating-linear-gradient(to top,transparent 0 80px,rgba(217,245,233,.09) 81px 82px)}.chart svg{position:absolute;inset:5% 0 5%;width:100%;height:90%;overflow:visible}.chart-label{position:absolute;font-size:.6rem;text-transform:uppercase;letter-spacing:.12em;color:#8bb6b0}.cl1{top:-1rem;left:0}.cl2{bottom:-2rem;right:0}.legend{position:absolute;top:1rem;right:0;display:flex;gap:1rem;font-size:.6rem;text-transform:uppercase;letter-spacing:.1em}.legend span:before{content:"";display:inline-block;width:17px;height:2px;background:var(--cyan);vertical-align:middle;margin-right:.4rem}.legend span+span:before{background:var(--coral)}
+    .people{padding:7rem 4vw 8rem}.people-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--ink);border:1px solid var(--ink);margin-top:4rem}.person{background:var(--paper);display:grid;grid-template-columns:170px 1fr;min-height:210px}.portrait{position:relative;overflow:hidden;background:var(--foam);display:grid;place-items:center}.portrait svg{width:100%;height:100%}.person-copy{padding:2rem}.person h3{font:400 1.8rem var(--serif);margin:0 0 .4rem}.role{text-transform:uppercase;font-size:.62rem;letter-spacing:.13em;color:#497078}.person p{font:400 1rem/1.55 var(--serif);margin:1.5rem 0 0}
+    footer{background:var(--coral);padding:4.5rem 4vw 2rem;color:var(--ink)}.footer-top{display:grid;grid-template-columns:2fr 1fr;align-items:end;gap:2rem}.footer-title{font:400 clamp(3.2rem,7vw,7.5rem)/.85 var(--serif);letter-spacing:-.055em;margin:0}.footer-side{border-left:1px solid var(--ink);padding-left:2rem;line-height:1.6}.footer-bottom{display:flex;justify-content:space-between;margin-top:5rem;padding-top:1.25rem;border-top:1px solid var(--ink);text-transform:uppercase;letter-spacing:.12em;font-size:.62rem}
+    @media (max-width:850px){nav a:not(.status){display:none}.hero{min-height:900px;height:auto;grid-template-columns:1fr;grid-template-rows:auto 440px}.hero-copy{padding-top:9rem}.hero-art{border-left:0;border-top:1px solid rgba(217,245,233,.2)}.orbit{width:360px}.section-head,.transect{grid-template-columns:1fr}.readings{grid-template-columns:1fr}.reading,.reading+ .reading{padding:1.7rem 0;border-right:0;border-bottom:1px solid var(--line)}.reading:last-child{border-bottom:0}.reading{min-height:180px}.people-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr}.footer-side{border-left:0;border-top:1px solid;padding:1.5rem 0 0}}
+    @media (max-width:520px){header{padding:1.15rem}.brand-mark{width:29px;height:29px}.status span{display:none}.hero-copy{padding:8rem 1.15rem 3rem}h1{font-size:4.2rem}.hero{grid-template-rows:auto 360px}.orbit{width:290px}.depth{top:2rem}.section,.people,.transect{padding:5rem 1.15rem}.section-head{margin-bottom:2.5rem}.chart{min-height:340px}.person{grid-template-columns:115px 1fr}.person-copy{padding:1.3rem}.person p{font-size:.9rem}.footer-top{display:block}.footer-side{margin-top:2rem}.footer-bottom{gap:1rem;align-items:flex-end}.footer-bottom span:last-child{text-align:right}}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to field notes</a>
+  <header>
+    <a class="brand" href="#top" aria-label="Tidepool Lab home"><span class="brand-mark" aria-hidden="true"></span><span>Tidepool<br>Lab</span></a>
+    <nav aria-label="Main navigation"><a href="#readings">Readings</a><a href="#transect">Transect</a><a href="#researchers">Researchers</a><a class="status" href="#readings"><i aria-hidden="true"></i><span>Station live</span></a></nav>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Field note / 37.7749° N</p>
+        <h1>Reading the<br><em>edge</em> of the sea.</h1>
+        <p class="intro">A field station mapping biodiversity, temperature shifts, and the marine habitats learning to endure.</p>
+        <div class="actions"><a class="btn btn-primary" href="#readings">Dive into the data</a><a class="btn" href="#researchers">Meet the researchers</a></div>
+      </div>
+      <div class="hero-art" aria-label="Abstract topographic map of a coastal tidepool" role="img">
+        <div class="orbit"><div class="cross"></div><div class="pool"></div></div>
+        <span class="specimen s1">Zone 03 / splash</span><span class="specimen s2">Pool depth 1.8 m</span><span class="specimen s3">64 species logged</span>
+        <div class="depth"><span>Intertidal elevation</span></div>
+      </div>
+    </section>
+    <div class="ticker" aria-label="Current station conditions"><div class="ticker-track"><span>Last sample <b>06:42</b></span><span class="dot">●</span><span>Water <b>12.8°C</b></span><span class="dot">●</span><span>Salinity <b>33.4 PSU</b></span><span class="dot">●</span><span>Swell <b>0.7 M</b></span><span class="dot">●</span><span>Next low tide <b>14:18</b></span></div></div>
+    <section class="section" id="readings">
+      <div class="section-head"><p class="kicker">What the water tells us</p><h2>Small changes.<br>Long signals.</h2></div>
+      <div class="readings">
+        <article class="reading"><span class="trend">↗ 1.2%</span><div class="reading-num">64</div><p>Intertidal species observed across this morning’s three survey zones.</p></article>
+        <article class="reading"><span class="trend">+0.6° / decade</span><div class="reading-num">12.8<small>°C</small></div><p>Mean pool temperature. A cool dawn, still above the 30-year baseline.</p></article>
+        <article class="reading"><span class="trend">↔ stable</span><div class="reading-num">81<small>%</small></div><p>Canopy cover retained by the most resilient rockweed communities.</p></article>
+      </div>
+    </section>
+    <section class="transect" id="transect">
+      <div class="transect-copy"><p class="kicker">Transect / July 13</p><h2>Between high tide and low.</h2><p>Every six minutes, submerged sensors record the pool’s pulse. Researchers pair those readings with hand-counted species surveys to see which habitats buffer heat best.</p><div class="micro"><div><b>18 yrs</b><span>continuous record</span></div><div><b>12 sites</b><span>coastline network</span></div></div></div>
+      <div class="chart" aria-label="Chart showing daily tide height and tidepool temperature variation" role="img"><span class="chart-label cl1">Relative change</span><span class="chart-label cl2">00:00 — 24:00</span><div class="legend"><span>Tide</span><span>Temperature</span></div><svg viewBox="0 0 700 400" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#67e1d0" stop-opacity=".24"/><stop offset="1" stop-color="#67e1d0" stop-opacity="0"/></linearGradient></defs><path d="M0 315 C75 300 100 65 180 62 S275 350 360 325 S445 78 525 70 S625 330 700 310 V400 H0Z" fill="url(#fill)"/><path d="M0 315 C75 300 100 65 180 62 S275 350 360 325 S445 78 525 70 S625 330 700 310" fill="none" stroke="#67e1d0" stroke-width="4"/><path d="M0 255 C80 245 130 230 180 220 S260 145 350 170 S430 230 500 220 S610 145 700 135" fill="none" stroke="#ff7c61" stroke-width="3" stroke-dasharray="8 8"/><g fill="#f1ead9"><circle cx="180" cy="62" r="5"/><circle cx="525" cy="70" r="5"/></g></svg></div>
+    </section>
+    <section class="people" id="researchers">
+      <div class="section-head"><p class="kicker">People of the pools</p><h2>Close observation is a form of care.</h2></div>
+      <div class="people-grid">
+        <article class="person"><div class="portrait"><svg viewBox="0 0 170 210" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="170" height="210" fill="#67e1d0"/><circle cx="85" cy="77" r="37" fill="#f1ead9"/><path d="M48 78q6-49 44-43 34 5 31 47-23-15-50-8z" fill="#062a33"/><path d="M25 210q6-82 60-82t62 82" fill="#0a4650"/><circle cx="72" cy="78" r="3" fill="#062a33"/><circle cx="99" cy="78" r="3" fill="#062a33"/><path d="M73 97q13 9 25-1" fill="none" stroke="#062a33" stroke-width="2"/></svg></div><div class="person-copy"><h3>Dr. Mara Velasquez</h3><span class="role">Benthic ecologist / lead observer</span><p>“The best instrument we have is attention, repeated over time.”</p></div></article>
+        <article class="person"><div class="portrait"><svg viewBox="0 0 170 210" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="170" height="210" fill="#ff7c61"/><circle cx="85" cy="79" r="36" fill="#f1ead9"/><path d="M47 75q3-44 39-43 41 1 42 49-24-23-55-12z" fill="#062a33"/><path d="M25 210q10-82 60-82t62 82" fill="#062a33"/><circle cx="71" cy="80" r="3" fill="#062a33"/><circle cx="99" cy="80" r="3" fill="#062a33"/><path d="M75 98q11 6 22-1" fill="none" stroke="#062a33" stroke-width="2"/></svg></div><div class="person-copy"><h3>Ari Okafor</h3><span class="role">Climate data scientist / systems</span><p>“A tidepool is a tiny ocean with nowhere for change to hide.”</p></div></article>
+      </div>
+    </section>
+  </main>
+  <footer><div class="footer-top"><p class="footer-title">Stay curious<br>at the edge.</p><div class="footer-side"><b>Tidepool Lab</b><br>A field station for long-term coastal observation.<br>Pacific Intertidal Network / Station 07</div></div><div class="footer-bottom"><span>Reading the edge of the sea.</span><span>Built for the next tide</span></div></footer>
+  <script src="sitegeist-bridge.js" defer></script>
+</body>
+</html>

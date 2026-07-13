@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#15142a">
+  <meta name="description" content="Drift is an adaptive sleep companion combining sound, breath, and gentle screen-free routines.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Drift — A softer landing for your day</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Drift home">
+      <svg viewBox="0 0 36 36" aria-hidden="true"><path d="M29.2 22.7A12.8 12.8 0 0 1 13.3 6.8a12 12 0 1 0 15.9 15.9Z"/></svg>
+      <span>drift</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#ritual">The ritual</a>
+      <a href="#science">How it helps</a>
+      <button class="nav-cta" type="button" data-open-ritual>Begin tonight</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Tonight begins here</p>
+        <h1>A softer landing<br>for <em>your day.</em></h1>
+        <p class="hero-lede">Drift brings sound, breath, and small evening cues into one gentle rhythm—then gets quieter as you do.</p>
+        <div class="hero-actions">
+          <button class="button button-primary" type="button" data-open-ritual>
+            Start winding down <span aria-hidden="true">↗</span>
+          </button>
+          <button class="sound-button" id="sound-toggle" type="button" aria-pressed="false">
+            <span class="sound-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <span class="sound-label">Hear a soundscape</span>
+          </button>
+        </div>
+        <p class="sound-note" id="sound-status" aria-live="polite">A locally generated, gentle night tone</p>
+      </div>
+
+      <div class="night-orbit" aria-label="Tonight's suggested wind-down: 18 minutes, beginning at 10:12 PM">
+        <div class="orbit orbit-outer"></div>
+        <div class="orbit orbit-inner"></div>
+        <span class="star star-one">✦</span>
+        <span class="star star-two">·</span>
+        <span class="star star-three">✧</span>
+        <div class="moon">
+          <span class="moon-glow"></span>
+          <span class="moon-body"></span>
+        </div>
+        <div class="ritual-card">
+          <div>
+            <span>Tonight’s drift</span>
+            <strong>18 min</strong>
+          </div>
+          <div class="ritual-progress" aria-hidden="true"><span></span></div>
+          <div class="ritual-time"><span>Begin</span><strong>10:12 <small>pm</small></strong></div>
+        </div>
+        <p class="orbit-caption">Your evening, gently re-tuned.</p>
+      </div>
+    </section>
+
+    <section class="ritual-section" id="ritual">
+      <div class="section-heading">
+        <p class="eyebrow"><span></span> Your rhythm, not a routine</p>
+        <h2>Three quiet cues.<br><em>One easier night.</em></h2>
+        <p>Drift notices what helps you settle and gently reshapes each evening—without another screen to manage.</p>
+      </div>
+      <div class="cue-list">
+        <article class="cue-card cue-sound">
+          <p class="cue-number">01</p>
+          <div class="cue-visual" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+          <h3>Sound that softens</h3>
+          <p>Layered, low-frequency soundscapes fade as your breathing slows.</p>
+        </article>
+        <article class="cue-card cue-breath">
+          <p class="cue-number">02</p>
+          <div class="cue-visual" aria-hidden="true"><span></span><i>4 · 6</i></div>
+          <h3>Breath you can feel</h3>
+          <p>Subtle haptic pulses guide longer exhales—no counting, no glowing screen.</p>
+        </article>
+        <article class="cue-card cue-release">
+          <p class="cue-number">03</p>
+          <div class="cue-visual" aria-hidden="true"><span>unwind</span><i></i></div>
+          <h3>A cue to let go</h3>
+          <p>Small rituals teach your body when the day is finished and rest can begin.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="adaptive" id="science">
+      <div class="adaptive-visual" aria-hidden="true">
+        <div class="device-ring"><div class="device"><span></span><i></i></div></div>
+        <p>screen-free<br>by design</p>
+      </div>
+      <div class="adaptive-copy">
+        <p class="eyebrow"><span></span> Learns softly</p>
+        <h2>Built around the way<br><em>you actually rest.</em></h2>
+        <p>Some nights need more space than others. Drift adapts the pace, sound, and length of your routine using only the signals you choose to share.</p>
+        <div class="principles">
+          <div><strong>01</strong><span><b>No streaks to keep</b>Rest isn’t a score. Miss a night and nothing is lost.</span></div>
+          <div><strong>02</strong><span><b>Private by default</b>Your patterns stay yours, stored on your device.</span></div>
+          <div><strong>03</strong><span><b>Quieter over time</b>As cues become familiar, Drift gently fades away.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <p class="eyebrow"><span></span> When you’re ready</p>
+      <h2>Let the day<br><em>drift away.</em></h2>
+      <button class="button button-light" type="button" data-open-ritual>Begin tonight <span aria-hidden="true">↗</span></button>
+      <p>No goals. No streaks. Just a gentler way to sleep.</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#top"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M29.2 22.7A12.8 12.8 0 0 1 13.3 6.8a12 12 0 1 0 15.9 15.9Z"/></svg><span>drift</span></a>
+    <p>© 2026 Drift Sleep</p>
+    <p>Made for slower evenings.</p>
+  </footer>
+
+  <dialog id="ritual-dialog" aria-labelledby="ritual-title">
+    <div class="dialog-top"><span class="dialog-mark">☾</span><button type="button" class="dialog-close" aria-label="Close wind-down plan">×</button></div>
+    <p class="eyebrow"><span></span> Your wind-down</p>
+    <h2 id="ritual-title">Let’s make a little<br>room for rest.</h2>
+    <p class="dialog-intro">Tonight’s gentle 18-minute ritual is ready. Place your phone face down when you begin.</p>
+    <ol>
+      <li><span>03 min</span><strong>Arrive</strong><small>Put the day down</small></li>
+      <li><span>06 min</span><strong>Breathe</strong><small>Follow the slow pulse</small></li>
+      <li><span>09 min</span><strong>Drift</strong><small>Let the sound fade</small></li>
+    </ol>
+    <button type="button" class="button button-primary start-ritual">Start 18 minutes <span aria-hidden="true">→</span></button>
+    <p class="ritual-live" aria-live="polite"></p>
+  </dialog>
+</body>
+</html>

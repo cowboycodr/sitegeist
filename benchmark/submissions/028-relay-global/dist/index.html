@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Relay Global connects freight routes, handoffs, and operations in real time.">
+  <meta name="theme-color" content="#071b18">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Relay Global — Every shipment, perfectly in motion.</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Relay Global home">
+      <svg viewBox="0 0 36 36" aria-hidden="true"><path d="M18 3 30.99 10.5v15L18 33 5.01 25.5v-15L18 3Z"/><path d="m10.5 14.2 7.5-4.3 7.5 4.3v7.6L18 26.1l-7.5-4.3v-7.6Z"/></svg>
+      <span>RELAY<span>GLOBAL</span></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#network">Network</a>
+      <a href="#visibility">Visibility</a>
+      <a href="#operations">Operations</a>
+    </nav>
+    <a class="header-cta" href="#track">Track shipment <span aria-hidden="true">↗</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span class="sr-only">Open menu</span></button>
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <a href="#network">Network</a><a href="#visibility">Visibility</a><a href="#operations">Operations</a><a href="#track">Track a shipment</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Connected freight network</p>
+        <h1>Every shipment,<br><em>perfectly in motion.</em></h1>
+        <p class="lede">One intelligent network for global freight. See every route, predict every handoff, and keep your operation moving without pause.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#track">Track a shipment <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="#network">Explore the network <span aria-hidden="true">↘</span></a>
+        </div>
+        <div class="proof" aria-label="Key network statistics">
+          <div><strong>180+</strong><span>Countries connected</span></div>
+          <div><strong>99.8%</strong><span>On-time handoffs</span></div>
+          <div><strong>24/7</strong><span>Live visibility</span></div>
+        </div>
+      </div>
+
+      <div class="network-visual" aria-label="Animated abstract global freight network">
+        <div class="visual-label top-label"><span></span> LIVE NETWORK</div>
+        <svg class="globe" viewBox="0 0 700 700" role="img" aria-label="Connected freight routes across a globe">
+          <defs>
+            <radialGradient id="sphere" cx="40%" cy="34%"><stop offset="0" stop-color="#21443d"/><stop offset=".7" stop-color="#0b2723"/><stop offset="1" stop-color="#071b18"/></radialGradient>
+            <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <clipPath id="orb"><circle cx="350" cy="350" r="265"/></clipPath>
+          </defs>
+          <circle cx="350" cy="350" r="268" fill="url(#sphere)" stroke="#466a60" stroke-width="1"/>
+          <g clip-path="url(#orb)" fill="none" stroke="#3d5f56" stroke-width="1" opacity=".65">
+            <ellipse cx="350" cy="350" rx="265" ry="90"/><ellipse cx="350" cy="350" rx="265" ry="170"/><ellipse cx="350" cy="350" rx="120" ry="265"/><ellipse cx="350" cy="350" rx="210" ry="265"/>
+            <path d="M80 350h540M95 260h510M95 440h510"/>
+          </g>
+          <g fill="#b9f227" opacity=".18" clip-path="url(#orb)">
+            <path d="M140 230c38-39 90-61 147-66l-15 28-41 12-27 34-45 6-19-14Zm216-65c58 0 112 19 155 53l-29 27-55-4-36-28-49-10 14-38Zm-94 119 61-34 61 17 29 53-26 39-64 6-36-31-25-50Zm202 91 72-23 46 33-22 55-64 26-37-37 5-54Zm-279 64 72-24 43 40-17 56-67 6-44-37 13-41Z"/>
+          </g>
+          <g class="routes" fill="none" stroke="#c8ff34" stroke-width="2" stroke-linecap="round" filter="url(#glow)">
+            <path pathLength="100" d="M168 266Q302 98 477 228"/>
+            <path pathLength="100" d="M478 228Q612 345 499 457"/>
+            <path pathLength="100" d="M499 457Q320 577 204 444"/>
+            <path pathLength="100" d="M204 444Q161 361 168 266"/>
+            <path pathLength="100" d="M168 266Q336 288 499 457"/>
+          </g>
+          <g class="nodes" fill="#d5ff5d" stroke="#071b18" stroke-width="5">
+            <circle cx="168" cy="266" r="8"/><circle cx="477" cy="228" r="8"/><circle cx="499" cy="457" r="8"/><circle cx="204" cy="444" r="8"/><circle cx="345" cy="350" r="7"/>
+          </g>
+          <g class="pulse"><circle cx="477" cy="228" r="17" fill="none" stroke="#c8ff34"/><circle cx="477" cy="228" r="26" fill="none" stroke="#c8ff34" opacity=".3"/></g>
+        </svg>
+        <div class="route-card route-card-a"><span class="status-dot"></span><div><small>IN TRANSIT</small><strong>RTM → SIN</strong></div><b>18h 42m</b></div>
+        <div class="route-card route-card-b"><span class="status-dot"></span><div><small>HANDOFF COMPLETE</small><strong>LAX → NRT</strong></div><b>ON TIME</b></div>
+        <div class="orbit-label orbit-a">01 / OCEAN</div><div class="orbit-label orbit-b">03 / AIR</div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Freight modes"><div><span>OCEAN FREIGHT</span><i>✦</i><span>AIR CARGO</span><i>✦</i><span>GROUND TRANSPORT</span><i>✦</i><span>RAIL NETWORKS</span><i>✦</i><span>OCEAN FREIGHT</span><i>✦</i></div></section>
+
+    <section class="network-section" id="network">
+      <div class="section-intro">
+        <p class="eyebrow dark"><span></span> One network. Every mode.</p>
+        <h2>Freight moves better<br>when everything <em>connects.</em></h2>
+      </div>
+      <p class="section-copy">Relay brings routes, carriers, terminals, and teams into one shared operating picture—so complexity becomes clarity.</p>
+      <div class="feature-grid">
+        <article id="visibility"><span class="feature-number">01</span><div class="feature-icon">◎</div><h3>Live visibility</h3><p>Follow every shipment and milestone with precise, real-time location intelligence.</p><a href="#track" aria-label="Explore live visibility">↗</a></article>
+        <article><span class="feature-number">02</span><div class="feature-icon">⌁</div><h3>Predictive routes</h3><p>Anticipate delays and adapt routes before disruption reaches your supply chain.</p><a href="#track" aria-label="Explore predictive routes">↗</a></article>
+        <article id="operations"><span class="feature-number">03</span><div class="feature-icon">◇</div><h3>Seamless handoffs</h3><p>Keep freight moving across borders, carriers, and modes without losing the signal.</p><a href="#track" aria-label="Explore seamless handoffs">↗</a></article>
+      </div>
+    </section>
+
+    <section class="track-section" id="track">
+      <div><p class="eyebrow"><span></span> Shipment intelligence</p><h2>Know where it is.<br><em>Know what’s next.</em></h2></div>
+      <form class="tracker" aria-label="Shipment tracking demo">
+        <label for="tracking-id">Tracking or booking number</label>
+        <div><input id="tracking-id" name="tracking-id" autocomplete="off" placeholder="e.g. RLY-849201" required><button type="submit">Track <span aria-hidden="true">→</span></button></div>
+        <p class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#top"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M18 3 30.99 10.5v15L18 33 5.01 25.5v-15L18 3Z"/><path d="m10.5 14.2 7.5-4.3 7.5 4.3v7.6L18 26.1l-7.5-4.3v-7.6Z"/></svg><span>RELAY<span>GLOBAL</span></span></a><p>Every shipment, perfectly in motion.</p><span>© 2026 Relay Global</span></footer>
+</body>
+</html>

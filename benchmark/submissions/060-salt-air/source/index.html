@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Salt Air is a quiet coastal inn shaped by open windows, local food, weathered timber, and slow mornings.">
+  <meta name="theme-color" content="#173f49">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Salt Air — Rooms by the sea</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Salt Air home">
+      <svg viewBox="0 0 48 30" aria-hidden="true"><path d="M2 17c7-8 14-8 22 0s15 8 22 0M2 25c7-8 14-8 22 0s15 8 22 0"/></svg>
+      <span>SALT AIR</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span class="sr-only">Menu</span></button>
+    <nav id="site-nav" aria-label="Main navigation">
+      <a href="#rooms">Rooms</a>
+      <a href="#table">The table</a>
+      <a href="#coast">The coast</a>
+      <button class="nav-book" type="button" data-open-booking>Book your stay</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 1000 850" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#b7d2d1"/><stop offset="1" stop-color="#e8e0cd"/></linearGradient>
+            <linearGradient id="sea" x1="0" x2="1"><stop stop-color="#406f76"/><stop offset="1" stop-color="#82a9a5"/></linearGradient>
+            <filter id="grain"><feTurbulence baseFrequency=".8" numOctaves="2" seed="3" result="n"/><feBlend in="SourceGraphic" in2="n" mode="soft-light"/></filter>
+          </defs>
+          <rect width="1000" height="520" fill="url(#sky)"/>
+          <path d="M0 420 Q160 380 330 430T670 414T1000 425V850H0Z" fill="url(#sea)"/>
+          <g fill="none" stroke="#e6e2d6" opacity=".58">
+            <path d="M-10 480Q160 442 320 483T640 473T1010 460"/>
+            <path d="M-20 555Q150 520 320 554T660 544T1020 530"/>
+            <path d="M-20 660Q165 625 350 655T720 648T1020 620"/>
+          </g>
+          <path d="M90 580Q240 505 400 530L480 850H40Z" fill="#c3b28d"/>
+          <path d="M56 772q155-89 341-90" fill="none" stroke="#efe7d3" stroke-width="8" opacity=".7"/>
+          <g stroke="#16424b" stroke-width="4" fill="none" stroke-linecap="round">
+            <path d="M735 213q38-31 76 0q38-31 76 0"/>
+            <path d="M645 285q25-20 50 0q25-20 50 0"/>
+          </g>
+          <g fill="#6f745d"><path d="M68 850q30-155 56-221q-13 109-8 221z"/><path d="M129 850q-3-146 39-253q-23 134-6 253z"/><path d="M185 850q4-104 67-196q-39 113-36 196z"/></g>
+          <rect width="1000" height="850" opacity=".1" filter="url(#grain)"/>
+        </svg>
+        <p class="weather"><span>52°</span> A soft westerly</p>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">Rooms by the sea</p>
+        <h1 id="hero-title">Stay close<br>to the tide.</h1>
+        <p class="intro">A small inn on the northern shore, made for open windows, sandy feet, and nowhere else to be.</p>
+        <div class="hero-actions">
+          <button class="button primary" type="button" data-open-booking>Book your stay <span aria-hidden="true">→</span></button>
+          <a class="text-link" href="#coast">Explore the coast <span aria-hidden="true">↘</span></a>
+        </div>
+        <div class="coordinates"><span>44° 27′ N</span><span>68° 12′ W</span></div>
+      </div>
+    </section>
+
+    <section class="manifesto section-pad">
+      <p class="eyebrow">At Salt Air</p>
+      <p class="statement">The windows stay open. Breakfast follows the boats. And the day begins whenever you’re ready.</p>
+      <svg class="shell-mark" viewBox="0 0 90 90" aria-hidden="true"><path d="M45 79C18 74 9 51 19 31 29 10 58 7 73 25 86 41 76 61 58 59 44 58 37 44 45 35 51 28 63 32 62 41"/></svg>
+    </section>
+
+    <section class="rooms section-pad" id="rooms" aria-labelledby="rooms-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Sleep well</p><h2 id="rooms-title">Three rooms.<br>One horizon.</h2></div>
+        <p>Whitewashed walls, linen sheets, and the kind of quiet that only comes from being at the edge of things.</p>
+      </div>
+      <div class="room-grid">
+        <article class="room-card room-one">
+          <div class="room-illustration" aria-hidden="true"><span class="sun"></span><span class="bed"></span><span class="window"></span></div>
+          <div class="room-meta"><h3>The Lookout</h3><p>King · Sea view · 2 guests</p><span>From $245</span></div>
+        </article>
+        <article class="room-card room-two">
+          <div class="room-illustration" aria-hidden="true"><span class="sun"></span><span class="bed"></span><span class="window"></span></div>
+          <div class="room-meta"><h3>The Eaves</h3><p>Queen · Skylight · 2 guests</p><span>From $195</span></div>
+        </article>
+        <article class="room-card room-three">
+          <div class="room-illustration" aria-hidden="true"><span class="sun"></span><span class="bed"></span><span class="window"></span></div>
+          <div class="room-meta"><h3>The Dune</h3><p>King · Garden door · 2 guests</p><span>From $220</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="table-section" id="table" aria-labelledby="table-title">
+      <div class="table-art" aria-hidden="true">
+        <div class="plate"><span></span></div><div class="bread"></div><div class="napkin"></div><div class="sprig">⌇</div>
+      </div>
+      <div class="table-copy">
+        <p class="eyebrow">From the morning boats</p>
+        <h2 id="table-title">A table set<br>by the tide.</h2>
+        <p>Breakfast is warm bread, good butter, and whatever came ashore nearby. At dusk, we pour something cold and let the light linger.</p>
+        <div class="hours"><span>Breakfast<br><b>7 — 11</b></span><span>Drinks & small plates<br><b>5 — late</b></span></div>
+      </div>
+    </section>
+
+    <section class="coast section-pad" id="coast" aria-labelledby="coast-title">
+      <div class="section-heading coast-head">
+        <div><p class="eyebrow">Out the front door</p><h2 id="coast-title">Follow the<br>weather.</h2></div>
+        <p>No itinerary required. We’ll lend you a field map, a picnic blanket, and our notes on where the seals sleep.</p>
+      </div>
+      <div class="map" role="img" aria-label="Illustrated local map showing Salt Air, Lantern Cove, the tide pools and North Head trail">
+        <svg viewBox="0 0 1200 480">
+          <path class="land" d="M0 65q145 40 230 9 98-35 158 44 46 62 122 52 90-12 124 56 24 49 119 52 139 4 160 92 11 45 287 42v68H0Z"/>
+          <g class="contours"><path d="M0 118q150 45 252 8t179 61q47 65 146 45t157 64q54 79 194 75"/><path d="M0 190q190 40 289 7t190 67q46 52 138 42t185 80"/></g>
+          <path class="trail" d="M163 184q86 46 197 28t160 83q67 95 213 40t184 54"/>
+          <g class="map-labels"><text x="103" y="166">NORTH HEAD</text><text x="406" y="318">TIDE POOLS</text><text x="758" y="325">LANTERN COVE</text><text x="947" y="385">SALT AIR</text></g>
+          <g class="markers"><circle cx="153" cy="187" r="7"/><circle cx="465" cy="285" r="7"/><circle cx="819" cy="341" r="7"/><path d="M969 337l14 23h-28z"/></g>
+          <g class="birds"><path d="M220 50q18-15 36 0q18-15 36 0M680 110q14-12 28 0q14-12 28 0"/></g>
+        </svg>
+      </div>
+      <div class="coast-list">
+        <span><b>01</b> Swim at Lantern Cove</span><span><b>02</b> Walk the North Head</span><span><b>03</b> Read the tide pools</span>
+      </div>
+    </section>
+
+    <section class="booking-band" aria-labelledby="booking-title">
+      <p class="eyebrow">Come as you are</p>
+      <h2 id="booking-title">The sea is<br>just outside.</h2>
+      <button class="button light" type="button" data-open-booking>Find your room <span aria-hidden="true">→</span></button>
+      <p class="small-note">Open March through November · Two-night weekends</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#top"><svg viewBox="0 0 48 30" aria-hidden="true"><path d="M2 17c7-8 14-8 22 0s15 8 22 0M2 25c7-8 14-8 22 0s15 8 22 0"/></svg><span>SALT AIR</span></a>
+    <p>12 Breakwater Lane<br>Lantern Cove, Maine</p>
+    <p>stay@saltairinn.com<br>+1 207 412 0618</p>
+    <p class="footer-note">Made slowly by the shore.<br>© <span id="year">2026</span> Salt Air</p>
+  </footer>
+
+  <dialog class="booking-dialog" aria-labelledby="dialog-title">
+    <button class="dialog-close" type="button" aria-label="Close booking window">×</button>
+    <p class="eyebrow">Plan your stay</p>
+    <h2 id="dialog-title">A room by<br>the water.</h2>
+    <p>Choose your dates and we’ll help you find the right room.</p>
+    <div class="date-grid">
+      <label>Arrival<input type="date" id="arrival"></label>
+      <label>Departure<input type="date" id="departure"></label>
+    </div>
+    <label>Guests<select id="guests"><option>1 guest</option><option selected>2 guests</option></select></label>
+    <button class="button primary check-button" type="button">Check availability <span aria-hidden="true">→</span></button>
+    <p class="booking-response" role="status" aria-live="polite"></p>
+  </dialog>
+</body>
+</html>

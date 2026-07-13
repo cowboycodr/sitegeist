@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Latent Garden is an optimistic research studio exploring creative models through organic simulations and open essays.">
+  <meta name="theme-color" content="#edff73">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+  <title>Latent Garden — Creative Intelligence</title>
+  <style>
+    :root { --ink:#153128; --acid:#edff73; --cream:#f5f0df; --mint:#bde8d4; --pink:#f3b7cf; --blue:#b7cff8; --orange:#f2a65a; --line:rgba(21,49,40,.22); --serif:Georgia,'Times New Roman',serif; --sans:Arial,Helvetica,sans-serif; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--cream); color:var(--ink); font-family:var(--sans); overflow-x:hidden; }
+    button,a { color:inherit; }
+    a { text-decoration:none; }
+    button { font:inherit; }
+    :focus-visible { outline:3px solid var(--orange); outline-offset:4px; }
+    .skip { position:fixed; top:8px; left:8px; transform:translateY(-150%); z-index:50; background:var(--ink); color:white; padding:10px 14px; border-radius:3px; }
+    .skip:focus { transform:none; }
+    .hero { min-height:100svh; background:var(--acid); position:relative; display:flex; flex-direction:column; overflow:hidden; border-bottom:1px solid var(--ink); }
+    nav { height:78px; display:flex; align-items:center; justify-content:space-between; padding:0 3vw; border-bottom:1px solid var(--ink); position:relative; z-index:10; }
+    .brand { display:flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; }
+    .brand-mark { width:24px; height:24px; border:1.5px solid currentColor; border-radius:50% 50% 45% 55%; display:grid; place-items:center; transform:rotate(-12deg); }
+    .brand-mark::after { content:''; width:5px; height:5px; border-radius:50%; background:currentColor; }
+    .navlinks { display:flex; align-items:center; gap:28px; font-size:12px; text-transform:uppercase; letter-spacing:.08em; }
+    .navlinks a { border-bottom:1px solid transparent; padding:6px 0; }
+    .navlinks a:hover { border-color:currentColor; }
+    .index-pill { background:var(--ink); color:var(--acid); border-radius:99px; padding:10px 15px !important; }
+    .hero-copy { position:relative; z-index:3; padding:7vh 3vw 5vh; display:flex; flex-direction:column; flex:1; justify-content:center; }
+    .eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.16em; display:flex; align-items:center; gap:9px; }
+    .eyebrow::before { content:''; width:7px; height:7px; background:var(--ink); border-radius:50%; }
+    h1 { margin:2vh 0 0; max-width:960px; font-family:var(--serif); font-size:clamp(65px,10.6vw,158px); font-weight:400; letter-spacing:-.065em; line-height:.78; position:relative; }
+    h1 span { display:block; margin-left:10.5vw; font-style:italic; }
+    .hero-bottom { display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:end; margin-top:8vh; }
+    .intro { max-width:480px; margin:0; font-family:var(--serif); font-size:clamp(19px,2vw,27px); line-height:1.12; letter-spacing:-.02em; }
+    .actions { justify-self:end; display:flex; gap:12px; flex-wrap:wrap; }
+    .btn { border:1px solid var(--ink); border-radius:100px; padding:14px 20px; background:transparent; font-size:12px; font-weight:700; letter-spacing:.04em; display:inline-flex; align-items:center; gap:18px; transition:.2s; cursor:pointer; }
+    .btn::after { content:'↗'; font-size:16px; }
+    .btn.dark { background:var(--ink); color:white; }
+    .btn:hover { transform:translateY(-3px); box-shadow:0 4px 0 rgba(21,49,40,.2); }
+    .organism { position:absolute; z-index:1; top:9%; right:2%; width:min(45vw,620px); aspect-ratio:1; pointer-events:none; opacity:.95; }
+    .cell { position:absolute; border:1.5px solid var(--ink); border-radius:48% 52% 58% 42% / 45% 35% 65% 55%; animation:drift 8s ease-in-out infinite alternate; }
+    .c1 { width:60%; height:50%; left:18%; top:18%; background:var(--pink); transform:rotate(16deg); }
+    .c2 { width:36%; height:34%; left:40%; top:37%; background:var(--blue); animation-delay:-2s; transform:rotate(-24deg); }
+    .c3 { width:23%; height:19%; left:25%; top:48%; background:var(--orange); animation-delay:-4s; }
+    .cell i { width:14%; aspect-ratio:1; border-radius:50%; background:var(--ink); position:absolute; left:48%; top:41%; }
+    .orbit { position:absolute; inset:10%; border:1px dashed rgba(21,49,40,.35); border-radius:50%; animation:spin 24s linear infinite; }
+    .orbit::after { content:''; position:absolute; width:12px; height:12px; background:var(--ink); border-radius:50%; top:8%; left:18%; }
+    @keyframes drift { to { transform:translate(14px,-16px) rotate(8deg) scale(1.03); } }
+    @keyframes spin { to { transform:rotate(360deg); } }
+    .ticker { border-bottom:1px solid var(--ink); height:47px; display:flex; align-items:center; overflow:hidden; background:var(--cream); }
+    .ticker-track { white-space:nowrap; font:italic 17px var(--serif); animation:marquee 28s linear infinite; }
+    .ticker-track span { padding:0 30px; }
+    @keyframes marquee { to { transform:translateX(-50%); } }
+    section { scroll-margin-top:20px; }
+    .section-head { padding:90px 3vw 45px; display:grid; grid-template-columns:1fr 2fr; align-items:start; }
+    .section-head h2 { font:400 clamp(45px,6.5vw,92px)/.9 var(--serif); letter-spacing:-.055em; margin:0; }
+    .section-head h2 em { font-weight:400; }
+    .section-head p { max-width:360px; justify-self:end; margin:5px 0; font-size:14px; line-height:1.45; }
+    .experiments { background:var(--ink); color:var(--cream); padding-bottom:90px; }
+    .experiments .section-head { border-bottom:1px solid rgba(245,240,223,.28); }
+    .lab-grid { display:grid; grid-template-columns:1.15fr .85fr .85fr; margin:0 3vw; border-left:1px solid rgba(245,240,223,.35); }
+    .specimen { min-height:430px; padding:18px; border-right:1px solid rgba(245,240,223,.35); border-bottom:1px solid rgba(245,240,223,.35); display:flex; flex-direction:column; position:relative; overflow:hidden; cursor:pointer; background:none; color:inherit; text-align:left; }
+    .specimen:hover .visual { transform:scale(.97); }
+    .specimen:focus-visible { outline-color:var(--acid); outline-offset:-5px; }
+    .specimen .meta { display:flex; justify-content:space-between; font-size:10px; letter-spacing:.12em; text-transform:uppercase; position:relative; z-index:2; }
+    .visual { flex:1; min-height:255px; display:grid; place-items:center; transition:.35s; position:relative; }
+    .blob { width:230px; height:230px; background:var(--acid); border-radius:62% 38% 45% 55% / 42% 58% 42% 58%; position:relative; box-shadow:inset -28px -18px 0 var(--mint); }
+    .blob::before,.blob::after { content:''; position:absolute; border-radius:50%; background:var(--ink); }
+    .blob::before { width:18px; height:18px; left:28%; top:35%; }
+    .blob::after { width:9px; height:9px; right:25%; top:57%; }
+    .rings { width:220px; height:220px; border:1px solid var(--pink); border-radius:50%; position:relative; }
+    .rings::before,.rings::after { content:''; position:absolute; border:1px solid var(--pink); border-radius:50%; inset:22%; transform:rotateX(63deg) rotateZ(24deg); }
+    .rings::after { inset:-1px; transform:rotateY(60deg) rotateZ(60deg); }
+    .rings i { width:34px; height:34px; border-radius:50%; background:var(--pink); position:absolute; top:43%; left:43%; }
+    .sprout { width:7px; height:190px; background:var(--blue); border-radius:99px; position:relative; transform:rotate(8deg); }
+    .sprout::before,.sprout::after { content:''; position:absolute; width:100px; height:58px; background:var(--blue); border-radius:100% 5% 100% 5%; }
+    .sprout::before { right:0; top:42px; transform:rotate(-18deg); transform-origin:right bottom; }
+    .sprout::after { left:0; top:99px; border-radius:5% 100% 5% 100%; transform:rotate(23deg); transform-origin:left bottom; background:var(--pink); }
+    .specimen h3 { font:400 28px var(--serif); margin:8px 0 5px; letter-spacing:-.03em; }
+    .specimen .desc { font-size:12px; opacity:.72; max-width:300px; line-height:1.4; }
+    .specimen.active { background:#24443a; }
+    .specimen.active .visual { transform:scale(1.08) rotate(3deg); }
+    .detail { grid-column:1/-1; display:none; padding:28px; border-right:1px solid rgba(245,240,223,.35); border-bottom:1px solid rgba(245,240,223,.35); grid-template-columns:1fr 2fr; gap:30px; }
+    .detail.show { display:grid; }
+    .detail strong { color:var(--acid); text-transform:uppercase; font-size:10px; letter-spacing:.15em; }
+    .detail p { margin:0; max-width:670px; font:21px/1.3 var(--serif); }
+    .papers { background:var(--cream); padding-bottom:100px; }
+    .paper-list { border-top:1px solid var(--ink); margin:0 3vw; }
+    .paper { display:grid; grid-template-columns:85px 1.4fr 1fr 60px; gap:20px; align-items:center; min-height:112px; border-bottom:1px solid var(--ink); transition:.2s; }
+    .paper:hover { padding-left:12px; background:var(--acid); }
+    .paper .num { font:italic 20px var(--serif); }
+    .paper h3 { font:400 clamp(22px,3vw,36px) var(--serif); margin:0; letter-spacing:-.03em; }
+    .paper p { font-size:12px; line-height:1.4; margin:0; max-width:300px; }
+    .paper .arrow { border:1px solid var(--ink); border-radius:50%; width:42px; height:42px; display:grid; place-items:center; font-size:19px; }
+    .manifesto { background:var(--mint); border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); padding:11vw 6vw; position:relative; overflow:hidden; }
+    .manifesto blockquote { position:relative; z-index:2; margin:0 auto; max-width:1120px; text-align:center; font:400 clamp(42px,7vw,102px)/.95 var(--serif); letter-spacing:-.055em; }
+    .manifesto em { font-weight:400; }
+    .seed { width:240px; height:120px; background:var(--pink); position:absolute; border:1px solid var(--ink); border-radius:100% 0 100% 0; right:-45px; bottom:-35px; transform:rotate(-18deg); }
+    footer { background:var(--acid); padding:38px 3vw 20px; }
+    .footer-top { display:grid; grid-template-columns:2fr 1fr; min-height:230px; }
+    footer h2 { font:400 clamp(50px,8vw,110px)/.85 var(--serif); letter-spacing:-.06em; margin:0; }
+    footer h2 em { display:block; margin-left:12vw; }
+    .footer-links { display:grid; grid-template-columns:1fr 1fr; gap:20px; font-size:12px; line-height:2; }
+    .footer-links strong { display:block; text-transform:uppercase; letter-spacing:.12em; margin-bottom:8px; }
+    .footer-links a { display:block; width:max-content; border-bottom:1px solid transparent; }
+    .footer-links a:hover { border-color:currentColor; }
+    .legal { border-top:1px solid var(--ink); padding-top:16px; display:flex; justify-content:space-between; font-size:10px; text-transform:uppercase; letter-spacing:.09em; }
+    @media (max-width:800px) {
+      nav { height:64px; } .navlinks a:not(.index-pill) { display:none; }
+      .hero-copy { padding-top:5vh; justify-content:flex-end; } h1 { font-size:clamp(62px,20vw,110px); line-height:.81; } h1 span { margin-left:0; }
+      .organism { width:84vw; right:-24vw; top:10%; opacity:.75; }
+      .hero-bottom { grid-template-columns:1fr; margin-top:12vh; } .actions { justify-self:start; }
+      .section-head { grid-template-columns:1fr; gap:24px; padding-top:65px; } .section-head p { justify-self:start; }
+      .lab-grid { grid-template-columns:1fr; } .specimen { min-height:390px; } .detail { grid-template-columns:1fr; }
+      .paper { grid-template-columns:45px 1fr 48px; padding:20px 0; } .paper p { display:none; }
+      .footer-top { grid-template-columns:1fr; gap:60px; } .footer-links { margin-bottom:40px; }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition:none !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="hero">
+    <nav aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Latent Garden home"><span class="brand-mark"></span> Latent Garden</a>
+      <div class="navlinks"><a href="#experiments">Experiments</a><a href="#papers">Papers</a><a href="#about">Ethos</a><a class="index-pill" href="#papers">Research index</a></div>
+    </nav>
+    <div class="organism" aria-hidden="true"><div class="orbit"></div><div class="cell c1"><i></i></div><div class="cell c2"><i></i></div><div class="cell c3"><i></i></div></div>
+    <div class="hero-copy" id="top">
+      <div class="eyebrow">Creative intelligence · Chicago / Everywhere</div>
+      <h1>Intelligence <span>should feel alive.</span></h1>
+      <div class="hero-bottom">
+        <p class="intro">We grow creative models in public—studying emergence, imagination, and the lively space between human and machine.</p>
+        <div class="actions"><a class="btn dark" href="#experiments">Explore experiments</a><a class="btn" href="#papers">Read our papers</a></div>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>Models are not machines. They are environments.</span> ✣ <span>Research can be rigorous and full of wonder.</span> ✣ <span>Models are not machines. They are environments.</span> ✣ <span>Research can be rigorous and full of wonder.</span> ✣</div></div>
+    <section class="experiments" id="experiments">
+      <div class="section-head"><div><div class="eyebrow">Field notes · 01—03</div><h2>Living<br><em>experiments</em></h2></div><p>Small worlds for asking large questions. Select a specimen to open its field note.</p></div>
+      <div class="lab-grid">
+        <button class="specimen" type="button" aria-expanded="false" data-note="A shared canvas where image models respond to one another’s marks. Unexpected visual dialects emerge without a central director."><span class="meta"><span>LG–01 / Active</span><span>2026</span></span><span class="visual"><span class="blob"></span></span><span><h3>Symbiotic Sketchbook</h3><span class="desc">Co-drawing agents discover a visual language.</span></span></button>
+        <button class="specimen" type="button" aria-expanded="false" data-note="A slow simulation of memory and forgetting. Concepts strengthen through contact, then compost into nutrients for entirely new associations."><span class="meta"><span>LG–02 / Growing</span><span>2026</span></span><span class="visual"><span class="rings"><i></i></span></span><span><h3>Memory Weather</h3><span class="desc">What if forgetting makes a model more creative?</span></span></button>
+        <button class="specimen" type="button" aria-expanded="false" data-note="An open-ended ecology of tiny language models. Each has a narrow vocabulary; together, they write strange and tender micro-fictions."><span class="meta"><span>LG–03 / Seed</span><span>2025</span></span><span class="visual"><span class="sprout"></span></span><span><h3>Many Small Voices</h3><span class="desc">Collective stories from limited vocabularies.</span></span></button>
+        <div class="detail" aria-live="polite"><strong>Selected field note</strong><p></p></div>
+      </div>
+    </section>
+    <section class="papers" id="papers">
+      <div class="section-head"><div><div class="eyebrow">Open knowledge</div><h2>Notes from<br><em>the garden</em></h2></div><p>Essays, methods, and provocations. Written for researchers, artists, and anyone curious about more-than-mechanical intelligence.</p></div>
+      <div class="paper-list">
+        <a class="paper" href="#paper-one" id="paper-one"><span class="num">01</span><h3>Against the immaculate model</h3><p>Why traces, accidents, and adaptation belong in creative systems.</p><span class="arrow" aria-hidden="true">→</span></a>
+        <a class="paper" href="#paper-two" id="paper-two"><span class="num">02</span><h3>Ecologies of attention</h3><p>Designing model communities that notice differently, together.</p><span class="arrow" aria-hidden="true">→</span></a>
+        <a class="paper" href="#paper-three" id="paper-three"><span class="num">03</span><h3>Composting the benchmark</h3><p>From static scores toward regenerative evaluation.</p><span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </section>
+    <section class="manifesto" id="about"><blockquote>We imagine intelligence as a <em>garden:</em> cultivated with care, shaped by many hands, and never entirely under control.</blockquote><div class="seed" aria-hidden="true"></div></section>
+  </main>
+  <footer>
+    <div class="footer-top"><h2>Stay<br><em>curious.</em></h2><div class="footer-links"><div><strong>Explore</strong><a href="#experiments">Experiments</a><a href="#papers">Papers</a><a href="#about">Our ethos</a></div><div><strong>Principles</strong><span>Open by default</span><br><span>Human in scale</span><br><span>Alive to surprise</span></div></div></div>
+    <div class="legal"><span>© 2026 Latent Garden</span><span>Creative intelligence, cultivated openly</span></div>
+  </footer>
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

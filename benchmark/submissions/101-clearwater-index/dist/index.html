@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a5363">
+  <meta name="description" content="Clearwater Index explains how water moves through our public system—from source to tap.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Clearwater Index — Know where every drop goes.</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Clearwater Index home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2C12 9 6 14 6 20a10 10 0 0 0 20 0C26 14 20 9 16 2Z"/><path d="M11 21c1 3 3 4 6 4"/></svg>
+      <span>Clearwater <b>Index</b></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#system">The system</a>
+      <a href="#quality">Water quality</a>
+      <a href="#projects">Projects</a>
+    </nav>
+    <a class="status-link" href="#status"><span></span> System normal</a>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Water systems <i></i> Public data</p>
+        <h1>Know where<br>every <em>drop</em> goes.</h1>
+        <p class="lede">A clear view of the water we share—from protected source to treatment, neighborhood pipes, and your tap.</p>
+        <div class="actions">
+          <a class="button primary" href="#system">Explore the system <span>↘</span></a>
+          <a class="button text-button" href="#methodology">Read the methodology <span>→</span></a>
+        </div>
+      </div>
+
+      <div class="system-card" aria-label="Illustrated water system overview">
+        <div class="card-head"><span>LIVE SYSTEM OVERVIEW</span><span class="updated">UPDATED 8:40 AM</span></div>
+        <svg class="map" viewBox="0 0 680 475" role="img" aria-labelledby="map-title map-desc">
+          <title id="map-title">Water path from ridge reservoir to homes</title>
+          <desc id="map-desc">An abstract map showing water moving from Ridge Reservoir through Northworks Treatment and three service districts.</desc>
+          <defs>
+            <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#0d6875" stroke-opacity=".08"/></pattern>
+            <linearGradient id="river" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#70d8e6"/><stop offset="1" stop-color="#1aa6b8"/></linearGradient>
+          </defs>
+          <rect width="680" height="475" fill="url(#grid)"/>
+          <path class="land" d="M-20 81C72 24 132 98 210 77s136-85 236-43c75 31 144 15 255-20v134c-70 20-133 7-211 28-118 32-186-14-288 20-93 30-153 1-222 44Z"/>
+          <path class="river" d="M31 77c71 3 92 50 147 67 76 24 137-3 197 39 65 46 83 132 158 157 47 16 93 9 162 35"/>
+          <path class="pipe" d="M155 148c58 52 94 89 155 103 67 15 105 1 152 49 37 37 42 79 110 105"/>
+          <path class="pipe thin" d="M310 251c-32 55-47 101-95 148M462 300c51-27 93-30 151-21"/>
+          <g class="node source" transform="translate(151 145)"><circle r="16"/><path d="M0-8c-3 5-7 9-7 13a7 7 0 0 0 14 0C7 1 3-3 0-8Z"/></g>
+          <g class="node plant" transform="translate(310 251)"><circle r="20"/><path d="M-8 6h16M-6 6V-5h12V6M-3-5v-5h6v5"/></g>
+          <g class="node" transform="translate(462 300)"><circle r="10"/></g>
+          <g class="node small" transform="translate(216 399)"><circle r="7"/></g>
+          <g class="node small" transform="translate(613 279)"><circle r="7"/></g>
+          <g class="node small" transform="translate(572 405)"><circle r="7"/></g>
+          <g class="label" transform="translate(67 116)"><rect width="126" height="34" rx="17"/><text x="63" y="22">RIDGE RESERVOIR</text></g>
+          <g class="label dark" transform="translate(264 271)"><rect width="159" height="34" rx="17"/><text x="79.5" y="22">NORTHWORKS PLANT</text></g>
+          <g class="map-copy"><text x="44" y="422">Protected watershed</text><text x="44" y="443">18,200 acres</text></g>
+          <g class="map-copy right"><text x="636" y="110">DAILY FLOW</text><text x="636" y="136">42.6 M gal</text></g>
+        </svg>
+        <div class="legend"><span><i class="legend-water"></i> Raw water</span><span><i class="legend-pipe"></i> Treated water</span><span><i class="legend-node"></i> Facility</span></div>
+      </div>
+    </section>
+
+    <section class="pulse" id="status" aria-labelledby="pulse-title">
+      <div class="pulse-heading"><p class="eyebrow light">Today’s system pulse</p><h2 id="pulse-title">Water at a glance</h2></div>
+      <article><div class="metric-top"><span>RESERVOIR LEVEL</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c-3 5-7 9-7 13a7 7 0 0 0 14 0c0-4-4-8-7-13Z"/></svg></div><strong>82.4<small>%</small></strong><div class="bar"><i style="--value:82.4%"></i></div><p><b>+1.2%</b> from seasonal average</p></article>
+      <article><div class="metric-top"><span>DAILY DEMAND</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16h4l2-6 3 9 2-6h5"/></svg></div><strong>38.1<small>M gal</small></strong><div class="bar amber"><i style="--value:64%"></i></div><p><b class="amber-text">Moderate</b> usage expected today</p></article>
+      <article><div class="metric-top"><span>QUALITY CHECKS</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></div><strong>124<small>/ 124</small></strong><div class="bar"><i style="--value:100%"></i></div><p><b>All checks passed</b> in the last 24 hours</p></article>
+    </section>
+
+    <section class="journey section" id="system">
+      <div class="section-intro"><p class="eyebrow">How it works</p><h2>From source<br>to <em>sink.</em></h2></div>
+      <p class="section-lede">Clean water doesn’t just happen. Follow the carefully monitored journey that brings safe, reliable water to 146,000 people every day.</p>
+      <ol class="steps">
+        <li><span>01</span><div class="step-icon">⌁</div><h3>Protected source</h3><p>Rain and snowmelt collect across a forested, monitored watershed.</p></li>
+        <li><span>02</span><div class="step-icon">✣</div><h3>Careful treatment</h3><p>Filtration and disinfection remove particles and microorganisms.</p></li>
+        <li><span>03</span><div class="step-icon">⇢</div><h3>Reliable delivery</h3><p>920 miles of public mains carry water to every service district.</p></li>
+        <li><span>04</span><div class="step-icon">⌂</div><h3>Your tap</h3><p>Continuous sampling safeguards quality all the way to your home.</p></li>
+      </ol>
+    </section>
+
+    <section class="quality section" id="quality">
+      <div class="quality-copy">
+        <p class="eyebrow light">Quality, made visible</p>
+        <h2>Tested often.<br>Reported <em>openly.</em></h2>
+        <p>We test for more than 90 substances throughout the system. Results are independently verified and published in plain language.</p>
+        <a class="button pale" href="#methodology">How we test <span>→</span></a>
+      </div>
+      <div class="quality-panel">
+        <div class="panel-top"><span>LATEST NETWORK SAMPLE</span><span>JUL 12, 2026</span></div>
+        <div class="grade"><span>A</span><div><b>All standards met</b><small>North Service District · Sample 26-0712</small></div></div>
+        <div class="test-row"><span>Turbidity</span><b>0.08 <small>NTU</small></b><i>Below limit</i></div>
+        <div class="test-row"><span>Free chlorine</span><b>0.72 <small>mg/L</small></b><i>Optimal</i></div>
+        <div class="test-row"><span>pH</span><b>7.4</b><i>Optimal</i></div>
+        <p class="panel-note">✓ Independently verified by the Regional Public Health Laboratory</p>
+      </div>
+    </section>
+
+    <section class="projects section" id="projects">
+      <div class="projects-head"><div><p class="eyebrow">Building for the next generation</p><h2>Work in progress.</h2></div><p>Planned investments that keep water safe, reliable, and affordable for the decades ahead.</p></div>
+      <div class="project-grid">
+        <article><div class="project-meta"><span>IN CONSTRUCTION</span><b>$28M</b></div><div class="project-art reservoir"><i></i><i></i><i></i></div><h3>East Ridge storage renewal</h3><p>Seismic upgrades and a new covered reservoir serving 34,000 residents.</p><div class="progress"><span><i style="--value:68%"></i></span><b>68% complete</b></div></article>
+        <article><div class="project-meta"><span>DESIGN PHASE</span><b>$12M</b></div><div class="project-art pipes"><i></i><i></i><i></i></div><h3>Central main replacement</h3><p>Replacing 5.2 miles of aging cast-iron pipe beneath Central Avenue.</p><div class="progress"><span><i style="--value:32%"></i></span><b>Design: 32%</b></div></article>
+        <article><div class="project-meta"><span>PLANNING</span><b>$6.4M</b></div><div class="project-art habitat"><i></i><i></i><i></i></div><h3>Watershed resilience</h3><p>Restoring stream banks and creating fire breaks across 420 acres.</p><div class="progress"><span><i style="--value:14%"></i></span><b>Planning: 14%</b></div></article>
+      </div>
+    </section>
+
+    <section class="methodology section" id="methodology">
+      <div><p class="eyebrow light">Behind the numbers</p><h2>Public data should<br>earn public <em>trust.</em></h2></div>
+      <div class="method-copy"><p>The Clearwater Index combines readings from treatment facilities, field crews, laboratory results, and capital planning records. Operational figures refresh daily; laboratory reports are posted after verification.</p><div class="method-list"><span><b>01</b>Direct sensor readings</span><span><b>02</b>Verified lab results</span><span><b>03</b>Published project records</span></div></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2C12 9 6 14 6 20a10 10 0 0 0 20 0C26 14 20 9 16 2Z"/></svg><span>Clearwater <b>Index</b></span></div>
+    <p>A public information service for everyone who depends on water—which is everyone.</p>
+    <a href="#top">Back to top ↑</a>
+    <small>Data current as of July 13, 2026 · Figures shown are public-service demonstration data.</small>
+  </footer>
+</body>
+</html>

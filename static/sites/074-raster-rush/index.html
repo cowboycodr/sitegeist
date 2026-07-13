@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17132b">
+  <meta name="description" content="Raster Rush is an indie studio building kinetic arcade worlds with tactile mechanics and loud color.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Raster Rush — Tiny pixels. Huge worlds.</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the game</a>
+  <div class="scanlines" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Raster Rush home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span>RASTER<br>RUSH</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#games">Games</a>
+      <a href="#studio">Studio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="sound-toggle" type="button" aria-pressed="false"><span aria-hidden="true">♪</span> Sound: off</button>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span aria-hidden="true">▶</span> Insert imagination</p>
+        <h1 id="hero-title">Tiny pixels.<br><span>Huge worlds.</span></h1>
+        <p class="intro">We build kinetic arcade worlds with tactile mechanics, surprising stories, and colors turned all the way up.</p>
+        <div class="actions">
+          <a class="button primary" href="#demo"><span aria-hidden="true">▶</span> Play the demo</a>
+          <a class="button secondary" href="#studio">Meet the crew <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="stats" aria-label="Studio stats">
+          <span><b>03</b> worlds shipped</span>
+          <span><b>12M</b> pixels pushed</span>
+          <span><b>∞</b> extra lives</span>
+        </div>
+      </div>
+
+      <div class="hero-arcade" id="demo" aria-label="Decorative arcade scene">
+        <div class="cabinet-shadow"></div>
+        <div class="cabinet">
+          <div class="cabinet-top"><span>RUSH//01</span><i></i><i></i><i></i></div>
+          <div class="screen-wrap">
+            <div class="screen" tabindex="0" aria-label="Neon Drift mini demo. Use arrow keys or the on-screen controls to move the ship.">
+              <div class="screen-hud"><span>SCORE <b id="score">00840</b></span><span>HI 42420</span></div>
+              <div class="sun" aria-hidden="true"></div>
+              <div class="mountains" aria-hidden="true"></div>
+              <div class="grid" aria-hidden="true"></div>
+              <div class="ship" id="ship" aria-hidden="true"><span></span></div>
+              <div class="spark s1" aria-hidden="true"></div><div class="spark s2" aria-hidden="true"></div><div class="spark s3" aria-hidden="true"></div>
+              <div class="screen-message">NEON DRIFT<br><small>PRESS ANY ARROW</small></div>
+            </div>
+          </div>
+          <div class="controls">
+            <div class="dpad" aria-label="Demo movement controls">
+              <button type="button" data-move="up" aria-label="Move up">▲</button>
+              <button type="button" data-move="left" aria-label="Move left">◀</button>
+              <button type="button" data-move="right" aria-label="Move right">▶</button>
+              <button type="button" data-move="down" aria-label="Move down">▼</button>
+            </div>
+            <div class="start-label">PLAYER 1<br><span>READY!</span></div>
+            <button class="arcade-button" type="button" aria-label="Boost ship"></button>
+          </div>
+        </div>
+        <div class="float-tag tag-one" aria-hidden="true">+ COMBO</div>
+        <div class="float-tag tag-two" aria-hidden="true">NEW HIGH<br>SCORE!</div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">SCROLL TO EXPLORE <span>↓</span></div>
+    </section>
+
+    <section class="games" id="games" aria-labelledby="games-title">
+      <div class="section-head">
+        <p class="eyebrow">Choose your world</p>
+        <h2 id="games-title">Now in rotation</h2>
+        <p>Fast hands. Strange places. One more run.</p>
+      </div>
+      <div class="game-grid">
+        <article class="game-card card-cyan">
+          <div class="card-art art-drift" aria-hidden="true"><span class="planet"></span><span class="pixel-ship"></span></div>
+          <div class="card-content"><span class="number">01</span><div><h3>Neon Drift</h3><p>Thread impossible streets at the speed of light.</p></div><span class="arrow">↗</span></div>
+        </article>
+        <article class="game-card card-pink">
+          <div class="card-art art-tower" aria-hidden="true"><span class="tower"></span><span class="moon"></span></div>
+          <div class="card-content"><span class="number">02</span><div><h3>Hex Tower</h3><p>Climb, combine, and outsmart the machine.</p></div><span class="arrow">↗</span></div>
+        </article>
+        <article class="game-card card-lime">
+          <div class="card-art art-bloom" aria-hidden="true"><span class="flower">✦</span><span class="creature"></span></div>
+          <div class="card-content"><span class="number">03</span><div><h3>Wild Bloom</h3><p>Grow a garden that refuses to behave.</p></div><span class="arrow">↗</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="studio" id="studio" aria-labelledby="studio-title">
+      <div class="studio-sticker" aria-hidden="true">SMALL<br>TEAM<br><span>BIG</span><br>ENERGY</div>
+      <div>
+        <p class="eyebrow">Made by hand</p>
+        <h2 id="studio-title">Four friends.<br>Zero chill.</h2>
+      </div>
+      <div class="studio-copy">
+        <p>Raster Rush is an independent game studio obsessed with the snap of a perfect jump, the glow of an impossible sunset, and that delicious <em>one-more-go</em> feeling.</p>
+        <p>We keep our team tiny so every idea stays weird, every pixel has a purpose, and every game feels unmistakably ours.</p>
+        <a href="#contact">Say hello <span aria-hidden="true">↘</span></a>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Our values"><div>LOUD COLOR <span>✦</span> TIGHT CONTROLS <span>✦</span> WEIRD WORLDS <span>✦</span> LOUD COLOR <span>✦</span> TIGHT CONTROLS <span>✦</span></div></section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <p class="eyebrow">Continue?</p>
+      <h2 id="contact-title">Let’s make some<br><span>noise.</span></h2>
+      <p>Publishing, press, playtests, or just a very good game recommendation.</p>
+      <button class="button primary copy-email" type="button" data-email="hello@rasterrush.games">hello@rasterrush.games <span aria-hidden="true">＋</span></button>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>RASTER RUSH</span></a>
+    <p>© 2026 Raster Rush. Built with thumbs.</p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+</body>
+</html>

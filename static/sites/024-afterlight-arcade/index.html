@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080512">
+  <meta name="description" content="A neon-soaked arcade of original worlds, weekly challenges, and a living global leaderboard.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Afterlight Arcade</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to games</a>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Afterlight Arcade, home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+      <span>AFTERLIGHT<small>ARCADE</small></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#worlds">Worlds</a>
+      <a href="#challenge">Challenges</a>
+      <a href="#leaderboard">Rankings</a>
+    </nav>
+    <button class="sound-toggle" type="button" aria-pressed="false"><span aria-hidden="true">◖</span> FX off</button>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Independent games universe</p>
+        <h1 id="hero-title">One more run<br><em>before sunrise.</em></h1>
+        <p class="lede">Original worlds. Impossible scores. No ads, no pay-to-win—just luminous little games built for the glory of the run.</p>
+        <div class="hero-actions">
+          <button class="button primary" type="button" data-open-game><span>Press start</span><b aria-hidden="true">▶</b></button>
+          <a class="button secondary" href="#leaderboard">View leaderboards <span aria-hidden="true">↘</span></a>
+        </div>
+        <div class="live-note"><span aria-hidden="true"></span><strong>1,284</strong> players in the afterlight</div>
+      </div>
+
+      <div class="cabinet-wrap" aria-label="Featured game: Solar Drift">
+        <div class="orbit orbit-one" aria-hidden="true"></div>
+        <div class="orbit orbit-two" aria-hidden="true"></div>
+        <div class="cabinet">
+          <div class="cabinet-top"><span>AFTERLIGHT</span><i></i><i></i><i></i></div>
+          <div class="screen">
+            <div class="screen-hud"><span>HI 094280</span><span>× 03</span></div>
+            <div class="sun" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <div class="ship" aria-hidden="true"><span></span></div>
+            <div class="track" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <div class="screen-title"><small>WEEK 32</small>SOLAR<br>DRIFT</div>
+          </div>
+          <div class="cabinet-controls" aria-hidden="true">
+            <span class="joystick"><i></i></span>
+            <span class="control-line">PLAYER 1</span>
+            <span class="round pink"></span><span class="round cyan"></span>
+          </div>
+        </div>
+        <div class="float-tag tag-left" aria-hidden="true">+42,800</div>
+        <div class="float-tag tag-right" aria-hidden="true">NEW HIGH</div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">SCROLL TO EXPLORE <span>↓</span></div>
+    </section>
+
+    <section class="worlds section" id="worlds" aria-labelledby="worlds-title">
+      <div class="section-heading">
+        <div><p class="kicker">Choose your world</p><h2 id="worlds-title">Four ways to<br>lose track of time.</h2></div>
+        <p>Every cabinet is an original. Easy to enter, hard to master, and tuned to make the next run feel inevitable.</p>
+      </div>
+      <div class="game-grid">
+        <article class="game-card coral">
+          <div class="game-art horizon"><span class="pixel-sun"></span><span class="tiny-ship"></span><i></i><i></i><i></i></div>
+          <div class="game-info"><span class="number">01</span><div><p>Velocity / Endless</p><h3>Solar Drift</h3></div><strong>98%</strong></div>
+        </article>
+        <article class="game-card cyan-card">
+          <div class="game-art cave"><span class="gem">◇</span><span class="runner"></span><i></i><i></i><i></i></div>
+          <div class="game-info"><span class="number">02</span><div><p>Rhythm / Platform</p><h3>Hollow Beat</h3></div><strong>94%</strong></div>
+        </article>
+        <article class="game-card violet">
+          <div class="game-art garden"><span class="moon"></span><span class="tower"></span><i></i><i></i><i></i><i></i></div>
+          <div class="game-info"><span class="number">03</span><div><p>Puzzle / Dreamlike</p><h3>Night Garden</h3></div><strong>96%</strong></div>
+        </article>
+        <article class="game-card lime-card">
+          <div class="game-art signal"><span class="signal-core"></span><i></i><i></i><i></i><i></i><b></b></div>
+          <div class="game-info"><span class="number">04</span><div><p>Strategy / Survival</p><h3>Dead Signal</h3></div><strong>91%</strong></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="challenge section" id="challenge" aria-labelledby="challenge-title">
+      <div class="challenge-card">
+        <div class="challenge-code" aria-hidden="true">WEEK // 32</div>
+        <div class="challenge-copy">
+          <p class="kicker">Weekly challenge</p>
+          <h2 id="challenge-title">Chase the<br><em>dying sun.</em></h2>
+          <p>Thread the solar gates in Solar Drift. No shields, no second chances. Your cleanest 90 seconds counts.</p>
+          <div class="timer" aria-label="Challenge ends in 2 days, 14 hours, 37 minutes">
+            <span><b>02</b><small>Days</small></span><i>:</i><span><b>14</b><small>Hours</small></span><i>:</i><span><b>37</b><small>Mins</small></span>
+          </div>
+          <button class="button challenge-button" type="button" data-join>Enter challenge <span aria-hidden="true">↗</span></button>
+        </div>
+        <div class="challenge-visual" aria-hidden="true">
+          <div class="big-sun"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="gate gate-a"></div><div class="gate gate-b"></div><div class="gate gate-c"></div>
+          <span class="speed-line a"></span><span class="speed-line b"></span><span class="speed-line c"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="leaderboard section" id="leaderboard" aria-labelledby="leaderboard-title">
+      <div class="rank-head"><div><p class="kicker">Global transmission</p><h2 id="leaderboard-title">Top of the world.</h2></div><div class="season"><span></span> Season 08 · Live</div></div>
+      <div class="ranking" role="table" aria-label="Global leaderboard">
+        <div class="rank-row rank-header" role="row"><span role="columnheader">Rank</span><span role="columnheader">Pilot</span><span role="columnheader">World</span><span role="columnheader">Score</span></div>
+        <div class="rank-row first" role="row"><span role="cell"><b>01</b><i>◆</i></span><span role="cell"><i class="avatar av1">K</i><strong>KIRA_99<small>Tokyo, JP</small></strong></span><span role="cell">Solar Drift</span><span role="cell">9,428,100</span></div>
+        <div class="rank-row" role="row"><span role="cell"><b>02</b><i>▲</i></span><span role="cell"><i class="avatar av2">M</i><strong>MOONBYTE<small>Berlin, DE</small></strong></span><span role="cell">Night Garden</span><span role="cell">8,992,740</span></div>
+        <div class="rank-row" role="row"><span role="cell"><b>03</b><i>▼</i></span><span role="cell"><i class="avatar av3">R</i><strong>ROOK_ZERO<small>Austin, US</small></strong></span><span role="cell">Dead Signal</span><span role="cell">8,501,060</span></div>
+        <div class="rank-row" role="row"><span role="cell"><b>04</b><i>—</i></span><span role="cell"><i class="avatar av4">Y</i><strong>YUMI.EXE<small>Osaka, JP</small></strong></span><span role="cell">Hollow Beat</span><span role="cell">7,884,320</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i></span><span>AFTERLIGHT<small>ARCADE</small></span></a>
+    <p>Built after dark for players everywhere.</p>
+    <p class="copyright">© 2026 // INSERT COIN, STAY AWHILE</p>
+  </footer>
+
+  <dialog class="game-modal" aria-labelledby="modal-title">
+    <div class="modal-screen">
+      <button class="modal-close" type="button" aria-label="Close game preview">×</button>
+      <p class="kicker">Player one ready</p>
+      <h2 id="modal-title">Solar Drift</h2>
+      <div class="mini-game" tabindex="0" role="application" aria-label="Solar Drift preview. Use left and right arrow keys to steer.">
+        <div class="mini-sun"></div><span class="mini-ship">▲</span><i class="mini-gate g1"></i><i class="mini-gate g2"></i>
+      </div>
+      <p>Use <kbd>←</kbd> <kbd>→</kbd> or tap the track to steer.</p>
+    </div>
+  </dialog>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Glyph Department — independent typefaces with something to say.">
+  <meta name="theme-color" content="#f2f0e8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+  <title>Glyph Department — Independent type foundry</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Glyph Department, home">GLYPH<br>DEPT.</a>
+    <p class="availability"><span></span> Open for licensing</p>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu <b>+</b></button>
+    <nav id="site-nav" aria-label="Main navigation">
+      <a href="#families">Families</a><a href="#tester">Type tester</a><a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-meta"><p>Independent type foundry</p><p>Est. 2026 / Chicago</p></div>
+      <h1 id="hero-title"><span>Typefaces</span><span>with some<span class="asterisk">✳</span>thing</span><span>to say.</span></h1>
+      <div class="hero-footer">
+        <p>Variable letters that stretch,<br>collide, and perform.</p>
+        <a class="round-link" href="#tester"><span>Test<br>the type</span><b aria-hidden="true">↘</b></a>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Foundry features"><div>VARIABLE FONTS <i>✳</i> 8 FAMILIES <i>✳</i> 142 LANGUAGES <i>✳</i> DESKTOP + WEB <i>✳</i> VARIABLE FONTS <i>✳</i> 8 FAMILIES</div></section>
+
+    <section class="families" id="families" aria-labelledby="families-title">
+      <div class="section-head"><p>01 / Selected releases</p><h2 id="families-title">Meet the family.</h2><p>Letters with range, rhythm,<br>and a point of view.</p></div>
+      <div class="family-grid">
+        <article class="family-card card-brut">
+          <div class="card-top"><span>GD–01</span><span>Variable / 14 styles</span></div>
+          <div class="specimen" aria-label="Brut specimen">BRUT</div>
+          <div class="card-bottom"><h3>Brut</h3><p>A loud grotesk<br>with soft corners.</p><button type="button" data-sample="BRUT">Try it ↗</button></div>
+        </article>
+        <article class="family-card card-lilt">
+          <div class="card-top"><span>GD–02</span><span>Variable / 18 styles</span></div>
+          <div class="specimen" aria-label="Lilt specimen">Lilt</div>
+          <div class="card-bottom"><h3>Lilt</h3><p>High-contrast drama,<br>made for screens.</p><button type="button" data-sample="Lilt">Try it ↗</button></div>
+        </article>
+        <article class="family-card card-mono">
+          <div class="card-top"><span>GD–03</span><span>Variable / 10 styles</span></div>
+          <div class="specimen" aria-label="Relay Mono specimen">R→M</div>
+          <div class="card-bottom"><h3>Relay Mono</h3><p>Mechanical precision,<br>human timing.</p><button type="button" data-sample="Relay Mono">Try it ↗</button></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="tester" id="tester" aria-labelledby="tester-title">
+      <div class="section-head light"><p>02 / Live specimen</p><h2 id="tester-title">Make it talk.</h2><p>Click the line. Type a thought.<br>Push it to the edge.</p></div>
+      <div class="controls" aria-label="Type controls">
+        <label>Family<select id="family"><option value="brut">Brut</option><option value="lilt">Lilt</option><option value="mono">Relay Mono</option></select></label>
+        <label>Size <output id="size-output" for="size">96 px</output><input id="size" type="range" min="48" max="180" value="96"></label>
+        <label>Weight <output id="weight-output" for="weight">700</output><input id="weight" type="range" min="200" max="900" step="10" value="700"></label>
+        <button id="invert" type="button" aria-pressed="false">Invert ◐</button>
+      </div>
+      <p class="editable" id="editable" contenteditable="true" role="textbox" aria-label="Editable type specimen" spellcheck="false">Letters can<br>change their mind.</p>
+      <p class="edit-hint">Edit me <span aria-hidden="true">↖</span></p>
+    </section>
+
+    <section class="manifesto" id="about" aria-labelledby="manifesto-title">
+      <p>03 / Our position</p>
+      <div><h2 id="manifesto-title">We make fonts<br>for words that<br><em>matter.</em></h2><span class="orbit-mark" aria-hidden="true">G<br>D</span></div>
+      <div class="manifesto-copy"><p>Not neutral. Not quiet. Our typefaces are built to carry a voice—from a whisper to a rallying cry.</p><a href="#families">Browse all families <span>→</span></a></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-word">GLYPH<span>✳</span>DEPT.</div>
+    <div class="footer-meta"><p>Independent type foundry<br>Chicago / Everywhere</p><div><a href="#about">Contact</a><a href="#families">Catalog</a><a href="#tester">Tester</a></div><p>© 2026 Glyph Department<br>Terms / Licensing</p></div>
+  </footer>
+</body>
+</html>

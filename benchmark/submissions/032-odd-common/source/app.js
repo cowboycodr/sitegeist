@@ -1,0 +1,11 @@
+const menuButton=document.querySelector('.menu-toggle');
+const nav=document.querySelector('#nav');
+menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));nav.classList.toggle('open',!open)});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menuButton.setAttribute('aria-expanded','false')}));
+const cases={"Sunday Press":"A bright, flexible identity designed to make everyday publishing feel like the best part of the weekend.","New Current":"A campaign and visual system turning a functional drink into a vivid ritual for curious minds.","Morrow Commons":"A warm, modular brand world for a new kind of neighborhood space built around actual connection.","After Hours":"An electric campaign and event language that made late-night culture feel wonderfully wide awake."};
+const dialog=document.querySelector('#case-dialog');
+const showNote=(title,copy)=>{document.querySelector('#dialog-title').textContent=title;document.querySelector('#dialog-copy').textContent=copy;dialog.showModal()};
+document.querySelectorAll('.view').forEach(button=>button.addEventListener('click',()=>{const title=button.closest('.project').querySelector('h3').textContent;showNote(title,cases[title])}));
+document.querySelector('.contact-button').addEventListener('click',()=>showNote('Tell us everything.','Write to hello@oddcommon.studio with what you are making, what feels stuck, and when you would like to begin. We read every note.'));
+document.querySelector('.close').addEventListener('click',()=>dialog.close());
+dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});

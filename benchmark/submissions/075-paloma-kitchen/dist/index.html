@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e53b22">
+  <meta name="description" content="Paloma — a neighborhood kitchen in Roma Norte serving coastal plates, mezcal, and warm evenings around the fire.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Paloma — Wood fire, citrus, late nights.</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar">
+    <a class="wordmark" href="#top" aria-label="Paloma home">PALOMA<span>●</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span class="sr-only">Open menu</span></button>
+    <nav id="site-nav" aria-label="Main navigation">
+      <a href="#story">Our kitchen</a>
+      <a href="#menu">Tonight’s menu</a>
+      <a href="#visit">Visit</a>
+      <button class="nav-book js-book" type="button">Book a table <span>↗</span></button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="sun-disc" aria-hidden="true"><span>57</span><i></i></div>
+      <div class="hero-copy">
+        <p class="kicker">Mexico City <span>/</span> Roma Norte</p>
+        <h1 id="hero-title">WOOD FIRE,<br><em>CITRUS,</em><br>LATE NIGHTS.</h1>
+        <div class="hero-actions">
+          <button class="button button-light js-book" type="button">Book a table <span>↗</span></button>
+          <a class="text-link" href="#menu">See tonight’s menu <span>↓</span></a>
+        </div>
+      </div>
+      <div class="hero-side" aria-hidden="true">
+        <p>COASTAL PLATES<br>MEZCAL &amp;<br>WARM EVENINGS</p>
+        <svg viewBox="0 0 90 160" role="img" aria-label="stylized agave illustration"><path d="M45 158C41 112 30 55 45 5c16 49 3 107 0 153ZM42 150C25 105 8 77 3 41c25 23 37 68 39 109Zm7 0c12-42 24-75 38-96-1 35-14 70-38 96ZM38 153C18 130 7 113 4 94c19 11 29 31 34 59Zm13 1c12-23 23-36 35-44-6 22-18 36-35 44Z"/></svg>
+      </div>
+      <div class="scroll-note" aria-hidden="true">SCROLL TO GATHER <span>↓</span></div>
+    </section>
+
+    <section class="marquee" aria-label="Paloma offerings">
+      <div>OPEN FIRE <span>✳</span> BRIGHT CITRUS <span>✳</span> SLOW EVENINGS <span>✳</span> OPEN FIRE <span>✳</span> BRIGHT CITRUS</div>
+    </section>
+
+    <section class="story" id="story" aria-labelledby="story-title">
+      <div class="story-stamp" aria-hidden="true"><span>PALOMA</span><b>◆</b><span>ROMA NORTE</span></div>
+      <div class="story-copy">
+        <p class="section-no">01 / THE KITCHEN</p>
+        <h2 id="story-title">A table set for<br><em>the whole night.</em></h2>
+        <div class="story-grid">
+          <p>Paloma is a neighborhood kitchen shaped by the Mexican coast and the glow of an open flame. We cook slowly, pour generously, and let dinner find its own rhythm.</p>
+          <p>Our menu follows the market—whole fish, charred fruit, warm tortillas, cold mezcal. Everything is made to pass, tear, dip, and share.</p>
+        </div>
+      </div>
+      <div class="fire-art" aria-label="Abstract illustration of a glowing wood fire" role="img">
+        <div class="moon"></div><div class="flame f1"></div><div class="flame f2"></div><div class="flame f3"></div>
+        <p>BUILT AROUND<br>THE FIRE</p>
+      </div>
+    </section>
+
+    <section class="menu" id="menu" aria-labelledby="menu-title">
+      <div class="menu-head">
+        <div><p class="section-no">02 / TONIGHT</p><h2 id="menu-title">From the <em>fire</em></h2></div>
+        <p>Our menu shifts with the market.<br>Here’s what’s cooking tonight.</p>
+      </div>
+      <div class="menu-layout">
+        <div class="menu-tabs" role="tablist" aria-label="Menu sections">
+          <button id="tab-small" role="tab" aria-selected="true" aria-controls="panel-small" type="button">To begin <span>01</span></button>
+          <button id="tab-fire" role="tab" aria-selected="false" aria-controls="panel-fire" type="button">From the fire <span>02</span></button>
+          <button id="tab-drinks" role="tab" aria-selected="false" aria-controls="panel-drinks" type="button">To drink <span>03</span></button>
+        </div>
+        <div class="menu-panels">
+          <div id="panel-small" role="tabpanel" aria-labelledby="tab-small">
+            <article><h3>OYSTER &amp; MANDARIN</h3><p>chile costeño, sea herbs</p><b>140</b></article>
+            <article><h3>SMOKED MARLIN TOSTADA</h3><p>avocado, pickled onion, lime</p><b>190</b></article>
+            <article><h3>CHARRED CUCUMBER</h3><p>pistachio mole, hoja santa</p><b>175</b></article>
+            <article><h3>BLUE CORN TAMAL</h3><p>corn cream, epazote, requesón</p><b>165</b></article>
+          </div>
+          <div id="panel-fire" role="tabpanel" aria-labelledby="tab-fire" hidden>
+            <article><h3>WHOLE RED SNAPPER</h3><p>achiote butter, grilled lime</p><b>680</b></article>
+            <article><h3>OCTOPUS AL PASTOR</h3><p>pineapple, adobo, cilantro</p><b>390</b></article>
+            <article><h3>EMBERED SWEET POTATO</h3><p>sesame, salsa macha, crema</p><b>240</b></article>
+            <article><h3>SHORT RIB BARBACOA</h3><p>burnt onion, fresh tortillas</p><b>520</b></article>
+          </div>
+          <div id="panel-drinks" role="tabpanel" aria-labelledby="tab-drinks" hidden>
+            <article><h3>PALOMA DE LA CASA</h3><p>mezcal, grapefruit, sea salt</p><b>190</b></article>
+            <article><h3>JAMAICA HIGHBALL</h3><p>raicilla, hibiscus, tonic</p><b>180</b></article>
+            <article><h3>MEZCAL FLIGHT</h3><p>three small-batch pours</p><b>290</b></article>
+            <article><h3>AGUA DE CÍTRICOS</h3><p>seasonal citrus, mineral water</p><b>90</b></article>
+          </div>
+        </div>
+      </div>
+      <p class="menu-note">Prices in MXN · Please ask about allergens</p>
+    </section>
+
+    <section class="gather" aria-labelledby="gather-title">
+      <p class="section-no">COME AS YOU ARE</p>
+      <h2 id="gather-title">Stay for <em>one more.</em></h2>
+      <div class="gather-drawing" aria-hidden="true"><span>🍊</span><i></i><b>✦</b></div>
+      <p>Dinner, drinks, and the good kind of lingering.<br>Tuesday through Sunday, from 5pm until late.</p>
+      <button class="button button-dark js-book" type="button">Find your table <span>↗</span></button>
+    </section>
+
+    <section class="visit" id="visit" aria-labelledby="visit-title">
+      <div class="visit-title"><p class="section-no">03 / COME BY</p><h2 id="visit-title">Meet us<br><em>in Roma.</em></h2></div>
+      <div class="visit-info">
+        <div><h3>FIND US</h3><p>Colima 157, Roma Norte<br>Cuauhtémoc, CDMX</p><a href="#map">View neighborhood map <span>→</span></a></div>
+        <div><h3>HOURS</h3><p>Tue–Thu · 5pm–12am<br>Fri–Sat · 5pm–1am<br>Sun · 5pm–11pm</p></div>
+        <div><h3>SAY HOLA</h3><p>hola@paloma.mx<br>+52 55 8672 0157</p><a href="#footer">Instagram <span>↗</span></a></div>
+      </div>
+      <div class="map" id="map" aria-label="Illustrated neighborhood map showing Paloma in Roma Norte">
+        <span class="road r1">COLIMA</span><span class="road r2">ORIZABA</span><span class="road r3">DURANGO</span><span class="road r4">MÉRIDA</span>
+        <div class="pin"><b>P</b><span>PALOMA</span></div><div class="park">PLAZA<br>RÍO DE<br>JANEIRO</div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-top"><p>WOOD FIRE<br>CITRUS<br>LATE NIGHTS</p><a class="wordmark footer-mark" href="#top">PALOMA<span>●</span></a><button class="js-book" type="button">BOOK A TABLE ↗</button></div>
+    <div class="footer-bottom"><span>© 2026 PALOMA</span><span>ROMA NORTE · CDMX</span><a href="#top">BACK TO TOP ↑</a></div>
+  </footer>
+
+  <dialog id="booking" aria-labelledby="booking-title">
+    <button class="dialog-close" type="button" aria-label="Close reservation form">×</button>
+    <p class="section-no">YOUR EVENING AT PALOMA</p>
+    <h2 id="booking-title">Find your <em>table.</em></h2>
+    <form id="booking-form">
+      <label>Date<input name="date" type="date" required></label>
+      <label>Guests<select name="guests"><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5 guests</option><option>6+ guests</option></select></label>
+      <label>Time<select name="time"><option>6:00 pm</option><option>7:30 pm</option><option>9:00 pm</option><option>10:30 pm</option></select></label>
+      <button class="button button-dark" type="submit">Check availability <span>→</span></button>
+    </form>
+    <p class="form-status" aria-live="polite"></p>
+  </dialog>
+</body>
+</html>

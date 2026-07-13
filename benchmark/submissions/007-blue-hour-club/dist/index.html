@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071733">
+  <meta name="description" content="Blue Hour Club — live jazz, low light, and late conversation in Chicago.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Blue Hour Club — Chicago Jazz After Dark</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to tonight’s music</a>
+  <header class="topbar">
+    <a class="wordmark" href="#top" aria-label="Blue Hour Club, home">
+      <svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16"/><path d="M10 23c4-10 12-10 16 0M12 16h12"/></svg>
+      <span>BLUE HOUR <i>CLUB</i></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#tonight">Tonight</a><a href="#artists">Artists</a><a href="#visit">Visit</a>
+    </nav>
+    <button class="button small" data-reserve>Reserve <span>a table</span></button>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-art" aria-hidden="true">
+        <div class="moon"></div><div class="beam beam-one"></div><div class="beam beam-two"></div>
+        <svg class="sax" viewBox="0 0 480 700"><path d="M229 38c-37 45-49 105-28 152l80 181c15 34 13 66-8 93-25 32-68 46-107 31-42-16-68-58-63-101 4-33 24-60 50-75"/><path d="M241 51l35-15 18 42-37 16M142 303l43-21 17 42-48 22M294 363c30-13 61 3 72 31 14 37-5 81-43 96-33 13-69-1-83-32M290 529l-18 118M353 506l58 94M254 651l33 8M407 603l29-14"/><circle cx="166" cy="392" r="10"/><circle cx="192" cy="436" r="10"/></svg>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Live in Chicago</p>
+        <h1>The city<br>sounds better<br><em>after midnight.</em></h1>
+        <p class="lede">Searching sets, unhurried drinks, and a room tuned for listening. Come as you are. Stay past the last train.</p>
+        <div class="actions"><a class="button primary" href="#tonight">See tonight’s set <b>↘</b></a><button class="text-button" data-reserve>Reserve a table <span>→</span></button></div>
+      </div>
+      <div class="hero-note"><strong>41°52′N</strong><span>CHICAGO, IL</span></div>
+      <p class="scroll-note">SCROLL TO LISTEN <span>↓</span></p>
+    </section>
+
+    <section class="tonight" id="tonight">
+      <div class="section-head">
+        <div><p class="eyebrow dark"><span></span> On the bandstand</p><h2>Tonight at<br>Blue Hour</h2></div>
+        <div class="date-picker" role="group" aria-label="Choose a night">
+          <button class="date active" data-date="fri" aria-pressed="true"><span>FRI</span><b>17</b></button>
+          <button class="date" data-date="sat" aria-pressed="false"><span>SAT</span><b>18</b></button>
+          <button class="date" data-date="sun" aria-pressed="false"><span>SUN</span><b>19</b></button>
+        </div>
+      </div>
+      <div class="sets" aria-live="polite">
+        <article class="set-card featured">
+          <div class="set-number">01</div><div class="set-time"><span>EARLY SET</span><strong data-time>8:30 PM</strong></div>
+          <div class="set-info"><p data-style>POST-BOP / ORIGINALS</p><h3 data-artist>The Lenora Hayes Quartet</h3><p data-detail>Tenor saxophone with a rhythm section that knows when to leave space.</p><div class="tags"><span data-tag>CHICAGO RESIDENT</span><span>2 SETS</span></div></div>
+          <button class="round-button" data-reserve aria-label="Reserve for this set">↗</button>
+        </article>
+        <article class="set-card">
+          <div class="set-number">02</div><div class="set-time"><span>LATE SET</span><strong data-time>11:15 PM</strong></div>
+          <div class="set-info"><p data-style>SOUL JAZZ / DEEP CUTS</p><h3 data-artist>Milo Green Organ Trio</h3><p data-detail>Hammond heat, brushed drums, and melodies built for the small hours.</p><div class="tags"><span data-tag>LATE NIGHT FAVORITE</span><span>2 SETS</span></div></div>
+          <button class="round-button" data-reserve aria-label="Reserve for this set">↗</button>
+        </article>
+      </div>
+      <p class="fineprint">Doors at 7:00 PM · Music charge $18 · 21+ after 10 PM</p>
+    </section>
+
+    <section class="manifesto" id="artists">
+      <div class="vinyl" aria-hidden="true"><span></span></div>
+      <div class="manifesto-copy"><p class="eyebrow pale"><span></span> Our frequency</p><blockquote>“A good room doesn’t ask<br>the music to be louder.<br><em>It asks you to listen closer.”</em></blockquote><p>We built Blue Hour around the space between notes: close tables, warm acoustics, and no televisions. A place for players to search and listeners to find something.</p><a href="#residents">MEET OUR RESIDENTS <span>→</span></a></div>
+    </section>
+
+    <section class="residents" id="residents">
+      <p class="eyebrow dark"><span></span> Familiar faces</p><h2>Resident artists</h2>
+      <div class="artist-grid">
+        <article><div class="portrait portrait-one"><span>LH</span></div><h3>Lenora Hayes</h3><p>TENOR SAXOPHONE</p></article>
+        <article><div class="portrait portrait-two"><span>MG</span></div><h3>Milo Green</h3><p>HAMMOND ORGAN</p></article>
+        <article><div class="portrait portrait-three"><span>NB</span></div><h3>Nia Brooks</h3><p>VOCALS &amp; PIANO</p></article>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div><p class="eyebrow pale"><span></span> Find the blue door</p><h2>Late nights.<br>Warm welcome.</h2></div>
+      <div class="visit-details"><p><span>ADDRESS</span><strong>1847 N. Milwaukee Ave.<br>Chicago, IL 60647</strong></p><p><span>HOURS</span><strong>Thu–Sun<br>7 PM until late</strong></p><p><span>HOUSE NOTE</span><strong>Listening encouraged.<br>Jackets not required.</strong></p></div>
+      <button class="button coral" data-reserve>Reserve your table <b>→</b></button>
+    </section>
+  </main>
+
+  <footer><a class="wordmark" href="#top"><span>BLUE HOUR <i>CLUB</i></span></a><p>JAZZ, AFTER DARK. CHICAGO.</p><p>© 2026 BLUE HOUR CLUB</p></footer>
+
+  <dialog id="reserve-dialog" aria-labelledby="reserve-title">
+    <button class="dialog-close" aria-label="Close reservation dialog">×</button>
+    <p class="eyebrow dark"><span></span> Your night out</p><h2 id="reserve-title">Save a table</h2>
+    <p>Tables are held for 15 minutes. Choose your party size, then call our host to confirm your set.</p>
+    <div class="party" role="group" aria-label="Party size"><button aria-pressed="true">2</button><button aria-pressed="false">3</button><button aria-pressed="false">4</button><button aria-pressed="false">5+</button></div>
+    <div class="button primary call">Host: (312) 555-0147 <b>·</b> Call after 4 PM</div><small>Tell us which set and your party size.</small>
+  </dialog>
+</body>
+</html>

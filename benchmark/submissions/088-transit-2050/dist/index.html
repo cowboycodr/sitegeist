@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Transit 2050 is a public initiative for faster, cleaner, and more equitable urban transportation.">
+  <meta name="theme-color" content="#eff3e8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+  <title>Transit 2050 — The city moves when everyone can.</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>body{overflow-x:visible}@media(max-width:620px){.hero-map svg{transform:none}}</style>
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Transit 2050 home">
+      <svg viewBox="0 0 42 42" aria-hidden="true"><circle cx="21" cy="21" r="19"/><path d="M12 13h18M12 21h18M12 29h18"/><circle cx="16" cy="13" r="2.3"/><circle cx="26" cy="21" r="2.3"/><circle cx="18" cy="29" r="2.3"/></svg>
+      <span>TRANSIT<br><b>2050</b></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#network">The network</a>
+      <a href="#outcomes">Outcomes</a>
+      <a href="#proposal">The proposal</a>
+    </nav>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span><b>Menu</b></button>
+  </header>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" hidden>
+    <a href="#network">The network <span>01</span></a>
+    <a href="#outcomes">Outcomes <span>02</span></a>
+    <a href="#proposal">The proposal <span>03</span></a>
+  </nav>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span>A mobility plan for everyone</p>
+        <h1>The city moves<br>when <em>everyone</em> can.</h1>
+        <p class="intro">A faster, cleaner, fairer network—designed around the people who rely on it every day.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#network">Explore the network <span>↘</span></a>
+          <a class="text-link" href="#proposal">Read the proposal <span>→</span></a>
+        </div>
+      </div>
+      <div class="hero-map" aria-label="Abstract map of the proposed transit network">
+        <svg viewBox="0 0 660 650" role="img" aria-labelledby="map-title map-desc">
+          <title id="map-title">Transit 2050 network map</title>
+          <desc id="map-desc">Four intersecting rapid transit lines connect Northgate, West End, Central, Harbor and Riverside.</desc>
+          <g class="grid"><path d="M0 110H660M0 220H660M0 330H660M0 440H660M0 550H660M110 0V650M220 0V650M330 0V650M440 0V650M550 0V650"/></g>
+          <path class="line shadow" d="M40 84H174q34 0 34 34v397q0 34 34 34h365"/>
+          <path class="line line-coral draw" d="M40 84H174q34 0 34 34v397q0 34 34 34h365"/>
+          <path class="line shadow" d="M104 608l93-92 72-72 83-22 97-99 152-151"/>
+          <path class="line line-blue draw delay" d="M104 608l93-92 72-72 83-22 97-99 152-151"/>
+          <path class="line shadow" d="M77 240h184q38 0 38 38v44q0 36 36 36h280"/>
+          <path class="line line-lime draw delay2" d="M77 240h184q38 0 38 38v44q0 36 36 36h280"/>
+          <g class="stations">
+            <circle cx="208" cy="240" r="8"/><circle cx="208" cy="515" r="8"/><circle cx="299" cy="358" r="9"/><circle cx="352" cy="422" r="8"/><circle cx="449" cy="323" r="8"/><circle cx="535" cy="240" r="8"/><circle cx="535" cy="358" r="8"/>
+          </g>
+          <g class="labels">
+            <text x="25" y="67">NORTHGATE</text><text x="36" y="226">WEST END</text><text x="275" y="345">CENTRAL</text><text x="519" y="224">RIVERSIDE</text><text x="524" y="382">HARBOR</text>
+          </g>
+          <g class="pulse"><circle cx="299" cy="358" r="17"/><circle cx="299" cy="358" r="5"/></g>
+        </svg>
+        <div class="map-key"><span><i class="coral"></i>Rapid</span><span><i class="blue"></i>Metro</span><span><i class="lime"></i>Connector</span></div>
+        <div class="roundel">50</div>
+      </div>
+      <div class="hero-footnote"><span>40° 44′ N</span><span>74° 00′ W</span><strong>ONE CONNECTED CITY</strong></div>
+    </section>
+
+    <section class="ticker" aria-label="Plan highlights">
+      <div><span>28</span> new stations <i>●</i> <span>12 min</span> saved per trip <i>●</i> <span>100%</span> clean fleet <i>●</i> <span>24/7</span> core service <i>●</i></div>
+    </section>
+
+    <section class="network section" id="network">
+      <div class="section-head reveal">
+        <p class="index">01 — THE NETWORK</p>
+        <h2>A system built<br>around <em>your day.</em></h2>
+        <p>More connections. Less waiting. One simple fare across every bus, train, and neighborhood shuttle.</p>
+      </div>
+      <div class="route-explorer reveal">
+        <div class="route-tabs" role="tablist" aria-label="Proposed transit lines">
+          <button role="tab" aria-selected="true" aria-controls="route-panel" id="tab-coral" data-route="coral"><i></i><span>01</span> Crosstown Rapid<b>Every 6 min</b></button>
+          <button role="tab" aria-selected="false" aria-controls="route-panel" id="tab-blue" data-route="blue"><i></i><span>02</span> River Metro<b>Every 4 min</b></button>
+          <button role="tab" aria-selected="false" aria-controls="route-panel" id="tab-lime" data-route="lime"><i></i><span>03</span> Neighborhood Link<b>On demand</b></button>
+        </div>
+        <div class="route-panel coral-route" id="route-panel" role="tabpanel" tabindex="0" aria-labelledby="tab-coral">
+          <div><p class="route-kicker">Selected route</p><h3 id="route-name">Crosstown Rapid</h3><p id="route-copy">A new east–west spine connecting six neighborhoods without a downtown transfer.</p></div>
+          <dl><div><dt id="route-stops">18</dt><dd>Stations</dd></div><div><dt id="route-time">31 min</dt><dd>End to end</dd></div><div><dt id="route-riders">86k</dt><dd>Daily riders</dd></div></dl>
+          <div class="mini-line" aria-hidden="true"><i></i><b></b><b></b><b></b><b></b><b></b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outcomes section" id="outcomes">
+      <div class="outcomes-title reveal">
+        <p class="index light">02 — THE OUTCOMES</p>
+        <h2>Move better.<br><em>Live better.</em></h2>
+      </div>
+      <div class="outcome-grid reveal">
+        <article class="metric metric-wide"><span class="metric-number">−35<sup>%</sup></span><h3>Shorter commutes</h3><p>Frequent service and smarter connections give the average rider 18 hours back every month.</p><div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article class="metric metric-coral"><svg viewBox="0 0 120 90" aria-hidden="true"><path d="M8 74C31 28 56 88 76 35c10-27 23-25 36-21"/><circle cx="76" cy="35" r="5"/></svg><span class="metric-number">90<sup>%</sup></span><h3>Within a 5-min walk</h3><p>Every resident gets a frequent transit stop close to home.</p></article>
+        <article class="metric metric-lime"><span class="metric-number">0</span><h3>Tailpipe emissions</h3><p>A fully electric fleet, powered by renewable energy by 2040.</p><div class="zero-ring" aria-hidden="true"></div></article>
+        <article class="metric metric-photo"><div class="city-illustration" aria-hidden="true"><span></span><span></span><span></span><span></span><i></i></div><blockquote>“Access to opportunity should never depend on your zip code.”</blockquote><p>— MAYA CHEN, TRANSIT 2050 CO-CHAIR</p></article>
+      </div>
+    </section>
+
+    <section class="proposal section" id="proposal">
+      <div class="proposal-grid">
+        <div class="proposal-copy reveal">
+          <p class="index">03 — THE PROPOSAL</p>
+          <h2>One plan.<br><em>Three promises.</em></h2>
+          <p>This is a public commitment to make getting around simpler, safer, and more affordable—for every rider and every neighborhood.</p>
+          <a class="button button-dark" href="#principles">See our principles <span>↓</span></a>
+        </div>
+        <ol class="principles reveal" id="principles">
+          <li><span>01</span><div><h3>Fast, by default</h3><p>Dedicated lanes, signal priority, and service that comes before you check the schedule.</p></div><i>↗</i></li>
+          <li><span>02</span><div><h3>Fair, by design</h3><p>One affordable fare and investment led by the neighborhoods that need it most.</p></div><i>↗</i></li>
+          <li><span>03</span><div><h3>Clean, all the way</h3><p>Zero-emission vehicles, resilient stations, and streets made safer for walking and cycling.</p></div><i>↗</i></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="cta">
+      <svg class="cta-lines" viewBox="0 0 1400 480" preserveAspectRatio="none" aria-hidden="true"><path d="M-30 420C250 420 120 90 430 90s280 305 560 305 220-250 450-250"/><path d="M-30 365C235 365 185 155 425 155s290 165 545 165 250-215 470-215"/></svg>
+      <div class="cta-content reveal"><p>THE NEXT STOP IS OURS</p><h2>Let’s move<br>forward, <em>together.</em></h2><a class="button button-light" href="#top">Back to the map <span>↑</span></a></div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#top"><svg viewBox="0 0 42 42" aria-hidden="true"><circle cx="21" cy="21" r="19"/><path d="M12 13h18M12 21h18M12 29h18"/><circle cx="16" cy="13" r="2.3"/><circle cx="26" cy="21" r="2.3"/><circle cx="18" cy="29" r="2.3"/></svg><span>TRANSIT<br><b>2050</b></span></a>
+    <p>A public initiative for a city that moves for everyone.</p>
+    <p class="copyright">© 2026 TRANSIT 2050 <span>PUBLIC PLAN / OPEN CITY</span></p>
+  </footer>
+</body>
+</html>

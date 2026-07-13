@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f0e8d5">
+  <meta name="description" content="A living archive of field recordings, oral histories, and traditional music from across the world.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; media-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'">
+  <title>Folkways — Every song carries a place.</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#archive">Skip to archive</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Folkways home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>Folkways</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#archive">Recordings</a>
+      <a href="#atlas">Atlas</a>
+      <a href="#stories">Stories</a>
+    </nav>
+    <button class="sound-button" type="button" aria-pressed="false" aria-label="Toggle ambient archive sound">
+      <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="sound-label">Sound off</span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Sounds from the archive</p>
+        <h1 id="hero-title">Every song<br>carries <em>a place.</em></h1>
+        <p class="intro">Follow the voices, rhythms, and rituals that people have carried across generations. An ever-growing archive, gathered with care.</p>
+        <div class="hero-actions">
+          <button class="button primary js-play-feature" type="button"><span class="play-icon" aria-hidden="true">▶</span> Start listening</button>
+          <a class="button text-button" href="#atlas">Explore the map <span aria-hidden="true">↘</span></a>
+        </div>
+        <dl class="archive-stats" aria-label="Archive statistics">
+          <div><dt>12,840</dt><dd>Recordings</dd></div>
+          <div><dt>92</dt><dd>Countries</dd></div>
+          <div><dt>1894–today</dt><dd>In the field</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-art" aria-label="Illustrated globe showing archival recording locations">
+        <div class="sun"></div>
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="globe">
+          <svg viewBox="0 0 500 500" role="img" aria-label="Textured world map">
+            <defs><clipPath id="earth"><circle cx="250" cy="250" r="212"/></clipPath></defs>
+            <circle cx="250" cy="250" r="218" fill="#1c5c54"/>
+            <g clip-path="url(#earth)">
+              <path class="land" d="M55 133l47-54 62-23 45 12 30 31-13 36-39 11-19 25-29-4-8 31-31 5-28-26zm171-3 38-30 57 6 19 28-17 16 22 26-18 23-31-2-10-26-38-4zm-17 74 47-17 52 26 4 46-24 19-8 57-38 57-22-34 4-43-24-34-30-20 9-38zm136 10 25-22 52 2 48 34-13 31-41-3-26 28-45-9-22-28zm45 102 40-12 32 20-13 38-32 18-24-23z"/>
+              <path class="contour" d="M8 155c82 29 148 29 215-2s160-38 277 11M-8 228c94-18 170-12 237 17s159 26 278-8M-4 318c76-36 166-36 250 0s165 38 260 0"/>
+              <g class="pin"><circle cx="124" cy="150" r="13"/><circle cx="124" cy="150" r="4"/></g>
+              <g class="pin"><circle cx="266" cy="242" r="13"/><circle cx="266" cy="242" r="4"/></g>
+              <g class="pin"><circle cx="393" cy="222" r="13"/><circle cx="393" cy="222" r="4"/></g>
+              <g class="pin"><circle cx="418" cy="339" r="13"/><circle cx="418" cy="339" r="4"/></g>
+            </g>
+          </svg>
+        </div>
+        <button class="record-label label-one" data-track="carpathian" type="button"><span>01</span><b>Carpathian<br>harvest song</b><small>Maramureș, 1963</small></button>
+        <button class="record-label label-two" data-track="desert" type="button"><span>02</span><b>Desert rain<br>drumming</b><small>Rajasthan, 1972</small></button>
+        <div class="needle" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="marquee" aria-label="Archive themes"><div>FIELD RECORDINGS <b>✦</b> ORAL HISTORIES <b>✦</b> TRADITIONAL MUSIC <b>✦</b> SONGS OF WORK &amp; REST <b>✦</b> FIELD RECORDINGS <b>✦</b></div></section>
+
+    <section class="archive" id="archive" aria-labelledby="archive-title">
+      <div class="section-heading">
+        <div><p class="eyebrow dark"><span></span> Recently uncovered</p><h2 id="archive-title">Listen across<br><em>time &amp; place</em></h2></div>
+        <p>Each recording has a story. These are the voices that stayed with us this week.</p>
+      </div>
+      <div class="record-grid">
+        <article class="record-card ochre">
+          <button class="disc-button" data-track="carpathian" type="button" aria-label="Play Shepherd's Morning"><span class="disc"><i></i></span><span class="card-play">▶</span></button>
+          <div class="card-meta"><span>Romania · 1963</span><span>04:12</span></div>
+          <h3>Shepherd’s Morning</h3><p>Fluier melody recorded at dawn in the foothills of Maramureș.</p>
+        </article>
+        <article class="record-card teal">
+          <button class="disc-button" data-track="desert" type="button" aria-label="Play When the Rains Come"><span class="disc patterned"><i></i></span><span class="card-play">▶</span></button>
+          <div class="card-meta"><span>India · 1972</span><span>03:38</span></div>
+          <h3>When the Rains Come</h3><p>Women of Jaisalmer sing a welcome for the first monsoon clouds.</p>
+        </article>
+        <article class="record-card rose">
+          <button class="disc-button" data-track="island" type="button" aria-label="Play The Boatbuilder's Song"><span class="disc waves"><i></i></span><span class="card-play">▶</span></button>
+          <div class="card-meta"><span>Vanuatu · 1981</span><span>05:06</span></div>
+          <h3>The Boatbuilder’s Song</h3><p>A work chant keeping time as an outrigger canoe takes its shape.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="atlas" id="atlas" aria-labelledby="atlas-title">
+      <div class="atlas-copy"><p class="eyebrow light"><span></span> A world of listening</p><h2 id="atlas-title">The archive<br>has <em>coordinates.</em></h2><p>Choose a region to hear the land through the people who know it best.</p></div>
+      <div class="atlas-map">
+        <svg viewBox="0 0 700 320" aria-hidden="true"><path d="M21 113l75-70 94 4 31 42-43 23-5 35-53 3-17 43-57-24zm202-64 62-29 72 17 34 49-48 20-10 43-51-12-25-42-38-21zm25 124 70-25 57 27-9 57-37 17-11 54-43-40-7-48zm164-35 54-52 98-11 105 48-21 54-71-11-37 47-69-21zm128 98 64-25 60 27-21 54-72-2z"/></svg>
+        <button style="--x:17%;--y:35%" data-region="Americas"><i></i><span>Americas</span></button>
+        <button style="--x:45%;--y:35%" data-region="Europe"><i></i><span>Europe</span></button>
+        <button style="--x:48%;--y:67%" data-region="Africa"><i></i><span>Africa</span></button>
+        <button style="--x:72%;--y:39%" data-region="Asia"><i></i><span>Asia</span></button>
+        <button style="--x:84%;--y:77%" data-region="Oceania"><i></i><span>Oceania</span></button>
+      </div>
+      <div class="region-status" aria-live="polite"><span>Now exploring</span><strong>All regions</strong><small>12,840 recordings</small></div>
+    </section>
+
+    <section class="story" id="stories" aria-labelledby="story-title">
+      <div class="portrait" role="img" aria-label="Illustrated portrait of archive contributor Amara Okafor"><span class="portrait-sun"></span><span class="face"></span><span class="hair"></span><span class="shoulders"></span><span class="flowers">✣<br>✣</span></div>
+      <div class="story-copy"><p class="eyebrow dark"><span></span> Voice of the month</p><blockquote>“A song is not an object. It is a path between people.”</blockquote><h2 id="story-title">Amara Okafor</h2><p class="role">Storyteller &amp; song keeper · Enugu, Nigeria</p><p>For forty years, Amara has gathered moonlight songs from the villages along the Nsukka plateau—songs for children, travelers, and those finding their way home.</p><button class="story-listen" data-track="voice" type="button"><span>▶</span> Hear Amara’s story <small>06:24</small></button></div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#top"><span class="brand-mark"><i></i><i></i><i></i></span><span>Folkways</span></a><p>Every song carries a place.<br>Every voice deserves to travel.</p><p class="fine">An independent living archive.<br>Made for curious ears.</p></footer>
+
+  <aside class="player" aria-label="Audio player" aria-hidden="true">
+    <button class="player-toggle" type="button" aria-label="Pause"><span>Ⅱ</span></button>
+    <div class="player-info"><small>NOW PLAYING</small><strong>Shepherd’s Morning</strong><span>Maramureș, Romania · 1963</span></div>
+    <div class="waveform" aria-hidden="true"></div>
+    <span class="elapsed">0:00</span>
+    <button class="player-close" type="button" aria-label="Close player">×</button>
+  </aside>
+</body>
+</html>

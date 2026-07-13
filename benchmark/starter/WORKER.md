@@ -71,10 +71,18 @@ values above. `artifactDirectory` is optional and defaults to `slug`.
 - The poster must work as a standalone image loaded from `preview/poster.svg`.
 - Use relative asset URLs. Include every runtime asset in `dist/`.
 - Do not use CDNs, remote fonts, analytics, APIs, or runtime network requests.
+- Put a Content-Security-Policy meta tag in both entry points with at least
+  `default-src 'self'`, `connect-src 'none'`, `frame-src 'none'`,
+  `object-src 'none'`, `base-uri 'none'`, and `form-action 'none'`.
+- Do not use nested frames, executable downloads, dynamic code evaluation,
+  service workers, popups, redirects, or external navigation.
 - Do not add a server, package cache, dependency directory, Git repository, or
   generated commentary to the submission.
 - Do not read outside this worker. Do not attempt to discover prior outputs.
 - Make the page responsive and usable with touch, mouse, and keyboard.
+- At a 390 CSS-pixel viewport, the document itself must not scroll horizontally
+  or exceed the viewport width; keep every essential control and content region
+  fully reachable without clipping it behind a blanket overflow workaround.
 - Honor `prefers-reduced-motion` for nonessential motion.
 - Finish the site completely; do not leave placeholder text or TODOs.
 

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dexterous robotic systems designed around useful movement, adaptable tools, and safer work.">
+  <meta name="theme-color" content="#f2f0e9">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Kinetic Foundry — Applied robotics</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Kinetic Foundry home">
+      <svg class="brand-mark" viewBox="0 0 34 34" aria-hidden="true"><path d="M4 4h10v10H4zM20 4h10v10H20zM12 20h10v10H12z"/><circle cx="17" cy="17" r="3"/></svg>
+      <span>Kinetic<br>Foundry</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#machines">Machines</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#approach">Approach</a>
+    </nav>
+    <a class="header-cta" href="#contact">Start a project <span aria-hidden="true">↗</span></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span class="sr-only">Open menu</span></button>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <a href="#machines">Machines</a><a href="#capabilities">Capabilities</a><a href="#approach">Approach</a><a href="#contact">Start a project</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Applied robotics</p>
+        <h1>Machines with a<br><em>human sense</em><br>of motion.</h1>
+        <p class="hero-intro">Dexterous robotic systems designed around useful movement, adaptable tools, and safer work.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#machines">Meet the machines <span aria-hidden="true">↓</span></a>
+          <a class="text-link" href="#capabilities">View capabilities <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <div class="arm-stage" aria-label="Interactive illustration of a Kinetic Foundry robotic arm">
+        <div class="status-pill"><i></i> KF—01 / Active</div>
+        <svg class="arm" viewBox="0 0 720 720" role="img" aria-labelledby="arm-title arm-desc">
+          <title id="arm-title">KF-01 articulated robotic arm</title>
+          <desc id="arm-desc">A precision robotic arm with five articulated joints and a soft gripper.</desc>
+          <g class="motion-rings"><circle cx="492" cy="215" r="128"/><circle cx="492" cy="215" r="177"/><path d="M492 23v50M492 357v50M300 215h50M634 215h50"/></g>
+          <g class="arm-shadow"><ellipse cx="354" cy="638" rx="230" ry="42"/></g>
+          <g class="machine">
+            <path class="rear-link" d="M302 538L192 403c-18-22-15-55 7-73l29-24 135 165z"/>
+            <path class="front-link" d="M362 470l77-223 93 31-78 224z"/>
+            <path class="edge" d="M391 468l74-210M220 342l117 143"/>
+            <g class="joint joint-base"><circle cx="350" cy="526" r="72"/><circle cx="350" cy="526" r="44"/><circle cx="350" cy="526" r="14"/></g>
+            <g class="joint joint-elbow"><circle cx="230" cy="347" r="61"/><circle cx="230" cy="347" r="34"/><circle cx="230" cy="347" r="11"/></g>
+            <g class="joint joint-wrist"><circle cx="486" cy="268" r="55"/><circle cx="486" cy="268" r="29"/><circle cx="486" cy="268" r="9"/></g>
+            <path class="wrist" d="M513 235l59-61 64 59-59 62z"/>
+            <g class="gripper">
+              <path d="M593 190l35-49 21 16-28 54z"/>
+              <path d="M624 219l58-17 7 26-61 26z"/>
+              <rect x="569" y="183" width="60" height="72" rx="18" transform="rotate(-45 599 219)"/>
+              <circle cx="599" cy="219" r="12"/>
+            </g>
+            <path class="base" d="M224 636l28-83h199l31 83z"/>
+            <path class="base-top" d="M273 555h157v-40c0-30-24-54-54-54h-49c-30 0-54 24-54 54z"/>
+          </g>
+          <g class="labels" aria-hidden="true">
+            <path d="M128 346H57v-47"/><circle cx="128" cy="346" r="4"/>
+            <text x="43" y="282">J2 / TORQUE</text><text x="43" y="299">SENSE</text>
+            <path d="M542 267h99v45"/><circle cx="542" cy="267" r="4"/>
+            <text x="591" y="331">± 0.1 MM</text>
+          </g>
+        </svg>
+        <div class="stage-note"><b>09</b><span>Degrees<br>of freedom</span></div>
+        <button class="motion-toggle" type="button" aria-pressed="false"><span>Pause motion</span><i aria-hidden="true">Ⅱ</i></button>
+      </div>
+      <div class="hero-index"><span>01</span><b></b><span>04</span></div>
+    </section>
+
+    <section class="proof" aria-label="Performance statistics">
+      <div><strong>0.1<small>mm</small></strong><span>Repeatable precision</span></div>
+      <div><strong>18<small>kg</small></strong><span>Useful payload</span></div>
+      <div><strong>360<small>°</small></strong><span>Adaptive workspace</span></div>
+      <p>Built to move with intent.<br>Engineered to work beside people.</p>
+    </section>
+
+    <section class="machines section" id="machines">
+      <div class="section-heading">
+        <p class="eyebrow"><span></span> Machine family</p>
+        <h2>One motion core.<br><em>Many useful forms.</em></h2>
+        <p>Modular platforms that adapt to the work—not the other way around.</p>
+      </div>
+      <div class="machine-list">
+        <article class="machine-card featured">
+          <div class="card-number">01</div>
+          <div class="machine-glyph glyph-arm" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="card-copy"><p>Dexterous manipulator</p><h3>Forge One</h3><span>Fine assembly · Tool handling · 18 kg payload</span></div>
+          <a href="#contact" aria-label="Explore Forge One">↗</a>
+        </article>
+        <article class="machine-card">
+          <div class="card-number">02</div>
+          <div class="machine-glyph glyph-mobile" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="card-copy"><p>Mobile workcell</p><h3>Drift</h3><span>Material flow · Machine tending · 10 hr runtime</span></div>
+          <a href="#contact" aria-label="Explore Drift">↗</a>
+        </article>
+        <article class="machine-card">
+          <div class="card-number">03</div>
+          <div class="machine-glyph glyph-hand" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="card-copy"><p>Adaptive end effector</p><h3>Kindred</h3><span>Soft grip · Tactile sensing · Quick change</span></div>
+          <a href="#contact" aria-label="Explore Kindred">↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="capabilities section" id="capabilities">
+      <div class="cap-intro">
+        <p class="eyebrow light"><span></span> Capability stack</p>
+        <h2>Movement is<br>the <em>interface.</em></h2>
+        <p>Hardware, intelligence, and safety developed as one continuous system.</p>
+      </div>
+      <div class="cap-grid">
+        <article><span>01</span><div class="cap-icon orbit" aria-hidden="true"><i></i></div><h3>See</h3><p>Real-time scene understanding keeps every motion grounded in its surroundings.</p></article>
+        <article><span>02</span><div class="cap-icon sense" aria-hidden="true"><i></i><i></i></div><h3>Sense</h3><p>Force and tactile feedback make contact precise, responsive, and controlled.</p></article>
+        <article><span>03</span><div class="cap-icon adapt" aria-hidden="true"><i></i><i></i><i></i></div><h3>Adapt</h3><p>Skills transfer between tasks, tools, and changing production conditions.</p></article>
+        <article><span>04</span><div class="cap-icon guard" aria-hidden="true"><i></i></div><h3>Protect</h3><p>Layered sensing and verified limits support safer shared workspaces.</p></article>
+      </div>
+    </section>
+
+    <section class="approach section" id="approach">
+      <div class="approach-visual" aria-hidden="true">
+        <div class="blueprint">
+          <span class="bp-label one">ACTUATION / 07</span><span class="bp-label two">CONTROL LOOP</span>
+          <div class="bp-ring r1"></div><div class="bp-ring r2"></div><div class="bp-core">K<span>F</span></div>
+          <i class="axis x"></i><i class="axis y"></i>
+        </div>
+      </div>
+      <div class="approach-copy">
+        <p class="eyebrow"><span></span> Our approach</p>
+        <h2>Useful from<br><em>day one.</em></h2>
+        <p class="large-copy">We start with the work: the reach, rhythm, edge cases, and people already doing it well. Then we build the smallest capable system around that reality.</p>
+        <ol>
+          <li><b>01</b><span><strong>Observe the work</strong>Map tasks, constraints, and human expertise.</span></li>
+          <li><b>02</b><span><strong>Prove the motion</strong>Validate the hard movements in a working cell.</span></li>
+          <li><b>03</b><span><strong>Scale with confidence</strong>Deploy, measure, and improve alongside your team.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <p class="eyebrow light"><span></span> Build what moves next</p>
+      <h2>Bring us the work<br>that <em>won’t stand still.</em></h2>
+      <button class="button button-light contact-button" type="button" aria-expanded="false" aria-controls="contact-note">Start a conversation <span aria-hidden="true">↗</span></button>
+      <p class="contact-note" id="contact-note" hidden><strong>Project desk</strong> Tell us what needs to move at <span>hello@kineticfoundry.com</span></p>
+      <div class="contact-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#top"><svg class="brand-mark" viewBox="0 0 34 34" aria-hidden="true"><path d="M4 4h10v10H4zM20 4h10v10H20zM12 20h10v10H12z"/><circle cx="17" cy="17" r="3"/></svg><span>Kinetic<br>Foundry</span></a>
+    <p>Applied robotics for useful movement.</p>
+    <div><a href="#machines">Machines</a><a href="#capabilities">Capabilities</a><a href="#approach">Approach</a></div>
+    <small>© 2026 Kinetic Foundry</small>
+  </footer>
+</body>
+</html>

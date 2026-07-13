@@ -1,0 +1,11 @@
+const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
+const toast=$('.toast');let toastTimer;function notice(message){toast.textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2200)}
+$$('[data-toast]').forEach(b=>b.addEventListener('click',()=>notice(b.dataset.toast)));
+$$('[data-scroll]').forEach(b=>b.addEventListener('click',()=>$('#'+b.dataset.scroll).scrollIntoView({behavior:'smooth'})));
+function enterRoom(name='Sunday Spins'){notice(`Joining ${name}…`);setTimeout(()=>$('#now').scrollIntoView({behavior:'smooth'}),350)}
+$('.join').addEventListener('click',()=>enterRoom());$$('.room').forEach(r=>{r.addEventListener('click',()=>enterRoom(r.dataset.room));r.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();enterRoom(r.dataset.room)}})});
+const modal=$('.modal');$$('.start').forEach(b=>b.addEventListener('click',()=>modal.showModal()));$('.close').addEventListener('click',()=>modal.close());$('.create').addEventListener('click',()=>{const name=$('#room-name').value.trim()||'Your listening room';modal.close();notice(`${name} is live — invite your friends!`)});
+$('.play').addEventListener('click',e=>{const paused=e.currentTarget.textContent==='▶';e.currentTarget.textContent=paused?'Ⅱ':'▶';e.currentTarget.setAttribute('aria-label',paused?'Pause':'Play');$('.record').classList.toggle('paused',!paused);notice(paused?'Playback resumed':'Playback paused')});
+$$('.reaction').forEach(b=>b.addEventListener('click',()=>{const n=$('span',b);n.textContent=+n.textContent+1;b.animate([{transform:'scale(1)'},{transform:'scale(1.18)'},{transform:'scale(1)'}],{duration:240})}));
+$('.send').addEventListener('submit',e=>{e.preventDefault();const input=$('#message'),value=input.value.trim();if(!value)return;const node=document.createElement('div');node.className='comment';node.innerHTML='<i class="mini" style="background:#8068ff;color:white">M</i><div><b>You</b><p></p></div>';node.querySelector('p').textContent=value;$('.reactions').before(node);input.value='';notice('Sent to the room')});
+$('.bar').addEventListener('click',e=>{const bar=e.currentTarget,p=Math.round((e.clientX-bar.getBoundingClientRect().left)/bar.clientWidth*100);$('span',bar).style.width=p+'%';bar.setAttribute('aria-valuenow',p)});

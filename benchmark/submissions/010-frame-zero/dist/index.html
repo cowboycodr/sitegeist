@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Frame Zero is a living festival program for independent films, sharp new voices, and stories without a formula.">
+  <meta name="theme-color" content="#101010">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self'; style-src 'self'; script-src 'self'">
+  <title>Frame Zero — Independent cinema</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#program">Skip to program</a>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Frame Zero, home"><span>FRAME</span><span>ZERO</span></a>
+    <p class="edition">FZ / 26<br>Online &amp; everywhere</p>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menu</span><i aria-hidden="true"></i></button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <a href="#program">Program</a>
+      <a href="#voices">New voices</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Independent cinema <span>2026</span></p>
+        <h1 id="hero-title">Films that refuse<br>the <em>expected.</em></h1>
+        <div class="hero-actions">
+          <button class="button button-primary js-open-film" type="button" data-film="signal">Start watching <span aria-hidden="true">↗</span></button>
+          <a class="button button-quiet" href="#program">Browse the program <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="Featured film: A Signal Fires Back">
+        <div class="visual-noise"></div>
+        <div class="visual-orbit orbit-one"></div>
+        <div class="visual-orbit orbit-two"></div>
+        <div class="visual-core"></div>
+        <p class="visual-index">01 / 06</p>
+        <p class="visual-caption"><span>Opening film</span>A Signal Fires Back<br>Dir. Inés Mercado</p>
+        <button class="play-button js-open-film" data-film="signal" type="button" aria-label="Watch A Signal Fires Back"><span>▶</span></button>
+      </div>
+      <p class="hero-side-note">06 films / 04 countries<br>One week, no formulas</p>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div><span>STREAMING 08—14 AUG</span><i>✦</i><span>LIVE DIRECTOR Q&amp;As</span><i>✦</i><span>PAY WHAT YOU CAN</span><i>✦</i><span>STREAMING 08—14 AUG</span><i>✦</i></div>
+    </div>
+
+    <section class="statement" id="voices" aria-labelledby="statement-title">
+      <p class="section-marker">[ The proposition ]</p>
+      <div>
+        <h2 id="statement-title">Cinema was never<br>meant to behave.</h2>
+        <p>Frame Zero is a living program of new films from directors working beyond the obvious. No algorithms. No neat categories. Just work that leaves a mark.</p>
+      </div>
+      <p class="statement-number" aria-hidden="true">00</p>
+    </section>
+
+    <section class="program" id="program" aria-labelledby="program-title">
+      <div class="section-heading">
+        <div><p class="section-marker">[ Now showing ]</p><h2 id="program-title">The program</h2></div>
+        <p>Six films.<br>Six ways out.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter program by type">
+        <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">All films <span>06</span></button>
+        <button class="filter" type="button" data-filter="short" aria-pressed="false">Shorts <span>03</span></button>
+        <button class="filter" type="button" data-filter="feature" aria-pressed="false">Features <span>03</span></button>
+      </div>
+      <div class="film-grid" aria-live="polite">
+        <article class="film-card card-signal" data-type="feature">
+          <button type="button" class="film-button js-open-film" data-film="signal" aria-label="View A Signal Fires Back">
+            <span class="film-art art-signal"><i></i><b>01</b></span>
+            <span class="film-meta"><span>Inés Mercado · Mexico · 98′</span><span>Feature</span></span>
+            <strong>A Signal<br>Fires Back</strong><span class="card-arrow" aria-hidden="true">↗</span>
+          </button>
+        </article>
+        <article class="film-card card-cicada" data-type="short">
+          <button type="button" class="film-button js-open-film" data-film="cicada" aria-label="View Cicada Season">
+            <span class="film-art art-cicada"><i></i><b>02</b></span>
+            <span class="film-meta"><span>Ravi Sen · India · 17′</span><span>Short</span></span>
+            <strong>Cicada<br>Season</strong><span class="card-arrow" aria-hidden="true">↗</span>
+          </button>
+        </article>
+        <article class="film-card card-soft" data-type="feature">
+          <button type="button" class="film-button js-open-film" data-film="soft" aria-label="View Soft Concrete">
+            <span class="film-art art-soft"><i></i><b>03</b></span>
+            <span class="film-meta"><span>Ellie Adeyemi · UK · 74′</span><span>Feature</span></span>
+            <strong>Soft<br>Concrete</strong><span class="card-arrow" aria-hidden="true">↗</span>
+          </button>
+        </article>
+        <article class="film-card card-after" data-type="short">
+          <button type="button" class="film-button js-open-film" data-film="after" aria-label="View After the Blue Hour">
+            <span class="film-art art-after"><i></i><b>04</b></span>
+            <span class="film-meta"><span>Mara Voss · Germany · 24′</span><span>Short</span></span>
+            <strong>After the<br>Blue Hour</strong><span class="card-arrow" aria-hidden="true">↗</span>
+          </button>
+        </article>
+        <article class="film-card card-dust" data-type="feature">
+          <button type="button" class="film-button js-open-film" data-film="dust" aria-label="View Dust Archive">
+            <span class="film-art art-dust"><i></i><b>05</b></span>
+            <span class="film-meta"><span>Nadia Okafor · Ghana · 83′</span><span>Feature</span></span>
+            <strong>Dust<br>Archive</strong><span class="card-arrow" aria-hidden="true">↗</span>
+          </button>
+        </article>
+        <article class="film-card card-static" data-type="short">
+          <button type="button" class="film-button js-open-film" data-film="static" aria-label="View Static Bloom">
+            <span class="film-art art-static"><i></i><b>06</b></span>
+            <span class="film-meta"><span>Léa Morin · France · 12′</span><span>Short</span></span>
+            <strong>Static<br>Bloom</strong><span class="card-arrow" aria-hidden="true">↗</span>
+          </button>
+        </article>
+      </div>
+      <p class="filter-status" id="filter-status">Showing all 6 films</p>
+    </section>
+
+    <section class="schedule" aria-labelledby="schedule-title">
+      <p class="section-marker">[ This week ]</p>
+      <h2 id="schedule-title">Tune in live.</h2>
+      <div class="schedule-list">
+        <article><time datetime="2026-08-09T19:00">09 AUG <span>19:00 CT</span></time><div><p>Director Q&amp;A</p><h3>Inés Mercado on speculative memory</h3></div><span class="live-tag">Live</span></article>
+        <article><time datetime="2026-08-11T20:30">11 AUG <span>20:30 CT</span></time><div><p>Double bill</p><h3>Cicada Season + Static Bloom</h3></div><span aria-hidden="true">↗</span></article>
+        <article><time datetime="2026-08-13T18:00">13 AUG <span>18:00 CT</span></time><div><p>Roundtable</p><h3>Making films at the edge</h3></div><span aria-hidden="true">↗</span></article>
+      </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <p class="section-marker">[ Frame Zero ]</p>
+      <h2 id="about-title">Look again.</h2>
+      <div class="about-copy"><p>We make space for cinema that risks something. Every edition is curated by filmmakers, writers, and restless viewers.</p><a href="#program">Enter the program <span>↗</span></a></div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="wordmark footer-mark" href="#top"><span>FRAME</span><span>ZERO</span></a>
+    <p>Independent cinema<br>Online &amp; everywhere</p>
+    <p>© 2026 Frame Zero<br>Made for the strange ones</p>
+  </footer>
+
+  <dialog class="film-dialog" id="film-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-art" id="dialog-art"><span id="dialog-index">01</span><button class="dialog-close" type="button" aria-label="Close film details">Close ×</button><i></i></div>
+    <div class="dialog-copy">
+      <p class="section-marker" id="dialog-kicker">Opening film / Feature</p>
+      <h2 id="dialog-title">A Signal Fires Back</h2>
+      <p id="dialog-description">After a radio astronomer receives a transmission in her own voice, she follows it into a desert where memory and prophecy share the same frequency.</p>
+      <div class="dialog-details"><p><span>Director</span><b id="dialog-director">Inés Mercado</b></p><p><span>Origin</span><b id="dialog-origin">Mexico, 2026</b></p><p><span>Runtime</span><b id="dialog-runtime">98 minutes</b></p></div>
+      <button class="button button-primary watch-button" type="button">Watch during festival <span>▶</span></button>
+      <p class="watch-note" role="status">Available 08—14 August. No account required.</p>
+    </div>
+  </dialog>
+</body>
+</html>

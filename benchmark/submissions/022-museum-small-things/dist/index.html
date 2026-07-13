@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2eee4">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <meta name="description" content="A digital museum revealing the emotional histories hidden inside the things people keep.">
+  <title>Museum of Small Things</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#collection">Skip to collection</a>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Museum of Small Things, home">
+      <span class="mark" aria-hidden="true">M<span>•</span></span>
+      <span>Museum of<br>Small Things</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#collection">Collection</a>
+      <a href="#about">About</a>
+      <button class="submit-link" type="button" data-open-submit>Submit <span aria-hidden="true">↗</span></button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Open collection · 4,208 objects</p>
+        <h1 id="hero-title">Every small thing<br>holds a <em>world.</em></h1>
+        <p class="intro">A living archive of the ordinary objects we keep—and the extraordinary stories they carry.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#collection">Browse the collection <span aria-hidden="true">↓</span></a>
+          <button class="button button-plain" type="button" data-open-submit>Submit an object <span aria-hidden="true">↗</span></button>
+        </div>
+      </div>
+
+      <div class="specimen-stage" aria-label="Featured object: a brass key on archival paper">
+        <div class="stage-note note-one" aria-hidden="true">Found in her<br>sewing tin</div>
+        <div class="stage-note note-two" aria-hidden="true">Bristol, 1987</div>
+        <div class="key" aria-hidden="true">
+          <div class="key-ring"></div><div class="key-stem"></div><div class="key-teeth"></div>
+        </div>
+        <div class="object-label">
+          <span class="accession">№ 0197</span>
+          <div><strong>The key to nowhere</strong><small>Brass · 6.2 cm · Anonymous gift</small></div>
+          <button type="button" class="round-button" data-object="key" aria-label="Read the story of the key">↗</button>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span></span> SCROLL TO EXPLORE</div>
+    </section>
+
+    <section class="manifesto" id="about" aria-labelledby="about-title">
+      <p class="section-number">01 / THE MUSEUM</p>
+      <h2 id="about-title">Not everything precious<br>was made to be <em>valuable.</em></h2>
+      <div class="manifesto-copy">
+        <p>We collect the things that slip through history’s fingers: a bus ticket, a worn spoon, a note folded four times.</p>
+        <p>Here, their stories are preserved—not because they changed the world, but because they meant the world to someone.</p>
+      </div>
+    </section>
+
+    <section class="collection" id="collection" aria-labelledby="collection-title">
+      <div class="collection-heading">
+        <div>
+          <p class="section-number">02 / THE COLLECTION</p>
+          <h2 id="collection-title">Recently <em>catalogued</em></h2>
+        </div>
+        <p id="result-count" aria-live="polite">Showing 6 objects</p>
+      </div>
+
+      <div class="filter-bar" aria-label="Filter collection">
+        <button class="filter active" type="button" data-filter="all">All objects</button>
+        <button class="filter" type="button" data-filter="carried">Carried</button>
+        <button class="filter" type="button" data-filter="kitchen">Kitchen</button>
+        <button class="filter" type="button" data-filter="written">Written</button>
+        <button class="filter" type="button" data-filter="found">Found</button>
+      </div>
+
+      <div class="object-grid">
+        <article class="object-card wide" data-category="written">
+          <button class="card-button" type="button" data-object="note" aria-label="Read The note in the blue coat">
+            <span class="object-image paper-scene" aria-hidden="true"><span class="folded-note">Don’t forget<br>the pears.<br><i>— M</i></span><span class="pencil-line"></span></span>
+            <span class="card-meta"><span>№ 4208 · PAPER</span><span>1994</span></span>
+            <strong>The note in the blue coat</strong>
+            <span class="card-story">Found twenty-six years later, still tucked inside the lining.</span>
+          </button>
+        </article>
+
+        <article class="object-card" data-category="kitchen">
+          <button class="card-button" type="button" data-object="spoon" aria-label="Read A spoon worn thin">
+            <span class="object-image spoon-scene" aria-hidden="true"><span class="spoon"></span></span>
+            <span class="card-meta"><span>№ 4207 · SILVER</span><span>c. 1950</span></span>
+            <strong>A spoon worn thin</strong>
+            <span class="card-story">Stirred every cup of tea in a forty-three-year marriage.</span>
+          </button>
+        </article>
+
+        <article class="object-card" data-category="carried">
+          <button class="card-button" type="button" data-object="ticket" aria-label="Read The last ticket home">
+            <span class="object-image ticket-scene" aria-hidden="true"><span class="ticket">CITY LINE<br><b>ADMIT ONE</b><small>THU 23 OCT · 8:10</small></span></span>
+            <span class="card-meta"><span>№ 4206 · CARD</span><span>1978</span></span>
+            <strong>The last ticket home</strong>
+            <span class="card-story">Kept in a wallet after the route itself disappeared.</span>
+          </button>
+        </article>
+
+        <article class="object-card" data-category="found">
+          <button class="card-button" type="button" data-object="shell" aria-label="Read A sea held to the ear">
+            <span class="object-image shell-scene" aria-hidden="true"><span class="shell">◖</span></span>
+            <span class="card-meta"><span>№ 4205 · SHELL</span><span>2003</span></span>
+            <strong>A sea held to the ear</strong>
+            <span class="card-story">The only souvenir from a child’s first glimpse of the ocean.</span>
+          </button>
+        </article>
+
+        <article class="object-card wide" data-category="carried found">
+          <button class="card-button" type="button" data-object="marble" aria-label="Read The lucky green marble">
+            <span class="object-image marble-scene" aria-hidden="true"><span class="marble"></span><span class="chalk">KEEP SAFE</span></span>
+            <span class="card-meta"><span>№ 4204 · GLASS</span><span>1961</span></span>
+            <strong>The lucky green marble</strong>
+            <span class="card-story">Carried through three schools, two countries, and one impossible exam.</span>
+          </button>
+        </article>
+
+        <article class="object-card" data-category="kitchen found">
+          <button class="card-button" type="button" data-object="button" aria-label="Read One yellow button">
+            <span class="object-image button-scene" aria-hidden="true"><span class="old-button">••<br>••</span></span>
+            <span class="card-meta"><span>№ 4203 · BAKELITE</span><span>1936</span></span>
+            <strong>One yellow button</strong>
+            <span class="card-story">The last piece left of a dress remembered only in motion.</span>
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <section class="invitation" aria-labelledby="invitation-title">
+      <p class="section-number">03 / YOUR OBJECT</p>
+      <h2 id="invitation-title">What small thing<br>do <em>you</em> keep?</h2>
+      <p>Every object is an archive. Add yours to a collection built from thousands of private histories.</p>
+      <button class="button button-light" type="button" data-open-submit>Submit an object <span aria-hidden="true">↗</span></button>
+      <span class="invitation-number" aria-hidden="true">4,209?</span>
+    </section>
+  </main>
+
+  <footer>
+    <a class="wordmark inverse" href="#top"><span class="mark">M<span>•</span></span><span>Museum of<br>Small Things</span></a>
+    <p>Ordinary objects.<br>Extraordinary stories.</p>
+    <div><span>A living digital collection</span><span>Open to everyone · Always</span></div>
+  </footer>
+
+  <dialog id="story-dialog" class="story-dialog" aria-labelledby="story-title">
+    <button class="dialog-close" type="button" data-close-dialog aria-label="Close story">×</button>
+    <p class="section-number" id="story-number"></p>
+    <h2 id="story-title"></h2>
+    <p id="story-body"></p>
+    <blockquote id="story-quote"></blockquote>
+    <button class="button button-dark" type="button" data-close-dialog>Return to collection</button>
+  </dialog>
+
+  <dialog id="submit-dialog" class="submit-dialog" aria-labelledby="submit-title">
+    <button class="dialog-close" type="button" data-close-submit aria-label="Close submission form">×</button>
+    <p class="section-number">ADD TO THE ARCHIVE</p>
+    <h2 id="submit-title">Begin with the <em>thing.</em></h2>
+    <p>What object do you keep, and why can’t you let it go? This demo keeps your story in this browser only.</p>
+    <form id="object-form">
+      <label>Object name<input name="object" autocomplete="off" required placeholder="e.g. A red wool glove"></label>
+      <label>Its story<textarea name="story" required rows="4" placeholder="Tell us where it came from and what it means…"></textarea></label>
+      <button class="button button-dark" type="submit">Place it in the archive <span aria-hidden="true">→</span></button>
+    </form>
+    <div class="success-message" hidden><span aria-hidden="true">✓</span><h3>It has a place here.</h3><p>Your object has been carefully noted. Thank you for sharing its story.</p><button class="button button-dark" type="button" data-close-submit>Close</button></div>
+  </dialog>
+</body>
+</html>

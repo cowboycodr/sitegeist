@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Relic is a curated market for enduring furniture, rare design, and beautifully weathered everyday things.">
+  <meta name="theme-color" content="#efe8d8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Relic — Objects worth keeping.</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to collection</a>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Relic home">
+      <span class="brand-mark" aria-hidden="true">R</span>
+      <span>RELIC</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#collection">Furniture</a>
+      <a href="#collection">Objects</a>
+      <a href="#journal">Journal</a>
+    </nav>
+    <div class="header-tools">
+      <button class="text-button search-toggle" type="button" aria-expanded="false" aria-controls="search-panel">Search</button>
+      <button class="saved-button" type="button" aria-label="View saved objects">
+        Saved <span class="saved-count" aria-live="polite">0</span>
+      </button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="menu-label">Menu</span><span class="menu-lines" aria-hidden="true"></span>
+      </button>
+    </div>
+    <div class="search-panel" id="search-panel" hidden>
+      <label for="site-search">Find an object</label>
+      <div class="search-row">
+        <input id="site-search" type="search" placeholder="Try “chair” or “brass”" autocomplete="off">
+        <button class="search-close" type="button" aria-label="Close search">×</button>
+      </div>
+      <p class="search-status" aria-live="polite"></p>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" hidden>
+      <a href="#collection">Furniture</a><a href="#collection">Objects</a><a href="#journal">Journal</a><a href="#sell">Sell an object</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span>Newly unearthed</span><span>Collection 07</span></p>
+        <h1 id="hero-title">Objects<br>worth <em>keeping.</em></h1>
+        <p class="hero-intro">A considered collection of furniture, rare design, and everyday things made more beautiful by time.</p>
+        <div class="hero-actions">
+          <a class="primary-link" href="#collection">Browse the collection <span aria-hidden="true">↘</span></a>
+          <a class="secondary-link" href="#sell">Sell an object</a>
+        </div>
+      </div>
+
+      <div class="hero-stage" aria-label="Featured 1950s Italian lounge chair illustration">
+        <span class="edition-stamp" aria-hidden="true"><b>07</b><small>CURATED<br>RELICS</small></span>
+        <svg class="chair-art" viewBox="0 0 760 720" role="img" aria-labelledby="chair-title chair-desc">
+          <title id="chair-title">Sculptural mid-century lounge chair</title>
+          <desc id="chair-desc">A rust colored upholstered chair with dark wooden arms and legs.</desc>
+          <defs>
+            <linearGradient id="rust" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#a75731"/><stop offset=".58" stop-color="#7e3824"/><stop offset="1" stop-color="#5c291e"/></linearGradient>
+            <linearGradient id="wood" x1="0" x2="1"><stop stop-color="#211510"/><stop offset=".55" stop-color="#533626"/><stop offset="1" stop-color="#1b120f"/></linearGradient>
+            <filter id="shadow" x="-20%" width="140%" y="-20%" height="160%"><feGaussianBlur stdDeviation="17"/></filter>
+          </defs>
+          <ellipse cx="392" cy="650" rx="250" ry="31" fill="#3c2d23" opacity=".18" filter="url(#shadow)"/>
+          <path d="M250 294 C220 180 265 92 384 87 C497 82 544 168 511 296 L486 436 L275 432 Z" fill="url(#rust)" stroke="#502519" stroke-width="6"/>
+          <path d="M284 299 C272 219 302 143 390 139 C467 136 498 209 480 302" fill="none" stroke="#cb7950" stroke-width="5" opacity=".45"/>
+          <path d="M270 379 C327 350 445 349 504 382 L482 485 C414 517 334 512 280 476 Z" fill="#954329" stroke="#512419" stroke-width="6"/>
+          <path d="M300 413 C351 392 430 391 477 414" fill="none" stroke="#d18159" stroke-width="5" opacity=".45"/>
+          <path d="M264 344 L169 454 L183 468 L289 382" fill="url(#wood)" stroke="#180f0c" stroke-width="5"/>
+          <path d="M507 348 L602 452 L590 469 L482 386" fill="url(#wood)" stroke="#180f0c" stroke-width="5"/>
+          <path d="M177 458 L225 639 L244 639 L213 448" fill="url(#wood)"/>
+          <path d="M591 457 L548 641 L528 641 L555 448" fill="url(#wood)"/>
+          <path d="M296 477 L277 637 L300 638 L334 492" fill="url(#wood)"/>
+          <path d="M470 478 L484 639 L507 638 L503 470" fill="url(#wood)"/>
+          <circle cx="171" cy="461" r="13" fill="#2a1912"/><circle cx="599" cy="459" r="13" fill="#2a1912"/>
+        </svg>
+        <div class="hero-caption">
+          <span>01</span>
+          <p><b>Fiorenza lounge chair</b><br>Italy, c. 1954</p>
+          <p class="price">$4,850</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="marquee" aria-label="Relic values">
+      <div><span>Original patina</span><i>✦</i><span>One of one</span><i>✦</i><span>Collected slowly</span><i>✦</i><span>Made to endure</span></div>
+    </section>
+
+    <section class="collection" id="collection" aria-labelledby="collection-title">
+      <div class="section-heading">
+        <div><p class="kicker">The latest finds / 24 objects</p><h2 id="collection-title">The collection</h2></div>
+        <p>Pieces with presence, selected for their honest materials, useful forms, and the stories held in every mark.</p>
+      </div>
+      <div class="filter-bar" aria-label="Filter the collection">
+        <div class="filters" role="group" aria-label="Object type">
+          <button class="filter active" type="button" data-filter="all" aria-pressed="true">All objects <sup>24</sup></button>
+          <button class="filter" type="button" data-filter="seating" aria-pressed="false">Seating <sup>08</sup></button>
+          <button class="filter" type="button" data-filter="lighting" aria-pressed="false">Lighting <sup>06</sup></button>
+          <button class="filter" type="button" data-filter="objects" aria-pressed="false">Objects <sup>10</sup></button>
+        </div>
+        <button class="sort-button" type="button">Sort: Curator's edit <span aria-hidden="true">↓</span></button>
+      </div>
+
+      <div class="product-grid">
+        <article class="product-card tall" data-category="lighting" data-name="Italian opaline table lamp">
+          <div class="product-visual lamp-bg">
+            <span class="object-tag">Rare find</span>
+            <button class="save" type="button" aria-label="Save Italian opaline table lamp" aria-pressed="false">♡</button>
+            <svg viewBox="0 0 500 620" role="img" aria-label="White opaline glass table lamp">
+              <defs><radialGradient id="glass" cx="40%" cy="30%"><stop stop-color="#fffdf2"/><stop offset=".55" stop-color="#e6e1cb"/><stop offset="1" stop-color="#b7b19d"/></radialGradient></defs>
+              <ellipse cx="250" cy="560" rx="125" ry="21" fill="#403930" opacity=".16"/>
+              <path d="M165 465 Q175 386 205 318 L295 318 Q329 398 336 465 Z" fill="#68483c"/>
+              <path d="M178 467 Q249 492 323 467 L329 500 Q249 525 170 500 Z" fill="#432b24"/>
+              <path d="M250 326 C120 326 91 230 135 142 C168 76 221 51 250 51 C286 51 339 79 369 145 C408 232 379 326 250 326Z" fill="url(#glass)" stroke="#aaa38f" stroke-width="3"/>
+              <path d="M168 151 C190 96 220 82 240 75" fill="none" stroke="#fff" stroke-width="10" opacity=".45"/>
+            </svg>
+          </div>
+          <div class="product-meta"><p><b>Italian opaline table lamp</b><span>Murano, c. 1970</span></p><p>$1,240</p></div>
+        </article>
+
+        <article class="product-card" data-category="objects" data-name="Brutalist bronze vessel">
+          <div class="product-visual vessel-bg">
+            <button class="save" type="button" aria-label="Save Brutalist bronze vessel" aria-pressed="false">♡</button>
+            <svg viewBox="0 0 500 500" role="img" aria-label="Weathered bronze vessel">
+              <defs><linearGradient id="bronze" x1="0" x2="1"><stop stop-color="#32483d"/><stop offset=".27" stop-color="#8a6d48"/><stop offset=".58" stop-color="#3f5f4e"/><stop offset="1" stop-color="#2b342e"/></linearGradient></defs>
+              <ellipse cx="252" cy="417" rx="124" ry="21" fill="#392e22" opacity=".2"/>
+              <path d="M158 155 Q250 120 342 155 L326 379 Q251 416 174 379 Z" fill="url(#bronze)" stroke="#293a31" stroke-width="5"/>
+              <ellipse cx="250" cy="156" rx="94" ry="31" fill="#273c32"/><ellipse cx="250" cy="157" rx="68" ry="17" fill="#19261f"/>
+              <path d="M181 202 L313 187 M178 267 L322 240 M181 326 L316 300" stroke="#b09062" stroke-width="5" opacity=".36"/>
+            </svg>
+          </div>
+          <div class="product-meta"><p><b>Brutalist bronze vessel</b><span>France, c. 1960</span></p><p>$760</p></div>
+        </article>
+
+        <article class="product-card" data-category="seating" data-name="Rush seat dining chair">
+          <div class="product-visual chair-bg">
+            <span class="object-tag">Editor's pick</span>
+            <button class="save" type="button" aria-label="Save Rush seat dining chair" aria-pressed="false">♡</button>
+            <svg viewBox="0 0 500 500" role="img" aria-label="Wooden rush seat dining chair">
+              <ellipse cx="250" cy="438" rx="135" ry="18" fill="#2e241c" opacity=".15"/>
+              <path d="M151 90 L177 428 M349 91 L329 428" stroke="#39261c" stroke-width="18"/>
+              <path d="M159 109 Q250 65 341 110 M165 162 Q250 130 336 163 M169 218 Q250 195 332 219" fill="none" stroke="#513629" stroke-width="16"/>
+              <path d="M145 265 L355 265 L326 325 L176 325 Z" fill="#9b7850" stroke="#3e2b20" stroke-width="9"/>
+              <path d="M171 281 L327 281 M180 298 L319 298 M192 315 L309 315" stroke="#d0aa70" stroke-width="5"/>
+              <path d="M183 319 L166 438 M319 319 L339 438" stroke="#493026" stroke-width="17"/>
+            </svg>
+          </div>
+          <div class="product-meta"><p><b>Rush seat dining chair</b><span>Denmark, c. 1940</span></p><p>$980</p></div>
+        </article>
+
+        <article class="product-card wide" data-category="objects" data-name="Travertine catchall pair">
+          <div class="product-visual stone-bg">
+            <button class="save" type="button" aria-label="Save Travertine catchall pair" aria-pressed="false">♡</button>
+            <svg viewBox="0 0 720 460" role="img" aria-label="Pair of sculptural travertine bowls">
+              <defs><linearGradient id="stone" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#dfcdb0"/><stop offset=".5" stop-color="#b89f7c"/><stop offset="1" stop-color="#846c50"/></linearGradient></defs>
+              <ellipse cx="360" cy="375" rx="246" ry="25" fill="#4a3928" opacity=".18"/>
+              <path d="M112 160 Q255 95 390 175 L354 345 Q218 389 128 312 Z" fill="url(#stone)" stroke="#7f684d" stroke-width="4"/>
+              <ellipse cx="253" cy="176" rx="139" ry="54" fill="#ccb894"/><ellipse cx="253" cy="178" rx="98" ry="32" fill="#786247"/>
+              <path d="M360 193 Q485 128 610 201 L588 340 Q470 384 380 329 Z" fill="url(#stone)" stroke="#7f684d" stroke-width="4"/>
+              <ellipse cx="486" cy="204" rx="126" ry="47" fill="#d3c09f"/><ellipse cx="486" cy="205" rx="86" ry="27" fill="#806c51"/>
+            </svg>
+          </div>
+          <div class="product-meta"><p><b>Travertine catchall pair</b><span>Italy, c. 1980</span></p><p>$640</p></div>
+        </article>
+      </div>
+      <p class="empty-state" hidden>No objects match that search. Try another material or form.</p>
+      <div class="collection-footer"><a class="load-more" href="#top">Return to the top <span aria-hidden="true">↑</span></a><span>4 curator highlights / 24 objects</span></div>
+    </section>
+
+    <section class="journal" id="journal" aria-labelledby="journal-title">
+      <div class="journal-image" aria-hidden="true">
+        <svg viewBox="0 0 720 620">
+          <rect width="720" height="620" fill="#9b7756"/>
+          <path d="M0 430 L720 320 V620 H0Z" fill="#6a4b34"/>
+          <rect x="393" y="145" width="223" height="291" rx="110" fill="#d9c59e"/>
+          <rect x="423" y="175" width="163" height="230" rx="82" fill="#66796b"/>
+          <path d="M95 457 L235 456 L210 564 L118 564Z" fill="#b9a384"/>
+          <ellipse cx="166" cy="455" rx="70" ry="22" fill="#d5c39f"/>
+          <path d="M142 400 Q165 330 190 400 L184 453 H148Z" fill="#39463d"/>
+          <circle cx="168" cy="333" r="12" fill="#d4b277"/>
+          <rect x="520" y="383" width="89" height="142" fill="#4b3024"/>
+          <path d="M475 419 Q548 358 632 424" fill="none" stroke="#2f2019" stroke-width="15"/>
+        </svg>
+        <span class="image-note">At home with / Mara V.</span>
+      </div>
+      <div class="journal-copy">
+        <p class="kicker">Relic journal · No. 12</p>
+        <h2 id="journal-title">A room should remember <em>who lived there.</em></h2>
+        <p>Collector and ceramicist Mara Vale invites us into her quiet, layered home—and shares why a little wear is always welcome.</p>
+        <a href="#journal-title">Read the story <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="sell" id="sell" aria-labelledby="sell-title">
+      <span class="seal" aria-hidden="true">R<br><small>EST. 2018</small></span>
+      <div><p class="kicker">Something worth passing on?</p><h2 id="sell-title">Let the right object<br>find its next home.</h2></div>
+      <button class="primary-link light inquiry-button" type="button" aria-expanded="false" aria-controls="inquiry-note">Tell us about your piece <span aria-hidden="true">↗</span></button>
+      <p class="inquiry-note" id="inquiry-note" hidden>Submissions are reviewed each Friday. Prepare 3–5 clear photos, dimensions, and any known history of your piece.</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#top"><span class="brand-mark">R</span><span>RELIC</span></a>
+    <p>Objects worth keeping.<br><span>Curated in Chicago, found everywhere.</span></p>
+    <div><a href="#collection">Collection</a><a href="#journal">Journal</a><a href="#sell">Sell</a></div>
+    <p class="copyright">© 2026 Relic</p>
+  </footer>
+</body>
+</html>

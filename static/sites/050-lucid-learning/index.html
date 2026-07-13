@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Lucid turns difficult ideas into playful simulations, diagrams, and experiments.">
+  <meta name="theme-color" content="#f4f0e7">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:">
+  <title>Lucid — Learn by seeing.</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav shell">
+    <a class="brand" href="#top" aria-label="Lucid home"><span class="brand-mark" aria-hidden="true"></span>lucid</a>
+    <nav aria-label="Main navigation">
+      <a href="#subjects">Subjects</a><a href="#method">How it works</a>
+    </nav>
+    <a class="nav-cta" href="#subjects">Explore free</a>
+  </header>
+
+  <main id="main">
+    <section class="hero shell" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Ideas you can touch</p>
+        <h1>Learn by<br><em>seeing.</em></h1>
+        <p class="intro">Difficult ideas become clear when you can play with them. Explore beautifully visual lessons built for curious minds.</p>
+        <div class="actions">
+          <a class="button primary" href="#lab">Start exploring <span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="#subjects">Browse subjects <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="trust"><span class="faces" aria-hidden="true"><i>J</i><i>M</i><i>A</i></span><strong>20,000+</strong> curious learners this week</p>
+      </div>
+
+      <div class="orbit-card" aria-label="Animated illustration of orbital motion">
+        <div class="card-label"><span>LIVE MODEL</span><b>ORBITAL MOTION</b></div>
+        <div class="orbit-stage">
+          <span class="orbit-line one"></span><span class="orbit-line two"></span>
+          <span class="planet planet-a"></span><span class="planet planet-b"></span>
+          <span class="sun"><i></i></span>
+          <svg class="scribble" viewBox="0 0 120 50" aria-hidden="true"><path d="M4 40C30 5 69 4 110 25"/><path d="m101 17 10 8-13 2"/></svg>
+          <p class="note">gravity keeps<br>the dance going</p>
+        </div>
+        <div class="card-foot"><span><i class="dot yellow"></i> mass</span><span><i class="dot coral"></i> velocity</span><span class="play">▶ &nbsp;drag to experiment</span></div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Learning topics"><div>ASTRONOMY <i>✦</i> BIOLOGY <i>✦</i> MATHEMATICS <i>✦</i> PHYSICS <i>✦</i> COMPUTER SCIENCE <i>✦</i> ASTRONOMY</div></section>
+
+    <section class="lab shell" id="lab">
+      <div class="section-head">
+        <div><p class="eyebrow"><span></span> Try it yourself</p><h2>Make waves.</h2></div>
+        <p>Move the controls and watch a formula become something you can feel.</p>
+      </div>
+      <div class="wave-panel">
+        <div class="wave-readout">
+          <div class="formula">y = <span id="ampOut">1.2</span> sin(<span id="freqOut">2.0</span>x)</div>
+          <svg id="wave" viewBox="0 0 800 280" role="img" aria-label="Interactive sine wave visualization">
+            <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="currentColor" stroke-width="1"/></pattern></defs>
+            <rect width="800" height="280" fill="url(#grid)"/><line x1="0" y1="140" x2="800" y2="140" class="axis"/><path id="wavePath" d=""/>
+          </svg>
+        </div>
+        <div class="controls">
+          <label for="amplitude"><span>Amplitude</span><output id="ampLabel">1.2</output></label>
+          <input id="amplitude" type="range" min="0.3" max="2" value="1.2" step="0.1">
+          <label for="frequency"><span>Frequency</span><output id="freqLabel">2.0</output></label>
+          <input id="frequency" type="range" min="0.5" max="4" value="2" step="0.1">
+          <button id="randomize" type="button">Surprise me <span aria-hidden="true">✦</span></button>
+          <p><span aria-hidden="true">↳</span> You just changed a function in real time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="subjects shell" id="subjects">
+      <div class="section-head">
+        <div><p class="eyebrow"><span></span> Pick a path</p><h2>Follow your curiosity.</h2></div>
+        <div class="filters" role="group" aria-label="Filter subjects"><button class="active" data-filter="all" aria-pressed="true">All</button><button data-filter="science" aria-pressed="false">Science</button><button data-filter="math" aria-pressed="false">Math & logic</button></div>
+      </div>
+      <div class="course-grid">
+        <article class="course coral" data-category="science"><div class="course-art cell-art" aria-hidden="true"><span></span><span></span><span></span></div><p>Biology · 12 lessons</p><h3>The secret life<br>of a cell</h3><a href="#lab" aria-label="Explore The secret life of a cell">Explore course <span>→</span></a></article>
+        <article class="course blue" data-category="science"><div class="course-art ray-art" aria-hidden="true"><span></span></div><p>Physics · 9 lessons</p><h3>Light, color<br>& perception</h3><a href="#lab" aria-label="Explore Light, color and perception">Explore course <span>→</span></a></article>
+        <article class="course yellow" data-category="math"><div class="course-art shape-art" aria-hidden="true"><span></span><i></i><b></b></div><p>Mathematics · 15 lessons</p><h3>Geometry that<br>moves</h3><a href="#lab" aria-label="Explore Geometry that moves">Explore course <span>→</span></a></article>
+      </div>
+    </section>
+
+    <section class="method" id="method"><div class="shell method-inner"><p class="big-quote">“The best way to understand an idea is to <em>see it move.</em>”</p><div class="steps"><p><b>01</b><span><strong>Wonder</strong>Start with a question.</span></p><p><b>02</b><span><strong>Play</strong>Test it with your hands.</span></p><p><b>03</b><span><strong>Understand</strong>Build intuition that lasts.</span></p></div></div></section>
+  </main>
+
+  <footer class="shell"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>lucid</a><p>Keep wondering. Keep playing.</p><p>© 2026 Lucid Learning</p></footer>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="One Point Five turns planetary signals into urgent, legible, collective action.">
+  <meta name="theme-color" content="#f2f0e8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>One Point Five — Climate Data Observatory</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to climate signals</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="One Point Five, home">
+      <span class="brand-mark" aria-hidden="true">1·5</span>
+      <span class="brand-name">One Point Five</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#signals">Signals</a>
+      <a href="#trajectory">Trajectory</a>
+      <a href="#outlook">Outlook</a>
+    </nav>
+    <a class="header-action" href="#method">Our method <span aria-hidden="true">↗</span></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu">
+      <span>Menu</span><span class="menu-icon" aria-hidden="true"></span>
+    </button>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <a href="#signals">Signals</a>
+      <a href="#trajectory">Trajectory</a>
+      <a href="#outlook">Outlook</a>
+      <a href="#method">Our method</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span> Climate data observatory</p>
+        <h1 id="hero-title">Make the future<br><em>measurable.</em></h1>
+        <p class="hero-intro">The planet is speaking in signals. We turn them into a shared view of where we are—and how fast we need to move.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#signals">Explore the signals <span aria-hidden="true">↓</span></a>
+          <a class="text-link" href="#outlook">Read the outlook <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <div class="threshold-visual" aria-label="The 1.5 degree Celsius warming threshold">
+        <div class="orbit orbit-a" aria-hidden="true"></div>
+        <div class="orbit orbit-b" aria-hidden="true"></div>
+        <div class="temperature">1.5<span>°C</span></div>
+        <p>The line the world<br>cannot afford to cross.</p>
+        <div class="threshold-meta">
+          <span>Paris threshold</span>
+          <span>Global mean</span>
+        </div>
+      </div>
+
+      <div class="hero-ticker" aria-label="Current climate indicators">
+        <div><span>Current warming</span><strong>1.31°C</strong></div>
+        <div><span>Atmospheric CO₂</span><strong>427.4 <small>ppm</small></strong></div>
+        <div><span>Remaining carbon budget</span><strong>176 <small>GtCO₂</small></strong></div>
+        <div class="status"><span>Data status</span><strong><i aria-hidden="true"></i> Monitoring</strong></div>
+      </div>
+    </section>
+
+    <section class="signals-section" id="signals" aria-labelledby="signals-title">
+      <div class="section-head">
+        <div>
+          <p class="section-index">01 / Planetary signals</p>
+          <h2 id="signals-title">Four signals.<br>One direction.</h2>
+        </div>
+        <p>Measurements are shown against the 1850–1900 baseline. Each signal reveals a different part of the same accelerating system.</p>
+      </div>
+
+      <div class="signal-grid">
+        <article class="signal-card card-temperature">
+          <div class="card-top"><span>01</span><span>Global temperature</span><span class="trend-up">↗</span></div>
+          <div class="card-value">+1.31<span>°C</span></div>
+          <div class="sparkline" aria-hidden="true">
+            <svg viewBox="0 0 500 110" role="img"><path class="area" d="M0 97 C60 94 71 90 110 91 S177 79 208 84 S256 64 291 71 S344 50 372 54 S429 34 500 14 L500 110 L0 110Z"/><path d="M0 97 C60 94 71 90 110 91 S177 79 208 84 S256 64 291 71 S344 50 372 54 S429 34 500 14"/></svg>
+          </div>
+          <div class="card-foot"><span>2024 annual mean</span><strong>Warmest decade on record</strong></div>
+        </article>
+
+        <article class="signal-card card-co2">
+          <div class="card-top"><span>02</span><span>Carbon dioxide</span><span class="trend-up">↗</span></div>
+          <div class="card-value">427.4<span>ppm</span></div>
+          <div class="co2-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="card-foot"><span>Mauna Loa, monthly</span><strong>+2.8 ppm year on year</strong></div>
+        </article>
+
+        <article class="signal-card card-ocean">
+          <div class="card-top"><span>03</span><span>Ocean heat</span><span class="trend-up">↗</span></div>
+          <div class="card-value">+16<span>ZJ</span></div>
+          <div class="ocean-rings" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="card-foot"><span>Upper 2,000 metres</span><strong>Record heat content</strong></div>
+        </article>
+
+        <article class="signal-card card-ice">
+          <div class="card-top"><span>04</span><span>Arctic sea ice</span><span class="trend-down">↘</span></div>
+          <div class="card-value">−12.2<span>% / decade</span></div>
+          <div class="ice-field" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="card-foot"><span>September extent</span><strong>Satellite era trend</strong></div>
+        </article>
+      </div>
+      <p class="source-note">Last synthesized 12 Jul 2026 · Sources: WMO, NOAA, Copernicus C3S, NSIDC <span>Values are an editorial climate snapshot</span></p>
+    </section>
+
+    <section class="trajectory-section" id="trajectory" aria-labelledby="trajectory-title">
+      <div class="trajectory-copy">
+        <p class="section-index light">02 / The trajectory</p>
+        <h2 id="trajectory-title">Every fraction<br><em>changes the future.</em></h2>
+        <p>1.5°C is not a cliff edge. It is a guardrail: every tenth of a degree avoided means fewer people exposed, fewer ecosystems lost, and more room to adapt.</p>
+        <div class="legend" aria-label="Chart legend"><span><i class="actual"></i> Observed</span><span><i class="projected"></i> Current policies</span><span><i class="target"></i> 1.5°C pathway</span></div>
+      </div>
+      <div class="chart-wrap">
+        <div class="chart-heading"><span>Global mean warming</span><strong>1850—2100</strong></div>
+        <div class="chart" role="img" aria-label="Global warming rises from near zero in 1900 to 1.31 degrees Celsius today. Current policies project about 2.7 degrees in 2100 while a rapid transition can limit warming near 1.5 degrees.">
+          <div class="limit-line"><span>1.5°C guardrail</span></div>
+          <svg viewBox="0 0 760 390" preserveAspectRatio="none" aria-hidden="true">
+            <defs><linearGradient id="risk" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ff603b" stop-opacity=".5"/><stop offset="1" stop-color="#ff603b" stop-opacity="0"/></linearGradient></defs>
+            <path class="chart-area" d="M0 354 C90 353 134 348 202 339 S298 317 372 288 S455 239 510 204 C583 156 651 93 760 29 L760 390 L0 390Z" fill="url(#risk)"/>
+            <path class="actual-line" d="M0 354 C90 353 134 348 202 339 S298 317 372 288 S455 239 510 204"/>
+            <path class="policy-line" d="M510 204 C583 156 651 93 760 29"/>
+            <path class="target-line" d="M510 204 C580 188 660 187 760 182"/>
+            <circle cx="510" cy="204" r="7"/>
+          </svg>
+          <div class="current-label"><strong>1.31°C</strong><span>Now</span></div>
+          <div class="policy-label"><strong>2.7°C</strong><span>Current policies</span></div>
+          <div class="axis"><span>1850</span><span>1900</span><span>1950</span><span>2000</span><span>2050</span><span>2100</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlook-section" id="outlook" aria-labelledby="outlook-title">
+      <div class="outlook-title-wrap">
+        <p class="section-index">03 / The outlook</p>
+        <h2 id="outlook-title">The window is narrow.<br><em>It is still open.</em></h2>
+      </div>
+      <div class="outlook-copy">
+        <p>Halving global emissions this decade is the clearest route to a safer climate. The tools exist. What matters now is the speed and scale of their use.</p>
+        <a class="button button-accent" href="#method">See the action map <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="action-strip" id="method">
+        <div><span>By 2030</span><strong>−43%</strong><p>Global emissions versus 2019</p></div>
+        <div><span>By 2035</span><strong>3×</strong><p>Renewable power capacity</p></div>
+        <div><span>By 2050</span><strong>Net 0</strong><p>Global carbon dioxide</p></div>
+        <div class="method-note"><span>How we read the signals</span><p>We align open observations with peer-reviewed pathways, then translate uncertainty without erasing it.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#top"><span class="brand-mark">1·5</span><span class="brand-name">One Point Five</span></a>
+    <p>Planetary evidence for collective action.</p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+</body>
+</html>

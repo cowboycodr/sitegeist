@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Expressive coffees sourced carefully and developed with patient, exact roast profiles.">
+  <meta name="theme-color" content="#e4522a">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Kiln Coffee — Heat reveals character.</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="heatline" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Kiln Coffee home">
+      <svg viewBox="0 0 42 42" aria-hidden="true"><path d="M21 2 38 11v20L21 40 4 31V11Z"/><path d="M14 30V12h5v7l7-7h6l-8 8 9 10h-7l-7-9v9Z"/></svg>
+      <span>KILN<br>COFFEE</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#coffee">Coffee</a><a href="#process">Process</a><a href="#producers">Producers</a>
+    </nav>
+    <button class="bag" type="button" aria-controls="bag-panel" aria-expanded="false">Bag <span id="bag-count">0</span></button>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Roasted this week <span>/</span> Batch 214</p>
+        <h1>Heat reveals<br><em>character.</em></h1>
+        <p class="intro">Expressive coffees sourced carefully and developed with patient, exact roast profiles.</p>
+        <div class="actions">
+          <a class="button primary" href="#coffee">Shop fresh coffee <span>↘</span></a>
+          <a class="text-link" href="#producers">Meet the producers <span>→</span></a>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of a coffee roast profile and Kiln coffee bag">
+        <div class="sun" aria-hidden="true"><span>214°</span></div>
+        <div class="curve" aria-hidden="true"><svg viewBox="0 0 600 380"><path d="M10 328C106 312 148 264 199 192c63-89 144-85 208-28 53 48 105 21 183-142"/><circle cx="200" cy="192" r="7"/><circle cx="406" cy="164" r="7"/></svg></div>
+        <div class="coffee-bag" aria-hidden="true">
+          <div class="bag-top"></div>
+          <div class="bag-label"><small>SEASONAL RELEASE</small><b>LAS<br>BRISAS</b><span>APRICOT · CACAO<br>HONEY</span><i>COLOMBIA / 250G</i></div>
+          <div class="bag-mark">K</div>
+        </div>
+        <div class="annotation note-a" aria-hidden="true">first crack <b>08:42</b></div>
+        <div class="annotation note-b" aria-hidden="true">development <b>16%</b></div>
+      </div>
+      <div class="batch-strip" aria-label="Current roast details">
+        <span><b>Origin</b> Huila, Colombia</span><span><b>Elevation</b> 1,860 MASL</span><span><b>Process</b> Honey</span><span><b>Roasted</b> 11 Jul 2026</span>
+      </div>
+    </section>
+
+    <section class="coffee-section" id="coffee">
+      <div class="section-heading">
+        <p class="eyebrow">Fresh from the kiln / 03 lots</p>
+        <h2>Roasts with<br>a point of view.</h2>
+        <p>Each coffee is roasted in small batches and shipped at peak expression.</p>
+      </div>
+      <div class="products">
+        <article class="product coral">
+          <div class="product-visual"><span class="origin">CO<br>01</span><div class="mini-bag"><b>LAS BRISAS</b><span>APRICOT<br>CACAO<br>HONEY</span></div></div>
+          <div class="product-info"><div><p>Colombia · Honey</p><h3>Las Brisas</h3></div><p class="price">$22 <span>/ 250g</span></p></div>
+          <button class="add" type="button" data-product="Las Brisas" data-price="22">Add to bag <span>＋</span></button>
+        </article>
+        <article class="product acid">
+          <div class="product-visual"><span class="origin">ET<br>02</span><div class="mini-bag"><b>HALO BERITI</b><span>JASMINE<br>LEMON<br>PEACH</span></div></div>
+          <div class="product-info"><div><p>Ethiopia · Washed</p><h3>Halo Beriti</h3></div><p class="price">$24 <span>/ 250g</span></p></div>
+          <button class="add" type="button" data-product="Halo Beriti" data-price="24">Add to bag <span>＋</span></button>
+        </article>
+        <article class="product violet">
+          <div class="product-visual"><span class="origin">CR<br>03</span><div class="mini-bag"><b>LOS SANTOS</b><span>PLUM<br>TOFFEE<br>ALMOND</span></div></div>
+          <div class="product-info"><div><p>Costa Rica · Natural</p><h3>Los Santos</h3></div><p class="price">$21 <span>/ 250g</span></p></div>
+          <button class="add" type="button" data-product="Los Santos" data-price="21">Add to bag <span>＋</span></button>
+        </article>
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <div class="process-copy">
+        <p class="eyebrow light">Our process / Controlled transformation</p>
+        <h2>Listen to<br>the heat.</h2>
+        <p>We roast by measurement, then refine by taste. Every curve is a conversation between density, moisture, time and flame.</p>
+        <ol>
+          <li><span>01</span><b>Map the green</b><small>Density, moisture, structure.</small></li>
+          <li><span>02</span><b>Build the curve</b><small>Energy applied with intent.</small></li>
+          <li><span>03</span><b>Taste, adjust, repeat</b><small>No profile is ever assumed.</small></li>
+        </ol>
+      </div>
+      <div class="roast-meter" aria-label="Abstract roast development graphic">
+        <div class="rings"><span></span><span></span><span></span><i></i><b>HEAT<br>+</b></div>
+        <p>Drop temp <b>214°C</b></p><p>Development <b>01:28</b></p><p>Total time <b>09:14</b></p>
+      </div>
+    </section>
+
+    <section class="producers" id="producers">
+      <div class="producer-art" aria-hidden="true"><div class="mountain m1"></div><div class="mountain m2"></div><div class="field-lines"></div><span>1,860<br>MASL</span></div>
+      <div class="producer-copy">
+        <p class="eyebrow">Source notes / Huila, Colombia</p>
+        <h2>Grown by<br>María Elena.</h2>
+        <blockquote>“The best lots begin with patience in the field.”</blockquote>
+        <p>At Finca Las Brisas, María Elena Rojas and her family grow Caturra beneath plantain shade. Selective picking and a meticulous honey process bring uncommon clarity to this harvest.</p>
+        <a class="text-link dark" href="#coffee">Taste Las Brisas <span>→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><a class="brand footer-brand" href="#top"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M21 2 38 11v20L21 40 4 31V11Z"/><path d="M14 30V12h5v7l7-7h6l-8 8 9 10h-7l-7-9v9Z"/></svg><span>KILN<br>COFFEE</span></a><p>Small-batch coffee<br>roasted in Chicago.</p></div>
+    <div class="footer-line"><span>Heat reveals character.</span><span>© 2026 Kiln Coffee</span></div>
+  </footer>
+
+  <div class="scrim" hidden></div>
+  <aside class="bag-panel" id="bag-panel" aria-labelledby="bag-title" aria-hidden="true">
+    <div class="bag-head"><h2 id="bag-title">Your bag</h2><button class="close-bag" type="button" aria-label="Close bag">×</button></div>
+    <div class="bag-items"><p class="empty">Your bag is cool. Add something fresh.</p></div>
+    <div class="bag-total"><span>Total</span><b>$0</b></div>
+    <button class="checkout" type="button">Checkout</button>
+  </aside>
+</body>
+</html>

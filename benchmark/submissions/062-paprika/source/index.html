@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bold chef-made meals from independent kitchens, delivered hot and ready for the table.">
+  <meta name="theme-color" content="#f4b63f">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Paprika — Dinner should feel alive.</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to dinner</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Paprika home">
+      <span class="brand-mark" aria-hidden="true">P</span>
+      <span>Paprika</span>
+    </a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#tonight">Tonight</a>
+      <a href="#kitchens">Kitchens</a>
+      <a href="#how">How it works</a>
+    </nav>
+    <button class="bag-button" type="button" data-open-bag aria-haspopup="dialog">
+      Your table <span class="bag-count" data-bag-count>0</span>
+    </button>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Made nearby</p>
+        <h1>Dinner should<br>feel <em>alive.</em></h1>
+        <p class="hero-intro">Big-flavour meals from independent kitchens, at your door while the pans are still warm.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#tonight">Find tonight’s dinner <span aria-hidden="true">↘</span></a>
+          <a class="text-link" href="#kitchens">Meet the kitchens <span aria-hidden="true">→</span></a>
+        </div>
+        <dl class="hero-facts" aria-label="Service highlights">
+          <div><dt>32 min</dt><dd>average arrival</dd></div>
+          <div><dt>11</dt><dd>kitchens nearby</dd></div>
+          <div><dt>4.9</dt><dd>average rating</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-art" aria-label="A vibrant bowl of ember chicken, greens, rice and pickles">
+        <div class="sun-stamp"><strong>HOT</strong><span>to your table</span></div>
+        <div class="scribble" aria-hidden="true">made<br>with fire!</div>
+        <div class="bowl" aria-hidden="true">
+          <span class="rice"></span>
+          <span class="greens g1"></span><span class="greens g2"></span>
+          <span class="chicken c1"></span><span class="chicken c2"></span><span class="chicken c3"></span>
+          <span class="pickle p1"></span><span class="pickle p2"></span><span class="pickle p3"></span>
+          <span class="sauce"></span>
+        </div>
+        <p class="dish-caption"><strong>Ember chicken</strong><span>Fuego House · 28 min</span></p>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Paprika promises">
+      <div>CHEF-MADE <i>✦</i> DELIVERED HOT <i>✦</i> MADE NEARBY <i>✦</i> TONIGHT’S GOOD <i>✦</i></div>
+    </section>
+
+    <section class="menu-section" id="tonight">
+      <div class="section-heading">
+        <div><p class="eyebrow"><span></span> On the pass now</p><h2>What are you<br>hungry for?</h2></div>
+        <p>Real dinners, cooked in small batches. When they’re gone, tomorrow brings something new.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter dinner menu">
+        <button class="filter active" type="button" data-filter="all" aria-pressed="true">All tonight</button>
+        <button class="filter" type="button" data-filter="bright" aria-pressed="false">Bright + fresh</button>
+        <button class="filter" type="button" data-filter="comfort" aria-pressed="false">Deep comfort</button>
+        <button class="filter" type="button" data-filter="plant" aria-pressed="false">Plant-powered</button>
+      </div>
+
+      <div class="meal-grid" aria-live="polite">
+        <article class="meal-card" data-category="bright">
+          <div class="meal-image meal-one" role="img" aria-label="Red harissa chicken with couscous and herbs"><span class="veg v1"></span><span class="veg v2"></span><span class="protein"></span><span class="herb h1"></span><span class="herb h2"></span></div>
+          <div class="meal-meta"><span>Fuego House · 25–30 min</span><span>4.9 ★</span></div>
+          <h3>Red harissa chicken</h3>
+          <p>Smoky couscous, charred lemon, green tahini</p>
+          <div class="meal-footer"><strong>$18</strong><button type="button" data-add data-meal="Red harissa chicken">Add <span aria-hidden="true">+</span></button></div>
+        </article>
+        <article class="meal-card" data-category="plant bright">
+          <div class="meal-image meal-two" role="img" aria-label="Golden coconut curry with squash, lime and rice"><span class="curry"></span><span class="riceball"></span><span class="leaf l1"></span><span class="leaf l2"></span><span class="lime"></span></div>
+          <div class="meal-meta"><span>Little Coconut · 30–35 min</span><span>4.8 ★</span></div>
+          <h3>Golden coconut curry</h3>
+          <p>Roast squash, tamarind, jasmine rice, lime</p>
+          <div class="meal-footer"><strong>$16</strong><button type="button" data-add data-meal="Golden coconut curry">Add <span aria-hidden="true">+</span></button></div>
+        </article>
+        <article class="meal-card" data-category="comfort">
+          <div class="meal-image meal-three" role="img" aria-label="Slow cooked beef ragu with wide pasta"><span class="pasta pa1"></span><span class="pasta pa2"></span><span class="ragu"></span><span class="basil"></span></div>
+          <div class="meal-meta"><span>Bar Rocco · 35–40 min</span><span>5.0 ★</span></div>
+          <h3>Sunday beef ragù</h3>
+          <p>Hand-cut pappardelle, 8-hour beef, parmesan</p>
+          <div class="meal-footer"><strong>$21</strong><button type="button" data-add data-meal="Sunday beef ragù">Add <span aria-hidden="true">+</span></button></div>
+        </article>
+      </div>
+      <p class="menu-note" data-menu-note>3 dishes ready near you tonight</p>
+    </section>
+
+    <section class="kitchens" id="kitchens">
+      <div class="kitchen-art" aria-hidden="true">
+        <div class="portrait"><span class="hair"></span><span class="head"></span><span class="shirt"></span><span class="apron"></span></div>
+        <span class="quote-mark">“</span>
+      </div>
+      <div class="kitchen-copy">
+        <p class="eyebrow light"><span></span> Kitchen no. 07</p>
+        <blockquote>“The kind of food<br>that makes you <em>sit up.</em>”</blockquote>
+        <p>Chef Amara built Fuego House around smoke, citrus and the recipes she learned at her grandmother’s table. She cooks forty dinners a night. No conveyor belts. No sad desk lunches.</p>
+        <a class="button button-light" href="#tonight">Taste Fuego House <span aria-hidden="true">↗</span></a>
+        <div class="chef-sign">Amara</div>
+      </div>
+    </section>
+
+    <section class="how" id="how">
+      <div class="section-heading compact">
+        <div><p class="eyebrow"><span></span> From their stove to yours</p><h2>Good food.<br>No long story.</h2></div>
+      </div>
+      <ol class="steps">
+        <li><span>01</span><div class="step-icon">⌁</div><h3>Pick your mood</h3><p>See what independent chefs are cooking near you right now.</p></li>
+        <li><span>02</span><div class="step-icon">♨</div><h3>They fire it up</h3><p>Your dinner is finished to order, packed hot, and handed over.</p></li>
+        <li><span>03</span><div class="step-icon">⌂</div><h3>Set the table</h3><p>A local rider brings it straight over. Plates strongly encouraged.</p></li>
+      </ol>
+    </section>
+
+    <section class="final-cta">
+      <p class="eyebrow light"><span></span> Your evening, sorted</p>
+      <h2>Make tonight<br><em>delicious.</em></h2>
+      <a class="button button-gold" href="#tonight">See what’s cooking <span aria-hidden="true">↑</span></a>
+      <div class="tomato t1" aria-hidden="true"></div><div class="tomato t2" aria-hidden="true"></div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#top"><span class="brand-mark">P</span><span>Paprika</span></a>
+    <p>Independent kitchens.<br>Unforgettable dinners.</p>
+    <div class="footer-links"><a href="#tonight">Tonight’s menu</a><a href="#kitchens">Our kitchens</a><a href="#how">How it works</a></div>
+    <small>© 2026 Paprika · Made nearby, delivered warmly.</small>
+  </footer>
+
+  <dialog class="bag-dialog" data-bag-dialog aria-labelledby="bag-title">
+    <div class="dialog-head"><p class="eyebrow"><span></span> Your table</p><button type="button" data-close-bag aria-label="Close your table">×</button></div>
+    <h2 id="bag-title">Dinner is<br>coming together.</h2>
+    <div class="bag-items" data-bag-items><p class="empty-bag">Nothing here yet. Pick something delicious.</p></div>
+    <div class="bag-total"><span>Tonight’s total</span><strong data-total>$0</strong></div>
+    <button class="button button-dark checkout" type="button" data-checkout>Choose delivery time <span>→</span></button>
+    <p class="dialog-note" data-dialog-note>Demo order — no payment or network request will be made.</p>
+  </dialog>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+</body>
+</html>

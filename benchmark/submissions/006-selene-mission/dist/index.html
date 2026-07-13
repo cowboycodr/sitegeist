@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b0b">
+  <meta name="description" content="Selene Mission is preparing the first autonomous lunar surface habitat.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Selene Mission — M01 Lunar Habitat</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="state.css">
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#mission">Skip to mission</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Selene Mission home">
+      <svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="13.5"/><path d="M22.5 8.7A11 11 0 1 0 22.5 27.3 13.5 13.5 0 0 1 22.5 8.7Z"/></svg>
+      <span>SELENE</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#mission">Mission</a>
+      <a href="#habitat">Habitat</a>
+      <a href="#vehicle">Vehicle</a>
+      <a href="#updates">Updates</a>
+    </nav>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu">
+      <span>Menu</span><i></i><i></i>
+    </button>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav aria-label="Mobile navigation">
+      <a href="#mission">01 — Mission</a>
+      <a href="#habitat">02 — Habitat</a>
+      <a href="#vehicle">03 — Vehicle</a>
+      <a href="#updates">04 — Updates</a>
+    </nav>
+    <p>Earth–Moon system<br>38.4 × 10⁴ km</p>
+  </div>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="star-field" aria-hidden="true"></div>
+      <div class="orbit orbit-one" aria-hidden="true"></div>
+      <div class="orbit orbit-two" aria-hidden="true"></div>
+      <div class="moon-wrap" aria-hidden="true">
+        <svg class="moon" viewBox="0 0 800 800">
+          <defs>
+            <radialGradient id="moon-base" cx="32%" cy="28%" r="72%"><stop offset="0" stop-color="#e3e0d7"/><stop offset=".54" stop-color="#a5a49e"/><stop offset="1" stop-color="#565b5a"/></radialGradient>
+            <radialGradient id="shade" cx="23%" cy="32%" r="74%"><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".74"/></radialGradient>
+            <filter id="rough"><feTurbulence baseFrequency=".028" numOctaves="4" seed="17" type="fractalNoise"/><feColorMatrix values=".7 0 0 0 .2 .7 0 0 0 .2 .7 0 0 0 .2 0 0 0 .38 0"/><feBlend in="SourceGraphic" mode="multiply"/></filter>
+            <clipPath id="disc"><circle cx="400" cy="400" r="386"/></clipPath>
+          </defs>
+          <circle cx="400" cy="400" r="386" fill="url(#moon-base)"/>
+          <g clip-path="url(#disc)" opacity=".5" filter="url(#rough)"><rect width="800" height="800" fill="#bbbcb6"/></g>
+          <g fill="none" stroke="#6e716e" opacity=".34">
+            <ellipse cx="265" cy="254" rx="67" ry="44" stroke-width="14" transform="rotate(-18 265 254)"/>
+            <ellipse cx="508" cy="176" rx="33" ry="27" stroke-width="9"/>
+            <ellipse cx="565" cy="430" rx="88" ry="61" stroke-width="17" transform="rotate(22 565 430)"/>
+            <ellipse cx="316" cy="560" rx="45" ry="39" stroke-width="11"/>
+            <ellipse cx="137" cy="414" rx="35" ry="26" stroke-width="8"/>
+            <ellipse cx="444" cy="322" rx="21" ry="17" stroke-width="6"/>
+            <ellipse cx="670" cy="283" rx="28" ry="22" stroke-width="8"/>
+          </g>
+          <circle cx="400" cy="400" r="386" fill="url(#shade)"/>
+        </svg>
+        <div class="site-marker"><span></span><b>SHACKLETON SITE</b><small>89.90°S · 0.00°E</small></div>
+      </div>
+
+      <div class="hero-copy">
+        <p class="eyebrow"><span>01</span> Lunar habitat · M01</p>
+        <h1 id="hero-title">The moon is<br>our next <em>address.</em></h1>
+        <p class="hero-intro">A private lunar program preparing its first autonomous surface habitat—and a new chapter off-world.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#mission">Track the mission <span>↘</span></a>
+          <a class="text-link" href="#vehicle">Explore the vehicle <span>→</span></a>
+        </div>
+      </div>
+
+      <div class="mission-status" aria-label="Mission status">
+        <div><span>Status</span><b><i></i> Systems integration</b></div>
+        <div><span>Launch window</span><b>Q4 · 2028</b></div>
+        <div><span>Lunar day</span><b id="lunar-day">Day 09 / 29</b></div>
+      </div>
+      <p class="scroll-cue">Scroll to descend <span>↓</span></p>
+    </section>
+
+    <section class="mission-section" id="mission" aria-labelledby="mission-title">
+      <div class="section-index"><span>01</span><p>MISSION<br>OVERVIEW</p></div>
+      <div class="mission-lead">
+        <p class="kicker">M01 · AUTONOMOUS DEPLOYMENT</p>
+        <h2 id="mission-title">Before people arrive,<br><em>the habitat will be waiting.</em></h2>
+      </div>
+      <div class="mission-copy">
+        <p>Selene M01 will deliver and commission a self-sustaining surface habitat near the lunar south pole. The system lands, unfolds and begins producing power—without a crew on site.</p>
+        <p>Every component is built around one idea: the first home beyond Earth should be ready before its residents leave theirs.</p>
+      </div>
+      <div class="metrics" aria-label="Mission facts">
+        <article><strong>384,400</strong><span>km from Earth</span></article>
+        <article><strong>4.2</strong><span>t delivered mass</span></article>
+        <article><strong>180</strong><span>days autonomous</span></article>
+        <article><strong>04</strong><span>crew capacity</span></article>
+      </div>
+    </section>
+
+    <section class="habitat-section" id="habitat" aria-labelledby="habitat-title">
+      <div class="habitat-visual" aria-hidden="true">
+        <svg viewBox="0 0 900 590">
+          <defs><linearGradient id="ground" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#303432"/><stop offset="1" stop-color="#0d1010"/></linearGradient><linearGradient id="metal"><stop stop-color="#e1ded1"/><stop offset=".55" stop-color="#777c78"/><stop offset="1" stop-color="#262b2a"/></linearGradient></defs>
+          <path d="M0 409 Q162 350 322 392 T617 378 T900 358 V590 H0Z" fill="url(#ground)"/>
+          <g transform="translate(202 226)">
+            <path d="M92 174 56 252M370 173l49 79M216 182l-7 87" stroke="#b8b9b0" stroke-width="7"/>
+            <path d="m39 257 43-3m313 2 48 3m-254 16 42-1" stroke="#b8b9b0" stroke-width="10"/>
+            <path d="M42 94 Q42 0 137 0h190q103 0 103 104v67H42Z" fill="url(#metal)" stroke="#d8d7cd" stroke-width="3"/>
+            <path d="M122 1v170m230-166v166" stroke="#4b504e" stroke-width="4"/>
+            <rect x="177" y="36" width="93" height="135" rx="44" fill="#111514" stroke="#d7d5c9" stroke-width="4"/>
+            <circle cx="223" cy="93" r="19" fill="#b7cf44" opacity=".85"/>
+            <path d="M30 176h413" stroke="#d8d7cd" stroke-width="6"/>
+            <path d="m420 83 113-54 14 29-116 70" fill="#787d78" stroke="#ced0c7" stroke-width="3"/>
+            <path d="m526 31 29-13 17 39-28 12z" fill="#b7cf44"/>
+          </g>
+          <circle cx="735" cy="109" r="2" fill="#fff"/><circle cx="110" cy="94" r="1.5" fill="#fff"/><circle cx="586" cy="73" r="1" fill="#fff"/>
+        </svg>
+        <span class="diagram-label label-power">A / SOLAR ARRAY</span>
+        <span class="diagram-label label-airlock">B / PRIMARY AIRLOCK</span>
+      </div>
+      <div class="habitat-content">
+        <p class="kicker">02 · SURFACE SYSTEM</p>
+        <h2 id="habitat-title">Built to arrive<br><em>ready.</em></h2>
+        <div class="feature-tabs" role="tablist" aria-label="Habitat systems">
+          <button type="button" role="tab" aria-selected="true" aria-controls="panel-power" id="tab-power">Power</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="panel-life" id="tab-life">Life support</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="panel-comms" id="tab-comms">Comms</button>
+        </div>
+        <div class="tab-panel" role="tabpanel" id="panel-power" aria-labelledby="tab-power"><strong>12 kW</strong><p>A tracking solar array and regenerative fuel cells keep critical systems online through the long lunar night.</p></div>
+        <div class="tab-panel" role="tabpanel" id="panel-life" aria-labelledby="tab-life" hidden><strong>96%</strong><p>Closed-loop air and water recovery supports a four-person crew with resilient, redundant circulation.</p></div>
+        <div class="tab-panel" role="tabpanel" id="panel-comms" aria-labelledby="tab-comms" hidden><strong>1.3 sec</strong><p>Direct-to-Earth optical and radio links provide continuous telemetry with near-real-time response.</p></div>
+      </div>
+    </section>
+
+    <section class="vehicle-section" id="vehicle" aria-labelledby="vehicle-title">
+      <div>
+        <p class="kicker">03 · SELENE DESCENT VEHICLE</p>
+        <h2 id="vehicle-title">One vehicle.<br><em>Every critical mile.</em></h2>
+      </div>
+      <div class="vehicle-specs">
+        <p>The SDV carries M01 from translunar injection to a precision touchdown, then becomes the habitat’s permanent utility deck.</p>
+        <dl><div><dt>Touchdown accuracy</dt><dd>± 40 m</dd></div><div><dt>Payload to surface</dt><dd>4,600 kg</dd></div><div><dt>Engine cycles</dt><dd>8 qualified</dd></div></dl>
+      </div>
+    </section>
+
+    <section class="updates-section" id="updates" aria-labelledby="updates-title">
+      <p class="kicker">04 · PROGRAM LOG</p>
+      <div class="updates-heading"><h2 id="updates-title">Signals from<br><em>the mission.</em></h2><p>Follow M01 through integration, launch, transit and surface operations.</p></div>
+      <div class="update-grid">
+        <article><time datetime="2026-06-18">18 JUN 2026</time><span>TEST / 024</span><h3>Habitat pressure vessel completes cryogenic qualification</h3><a href="#mission" aria-label="Read habitat pressure vessel update">Read log <b>→</b></a></article>
+        <article><time datetime="2026-05-02">02 MAY 2026</time><span>FIELD / 017</span><h3>South pole landing software tested in analog terrain</h3><a href="#mission" aria-label="Read landing software update">Read log <b>→</b></a></article>
+        <article><time datetime="2026-03-11">11 MAR 2026</time><span>FLIGHT / 009</span><h3>Descent engine reaches full-duration burn milestone</h3><a href="#vehicle" aria-label="Read descent engine update">Read log <b>→</b></a></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-mark"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="13.5"/><path d="M22.5 8.7A11 11 0 1 0 22.5 27.3 13.5 13.5 0 0 1 22.5 8.7Z"/></svg><strong>SELENE</strong></div>
+    <p>The moon is our next address.</p>
+    <div><span>© 2026 Selene Mission</span><a href="#top">Back to orbit ↑</a></div>
+  </footer>
+</body>
+</html>

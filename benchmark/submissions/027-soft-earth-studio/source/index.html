@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Imperfect vessels, studio rituals, and the landscapes held inside every glaze.">
+  <meta name="theme-color" content="#f1e9dc">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+  <title>Soft Earth Studio — Hand-thrown ceramics</title>
+  <style>
+    :root {
+      --paper: #f1e9dc;
+      --paper-2: #e7d9c7;
+      --ink: #28271f;
+      --clay: #a94d32;
+      --moss: #5c6548;
+      --ochre: #c68a3f;
+      --blue: #6f8585;
+      --line: rgba(40, 39, 31, .24);
+      --serif: Georgia, 'Times New Roman', serif;
+      --sans: Arial, Helvetica, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 20; opacity: .17; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.24'/%3E%3C/svg%3E"); mix-blend-mode: multiply; }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 2px solid var(--clay); outline-offset: 4px; }
+    .skip { position: absolute; left: 1rem; top: -4rem; z-index: 50; background: var(--ink); color: white; padding: .8rem 1rem; }
+    .skip:focus { top: 1rem; }
+    .shell { width: min(100% - 40px, 1380px); margin-inline: auto; }
+    .topbar { border-bottom: 1px solid var(--line); font-size: 10px; line-height: 1; letter-spacing: .2em; text-transform: uppercase; }
+    .topbar-inner { min-height: 34px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .topbar span:last-child { color: var(--clay); }
+    header { border-bottom: 1px solid var(--line); }
+    .nav { min-height: 92px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links:last-child { justify-content: flex-end; }
+    .nav a { text-decoration: none; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; }
+    .nav a:hover { color: var(--clay); }
+    .brand { text-align: center; font-family: var(--serif); font-size: clamp(22px, 2.2vw, 32px) !important; line-height: .85; letter-spacing: -.04em !important; text-transform: none !important; }
+    .brand small { display: block; font: 8px/1 var(--sans); letter-spacing: .32em; text-transform: uppercase; margin-top: 10px; }
+    .menu { display: none; border: 0; background: none; padding: .6rem 0; font: 11px var(--sans); letter-spacing: .15em; text-transform: uppercase; color: var(--ink); }
+
+    .hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(420px, .95fr); min-height: calc(100vh - 127px); border-bottom: 1px solid var(--line); }
+    .hero-copy { padding: clamp(70px, 8vw, 130px) clamp(30px, 7vw, 110px) 54px max(20px, calc((100vw - 1380px) / 2)); display: flex; flex-direction: column; justify-content: center; }
+    .eyebrow { font-size: 10px; letter-spacing: .23em; text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
+    .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+    h1 { max-width: 760px; margin: 28px 0 32px; font: normal clamp(56px, 7.5vw, 122px)/.82 var(--serif); letter-spacing: -.065em; }
+    h1 em { color: var(--clay); font-weight: normal; }
+    .lede { max-width: 530px; font: clamp(17px, 1.5vw, 21px)/1.55 var(--serif); margin: 0 0 38px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button { min-height: 49px; display: inline-flex; align-items: center; justify-content: center; gap: 16px; border: 1px solid var(--ink); padding: 0 20px; text-decoration: none; font-size: 10px; letter-spacing: .17em; text-transform: uppercase; transition: color .2s, background .2s; }
+    .button.primary { background: var(--ink); color: var(--paper); }
+    .button:hover { background: var(--clay); color: white; border-color: var(--clay); }
+    .button .arrow { font-size: 16px; line-height: 0; }
+    .edition { margin-top: auto; padding-top: 60px; display: flex; justify-content: space-between; align-items: end; max-width: 630px; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; }
+    .edition svg { width: 76px; height: 24px; }
+    .hero-art { position: relative; overflow: hidden; background: var(--moss); min-height: 620px; }
+    .hero-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(145deg, transparent 40%, rgba(22,25,16,.2)); pointer-events: none; }
+    .sun { position: absolute; width: min(29vw, 390px); aspect-ratio: 1; border-radius: 50%; background: var(--ochre); left: 49%; top: 10%; transform: translateX(-50%); box-shadow: inset -30px -18px 0 rgba(120,54,33,.12); }
+    .shelf { position: absolute; left: 0; right: 0; bottom: 17%; height: 12px; background: #302c22; box-shadow: 0 17px 30px rgba(22,20,15,.25); }
+    .pot { position: absolute; z-index: 2; bottom: calc(17% + 12px); filter: drop-shadow(12px 17px 12px rgba(22,20,15,.25)); }
+    .pot-a { width: 46%; left: 10%; }
+    .pot-b { width: 30%; right: 5%; }
+    .art-note { position: absolute; z-index: 4; right: 21px; bottom: 24px; color: #f6ecda; font: italic 15px var(--serif); transform: rotate(-3deg); }
+    .art-number { position: absolute; z-index: 4; left: 22px; top: 22px; color: #f6ecda; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; writing-mode: vertical-rl; }
+
+    .ticker { border-bottom: 1px solid var(--line); overflow: hidden; }
+    .ticker-inner { display: flex; min-width: max-content; padding: 18px 0; font: italic 18px var(--serif); }
+    .ticker span { display: flex; align-items: center; }
+    .ticker span::after { content: "✦"; color: var(--clay); font: 10px var(--sans); margin: 0 38px; }
+    .section { padding: clamp(80px, 10vw, 150px) 0; }
+    .section-head { display: grid; grid-template-columns: 1fr 2fr 1fr; align-items: end; margin-bottom: 54px; }
+    .section-head h2 { margin: 0; font: normal clamp(48px, 6vw, 92px)/.9 var(--serif); letter-spacing: -.05em; }
+    .section-head .eyebrow { align-self: start; }
+    .section-count { text-align: right; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+    .filters { display: flex; gap: 10px; margin: -14px 0 38px calc(25% + 3px); }
+    .filter { border: 1px solid var(--line); background: transparent; color: var(--ink); border-radius: 30px; padding: 9px 14px; font: 9px var(--sans); letter-spacing: .13em; text-transform: uppercase; cursor: pointer; }
+    .filter[aria-pressed="true"], .filter:hover { background: var(--ink); color: var(--paper); }
+    .works { display: grid; grid-template-columns: repeat(12, 1fr); gap: 50px 18px; }
+    .work { grid-column: span 4; }
+    .work:nth-child(2), .work:nth-child(5) { transform: translateY(42px); }
+    .work-media { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--paper-2); border: 1px solid rgba(40,39,31,.08); }
+    .work-media svg { width: 100%; height: 100%; display: block; transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+    .work:hover svg { transform: scale(1.025); }
+    .work-tag { position: absolute; left: 12px; top: 12px; padding: 7px 9px; background: rgba(241,233,220,.9); font-size: 8px; letter-spacing: .14em; text-transform: uppercase; }
+    .work-meta { padding-top: 15px; display: grid; grid-template-columns: 1fr auto; gap: 4px; border-top: 1px solid var(--line); }
+    .work h3 { margin: 0; font: normal 22px var(--serif); }
+    .work p { grid-column: 1; margin: 2px 0 0; color: #6b675d; font: italic 13px var(--serif); }
+    .price { grid-column: 2; grid-row: 1 / 3; font: 11px var(--sans); letter-spacing: .08em; }
+    .work[hidden] { display: none; }
+
+    .ritual { background: #2f3227; color: #f1e9dc; padding: clamp(80px, 10vw, 140px) 0; overflow: hidden; }
+    .ritual-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(50px, 9vw, 140px); align-items: center; }
+    .ritual-copy h2 { font: normal clamp(54px, 7vw, 102px)/.86 var(--serif); letter-spacing: -.055em; margin: 25px 0 35px; }
+    .ritual-copy h2 em { color: #d39770; font-weight: normal; }
+    .ritual-copy p { max-width: 490px; font: 18px/1.55 var(--serif); color: #ded5c6; }
+    .ritual-copy .button { color: #f1e9dc; border-color: #f1e9dc; margin-top: 20px; }
+    .process { position: relative; aspect-ratio: 1 / .78; border-radius: 50% 50% 45% 48%; background: #a75d3c; transform: rotate(3deg); display: grid; place-items: center; }
+    .process svg { width: 82%; transform: rotate(-3deg); }
+    .process-note { position: absolute; bottom: 4%; right: 2%; transform: rotate(-5deg); font: italic 17px var(--serif); }
+
+    .visit { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--line); }
+    .visit-art { min-height: 690px; background: var(--blue); position: relative; overflow: hidden; display: grid; place-items: center; }
+    .visit-art svg { width: 76%; max-width: 540px; }
+    .visit-copy { padding: clamp(70px, 10vw, 145px) max(20px, calc((100vw - 1380px) / 2)) 70px clamp(40px, 8vw, 120px); display: flex; flex-direction: column; justify-content: center; }
+    .visit h2 { margin: 25px 0 32px; font: normal clamp(58px, 7vw, 100px)/.86 var(--serif); letter-spacing: -.055em; }
+    .visit-copy > p { max-width: 500px; font: 18px/1.6 var(--serif); }
+    .hours { margin-top: 45px; border-top: 1px solid var(--line); }
+    .hours-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; border-bottom: 1px solid var(--line); padding: 15px 0; font-size: 10px; line-height: 1.4; letter-spacing: .15em; text-transform: uppercase; }
+    .hours-row span:last-child { text-align: right; }
+    footer { padding: 45px 0 28px; }
+    .footer-main { display: grid; grid-template-columns: 1.2fr .8fr .8fr; gap: 30px; align-items: end; }
+    .footer-brand { font: normal clamp(38px, 5vw, 70px)/.9 var(--serif); letter-spacing: -.05em; }
+    .footer-note { font: italic 15px/1.5 var(--serif); max-width: 300px; }
+    .footer-links { justify-self: end; display: flex; gap: 24px; }
+    .footer-links a { font-size: 9px; letter-spacing: .15em; text-transform: uppercase; text-decoration: none; }
+    .copyright { border-top: 1px solid var(--line); margin-top: 38px; padding-top: 18px; display: flex; justify-content: space-between; font-size: 8px; letter-spacing: .15em; text-transform: uppercase; }
+
+    @media (max-width: 900px) {
+      .shell { width: min(100% - 28px, 1380px); }
+      .topbar span:first-child { display: none; }
+      .topbar-inner { justify-content: center; }
+      .nav { grid-template-columns: 1fr auto; min-height: 74px; }
+      .nav-links { display: none; grid-column: 1 / -1; padding: 18px 0 24px; flex-direction: column; align-items: flex-start; border-top: 1px solid var(--line); }
+      .nav-links:last-child { justify-content: start; }
+      .nav.open .nav-links { display: flex; }
+      .brand { grid-column: 1; grid-row: 1; text-align: left; justify-self: start; }
+      .brand small { display: none; }
+      .menu { display: block; grid-column: 2; grid-row: 1; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-copy { padding: 70px 20px 46px; min-height: 650px; }
+      h1 { font-size: clamp(61px, 16vw, 104px); max-width: 680px; }
+      .hero-art { min-height: 630px; }
+      .sun { width: 58vw; }
+      .section-head { grid-template-columns: 1fr auto; }
+      .section-head h2 { grid-column: 1; grid-row: 2; margin-top: 25px; }
+      .section-count { grid-column: 2; grid-row: 2; }
+      .filters { margin-left: 0; overflow-x: auto; padding-bottom: 5px; }
+      .work { grid-column: span 6; }
+      .work:nth-child(2), .work:nth-child(5) { transform: none; }
+      .ritual-grid { grid-template-columns: 1fr; }
+      .process { width: 92%; justify-self: center; }
+      .visit { grid-template-columns: 1fr; }
+      .visit-art { min-height: 560px; }
+      .visit-copy { padding: 80px 20px; }
+    }
+    @media (max-width: 560px) {
+      .hero-copy { min-height: 590px; }
+      h1 { font-size: clamp(58px, 18vw, 82px); }
+      .lede { font-size: 17px; }
+      .edition { padding-top: 45px; }
+      .hero-art { min-height: 500px; }
+      .pot-a { width: 55%; left: 5%; }
+      .pot-b { width: 35%; }
+      .section { padding: 85px 0; }
+      .section-head { margin-bottom: 36px; }
+      .section-head h2 { font-size: 54px; }
+      .works { display: block; }
+      .work { margin-bottom: 42px; }
+      .work-media { aspect-ratio: 4 / 4.7; }
+      .ritual-copy h2 { font-size: 59px; }
+      .visit-art { min-height: 440px; }
+      .visit h2 { font-size: 61px; }
+      .footer-main { grid-template-columns: 1fr; }
+      .footer-links { justify-self: start; }
+      .copyright { gap: 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="topbar"><div class="shell topbar-inner"><span>Small batches · Fired in the Driftless</span><span>Next studio opening · October 12</span></div></div>
+  <header>
+    <nav class="nav shell" aria-label="Main navigation">
+      <div class="nav-links"><a href="#work">Available work</a><a href="#process">Process</a></div>
+      <a class="brand" href="#main" aria-label="Soft Earth Studio home">Soft Earth<small>Studio pottery</small></a>
+      <div class="nav-links"><a href="#visit">Visit</a><a href="#footer">Journal</a></div>
+      <button class="menu" type="button" aria-expanded="false">Menu</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Hand-thrown ceramics</div>
+        <h1>Made slowly enough to keep the <em>fingerprints.</em></h1>
+        <p class="lede">Imperfect vessels, studio rituals, and the landscapes held inside every glaze.</p>
+        <div class="actions"><a class="button primary" href="#work">View available work <span class="arrow">↘</span></a><a class="button" href="#visit">Visit the studio</a></div>
+        <div class="edition"><span>Autumn collection<br>Twenty-four pieces</span><svg viewBox="0 0 100 30" aria-hidden="true"><path d="M2 18c12-15 22 13 35-4s20 15 31-3 19 8 30-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></div>
+      </div>
+      <div class="hero-art" aria-label="Two handmade ceramic vessels silhouetted against an ochre sun">
+        <div class="sun"></div><div class="shelf"></div>
+        <svg class="pot pot-a" viewBox="0 0 330 470" aria-hidden="true"><path d="M109 12c33-12 77-13 113 0l-7 58c1 25 58 52 67 113 15 98 17 201-14 252-18 30-181 30-202 0-34-49-30-157-15-252 10-61 67-88 67-113z" fill="#dfc1a0" stroke="#29281f" stroke-width="3"/><ellipse cx="165" cy="16" rx="57" ry="14" fill="#29281f"/><ellipse cx="165" cy="19" rx="46" ry="8" fill="#775e4b"/><path d="M66 242c59-27 133-8 209-20M62 275c60-30 145-5 218-25M63 310c62-32 143 0 215-23" fill="none" stroke="#a95737" stroke-width="15" opacity=".75"/><path d="M98 86c49 13 92 10 138-2" fill="none" stroke="#fff5e5" stroke-width="4" opacity=".45"/></svg>
+        <svg class="pot pot-b" viewBox="0 0 260 370" aria-hidden="true"><path d="M69 39c34-13 86-13 122 0l-9 52c4 28 45 50 53 101 11 70-4 134-23 158-19 23-143 22-165 0-21-21-35-87-24-158 8-51 48-73 54-101z" fill="#9c9b77" stroke="#29281f" stroke-width="3"/><ellipse cx="130" cy="41" rx="61" ry="16" fill="#29281f"/><ellipse cx="130" cy="43" rx="46" ry="9" fill="#586044"/><path d="M44 185c50 16 117 17 175-3M38 216c57 18 133 18 189-4M35 250c66 14 137 15 189-5" fill="none" stroke="#4f5e4e" stroke-width="7" opacity=".8"/><path d="M84 99c31 9 62 10 93-1" fill="none" stroke="#e4ddc7" stroke-width="3" opacity=".5"/></svg>
+        <span class="art-number">Collection no. 08 · 2026</span><span class="art-note">each one, a little weather system</span>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true"><div class="ticker-inner"><span>Thrown by hand</span><span>Glazed from local ash</span><span>Fired with patience</span><span>Made for everyday rituals</span><span>Thrown by hand</span></div></div>
+
+    <section class="section" id="work">
+      <div class="shell">
+        <div class="section-head"><div class="eyebrow">The autumn shelf</div><h2>Available work</h2><div class="section-count"><span id="work-count">6</span> pieces shown</div></div>
+        <div class="filters" aria-label="Filter available work"><button class="filter" type="button" data-filter="all" aria-pressed="true">All pieces</button><button class="filter" type="button" data-filter="vessel" aria-pressed="false">Vessels</button><button class="filter" type="button" data-filter="table" aria-pressed="false">Tableware</button></div>
+        <div class="works">
+          <article class="work" data-kind="vessel"><div class="work-media"><span class="work-tag">One of one</span><svg viewBox="0 0 400 500" role="img" aria-label="Terra cotta Moon Jar"><rect width="400" height="500" fill="#cab59a"/><circle cx="196" cy="163" r="112" fill="#d79252" opacity=".74"/><path d="M132 104c38-12 91-12 129 0l-8 55c6 27 61 65 68 139 8 85-25 147-55 160-32 14-111 13-143-1-32-14-62-76-52-159 8-73 62-111 69-139z" fill="#e2c7a7" stroke="#302b22" stroke-width="3"/><ellipse cx="196" cy="106" rx="65" ry="16" fill="#302b22"/><ellipse cx="196" cy="107" rx="49" ry="8" fill="#9c7259"/><path d="M86 272c67-29 148-17 220-37M79 312c77-30 165-6 231-32" fill="none" stroke="#aa5035" stroke-width="13" opacity=".78"/></svg></div><div class="work-meta"><h3>Weather Moon Jar</h3><p>Wild clay, iron slip</p><span class="price">$240</span></div></article>
+          <article class="work" data-kind="table"><div class="work-media"><span class="work-tag">Set of two</span><svg viewBox="0 0 400 500" role="img" aria-label="Two moss green cups"><rect width="400" height="500" fill="#d9d0bd"/><path d="M0 376c84-36 292-45 400 5v119H0z" fill="#b8aa91"/><ellipse cx="135" cy="358" rx="82" ry="18" fill="#786b59" opacity=".35"/><ellipse cx="280" cy="372" rx="76" ry="16" fill="#786b59" opacity=".35"/><path d="M68 187h134l-11 166c-4 33-102 33-108 0z" fill="#697055" stroke="#29281f" stroke-width="3"/><ellipse cx="135" cy="189" rx="67" ry="17" fill="#29281f"/><ellipse cx="135" cy="190" rx="54" ry="10" fill="#a6a57d"/><path d="M218 230h120l-10 141c-5 30-88 30-96 0z" fill="#7d805d" stroke="#29281f" stroke-width="3"/><ellipse cx="278" cy="231" rx="60" ry="15" fill="#29281f"/><ellipse cx="278" cy="232" rx="48" ry="9" fill="#9f9e77"/><path d="M82 256c39 12 72 12 109 0M232 289c30 10 63 11 95 0" fill="none" stroke="#d6caa6" stroke-width="5" opacity=".5"/></svg></div><div class="work-meta"><h3>Moss Tumblers</h3><p>Ash glaze, speckled stoneware</p><span class="price">$92</span></div></article>
+          <article class="work" data-kind="vessel"><div class="work-media"><span class="work-tag">One of one</span><svg viewBox="0 0 400 500" role="img" aria-label="Tall blue-grey vase"><rect width="400" height="500" fill="#7c8e8d"/><circle cx="306" cy="122" r="80" fill="#d3a45c"/><path d="M154 37c31-10 64-10 94 0l-5 91c2 22 45 44 54 98 13 84 2 184-30 233-18 27-118 29-137 1-34-50-44-151-28-234 10-53 53-76 56-98z" fill="#c5c6b2" stroke="#29281f" stroke-width="3"/><ellipse cx="201" cy="39" rx="48" ry="13" fill="#29281f"/><ellipse cx="201" cy="40" rx="36" ry="7" fill="#717a70"/><path d="M107 245c59 12 122 11 184-5M101 279c64 12 134 9 196-7M99 319c63 14 135 11 198-9" fill="none" stroke="#647d7b" stroke-width="10" opacity=".82"/></svg></div><div class="work-meta"><h3>Rain Vessel</h3><p>Wood ash, river stone</p><span class="price">$195</span></div></article>
+          <article class="work" data-kind="table"><div class="work-media"><span class="work-tag">Set of four</span><svg viewBox="0 0 400 500" role="img" aria-label="Stacked ochre bowls"><rect width="400" height="500" fill="#b16845"/><circle cx="200" cy="158" r="114" fill="#c9904e" opacity=".45"/><ellipse cx="203" cy="399" rx="141" ry="28" fill="#4c352c" opacity=".35"/><path d="M66 320c24 31 52 71 137 71s115-39 136-71z" fill="#dbc3a3" stroke="#302b22" stroke-width="3"/><ellipse cx="202" cy="319" rx="137" ry="36" fill="#302b22"/><ellipse cx="202" cy="319" rx="121" ry="26" fill="#c17b43"/><path d="M84 270c20 27 45 59 118 59s97-32 116-59z" fill="#c89558" stroke="#302b22" stroke-width="3"/><ellipse cx="201" cy="270" rx="117" ry="31" fill="#302b22"/><ellipse cx="201" cy="270" rx="101" ry="21" fill="#e3c69e"/><path d="M109 228c17 22 36 48 92 48s76-26 91-48z" fill="#a95235" stroke="#302b22" stroke-width="3"/><ellipse cx="200" cy="228" rx="92" ry="25" fill="#302b22"/><ellipse cx="200" cy="228" rx="76" ry="16" fill="#c78a59"/></svg></div><div class="work-meta"><h3>Harvest Bowls</h3><p>Toasty clay, persimmon glaze</p><span class="price">$168</span></div></article>
+          <article class="work" data-kind="vessel"><div class="work-media"><span class="work-tag">One of one</span><svg viewBox="0 0 400 500" role="img" aria-label="Rounded black and cream vessel"><rect width="400" height="500" fill="#d4c9b4"/><path d="M0 356c95-55 302-35 400 14v130H0z" fill="#bdad92"/><path d="M119 102c48-14 112-13 160 0l-10 50c6 26 55 68 62 141 7 82-32 143-61 158-35 17-105 16-141-1-32-15-68-77-60-157 7-73 57-115 63-141z" fill="#d9c6a7" stroke="#29281f" stroke-width="3"/><ellipse cx="199" cy="103" rx="81" ry="18" fill="#29281f"/><ellipse cx="199" cy="104" rx="63" ry="10" fill="#7c6652"/><path d="M77 256c74 16 166 18 246-5v137c-15 37-35 57-53 66-35 17-105 16-141-1-25-12-51-51-60-105z" fill="#34352e"/><path d="M80 272c65 14 164 18 239-5" fill="none" stroke="#eee3cf" stroke-width="4"/></svg></div><div class="work-meta"><h3>Night Field Urn</h3><p>Wax resist, satin black</p><span class="price">$285</span></div></article>
+          <article class="work" data-kind="table"><div class="work-media"><span class="work-tag">Set of three</span><svg viewBox="0 0 400 500" role="img" aria-label="Three cream pinch dishes"><rect width="400" height="500" fill="#656b50"/><circle cx="92" cy="108" r="56" fill="#8a8e6c"/><path d="M32 370c101-44 242-41 342 1" fill="none" stroke="#454936" stroke-width="55" opacity=".55"/><g stroke="#302b22" stroke-width="3"><path d="M53 277c21 34 51 73 119 73s98-38 118-73z" fill="#e1c9aa"/><ellipse cx="171" cy="277" rx="119" ry="34" fill="#302b22"/><ellipse cx="171" cy="277" rx="103" ry="24" fill="#c88456"/><path d="M165 331c16 27 40 60 94 60s76-31 93-60z" fill="#cdb895"/><ellipse cx="258" cy="331" rx="94" ry="27" fill="#302b22"/><ellipse cx="258" cy="331" rx="79" ry="18" fill="#94a19a"/><path d="M114 381c13 21 31 45 74 45s62-24 74-45z" fill="#e2d1b6"/><ellipse cx="188" cy="381" rx="75" ry="22" fill="#302b22"/><ellipse cx="188" cy="381" rx="62" ry="14" fill="#b26643"/></g></svg></div><div class="work-meta"><h3>Gathering Dishes</h3><p>Three glazes, sandy clay</p><span class="price">$118</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ritual" id="process">
+      <div class="shell ritual-grid">
+        <div class="ritual-copy"><div class="eyebrow">Studio ritual · 01</div><h2>Clay has a <em>long memory.</em></h2><p>Every piece begins with local stoneware, wedged by hand and centered without hurry. The ridges stay. The wobble stays. These are the small records of making that let an object feel alive.</p><a class="button" href="#visit">See where we make <span class="arrow">→</span></a></div>
+        <div class="process" aria-label="Illustration of hands shaping a clay vessel on a wheel"><svg viewBox="0 0 600 470" role="img" aria-label="Hands throwing a vessel"><ellipse cx="300" cy="400" rx="211" ry="27" fill="#2c2c23" opacity=".35"/><path d="M144 376h312l-27 48H169z" fill="#d8c3a2" stroke="#2d2b23" stroke-width="5"/><ellipse cx="300" cy="376" rx="156" ry="35" fill="#2d2b23"/><ellipse cx="300" cy="373" rx="126" ry="21" fill="#8f4c35"/><path d="M221 144c47-19 111-19 158 0l-11 45c7 29 45 66 50 120 5 58-22 90-44 101-33 16-115 16-148 0-24-12-50-45-44-101 6-54 44-91 50-120z" fill="#d6ab7e" stroke="#2d2b23" stroke-width="5"/><ellipse cx="300" cy="145" rx="80" ry="21" fill="#2d2b23"/><ellipse cx="300" cy="146" rx="60" ry="11" fill="#9e684a"/><path d="M189 78C96 104 74 207 93 274c10 37 46 72 87 91l33-49c-34-21-57-49-53-80 4-37 32-69 84-80l-14-77c-13-6-27-6-41-1z" fill="#d2a478" stroke="#2d2b23" stroke-width="5"/><path d="M411 78c93 26 115 129 96 196-10 37-46 72-87 91l-33-49c34-21 57-49 53-80-4-37-32-69-84-80l14-77c13-6 27-6 41-1z" fill="#d2a478" stroke="#2d2b23" stroke-width="5"/><path d="M199 96c-9 41-3 77 15 106M401 96c9 41 3 77-15 106" fill="none" stroke="#e8c59b" stroke-width="8" stroke-linecap="round"/><path d="M198 250c65 20 140 20 204-2M190 287c72 21 149 21 220-3M187 326c71 17 151 18 225-2" fill="none" stroke="#a95a3c" stroke-width="10" opacity=".7"/></svg><span class="process-note">pressure + patience</span></div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="visit-art"><svg viewBox="0 0 520 520" role="img" aria-label="A studio table beside a sunny window"><rect x="55" y="42" width="410" height="294" fill="#d8d2bb" stroke="#29281f" stroke-width="5"/><path d="M260 43v293M56 190h408" stroke="#29281f" stroke-width="5"/><circle cx="365" cy="115" r="56" fill="#d19346"/><path d="M56 190h408v146H56z" fill="#6b765c" opacity=".34"/><path d="M16 358h488v27H16zM62 385h25v101H62zm371 0h25v101h-25z" fill="#312f27"/><g stroke="#29281f" stroke-width="4"><path d="M124 218c21-8 50-8 71 0l-6 39c4 13 28 26 30 55 3 30-15 51-27 57-17 8-47 7-63 0-14-7-30-29-27-57 3-29 26-42 29-55z" fill="#d7b48e"/><ellipse cx="159" cy="219" rx="36" ry="9" fill="#29281f"/><path d="M318 273c20-7 46-7 65 0l-4 27c4 13 24 23 27 44 2 17-7 29-17 34h-76c-11-5-21-17-18-34 3-21 23-31 27-44z" fill="#a95335"/><ellipse cx="351" cy="274" rx="33" ry="8" fill="#29281f"/></g><path d="M95 89l74 101M194 62l66 128" stroke="#fff7e8" stroke-width="15" opacity=".35"/></svg></div>
+      <div class="visit-copy"><div class="eyebrow">Driftless, Wisconsin</div><h2>Come by<br>the studio.</h2><p>The kettle is usually on. Visit our hilltop workspace to hold a piece, see the kilns, and find seconds that never make it to the shelf.</p><div class="hours"><div class="hours-row"><span>Open studio</span><span>Friday–Saturday, 10–4</span></div><div class="hours-row"><span>Monthly firing</span><span>First Sunday, 11–3</span></div><div class="hours-row"><span>Location</span><span>Outside Viroqua, WI</span></div></div></div>
+    </section>
+  </main>
+
+  <footer id="footer"><div class="shell"><div class="footer-main"><div class="footer-brand">Soft Earth Studio</div><div class="footer-note">Objects for water, stems, shared food, and the beautiful mess of daily use.</div><div class="footer-links"><a href="#work">Work</a><a href="#process">Process</a><a href="#visit">Visit</a></div></div><div class="copyright"><span>© 2026 Soft Earth Studio</span><span>Made slowly in Wisconsin</span></div></div></footer>
+  <script src="./sitegeist-bridge.js" defer></script>
+  <script src="./site.js" defer></script>
+</body>
+</html>

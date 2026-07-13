@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#071f29">
+  <meta name="description" content="Open acoustic sensing helps researchers understand and protect marine ecosystems.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Wavelength — Ocean intelligence</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Wavelength home"><span class="brand-mark" aria-hidden="true"></span>Wavelength</a>
+    <nav aria-label="Primary navigation">
+      <a href="#observatory">Observatory</a>
+      <a href="#network">Our network</a>
+      <a href="#mission">Mission</a>
+    </nav>
+    <button class="live-pill" type="button" data-audio aria-pressed="false"><span></span><b>Live feed</b><em>Play</em></button>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span>01</span> Ocean intelligence</p>
+        <h1>Listen to the<br>ocean <i>change.</i></h1>
+        <p class="lede">The ocean is speaking. Our open acoustic network turns its sound into knowledge—helping researchers understand and protect life below the surface.</p>
+        <div class="actions">
+          <a class="button primary" href="#observatory">Dive into the data <span>↓</span></a>
+          <button class="button text-button" type="button" data-audio aria-pressed="false"><span class="play">▶</span><span data-audio-label>Hear live recordings</span></button>
+        </div>
+      </div>
+
+      <div class="sonar-card" aria-label="Live acoustic visualization from Monterey Bay">
+        <div class="card-head"><span><i></i> Streaming live</span><span>MB–04 / 36.6°N</span></div>
+        <div class="depth-label"><b>−472</b><span>meters<br>below surface</span></div>
+        <div class="sonar" aria-hidden="true">
+          <div class="orb"><div></div></div>
+          <svg viewBox="0 0 620 340" preserveAspectRatio="none">
+            <path class="wave ghost" d="M0 170 C35 169 45 184 74 170 S110 170 130 170 S148 70 164 170 S190 255 202 170 S220 145 240 170 S265 177 285 170 S305 20 327 170 S355 270 370 170 S395 95 410 170 S438 183 452 170 S470 130 490 170 S515 192 532 170 S557 160 575 170 S605 170 620 170"/>
+            <path class="wave main" d="M0 170 C35 169 45 184 74 170 S110 170 130 170 S148 70 164 170 S190 255 202 170 S220 145 240 170 S265 177 285 170 S305 20 327 170 S355 270 370 170 S395 95 410 170 S438 183 452 170 S470 130 490 170 S515 192 532 170 S557 160 575 170 S605 170 620 170"/>
+          </svg>
+        </div>
+        <div class="signal-note"><span>Detected signal</span><strong>Humpback whale song</strong><small>11:42:08 UTC · confidence 94%</small></div>
+        <div class="card-foot"><span>20 Hz</span><span>Frequency spectrum</span><span>24 kHz</span></div>
+      </div>
+      <div class="scroll-note" aria-hidden="true"><span></span>Scroll to descend</div>
+    </section>
+
+    <section class="ticker" aria-label="Network summary">
+      <p>NOW LISTENING</p><div><strong>28</strong><span>active hydrophones</span></div><div><strong>1.8M</strong><span>hours recorded</span></div><div><strong>64</strong><span>species identified</span></div><div><strong>12</strong><span>research partners</span></div>
+    </section>
+
+    <section class="observatory" id="observatory">
+      <div class="section-intro">
+        <p class="eyebrow dark"><span>02</span> Open observatory</p>
+        <h2>Sound makes the<br>invisible <i>visible.</i></h2>
+        <p>Explore a living acoustic record of the ocean—from whale migration and spawning reefs to the rising noise of human activity.</p>
+      </div>
+      <div class="station-panel">
+        <div class="station-tabs" role="tablist" aria-label="Listening stations">
+          <button class="active" role="tab" aria-selected="true" data-station="monterey">Monterey Bay</button>
+          <button role="tab" aria-selected="false" data-station="azores">Azores</button>
+          <button role="tab" aria-selected="false" data-station="palau">Palau</button>
+        </div>
+        <div class="station-view">
+          <div class="map" aria-hidden="true">
+            <svg viewBox="0 0 700 420"><path d="M-20 0h165l16 35 56 8 12 42 35 39-10 51 37 36-29 50-4 72-46 21-8 66H-20z"/><path d="M700 85l-66 19-31 42-51 10-18 48-43 23 23 45-29 41 20 107h195z"/></svg>
+            <span class="ping p1"></span><span class="ping p2"></span><span class="ping p3"></span>
+            <div class="coords"><span data-coord>36°37' N<br>122°11' W</span><b data-code>MB–04</b></div>
+          </div>
+          <div class="station-data">
+            <span class="status"><i></i> Online now</span>
+            <p>Listening station</p><h3 data-name>Monterey Bay</h3>
+            <dl><div><dt>Water depth</dt><dd data-depth>472 m</dd></div><div><dt>Water temp.</dt><dd data-temp>8.2°C</dd></div><div><dt>Last detection</dt><dd data-detection>Humpback whale</dd></div></dl>
+            <button class="mini-listen" type="button" data-audio><span>▶</span><b>Listen to station</b><small>Live synthesis · 00:00</small></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="network" id="network">
+      <p class="eyebrow"><span>03</span> A shared frequency</p>
+      <div><h2>One ocean.<br>Many <i>listeners.</i></h2><p>We build open-source sensing tools and share the data freely. Because the clearest signal comes when science works together.</p></div>
+      <div class="network-line" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+    </section>
+
+    <section class="mission" id="mission">
+      <p>WAVELENGTH FIELD NOTE / 0061</p>
+      <blockquote>“To protect a place,<br>first learn its <em>voice.</em>”</blockquote>
+      <a href="#top">Return to surface <span>↑</span></a>
+    </section>
+  </main>
+  <footer><a class="brand" href="#top"><span class="brand-mark"></span>Wavelength</a><p>Open ocean acoustics for a living planet.</p><span>© 2026 · Data for everyone</span></footer>
+</body>
+</html>

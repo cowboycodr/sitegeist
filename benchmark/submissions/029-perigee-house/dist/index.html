@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Perigee House — a five-star orbital hotel opening in low-Earth orbit in 2031.">
+  <meta name="theme-color" content="#071015">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Perigee House — Earth has never looked this good.</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to experience</a>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Perigee House home">
+      <svg viewBox="0 0 42 42" aria-hidden="true"><circle cx="21" cy="21" r="9"/><ellipse cx="21" cy="21" rx="19" ry="7" transform="rotate(-28 21 21)"/></svg>
+      <span>PERIGEE<br><b>HOUSE</b></span>
+    </a>
+    <nav id="nav" aria-label="Main navigation">
+      <a href="#station">The station</a><a href="#suites">Suites</a><a href="#journey">The journey</a>
+      <button class="nav-cta js-reserve">Reserve your orbit <span>↗</span></button>
+    </nav>
+    <button class="menu" aria-controls="nav" aria-expanded="false"><span></span><span></span><span class="sr-only">Menu</span></button>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="stars" aria-hidden="true"></div>
+      <div class="earth" aria-hidden="true"><div class="atmosphere"></div></div>
+      <div class="orbit-line" aria-hidden="true"><i></i></div>
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Low-Earth orbit · 2031</p>
+        <h1>Earth has never<br>looked <em>this good.</em></h1>
+        <p class="intro">Ninety minutes around the world. Impeccable service at 400 kilometers. Welcome to the first address with no horizon.</p>
+        <div class="actions">
+          <button class="button primary js-reserve">Reserve your orbit <span>↗</span></button>
+          <a class="button ghost" href="#station">Tour the station <span>↓</span></a>
+        </div>
+      </div>
+      <div class="telemetry" aria-label="Orbital telemetry">
+        <div><small>ALTITUDE</small><b>408</b><span>KM</span></div>
+        <div><small>VELOCITY</small><b>27,580</b><span>KM/H</span></div>
+        <div><small>ORBITS / DAY</small><b>15.5</b><span></span></div>
+      </div>
+      <div class="scroll-note">SCROLL TO ASCEND <span>↓</span></div>
+    </section>
+
+    <section class="manifest" aria-label="Perigee House facts">
+      <p>PH—01</p><p>28 GUESTS</p><p>14 SUITES</p><p>01 REMARKABLE PLANET</p>
+    </section>
+
+    <section class="station section" id="station">
+      <div class="section-kicker"><span>01</span> THE STATION</div>
+      <div class="section-head">
+        <h2>Engineered for orbit.<br><em>Designed for awe.</em></h2>
+        <p>Perigee House is a quietly radical feat of hospitality: six connected modules, a panoramic observatory, and every terrestrial comfort—reconsidered for weightlessness.</p>
+      </div>
+      <div class="station-visual">
+        <svg class="station-svg" viewBox="0 0 1000 460" role="img" aria-label="Illustration of the Perigee House orbital station">
+          <defs><linearGradient id="metal" x1="0" x2="1"><stop stop-color="#657077"/><stop offset=".35" stop-color="#e7e8df"/><stop offset=".65" stop-color="#707b7f"/><stop offset="1" stop-color="#28343a"/></linearGradient><linearGradient id="glass"><stop stop-color="#aadccf"/><stop offset="1" stop-color="#173e45"/></linearGradient></defs>
+          <g fill="none" stroke="#7c8b8f" stroke-width="2"><path d="M70 230h860" stroke-dasharray="3 9"/><circle cx="500" cy="230" r="176" stroke-dasharray="2 12" opacity=".35"/></g>
+          <g class="craft">
+            <path d="M260 197 82 130v-18l185 40zm480 0 178-67v-18l-185 40z" fill="#51616a"/><path d="M250 206 70 172v-28l190 20zm500 0 180-34v-28l-190 20z" fill="#ab5d41" opacity=".8"/>
+            <rect x="260" y="176" width="480" height="108" rx="54" fill="url(#metal)"/><path d="M370 176v108m260-108v108" stroke="#17242a" stroke-width="9"/><circle cx="500" cy="230" r="87" fill="#13262b" stroke="#e4e0d3" stroke-width="13"/><circle cx="500" cy="230" r="62" fill="url(#glass)"/><ellipse cx="500" cy="230" rx="37" ry="62" fill="#071a21" opacity=".7"/>
+            <g fill="#dbe2d9"><circle cx="318" cy="220" r="9"/><circle cx="345" cy="220" r="9"/><circle cx="655" cy="220" r="9"/><circle cx="682" cy="220" r="9"/></g>
+            <path d="M440 160v-40h120v40m-30-40V74h18v46" stroke="#a9b5b5" stroke-width="8"/><circle cx="539" cy="67" r="17" fill="#bc6345"/>
+          </g>
+        </svg>
+        <button class="hotspot h1" data-detail="obs" aria-label="Show Observatory details">01</button>
+        <button class="hotspot h2" data-detail="hab" aria-label="Show Residence details">02</button>
+        <button class="hotspot h3" data-detail="dock" aria-label="Show Arrival Dock details">03</button>
+        <aside class="detail-card" aria-live="polite"><small>MODULE 01</small><h3>THE OBSERVATORY</h3><p>A 12-meter cupola of optical-grade glass, with every seat in the house facing home.</p></aside>
+      </div>
+    </section>
+
+    <section class="suites section" id="suites">
+      <div class="section-kicker light"><span>02</span> PRIVATE QUARTERS</div>
+      <div class="suite-grid">
+        <div class="suite-copy">
+          <p class="eyebrow dark"><span></span> Fourteen private suites</p>
+          <h2>Sleep among<br><em>the stars.</em></h2>
+          <p>Warm walnut, cloud-soft linens, and an entire planet outside your window. Each suite balances terrestrial calm with an unmistakable sense of elsewhere.</p>
+          <div class="suite-tabs" role="tablist" aria-label="Suite views">
+            <button role="tab" aria-selected="true" data-suite="horizon">Horizon</button>
+            <button role="tab" aria-selected="false" data-suite="zenith">Zenith</button>
+          </div>
+        </div>
+        <div class="suite-room" data-view="horizon">
+          <div class="window"><div class="suite-earth"></div><div class="window-stars"></div></div>
+          <div class="bed"><div class="pillow"></div><div class="pillow p2"></div></div>
+          <div class="lamp"></div><p class="room-label">HORIZON SUITE · 24 M²</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="journey section" id="journey">
+      <div class="section-kicker"><span>03</span> THE JOURNEY</div>
+      <div class="journey-head"><h2>From ground<br>to <em>grace.</em></h2><p>Your five-night stay begins well before launch. Our flight team manages every detail, leaving you free to enjoy the rarest journey on—or off—Earth.</p></div>
+      <ol class="timeline">
+        <li><span>01</span><div><small>T−90 DAYS</small><h3>ORIENTATION</h3><p>Private medical and flight preparation at our desert campus.</p></div></li>
+        <li><span>02</span><div><small>DAY 01</small><h3>ASCENT</h3><p>A smooth eight-minute climb, followed by a champagne arrival.</p></div></li>
+        <li><span>03</span><div><small>DAYS 02—05</small><h3>ORBIT</h3><p>Sixteen sunrises daily, chef-led dining, and unhurried wonder.</p></div></li>
+        <li><span>04</span><div><small>DAY 06</small><h3>RETURN</h3><p>A gentle homecoming—and a perspective that stays with you.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="finale">
+      <div class="final-orbit" aria-hidden="true"></div>
+      <p class="eyebrow"><span></span> Manifest now open</p>
+      <h2>Your room is<br><em>waiting above.</em></h2>
+      <p>Limited inaugural journeys departing 2031.</p>
+      <button class="button primary js-reserve">Reserve your orbit <span>↗</span></button>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#top"><svg viewBox="0 0 42 42" aria-hidden="true"><circle cx="21" cy="21" r="9"/><ellipse cx="21" cy="21" rx="19" ry="7" transform="rotate(-28 21 21)"/></svg><span>PERIGEE<br><b>HOUSE</b></span></a><p>THE FIRST ADDRESS IN ORBIT · 2031</p><p>© PERIGEE HOUSE</p></footer>
+
+  <dialog class="reserve" aria-labelledby="reserve-title">
+    <button class="close" aria-label="Close reservation inquiry">×</button>
+    <p class="eyebrow dark"><span></span> Inaugural manifest · 2031</p>
+    <h2 id="reserve-title">Begin your<br><em>journey.</em></h2>
+    <p>Share your details and our flight concierge will prepare your private voyage brief.</p>
+    <form>
+      <label>YOUR NAME<input required autocomplete="name" name="name" placeholder="Commander’s name"></label>
+      <label>EMAIL ADDRESS<input required type="email" autocomplete="email" name="email" placeholder="you@example.com"></label>
+      <label>TRAVELERS<select name="travelers"><option>1 traveler</option><option>2 travelers</option><option>3–4 travelers</option></select></label>
+      <button class="button modal-submit" type="submit">Request voyage brief <span>↗</span></button>
+    </form>
+    <div class="success" hidden><span>✓</span><h3>Signal received.</h3><p>Your place among the stars is one step closer.</p></div>
+  </dialog>
+</body>
+</html>

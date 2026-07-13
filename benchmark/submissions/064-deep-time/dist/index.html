@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#15201d">
+  <meta name="description" content="Deep Time — an immersive museum tracing Earth's improbable story through fossils, climates, and extinction.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Deep Time — An atlas of Earth</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the story</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Deep Time home">
+      <svg aria-hidden="true" viewBox="0 0 42 42"><circle cx="21" cy="21" r="18"/><path d="M11 14c7 1 14 5 20 13M9 22c8-2 16 1 22 7M16 8c1 9 7 18 15 23"/></svg>
+      <span>DEEP<br>TIME</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#timeline">Timeline</a>
+      <a href="#collection">Collection</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="ticket-link" href="#visit">Plan your visit <span aria-hidden="true">↗</span></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span class="sr-only">Open menu</span></button>
+  </header>
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <a href="#timeline">Timeline</a><a href="#collection">Collection</a><a href="#visit">Visit</a>
+  </div>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">An atlas of Earth <span>— 01</span></p>
+        <h1 id="hero-title">Four billion years,<br><em>still unfolding.</em></h1>
+        <p class="intro">Walk through vanished oceans, forests of impossible scale, and the five great extinctions that remade life on Earth.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#timeline">Begin the timeline <span aria-hidden="true">↓</span></a>
+          <a class="text-link" href="#collection">Explore the collection <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <span class="age-tag"> specimen dt—042</span>
+        <svg class="ammonite" viewBox="0 0 700 700">
+          <defs><filter id="grain"><feTurbulence baseFrequency=".7" numOctaves="3" seed="9" result="noise"/><feComposite in="noise" in2="SourceGraphic" operator="in" result="texture"/><feBlend in="SourceGraphic" in2="texture" mode="multiply"/></filter></defs>
+          <circle class="halo" cx="350" cy="350" r="299"/>
+          <g filter="url(#grain)"><path class="shell" d="M561 539c-99 102-284 105-392 12C44 443 45 235 184 117 317 4 523 36 617 180c82 125 50 303-65 379-92 60-228 47-294-37-63-80-43-200 34-250 67-43 161-22 196 42 31 57 11 130-39 159-44 26-100 8-116-31-14-33 2-70 31-81 24-9 49 6 51 27"/><path class="ridge" d="M135 180l104 59M96 287l127 15M101 404l130-29M158 512l100-73M252 581l50-103M367 606l-14-118M478 571l-77-104M570 487l-119-61M623 371l-142-7M610 245l-134 42M545 134l-103 90M442 77l-52 121M326 62l7 137M219 97l61 117"/></g>
+          <path class="measure" d="M72 637h556M72 628v18M628 628v18"/><text x="350" y="668">Ø 187 mm • Dorset coast • 190 Ma</text>
+        </svg>
+      </div>
+      <div class="scroll-note" aria-hidden="true"><span></span> Scroll to descend</div>
+    </section>
+
+    <section class="manifesto" aria-label="Introduction">
+      <p class="section-index">01 / ORIGINS</p>
+      <p class="manifesto-text">Earth keeps its memory in <em>layers.</em> Every grain, bone, and fault is a page in a story so vast that humanity appears only in its final breath.</p>
+      <div class="scale-note"><span class="dot"></span><p>If Earth’s history were one day,<br>we arrive at <strong>11:59:58 PM</strong></p></div>
+    </section>
+
+    <section class="timeline" id="timeline" aria-labelledby="timeline-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">The long chronology <span>— 02</span></p><h2 id="timeline-title">A planet<br>becoming.</h2></div>
+        <p>Drag across the ages or choose an era to uncover moments that changed everything.</p>
+      </div>
+      <div class="era-tabs" role="tablist" aria-label="Geological eras">
+        <button role="tab" aria-selected="true" aria-controls="era-panel" data-era="hadean"><span>01</span> Hadean</button>
+        <button role="tab" aria-selected="false" aria-controls="era-panel" data-era="proterozoic"><span>02</span> Proterozoic</button>
+        <button role="tab" aria-selected="false" aria-controls="era-panel" data-era="paleozoic"><span>03</span> Paleozoic</button>
+        <button role="tab" aria-selected="false" aria-controls="era-panel" data-era="mesozoic"><span>04</span> Mesozoic</button>
+        <button role="tab" aria-selected="false" aria-controls="era-panel" data-era="cenozoic"><span>05</span> Cenozoic</button>
+      </div>
+      <article class="era-panel" id="era-panel" role="tabpanel" tabindex="0">
+        <div class="era-age"><span id="era-number">4.54</span><small id="era-unit">billion years ago</small></div>
+        <div class="era-visual" aria-hidden="true"><div class="planet" id="planet"><span></span></div></div>
+        <div class="era-story">
+          <p class="eyebrow" id="era-kicker">Fire &amp; stone</p>
+          <h3 id="era-title">A world without ground</h3>
+          <p id="era-copy">Gravity gathers a cloud of ancient dust. The young Earth glows molten, struck by worlds still finding their orbits. From catastrophe, a planet takes shape.</p>
+          <div class="era-fact"><span>Atmosphere</span><strong id="era-fact">Volcanic gas</strong></div>
+        </div>
+      </article>
+      <div class="timeline-scale" aria-hidden="true"><span>4.5 BYA</span><i></i><i></i><i></i><i></i><span>Today</span></div>
+    </section>
+
+    <section class="collection" id="collection" aria-labelledby="collection-title">
+      <div class="collection-intro">
+        <p class="eyebrow">Cabinet of evidence <span>— 03</span></p>
+        <h2 id="collection-title">Witnesses<br>in stone.</h2>
+        <p>Not relics, but messengers. Meet three objects that rewrote what we know about life.</p>
+      </div>
+      <div class="specimen-grid">
+        <article class="specimen specimen-dark">
+          <div class="specimen-meta"><span>DT—108</span><span>521 Ma</span></div>
+          <svg viewBox="0 0 400 370" aria-hidden="true"><path d="M58 196c39-79 158-123 249-69 53 31 72 91 36 128-43 44-147 7-177-40-32-50 20-100 75-74 39 19 28 67-10 76-41 9-80-19-90-50"/><g><path d="M92 150l-21-28M121 135l-13-40M154 122l-3-39M188 117l8-42M221 119l18-38M255 130l28-29M284 146l36-19M310 170l39-5M325 196l39 8M327 223l35 20M315 248l28 31M292 265l17 40M261 274l5 42M228 272l-4 43M195 261l-17 39M168 242l-29 31"/></g></svg>
+          <p class="eyebrow">Burgess shale</p><h3>Marrella splendens</h3><p>A thumb-sized arthropod, preserved with impossible delicacy in a Cambrian sea.</p>
+        </article>
+        <article class="specimen specimen-light">
+          <div class="specimen-meta"><span>DT—271</span><span>66 Ma</span></div>
+          <svg viewBox="0 0 400 370" aria-hidden="true"><path d="M46 254c45-16 72-57 99-98 19-29 38-61 77-67 33-5 54 14 47 39-8 26-41 44-72 58-32 15-65 29-86 58M102 241c58 4 110 2 160-9 39-9 67-3 91 22M213 188c10 29 29 50 58 64M160 175c-10 32-6 57 14 77"/><circle cx="234" cy="113" r="4"/></svg>
+          <p class="eyebrow">Hell Creek</p><h3>Triceratops horridus</h3><p>A brow horn scarred by combat, from the final chapter of the dinosaurs.</p>
+        </article>
+        <article class="specimen specimen-red">
+          <div class="specimen-meta"><span>DT—003</span><span>3.5 Ga</span></div>
+          <svg viewBox="0 0 400 370" aria-hidden="true"><path d="M35 280c49-33 102-51 163-52 60-1 113 17 167 50M54 240c43-36 91-55 144-56 55-2 104 17 150 52M81 197c34-31 73-48 117-49 44-2 83 14 119 44M112 157c25-27 53-40 86-41 31 0 59 11 86 35M151 119c14-17 30-25 48-25s34 7 49 22"/></svg>
+          <p class="eyebrow">North Pole dome</p><h3>Stromatolite</h3><p>Layer by patient layer, microbial cities made the first visible monuments to life.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="extinction" aria-labelledby="extinction-title">
+      <div class="impact-ring" aria-hidden="true"><span>5</span></div>
+      <div class="extinction-copy">
+        <p class="eyebrow">The great interruptions <span>— 04</span></p>
+        <h2 id="extinction-title">Life has nearly ended<br><em>five times.</em></h2>
+        <p>Each loss cleared the stage for a world no one could have predicted. Survival is not a ladder. It is a branching path through chance.</p>
+        <a class="text-link light-link" href="#visit">Enter the extinction gallery <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="visit" id="visit" aria-labelledby="visit-title">
+      <div>
+        <p class="eyebrow">Continue the journey <span>— 05</span></p>
+        <h2 id="visit-title">Stand where<br>time opens.</h2>
+      </div>
+      <div class="visit-details">
+        <p>Open Tuesday—Sunday<br><strong>10:00—18:00</strong></p>
+        <p>Last admission 17:00<br>Quiet hour Sundays at 09:00</p>
+        <a class="button primary" href="#top">Plan your visit <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#top"><svg aria-hidden="true" viewBox="0 0 42 42"><circle cx="21" cy="21" r="18"/><path d="M11 14c7 1 14 5 20 13M9 22c8-2 16 1 22 7M16 8c1 9 7 18 15 23"/></svg><span>DEEP<br>TIME</span></a>
+    <p>Four billion years,<br>still unfolding.</p>
+    <p class="footer-small">A museum of natural history<br>and planetary change.</p>
+    <a href="#top" class="back-top">Back to the surface ↑</a>
+  </footer>
+</body>
+</html>

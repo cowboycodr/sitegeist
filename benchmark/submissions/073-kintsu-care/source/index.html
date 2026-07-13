@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kintsu connects daily reflection, therapy, and practical mental health tools.">
+  <meta name="theme-color" content="#f3f0e8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Kintsu — Care between appointments</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Kintsu home"><span class="brand-mark" aria-hidden="true">K</span><span>Kintsu</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#today">Today</a>
+      <a href="#care">Your care</a>
+      <a href="#library">Library</a>
+    </nav>
+    <button class="profile" type="button" aria-label="Open profile for Maya">M</button>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Whole-person mental care</p>
+        <h1>Care for the life<br><em>between</em> appointments.</h1>
+        <p class="intro">Small moments add up. Kintsu brings your reflections, therapy, and practical tools together—so your care keeps moving with you.</p>
+        <div class="hero-actions">
+          <button class="button primary" type="button" data-open-checkin>Begin a check-in <span aria-hidden="true">↗</span></button>
+          <a class="text-link" href="#care">How it works <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="A preview of today's wellbeing check-in">
+        <div class="sun-orbit" aria-hidden="true"><span></span></div>
+        <article class="mood-card">
+          <div class="card-top"><span>Today · 9:41 AM</span><span class="tiny-mark" aria-hidden="true">✦</span></div>
+          <p class="mood-prompt">How are you arriving<br>in this moment?</p>
+          <div class="mood-scale" aria-hidden="true">
+            <span>low</span><div class="scale-line"><i></i><i></i><i class="selected"></i><i></i><i></i></div><span>light</span>
+          </div>
+          <div class="insight"><span class="insight-icon" aria-hidden="true">◌</span><p><b>A little more ease</b><br>Your check-ins feel lighter than last week.</p></div>
+        </article>
+        <p class="privacy-note"><span aria-hidden="true">⌁</span> Private by design</p>
+      </div>
+    </section>
+
+    <section class="today" id="today" aria-labelledby="today-title">
+      <div class="section-heading">
+        <p class="eyebrow">A softer place to land</p>
+        <h2 id="today-title">Meet yourself where you are.</h2>
+        <p>There’s no perfect way to feel. Notice what’s here, find a little clarity, and choose what helps now.</p>
+      </div>
+      <div class="tool-grid">
+        <article class="tool-card reflection">
+          <div class="tool-number">01</div><div class="card-icon" aria-hidden="true">◔</div>
+          <p class="card-kicker">Daily reflection</p><h3>Notice the patterns.</h3>
+          <p>A two-minute check-in turns passing feelings into useful signals over time.</p>
+          <button type="button" class="card-action" data-open-checkin aria-label="Start a daily reflection">Start a reflection <span>↗</span></button>
+        </article>
+        <article class="tool-card therapy">
+          <div class="tool-number">02</div><div class="card-icon" aria-hidden="true">⌇</div>
+          <p class="card-kicker">Connected therapy</p><h3>Bring the week with you.</h3>
+          <p>Share the moments that matter with your therapist, with your permission and on your terms.</p>
+          <a class="card-action" href="#care">See your care plan <span>→</span></a>
+        </article>
+        <article class="tool-card support">
+          <div class="tool-number">03</div><div class="card-icon" aria-hidden="true">✣</div>
+          <p class="card-kicker">In-the-moment tools</p><h3>Find what helps now.</h3>
+          <p>Grounding, breath, and thought tools are ready when a hard moment finds you.</p>
+          <a class="card-action" href="#library">Explore the library <span>→</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="care" id="care" aria-labelledby="care-title">
+      <div class="care-art" aria-hidden="true">
+        <div class="arch arch-one"></div><div class="arch arch-two"></div><div class="arch arch-three"></div>
+        <div class="care-quote">“The week becomes<br>part of the conversation.”</div>
+      </div>
+      <div class="care-copy">
+        <p class="eyebrow">Care that connects</p>
+        <h2 id="care-title">Your everyday life has something to say.</h2>
+        <p>Keep what happens between sessions from getting lost. Kintsu helps you remember the emotional threads, questions, and small wins worth bringing into the room.</p>
+        <ul class="checks">
+          <li><span>✓</span> Choose exactly what you share</li>
+          <li><span>✓</span> See changes without chasing scores</li>
+          <li><span>✓</span> Keep notes ready for your next session</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="library" id="library" aria-labelledby="library-title">
+      <div><p class="eyebrow">Your pocket practice</p><h2 id="library-title">A small reset,<br>right when you need it.</h2></div>
+      <div class="practice-list">
+        <button type="button" class="practice" data-practice="Breathe with the wave"><span class="practice-time">2 min</span><span><b>Breathe with the wave</b><small>For a racing mind</small></span><i aria-hidden="true">→</i></button>
+        <button type="button" class="practice" data-practice="Name five things"><span class="practice-time">3 min</span><span><b>Name five things</b><small>For feeling ungrounded</small></span><i aria-hidden="true">→</i></button>
+        <button type="button" class="practice" data-practice="Make room for the thought"><span class="practice-time">5 min</span><span><b>Make room for the thought</b><small>For getting unstuck</small></span><i aria-hidden="true">→</i></button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#top"><span class="brand-mark">K</span><span>Kintsu</span></a>
+    <p>Care for all the moments that make a life.</p>
+    <p class="footer-note">Kintsu is not a crisis service. If you’re in immediate danger, contact local emergency services.</p>
+    <span>© 2026 Kintsu Care</span>
+  </footer>
+
+  <dialog class="checkin" id="checkin" aria-labelledby="checkin-title">
+    <form method="dialog">
+      <button class="dialog-close" value="cancel" aria-label="Close check-in">×</button>
+      <p class="eyebrow">A moment for you</p><h2 id="checkin-title">How are you arriving?</h2>
+      <p class="dialog-copy">Choose the word that feels closest. There’s no wrong answer.</p>
+      <div class="feelings" role="group" aria-label="Choose a feeling">
+        <button value="heavy" type="button">Heavy</button><button value="tender" type="button">Tender</button><button value="steady" type="button">Steady</button><button value="open" type="button">Open</button>
+      </div>
+      <div class="checkin-response" aria-live="polite"></div>
+      <button class="button primary save-checkin" value="done">Save this moment</button>
+    </form>
+  </dialog>
+  <div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
