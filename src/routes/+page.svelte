@@ -89,14 +89,17 @@
 			frame = requestAnimationFrame(() => {
 				if (!collectionElement) return;
 				const collectionTop = collectionElement.offsetTop;
-				const progress = Math.min(1, Math.max(0, window.scrollY / Math.max(collectionTop, 1)));
+				const scrollPosition = window.scrollY;
+				const progress = Math.min(1, Math.max(0, scrollPosition / Math.max(collectionTop, 1)));
+				const overscrollProgress = Math.min(1, Math.max(0, -scrollPosition / 96));
+				const insetProgress = Math.max(progress, overscrollProgress);
 				const maximumInset = window.innerWidth <= 720
 					? Math.min(12, Math.max(8, window.innerWidth * 0.03))
 					: Math.min(36, Math.max(24, window.innerWidth * 0.02));
 				const maximumRadius = window.innerWidth <= 720
 					? 20
 					: Math.min(34, Math.max(22, window.innerWidth * 0.02));
-				collectionElement.style.setProperty('--collection-inset', `${maximumInset * (1 - progress)}px`);
+				collectionElement.style.setProperty('--collection-inset', `${maximumInset * (1 - insetProgress)}px`);
 				collectionElement.style.setProperty('--collection-radius', `${maximumRadius * (1 - progress)}px`);
 			});
 		};
@@ -243,7 +246,7 @@
 	.profile-pill:hover { filter: brightness(1.1); transform: scale(1.035); }
 	.profile-pill:focus-visible { outline: 2px solid var(--gallery-accent); outline-offset: 2px; }
 	.x-profile { background: #1b1c19; }
-	.site-profile { background: var(--gallery-accent); }
+	.site-profile { background: #355a4b; }
 	.profile-icon { display: grid; width: 16px; flex: none; place-items: center; }
 	.profile-icon .x-mark { width: 14px; height: 14px; fill: currentColor; }
 	.avatar-icon { width: 20px; height: 20px; overflow: hidden; border-radius: 50%; background: #fff; }
