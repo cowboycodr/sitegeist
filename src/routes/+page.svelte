@@ -21,6 +21,7 @@
 	let expandOrigin = $state<{ x: number; y: number; scaleX: number; scaleY: number } | null>(null);
 	let collectionElement: HTMLElement;
 	let filterSentinelElement: HTMLDivElement;
+	let stickyBrandElement: HTMLDivElement;
 	let showReturnToTop = $state(false);
 	let filtersPinned = $state(false);
 	let pullStartY: number | null = null;
@@ -115,35 +116,42 @@
 
 	onMount(() => {
 		let frame = 0;
+		const measureStickyBrand = () => {
+			if (!stickyBrandElement) return;
+			stickyBrandElement.style.setProperty('--sticky-brand-width', `${stickyBrandElement.scrollWidth}px`);
+		};
 		const updateCollectionInset = () => {
 			cancelAnimationFrame(frame);
 			frame = requestAnimationFrame(() => {
 				if (!collectionElement) return;
 				const collectionTop = collectionElement.offsetTop;
-				const scrollPosition = window.scrollY;
+				const scrollPosition = Math.max(0, window.scrollY);
 				showReturnToTop = scrollPosition > collectionTop;
 				filtersPinned = filterSentinelElement?.getBoundingClientRect().top <= 0 && scrollPosition > 0;
-				const progress = Math.min(1, Math.max(0, scrollPosition / Math.max(collectionTop, 1)));
-				const overscrollProgress = Math.min(1, Math.max(0, -scrollPosition / 96));
-				const insetProgress = Math.max(progress, overscrollProgress);
+				const rawProgress = Math.min(1, scrollPosition / Math.max(collectionTop, 1));
+				const progress = rawProgress * rawProgress * (3 - 2 * rawProgress);
 				const maximumInset = window.innerWidth <= 720
 					? Math.min(12, Math.max(8, window.innerWidth * 0.03))
 					: Math.min(36, Math.max(24, window.innerWidth * 0.02));
 				const maximumRadius = window.innerWidth <= 720
 					? 20
 					: Math.min(34, Math.max(22, window.innerWidth * 0.02));
-				collectionElement.style.setProperty('--collection-inset', `${maximumInset * (1 - insetProgress)}px`);
+				collectionElement.style.setProperty('--collection-inset', `${maximumInset * (1 - progress)}px`);
 				collectionElement.style.setProperty('--collection-radius', `${maximumRadius * (1 - progress)}px`);
 			});
 		};
+		const updateLayout = () => {
+			measureStickyBrand();
+			updateCollectionInset();
+		};
 
-		updateCollectionInset();
+		updateLayout();
 		window.addEventListener('scroll', updateCollectionInset, { passive: true });
-		window.addEventListener('resize', updateCollectionInset);
+		window.addEventListener('resize', updateLayout);
 		return () => {
 			cancelAnimationFrame(frame);
 			window.removeEventListener('scroll', updateCollectionInset);
-			window.removeEventListener('resize', updateCollectionInset);
+			window.removeEventListener('resize', updateLayout);
 		};
 	});
 
@@ -205,7 +213,7 @@
 
 		<div class="filter-sticky-sentinel" bind:this={filterSentinelElement} aria-hidden="true"></div>
 		<div class="filter-row" class:pinned={filtersPinned} aria-label="Choose benchmark model">
-			<div class="sticky-brand" aria-hidden={!filtersPinned}>
+			<div class="sticky-brand" bind:this={stickyBrandElement} aria-hidden={!filtersPinned}>
 				<span>Sitegeist</span>
 				<i></i>
 			</div>
@@ -314,10 +322,10 @@
 	.filter-sticky-sentinel { height: 0; }
 	.filter-row { position: sticky; z-index: 40; top: 0; display: flex; align-items: center; gap: 8px; margin: 0 clamp(-34px, -3vw, -24px); padding: 12px clamp(24px, 3vw, 34px) 14px; overflow-x: auto; background: #111210; scrollbar-width: none; }
 	.filter-row::-webkit-scrollbar { display: none; }
-	.sticky-brand { display: flex; width: max-content; max-width: 0; flex: none; align-items: center; gap: 8px; overflow: hidden; color: #f3f1e9; opacity: 0; transform: translateX(-12px); transition: max-width 360ms cubic-bezier(.22,1,.36,1), opacity 220ms ease, transform 360ms cubic-bezier(.22,1,.36,1); }
+	.sticky-brand { display: flex; width: 0; flex: none; align-items: center; gap: 8px; overflow: hidden; color: #f3f1e9; opacity: 0; transform: translateX(-6px); transition: width 620ms cubic-bezier(.16,1,.3,1), opacity 420ms ease, transform 620ms cubic-bezier(.16,1,.3,1); }
 	.sticky-brand span { flex: none; font-size: 15px; font-weight: 650; letter-spacing: -0.035em; }
 	.sticky-brand i { width: 1px; height: 22px; flex: none; background: #474843; }
-	.filter-row.pinned .sticky-brand { max-width: 120px; opacity: 1; transform: translateX(0); }
+	.filter-row.pinned .sticky-brand { width: var(--sticky-brand-width, 78px); opacity: 1; transform: translateX(0); }
 	.filter-row button { display: inline-flex; flex: none; align-items: center; padding: 10px 15px; border: 1px solid #474843; border-radius: 99px; background: transparent; color: #a3a59d; font: 600 11px/1 'Inter Variable', Inter, sans-serif; letter-spacing: -0.015em; cursor: pointer; transition: background 180ms ease, color 180ms ease, border-color 180ms ease; }
 	.filter-row button:hover, .filter-row button.active { border-color: #f3f1e9; background: #f3f1e9; color: #111210; }
 	.filter-row button:disabled { opacity: 0.42; cursor: not-allowed; }
