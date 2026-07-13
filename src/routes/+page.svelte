@@ -1030,6 +1030,10 @@
 	@media (hover: hover) and (pointer: fine) {
 		.open-cue { backdrop-filter: blur(8px) saturate(90%); }
 	}
+	@media (hover: none) and (pointer: coarse) {
+		.open-cue { display: none; }
+		.preview-button-wrap:hover .preview-window { transform: none; box-shadow: 0 18px 42px rgba(0, 0, 0, 0.25); }
+	}
 	.card-caption { display: flex; align-items: start; justify-content: space-between; gap: 15px; padding-top: 15px; }
 	.card-caption > div { display: flex; align-items: baseline; gap: 11px; min-width: 0; }
 	.card-caption span { flex: none; color: #74766f; font: 700 8px ui-monospace, monospace; }
