@@ -90,8 +90,6 @@
 	let viewerSettling = $state(false);
 	let viewerArtifactReady = $state(false);
 	let artifactChannel = $state('');
-	let wheelPull = 0;
-	let wheelResetTimer: ReturnType<typeof setTimeout> | undefined;
 	let previewPointerGesture: PreviewPointerGesture | null = null;
 	let blockedPreviewTrigger: HTMLElement | null = null;
 	let blockedPreviewUntil = 0;
@@ -336,8 +334,6 @@
 		clearPullGesture();
 		viewerDragActive = false;
 		viewerSettling = false;
-		wheelPull = 0;
-		if (wheelResetTimer) clearTimeout(wheelResetTimer);
 		selected = null;
 		viewerArtifactReady = false;
 		artifactChannel = '';
@@ -706,19 +702,7 @@
 			}
 			return;
 		}
-		if (message.kind === 'wheel') {
-			if (
-				typeof message.deltaY === 'number' && Number.isFinite(message.deltaY) &&
-				Math.abs(message.deltaY) <= 10_000
-			) {
-				const wheelScrollTop = typeof message.scrollTop === 'number' && Number.isFinite(message.scrollTop)
-					? clamp(0, message.scrollTop, 1_000_000)
-					: 0;
-				handleViewerWheelDelta(message.deltaY, wheelScrollTop);
-			}
-			return;
-		}
-		if (message.kind === 'scroll') return;
+		if (message.kind === 'scroll' || message.kind === 'wheel') return;
 
 		const point = readArtifactPullPoint(message as ArtifactBridgeMessage);
 		const scrollTop = typeof message.scrollTop === 'number' && Number.isFinite(message.scrollTop)
@@ -745,24 +729,6 @@
 				clearPullGesture();
 			}
 		};
-	}
-
-	function handleViewerWheelDelta(deltaY: number, scrollTop: number) {
-		if (viewerSettling) return;
-		if (scrollTop > 0 || deltaY >= 0) {
-			wheelPull = 0;
-			return;
-		}
-
-		wheelPull += -deltaY;
-		if (wheelResetTimer) clearTimeout(wheelResetTimer);
-		wheelResetTimer = setTimeout(() => (wheelPull = 0), 180);
-		if (wheelPull >= 180) closeSite();
-	}
-
-	function handleViewerWheel(event: WheelEvent) {
-		const viewerSite = event.currentTarget as HTMLDivElement;
-		handleViewerWheelDelta(event.deltaY, viewerSite.scrollTop);
 	}
 
 	function step(direction: number) {
@@ -1131,7 +1097,6 @@
 							bind:this={viewerSiteElement}
 							use:pullToDismiss
 							role="document"
-							onwheel={handleViewerWheel}
 						>
 							<SiteExperience site={selected} />
 						</div>
