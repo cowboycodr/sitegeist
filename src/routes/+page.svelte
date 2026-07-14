@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { ArrowUp, ChevronDown, ChevronLeft, ChevronRight, Plus, X } from '@lucide/svelte';
+	import { ArrowUp, ChevronDown, ChevronLeft, ChevronRight, Plus, Share2, X } from '@lucide/svelte';
+	import { flip } from 'svelte/animate';
 	import { quintOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
 	import SiteExperience from '$lib/components/SiteExperience.svelte';
@@ -73,6 +74,20 @@
 		samples: Array<{ y: number; time: number }>;
 		frame: number;
 	};
+	type ModelTabDrag = {
+		model: BenchmarkModel;
+		pointerId: number;
+		startX: number;
+		startTop: number;
+		pointerOffsetX: number;
+		minimumX: number;
+		maximumX: number;
+		x: number;
+		y: number;
+		width: number;
+		height: number;
+		moved: boolean;
+	};
 
 	let selected = $state<ShowcaseSite | null>(null);
 	let filter = $state<BenchmarkFilter>('5.6 Sol');
@@ -91,6 +106,8 @@
 	let viewerBackdropElement = $state<HTMLDivElement>();
 	let viewerControlsElement = $state<HTMLDivElement>();
 	let compareControlElement = $state<HTMLDivElement>();
+	let galleryFooterTextElement: HTMLParagraphElement;
+	let returnToTopElement: HTMLAnchorElement;
 	let showReturnToTop = $state(false);
 	let filtersPinned = $state(false);
 	let shellThemeActive = $state(false);
@@ -107,6 +124,8 @@
 	let comparisonMenu = $state<'second' | 'third' | null>(null);
 	let compareModel = $state<BenchmarkModel | null>(null);
 	let thirdModel = $state<BenchmarkModel | null>(null);
+	let draggedModelOrder = $state<BenchmarkModel[] | null>(null);
+	let modelTabDrag = $state<ModelTabDrag | null>(null);
 	let viewerToast = $state<string | null>(null);
 	let artifactChannel = $state('');
 	let previewPointerGesture: PreviewPointerGesture | null = null;
@@ -119,6 +138,7 @@
 	let viewerAnimations: Animation[] = [];
 	let viewerGestureSequence = 0;
 	let viewerToastTimeout: ReturnType<typeof setTimeout> | null = null;
+	let suppressModelTabClickUntil = 0;
 
 	let activeModel = $derived<BenchmarkModel>(filter);
 	let visibleSites = $derived(sitesByModel[activeModel]);
@@ -134,9 +154,10 @@
 			.filter((item) => item.available && (!selected || siteArtifactByModel[item.name].has(selected.slug)))
 			.map((item) => item.name)
 	);
-	let displayedModels = $derived(
+	let roleOrderedModels = $derived(
 		[activeModel, compareModel, thirdModel].filter((model): model is BenchmarkModel => Boolean(model))
 	);
+	let displayedModels = $derived(draggedModelOrder ?? roleOrderedModels);
 	let availableComparisonModels = $derived(
 		viewerModels.filter(
 			(model) => model !== activeModel && model !== compareModel && model !== thirdModel
@@ -402,6 +423,7 @@
 
 	function completeCloseSite() {
 		clearPullGesture();
+		resetModelTabDrag();
 		viewerDragActive = false;
 		viewerSettling = false;
 		selected = null;
@@ -435,6 +457,28 @@
 			viewerToast = null;
 			viewerToastTimeout = null;
 		}, 3200);
+	}
+
+	async function shareSelectedSite() {
+		if (!browser || !selected) return;
+		const url = window.location.href;
+		const title = `${selected.name} — Sitegeist`;
+		if (typeof navigator.share === 'function') {
+			try {
+				await navigator.share({ title, url });
+				return;
+			} catch (error) {
+				if (error instanceof DOMException && error.name === 'AbortError') return;
+			}
+		}
+
+		try {
+			if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable');
+			await navigator.clipboard.writeText(url);
+			showViewerToast('Link copied to clipboard.');
+		} catch {
+			showViewerToast('Unable to share this link.');
+		}
 	}
 
 	function selectComparisonModel(model: BenchmarkModel) {
@@ -544,6 +588,7 @@
 	}
 
 	function clearComparisons() {
+		resetModelTabDrag();
 		modelMenuOpen = false;
 		addMenuOpen = false;
 		comparisonMenu = null;
@@ -557,6 +602,152 @@
 		modelMenuOpen = false;
 		addMenuOpen = false;
 		comparisonMenu = null;
+	}
+
+	function modelTabClickWasDragged(event: MouseEvent) {
+		if (performance.now() > suppressModelTabClickUntil) return false;
+		event.preventDefault();
+		event.stopPropagation();
+		return true;
+	}
+
+	function handlePrimaryModelClick(event: MouseEvent) {
+		if (modelTabClickWasDragged(event)) return;
+		toggleModelMenu();
+	}
+
+	function handleComparisonModelClick(event: MouseEvent, slot: 'second' | 'third') {
+		if (modelTabClickWasDragged(event)) return;
+		toggleComparisonMenu(slot);
+	}
+
+	function handleRemoveModelClick(event: MouseEvent, modelIndex: number) {
+		if (modelTabClickWasDragged(event)) return;
+		if (modelIndex === 0) stopPrimaryComparison();
+		else if (modelIndex === 1) stopComparison();
+		else stopThirdComparison();
+	}
+
+	function handleAddModelClick(event: MouseEvent) {
+		if (modelTabClickWasDragged(event)) return;
+		handleCompareControl();
+	}
+
+	function resetModelTabDrag() {
+		modelTabDrag = null;
+		draggedModelOrder = null;
+	}
+
+	function beginModelTabDrag(event: PointerEvent, model: BenchmarkModel) {
+		if (
+			!desktopCompareAvailable ||
+			displayedModels.length < 2 ||
+			!event.isPrimary ||
+			event.button !== 0 ||
+			!(event.target instanceof Element) ||
+			event.target.closest('.remove-model-control')
+		) return;
+
+		const slot = event.currentTarget as HTMLElement;
+		const rect = slot.getBoundingClientRect();
+		const slots = Array.from(
+			compareControlElement?.querySelectorAll<HTMLElement>('.model-slot') ?? []
+		);
+		const firstRect = slots[0]?.getBoundingClientRect() ?? rect;
+		const lastRect = slots[slots.length - 1]?.getBoundingClientRect() ?? rect;
+		draggedModelOrder = [...displayedModels];
+		modelTabDrag = {
+			model,
+			pointerId: event.pointerId,
+			startX: event.clientX,
+			startTop: rect.top,
+			pointerOffsetX: event.clientX - rect.left,
+			minimumX: firstRect.left,
+			maximumX: Math.max(firstRect.left, lastRect.right - rect.width),
+			x: rect.left,
+			y: rect.top,
+			width: rect.width,
+			height: rect.height,
+			moved: false
+		};
+		slot.setPointerCapture(event.pointerId);
+	}
+
+	function updateDraggedModelOrder(direction: number) {
+		const drag = modelTabDrag;
+		const order = draggedModelOrder;
+		if (!drag || !order || !compareControlElement) return;
+
+		const slots = Array.from(
+			compareControlElement.querySelectorAll<HTMLElement>('.model-slot')
+		);
+		const currentIndex = order.indexOf(drag.model);
+		let targetIndex = currentIndex;
+		const snapOverlap = 0.22;
+		if (direction < 0) {
+			for (let index = currentIndex - 1; index >= 0; index -= 1) {
+				const slot = slots.find((candidate) => candidate.dataset.model === order[index]);
+				if (!slot) continue;
+				const rect = slot.getBoundingClientRect();
+				if (drag.x < rect.right - rect.width * snapOverlap) targetIndex = index;
+			}
+		} else if (direction > 0) {
+			const dragRight = drag.x + drag.width;
+			for (let index = currentIndex + 1; index < order.length; index += 1) {
+				const slot = slots.find((candidate) => candidate.dataset.model === order[index]);
+				if (!slot) continue;
+				const rect = slot.getBoundingClientRect();
+				if (dragRight > rect.left + rect.width * snapOverlap) targetIndex = index;
+			}
+		}
+
+		if (currentIndex === -1 || currentIndex === targetIndex) return;
+		const nextOrder = order.filter((model) => model !== drag.model);
+		nextOrder.splice(targetIndex, 0, drag.model);
+		draggedModelOrder = nextOrder;
+	}
+
+	function moveModelTabDrag(event: PointerEvent) {
+		const drag = modelTabDrag;
+		if (!drag || drag.pointerId !== event.pointerId) return;
+		const horizontalDistance = Math.abs(event.clientX - drag.startX);
+		if (!drag.moved && horizontalDistance < 5) return;
+		if (!drag.moved) {
+			drag.moved = true;
+			dismissModelMenus();
+		}
+		event.preventDefault();
+		const nextX = clamp(drag.minimumX, event.clientX - drag.pointerOffsetX, drag.maximumX);
+		const direction = Math.sign(nextX - drag.x);
+		drag.x = nextX;
+		drag.y = drag.startTop;
+		updateDraggedModelOrder(direction);
+	}
+
+	function commitDraggedModelOrder(order: BenchmarkModel[]) {
+		if (
+			order.length !== roleOrderedModels.length ||
+			order.every((model, index) => model === roleOrderedModels[index])
+		) return;
+
+		const nextArtifactChannel = createArtifactChannel(selected);
+		filter = order[0];
+		compareModel = order[1] ?? null;
+		thirdModel = order[2] ?? null;
+		viewerArtifactReady = false;
+		comparisonArtifactReady = false;
+		thirdArtifactReady = false;
+		artifactChannel = nextArtifactChannel;
+	}
+
+	function finishModelTabDrag(event: PointerEvent, cancelled = false) {
+		const drag = modelTabDrag;
+		if (!drag || drag.pointerId !== event.pointerId) return;
+		if (drag.moved && !cancelled && draggedModelOrder) {
+			suppressModelTabClickUntil = performance.now() + 300;
+			commitDraggedModelOrder([...draggedModelOrder]);
+		}
+		resetModelTabDrag();
 	}
 
 	function handleWindowPointerDown(event: PointerEvent) {
@@ -1046,6 +1237,61 @@
 	});
 
 	onMount(() => {
+		let alignmentFrame = 0;
+		let footerTextCenter = 0;
+		let alignmentStart = Number.POSITIVE_INFINITY;
+		let mounted = true;
+		const getBaseBottom = () => Math.min(28, Math.max(16, window.innerWidth * 0.02));
+
+		const syncReturnToTopAlignment = () => {
+			alignmentFrame = 0;
+			const baseBottom = getBaseBottom();
+			const alignedBottom = Math.max(
+				baseBottom,
+				window.scrollY + window.innerHeight - footerTextCenter - 24
+			);
+			if (alignedBottom > baseBottom + 0.5) {
+				returnToTopElement.style.setProperty('--footer-aligned-bottom', `${alignedBottom}px`);
+			} else {
+				returnToTopElement.style.removeProperty('--footer-aligned-bottom');
+			}
+		};
+
+		const requestReturnToTopAlignment = () => {
+			if (alignmentFrame) return;
+			if (
+				window.scrollY < alignmentStart &&
+				!returnToTopElement.style.getPropertyValue('--footer-aligned-bottom')
+			) return;
+			alignmentFrame = requestAnimationFrame(syncReturnToTopAlignment);
+		};
+
+		const measureReturnToTopAlignment = () => {
+			const footerTextRect = galleryFooterTextElement.getBoundingClientRect();
+			footerTextCenter = footerTextRect.top + window.scrollY + footerTextRect.height / 2;
+			alignmentStart = footerTextCenter - window.innerHeight + 24 + getBaseBottom();
+			requestReturnToTopAlignment();
+		};
+
+		const collectionResizeObserver = new ResizeObserver(measureReturnToTopAlignment);
+		collectionResizeObserver.observe(collectionElement);
+		measureReturnToTopAlignment();
+		window.addEventListener('scroll', requestReturnToTopAlignment, { passive: true });
+		window.addEventListener('resize', measureReturnToTopAlignment);
+		void document.fonts?.ready.then(() => {
+			if (mounted) measureReturnToTopAlignment();
+		});
+
+		return () => {
+			mounted = false;
+			cancelAnimationFrame(alignmentFrame);
+			collectionResizeObserver.disconnect();
+			window.removeEventListener('scroll', requestReturnToTopAlignment);
+			window.removeEventListener('resize', measureReturnToTopAlignment);
+		};
+	});
+
+	onMount(() => {
 		let frame = 0;
 		let framePending = false;
 		let lastRawProgress = -1;
@@ -1313,11 +1559,12 @@
 		</div>
 
 		<footer class="gallery-footer">
-			<p>A study in style, repetition, and surprise.</p>
+			<p bind:this={galleryFooterTextElement}>A study in style, repetition, and surprise.</p>
 		</footer>
 	</section>
 
 	<a
+		bind:this={returnToTopElement}
 		class="return-to-top"
 		class:visible={showReturnToTop}
 		href="#top"
@@ -1433,6 +1680,15 @@
 		{#if viewerToast}
 			<div class="viewer-toast" role="status">{viewerToast}</div>
 		{/if}
+		{#if modelTabDrag?.moved}
+			<div
+				class="model-tab-drag-ghost"
+				style={`left:${modelTabDrag.x}px;top:${modelTabDrag.y}px;width:${modelTabDrag.width}px;height:${modelTabDrag.height}px;`}
+				aria-hidden="true"
+			>
+				<span>{modelTabDrag.model}</span>
+			</div>
+		{/if}
 		{#if modelMenuOpen || addMenuOpen || comparisonMenu}
 			<button class="menu-dismiss-layer" onclick={dismissModelMenus} aria-label="Close model menu"></button>
 		{/if}
@@ -1440,17 +1696,32 @@
 			<div class="viewer-controls-cluster" bind:this={compareControlElement}>
 				<div class="close-control-pill">
 					<button class="close-control" onclick={closeSite} aria-label="Close site and return to gallery" title="Close"><X size={16} strokeWidth={2.2} /></button>
+					<button class="share-control" onclick={shareSelectedSite} aria-label="Share this website" title="Share"><Share2 size={15} strokeWidth={2.1} /></button>
 				</div>
-				<div class="model-control-wrap" class:mobile-model-only={!desktopCompareAvailable}>
+				<div class="model-control-wrap" class:mobile-model-only={!desktopCompareAvailable} class:reordering={Boolean(modelTabDrag?.moved)}>
 						{#each displayedModels as model, modelIndex (model)}
-							<div class="model-slot" class:first-model-slot={modelIndex === 0} transition:pillSegment>
+							<div
+								class="model-slot"
+								class:first-model-slot={modelIndex === 0}
+								class:reorderable={desktopCompareAvailable && displayedModels.length > 1}
+								class:drag-placeholder={Boolean(modelTabDrag?.moved && modelTabDrag.model === model)}
+								data-model={model}
+								role="group"
+								aria-label={desktopCompareAvailable && displayedModels.length > 1 ? `${model} model tab. Drag to reorder.` : undefined}
+								onpointerdown={(event) => beginModelTabDrag(event, model)}
+								onpointermove={moveModelTabDrag}
+								onpointerup={finishModelTabDrag}
+								onpointercancel={(event) => finishModelTabDrag(event, true)}
+								transition:pillSegment
+								animate:flip={{ duration: 190, easing: quintOut }}
+							>
 								{#if modelIndex > 0}<i class="model-separator" aria-hidden="true">|</i>{/if}
 								{#if availableComparisonModels.length > 0}
 									{#if modelIndex === 0}
 										<button
 											class="model-control model-segment"
 											class:open={modelMenuOpen}
-											onclick={toggleModelMenu}
+											onclick={handlePrimaryModelClick}
 											aria-label={`${model} is visible. Choose visible model`}
 											aria-haspopup="menu"
 											aria-expanded={modelMenuOpen}
@@ -1463,7 +1734,7 @@
 										<button
 											class="comparison-model-control model-segment"
 											class:open={comparisonMenu === (modelIndex === 1 ? 'second' : 'third')}
-											onclick={() => toggleComparisonMenu(modelIndex === 1 ? 'second' : 'third')}
+											onclick={(event) => handleComparisonModelClick(event, modelIndex === 1 ? 'second' : 'third')}
 											aria-label={`${model} is ${modelIndex === 1 ? 'the comparison model' : 'the third comparison model'}. Choose comparison model`}
 											aria-haspopup="menu"
 											aria-expanded={comparisonMenu === (modelIndex === 1 ? 'second' : 'third')}
@@ -1478,7 +1749,7 @@
 										<span>{model}</span>
 										<button
 											class="remove-model-control"
-											onclick={modelIndex === 0 ? stopPrimaryComparison : modelIndex === 1 ? stopComparison : stopThirdComparison}
+											onclick={(event) => handleRemoveModelClick(event, modelIndex)}
 											aria-label={`Remove ${model} from comparison`}
 											title={`Remove ${model}`}
 										><X size={12} strokeWidth={2.4} /></button>
@@ -1492,7 +1763,7 @@
 							<div class="add-model-slot" transition:pillSegment>
 								<button
 									class="compare-control"
-									onclick={handleCompareControl}
+									onclick={handleAddModelClick}
 									aria-label={compareModel ? 'Add third comparison model' : 'Add comparison model'}
 									aria-haspopup={availableComparisonModels.length > 1 ? 'menu' : undefined}
 									aria-expanded={availableComparisonModels.length > 1 ? addMenuOpen : undefined}
@@ -1592,7 +1863,7 @@
 	.intro-aside { display: flex; max-width: 820px; flex-direction: column; align-items: center; gap: 20px; }
 	.intro-aside p { margin: 0; font-size: clamp(15px, 1.12vw, 18px); line-height: 1.55; letter-spacing: -0.018em; text-wrap: balance; }
 	.profile-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }
-	.profile-pill { display: inline-flex; height: 38px; align-items: center; gap: 8px; padding: 0 15px; border: 0; border-radius: 999px; color: #fff; font-size: 11px; font-weight: 650; text-decoration: none; transform-origin: center; transition: filter 160ms ease, transform 180ms cubic-bezier(.2,.8,.2,1); }
+	.profile-pill { display: inline-flex; height: 38px; align-items: center; gap: 8px; padding: 0 15px; border: 0; border-radius: 999px; color: #fff; font-size: 11px; font-weight: 650; text-decoration: none; transform-origin: center; transition: filter 160ms ease, transform 180ms cubic-bezier(.2,.8,.2,1); -webkit-user-select: none; user-select: none; }
 	.profile-pill:hover { filter: brightness(1.1); transform: scale(1.035); }
 	.profile-pill:focus-visible { outline: 2px solid var(--gallery-accent); outline-offset: 2px; }
 	.github-profile { background: #1b1c19; }
@@ -1664,7 +1935,7 @@
 	.gallery-footer > p { margin: 0; font-size: clamp(42px, 6vw, 90px); font-weight: 600; line-height: 0.88; letter-spacing: -0.07em; }
 	.preview-disclaimer { display: flex; width: min(100%, 420px); justify-content: flex-start; gap: 7px; margin: 14px 0 0; color: #85877f; font: 600 clamp(10px, 0.8vw, 12px)/1.45 'Inter Variable', Inter, sans-serif; letter-spacing: -0.01em; text-align: left; }
 	.preview-disclaimer span:first-child { flex: none; }
-	.return-to-top { position: fixed; z-index: 80; right: clamp(16px, 2vw, 28px); bottom: clamp(16px, 2vw, 28px); display: inline-flex; width: 48px; height: 48px; align-items: center; justify-content: center; border-radius: 50%; background: #f3f1e9; color: #111210; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); text-decoration: none; opacity: 0; visibility: hidden; transform: translateY(10px) scale(0.92); pointer-events: none; transition: opacity 240ms ease, visibility 0s linear 240ms, transform 320ms cubic-bezier(.2,.8,.2,1), background 180ms ease; }
+	.return-to-top { position: fixed; z-index: 80; right: clamp(16px, 2vw, 28px); bottom: var(--footer-aligned-bottom, clamp(16px, 2vw, 28px)); display: inline-flex; width: 48px; height: 48px; align-items: center; justify-content: center; border-radius: 50%; background: #f3f1e9; color: #111210; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); text-decoration: none; opacity: 0; visibility: hidden; transform: translateY(10px) scale(0.92); pointer-events: none; transition: opacity 240ms ease, visibility 0s linear 240ms, transform 320ms cubic-bezier(.2,.8,.2,1), background 180ms ease; }
 	.return-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0) scale(1); pointer-events: auto; transition-delay: 0s; }
 	.return-to-top:hover { background: #fff; transform: translateY(-3px) scale(1); }
 	.return-to-top:focus-visible { outline: 2px solid var(--gallery-accent); outline-offset: 3px; }
@@ -1709,9 +1980,11 @@
 		from { opacity: 0; transform: translate(-50%, 10px) scale(0.96); }
 		to { opacity: 1; transform: translate(-50%, 0) scale(1); }
 	}
-	.viewer-controls { position: fixed; z-index: 1100; left: 50%; bottom: 14px; width: max-content; max-width: calc(100vw - 24px); color: #fff; transform: translateX(-50%); pointer-events: none; }
+	.viewer-controls { position: fixed; z-index: 1100; left: 50%; bottom: 14px; width: max-content; max-width: calc(100vw - 24px); color: #fff; transform: translateX(-50%); pointer-events: none; -webkit-user-select: none; user-select: none; }
 	.menu-dismiss-layer { position: fixed; z-index: 1095; inset: 0; margin: 0; padding: 0; border: 0; background: transparent; cursor: default; }
-	.viewer-toast { position: fixed; z-index: 1090; left: 50%; bottom: 74px; width: max-content; max-width: min(440px, calc(100vw - 32px)); padding: 11px 15px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 999px; background: #141413; color: rgba(255, 255, 255, 0.9); box-shadow: 0 14px 44px rgba(0, 0, 0, 0.34); font: 650 11px/1.35 'Inter Variable', Inter, sans-serif; text-align: center; transform: translateX(-50%); animation: viewer-toast-enter 220ms cubic-bezier(.22,1,.36,1) both; pointer-events: none; }
+	.model-tab-drag-ghost { position: fixed; z-index: 1200; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 0; border-radius: 999px; background: #2b2b29; color: #fff; box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 2px 8px rgba(0, 0, 0, 0.24); font: 700 10px/1 'Inter Variable', Inter, sans-serif; letter-spacing: -0.01em; white-space: nowrap; transform: translateZ(0); pointer-events: none; -webkit-user-select: none; user-select: none; }
+	.model-tab-drag-ghost span { overflow: hidden; padding-inline: 10px; text-overflow: ellipsis; }
+	.viewer-toast { position: fixed; z-index: 1090; left: 50%; bottom: 74px; width: max-content; max-width: min(440px, calc(100vw - 32px)); padding: 11px 15px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 999px; background: #141413; color: rgba(255, 255, 255, 0.9); box-shadow: 0 14px 44px rgba(0, 0, 0, 0.34); font: 650 11px/1.35 'Inter Variable', Inter, sans-serif; text-align: center; transform: translateX(-50%); animation: viewer-toast-enter 220ms cubic-bezier(.22,1,.36,1) both; pointer-events: none; -webkit-user-select: none; user-select: none; }
 	@keyframes viewer-toast-enter { from { opacity: 0; transform: translate(-50%, 8px) scale(.97); } to { opacity: 1; transform: translate(-50%, 0) scale(1); } }
 	.viewer-controls-cluster { display: flex; max-width: 100%; align-items: center; justify-content: center; gap: 8px; pointer-events: auto; }
 	.close-control-pill, .model-control-wrap, .navigation-control-pill { position: relative; display: flex; align-items: center; gap: 2px; padding: 4px; border: 1px solid rgba(255, 255, 255, 0.13); border-radius: 999px; background: rgba(20, 20, 19, 0.96); box-shadow: 0 14px 44px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%); }
@@ -1720,10 +1993,15 @@
 	.viewer-controls button:hover, .viewer-controls button:focus-visible { background: rgba(255, 255, 255, 0.1); }
 	.viewer-controls button:focus-visible { outline: 1px solid rgba(255, 255, 255, 0.7); outline-offset: -1px; }
 	.close-control { display: grid; width: 34px; min-width: 34px; place-items: center; padding: 0; background: #fff !important; color: #111 !important; cursor: pointer; }
+	.share-control { display: grid; width: 34px; min-width: 34px; place-items: center; padding: 0; color: rgba(255, 255, 255, 0.78); cursor: pointer; }
 	.model-segment { display: flex; height: 34px; max-width: min(145px, calc(50vw - 135px)); align-items: center; gap: 7px; padding: 0 8px 0 11px; font: 700 10px/1 'Inter Variable', Inter, sans-serif; letter-spacing: -0.01em; white-space: nowrap; }
 	.model-control, .comparison-model-control { cursor: pointer; }
 	.model-segment > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 	.model-slot, .add-model-slot { display: flex; flex: none; min-width: 0; align-items: center; gap: 2px; overflow: hidden; will-change: width, opacity; }
+	.model-slot.reorderable { touch-action: none; cursor: grab; }
+	.model-slot.reorderable > .model-segment { cursor: grab; }
+	.model-slot.drag-placeholder { opacity: 0 !important; }
+	.model-control-wrap.reordering, .model-control-wrap.reordering * { cursor: grabbing !important; user-select: none; }
 	.model-slot > .model-segment, .add-model-slot > .compare-control { flex: none; }
 	.model-separator { flex: none; margin: 0 -2px; color: rgba(255, 255, 255, 0.34); font: 600 10px/1 'Inter Variable', Inter, sans-serif; font-style: normal; }
 	.comparison-model-display { gap: 5px; padding-right: 5px; }
