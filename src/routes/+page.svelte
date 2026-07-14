@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { ArrowUp, ArrowUpRight, ChevronLeft, ChevronRight, X } from '@lucide/svelte';
+	import { ArrowUp, ChevronLeft, ChevronRight, X } from '@lucide/svelte';
 	import { onMount } from 'svelte';
 	import SiteExperience from '$lib/components/SiteExperience.svelte';
 	import SitePreview from '$lib/components/SitePreview.svelte';
@@ -1031,7 +1031,6 @@
 									<SitePreview {site} />
 								{/if}
 							</div>
-							<div class="open-cue"><span>OPEN SITE</span><span class="cue-icon"><ArrowUpRight size={16} strokeWidth={2.2} /></span></div>
 						</div>
 					</button>
 					<footer class="card-caption"><div><span>{String(site.id).padStart(3, '0')}</span><h3>{site.name}</h3></div><p>{site.category}</p></footer>
@@ -1041,6 +1040,10 @@
 
 		<footer class="gallery-footer">
 			<p>A study in style, repetition, and surprise.</p>
+			<div class="preview-disclaimer" role="note">
+				<span aria-hidden="true">*</span>
+				<span>Previews do not reflect the exact content of each website.</span>
+			</div>
 		</footer>
 	</section>
 
@@ -1180,7 +1183,7 @@
 	.site-card { min-width: 0; content-visibility: auto; contain-intrinsic-size: auto calc(clamp(230px, 24vw, 360px) + 55px); }
 	.preview-button-wrap { display: block; width: 100%; padding: 0; border: 0; background: transparent; color: inherit; text-align: left; touch-action: pan-y; cursor: pointer; }
 	.preview-window { position: relative; overflow: hidden; border-radius: 7px; background: #292a27; box-shadow: 0 18px 42px rgba(0, 0, 0, 0.25); transition: transform 350ms cubic-bezier(.2,.8,.2,1), box-shadow 350ms ease; }
-	.preview-button-wrap:hover .preview-window, .preview-button-wrap:focus-visible .preview-window { transform: translateY(-9px) rotate(-0.35deg); box-shadow: 0 32px 70px rgba(0, 0, 0, 0.42); }
+	.preview-button-wrap:hover .preview-window, .preview-button-wrap:focus-visible .preview-window { transform: scale(1.018); box-shadow: 0 32px 70px rgba(0, 0, 0, 0.42); }
 	.preview-button-wrap:focus-visible { outline: 2px solid var(--gallery-accent); outline-offset: 4px; }
 	.window-chrome { display: flex; align-items: center; gap: 5px; height: 24px; padding: 0 9px; background: #e7e5dd; color: #111; }
 	.window-chrome i { width: 5px; height: 5px; border-radius: 50%; background: #aaa79e; }
@@ -1189,14 +1192,7 @@
 	.preview-viewport { aspect-ratio: 4 / 3; height: auto; }
 	.artifact-card-preview, .artifact-card-preview img { display: block; width: 100%; height: 100%; }
 	.artifact-card-preview img { background: #06110f; object-fit: contain; }
-	.open-cue { position: absolute; z-index: 20; inset: 24px 0 0; display: flex; align-items: center; justify-content: center; gap: 10px; background: rgba(17, 18, 16, 0.7); color: #fff; font: 650 11px/1 'Inter Variable', Inter, sans-serif; letter-spacing: 0.035em; opacity: 0; transition: opacity 220ms ease; }
-	.cue-icon { display: grid; width: 32px; aspect-ratio: 1; place-items: center; border-radius: 50%; background: var(--gallery-accent); color: #fff; }
-	.preview-button-wrap:hover .open-cue, .preview-button-wrap:focus-visible .open-cue { opacity: 1; }
-	@media (hover: hover) and (pointer: fine) {
-		.open-cue { backdrop-filter: blur(8px) saturate(90%); }
-	}
 	@media (hover: none) and (pointer: coarse) {
-		.open-cue { display: none; }
 		.preview-button-wrap:hover .preview-window { transform: none; box-shadow: 0 18px 42px rgba(0, 0, 0, 0.25); }
 	}
 	.card-caption { display: flex; align-items: start; justify-content: space-between; gap: 15px; padding-top: 15px; }
@@ -1206,7 +1202,9 @@
 	.card-caption p { flex: none; margin: 2px 0 0; color: #85877f; font: 700 8px/1 ui-monospace, monospace; letter-spacing: 0.07em; text-transform: uppercase; }
 
 	.gallery-footer { margin-top: 80px; padding: 40px 0 50px; }
-	.gallery-footer p { margin: 0; font-size: clamp(42px, 6vw, 90px); font-weight: 600; line-height: 0.88; letter-spacing: -0.07em; }
+	.gallery-footer > p { margin: 0; font-size: clamp(42px, 6vw, 90px); font-weight: 600; line-height: 0.88; letter-spacing: -0.07em; }
+	.preview-disclaimer { display: flex; width: min(100%, 420px); justify-content: flex-end; gap: 7px; margin: 34px 0 0 auto; color: #85877f; font: 600 clamp(10px, 0.8vw, 12px)/1.45 'Inter Variable', Inter, sans-serif; letter-spacing: -0.01em; text-align: right; }
+	.preview-disclaimer span:first-child { flex: none; }
 	.return-to-top { position: fixed; z-index: 80; right: clamp(16px, 2vw, 28px); bottom: clamp(16px, 2vw, 28px); display: inline-flex; width: 48px; height: 48px; align-items: center; justify-content: center; border-radius: 50%; background: #f3f1e9; color: #111210; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); text-decoration: none; opacity: 0; visibility: hidden; transform: translateY(10px) scale(0.92); pointer-events: none; transition: opacity 240ms ease, visibility 0s linear 240ms, transform 320ms cubic-bezier(.2,.8,.2,1), background 180ms ease; }
 	.return-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0) scale(1); pointer-events: auto; transition-delay: 0s; }
 	.return-to-top:hover { background: #fff; transform: translateY(-3px) scale(1); }
@@ -1286,7 +1284,8 @@
 
 	@media (prefers-reduced-motion: reduce) {
 		:global(html) { scroll-behavior: auto; }
-		.preview-window, .open-cue, .return-to-top, .sticky-brand, .filter-buttons, .artifact-viewer-poster, .artifact-frame { transition: none; }
+		.preview-window, .return-to-top, .sticky-brand, .filter-buttons, .artifact-viewer-poster, .artifact-frame { transition: none; }
+		.preview-button-wrap:hover .preview-window, .preview-button-wrap:focus-visible .preview-window { transform: none; }
 		.collection-shell-side { animation: none !important; transform: scaleX(0) !important; }
 		.collection-shell-corner { animation: none !important; transform: scale(0) !important; }
 		.viewer.from-card .viewer-entry, .viewer.from-card .viewer-controls { animation: none; }
