@@ -153,7 +153,7 @@
 
 		syncNext();
 		const first = stage.querySelector(".opt");
-		if (first) first.focus();
+		if (first) first.focus({ preventScroll: true });
 	}
 
 	function syncNext() {

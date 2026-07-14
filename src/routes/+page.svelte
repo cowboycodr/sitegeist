@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { ArrowUp, ChevronDown, ChevronLeft, ChevronRight, Columns2, X } from '@lucide/svelte';
+	import { ArrowUp, ChevronDown, ChevronLeft, ChevronRight, Plus, X } from '@lucide/svelte';
+	import { quintOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
 	import SiteExperience from '$lib/components/SiteExperience.svelte';
 	import SitePreview from '$lib/components/SitePreview.svelte';
@@ -102,8 +103,8 @@
 	let desktopCompareAvailable = $state(false);
 	let tripleCompareAvailable = $state(false);
 	let modelMenuOpen = $state(false);
-	let compareMenuOpen = $state(false);
-	let thirdMenuOpen = $state(false);
+	let addMenuOpen = $state(false);
+	let comparisonMenu = $state<'second' | 'third' | null>(null);
 	let compareModel = $state<BenchmarkModel | null>(null);
 	let thirdModel = $state<BenchmarkModel | null>(null);
 	let viewerToast = $state<string | null>(null);
@@ -133,10 +134,18 @@
 			.filter((item) => item.available && (!selected || siteArtifactByModel[item.name].has(selected.slug)))
 			.map((item) => item.name)
 	);
-	let comparisonModels = $derived(
+	let displayedModels = $derived(
+		[activeModel, compareModel, thirdModel].filter((model): model is BenchmarkModel => Boolean(model))
+	);
+	let availableComparisonModels = $derived(
+		viewerModels.filter(
+			(model) => model !== activeModel && model !== compareModel && model !== thirdModel
+		)
+	);
+	let secondComparisonChoices = $derived(
 		viewerModels.filter((model) => model !== activeModel && model !== thirdModel)
 	);
-	let thirdComparisonModels = $derived(
+	let thirdComparisonChoices = $derived(
 		viewerModels.filter((model) => model !== activeModel && model !== compareModel)
 	);
 	let comparisonArtifact = $derived(
@@ -155,6 +164,19 @@
 		Math.min(maximum, Math.max(minimum, value));
 	const lerp = (start: number, end: number, progress: number) =>
 		start + (end - start) * progress;
+
+	function pillSegment(node: HTMLElement) {
+		const width = node.getBoundingClientRect().width;
+		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		return {
+			duration: reducedMotion ? 0 : 380,
+			easing: quintOut,
+			css: (progress: number) => {
+				const opacity = clamp(0, progress * 1.5, 1);
+				return `width: ${width * progress}px; opacity: ${opacity};`;
+			}
+		};
+	}
 
 	function createPreviewReturnKeyframes(
 		gesture: PullGesture,
@@ -387,8 +409,8 @@
 		comparisonArtifactReady = false;
 		thirdArtifactReady = false;
 		modelMenuOpen = false;
-		compareMenuOpen = false;
-		thirdMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
 		compareModel = null;
 		thirdModel = null;
 		viewerToast = null;
@@ -416,27 +438,21 @@
 	}
 
 	function selectComparisonModel(model: BenchmarkModel) {
-		if (model === compareModel) {
-			compareMenuOpen = false;
-			return;
-		}
+		if (model === compareModel) return;
 		comparisonArtifactReady = false;
 		compareModel = model;
 		modelMenuOpen = false;
-		compareMenuOpen = false;
-		thirdMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
 	}
 
 	function selectThirdComparisonModel(model: BenchmarkModel) {
-		if (model === thirdModel) {
-			thirdMenuOpen = false;
-			return;
-		}
+		if (model === thirdModel) return;
 		thirdArtifactReady = false;
 		thirdModel = model;
 		modelMenuOpen = false;
-		compareMenuOpen = false;
-		thirdMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
 	}
 
 	function selectPrimaryModel(model: BenchmarkModel) {
@@ -452,92 +468,100 @@
 		comparisonArtifactReady = false;
 		thirdArtifactReady = false;
 		modelMenuOpen = false;
-		compareMenuOpen = false;
-		thirdMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
 		artifactChannel = createArtifactChannel(selected);
 	}
 
 	function toggleModelMenu() {
 		modelMenuOpen = !modelMenuOpen;
-		compareMenuOpen = false;
-		thirdMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
 	}
 
-	function toggleCompareMenu() {
-		if (!compareModel) return;
-		compareMenuOpen = !compareMenuOpen;
+	function toggleComparisonMenu(slot: 'second' | 'third') {
+		comparisonMenu = comparisonMenu === slot ? null : slot;
 		modelMenuOpen = false;
-		thirdMenuOpen = false;
-	}
-
-	function toggleThirdMenu() {
-		if (!thirdModel) return;
-		thirdMenuOpen = !thirdMenuOpen;
-		modelMenuOpen = false;
-		compareMenuOpen = false;
+		addMenuOpen = false;
 	}
 
 	function handleCompareControl() {
-		if (compareModel) {
-			toggleCompareMenu();
+		if (!availableComparisonModels.length) return;
+		modelMenuOpen = false;
+		comparisonMenu = null;
+		if (availableComparisonModels.length > 1) {
+			addMenuOpen = !addMenuOpen;
 			return;
 		}
-		const currentModelIndex = viewerModels.indexOf(activeModel);
-		const nextModel = viewerModels[(currentModelIndex + 1) % viewerModels.length];
-		if (nextModel && nextModel !== activeModel) selectComparisonModel(nextModel);
+		addComparisonModel(availableComparisonModels[0]);
 	}
 
-	function addThirdComparison() {
+	function addComparisonModel(model: BenchmarkModel) {
 		modelMenuOpen = false;
-		compareMenuOpen = false;
-		thirdMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
+		if (!compareModel) {
+			selectComparisonModel(model);
+			return;
+		}
 		if (!tripleCompareAvailable) {
 			showViewerToast(TRIPLE_COMPARE_LIMIT_MESSAGE);
 			return;
 		}
-		const nextModel = viewerModels.find(
-			(model) => model !== activeModel && model !== compareModel
-		);
-		if (!nextModel) return;
-		thirdArtifactReady = false;
-		thirdModel = nextModel;
+		selectThirdComparisonModel(model);
 	}
 
 	function stopComparison() {
 		modelMenuOpen = false;
-		compareMenuOpen = false;
-		thirdMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
 		compareModel = thirdModel;
 		thirdModel = null;
 		comparisonArtifactReady = false;
 		thirdArtifactReady = false;
 	}
 
+	function stopPrimaryComparison() {
+		if (!compareModel) return;
+		modelMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
+		filter = compareModel;
+		compareModel = thirdModel;
+		thirdModel = null;
+		viewerArtifactReady = false;
+		comparisonArtifactReady = false;
+		thirdArtifactReady = false;
+		artifactChannel = createArtifactChannel(selected);
+	}
+
 	function stopThirdComparison() {
 		modelMenuOpen = false;
-		compareMenuOpen = false;
-		thirdMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
 		thirdModel = null;
 		thirdArtifactReady = false;
 	}
 
 	function clearComparisons() {
 		modelMenuOpen = false;
-		compareMenuOpen = false;
-		thirdMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
 		compareModel = null;
 		thirdModel = null;
 		comparisonArtifactReady = false;
 		thirdArtifactReady = false;
 	}
 
+	function dismissModelMenus() {
+		modelMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
+	}
+
 	function handleWindowPointerDown(event: PointerEvent) {
-		if ((!modelMenuOpen && !compareMenuOpen && !thirdMenuOpen) || !(event.target instanceof Node)) return;
-		if (!compareControlElement?.contains(event.target)) {
-			modelMenuOpen = false;
-			compareMenuOpen = false;
-			thirdMenuOpen = false;
-		}
+		if ((!modelMenuOpen && !addMenuOpen && !comparisonMenu) || !(event.target instanceof Node)) return;
+		if (!compareControlElement?.contains(event.target)) dismissModelMenus();
 	}
 
 	function activatePullGesture(gesture: PullGesture) {
@@ -946,8 +970,8 @@
 	function step(direction: number) {
 		if (!selected || viewerSettling) return;
 		modelMenuOpen = false;
-		compareMenuOpen = false;
-		thirdMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
 		resetViewerGesture();
 		expandOrigin = null;
 		returnPreviewElement = null;
@@ -966,10 +990,10 @@
 
 	function handleViewerShortcut(key: string) {
 		if (!selected || viewerSettling) return;
-		if (key === 'Escape' && (modelMenuOpen || compareMenuOpen || thirdMenuOpen)) {
+		if (key === 'Escape' && (modelMenuOpen || addMenuOpen || comparisonMenu)) {
 			modelMenuOpen = false;
-			compareMenuOpen = false;
-			thirdMenuOpen = false;
+			addMenuOpen = false;
+			comparisonMenu = null;
 			return;
 		}
 		if (key === 'Escape') closeSite();
@@ -1201,10 +1225,10 @@
 			<aside class="intro-aside">
 				<p>One hundred generated websites testing how well leading models maintain visual quality, consistency, and originality.</p>
 				<div class="profile-links" aria-label="Creator links">
-					<a class="profile-pill x-profile" href="https://x.com/kianmckenn" target="_blank" rel="noreferrer" aria-label="Follow @kianmckenn on X">
-						<span class="profile-icon"><svg class="x-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2h3.7l-8.1 9.2L24 22h-7.4l-5.8-7.6L4.2 22H.5l8.6-9.8L0 2h7.6l5.2 6.9L18.9 2Zm-1.3 18.1h2L6.5 3.8H4.4l13.2 16.3Z" /></svg></span>
+					<a class="profile-pill github-profile" href="https://github.com/cowboycodr/sitegeist" target="_blank" rel="noopener noreferrer" aria-label="View Sitegeist on GitHub">
+						<span class="profile-icon"><svg class="github-mark" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.51-.01-.52.63-.01 1.08.58 1.23.81.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.5 7.5 0 0 1 8 4.58c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" /></svg></span>
 						<span class="profile-divider" aria-hidden="true">/</span>
-						<span>kianmckenn</span>
+						<span>sitegeist</span>
 					</a>
 					<a class="profile-pill site-profile" href="https://kian.im" target="_blank" rel="noreferrer" aria-label="Visit Kian McKenna's personal website">
 						<span class="profile-icon avatar-icon"><img src="/kian-avatar.png" alt="" /></span>
@@ -1409,65 +1433,73 @@
 		{#if viewerToast}
 			<div class="viewer-toast" role="status">{viewerToast}</div>
 		{/if}
+		{#if modelMenuOpen || addMenuOpen || comparisonMenu}
+			<button class="menu-dismiss-layer" onclick={dismissModelMenus} aria-label="Close model menu"></button>
+		{/if}
 		<div class="viewer-controls" bind:this={viewerControlsElement}>
 			<div class="viewer-controls-cluster" bind:this={compareControlElement}>
 				<div class="close-control-pill">
 					<button class="close-control" onclick={closeSite} aria-label="Close site and return to gallery" title="Close"><X size={16} strokeWidth={2.2} /></button>
 				</div>
-				{#if desktopCompareAvailable}
-					<div class="model-control-wrap">
-						<button
-							class="model-control model-segment"
-							class:open={modelMenuOpen}
-							onclick={toggleModelMenu}
-							aria-label={`${activeModel} is visible. Choose visible model`}
-							aria-haspopup="menu"
-							aria-expanded={modelMenuOpen}
-							title="Choose visible model"
-						>
-							<span>{activeModel}</span>
-							<ChevronDown class="model-control-chevron" size={14} strokeWidth={2.2} />
-						</button>
-						{#if compareModel}
-							<i class="model-separator" aria-hidden="true">|</i>
-							<button
-								class="comparison-model-control model-segment"
-								class:open={compareMenuOpen}
-								onclick={toggleCompareMenu}
-								aria-label={`${compareModel} is the comparison model. Choose comparison model`}
-								aria-haspopup="menu"
-								aria-expanded={compareMenuOpen}
-								title="Choose comparison model"
-							>
-								<span>{compareModel}</span>
-								<ChevronDown class="model-control-chevron" size={14} strokeWidth={2.2} />
-							</button>
+				<div class="model-control-wrap" class:mobile-model-only={!desktopCompareAvailable}>
+						{#each displayedModels as model, modelIndex (model)}
+							<div class="model-slot" class:first-model-slot={modelIndex === 0} transition:pillSegment>
+								{#if modelIndex > 0}<i class="model-separator" aria-hidden="true">|</i>{/if}
+								{#if availableComparisonModels.length > 0}
+									{#if modelIndex === 0}
+										<button
+											class="model-control model-segment"
+											class:open={modelMenuOpen}
+											onclick={toggleModelMenu}
+											aria-label={`${model} is visible. Choose visible model`}
+											aria-haspopup="menu"
+											aria-expanded={modelMenuOpen}
+											title="Choose visible model"
+										>
+											<span>{model}</span>
+											<ChevronDown class="model-control-chevron" size={14} strokeWidth={2.2} />
+										</button>
+									{:else}
+										<button
+											class="comparison-model-control model-segment"
+											class:open={comparisonMenu === (modelIndex === 1 ? 'second' : 'third')}
+											onclick={() => toggleComparisonMenu(modelIndex === 1 ? 'second' : 'third')}
+											aria-label={`${model} is ${modelIndex === 1 ? 'the comparison model' : 'the third comparison model'}. Choose comparison model`}
+											aria-haspopup="menu"
+											aria-expanded={comparisonMenu === (modelIndex === 1 ? 'second' : 'third')}
+											title="Choose comparison model"
+										>
+											<span>{model}</span>
+											<ChevronDown class="model-control-chevron" size={14} strokeWidth={2.2} />
+										</button>
+									{/if}
+								{:else if displayedModels.length > 1}
+									<div class="comparison-model-display model-segment">
+										<span>{model}</span>
+										<button
+											class="remove-model-control"
+											onclick={modelIndex === 0 ? stopPrimaryComparison : modelIndex === 1 ? stopComparison : stopThirdComparison}
+											aria-label={`Remove ${model} from comparison`}
+											title={`Remove ${model}`}
+										><X size={12} strokeWidth={2.4} /></button>
+									</div>
+								{:else}
+									<div class="primary-model-display model-segment"><span>{model}</span></div>
+								{/if}
+							</div>
+						{/each}
+						{#if desktopCompareAvailable && !thirdModel && availableComparisonModels.length > 0}
+							<div class="add-model-slot" transition:pillSegment>
+								<button
+									class="compare-control"
+									onclick={handleCompareControl}
+									aria-label={compareModel ? 'Add third comparison model' : 'Add comparison model'}
+									aria-haspopup={availableComparisonModels.length > 1 ? 'menu' : undefined}
+									aria-expanded={availableComparisonModels.length > 1 ? addMenuOpen : undefined}
+									title={compareModel ? 'Add third model' : 'Add comparison model'}
+								><Plus size={17} strokeWidth={2.2} /></button>
+							</div>
 						{/if}
-						{#if thirdModel}
-							<i class="model-separator" aria-hidden="true">|</i>
-							<button
-								class="third-model-control model-segment"
-								class:open={thirdMenuOpen}
-								onclick={toggleThirdMenu}
-								aria-label={`${thirdModel} is the third comparison model. Choose third model`}
-								aria-haspopup="menu"
-								aria-expanded={thirdMenuOpen}
-								title="Choose third model"
-							>
-								<span>{thirdModel}</span>
-								<ChevronDown class="model-control-chevron" size={14} strokeWidth={2.2} />
-							</button>
-						{/if}
-						<button
-							class="compare-control"
-							class:active={Boolean(compareModel)}
-							onclick={handleCompareControl}
-							aria-label={compareModel ? 'Change or remove comparison model' : 'Add comparison model'}
-							aria-haspopup="menu"
-							aria-expanded={compareMenuOpen}
-							aria-pressed={Boolean(compareModel)}
-							title={compareModel ? 'Change comparison' : 'Compare models'}
-						><Columns2 size={17} strokeWidth={2.1} /></button>
 						{#if modelMenuOpen}
 							<div class="compare-picker" role="menu" aria-label="Choose the visible model">
 								<div class="compare-picker-label">View model</div>
@@ -1479,15 +1511,15 @@
 										aria-checked={activeModel === model}
 										onclick={() => selectPrimaryModel(model)}
 									>
-										<span>{model}</span><i aria-hidden="true"></i>
+										<span>{model}</span>
 									</button>
 								{/each}
 							</div>
 						{/if}
-						{#if compareMenuOpen && compareModel}
-							<div class="compare-picker" role="menu" aria-label="Choose a model to compare">
+						{#if comparisonMenu === 'second' && compareModel}
+							<div class="compare-picker" role="menu" aria-label="Choose the comparison model">
 								<div class="compare-picker-label">Compare with</div>
-								{#each comparisonModels as model}
+								{#each secondComparisonChoices as model}
 									<button
 										class="compare-option"
 										class:selected={compareModel === model}
@@ -1495,23 +1527,18 @@
 										aria-checked={compareModel === model}
 										onclick={() => selectComparisonModel(model)}
 									>
-										<span>{model}</span><i aria-hidden="true"></i>
+										<span>{model}</span>
 									</button>
 								{/each}
-								{#if !thirdModel && viewerModels.length >= 3}
-									<button class="compare-option" role="menuitem" onclick={addThirdComparison}>
-										<span>Add third model</span><i aria-hidden="true"></i>
-									</button>
-								{/if}
 								<button class="compare-option" role="menuitem" onclick={stopComparison}>
-									<span>Remove model</span><i aria-hidden="true"></i>
+									<span>Remove model</span>
 								</button>
 							</div>
 						{/if}
-						{#if thirdMenuOpen && thirdModel}
-							<div class="compare-picker" role="menu" aria-label="Choose the third model">
-								<div class="compare-picker-label">Third model</div>
-								{#each thirdComparisonModels as model}
+						{#if comparisonMenu === 'third' && thirdModel}
+							<div class="compare-picker" role="menu" aria-label="Choose the third comparison model">
+								<div class="compare-picker-label">Compare with</div>
+								{#each thirdComparisonChoices as model}
 									<button
 										class="compare-option"
 										class:selected={thirdModel === model}
@@ -1519,16 +1546,25 @@
 										aria-checked={thirdModel === model}
 										onclick={() => selectThirdComparisonModel(model)}
 									>
-										<span>{model}</span><i aria-hidden="true"></i>
+										<span>{model}</span>
 									</button>
 								{/each}
 								<button class="compare-option" role="menuitem" onclick={stopThirdComparison}>
-									<span>Remove model</span><i aria-hidden="true"></i>
+									<span>Remove model</span>
 								</button>
 							</div>
 						{/if}
-					</div>
-				{/if}
+						{#if addMenuOpen}
+							<div class="compare-picker" role="menu" aria-label="Choose a model to add">
+								<div class="compare-picker-label">Add model</div>
+								{#each availableComparisonModels as model}
+									<button class="compare-option" role="menuitem" onclick={() => addComparisonModel(model)}>
+										<span>{model}</span>
+									</button>
+								{/each}
+							</div>
+						{/if}
+				</div>
 				<div class="navigation-control-pill">
 					<div class="right-controls">
 						<button class="step-control" onclick={() => step(-1)} aria-label="Previous website" title="Previous site"><ChevronLeft size={19} strokeWidth={2.3} /></button>
@@ -1559,10 +1595,10 @@
 	.profile-pill { display: inline-flex; height: 38px; align-items: center; gap: 8px; padding: 0 15px; border: 0; border-radius: 999px; color: #fff; font-size: 11px; font-weight: 650; text-decoration: none; transform-origin: center; transition: filter 160ms ease, transform 180ms cubic-bezier(.2,.8,.2,1); }
 	.profile-pill:hover { filter: brightness(1.1); transform: scale(1.035); }
 	.profile-pill:focus-visible { outline: 2px solid var(--gallery-accent); outline-offset: 2px; }
-	.x-profile { background: #1b1c19; }
+	.github-profile { background: #1b1c19; }
 	.site-profile { background: var(--gallery-accent); }
 	.profile-icon { display: grid; width: 16px; flex: none; place-items: center; }
-	.profile-icon .x-mark { width: 14px; height: 14px; fill: currentColor; }
+	.profile-icon .github-mark { width: 15px; height: 15px; fill: currentColor; }
 	.avatar-icon { width: 20px; height: 20px; overflow: hidden; border-radius: 50%; background: #fff; }
 	.avatar-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
 	.profile-divider { opacity: 0.32; font-weight: 500; }
@@ -1674,6 +1710,7 @@
 		to { opacity: 1; transform: translate(-50%, 0) scale(1); }
 	}
 	.viewer-controls { position: fixed; z-index: 1100; left: 50%; bottom: 14px; width: max-content; max-width: calc(100vw - 24px); color: #fff; transform: translateX(-50%); pointer-events: none; }
+	.menu-dismiss-layer { position: fixed; z-index: 1095; inset: 0; margin: 0; padding: 0; border: 0; background: transparent; cursor: default; }
 	.viewer-toast { position: fixed; z-index: 1090; left: 50%; bottom: 74px; width: max-content; max-width: min(440px, calc(100vw - 32px)); padding: 11px 15px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 999px; background: #141413; color: rgba(255, 255, 255, 0.9); box-shadow: 0 14px 44px rgba(0, 0, 0, 0.34); font: 650 11px/1.35 'Inter Variable', Inter, sans-serif; text-align: center; transform: translateX(-50%); animation: viewer-toast-enter 220ms cubic-bezier(.22,1,.36,1) both; pointer-events: none; }
 	@keyframes viewer-toast-enter { from { opacity: 0; transform: translate(-50%, 8px) scale(.97); } to { opacity: 1; transform: translate(-50%, 0) scale(1); } }
 	.viewer-controls-cluster { display: flex; max-width: 100%; align-items: center; justify-content: center; gap: 8px; pointer-events: auto; }
@@ -1683,20 +1720,23 @@
 	.viewer-controls button:hover, .viewer-controls button:focus-visible { background: rgba(255, 255, 255, 0.1); }
 	.viewer-controls button:focus-visible { outline: 1px solid rgba(255, 255, 255, 0.7); outline-offset: -1px; }
 	.close-control { display: grid; width: 34px; min-width: 34px; place-items: center; padding: 0; background: #fff !important; color: #111 !important; cursor: pointer; }
-	.model-segment { display: flex; max-width: min(145px, calc(50vw - 135px)); align-items: center; gap: 7px; padding: 0 8px 0 11px; font: 700 10px/1 'Inter Variable', Inter, sans-serif; letter-spacing: -0.01em; white-space: nowrap; cursor: pointer; }
+	.model-segment { display: flex; height: 34px; max-width: min(145px, calc(50vw - 135px)); align-items: center; gap: 7px; padding: 0 8px 0 11px; font: 700 10px/1 'Inter Variable', Inter, sans-serif; letter-spacing: -0.01em; white-space: nowrap; }
+	.model-control, .comparison-model-control { cursor: pointer; }
 	.model-segment > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+	.model-slot, .add-model-slot { display: flex; flex: none; min-width: 0; align-items: center; gap: 2px; overflow: hidden; will-change: width, opacity; }
+	.model-slot > .model-segment, .add-model-slot > .compare-control { flex: none; }
 	.model-separator { flex: none; margin: 0 -2px; color: rgba(255, 255, 255, 0.34); font: 600 10px/1 'Inter Variable', Inter, sans-serif; font-style: normal; }
-	.model-control-wrap > .compare-control { display: grid; width: 34px; min-width: 34px; padding: 0; place-items: center; cursor: pointer; }
-	.model-control-wrap > .compare-control.active { background: rgba(255, 255, 255, 0.14); }
+	.comparison-model-display { gap: 5px; padding-right: 5px; }
+	.viewer-controls .remove-model-control { display: grid; width: 22px; min-width: 22px; height: 22px; padding: 0; place-items: center; color: rgba(255, 255, 255, 0.58); cursor: pointer; }
+	.viewer-controls .remove-model-control:hover, .viewer-controls .remove-model-control:focus-visible { background: rgba(255, 255, 255, 0.12); color: #fff; }
+	.add-model-slot > .compare-control { display: grid; width: 34px; min-width: 34px; padding: 0; place-items: center; cursor: pointer; }
 	.model-segment :global(.model-control-chevron) { flex: none; color: rgba(255, 255, 255, 0.62); transition: transform 180ms cubic-bezier(.22,1,.36,1); }
 	.model-segment.open :global(.model-control-chevron) { transform: rotate(180deg); }
-	.compare-picker { position: absolute; z-index: 2; bottom: calc(100% + 12px); left: 50%; display: grid; width: 184px; gap: 3px; padding: 7px; border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 15px; background: #141413; box-shadow: 0 18px 48px rgba(0, 0, 0, 0.46), inset 0 1px 0 rgba(255, 255, 255, 0.06); transform: translateX(-50%); transform-origin: 50% 100%; animation: compare-picker-enter 180ms cubic-bezier(.22,1,.36,1) both; }
+	.compare-picker { position: absolute; z-index: 2; bottom: calc(100% + 12px); left: 50%; display: grid; width: 184px; gap: 3px; padding: 7px; border: 1px solid rgba(255, 255, 255, 0.13); border-radius: 22px; background: rgba(20, 20, 19, 0.96); box-shadow: 0 18px 48px rgba(0, 0, 0, 0.46), inset 0 1px 0 rgba(255, 255, 255, 0.08); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%); transform: translateX(-50%); transform-origin: 50% 100%; animation: compare-picker-enter 180ms cubic-bezier(.22,1,.36,1) both; }
 	@keyframes compare-picker-enter { from { opacity: 0; transform: translate(-50%, 7px) scale(.96); } to { opacity: 1; transform: translate(-50%, 0) scale(1); } }
 	.compare-picker-label { padding: 6px 8px 5px; color: rgba(255, 255, 255, 0.48); font: 700 9px/1 'Inter Variable', Inter, sans-serif; letter-spacing: 0.07em; text-transform: uppercase; }
-	.viewer-controls .compare-picker button { display: flex; width: 100%; height: 36px; align-items: center; justify-content: space-between; padding: 0 10px; border-radius: 9px; color: rgba(255, 255, 255, 0.78); font: 650 11px/1 'Inter Variable', Inter, sans-serif; text-align: left; cursor: pointer; }
+	.viewer-controls .compare-picker button { display: flex; width: 100%; height: 36px; align-items: center; justify-content: space-between; padding: 0 10px; border-radius: 999px; color: rgba(255, 255, 255, 0.78); font: 650 11px/1 'Inter Variable', Inter, sans-serif; text-align: left; cursor: pointer; }
 	.viewer-controls .compare-picker button:hover, .viewer-controls .compare-picker button:focus-visible, .viewer-controls .compare-picker button.selected { background: rgba(255, 255, 255, 0.1); color: #fff; }
-	.compare-option i { width: 6px; height: 6px; border-radius: 50%; background: transparent; }
-	.compare-option.selected i { background: #fff; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12); }
 	.right-controls { display: flex; align-items: center; gap: 2px; pointer-events: auto; }
 	.right-controls button { display: grid; min-width: 32px; padding: 0; place-items: center; cursor: pointer; }
 	.right-controls .step-control { min-width: 35px; }
@@ -1723,11 +1763,7 @@
 		.site-grid { grid-template-columns: 1fr; row-gap: 55px; }
 		.site-card { contain-intrinsic-size: auto calc(clamp(280px, 71vw, 460px) + 58px); }
 		.card-caption h3 { font-size: 18px; }
-		.model-control-wrap { display: none; }
-	}
-
-	@media (hover: none), (pointer: coarse) {
-		.model-control-wrap { display: none; }
+		.model-control-wrap.mobile-model-only .model-segment { max-width: min(112px, calc(100vw - 234px)); }
 	}
 
 	@media (max-width: 430px) {
