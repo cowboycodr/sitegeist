@@ -958,17 +958,17 @@
 </script>
 
 <svelte:head>
-	<title>100 Sites — Can AI create without repeating itself?</title>
+	<title>Sitegeist</title>
 	<meta name="description" content="One hundred generated websites testing how well leading models maintain visual quality, consistency, and originality." />
 	<meta name="theme-color" content={themeColor} />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="100 Sites — Can AI create without repeating itself?" />
+	<meta property="og:title" content="Sitegeist" />
 	<meta property="og:description" content="One hundred generated websites testing how well leading models maintain visual quality, consistency, and originality." />
 	<meta property="og:image" content={`${data.origin}/og.png`} />
 	<meta property="og:image:width" content="1728" />
 	<meta property="og:image:height" content="972" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="100 Sites — Can AI create without repeating itself?" />
+	<meta name="twitter:title" content="Sitegeist" />
 	<meta name="twitter:description" content="One hundred generated websites testing how well leading models maintain visual quality, consistency, and originality." />
 	<meta name="twitter:image" content={`${data.origin}/og.png`} />
 </svelte:head>
