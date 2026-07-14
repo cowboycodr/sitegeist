@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'">
+  <meta name="description" content="A public initiative visualizing faster, cleaner, and more equitable urban transportation.">
+  <title>Transit 2050 — The city moves when everyone can.</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Transit 2050 home">
+        <svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true">
+          <rect width="36" height="36" rx="10" fill="#0b1526"/>
+          <path d="M8 24 L18 8 L28 24" fill="none" stroke="#0db89a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="22" r="2.2" fill="#3b7ddd"/>
+          <circle cx="18" cy="14" r="2.2" fill="#e89b2c"/>
+          <circle cx="24" cy="22" r="2.2" fill="#9b6bdb"/>
+        </svg>
+        <span class="brand-text">
+          Transit 2050
+          <small>Urban Mobility</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="#pillars">Priorities</a>
+        <a href="#network">Network</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#proposal">Proposal</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">A mobility plan for everyone</p>
+          <h1 id="hero-title">Transit 2050</h1>
+          <p class="hero-lead">The city moves when everyone can. A public initiative for faster, cleaner, and more equitable urban transportation.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#network">Explore the network</a>
+            <a class="btn btn-secondary" href="#proposal">Read the proposal</a>
+          </div>
+          <div class="hero-meta" aria-label="Key outcomes">
+            <div>
+              <strong>32%</strong>
+              <span>faster peak trips</span>
+            </div>
+            <div>
+              <strong>100%</strong>
+              <span>zero-emission fleet</span>
+            </div>
+            <div>
+              <strong>1.2M</strong>
+              <span>people within 10 min</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="network-card" aria-label="Preview of the 2050 network">
+          <div class="network-card-header">
+            <h2>2050 network preview</h2>
+            <span class="live-pill">Plan live</span>
+          </div>
+          <svg class="network-svg" viewBox="0 0 420 280" role="img" aria-label="Simplified map of four transit lines forming a city network">
+            <defs>
+              <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <rect width="420" height="280" fill="url(#grid)"/>
+            <!-- water -->
+            <path d="M0 210 Q80 190 140 220 T280 200 T420 230 L420 280 L0 280 Z" fill="rgba(59,125,221,0.12)"/>
+            <!-- routes -->
+            <path d="M40 220 C90 160 120 90 200 70 S320 90 380 50" fill="none" stroke="#0db89a" stroke-width="5" stroke-linecap="round"/>
+            <path d="M30 80 L160 120 L240 200 L360 230" fill="none" stroke="#3b7ddd" stroke-width="5" stroke-linecap="round"/>
+            <path d="M90 40 C110 110 150 160 220 170 S340 140 390 180" fill="none" stroke="#e89b2c" stroke-width="5" stroke-linecap="round"/>
+            <path d="M70 250 C140 200 200 240 260 180 S330 90 350 40" fill="none" stroke="#9b6bdb" stroke-width="5" stroke-linecap="round"/>
+            <!-- stations -->
+            <circle cx="40" cy="220" r="5" fill="#fff"/><circle cx="200" cy="70" r="5" fill="#fff"/><circle cx="380" cy="50" r="5" fill="#fff"/>
+            <circle cx="30" cy="80" r="5" fill="#fff"/><circle cx="240" cy="200" r="5" fill="#fff"/><circle cx="360" cy="230" r="5" fill="#fff"/>
+            <circle cx="90" cy="40" r="5" fill="#fff"/><circle cx="220" cy="170" r="5" fill="#fff"/><circle cx="390" cy="180" r="5" fill="#fff"/>
+            <circle cx="70" cy="250" r="5" fill="#fff"/><circle cx="260" cy="180" r="5" fill="#fff"/><circle cx="350" cy="40" r="5" fill="#fff"/>
+            <!-- hub -->
+            <circle cx="220" cy="155" r="11" fill="#0b1526" stroke="#5ee0c8" stroke-width="2.5"/>
+            <circle cx="220" cy="155" r="4" fill="#0db89a"/>
+            <text x="236" y="150" fill="rgba(255,255,255,0.75)" font-size="11" font-family="system-ui,sans-serif">Central Hub</text>
+          </svg>
+          <div class="route-legend">
+            <span><i class="route-dot a" aria-hidden="true"></i> Line A Waterfront</span>
+            <span><i class="route-dot b" aria-hidden="true"></i> Line B Cross-Town</span>
+            <span><i class="route-dot c" aria-hidden="true"></i> Line C Green Loop</span>
+            <span><i class="route-dot d" aria-hidden="true"></i> Line D Equity</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section pillars" id="pillars" aria-labelledby="pillars-title">
+      <div class="section-inner">
+        <header class="section-head">
+          <p class="section-label">Three priorities</p>
+          <h2 id="pillars-title">Faster. Cleaner. Fair for every neighborhood.</h2>
+          <p>Transit 2050 is not a single megaproject. It is a coordinated network of service, vehicles, and streets designed so mobility is a public good—not a privilege of geography or income.</p>
+        </header>
+
+        <div class="pillar-grid">
+          <article class="pillar">
+            <svg class="pillar-icon" viewBox="0 0 48 48" aria-hidden="true">
+              <rect width="48" height="48" rx="14" fill="#e6faf6"/>
+              <path d="M12 30 L24 14 L36 30" fill="none" stroke="#0a8f78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 30 H30" stroke="#0db89a" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <h3>Faster trips</h3>
+            <p>Dedicated lanes, signal priority, and all-door boarding shrink wait and ride times across the rapid network—especially on the corridors people use most for work and care.</p>
+            <div class="pillar-metric">
+              <strong>18 min</strong>
+              <span>saved on average peak commute</span>
+            </div>
+          </article>
+
+          <article class="pillar">
+            <svg class="pillar-icon" viewBox="0 0 48 48" aria-hidden="true">
+              <rect width="48" height="48" rx="14" fill="#e8f2ff"/>
+              <circle cx="24" cy="22" r="10" fill="none" stroke="#3b7ddd" stroke-width="3"/>
+              <path d="M24 16 V22 L28 25" fill="none" stroke="#3b7ddd" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M14 34 H34" stroke="#0db89a" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <h3>Cleaner air</h3>
+            <p>A fully electrified fleet, quieter streets, and greener station plazas cut transport emissions while making walking to transit safer and more pleasant.</p>
+            <div class="pillar-metric">
+              <strong>−62%</strong>
+              <span>transport CO₂ by 2050</span>
+            </div>
+          </article>
+
+          <article class="pillar">
+            <svg class="pillar-icon" viewBox="0 0 48 48" aria-hidden="true">
+              <rect width="48" height="48" rx="14" fill="#f5edff"/>
+              <circle cx="18" cy="20" r="5" fill="#9b6bdb"/>
+              <circle cx="30" cy="20" r="5" fill="#e89b2c"/>
+              <path d="M12 34 C12 28 16 26 18 26 C20 26 22 28 24 28 C26 28 28 26 30 26 C32 26 36 28 36 34" fill="none" stroke="#0b1526" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <h3>Equitable access</h3>
+            <p>Service frequency, night routes, and fare policy are planned with communities historically under-served—so time, cost, and reliability improve where gaps are largest.</p>
+            <div class="pillar-metric">
+              <strong>95%</strong>
+              <span>of residents within 10 min walk</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section network-section" id="network" aria-labelledby="network-title">
+      <div class="section-inner">
+        <header class="section-head">
+          <p class="section-label">Explore the network</p>
+          <h2 id="network-title">Four lines. One connected city.</h2>
+          <p>Select a corridor to see how the 2050 network reshapes daily travel—from waterfront express rail to equity-focused night service.</p>
+        </header>
+
+        <div class="network-layout">
+          <div class="map-panel">
+            <h3>Citywide rapid map</h3>
+            <p>Interactive line focus — keyboard and touch friendly.</p>
+            <svg class="full-map" viewBox="0 0 520 360" role="img" aria-labelledby="map-caption">
+              <title id="map-caption">Transit map with Lines A, B, C, and D</title>
+              <rect width="520" height="360" fill="#0d1a2d"/>
+              <g opacity="0.35" stroke="rgba(255,255,255,0.06)" stroke-width="1">
+                <path d="M0 60 H520 M0 120 H520 M0 180 H520 M0 240 H520 M0 300 H520"/>
+                <path d="M60 0 V360 M120 0 V360 M180 0 V360 M240 0 V360 M300 0 V360 M360 0 V360 M420 0 V360 M480 0 V360"/>
+              </g>
+              <!-- land masses -->
+              <path d="M0 280 Q100 250 180 290 T360 270 T520 300 V360 H0 Z" fill="rgba(59,125,221,0.1)"/>
+              <path d="M380 0 L520 0 L520 90 Q460 70 400 100 Z" fill="rgba(13,184,154,0.06)"/>
+
+              <path data-route-line="a" d="M50 300 C110 220 150 120 250 95 S400 100 480 55" fill="none" stroke="#0db89a" stroke-width="6" stroke-linecap="round"/>
+              <path data-route-line="b" d="M40 90 L180 140 L300 250 L470 290" fill="none" stroke="#3b7ddd" stroke-width="6" stroke-linecap="round"/>
+              <path data-route-line="c" d="M100 40 C130 130 180 200 270 215 S430 180 490 230" fill="none" stroke="#e89b2c" stroke-width="6" stroke-linecap="round"/>
+              <path data-route-line="d" d="M80 320 C170 250 240 300 320 230 S410 100 440 40" fill="none" stroke="#9b6bdb" stroke-width="6" stroke-linecap="round"/>
+
+              <!-- stations -->
+              <g fill="#fff">
+                <circle cx="50" cy="300" r="5"/><circle cx="250" cy="95" r="5"/><circle cx="480" cy="55" r="5"/>
+                <circle cx="40" cy="90" r="5"/><circle cx="300" cy="250" r="5"/><circle cx="470" cy="290" r="5"/>
+                <circle cx="100" cy="40" r="5"/><circle cx="270" cy="215" r="5"/><circle cx="490" cy="230" r="5"/>
+                <circle cx="80" cy="320" r="5"/><circle cx="320" cy="230" r="5"/><circle cx="440" cy="40" r="5"/>
+              </g>
+              <circle cx="270" cy="190" r="14" fill="#0b1526" stroke="#5ee0c8" stroke-width="2.5"/>
+              <circle cx="270" cy="190" r="5" fill="#0db89a"/>
+              <text x="290" y="186" fill="rgba(243,246,250,0.8)" font-size="13" font-family="system-ui,sans-serif" font-weight="600">Union Hub</text>
+              <text x="20" y="28" fill="rgba(243,246,250,0.45)" font-size="11" font-family="ui-monospace,monospace" letter-spacing="1">TRANSIT 2050 · RAPID LAYER</text>
+            </svg>
+          </div>
+
+          <div>
+            <div class="route-list" role="group" aria-label="Transit lines">
+              <button class="route-card" type="button" data-route="a" aria-pressed="true">
+                <span class="route-badge a" aria-hidden="true">A</span>
+                <span class="route-copy">
+                  <h4>Waterfront Express</h4>
+                  <p>Port · Civic Core · North Shore</p>
+                </span>
+                <span class="route-time">every 4 min</span>
+              </button>
+              <button class="route-card" type="button" data-route="b" aria-pressed="false">
+                <span class="route-badge b" aria-hidden="true">B</span>
+                <span class="route-copy">
+                  <h4>Cross-Town Spine</h4>
+                  <p>West End · Markets · Eastside</p>
+                </span>
+                <span class="route-time">every 5 min</span>
+              </button>
+              <button class="route-card" type="button" data-route="c" aria-pressed="false">
+                <span class="route-badge c" aria-hidden="true">C</span>
+                <span class="route-copy">
+                  <h4>Green Loop</h4>
+                  <p>Campus · Hospital · Works</p>
+                </span>
+                <span class="route-time">every 6 min</span>
+              </button>
+              <button class="route-card" type="button" data-route="d" aria-pressed="false">
+                <span class="route-badge d" aria-hidden="true">D</span>
+                <span class="route-copy">
+                  <h4>Equity Extension</h4>
+                  <p>Night service · Free transfer</p>
+                </span>
+                <span class="route-time">24 / 7</span>
+              </button>
+            </div>
+
+            <div class="route-detail" aria-live="polite">
+              <h4 id="route-detail-title">Line A — Waterfront Express</h4>
+              <p id="route-detail-body">High-frequency electric rail connecting the port district to the civic core every 4 minutes at peak.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Projected outcomes by 2050">
+      <div class="stats-grid">
+        <div class="stat">
+          <strong>4 lines</strong>
+          <span>new rapid corridors online</span>
+        </div>
+        <div class="stat">
+          <strong>210 km</strong>
+          <span>protected transit right-of-way</span>
+        </div>
+        <div class="stat">
+          <strong>$0 transfer</strong>
+          <span>integrated fare within 90 minutes</span>
+        </div>
+        <div class="stat">
+          <strong>48 hubs</strong>
+          <span>climate-resilient stations</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section timeline-section" id="timeline" aria-labelledby="timeline-title">
+      <div class="section-inner">
+        <header class="section-head">
+          <p class="section-label">Path to 2050</p>
+          <h2 id="timeline-title">Build the network in phases people can feel.</h2>
+          <p>Early wins focus on service reliability and bus priority; later phases open new rail and close the last equity gaps.</p>
+        </header>
+
+        <ol class="timeline">
+          <li class="timeline-item">
+            <p class="timeline-year">2026 – 2030</p>
+            <h3>Foundation &amp; frequency</h3>
+            <p>All-door boarding, signal priority on ten busiest corridors, and a unified fare system. Residents see shorter waits before major construction breaks ground.</p>
+          </li>
+          <li class="timeline-item">
+            <p class="timeline-year">2031 – 2038</p>
+            <h3>Lines A &amp; B open</h3>
+            <p>Waterfront Express and Cross-Town Spine launch with electric fleet expansion. First major neighborhood stations double as community cooling and air-quality hubs.</p>
+          </li>
+          <li class="timeline-item">
+            <p class="timeline-year">2039 – 2045</p>
+            <h3>Green Loop &amp; job access</h3>
+            <p>Orbital Line C connects campuses, hospitals, and industrial centers so workers skip forced downtown transfers during peak hours.</p>
+          </li>
+          <li class="timeline-item">
+            <p class="timeline-year">2046 – 2050</p>
+            <h3>Full equity network</h3>
+            <p>Line D night service, last-mile bike + micro-mobility docks, and citywide coverage so 95% of residents live within a ten-minute walk of frequent transit.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section proposal" id="proposal" aria-labelledby="proposal-title">
+      <div class="section-inner">
+        <div class="proposal-card">
+          <div>
+            <p class="section-label">Read the proposal</p>
+            <h2 id="proposal-title">A mobility plan written in public, for the public.</h2>
+            <p>Transit 2050 is a living civic proposal: transparent goals, open maps, and measurable equity targets. Every corridor decision is paired with service standards residents can hold agencies to.</p>
+
+            <ul class="principle-list">
+              <li>
+                <span class="principle-num" aria-hidden="true">01</span>
+                <div>
+                  <strong>Service before spectacle</strong>
+                  <span>Frequency and reliability first—stations and lines only where they unlock daily access.</span>
+                </div>
+              </li>
+              <li>
+                <span class="principle-num" aria-hidden="true">02</span>
+                <div>
+                  <strong>Clean by design</strong>
+                  <span>Zero-emission vehicles, quieter corridors, and greener station streets as standard—not add-ons.</span>
+                </div>
+              </li>
+              <li>
+                <span class="principle-num" aria-hidden="true">03</span>
+                <div>
+                  <strong>Equity is a metric</strong>
+                  <span>Invest first where travel time, cost, and safety gaps are largest; report progress by neighborhood.</span>
+                </div>
+              </li>
+              <li>
+                <span class="principle-num" aria-hidden="true">04</span>
+                <div>
+                  <strong>One network, one ticket</strong>
+                  <span>Seamless transfers, night coverage, and fares that treat the whole city as a single system.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <aside class="side-panel" aria-labelledby="engage-title">
+            <h3 id="engage-title">Join the conversation</h3>
+            <p>Review corridor maps, service standards, and the equity scorecard. Share feedback before each phase locks design.</p>
+            <a class="btn btn-primary" href="#network">Explore the network</a>
+            <a class="btn btn-outline" href="#timeline">See the timeline</a>
+            <p class="side-note">This page is a public visualization of the Transit 2050 initiative. No account or network connection is required to explore the plan.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="#top">
+          <svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true">
+            <rect width="36" height="36" rx="10" fill="#0db89a"/>
+            <path d="M8 24 L18 8 L28 24" fill="none" stroke="#0b1526" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="22" r="2.2" fill="#0b1526"/>
+            <circle cx="18" cy="14" r="2.2" fill="#0b1526"/>
+            <circle cx="24" cy="22" r="2.2" fill="#0b1526"/>
+          </svg>
+          <span class="brand-text">
+            Transit 2050
+            <small style="color: rgba(243,246,250,0.65)">Urban Mobility</small>
+          </span>
+        </a>
+        <p>A public initiative visualizing faster, cleaner, and more equitable urban transportation.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="#pillars">Priorities</a></li>
+          <li><a href="#network">Network map</a></li>
+          <li><a href="#timeline">Timeline</a></li>
+          <li><a href="#proposal">Proposal</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Initiative</h3>
+        <ul>
+          <li>Category: Urban Mobility</li>
+          <li>Horizon: 2026–2050</li>
+          <li>Focus: Access for all</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Transit 2050 · The city moves when everyone can.</span>
+      <span>Standalone public plan visualization</span>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

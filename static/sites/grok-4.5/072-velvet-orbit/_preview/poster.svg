@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Velvet Orbit — Dress for another gravity">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e0c14"/>
+      <stop offset="45%" stop-color="#07060b"/>
+      <stop offset="100%" stop-color="#1a1224"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="72%" cy="38%" r="40%">
+      <stop offset="0%" stop-color="#6a4a78" stop-opacity="0.55"/>
+      <stop offset="55%" stop-color="#2a1830" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#07060b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="core" cx="35%" cy="32%" r="65%">
+      <stop offset="0%" stop-color="#f4ece4"/>
+      <stop offset="35%" stop-color="#c89870"/>
+      <stop offset="70%" stop-color="#2a1830"/>
+      <stop offset="100%" stop-color="#07060b"/>
+    </radialGradient>
+    <linearGradient id="metal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8e0f0"/>
+      <stop offset="40%" stop-color="#8a8498"/>
+      <stop offset="70%" stop-color="#3a3048"/>
+      <stop offset="100%" stop-color="#c8a890"/>
+    </linearGradient>
+    <linearGradient id="drape" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#f0e0d0"/>
+      <stop offset="35%" stop-color="#c89870"/>
+      <stop offset="75%" stop-color="#4a2838"/>
+      <stop offset="100%" stop-color="#d8c0b0"/>
+    </linearGradient>
+    <linearGradient id="textShine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f0e8e0"/>
+      <stop offset="50%" stop-color="#d8dce8"/>
+      <stop offset="100%" stop-color="#c89870"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- Soft floor gradient -->
+  <rect y="620" width="1200" height="280" fill="#07060b" opacity="0.55"/>
+
+  <!-- Orbital rings motif (right) -->
+  <g transform="translate(780 340)" fill="none">
+    <circle r="230" stroke="#c89870" stroke-opacity="0.35" stroke-width="1.5"/>
+    <circle r="175" stroke="#c8c0d4" stroke-opacity="0.28" stroke-width="1" stroke-dasharray="8 10"/>
+    <circle r="120" stroke="#d8dce8" stroke-opacity="0.22" stroke-width="1"/>
+    <circle r="70" stroke="#c89870" stroke-opacity="0.4" stroke-width="1.25"/>
+    <circle r="28" fill="url(#core)" stroke="#e8e0f0" stroke-width="1" stroke-opacity="0.5"/>
+    <!-- small satellite -->
+    <circle cx="175" cy="-40" r="7" fill="#d8dce8"/>
+    <circle cx="-95" cy="145" r="5" fill="#c89870"/>
+  </g>
+
+  <!-- Sculptural silhouette / liquid drape (left-center) -->
+  <g transform="translate(160 150)">
+    <!-- tall metallic form -->
+    <path d="M140 40 L260 40 L290 160 L250 520 L150 520 L110 160 Z" fill="url(#metal)" opacity="0.9"/>
+    <path d="M170 40 L230 40 L222 120 L178 120 Z" fill="#120c18"/>
+    <!-- copper drape overlay -->
+    <path d="M95 180 Q200 120 305 180 L285 360 Q200 420 115 360 Z" fill="url(#drape)" opacity="0.75"/>
+    <!-- orbital seam -->
+    <ellipse cx="200" cy="200" rx="95" ry="22" fill="none" stroke="#e8e0f0" stroke-opacity="0.45" stroke-width="1.5"/>
+  </g>
+
+  <!-- Brand lockup -->
+  <g transform="translate(80 70)">
+    <circle cx="18" cy="18" r="16" fill="none" stroke="#d8dce8" stroke-width="1.5"/>
+    <circle cx="18" cy="18" r="6" fill="url(#core)"/>
+    <text x="48" y="26" fill="#c8c0d4" font-family="Georgia, 'Times New Roman', serif" font-size="18" letter-spacing="6">COLLECTION 04 / APHELION</text>
+  </g>
+
+  <text x="80" y="720" fill="url(#textShine)" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="500" letter-spacing="-1">Velvet Orbit</text>
+  <text x="80" y="780" fill="#c89870" font-family="Georgia, 'Times New Roman', serif" font-size="34" letter-spacing="2">Dress for another gravity.</text>
+
+  <!-- Thin frame accent -->
+  <rect x="36" y="36" width="1128" height="828" fill="none" stroke="#c8c0d4" stroke-opacity="0.15" stroke-width="1"/>
+</svg>

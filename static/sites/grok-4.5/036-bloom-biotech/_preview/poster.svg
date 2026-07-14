@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Bloom — Medicine, grown differently.">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2a1f"/>
+      <stop offset="48%" stop-color="#163528"/>
+      <stop offset="100%" stop-color="#1f4d38"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="28%" cy="30%" r="40%">
+      <stop offset="0%" stop-color="#7eb88a" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#7eb88a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="78%" cy="72%" r="38%">
+      <stop offset="0%" stop-color="#d4a574" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#d4a574" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="petal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8f5d8"/>
+      <stop offset="55%" stop-color="#7eb88a"/>
+      <stop offset="100%" stop-color="#3d7a58"/>
+    </linearGradient>
+    <radialGradient id="core" cx="45%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#f7fbf2"/>
+      <stop offset="45%" stop-color="#a8d49a"/>
+      <stop offset="100%" stop-color="#2d6b4f"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#glowA)"/>
+  <rect width="1200" height="900" fill="url(#glowB)"/>
+
+  <!-- Soft grid motif -->
+  <g stroke="#c9e4b8" stroke-opacity="0.06" stroke-width="1">
+    <path d="M0 180 H1200 M0 360 H1200 M0 540 H1200 M0 720 H1200"/>
+    <path d="M200 0 V900 M400 0 V900 M600 0 V900 M800 0 V900 M1000 0 V900"/>
+  </g>
+
+  <!-- Decorative rings (right visual) -->
+  <g transform="translate(780 450)">
+    <circle r="250" fill="none" stroke="#5a9e72" stroke-opacity="0.25" stroke-width="1.5" stroke-dasharray="6 14"/>
+    <circle r="195" fill="none" stroke="#7eb88a" stroke-opacity="0.3" stroke-width="1.5"/>
+    <circle r="140" fill="none" stroke="#c9e4b8" stroke-opacity="0.22" stroke-width="1"/>
+
+    <!-- Bloom flower / cell hybrid -->
+    <g>
+      <path d="M0-120 C-35-55 -55-20 -90 20 C-50 45 -20 65 0 85 C20 65 50 45 90 20 C55-20 35-55 0-120Z" fill="url(#petal)" opacity="0.92"/>
+      <path d="M-105 55 C-55 30 -25 15 0 0 C-35 55 -55 105 -65 165 C-95 115 -110 80 -105 55Z" fill="#5a9e72" opacity="0.72"/>
+      <path d="M105 55 C110 80 95 115 65 165 C55 105 35 55 0 0 C25 15 55 30 105 55Z" fill="#3d7a58" opacity="0.68"/>
+      <path d="M-130-20 C-70 0 -30 15 0 0 C-55-10 -90-40 -125-75 C-135-50 -135-30 -130-20Z" fill="#a8d49a" opacity="0.55"/>
+      <path d="M130-20 C135-30 135-50 125-75 C90-40 55-10 0 0 C30 15 70 0 130-20Z" fill="#8fbf7a" opacity="0.5"/>
+      <circle r="58" fill="url(#core)"/>
+      <circle r="22" fill="#f7fbf2" opacity="0.92"/>
+    </g>
+
+    <!-- Mycelium lines -->
+    <g fill="none" stroke="#c9e4b8" stroke-opacity="0.45" stroke-width="1.5">
+      <path d="M-180 0 C-120-20 -70-10 -40 0"/>
+      <path d="M40 0 C70-10 120-20 180 0"/>
+      <path d="M0-180 C-15-120 -10-70 0-40"/>
+      <path d="M0 40 C-10 70 -15 120 0 180"/>
+    </g>
+    <circle cx="-145" cy="-95" r="7" fill="#d4f0c4"/>
+    <circle cx="150" cy="-80" r="6" fill="#a8d49a"/>
+    <circle cx="130" cy="120" r="7" fill="#7eb88a"/>
+    <circle cx="-125" cy="115" r="6" fill="#c9e4b8"/>
+  </g>
+
+  <!-- Brand mark -->
+  <g transform="translate(88 92)">
+    <circle cx="22" cy="22" r="22" fill="none" stroke="#c9e4b8" stroke-opacity="0.45" stroke-width="1.5"/>
+    <path d="M22 6c-2.8 5.5-7.8 8.8-13.8 9.3 6 .5 11 3.8 13.8 9.3 2.8-5.5 7.8-8.8 13.8-9.3-6-.5-11-3.8-13.8-9.3z" fill="#c9e4b8"/>
+    <circle cx="22" cy="22" r="3.5" fill="#7eb88a"/>
+  </g>
+
+  <!-- Category chip -->
+  <rect x="88" y="168" width="168" height="36" rx="18" fill="rgba(201,228,184,0.12)" stroke="#c9e4b8" stroke-opacity="0.35"/>
+  <text x="172" y="191" text-anchor="middle" fill="#c9e4b8" font-family="Georgia, 'Times New Roman', serif" font-size="15" letter-spacing="3">BIOTECHNOLOGY</text>
+
+  <!-- Title -->
+  <text x="88" y="320" fill="#f7fbf2" font-family="Georgia, 'Times New Roman', serif" font-size="118" font-weight="500" letter-spacing="-3">Bloom</text>
+
+  <!-- Tagline -->
+  <text x="88" y="400" fill="#e8f5d8" font-family="Georgia, 'Times New Roman', serif" font-size="36" opacity="0.95">Medicine, grown differently.</text>
+
+  <!-- Supporting line -->
+  <text x="88" y="470" fill="#a8d49a" font-family="Segoe UI, system-ui, sans-serif" font-size="22">Cells · Fungi · Plant intelligence</text>
+
+  <!-- Bottom rule + description -->
+  <line x1="88" y1="740" x2="560" y2="740" stroke="#5a9e72" stroke-opacity="0.55" stroke-width="1.5"/>
+  <text x="88" y="790" fill="#c9e4b8" font-family="Segoe UI, system-ui, sans-serif" font-size="20" opacity="0.9">Regenerative therapies engineered from living systems.</text>
+  <text x="88" y="830" fill="#7eb88a" font-family="Segoe UI, system-ui, sans-serif" font-size="18" opacity="0.85">Biology in motion</text>
+</svg>

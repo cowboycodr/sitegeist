@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Paloma — Wood fire, citrus, late nights">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#241c18"/>
+      <stop offset="45%" stop-color="#1a1410"/>
+      <stop offset="100%" stop-color="#2c1a12"/>
+    </linearGradient>
+    <linearGradient id="flameOuter" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#d4652f"/>
+      <stop offset="100%" stop-color="#9e4530"/>
+    </linearGradient>
+    <linearGradient id="flameMid" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#f0c56a"/>
+      <stop offset="100%" stop-color="#e8a838"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="42%" r="45%">
+      <stop offset="0%" stop-color="#e8a838" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#d4652f" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#1a1410" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- Soft architectural frame -->
+  <rect x="48" y="48" width="1104" height="804" rx="28" fill="none" stroke="#f7f0e4" stroke-opacity="0.12" stroke-width="2"/>
+  <rect x="68" y="68" width="1064" height="764" rx="20" fill="none" stroke="#c45c3e" stroke-opacity="0.28" stroke-width="1"/>
+
+  <!-- Left citrus motif -->
+  <g transform="translate(140, 520)">
+    <circle cx="0" cy="0" r="78" fill="#e8a838"/>
+    <circle cx="0" cy="0" r="64" fill="none" stroke="#f7f0e4" stroke-opacity="0.55" stroke-width="2"/>
+    <g stroke="#c45c3e" stroke-width="1.8" stroke-opacity="0.9">
+      <line x1="0" y1="-60" x2="0" y2="60"/>
+      <line x1="-52" y1="-30" x2="52" y2="30"/>
+      <line x1="-52" y1="30" x2="52" y2="-30"/>
+      <line x1="-60" y1="0" x2="60" y2="0"/>
+    </g>
+    <circle cx="0" cy="0" r="12" fill="#f7f0e4"/>
+  </g>
+
+  <!-- Small citrus accent -->
+  <g transform="translate(250, 680) scale(0.45)">
+    <circle cx="0" cy="0" r="78" fill="#c45c3e"/>
+    <circle cx="0" cy="0" r="64" fill="none" stroke="#f7f0e4" stroke-opacity="0.4" stroke-width="3"/>
+    <g stroke="#f7f0e4" stroke-width="2.5" stroke-opacity="0.7">
+      <line x1="0" y1="-60" x2="0" y2="60"/>
+      <line x1="-52" y1="-30" x2="52" y2="30"/>
+      <line x1="-52" y1="30" x2="52" y2="-30"/>
+      <line x1="-60" y1="0" x2="60" y2="0"/>
+    </g>
+    <circle cx="0" cy="0" r="12" fill="#1a1410"/>
+  </g>
+
+  <!-- Center flame -->
+  <g transform="translate(600, 390)">
+    <ellipse cx="0" cy="148" rx="70" ry="16" fill="#000" opacity="0.35"/>
+    <path d="M0-120c-14 42-68 72-68 148 0 58 42 94 68 94s68-36 68-94c0-76-54-106-68-148z" fill="url(#flameOuter)"/>
+    <path d="M0-58c-10 32-42 56-42 106 0 40 28 68 42 68s42-28 42-68c0-50-32-74-42-106z" fill="url(#flameMid)"/>
+    <path d="M0 8c-6 18-22 34-22 60 0 24 14 42 22 42s22-18 22-42c0-26-16-42-22-60z" fill="#f7f0e4"/>
+    <!-- embers -->
+    <circle cx="-52" cy="110" r="7" fill="#c45c3e" opacity="0.85"/>
+    <circle cx="48" cy="122" r="5" fill="#e8a838" opacity="0.9"/>
+    <circle cx="-28" cy="132" r="3.5" fill="#f0c56a"/>
+  </g>
+
+  <!-- Dove mark top -->
+  <g transform="translate(600, 128)" fill="none">
+    <circle cx="0" cy="0" r="34" stroke="#e8a838" stroke-width="2"/>
+    <path d="M-14 4c5.5-11 15-18 26-20-1.8 9.5-5.5 18.5-13 26-4-2-9.5-4-13-6z" fill="#c45c3e"/>
+    <path d="M-2-10c4 2.5 8 6 10.5 10" stroke="#f7f0e4" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="600" y="250" text-anchor="middle" font-family="Georgia, 'Palatino Linotype', serif" font-size="96" font-weight="600" fill="#f7f0e4" letter-spacing="4">Paloma</text>
+
+  <!-- Tagline -->
+  <text x="600" y="720" text-anchor="middle" font-family="Georgia, 'Palatino Linotype', serif" font-size="36" font-style="italic" fill="#e8a838">Wood fire, citrus, late nights.</text>
+
+  <!-- Location line -->
+  <text x="600" y="780" text-anchor="middle" font-family="system-ui, 'Segoe UI', sans-serif" font-size="18" font-weight="600" fill="#f7f0e4" fill-opacity="0.55" letter-spacing="6">MEXICO CITY · ROMA NORTE</text>
+
+  <!-- Bottom accent bar -->
+  <rect x="480" y="800" width="240" height="3" rx="1.5" fill="#c45c3e"/>
+</svg>

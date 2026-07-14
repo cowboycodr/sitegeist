@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Selene Mission — Lunar Habitat M01</title>
+  <meta name="description" content="A private lunar program preparing its first autonomous surface habitat and a new chapter off-world.">
+  <style>
+    :root {
+      --void: #07090f;
+      --deep: #0c1220;
+      --panel: #121a2c;
+      --panel-2: #182338;
+      --line: rgba(186, 208, 240, 0.14);
+      --line-strong: rgba(186, 208, 240, 0.28);
+      --mist: #9fb0cc;
+      --text: #e8eef8;
+      --muted: #93a3bc;
+      --silver: #c9d4e6;
+      --moon: #f2f5fb;
+      --cyan: #7ee0ff;
+      --cyan-dim: rgba(126, 224, 255, 0.14);
+      --gold: #e0c48a;
+      --gold-dim: rgba(224, 196, 138, 0.16);
+      --success: #8fd9a8;
+      --radius: 18px;
+      --radius-sm: 12px;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      --max: 1120px;
+      --font: "Segoe UI", system-ui, -apple-system, sans-serif;
+      --mono: "SFMono-Regular", "Cascadia Mono", "Consolas", ui-monospace, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 80% -10%, rgba(126, 224, 255, 0.08), transparent 55%),
+        radial-gradient(900px 600px at -10% 20%, rgba(224, 196, 138, 0.07), transparent 50%),
+        linear-gradient(180deg, #05070c 0%, var(--void) 40%, #0a101c 100%);
+      min-height: 100vh;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; }
+    :focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 3px;
+    }
+
+    .skip {
+      position: absolute;
+      left: 1rem;
+      top: -4rem;
+      z-index: 100;
+      background: var(--panel);
+      color: var(--moon);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--line-strong);
+    }
+    .skip:focus { top: 1rem; }
+
+    .shell {
+      width: min(100% - 2rem, var(--max));
+      margin-inline: auto;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 9, 15, 0.78);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 4.25rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+    }
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 32%, #fff 0 18%, transparent 19%),
+        radial-gradient(circle at 62% 58%, rgba(15, 20, 32, 0.55) 0 10%, transparent 11%),
+        radial-gradient(circle at 42% 48%, #dfe7f5 0 46%, #9eb0cc 47% 100%);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.15), 0 0 24px rgba(126, 224, 255, 0.18);
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+      min-width: 0;
+    }
+    .brand-text strong {
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .brand-text span {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      padding: 0.55rem 0.8rem;
+      border-radius: 999px;
+      color: var(--mist);
+      font-size: 0.92rem;
+    }
+    .nav-links a:hover { color: var(--moon); background: rgba(255,255,255,0.04); }
+
+    .nav-cta {
+      display: none;
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(126,224,255,0.2), rgba(224,196,138,0.12));
+      border: 1px solid rgba(126, 224, 255, 0.35);
+      color: var(--moon);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .nav-cta:hover { border-color: rgba(126, 224, 255, 0.6); }
+
+    .menu-toggle {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      display: grid;
+      place-items: center;
+      gap: 5px;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--silver);
+      border-radius: 2px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-panel {
+      display: none;
+      border-top: 1px solid var(--line);
+      background: rgba(8, 11, 18, 0.96);
+      padding: 0.75rem 1rem 1.1rem;
+    }
+    .mobile-panel.open { display: block; }
+    .mobile-panel a {
+      display: block;
+      padding: 0.85rem 0.6rem;
+      border-bottom: 1px solid var(--line);
+      color: var(--silver);
+    }
+    .mobile-panel a:last-child {
+      border-bottom: 0;
+      margin-top: 0.5rem;
+      text-align: center;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(126,224,255,0.18), rgba(224,196,138,0.12));
+      border: 1px solid rgba(126, 224, 255, 0.35);
+      font-weight: 600;
+    }
+
+    @media (min-width: 900px) {
+      .nav-links, .nav-cta { display: flex; }
+      .menu-toggle, .mobile-panel { display: none !important; }
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      padding: 3.5rem 0 4rem;
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .hero { padding: 5rem 0 5.5rem; }
+      .hero-grid {
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 3rem;
+      }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: rgba(255,255,255,0.03);
+      color: var(--cyan);
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 12px var(--cyan);
+    }
+
+    .hero h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      font-weight: 650;
+      max-width: 12ch;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(120deg, var(--moon) 10%, var(--cyan) 55%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      margin: 0 0 1.75rem;
+      max-width: 36ch;
+      color: var(--muted);
+      font-size: clamp(1.02rem, 2vw, 1.18rem);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 48px;
+      padding: 0.8rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: linear-gradient(135deg, #9fe8ff, #7ee0ff 40%, #c8b07a);
+      color: #0a1018;
+      box-shadow: 0 10px 30px rgba(126, 224, 255, 0.22);
+    }
+    .btn-secondary {
+      border: 1px solid var(--line-strong);
+      background: rgba(255,255,255,0.03);
+      color: var(--moon);
+    }
+    .btn-secondary:hover { border-color: rgba(126, 224, 255, 0.45); }
+
+    .status-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      max-width: 460px;
+    }
+    .status-card {
+      padding: 0.85rem 0.9rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: rgba(18, 26, 44, 0.65);
+      min-width: 0;
+    }
+    .status-card .label {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+    .status-card strong {
+      font-size: 0.95rem;
+      font-weight: 650;
+      color: var(--moon);
+      word-break: break-word;
+    }
+
+    /* Visual */
+    .hero-visual {
+      position: relative;
+      aspect-ratio: 1 / 1.05;
+      max-width: 520px;
+      margin-inline: auto;
+      width: 100%;
+    }
+    .orbit-ring {
+      position: absolute;
+      inset: 6%;
+      border-radius: 50%;
+      border: 1px dashed rgba(186, 208, 240, 0.22);
+      animation: spin 48s linear infinite;
+    }
+    .orbit-ring::after {
+      content: "";
+      position: absolute;
+      top: 8%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      margin-left: -5px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 16px rgba(224, 196, 138, 0.7);
+    }
+    .orbit-ring.slow {
+      inset: 0;
+      animation-duration: 72s;
+      animation-direction: reverse;
+      border-style: solid;
+      border-color: rgba(126, 224, 255, 0.12);
+    }
+    .orbit-ring.slow::after {
+      top: 18%;
+      width: 7px;
+      height: 7px;
+      margin-left: -3.5px;
+      background: var(--cyan);
+      box-shadow: 0 0 12px rgba(126, 224, 255, 0.8);
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .moon-stage {
+      position: absolute;
+      inset: 14%;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 32% 28%, rgba(255,255,255,0.95), rgba(214,224,240,0.9) 18%, transparent 19%),
+        radial-gradient(circle at 68% 62%, rgba(12, 18, 30, 0.35) 0 7%, transparent 8%),
+        radial-gradient(circle at 48% 42%, rgba(18, 24, 38, 0.28) 0 5%, transparent 6%),
+        radial-gradient(circle at 36% 68%, rgba(12, 18, 30, 0.22) 0 9%, transparent 10%),
+        radial-gradient(circle at 40% 40%, #f4f7fc 0%, #c5d0e3 42%, #8fa0bc 78%, #6d7d98 100%);
+      box-shadow:
+        inset -28px -18px 50px rgba(10, 16, 28, 0.45),
+        0 0 80px rgba(126, 224, 255, 0.12),
+        0 30px 60px rgba(0,0,0,0.4);
+      overflow: hidden;
+    }
+    .habitat {
+      position: absolute;
+      left: 50%;
+      top: 54%;
+      width: 42%;
+      transform: translate(-50%, -50%);
+      filter: drop-shadow(0 12px 18px rgba(0,0,0,0.35));
+    }
+    .glow-arc {
+      position: absolute;
+      inset: 18% 10% auto;
+      height: 38%;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center, rgba(126,224,255,0.18), transparent 70%);
+      pointer-events: none;
+    }
+    .callout {
+      position: absolute;
+      right: 0;
+      bottom: 8%;
+      width: min(180px, 42%);
+      padding: 0.85rem 0.95rem;
+      border-radius: 14px;
+      border: 1px solid var(--line-strong);
+      background: rgba(12, 18, 32, 0.88);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      font-size: 0.82rem;
+    }
+    .callout span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+    .callout strong { color: var(--gold); }
+
+    /* Sections */
+    section { padding: 4rem 0; }
+    .section-head {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      max-width: 640px;
+    }
+    .section-kicker {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    /* Mission */
+    .mission {
+      border-top: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(18,26,44,0.35), transparent 70%);
+    }
+    .mission-layout {
+      display: grid;
+      gap: 1.25rem;
+    }
+    @media (min-width: 800px) {
+      .mission-layout {
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 1.5rem;
+      }
+    }
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(24, 35, 56, 0.9), rgba(12, 18, 32, 0.95));
+      padding: 1.4rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+    .panel h3 {
+      margin: 0 0 0.65rem;
+      font-size: 1.15rem;
+    }
+    .panel p {
+      margin: 0;
+      color: var(--muted);
+    }
+    .checklist {
+      list-style: none;
+      margin: 1.15rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: 0.7rem;
+    }
+    .checklist li {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 0.7rem;
+      align-items: start;
+      color: var(--silver);
+      font-size: 0.95rem;
+    }
+    .check {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--cyan-dim);
+      border: 1px solid rgba(126,224,255,0.35);
+      color: var(--cyan);
+      font-size: 0.75rem;
+      line-height: 1;
+      margin-top: 1px;
+    }
+    .side-stack { display: grid; gap: 1rem; }
+    .metric {
+      padding: 1.15rem 1.2rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(18, 26, 44, 0.75);
+    }
+    .metric .num {
+      display: block;
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--moon);
+      margin-bottom: 0.2rem;
+    }
+    .metric .num span { color: var(--cyan); }
+    .metric .desc {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Habitat */
+    .habitat-section .cards {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 700px) {
+      .habitat-section .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 1000px) {
+      .habitat-section .cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(165deg, rgba(24,35,56,0.88), rgba(10,15,26,0.95));
+      padding: 1.35rem;
+      min-height: 100%;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+    .card:hover {
+      border-color: rgba(126, 224, 255, 0.35);
+      transform: translateY(-2px);
+    }
+    .icon-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+      background: var(--gold-dim);
+      border: 1px solid rgba(224, 196, 138, 0.28);
+      color: var(--gold);
+    }
+    .card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.08rem;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Vehicle */
+    .vehicle {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(700px 300px at 10% 0%, rgba(126,224,255,0.07), transparent 60%),
+        rgba(8, 12, 20, 0.5);
+    }
+    .vehicle-grid {
+      display: grid;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .vehicle-grid {
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 2.5rem;
+      }
+    }
+    .vehicle-diagram {
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(24,35,56,0.55), rgba(8,12,22,0.9)),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 31px,
+          rgba(186, 208, 240, 0.04) 31px,
+          rgba(186, 208, 240, 0.04) 32px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 31px,
+          rgba(186, 208, 240, 0.04) 31px,
+          rgba(186, 208, 240, 0.04) 32px
+        );
+      padding: 1.25rem;
+      min-height: 320px;
+      display: grid;
+      place-items: center;
+    }
+    .vehicle-diagram svg {
+      width: min(100%, 420px);
+      height: auto;
+    }
+    .spec-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.75rem;
+    }
+    .spec-list li {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: baseline;
+      padding: 0.95rem 1rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: rgba(18, 26, 44, 0.55);
+    }
+    .spec-list .name {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .spec-list .val {
+      font-family: var(--mono);
+      font-size: 0.88rem;
+      color: var(--cyan);
+      text-align: right;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 0;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 11px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--cyan), rgba(224,196,138,0.5), transparent);
+    }
+    @media (min-width: 800px) {
+      .timeline {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
+      .timeline::before {
+        left: 8%;
+        right: 8%;
+        top: 18px;
+        bottom: auto;
+        width: auto;
+        height: 2px;
+      }
+    }
+    .t-item {
+      position: relative;
+      padding: 0 0 1.5rem 2.25rem;
+    }
+    @media (min-width: 800px) {
+      .t-item { padding: 2.5rem 0 0; }
+    }
+    .t-dot {
+      position: absolute;
+      left: 4px;
+      top: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--deep);
+      border: 2px solid var(--cyan);
+      box-shadow: 0 0 0 4px rgba(126,224,255,0.12);
+    }
+    @media (min-width: 800px) {
+      .t-dot { left: 0; top: 10px; }
+    }
+    .t-phase {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.35rem;
+    }
+    .t-item h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.05rem;
+    }
+    .t-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .t-item.done .t-dot {
+      background: var(--cyan);
+    }
+    .t-item.active .t-dot {
+      background: var(--gold);
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(224,196,138,0.16);
+    }
+
+    /* Tracker */
+    .tracker {
+      background:
+        radial-gradient(600px 280px at 80% 20%, rgba(224,196,138,0.08), transparent 60%),
+        linear-gradient(180deg, rgba(18,26,44,0.4), transparent);
+    }
+    .tracker-panel {
+      border-radius: calc(var(--radius) + 4px);
+      border: 1px solid var(--line-strong);
+      background:
+        linear-gradient(135deg, rgba(24,35,56,0.95), rgba(10,15,26,0.98));
+      padding: clamp(1.4rem, 3vw, 2.2rem);
+      box-shadow: var(--shadow);
+    }
+    .tracker-top {
+      display: grid;
+      gap: 1.25rem;
+      margin-bottom: 1.75rem;
+    }
+    @media (min-width: 800px) {
+      .tracker-top {
+        grid-template-columns: 1.3fr 0.7fr;
+        align-items: end;
+      }
+    }
+    .live-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(143, 217, 168, 0.12);
+      border: 1px solid rgba(143, 217, 168, 0.35);
+      color: var(--success);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: var(--mono);
+      margin-bottom: 0.8rem;
+    }
+    .live-pill i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 10px var(--success);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+    .tracker h2 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      letter-spacing: -0.02em;
+    }
+    .tracker .intro {
+      margin: 0;
+      color: var(--muted);
+      max-width: 48ch;
+    }
+    .progress-block {
+      padding: 1rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.2);
+    }
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.65rem;
+      font-size: 0.88rem;
+    }
+    .progress-meta span:last-child {
+      color: var(--cyan);
+      font-family: var(--mono);
+    }
+    .bar {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+    .bar > i {
+      display: block;
+      height: 100%;
+      width: 68%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--gold));
+    }
+    .milestones {
+      display: grid;
+      gap: 0.75rem;
+    }
+    @media (min-width: 700px) {
+      .milestones { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    .ms {
+      padding: 1rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+    }
+    .ms .when {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    .ms strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.98rem;
+    }
+    .ms p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* CTA / tabs for explore */
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .tab {
+      min-height: 42px;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--mist);
+      background: rgba(255,255,255,0.02);
+      font-size: 0.9rem;
+    }
+    .tab[aria-selected="true"] {
+      color: #0a1018;
+      background: linear-gradient(135deg, #9fe8ff, #dcc48a);
+      border-color: transparent;
+      font-weight: 650;
+    }
+    .tab-panel[hidden] { display: none; }
+    .tab-panel p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 2.5rem 0 2rem;
+      color: var(--muted);
+    }
+    .footer-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    @media (min-width: 700px) {
+      .footer-grid {
+        grid-template-columns: 1.4fr 1fr;
+        align-items: start;
+      }
+    }
+    .footer-brand {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .footer-brand p {
+      margin: 0.35rem 0 0;
+      max-width: 36ch;
+      font-size: 0.92rem;
+    }
+    .footer-meta {
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.88rem;
+    }
+    .footer-meta strong {
+      color: var(--silver);
+      font-weight: 600;
+    }
+    .copy {
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.82rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      justify-content: space-between;
+    }
+
+    /* Stars decoration */
+    .starfield {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0.55;
+    }
+    .starfield i {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0.55;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell nav">
+      <a class="brand" href="#top" aria-label="Selene Mission home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">
+          <strong>Selene Mission</strong>
+          <span>Lunar Program</span>
+        </span>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="#mission">Mission</a></li>
+          <li><a href="#habitat">Habitat</a></li>
+          <li><a href="#vehicle">Vehicle</a></li>
+          <li><a href="#timeline">Timeline</a></li>
+          <li><a href="#track">Tracker</a></li>
+        </ul>
+      </nav>
+
+      <a class="nav-cta" href="#track">Track the mission</a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-panel" id="mobile-nav" hidden>
+      <a href="#mission">Mission</a>
+      <a href="#habitat">Habitat</a>
+      <a href="#vehicle">Vehicle</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#track">Track the mission</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="starfield" aria-hidden="true" id="stars"></div>
+      <div class="shell hero-grid">
+        <div>
+          <div class="eyebrow">Lunar habitat · M01</div>
+          <h1 id="hero-title">The moon is our <em>next address</em>.</h1>
+          <p class="lead">
+            A private lunar program preparing its first autonomous surface habitat
+            and a new chapter off-world.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#track">Track the mission</a>
+            <a class="btn btn-secondary" href="#vehicle">Explore the vehicle</a>
+          </div>
+          <div class="status-row" role="list" aria-label="Mission status">
+            <div class="status-card" role="listitem">
+              <span class="label">Phase</span>
+              <strong>Integration</strong>
+            </div>
+            <div class="status-card" role="listitem">
+              <span class="label">Target</span>
+              <strong>Mare Serenitatis</strong>
+            </div>
+            <div class="status-card" role="listitem">
+              <span class="label">Crew</span>
+              <strong>Autonomous first</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="orbit-ring slow"></div>
+          <div class="orbit-ring"></div>
+          <div class="moon-stage">
+            <div class="glow-arc"></div>
+            <svg class="habitat" viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="100" cy="118" rx="62" ry="10" fill="rgba(8,12,20,0.35)"/>
+              <path d="M48 96c0-18 18-34 52-34s52 16 52 34v8H48v-8z" fill="#d9e2f0"/>
+              <path d="M48 96c0-18 18-34 52-34s52 16 52 34" stroke="#8ea0bc" stroke-width="1.5"/>
+              <rect x="72" y="58" width="56" height="38" rx="10" fill="#eef3fb"/>
+              <rect x="84" y="68" width="32" height="14" rx="4" fill="#7ee0ff" opacity="0.55"/>
+              <path d="M88 58V42c0-6 5-12 12-12s12 6 12 12v16" stroke="#c9d4e6" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="100" cy="28" r="7" fill="#e0c48a"/>
+              <path d="M40 100h120" stroke="#a8b8d0" stroke-width="3" stroke-linecap="round"/>
+              <path d="M56 100l-10 16M144 100l10 16" stroke="#9eb0cc" stroke-width="3" stroke-linecap="round"/>
+              <rect x="30" y="88" width="18" height="10" rx="3" fill="#b8c6dc"/>
+              <rect x="152" y="88" width="18" height="10" rx="3" fill="#b8c6dc"/>
+            </svg>
+          </div>
+          <div class="callout">
+            <span>Surface node</span>
+            <strong>Habitat M01 · sealed</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mission" id="mission" aria-labelledby="mission-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="section-kicker">Program overview</span>
+          <h2 id="mission-title">Build once. Live beyond Earth.</h2>
+          <p>
+            Selene is engineering a self-tending lunar outpost that arrives sealed,
+            powers itself, and proves long-duration surface living before crews follow.
+          </p>
+        </div>
+        <div class="mission-layout">
+          <article class="panel">
+            <h3>Mission intent</h3>
+            <p>
+              The first flight delivers Habitat Module M01 to a carefully mapped
+              landing ellipse in Mare Serenitatis. On touchdown, deployable radiators,
+              solar wings, and anchor legs establish a stable power and thermal baseline
+              without human presence on the surface.
+            </p>
+            <ul class="checklist">
+              <li><span class="check" aria-hidden="true">✓</span><span>Autonomous landing and site survey within the first lunar day</span></li>
+              <li><span class="check" aria-hidden="true">✓</span><span>Closed-loop life support dry-run for 90 Earth days</span></li>
+              <li><span class="check" aria-hidden="true">✓</span><span>High-bandwidth relay for continuous Earth operations</span></li>
+              <li><span class="check" aria-hidden="true">✓</span><span>Expandable ports for logistics and crew modules</span></li>
+            </ul>
+          </article>
+          <div class="side-stack">
+            <div class="metric">
+              <span class="num">3.8<span>×</span></span>
+              <span class="desc">Earth-day power margin designed into the solar array stack</span>
+            </div>
+            <div class="metric">
+              <span class="num">−173<span>°C</span></span>
+              <span class="desc">Lowest night-side temperature the thermal loop is rated to hold</span>
+            </div>
+            <div class="metric">
+              <span class="num">18<span> m</span></span>
+              <span class="desc">Interior pressurized volume available for science and rest</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="habitat-section" id="habitat" aria-labelledby="habitat-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="section-kicker">Surface habitat</span>
+          <h2 id="habitat-title">M01 is a home that arrives ready.</h2>
+          <p>
+            Every system is flight-qualified for dark-side nights, abrasive dust, and
+            multi-month autonomy before the first crew boarding window opens.
+          </p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="icon-badge" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 3v18M5 8h14M7 14h10M9 20h6"/>
+              </svg>
+            </div>
+            <h3>Pressure shell</h3>
+            <p>
+              Dual-wall composite hull with micrometeoroid shielding and dust-tight
+              seals at every external interface.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon-badge" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/>
+              </svg>
+            </div>
+            <h3>Power spine</h3>
+            <p>
+              Fold-out solar arrays and regenerative fuel cells keep critical systems
+              warm through the long lunar night.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon-badge" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M4 14c4-8 12-8 16 0"/><path d="M4 18h16"/><circle cx="12" cy="10" r="2"/>
+              </svg>
+            </div>
+            <h3>Life loop</h3>
+            <p>
+              Air revitalization, water recovery, and thermal control run as a single
+              supervised loop with Earth-side oversight.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon-badge" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h4M7 14h10"/>
+              </svg>
+            </div>
+            <h3>Ops bay</h3>
+            <p>
+              Modular rack space for geology kits, sample cold storage, and remote
+              science payloads staged before crew arrival.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon-badge" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>
+              </svg>
+            </div>
+            <h3>Site anchors</h3>
+            <p>
+              Adaptive landing legs and dust skirts lock the habitat to uneven regolith
+              and protect hatch clearances.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon-badge" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M4 12h16M12 4v16"/><circle cx="12" cy="12" r="8"/>
+              </svg>
+            </div>
+            <h3>Growth ports</h3>
+            <p>
+              Standardized docking rings leave room for greenhouse, logistics, and crew
+              quarters in later campaign flights.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="vehicle" id="vehicle" aria-labelledby="vehicle-title">
+      <div class="shell vehicle-grid">
+        <div>
+          <div class="section-head">
+            <span class="section-kicker">Transfer vehicle</span>
+            <h2 id="vehicle-title">Serenity transfer stage</h2>
+            <p>
+              A dedicated lunar lander ferries M01 from cislunar rendezvous to the
+              surface with precision hazard avoidance and soft-touchdown control.
+            </p>
+          </div>
+
+          <div class="tabs" role="tablist" aria-label="Vehicle systems">
+            <button class="tab" role="tab" id="tab-prop" aria-controls="panel-prop" aria-selected="true" type="button">Propulsion</button>
+            <button class="tab" role="tab" id="tab-nav" aria-controls="panel-nav" aria-selected="false" type="button" tabindex="-1">Navigation</button>
+            <button class="tab" role="tab" id="tab-land" aria-controls="panel-land" aria-selected="false" type="button" tabindex="-1">Landing</button>
+          </div>
+          <div class="tab-panel panel" role="tabpanel" id="panel-prop" aria-labelledby="tab-prop">
+            <p>
+              Dual main engines and a throttled descent cluster deliver the Δv budget
+              for lunar orbit insertion, deorbit, and a controlled hover above the
+              final landing ellipse.
+            </p>
+          </div>
+          <div class="tab-panel panel" role="tabpanel" id="panel-nav" aria-labelledby="tab-nav" hidden>
+            <p>
+              Terrain-relative cameras, lidar ranging, and a star tracker suite keep
+              the vehicle aligned through Earth occultation and high-glare surface
+              conditions.
+            </p>
+          </div>
+          <div class="tab-panel panel" role="tabpanel" id="panel-land" aria-labelledby="tab-land" hidden>
+            <p>
+              Hazard maps update in flight so the lander can divert within a 200-meter
+              safe zone, then settle M01 with dust-minimizing throttle profiles.
+            </p>
+          </div>
+        </div>
+
+        <div class="vehicle-diagram" aria-hidden="true">
+          <svg viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="hull" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#f0f4fb"/>
+                <stop offset="100%" stop-color="#9aacc6"/>
+              </linearGradient>
+              <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#7ee0ff" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#7ee0ff" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <ellipse cx="210" cy="278" rx="90" ry="14" fill="rgba(126,224,255,0.08)"/>
+            <!-- solar wings -->
+            <rect x="28" y="120" width="88" height="52" rx="4" fill="#1a2740" stroke="#7ee0ff" stroke-opacity="0.5"/>
+            <rect x="304" y="120" width="88" height="52" rx="4" fill="#1a2740" stroke="#7ee0ff" stroke-opacity="0.5"/>
+            <path d="M116 146h40M264 146h40" stroke="#c9d4e6" stroke-width="3"/>
+            <!-- grid on wings -->
+            <path d="M42 133h60M42 146h60M42 159h60M57 120v52M72 120v52M87 120v52" stroke="#7ee0ff" stroke-opacity="0.25"/>
+            <path d="M318 133h60M318 146h60M318 159h60M333 120v52M348 120v52M363 120v52" stroke="#7ee0ff" stroke-opacity="0.25"/>
+            <!-- body -->
+            <path d="M168 70h84l28 70v70H140v-70l28-70z" fill="url(#hull)" stroke="#d7e1f0"/>
+            <rect x="186" y="92" width="48" height="28" rx="6" fill="#0c1422" stroke="#7ee0ff" stroke-opacity="0.55"/>
+            <rect x="176" y="140" width="68" height="42" rx="8" fill="#e8eef8" stroke="#8ea0bc"/>
+            <text x="210" y="166" text-anchor="middle" fill="#3a4a66" font-size="12" font-family="system-ui,sans-serif" font-weight="700">M01</text>
+            <!-- thrusters -->
+            <path d="M160 210h28v24c0 8-6 14-14 14s-14-6-14-14v-24z" fill="#6d7d98"/>
+            <path d="M232 210h28v24c0 8-6 14-14 14s-14-6-14-14v-24z" fill="#6d7d98"/>
+            <path d="M160 248h28l-6 22h-16l-6-22z" fill="url(#glow)"/>
+            <path d="M232 248h28l-6 22h-16l-6-22z" fill="url(#glow)"/>
+            <!-- legs -->
+            <path d="M150 200l-36 50M270 200l36 50M140 248h-18M298 248h18" stroke="#c9d4e6" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="110" cy="252" r="6" fill="#e0c48a"/>
+            <circle cx="310" cy="252" r="6" fill="#e0c48a"/>
+            <!-- labels -->
+            <g fill="#9fb0cc" font-size="11" font-family="ui-monospace,monospace">
+              <text x="48" y="100">SOLAR A</text>
+              <text x="320" y="100">SOLAR B</text>
+              <text x="176" y="58">HABITAT BAY</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="shell" style="margin-top:1.5rem">
+        <ul class="spec-list" aria-label="Vehicle specifications">
+          <li><span class="name">Gross landed mass</span><span class="val">18,400 kg</span></li>
+          <li><span class="name">Descent engines</span><span class="val">2 main · 8 ACS</span></li>
+          <li><span class="name">Landing accuracy</span><span class="val">± 35 m CEP</span></li>
+          <li><span class="name">Surface power after deploy</span><span class="val">28 kW peak</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="timeline" aria-labelledby="timeline-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="section-kicker">Campaign roadmap</span>
+          <h2 id="timeline-title">From clean room to regolith.</h2>
+          <p>
+            Four campaign gates stand between today’s integration hall and a sealed
+            outpost on the lunar surface.
+          </p>
+        </div>
+        <ol class="timeline">
+          <li class="t-item done">
+            <span class="t-dot" aria-hidden="true"></span>
+            <span class="t-phase">Phase 01 · complete</span>
+            <h3>Design freeze</h3>
+            <p>Primary structure, thermal architecture, and docking interfaces locked for manufacture.</p>
+          </li>
+          <li class="t-item done">
+            <span class="t-dot" aria-hidden="true"></span>
+            <span class="t-phase">Phase 02 · complete</span>
+            <h3>Module build</h3>
+            <p>Pressure shell welded, racks installed, and power spine acceptance tests passed.</p>
+          </li>
+          <li class="t-item active">
+            <span class="t-dot" aria-hidden="true"></span>
+            <span class="t-phase">Phase 03 · active</span>
+            <h3>Vehicle integration</h3>
+            <p>M01 is mated to Serenity for combined vibration, vacuum, and abort-mode checks.</p>
+          </li>
+          <li class="t-item">
+            <span class="t-dot" aria-hidden="true"></span>
+            <span class="t-phase">Phase 04 · next</span>
+            <h3>Launch & land</h3>
+            <p>Cislunar transfer, powered descent, and first autonomous night survival on the Moon.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="tracker" id="track" aria-labelledby="track-title">
+      <div class="shell">
+        <div class="tracker-panel">
+          <div class="tracker-top">
+            <div>
+              <div class="live-pill"><i aria-hidden="true"></i> Live campaign feed</div>
+              <h2 id="track-title">Track the mission</h2>
+              <p class="intro">
+                Follow Habitat M01 through integration, flight readiness, and the
+                first surface beacon. All status here is campaign-local—no external links required.
+              </p>
+            </div>
+            <div class="progress-block" aria-label="Campaign progress">
+              <div class="progress-meta">
+                <span>Campaign completion</span>
+                <span>68%</span>
+              </div>
+              <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="68" aria-label="68 percent complete">
+                <i></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="milestones">
+            <article class="ms">
+              <div class="when">Current</div>
+              <strong>Integration hall · Bay 4</strong>
+              <p>Combined systems test window open for 11 Earth days.</p>
+            </article>
+            <article class="ms">
+              <div class="when">Next gate</div>
+              <strong>Flight readiness review</strong>
+              <p>Board review after thermal-vac and landing software sign-off.</p>
+            </article>
+            <article class="ms">
+              <div class="when">Surface goal</div>
+              <strong>First lunar night</strong>
+              <p>Prove power, heat, and communications without crew intervention.</p>
+            </article>
+          </div>
+
+          <div class="actions" style="margin:1.75rem 0 0">
+            <a class="btn btn-primary" href="#timeline">Review roadmap</a>
+            <a class="btn btn-secondary" href="#habitat">Inspect habitat systems</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div>
+            <strong style="color:var(--moon)">Selene Mission</strong>
+            <p>A private lunar program preparing the first autonomous surface habitat—because the moon is our next address.</p>
+          </div>
+        </div>
+        <div class="footer-meta">
+          <div><strong>Program</strong> · Lunar Habitat M01</div>
+          <div><strong>Landing site</strong> · Mare Serenitatis</div>
+          <div><strong>Status</strong> · Vehicle integration</div>
+          <div><strong>Category</strong> · Aerospace</div>
+        </div>
+      </div>
+      <div class="copy">
+        <span>© Selene Mission. Built for offline campaign briefing.</span>
+        <span>Standalone surface program dossier</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; media-src 'self'; worker-src 'none'; manifest-src 'self'">
+  <meta name="description" content="An adaptive sleep companion combining sound, breath, and gentle screen-free routines.">
+  <meta name="theme-color" content="#070b16">
+  <title>Drift — A softer landing for your day</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="#top" aria-label="Drift home">
+        <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <circle cx="16" cy="16" r="15" fill="none" stroke="#c4a574" stroke-width="1.25" opacity="0.5"/>
+          <path d="M20.5 8.2a9.2 9.2 0 1 0 3.3 12.8 7.4 7.4 0 1 1-3.3-12.8z" fill="#f2ead9"/>
+        </svg>
+        Drift
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#soundscapes">Sound</a>
+        <a href="#breath">Breath</a>
+        <a href="#routine">Routine</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="hero__eyebrow">Tonight begins here</p>
+        <h1 class="hero__title" id="hero-title">Drift into <em>stillness</em></h1>
+        <p class="hero__tagline">A softer landing for your day.</p>
+        <p class="hero__desc">
+          An adaptive sleep companion that weaves gentle soundscapes, guided breath,
+          and screen-light wind-down steps into one quiet evening ritual.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" id="start-winding-down" href="#routine">Start winding down</a>
+          <a class="btn btn--ghost" id="hear-soundscape" href="#soundscapes">Hear a soundscape</a>
+        </div>
+        <ul class="hero__meta">
+          <li>
+            <strong>Offline</strong>
+            <span>Works without a network</span>
+          </li>
+          <li>
+            <strong>4 ambiences</strong>
+            <span>Built for bedtime</span>
+          </li>
+          <li>
+            <strong>3 breath modes</strong>
+            <span>Rest, sleep, calm</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="hero__visual" aria-hidden="true">
+        <div class="moon-stage">
+          <div class="moon-glow"></div>
+          <div class="orbit">
+            <span class="orbit-dot"></span>
+          </div>
+          <div class="orbit orbit--inner">
+            <span class="orbit-dot"></span>
+          </div>
+          <div class="moon-body"></div>
+          <div class="moon-crescent"></div>
+          <svg class="drift-waves" viewBox="0 0 200 40" preserveAspectRatio="none">
+            <path d="M0 20 Q 25 8 50 20 T 100 20 T 150 20 T 200 20"/>
+            <path d="M0 28 Q 25 18 50 28 T 100 28 T 150 28 T 200 28" opacity="0.6"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <p class="section-label">Sleep technology</p>
+      <h2 class="section-title" id="about-title">Designed for the last quiet hour</h2>
+      <p class="section-lead">
+        Drift keeps evenings simple: no feeds, no streaks to protect—just sound, breath,
+        and a short routine that helps your mind unhook from the day.
+      </p>
+      <div class="features">
+        <article class="feature-card">
+          <svg class="feature-card__icon" viewBox="0 0 42 42" aria-hidden="true" focusable="false">
+            <circle cx="21" cy="21" r="18" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.4"/>
+            <path d="M12 22c3-6 6-9 9-9s6 3 9 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M10 26c4-5 7-7 11-7s7 2 11 7" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.55"/>
+          </svg>
+          <h3>Adaptive sound</h3>
+          <p>
+            Soft noise beds and low tones generated on your device—rain, shore, night field,
+            and warm hush—without streaming or downloads.
+          </p>
+        </article>
+        <article class="feature-card">
+          <svg class="feature-card__icon" viewBox="0 0 42 42" aria-hidden="true" focusable="false">
+            <circle cx="21" cy="21" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="21" cy="21" r="14" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+            <circle cx="21" cy="21" r="3" fill="currentColor"/>
+          </svg>
+          <h3>Guided breath</h3>
+          <p>
+            Rest, sleep, and calm patterns with a clear visual cue and cycle count so you
+            can settle without watching a clock.
+          </p>
+        </article>
+        <article class="feature-card">
+          <svg class="feature-card__icon" viewBox="0 0 42 42" aria-hidden="true" focusable="false">
+            <rect x="9" y="10" width="24" height="22" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M15 18h12M15 23h9M15 28h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h3>Gentle routines</h3>
+          <p>
+            A short, screen-aware wind-down you can check off at your own pace—dim lights,
+            put the phone down, and leave the day behind.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="soundscapes" aria-labelledby="sound-title">
+      <p class="section-label">Sound</p>
+      <h2 class="section-title" id="sound-title">Choose a night texture</h2>
+      <p class="section-lead">
+        Tap a soundscape to begin. Tap again to pause. Everything is synthesized locally
+        so your evening stays private and uninterrupted.
+      </p>
+      <div class="panel">
+        <h3>Soundscapes</h3>
+        <p class="panel-desc">Layered ambience tuned for low volume and long nights.</p>
+        <ul class="sound-list" role="list">
+          <li>
+            <button type="button" class="sound-btn" data-sound="rain" aria-pressed="false">
+              <span class="sound-btn__dot" aria-hidden="true"></span>
+              <span>
+                <span class="sound-btn__name">Soft rain</span>
+              </span>
+              <span class="sound-btn__hint">Pink rain wash</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="sound-btn" data-sound="ocean" aria-pressed="false">
+              <span class="sound-btn__dot" aria-hidden="true"></span>
+              <span>
+                <span class="sound-btn__name">Distant shore</span>
+              </span>
+              <span class="sound-btn__hint">Low tide drift</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="sound-btn" data-sound="night" aria-pressed="false">
+              <span class="sound-btn__dot" aria-hidden="true"></span>
+              <span>
+                <span class="sound-btn__name">Night field</span>
+              </span>
+              <span class="sound-btn__hint">Soft harmonic air</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="sound-btn" data-sound="hush" aria-pressed="false">
+              <span class="sound-btn__dot" aria-hidden="true"></span>
+              <span>
+                <span class="sound-btn__name">Warm hush</span>
+              </span>
+              <span class="sound-btn__hint">Brown noise + tone</span>
+            </button>
+          </li>
+        </ul>
+        <div class="volume-row">
+          <label for="volume">Volume</label>
+          <input id="volume" type="range" min="0" max="0.7" step="0.01" value="0.32" aria-valuemin="0" aria-valuemax="0.7">
+          <button type="button" class="btn btn--ghost btn--small" id="stop-sound">Pause</button>
+        </div>
+        <p class="sound-status" id="sound-status" role="status" aria-live="polite">Choose a soundscape to begin.</p>
+      </div>
+    </section>
+
+    <section id="breath" aria-labelledby="breath-title">
+      <p class="section-label">Breath</p>
+      <h2 class="section-title" id="breath-title">Breathe the day closed</h2>
+      <p class="section-lead">
+        Follow the ring and the phase label. Longer exhales cue the nervous system that
+        it is safe to rest.
+      </p>
+      <div class="panel-grid">
+        <div class="panel">
+          <h3>Breathing guide</h3>
+          <p class="panel-desc">Pick a pattern, then start when you are settled.</p>
+          <div class="breath-modes" role="group" aria-label="Breathing pattern">
+            <button type="button" class="btn btn--ghost btn--small" data-breath-mode="rest" aria-pressed="true">Rest 4·2·6·2</button>
+            <button type="button" class="btn btn--ghost btn--small" data-breath-mode="sleep" aria-pressed="false">Sleep 4·7·8</button>
+            <button type="button" class="btn btn--ghost btn--small" data-breath-mode="calm" aria-pressed="false">Calm 5·5</button>
+          </div>
+          <div class="breath-stage">
+            <div class="breath-ring-wrap">
+              <div class="breath-ring" id="breath-ring" aria-hidden="true">
+                <div class="breath-core"></div>
+              </div>
+            </div>
+            <p class="breath-phase" id="breath-phase">Ready when you are</p>
+            <p class="breath-count" id="breath-count">Rest pattern</p>
+            <div class="breath-controls">
+              <button type="button" class="btn btn--primary" id="breath-start">Begin breath</button>
+              <button type="button" class="btn btn--ghost" id="breath-stop" disabled>Stop</button>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>How it helps</h3>
+          <p class="panel-desc">Small cues, no performance pressure.</p>
+          <ul class="routine" style="list-style: none;">
+            <li class="routine-step">
+              <span class="routine-step__num" aria-hidden="true">1</span>
+              <div>
+                <h3>Lengthen the exhale</h3>
+                <p>Sleep and rest patterns spend more time on the out-breath to invite parasympathetic calm.</p>
+              </div>
+            </li>
+            <li class="routine-step">
+              <span class="routine-step__num" aria-hidden="true">2</span>
+              <div>
+                <h3>Stay with the ring</h3>
+                <p>Soft visual pacing replaces phone scrolling. Reduced-motion settings keep the cue gentle.</p>
+              </div>
+            </li>
+            <li class="routine-step">
+              <span class="routine-step__num" aria-hidden="true">3</span>
+              <div>
+                <h3>Pair with sound</h3>
+                <p>Start a hush or rain bed first, then breathe—Drift’s wind-down button does both for you.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="routine" aria-labelledby="routine-title">
+      <p class="section-label">Routine</p>
+      <h2 class="section-title" id="routine-title">A softer landing</h2>
+      <p class="section-lead">
+        Five unhurried steps. Check them off as you go, or let Drift start breath and sound
+        while you begin.
+      </p>
+      <div class="panel">
+        <div class="hero__actions" style="margin-bottom: 1.25rem;">
+          <button type="button" class="btn btn--primary" id="start-routine">Start winding down</button>
+          <button type="button" class="btn btn--ghost" id="reset-routine">Reset steps</button>
+        </div>
+        <ol class="routine">
+          <li class="routine-step">
+            <span class="routine-step__num" aria-hidden="true">1</span>
+            <div>
+              <h3>
+                <label>
+                  <input type="checkbox" data-step-check>
+                  Dim the room
+                </label>
+              </h3>
+              <p>Lower overhead lights or switch to a warm lamp. Signal to your body that night has begun.</p>
+            </div>
+            <span class="routine-step__time">2 min</span>
+          </li>
+          <li class="routine-step">
+            <span class="routine-step__num" aria-hidden="true">2</span>
+            <div>
+              <h3>
+                <label>
+                  <input type="checkbox" data-step-check>
+                  Park tomorrow’s list
+                </label>
+              </h3>
+              <p>Write one open loop on paper, then leave it. Drift is not a to-do app—release is the point.</p>
+            </div>
+            <span class="routine-step__time">3 min</span>
+          </li>
+          <li class="routine-step">
+            <span class="routine-step__num" aria-hidden="true">3</span>
+            <div>
+              <h3>
+                <label>
+                  <input type="checkbox" data-step-check>
+                  Start a soundscape
+                </label>
+              </h3>
+              <p>Choose rain, shore, night field, or warm hush at a low volume you can almost forget.</p>
+            </div>
+            <span class="routine-step__time">1 min</span>
+          </li>
+          <li class="routine-step">
+            <span class="routine-step__num" aria-hidden="true">4</span>
+            <div>
+              <h3>
+                <label>
+                  <input type="checkbox" data-step-check>
+                  Breathe for a few cycles
+                </label>
+              </h3>
+              <p>Use Sleep 4·7·8 or Rest 4·2·6·2 until your shoulders drop and the day feels farther away.</p>
+            </div>
+            <span class="routine-step__time">4 min</span>
+          </li>
+          <li class="routine-step">
+            <span class="routine-step__num" aria-hidden="true">5</span>
+            <div>
+              <h3>
+                <label>
+                  <input type="checkbox" data-step-check>
+                  Set the screen aside
+                </label>
+              </h3>
+              <p>Place the device face-down or out of reach. Let sound and breath finish the evening without you.</p>
+            </div>
+            <span class="routine-step__time">ongoing</span>
+          </li>
+        </ol>
+        <div class="routine-progress">
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <p class="progress-label" id="progress-label">0 of 5 steps</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="note-title">
+      <div class="note">
+        <div>
+          <h2 class="sr-only" id="note-title">Evening note</h2>
+          <blockquote>
+            “You do not have to finish the day perfectly. You only have to land.”
+            <cite>Drift evening note</cite>
+          </blockquote>
+        </div>
+        <div class="note__aside">
+          <p>
+            Drift is a calm companion for nights when the mind is still loud. Use as much
+            or as little as you need—sound alone, breath alone, or the full wind-down.
+          </p>
+          <a class="btn btn--primary" href="#routine">Return to routine</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p><strong>Drift</strong> · Sleep technology · A softer landing for your day.</p>
+      <p>Works entirely on this device. No accounts, no tracking.</p>
+    </div>
+  </footer>
+
+  <div class="sr-only" id="live-region" role="status" aria-live="polite"></div>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

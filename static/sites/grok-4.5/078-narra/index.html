@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Narra — Turn research into a living story</title>
+  <meta name="description" content="A collaborative workspace connecting sources, notes, and ideas into clear narrative maps.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Narra home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+            <circle cx="8" cy="10" r="3.2" fill="currentColor"/>
+            <circle cx="24" cy="8" r="2.6" fill="currentColor" opacity="0.75"/>
+            <circle cx="22" cy="22" r="3.2" fill="currentColor"/>
+            <circle cx="10" cy="23" r="2.4" fill="currentColor" opacity="0.8"/>
+            <path d="M10.5 11.5 L21.5 9.2 M21.2 10.5 L20.5 19.5 M19.5 21 L12 22.2 M11.2 20.5 L9.5 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+          </svg>
+        </span>
+        <span class="brand-name">Narra</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary">
+        <a href="#method">Method</a>
+        <a href="#workspace">Workspace</a>
+        <a href="#map">Narrative map</a>
+        <a href="#teams">Teams</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="#overview">Watch overview</a>
+        <a class="btn btn-primary" href="#cta">Build a narrative</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-nav-toggle>
+          <span class="sr-only">Menu</span>
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav-mobile" id="mobile-nav" data-mobile-nav hidden>
+      <nav aria-label="Mobile">
+        <a href="#method">Method</a>
+        <a href="#workspace">Workspace</a>
+        <a href="#map">Narrative map</a>
+        <a href="#teams">Teams</a>
+        <a href="#overview">Watch overview</a>
+        <a class="btn btn-primary" href="#cta">Build a narrative</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Context, connected</p>
+          <h1>Turn research into a <em>living story</em>.</h1>
+          <p class="lede">
+            Narra is a collaborative workspace that links sources, notes, and ideas
+            into clear narrative maps—so your team can see the argument, not just the files.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary btn-lg" href="#cta">Build a narrative</a>
+            <a class="btn btn-secondary btn-lg" href="#overview">Watch overview</a>
+          </div>
+          <ul class="hero-proof" aria-label="Highlights">
+            <li><strong>Source-true</strong> claims stay tethered to evidence</li>
+            <li><strong>Shared maps</strong> keep research and writing in one thread</li>
+            <li><strong>Offline-first</strong> calm workspace, no tab chaos</li>
+          </ul>
+        </div>
+
+        <div class="hero-stage" aria-hidden="true">
+          <div class="stage-card stage-sources">
+            <span class="stage-label">Sources</span>
+            <ul>
+              <li>Interview transcript · 42m</li>
+              <li>Policy brief · 2025</li>
+              <li>Field notes · North quay</li>
+            </ul>
+          </div>
+          <div class="stage-card stage-notes">
+            <span class="stage-label">Notes</span>
+            <p>Stakeholders diverge on timeline—risk is process, not capital.</p>
+          </div>
+          <div class="stage-card stage-map">
+            <span class="stage-label">Narrative spine</span>
+            <svg class="mini-map" viewBox="0 0 220 120" role="img">
+              <path class="thread" d="M20 90 C50 90 55 40 90 40 S130 95 160 70 S190 30 200 30" fill="none" stroke="currentColor" stroke-width="2"/>
+              <circle cx="20" cy="90" r="6" class="node node-a"/>
+              <circle cx="90" cy="40" r="7" class="node node-b"/>
+              <circle cx="160" cy="70" r="6" class="node node-c"/>
+              <circle cx="200" cy="30" r="7" class="node node-d"/>
+            </svg>
+            <ol>
+              <li>Tension</li>
+              <li>Evidence</li>
+              <li>Turn</li>
+              <li>Claim</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="strip" aria-label="Used by">
+      <div class="shell strip-inner">
+        <p>Built for research teams who need the story to survive the handoff</p>
+        <ul>
+          <li>Policy labs</li>
+          <li>Investigative desks</li>
+          <li>Product research</li>
+          <li>Strategy studios</li>
+          <li>University cohorts</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section method" id="method">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">The method</p>
+          <h2>From scattered capture to a narrative you can defend.</h2>
+          <p class="section-lede">
+            Most tools store knowledge. Narra arranges it into sequence, tension, and proof—
+            the shape of a story your collaborators can follow.
+          </p>
+        </div>
+
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num">01</span>
+            <h3>Gather without losing the trail</h3>
+            <p>Drop sources and clips into a library that preserves origin, quotes, and confidence—not just file names.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">02</span>
+            <h3>Note in the margins of meaning</h3>
+            <p>Write observations next to evidence. Tags, questions, and open loops stay visible instead of buried in folders.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">03</span>
+            <h3>Map the narrative spine</h3>
+            <p>Arrange beats into a map: setup, conflict, evidence, turn, and resolution. Drag claims until the argument holds.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">04</span>
+            <h3>Share a living draft</h3>
+            <p>Invite collaborators onto the same map. Comments attach to beats, not endless document threads.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section workspace" id="workspace">
+      <div class="shell workspace-grid">
+        <div class="workspace-copy">
+          <p class="eyebrow">Workspace</p>
+          <h2>Three panes. One continuous story.</h2>
+          <p>
+            Sources on the left, notes in the middle, narrative map on the right.
+            Select a beat and see every supporting quote light up. Select a source
+            and see where it lands in the argument.
+          </p>
+          <ul class="check-list">
+            <li>Bidirectional links between claim and evidence</li>
+            <li>Confidence markers for contested facts</li>
+            <li>Versioned narrative spines for alternative frames</li>
+            <li>Export-ready outlines without losing provenance</li>
+          </ul>
+        </div>
+
+        <div class="workspace-demo" role="img" aria-label="Illustration of the Narra three-pane workspace">
+          <div class="pane pane-sources">
+            <header>Sources</header>
+            <button type="button" class="source-row is-active" data-source="s1">
+              <span class="dot"></span>
+              <span>
+                <strong>Harbor Commission minutes</strong>
+                <small>PDF · 18 citations</small>
+              </span>
+            </button>
+            <button type="button" class="source-row" data-source="s2">
+              <span class="dot"></span>
+              <span>
+                <strong>Resident survey Q3</strong>
+                <small>Sheet · 9 citations</small>
+              </span>
+            </button>
+            <button type="button" class="source-row" data-source="s3">
+              <span class="dot"></span>
+              <span>
+                <strong>Site walk audio</strong>
+                <small>Transcript · 6 clips</small>
+              </span>
+            </button>
+          </div>
+          <div class="pane pane-notes">
+            <header>Notes</header>
+            <article class="note-card" data-note-panel>
+              <p class="note-meta">Linked to beat · <span data-note-beat>The process risk</span></p>
+              <p data-note-body>
+                Minutes show three deferred votes on the same clause. Delay is structural,
+                not accidental—schedule pressure alone does not explain the pattern.
+              </p>
+              <div class="note-tags">
+                <span>governance</span>
+                <span>timeline</span>
+              </div>
+            </article>
+          </div>
+          <div class="pane pane-map">
+            <header>Map</header>
+            <div class="beat-stack" data-beats>
+              <button type="button" class="beat" data-beat="setup">Setup</button>
+              <button type="button" class="beat is-active" data-beat="tension">Tension</button>
+              <button type="button" class="beat" data-beat="evidence">Evidence</button>
+              <button type="button" class="beat" data-beat="turn">Turn</button>
+              <button type="button" class="beat" data-beat="claim">Claim</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section map-section" id="map">
+      <div class="shell">
+        <div class="section-head narrow">
+          <p class="eyebrow">Narrative map</p>
+          <h2>See the argument as a path, not a pile.</h2>
+          <p class="section-lede">
+            Explore a sample map. Focus a beat to reveal how sources and notes
+            support each step of the story.
+          </p>
+        </div>
+
+        <div class="map-board">
+          <div class="map-canvas-wrap">
+            <svg class="map-canvas" viewBox="0 0 640 360" role="img" aria-labelledby="map-title map-desc">
+              <title id="map-title">Interactive narrative map</title>
+              <desc id="map-desc">Nodes connected by a story thread from setup through claim.</desc>
+              <defs>
+                <linearGradient id="threadGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="var(--coral)"/>
+                  <stop offset="100%" stop-color="var(--ink-soft)"/>
+                </linearGradient>
+              </defs>
+              <path class="map-thread" d="M70 260 C140 260 150 100 240 100 S340 280 420 220 S520 80 570 90" fill="none" stroke="url(#threadGrad)" stroke-width="3" stroke-linecap="round"/>
+              <g class="map-node" data-map-node="setup" tabindex="0" role="button" aria-pressed="false" aria-label="Setup beat">
+                <circle cx="70" cy="260" r="22"/>
+                <text x="70" y="265" text-anchor="middle">1</text>
+              </g>
+              <g class="map-node" data-map-node="tension" tabindex="0" role="button" aria-pressed="true" aria-label="Tension beat">
+                <circle cx="240" cy="100" r="24"/>
+                <text x="240" y="105" text-anchor="middle">2</text>
+              </g>
+              <g class="map-node" data-map-node="evidence" tabindex="0" role="button" aria-pressed="false" aria-label="Evidence beat">
+                <circle cx="420" cy="220" r="22"/>
+                <text x="420" y="225" text-anchor="middle">3</text>
+              </g>
+              <g class="map-node" data-map-node="turn" tabindex="0" role="button" aria-pressed="false" aria-label="Turn beat">
+                <circle cx="520" cy="80" r="20"/>
+                <text x="520" y="85" text-anchor="middle">4</text>
+              </g>
+              <g class="map-node" data-map-node="claim" tabindex="0" role="button" aria-pressed="false" aria-label="Claim beat">
+                <circle cx="570" cy="90" r="26"/>
+                <text x="570" y="95" text-anchor="middle">5</text>
+              </g>
+            </svg>
+          </div>
+
+          <aside class="map-detail" data-map-detail aria-live="polite">
+            <p class="map-kicker">Beat 02 · Tension</p>
+            <h3 data-detail-title>The process risk</h3>
+            <p data-detail-body>
+              Stakeholders agree on the destination but stall on procedure.
+              The story turns when delay is framed as design, not accident.
+            </p>
+            <dl class="detail-meta">
+              <div>
+                <dt>Sources</dt>
+                <dd data-detail-sources>Harbor minutes · Site walk</dd>
+              </div>
+              <div>
+                <dt>Open questions</dt>
+                <dd data-detail-questions>Who owns the next vote?</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section overview" id="overview">
+      <div class="shell overview-grid">
+        <div>
+          <p class="eyebrow">Overview</p>
+          <h2>How a session feels.</h2>
+          <p class="section-lede">
+            A quiet, focused pass from capture to narrative spine—designed for deep work
+            and clear collaboration, not notification noise.
+          </p>
+        </div>
+        <ol class="overview-timeline">
+          <li>
+            <span class="time">0:00</span>
+            <div>
+              <h3>Import the stack</h3>
+              <p>Sources land with automatic excerpt anchors and readable titles.</p>
+            </div>
+          </li>
+          <li>
+            <span class="time">0:04</span>
+            <div>
+              <h3>Sketch the spine</h3>
+              <p>Place five beats. Attach notes. Leave gaps where proof is thin.</p>
+            </div>
+          </li>
+          <li>
+            <span class="time">0:11</span>
+            <div>
+              <h3>Pressure-test the turn</h3>
+              <p>Invite a collaborator. They challenge one claim; the map updates live.</p>
+            </div>
+          </li>
+          <li>
+            <span class="time">0:18</span>
+            <div>
+              <h3>Export the story</h3>
+              <p>Outline, citation pack, and map snapshot leave together—ready for writing.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section features" id="features">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Capabilities</p>
+          <h2>Everything that keeps a narrative honest.</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" width="40" height="40"><path d="M8 28V10h16l8 8v10H8z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M24 10v8h8" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>Provenance lattice</h3>
+            <p>Every claim retains a path back to page, timestamp, or speaker. Nothing floats free.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" width="40" height="40"><circle cx="12" cy="20" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="28" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="28" cy="28" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16.5 18 L23.5 14 M16.5 22 L23.5 26" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>Collaborative beats</h3>
+            <p>Co-edit the spine. Comments, assignments, and alternate frames sit on the map itself.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" width="40" height="40"><path d="M8 12h24M8 20h16M8 28h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="30" cy="20" r="4" fill="currentColor"/></svg>
+            </div>
+            <h3>Story outlines</h3>
+            <p>Generate a linear outline from the map when you are ready to write—or present—without retyping.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" width="40" height="40"><rect x="8" y="10" width="24" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M14 18h12M14 24h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Confidence marks</h3>
+            <p>Flag solid, contested, and speculative statements so readers know where the argument is soft.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" width="40" height="40"><path d="M12 28c0-8 4-14 8-16 4 2 8 8 8 16" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="20" cy="12" r="3" fill="currentColor"/></svg>
+            </div>
+            <h3>Focus modes</h3>
+            <p>Hide noise. Work only on open questions, only on unsupported claims, or only on one collaborator’s lane.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" width="40" height="40"><path d="M10 26l6-12 5 8 4-6 5 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Local-first calm</h3>
+            <p>Your library stays on device by default. Sync is intentional, not a constant background storm.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section teams" id="teams">
+      <div class="shell teams-grid">
+        <div class="section-head left">
+          <p class="eyebrow">Teams</p>
+          <h2>Where narrative maps change the work.</h2>
+        </div>
+        <div class="team-cards">
+          <article class="team-card">
+            <h3>Investigative desks</h3>
+            <p>Hold multi-source stories across months. Hand a map to editors instead of a folder of notes.</p>
+          </article>
+          <article class="team-card">
+            <h3>Policy &amp; civic research</h3>
+            <p>Make tradeoffs legible. Show which findings drive each recommendation—and which remain thin.</p>
+          </article>
+          <article class="team-card">
+            <h3>Product discovery</h3>
+            <p>Connect interviews, metrics, and hypotheses into a decision narrative the whole org can follow.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quote">
+      <div class="shell">
+        <blockquote>
+          <p>
+            “We stopped debating which doc was current. The map became the shared memory—
+            and the story finally had a spine.”
+          </p>
+          <footer>
+            <cite>Maya Chen</cite>
+            <span>Research lead, civic technology lab</span>
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="section cta" id="cta">
+      <div class="shell cta-panel">
+        <div class="cta-copy">
+          <p class="eyebrow light">Start with one story</p>
+          <h2>Build a narrative your evidence can carry.</h2>
+          <p>
+            Open a workspace, drop a handful of sources, and sketch the spine.
+            Narra keeps context connected while you find the turn.
+          </p>
+        </div>
+        <form class="cta-form" data-cta-form novalidate>
+          <label class="field">
+            <span>Work email</span>
+            <input type="email" name="email" autocomplete="email" required placeholder="you@lab.org" data-email>
+          </label>
+          <label class="field">
+            <span>What are you mapping?</span>
+            <select name="focus" data-focus>
+              <option value="investigation">Long-form investigation</option>
+              <option value="policy">Policy brief</option>
+              <option value="product">Product research</option>
+              <option value="thesis">Thesis or report</option>
+            </select>
+          </label>
+          <button class="btn btn-primary btn-lg" type="submit">Build a narrative</button>
+          <p class="form-note" data-form-status role="status" aria-live="polite">
+            No account required for the local demo workspace. This form stays on your device.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <span class="brand-name">Narra</span>
+        <p>Turn research into a living story.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="#method">Method</a>
+        <a href="#workspace">Workspace</a>
+        <a href="#map">Narrative map</a>
+        <a href="#overview">Overview</a>
+        <a href="#cta">Get started</a>
+      </nav>
+      <p class="footer-meta">Knowledge Technology · Offline-capable static demo</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

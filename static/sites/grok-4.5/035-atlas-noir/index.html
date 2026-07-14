@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Atlas Noir — Go where the map ends.</title>
+  <meta name="description" content="Private expeditions shaped around remote landscapes, rare access, and impeccable restraint.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Atlas Noir home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="36" height="36" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1"/>
+            <circle cx="20" cy="20" r="3" fill="currentColor"/>
+            <path d="M20 4v6M20 30v6M4 20h6M30 20h6" stroke="currentColor" stroke-width="1"/>
+            <path d="M8.5 8.5l4.2 4.2M27.3 27.3l4.2 4.2M31.5 8.5l-4.2 4.2M12.7 27.3l-4.2 4.2" stroke="currentColor" stroke-width="1"/>
+          </svg>
+        </span>
+        <span class="brand-text">Atlas Noir</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#expeditions">Expeditions</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#journal">Field Journal</a></li>
+          <li><a href="#access">Access</a></li>
+          <li><a class="nav-cta" href="#plan">Plan</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-backdrop" aria-hidden="true">
+        <div class="hero-grid"></div>
+        <div class="hero-glow"></div>
+        <svg class="hero-compass" viewBox="0 0 200 200" fill="none">
+          <circle cx="100" cy="100" r="88" stroke="currentColor" stroke-width="0.5" opacity="0.35"/>
+          <circle cx="100" cy="100" r="62" stroke="currentColor" stroke-width="0.5" opacity="0.25"/>
+          <path d="M100 18 L106 94 L100 88 L94 94 Z" fill="currentColor" opacity="0.55"/>
+          <path d="M100 182 L94 106 L100 112 L106 106 Z" fill="currentColor" opacity="0.2"/>
+          <path d="M18 100 L94 94 L88 100 L94 106 Z" fill="currentColor" opacity="0.2"/>
+          <path d="M182 100 L106 106 L112 100 L106 94 Z" fill="currentColor" opacity="0.2"/>
+        </svg>
+      </div>
+      <div class="hero-content">
+        <p class="eyebrow">Bespoke journeys</p>
+        <h1 id="hero-title">Go where the map ends.</h1>
+        <p class="hero-lede">Private expeditions shaped around remote landscapes, rare access, and impeccable restraint.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#plan">Plan an expedition</a>
+          <a class="btn btn-ghost" href="#journal">View field journal</a>
+        </div>
+        <dl class="hero-coords" aria-label="Expedition coordinates">
+          <div>
+            <dt>Latitude</dt>
+            <dd>64°08′ N</dd>
+          </div>
+          <div>
+            <dt>Longitude</dt>
+            <dd>21°56′ W</dd>
+          </div>
+          <div>
+            <dt>Season</dt>
+            <dd>Year-round</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section strip" aria-label="Credentials">
+      <div class="container strip-inner">
+        <p><span class="strip-label">Since 2009</span> Quiet routes across polar ice, desert massifs, and archipelagos without public airstrips.</p>
+        <ul class="strip-stats">
+          <li><strong>47</strong><span>private routes</span></li>
+          <li><strong>12</strong><span>field partners</span></li>
+          <li><strong>0</strong><span>group departures</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section expeditions" id="expeditions" aria-labelledby="expeditions-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Destinations</p>
+          <h2 id="expeditions-title">Expeditions beyond the itinerary</h2>
+          <p class="section-lede">Each journey is drawn for one party. We open doors that do not appear on commercial maps—then close them again behind you.</p>
+        </header>
+        <div class="card-grid">
+          <article class="exp-card">
+            <div class="exp-visual exp-visual-ice" aria-hidden="true">
+              <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <linearGradient id="ice-g" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#1a2a38"/>
+                    <stop offset="100%" stop-color="#0a1016"/>
+                  </linearGradient>
+                </defs>
+                <rect width="320" height="200" fill="url(#ice-g)"/>
+                <path d="M0 140 L40 110 L70 125 L110 85 L150 120 L190 70 L230 105 L270 90 L320 130 L320 200 L0 200 Z" fill="#c9a45c" opacity="0.12"/>
+                <path d="M0 160 L50 135 L90 150 L140 115 L180 145 L230 120 L280 140 L320 125 L320 200 L0 200 Z" fill="#e8e2d6" opacity="0.08"/>
+                <line x1="20" y1="40" x2="80" y2="40" stroke="#c9a45c" stroke-width="0.5" opacity="0.5"/>
+                <text x="24" y="34" fill="#c9a45c" font-size="10" font-family="Georgia, serif" opacity="0.7">64° N</text>
+              </svg>
+            </div>
+            <div class="exp-body">
+              <p class="exp-region">High Arctic</p>
+              <h3>Svalbard Night Coast</h3>
+              <p>Icebreaker cabins, polar bear scouts, and midwinter silence on fjords that freeze solid by February.</p>
+              <ul class="exp-meta">
+                <li>8–12 days</li>
+                <li>Party of 4</li>
+                <li>Nov–Mar</li>
+              </ul>
+            </div>
+          </article>
+          <article class="exp-card">
+            <div class="exp-visual exp-visual-sand" aria-hidden="true">
+              <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <linearGradient id="sand-g" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#2a2218"/>
+                    <stop offset="100%" stop-color="#0e0c0a"/>
+                  </linearGradient>
+                </defs>
+                <rect width="320" height="200" fill="url(#sand-g)"/>
+                <ellipse cx="160" cy="170" rx="180" ry="50" fill="#c9a45c" opacity="0.08"/>
+                <path d="M0 150 Q80 120 160 145 T320 130 L320 200 L0 200 Z" fill="#e8e2d6" opacity="0.06"/>
+                <circle cx="240" cy="55" r="18" fill="#c9a45c" opacity="0.15"/>
+                <text x="24" y="34" fill="#c9a45c" font-size="10" font-family="Georgia, serif" opacity="0.7">24° N</text>
+              </svg>
+            </div>
+            <div class="exp-body">
+              <p class="exp-region">Empty Quarter</p>
+              <h3>Rub' al Khali Traverse</h3>
+              <p>Camel caravans, mobile desert camps, and dunes that erase your tracks before dawn.</p>
+              <ul class="exp-meta">
+                <li>10 days</li>
+                <li>Party of 6</li>
+                <li>Oct–Apr</li>
+              </ul>
+            </div>
+          </article>
+          <article class="exp-card">
+            <div class="exp-visual exp-visual-peak" aria-hidden="true">
+              <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <linearGradient id="peak-g" x1="0" y1="0" x2="0.5" y2="1">
+                    <stop offset="0%" stop-color="#1c1e28"/>
+                    <stop offset="100%" stop-color="#0a0b10"/>
+                  </linearGradient>
+                </defs>
+                <rect width="320" height="200" fill="url(#peak-g)"/>
+                <path d="M0 200 L50 90 L90 140 L140 40 L200 130 L250 70 L320 160 L320 200 Z" fill="#c9a45c" opacity="0.1"/>
+                <path d="M140 40 L155 70 L140 65 L125 70 Z" fill="#e8e2d6" opacity="0.2"/>
+                <text x="24" y="34" fill="#c9a45c" font-size="10" font-family="Georgia, serif" opacity="0.7">28° N</text>
+              </svg>
+            </div>
+            <div class="exp-body">
+              <p class="exp-region">Himalaya</p>
+              <h3>Mustang Sky Corridor</h3>
+              <p>Restricted valleys, cliffside gompas, and high passes walked with local guides who know every wind.</p>
+              <ul class="exp-meta">
+                <li>14 days</li>
+                <li>Party of 4</li>
+                <li>Mar–May, Sep–Nov</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section approach" id="approach" aria-labelledby="approach-title">
+      <div class="container approach-grid">
+        <header class="section-head">
+          <p class="eyebrow">Method</p>
+          <h2 id="approach-title">An approach of fewer, finer lines</h2>
+          <p class="section-lede">Atlas Noir does not sell packages. We shape access—permits, vessels, rangers, silence—around a single private brief.</p>
+        </header>
+        <ol class="steps">
+          <li>
+            <span class="step-num" aria-hidden="true">01</span>
+            <div>
+              <h3>Brief</h3>
+              <p>A private conversation on landscape, season, pace, and the degree of comfort you require in the wild.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num" aria-hidden="true">02</span>
+            <div>
+              <h3>Route</h3>
+              <p>Field partners draft a route that exists only for your party—then secure the rare clearances it demands.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num" aria-hidden="true">03</span>
+            <div>
+              <h3>Field</h3>
+              <p>On the ground: discreet logistics, medical readiness, and hosts who treat privacy as a craft.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num" aria-hidden="true">04</span>
+            <div>
+              <h3>Return</h3>
+              <p>Maps, notes, and photographs remain yours. The corridor closes. The story stays private.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section journal" id="journal" aria-labelledby="journal-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Notes from the field</p>
+          <h2 id="journal-title">Field journal</h2>
+          <p class="section-lede">Dispatches from expeditions already complete—written for those who travel with intention, not for the feed.</p>
+        </header>
+        <div class="journal-list">
+          <article class="journal-entry">
+            <time datetime="2025-11">November 2025</time>
+            <h3>When the ice road opens</h3>
+            <p>On the east coast of Greenland, a frozen lagoon becomes a runway. We wait three days for wind to settle, then land at blue hour with no one else on the ice.</p>
+            <p class="journal-tag">Greenland · Air access</p>
+          </article>
+          <article class="journal-entry">
+            <time datetime="2025-08">August 2025</time>
+            <h3>Letters from a closed island</h3>
+            <p>A private transfer to a volcanic isle with no hotels and one family of caretakers. Dinner is caught the same afternoon; the stars refuse light pollution.</p>
+            <p class="journal-tag">Azores · Island stay</p>
+          </article>
+          <article class="journal-entry">
+            <time datetime="2025-03">March 2025</time>
+            <h3>Altitude without the queue</h3>
+            <p>A spring corridor through upper Mustang before the main trails open. Prayer flags, empty tea houses, and a guide who knows which pass the wind prefers.</p>
+            <p class="journal-tag">Nepal · High trails</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section access" id="access" aria-labelledby="access-title">
+      <div class="container access-panel">
+        <div class="access-copy">
+          <p class="eyebrow">Membership of place</p>
+          <h2 id="access-title">Rare access, held lightly</h2>
+          <p>We work with a closed circle of vessel captains, desert houses, polar operators, and mountain hosts. Capacity is limited by design—never by marketing calendar.</p>
+          <ul class="access-list">
+            <li>Private air and ice-strip coordination</li>
+            <li>Diplomatic and park permits handled in full</li>
+            <li>Medical and extraction plans for remote zones</li>
+            <li>Zero public itineraries; zero shared departures</li>
+          </ul>
+        </div>
+        <aside class="access-aside" aria-label="Service note">
+          <p class="aside-kicker">By invitation &amp; referral</p>
+          <p class="aside-body">New expeditions begin with a short brief. If the landscape fits, we reply within five working days with a route sketch and a single point of contact.</p>
+          <p class="aside-meta">Atelier · Lisbon · Reykjavík</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section plan" id="plan" aria-labelledby="plan-title">
+      <div class="container plan-grid">
+        <header class="section-head">
+          <p class="eyebrow">Begin</p>
+          <h2 id="plan-title">Plan an expedition</h2>
+          <p class="section-lede">Share the landscape you cannot stop thinking about. We will tell you if it can be walked, sailed, or flown—and under what conditions.</p>
+        </header>
+        <form class="plan-form" id="plan-form" action="#" method="get" novalidate>
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required placeholder="Your full name">
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+          </div>
+          <div class="form-row">
+            <label for="region">Preferred region</label>
+            <select id="region" name="region" required>
+              <option value="" selected disabled>Select a horizon</option>
+              <option value="arctic">High Arctic &amp; polar</option>
+              <option value="desert">Desert &amp; empty quarter</option>
+              <option value="mountain">High mountain corridors</option>
+              <option value="island">Remote islands</option>
+              <option value="open">Open to counsel</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="party">Party size</label>
+            <select id="party" name="party">
+              <option value="2">2 travelers</option>
+              <option value="4" selected>3–4 travelers</option>
+              <option value="6">5–6 travelers</option>
+              <option value="8">7–8 travelers</option>
+            </select>
+          </div>
+          <div class="form-row form-row-full">
+            <label for="notes">Field notes</label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Season preferences, physical pace, comfort expectations, or a place that has never left you alone."></textarea>
+          </div>
+          <div class="form-actions form-row-full">
+            <button class="btn btn-primary" type="submit">Request a route sketch</button>
+            <p class="form-note" id="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <p class="footer-name">Atlas Noir</p>
+        <p class="footer-tag">Go where the map ends.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#expeditions">Expeditions</a>
+        <a href="#approach">Approach</a>
+        <a href="#journal">Field Journal</a>
+        <a href="#plan">Plan</a>
+      </nav>
+      <p class="footer-copy">Private expeditions. Remote landscapes. Impeccable restraint.</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

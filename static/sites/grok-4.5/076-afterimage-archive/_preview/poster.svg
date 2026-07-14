@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Afterimage Archive — What remains after looking.">
+  <defs>
+    <radialGradient id="bgGlow" cx="28%" cy="22%" r="55%">
+      <stop offset="0%" stop-color="#5a9aaa" stop-opacity="0.22"/>
+      <stop offset="50%" stop-color="#a86a7a" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0e0d0c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bgWarm" cx="82%" cy="78%" r="45%">
+      <stop offset="0%" stop-color="#d4783a" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#0e0d0c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ghostA" cx="42%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#5a9aaa" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#2a4048" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#12100e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ghostB" cx="62%" cy="58%" r="48%">
+      <stop offset="0%" stop-color="#d4783a" stop-opacity="0.4"/>
+      <stop offset="70%" stop-color="#a86a7a" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#12100e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fadeBar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0e0d0c" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0e0d0c" stop-opacity="0.85"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ground -->
+  <rect width="1200" height="900" fill="#0e0d0c"/>
+  <rect width="1200" height="900" fill="url(#bgGlow)"/>
+  <rect width="1200" height="900" fill="url(#bgWarm)"/>
+
+  <!-- Subtle film edge -->
+  <g fill="#c8bfb4" opacity="0.08">
+    <rect x="36" y="48" width="18" height="28" rx="2"/>
+    <rect x="36" y="108" width="18" height="28" rx="2"/>
+    <rect x="36" y="168" width="18" height="28" rx="2"/>
+    <rect x="36" y="228" width="18" height="28" rx="2"/>
+    <rect x="36" y="288" width="18" height="28" rx="2"/>
+    <rect x="36" y="348" width="18" height="28" rx="2"/>
+    <rect x="36" y="408" width="18" height="28" rx="2"/>
+    <rect x="36" y="468" width="18" height="28" rx="2"/>
+    <rect x="36" y="528" width="18" height="28" rx="2"/>
+    <rect x="36" y="588" width="18" height="28" rx="2"/>
+    <rect x="36" y="648" width="18" height="28" rx="2"/>
+    <rect x="36" y="708" width="18" height="28" rx="2"/>
+    <rect x="36" y="768" width="18" height="28" rx="2"/>
+    <rect x="1146" y="48" width="18" height="28" rx="2"/>
+    <rect x="1146" y="108" width="18" height="28" rx="2"/>
+    <rect x="1146" y="168" width="18" height="28" rx="2"/>
+    <rect x="1146" y="228" width="18" height="28" rx="2"/>
+    <rect x="1146" y="288" width="18" height="28" rx="2"/>
+    <rect x="1146" y="348" width="18" height="28" rx="2"/>
+    <rect x="1146" y="408" width="18" height="28" rx="2"/>
+    <rect x="1146" y="468" width="18" height="28" rx="2"/>
+    <rect x="1146" y="528" width="18" height="28" rx="2"/>
+    <rect x="1146" y="588" width="18" height="28" rx="2"/>
+    <rect x="1146" y="648" width="18" height="28" rx="2"/>
+    <rect x="1146" y="708" width="18" height="28" rx="2"/>
+    <rect x="1146" y="768" width="18" height="28" rx="2"/>
+  </g>
+
+  <!-- Overlapping residual frames (motif) -->
+  <g transform="translate(300,140)">
+    <rect x="40" y="20" width="380" height="480" fill="#161412" stroke="#c8bfb4" stroke-opacity="0.18" stroke-width="1.5"/>
+    <rect x="40" y="20" width="380" height="480" fill="url(#ghostA)"/>
+    <rect x="160" y="100" width="360" height="420" fill="#161412" stroke="#5a9aaa" stroke-opacity="0.4" stroke-width="1.5" opacity="0.92"/>
+    <rect x="160" y="100" width="360" height="420" fill="url(#ghostB)"/>
+    <ellipse cx="280" cy="280" rx="90" ry="120" fill="#e8e2d8" opacity="0.06"/>
+    <circle cx="300" cy="260" r="48" fill="none" stroke="#e8e2d8" stroke-opacity="0.22" stroke-width="1.5"/>
+    <circle cx="320" cy="275" r="72" fill="none" stroke="#a86a7a" stroke-opacity="0.3" stroke-width="1.5"/>
+    <circle cx="310" cy="268" r="28" fill="#c8bfb4" opacity="0.08"/>
+    <!-- third faint frame -->
+    <rect x="100" y="60" width="340" height="440" fill="none" stroke="#d4783a" stroke-opacity="0.2" stroke-width="1"/>
+  </g>
+
+  <rect x="0" y="620" width="1200" height="280" fill="url(#fadeBar)"/>
+
+  <!-- Type -->
+  <text x="100" y="680" fill="#5a9aaa" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="18" letter-spacing="6">ARCHIVE 001—947</text>
+  <text x="100" y="760" fill="#e8e2d8" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="72" font-weight="600" letter-spacing="-1">Afterimage Archive</text>
+  <text x="100" y="820" fill="#8a8278" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="28" font-style="italic">What remains after looking.</text>
+  <text x="100" y="862" fill="#8a8278" font-family="'SF Mono', Consolas, 'Liberation Mono', monospace" font-size="14" letter-spacing="3">EXPERIMENTAL PHOTOGRAPHY 1968–1999</text>
+</svg>

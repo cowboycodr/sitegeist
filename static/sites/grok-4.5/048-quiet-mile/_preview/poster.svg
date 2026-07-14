@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Quiet Mile — The city, softened.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4f0e8"/>
+      <stop offset="55%" stop-color="#e8e2d6"/>
+      <stop offset="100%" stop-color="#d5ddd7"/>
+    </linearGradient>
+    <linearGradient id="bike" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2a2e2a"/>
+      <stop offset="100%" stop-color="#161714"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#5f7a6a" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#5f7a6a" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <ellipse cx="900" cy="220" rx="320" ry="240" fill="url(#glow)"/>
+  <ellipse cx="280" cy="700" rx="280" ry="160" fill="#a8bdb0" opacity="0.18"/>
+
+  <!-- Soft skyline motif -->
+  <g fill="#3d5246" opacity="0.14">
+    <rect x="80" y="280" width="70" height="220" rx="3"/>
+    <rect x="165" y="220" width="90" height="280" rx="3"/>
+    <rect x="270" y="300" width="55" height="200" rx="3"/>
+    <rect x="340" y="250" width="100" height="250" rx="3"/>
+    <rect x="460" y="190" width="80" height="310" rx="3"/>
+    <rect x="560" y="270" width="60" height="230" rx="3"/>
+    <rect x="640" y="230" width="110" height="270" rx="3"/>
+    <rect x="770" y="300" width="50" height="200" rx="3"/>
+    <rect x="840" y="210" width="95" height="290" rx="3"/>
+    <rect x="955" y="280" width="70" height="220" rx="3"/>
+    <rect x="1045" y="240" width="85" height="260" rx="3"/>
+  </g>
+
+  <!-- Ground line -->
+  <line x1="80" y1="520" x2="1120" y2="520" stroke="#161714" stroke-opacity="0.08" stroke-width="2"/>
+
+  <!-- Brand mark -->
+  <g transform="translate(80 72)">
+    <circle cx="22" cy="22" r="20" fill="none" stroke="#161714" stroke-width="2"/>
+    <path d="M10 25c3.5-8 7.5-12 12-12s8.5 4 12 12" fill="none" stroke="#5f7a6a" stroke-width="2.25" stroke-linecap="round"/>
+    <circle cx="22" cy="28" r="3" fill="#161714"/>
+    <text x="56" y="30" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="28" fill="#161714" letter-spacing="1.5">Quiet Mile</text>
+  </g>
+
+  <!-- Large tagline -->
+  <text x="80" y="170" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="72" fill="#161714" font-weight="400">The city,</text>
+  <text x="80" y="248" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="72" fill="#3d5246" font-style="italic">softened.</text>
+
+  <!-- Hero bike (centered lower half) -->
+  <g transform="translate(180 420)">
+    <!-- Soft shadow -->
+    <ellipse cx="420" cy="310" rx="340" ry="28" fill="#5f7a6a" opacity="0.15"/>
+
+    <!-- Rear wheel -->
+    <circle cx="180" cy="240" r="105" fill="none" stroke="#161714" stroke-width="10"/>
+    <circle cx="180" cy="240" r="78" fill="none" stroke="#5f7a6a" stroke-width="1.5" opacity="0.45"/>
+    <circle cx="180" cy="240" r="12" fill="#161714"/>
+
+    <!-- Front wheel + motor -->
+    <circle cx="660" cy="240" r="105" fill="none" stroke="#161714" stroke-width="10"/>
+    <circle cx="660" cy="240" r="78" fill="none" stroke="#5f7a6a" stroke-width="1.5" opacity="0.45"/>
+    <circle cx="660" cy="240" r="34" fill="#5f7a6a" opacity="0.22"/>
+    <circle cx="660" cy="240" r="12" fill="#161714"/>
+
+    <!-- Frame -->
+    <path d="M180 240 L340 90 L580 90 L660 240" fill="none" stroke="url(#bike)" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M340 90 L390 240 L180 240" fill="none" stroke="url(#bike)" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M390 240 L580 90" fill="none" stroke="url(#bike)" stroke-width="11" stroke-linecap="round"/>
+
+    <!-- Seat -->
+    <path d="M340 90 L320 38" fill="none" stroke="#161714" stroke-width="9" stroke-linecap="round"/>
+    <path d="M290 32 Q320 18 350 32" fill="none" stroke="#161714" stroke-width="12" stroke-linecap="round"/>
+
+    <!-- Handlebars -->
+    <path d="M580 90 L600 36" fill="none" stroke="#161714" stroke-width="9" stroke-linecap="round"/>
+    <path d="M550 28 H650" fill="none" stroke="#161714" stroke-width="11" stroke-linecap="round"/>
+
+    <!-- Battery -->
+    <rect x="420" y="128" width="78" height="26" rx="8" fill="#5f7a6a"/>
+    <rect x="430" y="134" width="18" height="14" rx="3" fill="#a8bdb0" opacity="0.75"/>
+
+    <!-- Motion trails -->
+    <g stroke="#5f7a6a" stroke-linecap="round" opacity="0.4">
+      <path d="M20 250 H90" stroke-width="3"/>
+      <path d="M8 280 H70" stroke-width="2"/>
+      <path d="M30 310 H95" stroke-width="2"/>
+    </g>
+  </g>
+
+  <!-- Bottom caption bar -->
+  <rect x="0" y="780" width="1200" height="120" fill="#161714"/>
+  <text x="80" y="848" font-family="system-ui, 'Segoe UI', sans-serif" font-size="22" fill="#a8bdb0" letter-spacing="4" text-transform="uppercase">URBAN ELECTRIC MOBILITY</text>
+  <text x="80" y="882" font-family="system-ui, 'Segoe UI', sans-serif" font-size="20" fill="#f4f0e8" opacity="0.7">Silent · Lightweight · City-tuned</text>
+  <text x="980" y="868" font-family="Georgia, serif" font-size="28" fill="#5f7a6a" text-anchor="middle">M1</text>
+</svg>

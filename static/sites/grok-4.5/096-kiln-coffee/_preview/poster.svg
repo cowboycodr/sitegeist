@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Kiln Coffee — Heat reveals character.">
+  <defs>
+    <radialGradient id="bgGlow" cx="62%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#3a2218"/>
+      <stop offset="45%" stop-color="#1c1410"/>
+      <stop offset="100%" stop-color="#0e0b09"/>
+    </radialGradient>
+    <radialGradient id="emberCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0a060"/>
+      <stop offset="35%" stop-color="#c45c26"/>
+      <stop offset="100%" stop-color="#3d1e10"/>
+    </radialGradient>
+    <linearGradient id="ringStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8c9a0"/>
+      <stop offset="50%" stop-color="#c45c26"/>
+      <stop offset="100%" stop-color="#8a6040"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f4ebe0"/>
+      <stop offset="100%" stop-color="#e8c9a0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="#0e0b09"/>
+  <rect width="1200" height="900" fill="url(#bgGlow)"/>
+
+  <!-- Subtle grain-like dots -->
+  <g fill="#f4ebe0" opacity="0.03">
+    <circle cx="80" cy="120" r="1.5"/>
+    <circle cx="180" cy="80" r="1"/>
+    <circle cx="320" cy="200" r="1.2"/>
+    <circle cx="90" cy="400" r="1"/>
+    <circle cx="250" cy="520" r="1.5"/>
+    <circle cx="140" cy="700" r="1"/>
+    <circle cx="400" cy="780" r="1.2"/>
+    <circle cx="1050" cy="100" r="1"/>
+    <circle cx="1120" cy="280" r="1.5"/>
+    <circle cx="980" cy="600" r="1"/>
+    <circle cx="1100" cy="750" r="1.2"/>
+  </g>
+
+  <!-- Corner frame accents -->
+  <g stroke="#c45c26" stroke-width="1.5" opacity="0.45" fill="none">
+    <path d="M48 120 V48 H120"/>
+    <path d="M1152 120 V48 H1080"/>
+    <path d="M48 780 V852 H120"/>
+    <path d="M1152 780 V852 H1080"/>
+  </g>
+
+  <!-- Kiln ring motif (right) -->
+  <g transform="translate(720, 450)">
+    <circle cx="0" cy="0" r="210" fill="none" stroke="url(#ringStroke)" stroke-width="1.5" opacity="0.45"/>
+    <circle cx="0" cy="0" r="168" fill="none" stroke="url(#ringStroke)" stroke-width="1" opacity="0.3" stroke-dasharray="5 10"/>
+    <circle cx="0" cy="0" r="118" fill="none" stroke="#d4a574" stroke-width="0.75" opacity="0.25"/>
+    <circle cx="0" cy="0" r="78" fill="url(#emberCore)"/>
+    <circle cx="0" cy="0" r="52" fill="none" stroke="#f4ebe0" stroke-width="0.8" opacity="0.28"/>
+    <g stroke="#e8c9a0" stroke-width="1.5" stroke-linecap="round" opacity="0.5">
+      <line x1="0" y1="-248" x2="0" y2="-222"/>
+      <line x1="0" y1="222" x2="0" y2="248"/>
+      <line x1="-248" y1="0" x2="-222" y2="0"/>
+      <line x1="222" y1="0" x2="248" y2="0"/>
+    </g>
+    <!-- Soft outer glow -->
+    <circle cx="0" cy="0" r="95" fill="#c45c26" opacity="0.08"/>
+  </g>
+
+  <!-- Left content block -->
+  <g transform="translate(90, 220)">
+    <!-- Eyebrow -->
+    <rect x="0" y="0" width="280" height="36" rx="18" fill="rgba(196,92,38,0.15)" stroke="rgba(196,92,38,0.4)" stroke-width="1"/>
+    <circle cx="22" cy="18" r="5" fill="#e07038"/>
+    <text x="38" y="23" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#d4a574" letter-spacing="2.5">BATCH 214 · ROASTERY</text>
+
+    <!-- Brand name -->
+    <text x="0" y="130" font-family="Georgia, 'Iowan Old Style', 'Times New Roman', serif" font-size="96" font-weight="600" fill="url(#titleGrad)" letter-spacing="-1.5">Kiln</text>
+    <text x="0" y="210" font-family="Georgia, 'Iowan Old Style', 'Times New Roman', serif" font-size="96" font-weight="600" fill="url(#titleGrad)" letter-spacing="-1.5">Coffee</text>
+
+    <!-- Divider -->
+    <line x1="0" y1="250" x2="120" y2="250" stroke="#c45c26" stroke-width="2"/>
+
+    <!-- Tagline -->
+    <text x="0" y="310" font-family="Georgia, 'Iowan Old Style', serif" font-size="32" font-style="italic" fill="#f4ebe0">Heat reveals character.</text>
+
+    <!-- Description line -->
+    <text x="0" y="370" font-family="system-ui, 'Segoe UI', sans-serif" font-size="18" fill="#9a8f84">Patient roast profiles · Careful sourcing</text>
+  </g>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="820" width="1200" height="80" fill="#0a0806" opacity="0.7"/>
+  <text x="90" y="868" font-family="system-ui, 'Segoe UI', sans-serif" font-size="16" fill="#9a8f84" letter-spacing="3">COFFEE ROASTERY</text>
+  <text x="1110" y="868" font-family="system-ui, 'Segoe UI', sans-serif" font-size="16" fill="#d4a574" text-anchor="end" letter-spacing="2">SHOP FRESH</text>
+</svg>

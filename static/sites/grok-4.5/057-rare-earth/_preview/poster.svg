@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Rare Earth — Formed by pressure.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1512"/>
+      <stop offset="45%" stop-color="#100e0c"/>
+      <stop offset="100%" stop-color="#0a0908"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8d4b8"/>
+      <stop offset="45%" stop-color="#c9a27a"/>
+      <stop offset="100%" stop-color="#6b4a32"/>
+    </linearGradient>
+    <radialGradient id="stone" cx="42%" cy="38%" r="58%">
+      <stop offset="0%" stop-color="#c4925a"/>
+      <stop offset="55%" stop-color="#8a5a38"/>
+      <stop offset="100%" stop-color="#4a2e1c"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="70%" cy="35%" r="45%">
+      <stop offset="0%" stop-color="#c9a27a" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#c9a27a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- Geological strata -->
+  <path d="M0 620 C200 580 360 660 540 630 C740 595 900 520 1080 555 C1140 568 1180 590 1200 605 L1200 900 L0 900 Z" fill="#161210"/>
+  <path d="M0 690 C180 655 340 720 520 700 C720 675 880 610 1060 640 C1130 652 1175 680 1200 695 L1200 900 L0 900 Z" fill="#12100e"/>
+  <path d="M0 760 C160 735 320 790 500 775 C700 755 860 710 1040 740 C1120 752 1170 775 1200 790 L1200 900 L0 900 Z" fill="#0d0b0a"/>
+
+  <!-- Subtle grain dots -->
+  <g fill="#c9a27a" opacity="0.08">
+    <circle cx="120" cy="140" r="1.5"/>
+    <circle cx="260" cy="90" r="1"/>
+    <circle cx="400" cy="180" r="1.2"/>
+    <circle cx="90" cy="280" r="1"/>
+    <circle cx="980" cy="120" r="1.4"/>
+    <circle cx="1080" cy="220" r="1"/>
+    <circle cx="860" cy="80" r="1.2"/>
+    <circle cx="720" cy="160" r="1"/>
+  </g>
+
+  <!-- Brand mark (hex crystal) -->
+  <g transform="translate(96 88)">
+    <path d="M28 4L50 17V43L28 56L6 43V17L28 4Z" fill="none" stroke="#c9a27a" stroke-width="2"/>
+    <path d="M28 16L40 23V37L28 44L16 37V23L28 16Z" fill="#c9a27a" opacity="0.3"/>
+    <circle cx="28" cy="30" r="4" fill="#c9a27a"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="170" y="128" fill="#f2ebe3" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="42" letter-spacing="4">Rare Earth</text>
+  <text x="96" y="190" fill="#c9a27a" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="16" letter-spacing="8" font-weight="600">OBJECTS OF PERMANENCE</text>
+
+  <!-- Large tagline -->
+  <text x="96" y="320" fill="#f2ebe3" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="86" letter-spacing="-1">Formed by</text>
+  <text x="96" y="420" fill="#f2ebe3" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="86" letter-spacing="-1">pressure.</text>
+
+  <!-- Supporting line -->
+  <text x="96" y="500" fill="#b5a898" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="22">Sculptural jewelry · recycled metals · traceable stones</text>
+
+  <!-- Signature motif: ring + raw stone -->
+  <g transform="translate(760 220)">
+    <!-- Shadow -->
+    <ellipse cx="150" cy="380" rx="90" ry="14" fill="#000" opacity="0.35"/>
+    <!-- Raw stone -->
+    <path d="M90 80 C55 140 48 230 95 310 C125 355 195 375 240 320 C285 260 292 170 250 105 C215 55 135 40 90 80Z" fill="url(#stone)"/>
+    <path d="M115 110 C95 155 90 220 125 280 C148 315 198 325 230 285 C260 245 265 180 240 130 C215 90 145 80 115 110Z" fill="#6b3e28" opacity="0.4"/>
+    <path d="M140 145 L195 120 L220 175 L175 210 Z" fill="#f0dcc0" opacity="0.2"/>
+    <!-- Metal ring -->
+    <circle cx="165" cy="220" r="88" fill="none" stroke="url(#metal)" stroke-width="14"/>
+    <circle cx="165" cy="220" r="70" fill="none" stroke="#d4b48c" stroke-width="1.5" opacity="0.45"/>
+    <!-- Fracture line -->
+    <path d="M165 132 L178 190 L165 308 L152 190 Z" fill="#1a120c" opacity="0.22"/>
+  </g>
+
+  <!-- Bottom accent bar -->
+  <rect x="96" y="780" width="72" height="3" fill="#c9a27a"/>
+  <text x="96" y="825" fill="#7a6f62" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="18" letter-spacing="3">JEWELRY</text>
+</svg>

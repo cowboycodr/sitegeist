@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="One beautifully simple account for saving, spending, investing, and living across borders.">
+  <title>Orbit — Money that moves with you</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="bg-orbit" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="logo" href="#top" aria-label="Orbit home">
+        <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="5" fill="#e8c47a"/>
+          <ellipse cx="16" cy="16" rx="13" ry="6" stroke="#7ec8c8" stroke-width="1.5" transform="rotate(-28 16 16)"/>
+          <ellipse cx="16" cy="16" rx="13" ry="6" stroke="rgba(232,196,122,0.45)" stroke-width="1.2" transform="rotate(42 16 16)"/>
+        </svg>
+        Orbit
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#benefits">Benefits</a>
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#plans">Plans</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="#open" data-open-account>Open an account</a>
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Open menu">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav-panel" id="nav-panel" hidden>
+      <nav aria-label="Mobile">
+        <a href="#benefits">Benefits</a>
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#plans">Plans</a>
+        <a href="#faq">FAQ</a>
+        <a href="#open" data-open-account>Open an account</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Banking without gravity</p>
+          <h1>Money that <em>moves</em> with you.</h1>
+          <p class="lede">
+            One beautifully simple account for saving, spending, investing, and living across borders—
+            built for people whose lives don’t stay in one place.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary btn-lg" href="#open" data-open-account>Open an account</a>
+            <a class="btn btn-secondary btn-lg" href="#benefits">See benefits</a>
+          </div>
+          <div class="trust-row" role="list">
+            <div class="trust-item" role="listitem">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              FDIC-insured cash*
+            </div>
+            <div class="trust-item" role="listitem">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              No monthly fees on Core
+            </div>
+            <div class="trust-item" role="listitem">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              150+ currencies
+            </div>
+          </div>
+        </div>
+
+        <div class="orbit-stage" aria-hidden="true">
+          <div class="orbit-ring"></div>
+          <div class="orbit-ring orbit-ring-2"></div>
+          <div class="orbit-ring orbit-ring-3"></div>
+          <div class="orbit-core"></div>
+          <div class="orbit-sat sat-a">
+            <strong>Spend</strong>
+            <span>Card &amp; pay anywhere</span>
+            <div class="sat-pill gold">−$48.20</div>
+          </div>
+          <div class="orbit-sat sat-b">
+            <strong>Save</strong>
+            <span>High-yield vault</span>
+            <div class="sat-pill up">+4.25% APY</div>
+          </div>
+          <div class="orbit-sat sat-c">
+            <strong>Invest</strong>
+            <span>Global markets</span>
+            <div class="sat-pill up">+$1,284</div>
+          </div>
+          <div class="orbit-sat sat-d">
+            <strong>Cross-border</strong>
+            <span>Instant FX</span>
+            <div class="sat-pill">EUR · GBP · JPY</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits" id="benefits" aria-labelledby="benefits-title">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="section-kicker">Benefits</p>
+          <h2 id="benefits-title">Everything money does, in one orbit</h2>
+          <p>Stop juggling apps and accounts. Orbit keeps cash, cards, savings, and investments in a single, clear view—wherever you land next.</p>
+        </div>
+        <div class="benefit-grid">
+          <article class="benefit-card">
+            <div class="benefit-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M7 8h7a3 3 0 010 6H9a3 3 0 000 6h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Earn while you wait</h3>
+            <p>Idle balances move into high-yield vaults automatically, so your money works even when you’re offline.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="benefit-icon teal" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.7"/></svg>
+            </div>
+            <h3>Spend without friction</h3>
+            <p>Physical and virtual cards, real-time controls, and smart category insights—spending that stays light.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="benefit-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 16l5-5 4 4 7-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 8h6v6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Invest without clutter</h3>
+            <p>Fractional shares, curated portfolios, and clear fees. Grow wealth without a second dashboard.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="benefit-icon teal" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M3 12h18M12 3c2.5 2.8 3.8 5.8 3.8 9S14.5 18.2 12 21c-2.5-2.8-3.8-5.8-3.8-9S9.5 5.8 12 3z" stroke="currentColor" stroke-width="1.7"/></svg>
+            </div>
+            <h3>Live across borders</h3>
+            <p>Hold multi-currency balances, send money home in minutes, and pay abroad with transparent FX.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">Features</p>
+          <h2 id="features-title">Designed for motion, not red tape</h2>
+          <p>Orbit is built for founders, freelancers, expats, and anyone whose salary, rent, and life don’t share a single timezone.</p>
+        </div>
+
+        <div class="feature-stack">
+          <article class="feature-row">
+            <div class="feature-copy">
+              <h3>One balance that adapts to your day</h3>
+              <p>See spending, savings, and investments together. Set goals, park cash in vaults, and keep a ready buffer for travel without opening a new product every time plans change.</p>
+              <ul class="feature-list">
+                <li>Instant internal transfers between spend, save, and invest</li>
+                <li>Smart buffers that top up before trips or rent day</li>
+                <li>Clear history you can actually search</li>
+              </ul>
+            </div>
+            <div class="feature-visual" aria-hidden="true">
+              <div class="mini-bar">
+                <span>Orbit Balance</span>
+                <span>Today</span>
+              </div>
+              <div>
+                <div class="balance-label">Total net worth</div>
+                <div class="balance-value">$48,260.14</div>
+                <div class="balance-delta">↑ $612.40 this month</div>
+              </div>
+              <div class="chart chart-a" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature-row reverse">
+            <div class="feature-copy">
+              <h3>Cross-border banking that feels local</h3>
+              <p>Hold USD, EUR, GBP, and more. Convert at mid-market rates with a transparent fee, send to local bank details, and keep payroll or freelance invoices in the currency you earn.</p>
+              <ul class="feature-list">
+                <li>Local account details in major corridors</li>
+                <li>Lock rates for planned transfers</li>
+                <li>Travel mode with real-time spend alerts</li>
+              </ul>
+            </div>
+            <div class="feature-visual" aria-hidden="true">
+              <div class="mini-bar">
+                <span>Wallets</span>
+                <span>Live</span>
+              </div>
+              <div class="currency-row">
+                <div class="currency-item">
+                  <span><span class="flag">$</span><strong>USD</strong></span>
+                  <span>24,180.00</span>
+                </div>
+                <div class="currency-item">
+                  <span><span class="flag">€</span><strong>EUR</strong></span>
+                  <span>8,420.50</span>
+                </div>
+                <div class="currency-item">
+                  <span><span class="flag">£</span><strong>GBP</strong></span>
+                  <span>3,105.00</span>
+                </div>
+                <div class="currency-item">
+                  <span><span class="flag">¥</span><strong>JPY</strong></span>
+                  <span>412,000</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature-row">
+            <div class="feature-copy">
+              <h3>Invest without leaving the app you already open</h3>
+              <p>Build a portfolio from fractional stocks and ETFs, or choose Orbit Path portfolios tuned for risk. Dividends and gains flow back into the same account you spend from.</p>
+              <ul class="feature-list">
+                <li>No account minimums to start</li>
+                <li>Recurring buys on your schedule</li>
+                <li>Tax-ready export every year</li>
+              </ul>
+            </div>
+            <div class="feature-visual" aria-hidden="true">
+              <div class="mini-bar">
+                <span>Orbit Path · Balanced</span>
+                <span class="sat-pill up pill-inline">+8.4% YTD</span>
+              </div>
+              <div>
+                <div class="balance-label">Invested</div>
+                <div class="balance-value">$18,940</div>
+                <div class="balance-delta">Diversified across 8 funds</div>
+              </div>
+              <div class="chart chart-b" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="section-kicker">How it works</p>
+          <h2 id="how-title">Up and orbiting in minutes</h2>
+          <p>No branch visits. No paperwork labyrinth. Verify once, fund once, and start moving money with intention.</p>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <h3>Open your Orbit</h3>
+            <p>Share a few details, verify your identity securely, and choose Core or Path. Most people finish in under ten minutes.</p>
+          </li>
+          <li class="step">
+            <h3>Fund and organize</h3>
+            <p>Link a bank, deposit a paycheck, or receive multi-currency transfers. Split funds into spend, vaults, and investments.</p>
+          </li>
+          <li class="step">
+            <h3>Move without gravity</h3>
+            <p>Pay, convert, invest, and send across borders from one place—with alerts that keep you in control, not on edge.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="stats-band">
+      <div class="wrap stats" role="list">
+        <div class="stat" role="listitem">
+          <strong>2.4M+</strong>
+          <span>Members worldwide</span>
+        </div>
+        <div class="stat" role="listitem">
+          <strong>150+</strong>
+          <span>Currencies supported</span>
+        </div>
+        <div class="stat" role="listitem">
+          <strong>4.25%</strong>
+          <span>Vault APY, variable</span>
+        </div>
+        <div class="stat" role="listitem">
+          <strong>24/7</strong>
+          <span>Human support on Path</span>
+        </div>
+      </div>
+    </div>
+
+    <section aria-labelledby="stories-title">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="section-kicker">Stories</p>
+          <h2 id="stories-title">Built for lives in motion</h2>
+          <p>From remote teams to dual-city families, Orbit keeps money coordinated when life isn’t.</p>
+        </div>
+        <div class="quotes">
+          <blockquote class="quote">
+            <p>“I stopped wiring myself money between countries. Orbit holds EUR for rent and USD for clients—same login, zero drama.”</p>
+            <footer>
+              <div class="avatar" aria-hidden="true">MK</div>
+              <div>
+                <cite>Maya K.</cite>
+                <small>Product designer · Lisbon &amp; NYC</small>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="quote">
+            <p>“Payroll lands Friday, vault takes the surplus automatically, and my card still works in three cities. That’s the whole product.”</p>
+            <footer>
+              <div class="avatar" aria-hidden="true">JR</div>
+              <div>
+                <cite>Jordan R.</cite>
+                <small>Founder · Singapore</small>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="quote">
+            <p>“Investing used to mean another app I ignored. Now dividends land in the same place I pay rent. Quietly excellent.”</p>
+            <footer>
+              <div class="avatar" aria-hidden="true">AS</div>
+              <div>
+                <cite>Amina S.</cite>
+                <small>Research scientist · Berlin</small>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="plans" aria-labelledby="plans-title">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="section-kicker">Plans</p>
+          <h2 id="plans-title">Simple pricing. No gravity fees.</h2>
+          <p>Start free. Upgrade when you need more corridors, higher limits, or dedicated support.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3>Core</h3>
+            <p class="price">$0 <span>/ month</span></p>
+            <p>Everyday banking for people who move.</p>
+            <ul>
+              <li>Spend account + virtual card</li>
+              <li>High-yield vault access</li>
+              <li>Up to 3 currency wallets</li>
+              <li>Standard FX at transparent rates</li>
+              <li>Email support</li>
+            </ul>
+            <a class="btn btn-secondary" href="#open" data-open-account>Open an account</a>
+          </article>
+          <article class="price-card featured">
+            <span class="badge">Most popular</span>
+            <h3>Path</h3>
+            <p class="price">$12 <span>/ month</span></p>
+            <p>For frequent travelers and dual-currency lives.</p>
+            <ul>
+              <li>Everything in Core</li>
+              <li>Metal card + unlimited virtual cards</li>
+              <li>20 currency wallets</li>
+              <li>Lower FX markup</li>
+              <li>Priority 24/7 chat support</li>
+              <li>Investing with Orbit Path portfolios</li>
+            </ul>
+            <a class="btn btn-primary" href="#open" data-open-account>Open Path</a>
+          </article>
+          <article class="price-card">
+            <h3>Horizon</h3>
+            <p class="price">$39 <span>/ month</span></p>
+            <p>Teams and households coordinating across borders.</p>
+            <ul>
+              <li>Everything in Path</li>
+              <li>Shared spaces &amp; spend controls</li>
+              <li>Local details in 30+ countries</li>
+              <li>Dedicated onboarding specialist</li>
+              <li>Higher transfer limits</li>
+              <li>Advanced tax exports</li>
+            </ul>
+            <a class="btn btn-secondary" href="#open" data-open-account>Talk to Orbit</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="section-kicker">FAQ</p>
+          <h2 id="faq-title">Questions, answered cleanly</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Is Orbit a real bank?</summary>
+            <p>Orbit partners with regulated banking institutions. Cash balances are held at partner banks and eligible deposits are FDIC insured up to applicable limits. Investing services are provided through an affiliated broker-dealer.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I use Orbit in more than one country?</summary>
+            <p>Yes. Hold multiple currencies, receive local account details where available, and spend abroad with real-time conversion. Availability of local details varies by corridor and plan.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How do savings rates work?</summary>
+            <p>Vault APY is variable and published in-app. Rate shown on this page is illustrative. Interest accrues daily on eligible balances and is paid monthly into your vault.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What does investing cost?</summary>
+            <p>Self-directed trades on Path and Horizon have $0 commissions on stocks and ETFs. Orbit Path managed portfolios charge a clear annual advisory fee disclosed before you enroll. Market spreads and fund expense ratios still apply.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How do I close or export my data?</summary>
+            <p>You can download statements and tax documents anytime. To close your account, contact support from Settings—we’ll help you move remaining balances and cancel cards cleanly.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="open" aria-labelledby="cta-title">
+      <div class="wrap">
+        <div class="cta-panel">
+          <h2 id="cta-title">Ready to bank without gravity?</h2>
+          <p>Open Orbit in minutes. One account for the money that follows you—across cities, currencies, and chapters.</p>
+          <div class="cta-actions">
+            <a class="btn btn-primary btn-lg" href="#account-panel" data-open-account>Open an account</a>
+            <a class="btn btn-secondary btn-lg" href="#benefits">See benefits</a>
+          </div>
+          <p class="cta-note">No credit check to open Core. Identity verification required.</p>
+
+          <div class="account-panel" id="account-panel" hidden>
+            <h3>Start your Orbit</h3>
+            <p>Leave your details and we’ll send a secure setup link. Nothing leaves this page until you submit.</p>
+            <form id="account-form" action="#" method="post" novalidate>
+              <div class="form-field">
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required placeholder="Alex Rivera">
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required placeholder="alex@example.com">
+              </div>
+              <button class="btn btn-primary btn-block" type="submit">Request setup link</button>
+              <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="logo" href="#top">
+            <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <circle cx="16" cy="16" r="5" fill="#e8c47a"/>
+              <ellipse cx="16" cy="16" rx="13" ry="6" stroke="#7ec8c8" stroke-width="1.5" transform="rotate(-28 16 16)"/>
+              <ellipse cx="16" cy="16" rx="13" ry="6" stroke="rgba(232,196,122,0.45)" stroke-width="1.2" transform="rotate(42 16 16)"/>
+            </svg>
+            Orbit
+          </a>
+          <p>Money that moves with you. One beautifully simple account for saving, spending, investing, and living across borders.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#benefits">Benefits</a>
+          <a href="#features">Features</a>
+          <a href="#plans">Plans</a>
+          <a href="#how">How it works</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#stories-title">Stories</a>
+          <a href="#faq">FAQ</a>
+          <a href="#open">Open account</a>
+        </div>
+        <div class="footer-col">
+          <h4>Trust</h4>
+          <a href="#faq">Security</a>
+          <a href="#faq">Insurance</a>
+          <a href="#faq">Disclosures</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> Orbit Financial, Inc. All rights reserved.</span>
+        <span>*FDIC insurance applies to eligible deposits at partner banks, up to applicable limits. Investing involves risk including loss of principal.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

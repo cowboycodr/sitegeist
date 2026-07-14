@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="A neon-soaked arcade of original worlds, weekly challenges, and a living global leaderboard.">
+  <title>Afterlight Arcade — One more run before sunrise</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Afterlight Arcade home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 16 L12 4 L20 16 Z" stroke="#00e8ff" stroke-width="1.8" fill="rgba(0,232,255,0.15)"/>
+            <circle cx="12" cy="14" r="2.2" fill="#ff2ecf"/>
+            <path d="M7 19h10" stroke="#ffb84d" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">Afterlight</span>
+          <span class="brand-tag">Arcade</span>
+        </span>
+      </a>
+
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="#worlds">Worlds</a>
+        <a href="#challenges">Challenges</a>
+        <a href="#leaderboards">Leaderboards</a>
+        <a href="#how">How it works</a>
+        <a class="btn btn-primary" href="#start" id="nav-start">Press start</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Independent games universe</p>
+          <h1 id="hero-title">
+            Afterlight Arcade
+            <span class="shine">One more run before sunrise.</span>
+          </h1>
+          <p class="tagline">Neon cabinets. Original worlds. Global glory.</p>
+          <p class="lede">
+            Dive into a neon-soaked arcade of handcrafted games, rotating weekly challenges,
+            and a living leaderboard that never sleeps. Queue a run, chase the dawn, and leave
+            your handle glowing at the top.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#start" id="hero-start">Press start</a>
+            <a class="btn btn-secondary" href="#leaderboards">View leaderboards</a>
+          </div>
+          <div class="stat-row" role="list" aria-label="Arcade snapshot">
+            <div class="stat" role="listitem">
+              <span class="stat-value">12</span>
+              <span class="stat-label">Live worlds</span>
+            </div>
+            <div class="stat" role="listitem">
+              <span class="stat-value">48k</span>
+              <span class="stat-label">Night runners</span>
+            </div>
+            <div class="stat" role="listitem">
+              <span class="stat-value">7d</span>
+              <span class="stat-label">Challenge cycle</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="cabinet" aria-label="Featured cabinet preview">
+          <div class="cabinet-screen">
+            <svg class="cabinet-art" viewBox="0 0 400 300" role="img" aria-label="Neon skyline over a midnight racetrack">
+              <defs>
+                <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#1a0a32"/>
+                  <stop offset="55%" stop-color="#0a0618"/>
+                  <stop offset="100%" stop-color="#12081f"/>
+                </linearGradient>
+                <linearGradient id="road" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#1c1230"/>
+                  <stop offset="100%" stop-color="#080510"/>
+                </linearGradient>
+                <linearGradient id="neonM" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#ff2ecf"/>
+                  <stop offset="100%" stop-color="#9b6dff"/>
+                </linearGradient>
+                <linearGradient id="neonC" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#00e8ff"/>
+                  <stop offset="100%" stop-color="#7dff9a"/>
+                </linearGradient>
+              </defs>
+              <rect width="400" height="300" fill="url(#sky)"/>
+              <circle cx="320" cy="58" r="28" fill="#ffb84d" opacity="0.85"/>
+              <circle cx="320" cy="58" r="40" fill="#ffb84d" opacity="0.12"/>
+              <path d="M0 170 L70 120 L110 145 L160 95 L210 140 L260 80 L310 130 L360 90 L400 125 L400 170 Z" fill="#140a24"/>
+              <rect x="40" y="125" width="28" height="55" fill="#1a1030" stroke="#ff2ecf" stroke-width="1.5"/>
+              <rect x="90" y="105" width="36" height="75" fill="#181028" stroke="#00e8ff" stroke-width="1.5"/>
+              <rect x="150" y="118" width="24" height="62" fill="#1a1030" stroke="#9b6dff" stroke-width="1.5"/>
+              <rect x="200" y="98" width="42" height="82" fill="#160e28" stroke="#ffb84d" stroke-width="1.5"/>
+              <rect x="270" y="112" width="30" height="68" fill="#1a1030" stroke="#00e8ff" stroke-width="1.5"/>
+              <rect x="320" y="128" width="48" height="52" fill="#181028" stroke="#ff2ecf" stroke-width="1.5"/>
+              <path d="M0 170 L160 190 L400 170 L400 300 L0 300 Z" fill="url(#road)"/>
+              <path d="M175 190 L140 300" stroke="#ff2ecf" stroke-width="2" opacity="0.7"/>
+              <path d="M225 190 L260 300" stroke="#00e8ff" stroke-width="2" opacity="0.7"/>
+              <path d="M200 190 L200 300" stroke="#ffb84d" stroke-width="3" stroke-dasharray="12 10" opacity="0.9"/>
+              <ellipse cx="200" cy="210" rx="34" ry="10" fill="url(#neonM)" opacity="0.35"/>
+              <path d="M168 210 L200 188 L232 210 L218 214 L200 198 L182 214 Z" fill="url(#neonC)"/>
+              <text x="20" y="36" fill="#00e8ff" font-family="ui-monospace, monospace" font-size="11" letter-spacing="2">SECTOR 07 // OPEN</text>
+              <text x="20" y="54" fill="#ffb84d" font-family="ui-monospace, monospace" font-size="10">BEST 00:41.28</text>
+            </svg>
+            <div class="cabinet-hud">
+              <div>
+                <strong>Dawn Circuit</strong>
+                <span>FEATURED WORLD</span>
+              </div>
+              <span class="live-badge">Online</span>
+            </div>
+          </div>
+          <div class="cabinet-lights" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="cabinet-meta">
+            <span>Weekly heat active · 3 challenges</span>
+            <span>Input: touch · mouse · keys</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="worlds" aria-labelledby="worlds-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Original worlds</p>
+            <h2 id="worlds-title">Cabinets that refuse to close</h2>
+            <p>Every world is built for short, sharp runs — perfect when the sky is still indigo and you swear this is the last one.</p>
+          </div>
+        </div>
+        <div class="worlds-grid">
+          <article class="world-card">
+            <svg class="world-art" viewBox="0 0 320 200" role="img" aria-label="Dawn Circuit neon track art">
+              <rect width="320" height="200" fill="#0a0614"/>
+              <path d="M0 140 Q80 80 160 120 T320 100 L320 200 L0 200 Z" fill="#120a22"/>
+              <path d="M0 150 Q90 95 170 130 T320 110" fill="none" stroke="#00e8ff" stroke-width="3"/>
+              <path d="M0 165 Q100 110 180 145 T320 125" fill="none" stroke="#ff2ecf" stroke-width="2" opacity="0.7"/>
+              <circle cx="250" cy="48" r="22" fill="#ffb84d" opacity="0.9"/>
+              <rect x="40" y="70" width="18" height="40" fill="none" stroke="#9b6dff" stroke-width="2"/>
+              <rect x="70" y="55" width="24" height="55" fill="none" stroke="#00e8ff" stroke-width="2"/>
+            </svg>
+            <div class="world-body">
+              <div class="world-tags">
+                <span class="chip">Racing</span>
+                <span class="chip chip-amber">1–2 players</span>
+              </div>
+              <h3>Dawn Circuit</h3>
+              <p>Thread neon arterials before the sun erases the track. Drift through skyline chicanes and bank impossible corners.</p>
+              <div class="world-foot">
+                <span>AVG RUN 2:10</span>
+                <span class="score">WR 00:41.28</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="world-card">
+            <svg class="world-art" viewBox="0 0 320 200" role="img" aria-label="Void Garden abstract neon flora">
+              <rect width="320" height="200" fill="#080614"/>
+              <circle cx="160" cy="110" r="48" fill="none" stroke="#ff2ecf" stroke-width="2"/>
+              <circle cx="160" cy="110" r="28" fill="none" stroke="#00e8ff" stroke-width="2"/>
+              <path d="M160 40 V180 M90 110 H230" stroke="#9b6dff" stroke-width="1.5" opacity="0.5"/>
+              <path d="M60 160 Q120 80 160 100 Q200 80 260 160" fill="none" stroke="#7dff9a" stroke-width="2.5"/>
+              <circle cx="100" cy="70" r="6" fill="#ffb84d"/>
+              <circle cx="220" cy="65" r="5" fill="#00e8ff"/>
+              <circle cx="160" cy="110" r="8" fill="#ff2ecf"/>
+            </svg>
+            <div class="world-body">
+              <div class="world-tags">
+                <span class="chip chip-magenta">Puzzle</span>
+                <span class="chip">Solo</span>
+              </div>
+              <h3>Void Garden</h3>
+              <p>Grow luminous paths across a silent greenhouse. One wrong bloom collapses the lattice — memory and timing both matter.</p>
+              <div class="world-foot">
+                <span>AVG RUN 3:40</span>
+                <span class="score">WR FLOOR 28</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="world-card">
+            <svg class="world-art" viewBox="0 0 320 200" role="img" aria-label="Signal District grid cityscape">
+              <rect width="320" height="200" fill="#0b0716"/>
+              <g stroke="#00e8ff" stroke-width="1.5" fill="none" opacity="0.85">
+                <rect x="30" y="90" width="40" height="80"/>
+                <rect x="90" y="60" width="50" height="110"/>
+                <rect x="160" y="75" width="36" height="95"/>
+                <rect x="220" y="50" width="60" height="120"/>
+              </g>
+              <path d="M0 170 H320" stroke="#ff2ecf" stroke-width="2"/>
+              <path d="M20 40 L80 20 L140 48" fill="none" stroke="#ffb84d" stroke-width="2"/>
+              <circle cx="250" cy="40" r="10" fill="#ff2ecf" opacity="0.8"/>
+              <text x="30" y="40" fill="#7dff9a" font-family="ui-monospace, monospace" font-size="12">UPLINK</text>
+            </svg>
+            <div class="world-body">
+              <div class="world-tags">
+                <span class="chip">Action</span>
+                <span class="chip chip-amber">Co-op ready</span>
+              </div>
+              <h3>Signal District</h3>
+              <p>Hack rooftop relays while drones sweep the alleys. Combo packets for score multipliers that stack until sunrise.</p>
+              <div class="world-foot">
+                <span>AVG RUN 4:05</span>
+                <span class="score">WR 982,440</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="challenges" aria-labelledby="challenges-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Weekly challenges</p>
+            <h2 id="challenges-title">This week’s heat</h2>
+            <p>Three objectives. One reset every Monday at 00:00 UTC. Rewards drop when the clock hits zero.</p>
+          </div>
+        </div>
+        <div class="challenge-board">
+          <div class="challenge-list">
+            <article class="challenge">
+              <div class="challenge-rank" aria-hidden="true">01</div>
+              <div>
+                <h3>Ghostline Sprint</h3>
+                <p>Finish Dawn Circuit under 50 seconds without using brakes.</p>
+              </div>
+              <div class="challenge-reward">
+                <strong>+1,200</strong>
+                heat pts
+              </div>
+            </article>
+            <article class="challenge">
+              <div class="challenge-rank" aria-hidden="true">02</div>
+              <div>
+                <h3>Bloom Cascade</h3>
+                <p>Clear Void Garden floor 12 with three or fewer rewinds.</p>
+              </div>
+              <div class="challenge-reward">
+                <strong>+1,500</strong>
+                heat pts
+              </div>
+            </article>
+            <article class="challenge">
+              <div class="challenge-rank" aria-hidden="true">03</div>
+              <div>
+                <h3>Packet Storm</h3>
+                <p>Score 250k in Signal District with co-op assist enabled.</p>
+              </div>
+              <div class="challenge-reward">
+                <strong>+1,800</strong>
+                heat pts
+              </div>
+            </article>
+          </div>
+
+          <aside class="countdown-panel" aria-labelledby="countdown-title">
+            <div>
+              <h3 id="countdown-title">Challenge window</h3>
+              <p>Season 14 · Night Shift League. Completing all three unlocks the Sunrise Badge.</p>
+            </div>
+            <div class="timer" id="challenge-timer" role="timer" aria-live="polite" aria-atomic="true">
+              <div class="timer-unit"><strong id="t-days">03</strong><span>Days</span></div>
+              <div class="timer-unit"><strong id="t-hours">14</strong><span>Hours</span></div>
+              <div class="timer-unit"><strong id="t-mins">27</strong><span>Mins</span></div>
+              <div class="timer-unit"><strong id="t-secs">08</strong><span>Secs</span></div>
+            </div>
+            <a class="btn btn-secondary" href="#start">Queue challenge run</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="leaderboards" aria-labelledby="lb-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Global leaderboard</p>
+            <h2 id="lb-title">Living board, no lag excuses</h2>
+            <p>Snapshots from the Afterlight network — ranked by heat score across all worlds this season.</p>
+          </div>
+        </div>
+
+        <div class="lb-shell">
+          <div class="lb-toolbar">
+            <div class="lb-filters" role="group" aria-label="Filter leaderboard by world">
+              <button type="button" class="btn btn-ghost" data-filter="all" aria-pressed="true">All worlds</button>
+              <button type="button" class="btn btn-ghost" data-filter="dawn" aria-pressed="false">Dawn Circuit</button>
+              <button type="button" class="btn btn-ghost" data-filter="void" aria-pressed="false">Void Garden</button>
+              <button type="button" class="btn btn-ghost" data-filter="signal" aria-pressed="false">Signal District</button>
+            </div>
+            <span class="live-badge" id="lb-status">Season 14 · Static snapshot</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <caption class="visually-hidden" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">
+                Global Afterlight Arcade leaderboard
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Rank</th>
+                  <th scope="col">Runner</th>
+                  <th scope="col">World</th>
+                  <th scope="col">Heat score</th>
+                </tr>
+              </thead>
+              <tbody id="lb-body">
+                <!-- filled by app.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">How it works</p>
+            <h2 id="how-title">From lobby light to sunrise score</h2>
+            <p>No downloads to browse the floor. Pick a world, start a run, climb the board — all from this cabinet.</p>
+          </div>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M9 12h6M12 9v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Press start</h3>
+            <p>Open the run panel, choose a world or weekly heat, and lock in your local session handle for the night.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M4 18 L12 6 L20 18" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                <circle cx="12" cy="14" r="2" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Chase the heat</h3>
+            <p>Complete weekly challenges for bonus heat points. Multipliers stack when you chain worlds without a long break.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M5 19V9l7-5 7 5v10H5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                <path d="M10 19v-6h4v6" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <h3>Own the board</h3>
+            <p>Filter the global board by world, study the top lines, and queue a better run before the challenge window closes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="start" aria-labelledby="start-title">
+      <div class="wrap">
+        <div class="cta-band">
+          <div>
+            <h2 id="start-title">The sky is still dark enough.</h2>
+            <p>One more run before sunrise. Queue a local session, pick your cabinet, and leave something glowing on the board.</p>
+          </div>
+          <div class="cta-actions">
+            <button type="button" class="btn btn-primary" id="open-start" aria-haspopup="dialog" aria-controls="start-modal">Press start</button>
+            <a class="btn btn-secondary" href="#leaderboards">View leaderboards</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>© 2026 Afterlight Arcade · Independent games universe · Offline-ready floor</p>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#worlds">Worlds</a>
+        <a href="#challenges">Challenges</a>
+        <a href="#leaderboards">Leaderboards</a>
+        <a href="#top">Back to top</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="modal" id="start-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <button type="button" class="modal-backdrop" tabindex="-1" data-close-modal aria-label="Close dialog"></button>
+    <div class="modal-panel">
+      <button type="button" class="modal-close" data-close-modal aria-label="Close">&times;</button>
+      <h2 id="modal-title">Press start</h2>
+      <p>Choose a cabinet. This demo queues a local session — no network, pure night-shift energy.</p>
+      <div class="run-options">
+        <button type="button" class="run-option" data-run="Dawn Circuit">
+          <span class="run-icon" aria-hidden="true">DC</span>
+          <span>
+            <strong>Dawn Circuit</strong>
+            <span>Sprint the skyline before first light</span>
+          </span>
+        </button>
+        <button type="button" class="run-option" data-run="Void Garden">
+          <span class="run-icon" aria-hidden="true">VG</span>
+          <span>
+            <strong>Void Garden</strong>
+            <span>Puzzle through the luminous lattice</span>
+          </span>
+        </button>
+        <button type="button" class="run-option" data-run="Signal District">
+          <span class="run-icon" aria-hidden="true">SD</span>
+          <span>
+            <strong>Signal District</strong>
+            <span>Hack relays and stack combo packets</span>
+          </span>
+        </button>
+        <button type="button" class="run-option" data-run="Weekly Heat">
+          <span class="run-icon" aria-hidden="true">WH</span>
+          <span>
+            <strong>Weekly Heat</strong>
+            <span>All three challenges in one night</span>
+          </span>
+        </button>
+      </div>
+      <p class="status-line" id="run-status" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

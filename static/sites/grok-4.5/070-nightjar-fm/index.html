@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Nightjar FM — Broadcasts after dark</title>
+  <meta name="description" content="Independent transmissions of ambient, experimental, and left-field music through the night.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="night-sky" aria-hidden="true">
+    <div class="stars"></div>
+    <div class="horizon-glow"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Nightjar FM home">
+        <svg class="brand-mark" viewBox="0 0 40 40" width="36" height="36" aria-hidden="true" focusable="false">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+          <path d="M8 24c4-2 7-9 12-11 5-2 9 1 12 4-3 1-6 2-8 5-1 2-1 4 0 6-4-1-9-1-16-4z" fill="currentColor"/>
+          <circle cx="27" cy="15" r="1.4" fill="var(--ink)"/>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">Nightjar FM</span>
+          <span class="brand-freq">88.7 · Independent</span>
+        </span>
+      </a>
+
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="#listen">Listen</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#signal">The Signal</a>
+        <a href="#archive">Archive</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="live-dot" aria-hidden="true"></span>
+            Live from 11:00 PM
+          </p>
+          <h1 id="hero-title">Broadcasts after dark.</h1>
+          <p class="lede">
+            Independent transmissions of ambient, experimental, and left-field music
+            through the night. No playlists from a boardroom — only the long fade,
+            the odd interval, and the quiet between stations.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#listen" id="cta-listen">Listen live</a>
+            <a class="btn btn-secondary" href="#schedule">Browse schedule</a>
+          </div>
+          <dl class="hero-meta">
+            <div>
+              <dt>Frequency</dt>
+              <dd>88.7 Nightjar</dd>
+            </div>
+            <div>
+              <dt>Hours</dt>
+              <dd>11:00 PM – 6:00 AM</dd>
+            </div>
+            <div>
+              <dt>Format</dt>
+              <dd>Ambient · Experimental</dd>
+            </div>
+          </dl>
+        </div>
+
+        <aside class="hero-panel" aria-label="On-air status">
+          <div class="panel-glow" aria-hidden="true"></div>
+          <p class="panel-label">On air now</p>
+          <p class="panel-show" id="now-show">Afterimage</p>
+          <p class="panel-host">with Mara Ellison</p>
+          <div class="panel-track">
+            <span class="panel-track-label">Current piece</span>
+            <span class="panel-track-title" id="now-track">Field Recording / Iron Bridge at Low Tide</span>
+            <span class="panel-track-artist" id="now-artist">Sable Circuit</span>
+          </div>
+          <div class="vu-meters" aria-hidden="true">
+            <span class="vu" style="--h: 42%"></span>
+            <span class="vu" style="--h: 68%"></span>
+            <span class="vu" style="--h: 55%"></span>
+            <span class="vu" style="--h: 80%"></span>
+            <span class="vu" style="--h: 36%"></span>
+            <span class="vu" style="--h: 72%"></span>
+            <span class="vu" style="--h: 48%"></span>
+            <span class="vu" style="--h: 61%"></span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section listen" id="listen" aria-labelledby="listen-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="section-kicker">Receiver</p>
+          <h2 id="listen-title">Listen live</h2>
+          <p class="section-intro">
+            A local demo bed simulates the night signal in your browser — no external stream required.
+            Use the player to start, pause, and shape the room tone.
+          </p>
+        </div>
+
+        <div class="player" role="region" aria-label="Nightjar live player">
+          <div class="player-visual" aria-hidden="true">
+            <svg class="player-ring" viewBox="0 0 200 200" width="160" height="160">
+              <circle class="ring-track" cx="100" cy="100" r="88" fill="none" stroke-width="2"/>
+              <circle class="ring-progress" cx="100" cy="100" r="88" fill="none" stroke-width="2"
+                stroke-dasharray="553" stroke-dashoffset="120" transform="rotate(-90 100 100)"/>
+              <path class="bird-silhouette" d="M52 118c18-10 32-40 54-48 22-8 40 4 54 16-14 6-26 10-36 22-6 8-6 18 0 28-18-4-40-6-72-18z"/>
+            </svg>
+            <div class="eq" id="eq">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+
+          <div class="player-body">
+            <p class="player-status">
+              <span class="status-pill" id="status-pill" data-state="idle">Standby</span>
+              <span id="status-detail">Press play to open the night signal</span>
+            </p>
+            <h3 class="player-title" id="player-title">Afterimage · Live bed</h3>
+            <p class="player-sub" id="player-sub">Ambient drone generated on-device for offline listening</p>
+
+            <div class="player-controls">
+              <button type="button" class="control-btn control-play" id="play-btn" aria-label="Play live signal">
+                <svg class="icon-play" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+                  <path d="M8 5v14l11-7z" fill="currentColor"/>
+                </svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" hidden>
+                  <path d="M7 5h3v14H7zm7 0h3v14h-3z" fill="currentColor"/>
+                </svg>
+              </button>
+
+              <label class="volume-control">
+                <span class="sr-only">Volume</span>
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                  <path d="M4 9v6h4l5 4V5L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z" fill="currentColor"/>
+                </svg>
+                <input type="range" id="volume" min="0" max="100" value="55" aria-valuemin="0" aria-valuemax="100" aria-valuenow="55">
+              </label>
+            </div>
+
+            <p class="player-note">Generated with the Web Audio API. Nothing leaves this page.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section schedule" id="schedule" aria-labelledby="schedule-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="section-kicker">Tonight</p>
+          <h2 id="schedule-title">Browse schedule</h2>
+          <p class="section-intro">
+            Programming begins at eleven and ends with first light. Times are local station time.
+          </p>
+        </div>
+
+        <div class="schedule-toolbar" role="tablist" aria-label="Schedule nights">
+          <button type="button" class="tab is-active" role="tab" id="tab-tonight" aria-selected="true" aria-controls="panel-tonight">Tonight</button>
+          <button type="button" class="tab" role="tab" id="tab-midweek" aria-selected="false" aria-controls="panel-midweek" tabindex="-1">Midweek</button>
+          <button type="button" class="tab" role="tab" id="tab-weekend" aria-selected="false" aria-controls="panel-weekend" tabindex="-1">Weekend</button>
+        </div>
+
+        <div class="schedule-panel is-active" role="tabpanel" id="panel-tonight" aria-labelledby="tab-tonight">
+          <ol class="schedule-list">
+            <li class="slot is-live" data-show="Afterimage">
+              <time datetime="23:00">11:00 PM</time>
+              <div class="slot-body">
+                <p class="slot-show">Afterimage <span class="badge">Live</span></p>
+                <p class="slot-desc">Mara Ellison stretches field recordings, tape hiss, and slow harmonic drift until the room softens.</p>
+                <p class="slot-host">Hosted by Mara Ellison</p>
+              </div>
+            </li>
+            <li class="slot" data-show="Low Voltage">
+              <time datetime="01:00">1:00 AM</time>
+              <div class="slot-body">
+                <p class="slot-show">Low Voltage</p>
+                <p class="slot-desc">Modular systems, half-broken synths, and patient sequences that never quite resolve.</p>
+                <p class="slot-host">Hosted by Kenji Oka</p>
+              </div>
+            </li>
+            <li class="slot" data-show="Coastal Static">
+              <time datetime="03:00">3:00 AM</time>
+              <div class="slot-body">
+                <p class="slot-show">Coastal Static</p>
+                <p class="slot-desc">Fog-horn drones, shortwave ghosts, and left-field folk folded into long-form mixes.</p>
+                <p class="slot-host">Hosted by Iona Vale</p>
+              </div>
+            </li>
+            <li class="slot" data-show="First Light">
+              <time datetime="05:00">5:00 AM</time>
+              <div class="slot-body">
+                <p class="slot-show">First Light</p>
+                <p class="slot-desc">A gentle climb out of the night — soft keys, distant choir pads, and open air.</p>
+                <p class="slot-host">Hosted by Nightjar automation</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="schedule-panel" role="tabpanel" id="panel-midweek" aria-labelledby="tab-midweek" hidden>
+          <ol class="schedule-list">
+            <li class="slot">
+              <time datetime="23:00">11:00 PM</time>
+              <div class="slot-body">
+                <p class="slot-show">Wire Garden</p>
+                <p class="slot-desc">Electroacoustic sketches and contact-mic portraits of empty workshops.</p>
+                <p class="slot-host">Hosted by Theo Marrow</p>
+              </div>
+            </li>
+            <li class="slot">
+              <time datetime="01:30">1:30 AM</time>
+              <div class="slot-body">
+                <p class="slot-show">Interval Code</p>
+                <p class="slot-desc">Minimal pulse music and spoken fragments collected from unused answering machines.</p>
+                <p class="slot-host">Hosted by Rhea Sol</p>
+              </div>
+            </li>
+            <li class="slot">
+              <time datetime="04:00">4:00 AM</time>
+              <div class="slot-body">
+                <p class="slot-show">Glass Hour</p>
+                <p class="slot-desc">Transparent ambient sets built for listening with the windows open.</p>
+                <p class="slot-host">Hosted by Mara Ellison</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="schedule-panel" role="tabpanel" id="panel-weekend" aria-labelledby="tab-weekend" hidden>
+          <ol class="schedule-list">
+            <li class="slot">
+              <time datetime="22:00">10:00 PM</time>
+              <div class="slot-body">
+                <p class="slot-show">Early Gate</p>
+                <p class="slot-desc">Weekend warm-up: left-field jazz, dub shadows, and unhurried transitions.</p>
+                <p class="slot-host">Hosted by Iona Vale</p>
+              </div>
+            </li>
+            <li class="slot">
+              <time datetime="00:00">12:00 AM</time>
+              <div class="slot-body">
+                <p class="slot-show">Deep Shelf</p>
+                <p class="slot-desc">Deep archival crates — private press ambient, library oddities, and one-off acetates.</p>
+                <p class="slot-host">Hosted by Kenji Oka</p>
+              </div>
+            </li>
+            <li class="slot">
+              <time datetime="03:00">3:00 AM</time>
+              <div class="slot-body">
+                <p class="slot-show">Nightjar Special</p>
+                <p class="slot-desc">Guest selectors take the desk until dawn. Themes announced midweek on the signal board.</p>
+                <p class="slot-host">Rotating guests</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section signal" id="signal" aria-labelledby="signal-title">
+      <div class="shell signal-grid">
+        <div class="signal-copy">
+          <p class="section-kicker">About the station</p>
+          <h2 id="signal-title">The signal after midnight</h2>
+          <p>
+            Nightjar FM is an independent night-only broadcaster. We favor music that needs room:
+            ambient, experimental, and left-field work that does not rush the listener.
+          </p>
+          <p>
+            The nightjar is a nocturnal bird — unassuming by day, unmistakable after dark.
+            Our frequency follows the same pattern: quiet during daylight hours, fully open once the city thins out.
+          </p>
+          <ul class="signal-points">
+            <li>Human-hosted blocks with long mixes and few interruptions</li>
+            <li>No commercial clusters, no drive-time templates</li>
+            <li>Listener-supported, desk-built, and deliberately small</li>
+          </ul>
+        </div>
+        <figure class="signal-card">
+          <svg viewBox="0 0 320 240" width="320" height="240" role="img" aria-label="Stylized nightjar silhouette against a moon">
+            <defs>
+              <radialGradient id="moonGrad" cx="50%" cy="45%" r="50%">
+                <stop offset="0%" stop-color="#f3e6c8"/>
+                <stop offset="100%" stop-color="#c4a574"/>
+              </radialGradient>
+            </defs>
+            <rect width="320" height="240" rx="16" fill="#0b1020"/>
+            <circle cx="230" cy="78" r="42" fill="url(#moonGrad)" opacity="0.9"/>
+            <circle cx="218" cy="72" r="36" fill="#0b1020" opacity="0.25"/>
+            <path d="M40 160c28-14 52-56 88-68 36-12 68 6 92 24-24 10-44 18-60 36-10 12-10 28 2 44-30-6-68-10-122-36z" fill="#d8b48a"/>
+            <circle cx="198" cy="108" r="3" fill="#0b1020"/>
+            <path d="M20 200h280" stroke="#2a3358" stroke-width="1" opacity="0.6"/>
+          </svg>
+          <figcaption>88.7 Nightjar — transmissions after dark</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section archive" id="archive" aria-labelledby="archive-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="section-kicker">From the desk</p>
+          <h2 id="archive-title">Recent dispatches</h2>
+          <p class="section-intro">Notes from the studio log — not a feed, just what we are carrying this week.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <p class="card-meta">Studio note · 03</p>
+            <h3>Why we still fade to silence</h3>
+            <p>Hard cuts belong to daytime radio. At Nightjar the last note is allowed to empty the room before the next piece begins.</p>
+          </article>
+          <article class="card">
+            <p class="card-meta">Selector · Iona Vale</p>
+            <h3>Coastal Static crate</h3>
+            <p>Shortwave fragments from a borrowed radio, two library LPs without sleeves, and a cassette marked only “bridge — take 2.”</p>
+          </article>
+          <article class="card">
+            <p class="card-meta">Listener guide</p>
+            <h3>How to hear us well</h3>
+            <p>Headphones if the house is loud. Speakers if the window is open. Either way: leave the volume lower than you think you need.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <p class="footer-name">Nightjar FM</p>
+        <p class="footer-tag">Broadcasts after dark.</p>
+      </div>
+      <p class="footer-copy">Independent radio · Ambient, experimental, left-field · Live from 11:00 PM</p>
+      <p class="footer-fine">This page is a self-contained static demonstration. No remote streams or analytics.</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

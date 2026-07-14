@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Fondue Club — Dip irresponsibly.</title>
+  <meta name="description" content="A roving supper club serving bubbling cheese, cold wine, and very unserious evenings.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Fondue Club home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="17" stroke="currentColor" stroke-width="1.5"/>
+            <ellipse cx="18" cy="14" rx="9" ry="4" fill="currentColor" opacity="0.25"/>
+            <path d="M9 14c0 6 4 11 9 11s9-5 9-11" stroke="currentColor" stroke-width="1.6" fill="none"/>
+            <path d="M18 25v4M13 29h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="15" cy="13" r="1.2" fill="currentColor"/>
+            <circle cx="20" cy="15" r="0.9" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">Fondue Club</span>
+          <span class="brand-cat">Supper Club</span>
+        </span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#evenings">Evenings</a>
+        <a href="#seats">Seats</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-small btn-primary" href="#seats">Grab a seat</a>
+        <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav-mobile" id="mobile-nav" data-mobile-nav hidden>
+      <nav aria-label="Mobile">
+        <a href="#about" data-nav-link>About</a>
+        <a href="#menu" data-nav-link>Menu</a>
+        <a href="#evenings" data-nav-link>Evenings</a>
+        <a href="#seats" data-nav-link>Seats</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Next melt / Friday 8 PM</p>
+          <h1 id="hero-title">Dip <em>irresponsibly.</em></h1>
+          <p class="lede">A roving supper club serving bubbling cheese, cold wine, and very unserious evenings. We set the pot. You bring the appetite.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#seats">Grab a seat</a>
+            <a class="btn btn-ghost" href="#menu">Inspect the menu</a>
+          </div>
+          <dl class="hero-stats">
+            <div>
+              <dt>Pots this season</dt>
+              <dd>12</dd>
+            </div>
+            <div>
+              <dt>Seats per melt</dt>
+              <dd>18</dd>
+            </div>
+            <div>
+              <dt>Seriousness level</dt>
+              <dd>0%</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="pot-card">
+            <svg class="pot-svg" viewBox="0 0 320 360" role="img" aria-label="">
+              <defs>
+                <linearGradient id="cheeseGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#F7D06A"/>
+                  <stop offset="55%" stop-color="#E8A83A"/>
+                  <stop offset="100%" stop-color="#C47A1A"/>
+                </linearGradient>
+                <linearGradient id="potGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#3D1A22"/>
+                  <stop offset="100%" stop-color="#1A0B10"/>
+                </linearGradient>
+                <radialGradient id="bubble" cx="50%" cy="40%" r="50%">
+                  <stop offset="0%" stop-color="#FFF3C4" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="#E8A83A" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <!-- steam -->
+              <g class="steam">
+                <path d="M120 70c0-18 12-28 12-42" stroke="#F5E6C8" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.55"/>
+                <path d="M160 55c0-20 14-32 14-48" stroke="#F5E6C8" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.7"/>
+                <path d="M200 70c0-16 10-26 10-40" stroke="#F5E6C8" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.5"/>
+              </g>
+              <!-- pot body -->
+              <ellipse cx="160" cy="150" rx="110" ry="28" fill="url(#potGrad)"/>
+              <path d="M50 150 v90 c0 55 50 90 110 90s110-35 110-90V150" fill="url(#potGrad)"/>
+              <ellipse cx="160" cy="150" rx="110" ry="28" fill="none" stroke="#6B2A38" stroke-width="3"/>
+              <!-- cheese surface -->
+              <ellipse cx="160" cy="150" rx="96" ry="22" fill="url(#cheeseGrad)"/>
+              <ellipse cx="160" cy="148" rx="70" ry="14" fill="url(#bubble)"/>
+              <!-- cheese bubbles -->
+              <circle class="b1" cx="130" cy="145" r="6" fill="#FFF0B0" opacity="0.85"/>
+              <circle class="b2" cx="175" cy="152" r="4.5" fill="#FFF0B0" opacity="0.75"/>
+              <circle class="b3" cx="200" cy="142" r="5" fill="#FFE08A" opacity="0.8"/>
+              <!-- fork -->
+              <g transform="translate(210,40) rotate(28)">
+                <rect x="12" y="40" width="6" height="160" rx="3" fill="#C9A66B"/>
+                <path d="M4 40 h22 v-28 c0-4-2-8-6-8h-2v24h-6V4h-2c-4 0-6 4-6 8z" fill="#D8D4CC"/>
+              </g>
+              <!-- stand -->
+              <path d="M100 320 h120 l-10 20 H110z" fill="#2A1218"/>
+            </svg>
+            <div class="pot-caption">
+              <span class="pot-label">Tonight’s pot</span>
+              <strong>Alpine Three-Cheese</strong>
+              <span>gruyère · emmental · comté</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-wine" aria-label="Highlights">
+      <div class="shell marquee-row">
+        <p class="marquee-item">Bubbling cheese</p>
+        <span class="marquee-dot" aria-hidden="true">●</span>
+        <p class="marquee-item">Cold wine</p>
+        <span class="marquee-dot" aria-hidden="true">●</span>
+        <p class="marquee-item">Unserious evenings</p>
+        <span class="marquee-dot" aria-hidden="true">●</span>
+        <p class="marquee-item">Roving tables</p>
+        <span class="marquee-dot" aria-hidden="true">●</span>
+        <p class="marquee-item">No dress code (except stretchy pants)</p>
+      </div>
+    </section>
+
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="shell split">
+        <div class="split-intro">
+          <p class="section-kicker">About the club</p>
+          <h2 id="about-title">A supper club that moves. A pot that doesn’t.</h2>
+        </div>
+        <div class="split-body">
+          <p>Fondue Club is a ticketed, roving melt — living rooms, gallery backrooms, and the occasional greenhouse. We haul the burners, shred the alpine cheeses, chill the white wine, and hand you a fork with zero judgment.</p>
+          <p>Evenings run long, conversations run longer, and nobody leaves hungry. Membership is informal: if you show up, you belong. If you double-dip, you’re family.</p>
+          <ul class="check-list">
+            <li>Small rooms, long tables, 18 seats max</li>
+            <li>Seasonal host kitchens across the city</li>
+            <li>All-you-can-dip, until the pot says otherwise</li>
+            <li>Vegetarian-friendly pots every night; vegan on request</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section menu" id="menu" aria-labelledby="menu-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="section-kicker">The menu</p>
+          <h2 id="menu-title">What goes in the pot (and what you dunk)</h2>
+          <p class="section-sub">Three rotating pots, a bread basket that never ends, and wine chosen for melt-compatibility.</p>
+        </div>
+
+        <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+          <button type="button" class="menu-tab is-active" role="tab" id="tab-pots" aria-selected="true" aria-controls="panel-pots" data-tab="pots">Cheese pots</button>
+          <button type="button" class="menu-tab" role="tab" id="tab-dunks" aria-selected="false" aria-controls="panel-dunks" data-tab="dunks" tabindex="-1">Dunkables</button>
+          <button type="button" class="menu-tab" role="tab" id="tab-glasses" aria-selected="false" aria-controls="panel-glasses" data-tab="glasses" tabindex="-1">In the glass</button>
+        </div>
+
+        <div class="menu-panels">
+          <div class="menu-panel is-active" role="tabpanel" id="panel-pots" aria-labelledby="tab-pots" data-panel="pots">
+            <article class="menu-card featured">
+              <div class="menu-card-top">
+                <h3>Alpine Three-Cheese</h3>
+                <span class="price">house pot</span>
+              </div>
+              <p>Gruyère, emmental, and comté melted with dry white wine, garlic, and a whisper of nutmeg. The classic for a reason.</p>
+            </article>
+            <article class="menu-card">
+              <div class="menu-card-top">
+                <h3>Midnight Raclette Blend</h3>
+                <span class="price">rotating</span>
+              </div>
+              <p>Raclette and fontina with black pepper and pickled shallot oil. Louder, saltier, slightly dangerous after midnight.</p>
+            </article>
+            <article class="menu-card">
+              <div class="menu-card-top">
+                <h3>Herb Garden Tomme</h3>
+                <span class="price">green night</span>
+              </div>
+              <p>Soft tomme with chive, tarragon, and lemon zest. Lighter melt for summer host kitchens and greenhouse tables.</p>
+            </article>
+          </div>
+
+          <div class="menu-panel" role="tabpanel" id="panel-dunks" aria-labelledby="tab-dunks" data-panel="dunks" hidden>
+            <article class="menu-card">
+              <div class="menu-card-top">
+                <h3>Crusty sourdough cubes</h3>
+                <span class="price">endless</span>
+              </div>
+              <p>Day-old loaves torn and toasted. The official vehicle of the club.</p>
+            </article>
+            <article class="menu-card">
+              <div class="menu-card-top">
+                <h3>Baby potatoes &amp; cornichons</h3>
+                <span class="price">side</span>
+              </div>
+              <p>Boiled new potatoes, sharp pickles, and blistered cherry tomatoes for acid and crunch.</p>
+            </article>
+            <article class="menu-card">
+              <div class="menu-card-top">
+                <h3>Charred broccoli &amp; apples</h3>
+                <span class="price">side</span>
+              </div>
+              <p>Because greens count when they’re dragged through cheese. Crisp apple for the brave.</p>
+            </article>
+          </div>
+
+          <div class="menu-panel" role="tabpanel" id="panel-glasses" aria-labelledby="tab-glasses" data-panel="glasses" hidden>
+            <article class="menu-card">
+              <div class="menu-card-top">
+                <h3>Alpine white pour</h3>
+                <span class="price">included</span>
+              </div>
+              <p>Crisp, cold, and stubbornly drinkable. Refills encouraged; keys collected as needed.</p>
+            </article>
+            <article class="menu-card">
+              <div class="menu-card-top">
+                <h3>House kirsch spritz</h3>
+                <span class="price">+4</span>
+              </div>
+              <p>A little cherry brandy, a lot of sparkle. Tradition with a wink.</p>
+            </article>
+            <article class="menu-card">
+              <div class="menu-card-top">
+                <h3>Zero-proof pear fizz</h3>
+                <span class="price">included</span>
+              </div>
+              <p>Pressed pear, tonic, and thyme. For designated dippers and the wisely cautious.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section evenings" id="evenings" aria-labelledby="evenings-title">
+      <div class="shell">
+        <div class="section-head light">
+          <p class="section-kicker">Upcoming melts</p>
+          <h2 id="evenings-title">Where the pot lands next</h2>
+          <p class="section-sub">Locations revealed 48 hours before service. Bring a friend who doesn’t mind stretchy pants.</p>
+        </div>
+
+        <ol class="evening-list">
+          <li class="evening-card is-next">
+            <div class="evening-date">
+              <span class="evening-day">Fri</span>
+              <span class="evening-num">18</span>
+              <span class="evening-mon">Jul</span>
+            </div>
+            <div class="evening-body">
+              <p class="evening-badge">Next melt · 8 PM</p>
+              <h3>Warehouse loft melt</h3>
+              <p>Long communal table, soft jazz, and the Alpine Three-Cheese on continuous duty. 18 seats.</p>
+            </div>
+            <a class="btn btn-small btn-primary" href="#seats">Claim seat</a>
+          </li>
+          <li class="evening-card">
+            <div class="evening-date">
+              <span class="evening-day">Sat</span>
+              <span class="evening-num">26</span>
+              <span class="evening-mon">Jul</span>
+            </div>
+            <div class="evening-body">
+              <p class="evening-badge">8 PM</p>
+              <h3>Garden greenhouse session</h3>
+              <p>Herb Garden Tomme under string lights. Bring a light jacket; the cheese will do the rest.</p>
+            </div>
+            <a class="btn btn-small btn-outline" href="#seats">Join waitlist</a>
+          </li>
+          <li class="evening-card">
+            <div class="evening-date">
+              <span class="evening-day">Fri</span>
+              <span class="evening-num">01</span>
+              <span class="evening-mon">Aug</span>
+            </div>
+            <div class="evening-body">
+              <p class="evening-badge">8 PM</p>
+              <h3>Midnight Raclette night</h3>
+              <p>Later start, louder music, pepper-forward pot. Not for the faintly committed.</p>
+            </div>
+            <a class="btn btn-small btn-outline" href="#seats">Join waitlist</a>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section seats" id="seats" aria-labelledby="seats-title">
+      <div class="shell seats-grid">
+        <div class="seats-copy">
+          <p class="section-kicker">Reservations</p>
+          <h2 id="seats-title">Grab a seat at the next melt</h2>
+          <p>Seats are limited to eighteen per evening. Tell us who you are, how many forks you need, and whether you prefer wine or the pear fizz. We’ll confirm by note — no accounts, no nonsense.</p>
+          <ul class="seat-notes">
+            <li><strong>$48</strong> per person · pot, dunks, and first pour included</li>
+            <li>Arrive hungry; leave stretchy</li>
+            <li>Allergies welcome — flag them in the note</li>
+          </ul>
+        </div>
+
+        <form class="seat-form" data-seat-form novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required placeholder="Your full name">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="guests">Guests</label>
+              <select id="guests" name="guests" required>
+                <option value="1">1 seat</option>
+                <option value="2" selected>2 seats</option>
+                <option value="3">3 seats</option>
+                <option value="4">4 seats</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="evening">Evening</label>
+              <select id="evening" name="evening" required>
+                <option value="jul-18" selected>Fri Jul 18 — Warehouse loft</option>
+                <option value="jul-26">Sat Jul 26 — Greenhouse</option>
+                <option value="aug-01">Fri Aug 1 — Midnight Raclette</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="note">Note (optional)</label>
+            <textarea id="note" name="note" rows="3" placeholder="Allergies, celebrations, double-dip confessions…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Grab a seat</button>
+          <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+          <p class="form-fine">Local hold only — this demo doesn’t send data anywhere. Your seat is noted in this browser for the evening.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section rules" aria-labelledby="rules-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="section-kicker">House rules</p>
+          <h2 id="rules-title">Keep it molten, keep it kind</h2>
+        </div>
+        <div class="rules-grid">
+          <article class="rule-card">
+            <span class="rule-num" aria-hidden="true">01</span>
+            <h3>Stir, don’t stir drama</h3>
+            <p>Figure-eight the pot so nobody gets a scorched bottom. Conversations should follow the same rule.</p>
+          </article>
+          <article class="rule-card">
+            <span class="rule-num" aria-hidden="true">02</span>
+            <h3>Lost bread pays a toll</h3>
+            <p>Drop your cube in the pot and tradition says you buy the next round — or tell a story worth the cheese.</p>
+          </article>
+          <article class="rule-card">
+            <span class="rule-num" aria-hidden="true">03</span>
+            <h3>Phones face-down</h3>
+            <p>Except for the group photo at dessert. We’re here for faces, forks, and the soft clink of glasses.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div class="footer-brand">
+        <p class="footer-name">Fondue Club</p>
+        <p class="footer-tag">Dip irresponsibly.</p>
+        <p class="footer-desc">A roving supper club serving bubbling cheese, cold wine, and very unserious evenings.</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-label">Explore</p>
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#evenings">Evenings</a>
+        <a href="#seats">Seats</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-label">Next melt</p>
+        <p>Friday 8 PM</p>
+        <p>18 seats · $48</p>
+        <a class="footer-cta" href="#seats">Grab a seat →</a>
+      </div>
+    </div>
+    <div class="shell footer-base">
+      <p>© Fondue Club · Supper Club · Not a real restaurant, just a very committed fantasy pot.</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

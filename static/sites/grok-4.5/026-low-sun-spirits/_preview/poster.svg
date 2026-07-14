@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Low Sun Spirits — Distilled at the edge of daylight">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a2418"/>
+      <stop offset="28%" stop-color="#a04828"/>
+      <stop offset="52%" stop-color="#e87840"/>
+      <stop offset="68%" stop-color="#f0b070"/>
+      <stop offset="82%" stop-color="#8a5040"/>
+      <stop offset="100%" stop-color="#1a120e"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="42%" r="35%">
+      <stop offset="0%" stop-color="#fff0c8" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#ffc060" stop-opacity="0.85"/>
+      <stop offset="70%" stop-color="#e87830" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#e87830" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bottleFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0d8a0"/>
+      <stop offset="45%" stop-color="#e89040"/>
+      <stop offset="100%" stop-color="#8a4020"/>
+    </linearGradient>
+    <linearGradient id="ridgeFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a281c"/>
+      <stop offset="100%" stop-color="#241810"/>
+    </linearGradient>
+    <linearGradient id="ridgeNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1c1410"/>
+      <stop offset="100%" stop-color="#100c0a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1200" height="900" fill="url(#sky)"/>
+  <circle cx="600" cy="360" r="280" fill="url(#sunGlow)"/>
+  <circle cx="600" cy="370" r="95" fill="#ffd080"/>
+  <circle cx="600" cy="370" r="95" fill="#ffe8b0" opacity="0.35"/>
+
+  <!-- Far ridges -->
+  <path d="M0 520 L120 460 L220 500 L340 400 L460 470 L580 380 L700 450 L820 370 L940 440 L1080 390 L1200 430 L1200 900 L0 900 Z" fill="url(#ridgeFar)"/>
+  <!-- Near ridges with long shadows -->
+  <path d="M0 620 L100 560 L200 600 L320 520 L450 580 L580 500 L720 570 L860 510 L1000 560 L1120 520 L1200 550 L1200 900 L0 900 Z" fill="url(#ridgeNear)"/>
+
+  <!-- Long ground shadows -->
+  <path d="M180 700 L320 640 L480 720 L180 720 Z" fill="#0a0604" opacity="0.35"/>
+  <path d="M620 710 L780 640 L960 730 L620 730 Z" fill="#0a0604" opacity="0.3"/>
+
+  <!-- Stylized bottle motif (left) -->
+  <g transform="translate(210 430)">
+    <rect x="42" y="-18" width="28" height="22" rx="4" fill="#c49870"/>
+    <path d="M36 4 h40 v18 h-40 z" fill="#a07850"/>
+    <path d="M28 22 h56 q12 8 12 28 v150 q0 22 -18 28 h-44 q-18 -6 -18 -28 v-150 q0 -20 12 -28 z" fill="url(#bottleFill)" stroke="#f0d8b0" stroke-width="2" opacity="0.95"/>
+    <rect x="40" y="70" width="32" height="48" rx="4" fill="#1a120e" opacity="0.55"/>
+    <text x="56" y="100" text-anchor="middle" fill="#e8c4a0" font-family="Georgia, 'Times New Roman', serif" font-size="14" letter-spacing="2">LS</text>
+  </g>
+
+  <!-- Stylized bottle motif (right) -->
+  <g transform="translate(900 450)">
+    <rect x="42" y="-18" width="28" height="22" rx="4" fill="#b08060"/>
+    <path d="M36 4 h40 v18 h-40 z" fill="#8a6040"/>
+    <path d="M28 22 h56 q12 8 12 28 v140 q0 22 -18 28 h-44 q-18 -6 -18 -28 v-140 q0 -20 12 -28 z" fill="#c07050" stroke="#f0c0a0" stroke-width="2" opacity="0.9"/>
+    <rect x="40" y="65" width="32" height="44" rx="4" fill="#1a120e" opacity="0.5"/>
+    <text x="56" y="93" text-anchor="middle" fill="#f0d0b8" font-family="Georgia, 'Times New Roman', serif" font-size="14" letter-spacing="2">LS</text>
+  </g>
+
+  <!-- Botanical sprigs -->
+  <g fill="none" stroke="#8a9a78" stroke-width="2.5" stroke-linecap="round" opacity="0.75">
+    <path d="M160 760 C180 700 200 680 230 650"/>
+    <path d="M200 700 C210 690 230 685 250 690"/>
+    <path d="M190 730 C205 715 225 710 250 720"/>
+    <path d="M1020 750 C1000 700 980 675 950 650"/>
+    <path d="M990 710 C975 700 955 698 935 708"/>
+    <path d="M1000 735 C980 725 960 722 940 735"/>
+  </g>
+  <g fill="#8a9a78" opacity="0.7">
+    <ellipse cx="232" cy="648" rx="10" ry="6" transform="rotate(-30 232 648)"/>
+    <ellipse cx="252" cy="688" rx="9" ry="5" transform="rotate(10 252 688)"/>
+    <ellipse cx="948" cy="648" rx="10" ry="6" transform="rotate(30 948 648)"/>
+    <ellipse cx="932" cy="706" rx="9" ry="5" transform="rotate(-12 932 706)"/>
+  </g>
+
+  <!-- Brand panel -->
+  <rect x="260" y="210" width="680" height="280" rx="20" fill="#1a120e" opacity="0.55"/>
+  <rect x="260" y="210" width="680" height="280" rx="20" fill="none" stroke="#e8c4a0" stroke-opacity="0.28" stroke-width="1.5"/>
+
+  <text x="600" y="280" text-anchor="middle" fill="#e89040" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="18" letter-spacing="8" font-weight="600">DESERT BOTANICAL SPIRITS</text>
+  <text x="600" y="360" text-anchor="middle" fill="#f3e4d2" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="500">Low Sun Spirits</text>
+  <text x="600" y="420" text-anchor="middle" fill="#c9a88a" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-style="italic">Distilled at the edge of daylight.</text>
+
+  <!-- Accent line -->
+  <line x1="480" y1="445" x2="720" y2="445" stroke="#c47840" stroke-width="2" opacity="0.8"/>
+
+  <!-- Footer mark -->
+  <text x="600" y="840" text-anchor="middle" fill="#a08068" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="16" letter-spacing="4">MOJAVE · SMALL BATCH · EST. 2014</text>
+</svg>

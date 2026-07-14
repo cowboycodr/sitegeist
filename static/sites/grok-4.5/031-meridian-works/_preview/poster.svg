@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="posterTitle posterDesc">
+  <title id="posterTitle">Meridian Works</title>
+  <desc id="posterDesc">Gallery poster for Meridian Works independent watchmaking</desc>
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="38%" r="55%">
+      <stop offset="0%" stop-color="#1c1f28"/>
+      <stop offset="55%" stop-color="#0f1116"/>
+      <stop offset="100%" stop-color="#08090c"/>
+    </radialGradient>
+    <linearGradient id="bezel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0c998"/>
+      <stop offset="30%" stop-color="#8a7350"/>
+      <stop offset="65%" stop-color="#d8c4a0"/>
+      <stop offset="100%" stop-color="#5c4a32"/>
+    </linearGradient>
+    <radialGradient id="dialFace" cx="48%" cy="40%" r="58%">
+      <stop offset="0%" stop-color="#2a2e36"/>
+      <stop offset="70%" stop-color="#12151b"/>
+      <stop offset="100%" stop-color="#0a0b0e"/>
+    </radialGradient>
+    <linearGradient id="handMetal" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f0e2c4"/>
+      <stop offset="100%" stop-color="#a88b55"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bgGlow)"/>
+  <rect width="1200" height="900" fill="none" stroke="#c4a574" stroke-width="2" opacity="0.15"/>
+
+  <!-- Subtle meridian grid -->
+  <g stroke="#c4a574" stroke-width="1" opacity="0.08" fill="none">
+    <line x1="600" y1="40" x2="600" y2="860"/>
+    <path d="M600 80 A340 340 0 0 1 600 820"/>
+    <path d="M600 120 A300 300 0 0 1 600 780"/>
+    <path d="M280 450 A320 160 0 0 1 920 450"/>
+  </g>
+
+  <!-- Brand mark top -->
+  <g transform="translate(600 92)">
+    <circle r="22" fill="none" stroke="#c4a574" stroke-width="1.5"/>
+    <circle r="3" fill="#c4a574"/>
+    <line x1="0" y1="-18" x2="0" y2="-10" stroke="#c4a574" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="0" y1="10" x2="0" y2="18" stroke="#c4a574" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="-18" y1="0" x2="-10" y2="0" stroke="#c4a574" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="10" y1="0" x2="18" y2="0" stroke="#c4a574" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="10" y2="-9" stroke="#e8e4dc" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+
+  <text x="600" y="150" text-anchor="middle" fill="#e8e4dc" font-family="Georgia, 'Times New Roman', serif" font-size="42" letter-spacing="8">MERIDIAN WORKS</text>
+  <text x="600" y="182" text-anchor="middle" fill="#c4a574" font-family="Georgia, 'Times New Roman', serif" font-size="16" letter-spacing="5">INDEPENDENT WATCHMAKING</text>
+
+  <!-- Central dial -->
+  <g transform="translate(600 480)">
+    <circle r="248" fill="none" stroke="#c4a574" stroke-width="1" opacity="0.2"/>
+    <circle r="230" fill="url(#bezel)"/>
+    <circle r="208" fill="#0c0e12"/>
+    <circle r="196" fill="url(#dialFace)"/>
+
+    <!-- Meridian arc on dial -->
+    <path d="M0 -175 A175 175 0 0 1 0 175" fill="none" stroke="#c4a574" stroke-width="1.2" opacity="0.4"/>
+    <line x1="0" y1="-175" x2="0" y2="175" stroke="#c4a574" stroke-width="0.8" opacity="0.25"/>
+
+    <!-- Hour ticks -->
+    <g stroke="#e8e4dc" stroke-linecap="round">
+      <line x1="0" y1="-178" x2="0" y2="-152" stroke-width="4"/>
+      <line x1="0" y1="152" x2="0" y2="178" stroke-width="4"/>
+      <line x1="-178" y1="0" x2="-152" y2="0" stroke-width="4"/>
+      <line x1="152" y1="0" x2="178" y2="0" stroke-width="4"/>
+      <line x1="-126" y1="-126" x2="-108" y2="-108" stroke-width="2.5"/>
+      <line x1="126" y1="126" x2="108" y2="108" stroke-width="2.5"/>
+      <line x1="126" y1="-126" x2="108" y2="-108" stroke-width="2.5"/>
+      <line x1="-126" y1="126" x2="-108" y2="108" stroke-width="2.5"/>
+    </g>
+
+    <!-- Minor ticks -->
+    <g stroke="#9a958c" stroke-width="1.5" stroke-linecap="round" opacity="0.7">
+      <line x1="89" y1="-154" x2="80" y2="-138"/>
+      <line x1="154" y1="-89" x2="138" y2="-80"/>
+      <line x1="154" y1="89" x2="138" y2="80"/>
+      <line x1="89" y1="154" x2="80" y2="138"/>
+      <line x1="-89" y1="154" x2="-80" y2="138"/>
+      <line x1="-154" y1="89" x2="-138" y2="80"/>
+      <line x1="-154" y1="-89" x2="-138" y2="-80"/>
+      <line x1="-89" y1="-154" x2="-80" y2="-138"/>
+    </g>
+
+    <text x="0" y="-95" text-anchor="middle" fill="#e8e4dc" font-family="Georgia, serif" font-size="14" letter-spacing="4">MERIDIAN</text>
+    <text x="0" y="-74" text-anchor="middle" fill="#c4a574" font-family="Georgia, serif" font-size="11" letter-spacing="3">WORKS</text>
+
+    <!-- Small seconds -->
+    <circle cx="0" cy="78" r="38" fill="none" stroke="#3a4048" stroke-width="1.5"/>
+    <circle cx="0" cy="78" r="3" fill="#c4a574"/>
+    <line x1="0" y1="78" x2="0" y2="50" stroke="#c4a574" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Hands fixed (static poster) -->
+    <line x1="0" y1="0" x2="-28" y2="-95" stroke="url(#handMetal)" stroke-width="7" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="78" y2="-58" stroke="url(#handMetal)" stroke-width="4.5" stroke-linecap="round"/>
+    <line x1="0" y1="22" x2="0" y2="-155" stroke="#c4a574" stroke-width="1.8" stroke-linecap="round"/>
+    <circle r="7" fill="#e8d5b0"/>
+    <circle r="3" fill="#0a0b0e"/>
+  </g>
+
+  <!-- Tagline -->
+  <text x="600" y="780" text-anchor="middle" fill="#e8e4dc" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-style="italic">Time, engineered into character.</text>
+  <line x1="480" y1="810" x2="720" y2="810" stroke="#c4a574" stroke-width="1" opacity="0.5"/>
+  <text x="600" y="848" text-anchor="middle" fill="#8a9aaa" font-family="system-ui, sans-serif" font-size="14" letter-spacing="3">PRECISE MOVEMENTS · ENDURING MATERIALS</text>
+</svg>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Blue Hour Club — Chicago Live Jazz</title>
+  <meta name="description" content="A Chicago room for searching sets, resident artists, low light, and conversations that run late.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Blue Hour Club home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="36" height="36" focusable="false">
+            <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="20" cy="20" r="5" fill="currentColor"/>
+            <path d="M25 15v12a4 4 0 1 1-2-3.5V11l8-2v4l-6 2z" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">Blue Hour</span>
+          <span class="brand-sub">Club · Chicago</span>
+        </span>
+      </a>
+
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#tonight">Tonight</a></li>
+          <li><a href="#artists">Artists</a></li>
+          <li><a href="#room">The Room</a></li>
+          <li><a href="#visit">Visit</a></li>
+        </ul>
+        <a class="btn btn-small btn-primary nav-cta" href="#reserve">Reserve</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Live in Chicago</p>
+        <h1 id="hero-title">Blue Hour Club</h1>
+        <p class="tagline">The city sounds better after midnight.</p>
+        <p class="hero-lead">A basement room for searching sets, resident artists, low light, and conversations that run late. Come for the music. Stay for the blue.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#tonight">See tonight's set</a>
+          <a class="btn btn-ghost" href="#reserve">Reserve a table</a>
+        </div>
+        <dl class="hero-meta">
+          <div>
+            <dt>Doors</dt>
+            <dd>9:00 PM</dd>
+          </div>
+          <div>
+            <dt>Sets</dt>
+            <dd>10:30 · 12:30</dd>
+          </div>
+          <div>
+            <dt>Address</dt>
+            <dd>Wicker Park</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg class="vinyl" viewBox="0 0 280 280" role="img">
+          <defs>
+            <radialGradient id="vinylDisc" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#1a2744"/>
+              <stop offset="35%" stop-color="#0c1220"/>
+              <stop offset="70%" stop-color="#0a0f1a"/>
+              <stop offset="100%" stop-color="#05080f"/>
+            </radialGradient>
+            <linearGradient id="vinylShine" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#6b9fd4" stop-opacity="0.35"/>
+              <stop offset="50%" stop-color="#c9a227" stop-opacity="0.08"/>
+              <stop offset="100%" stop-color="#3d6ea8" stop-opacity="0.25"/>
+            </linearGradient>
+          </defs>
+          <circle cx="140" cy="140" r="132" fill="url(#vinylDisc)" stroke="#2a4060" stroke-width="2"/>
+          <circle cx="140" cy="140" r="120" fill="none" stroke="#1a2a40" stroke-width="1" opacity="0.8"/>
+          <circle cx="140" cy="140" r="105" fill="none" stroke="#1a2a40" stroke-width="0.75" opacity="0.6"/>
+          <circle cx="140" cy="140" r="90" fill="none" stroke="#1a2a40" stroke-width="0.75" opacity="0.5"/>
+          <circle cx="140" cy="140" r="75" fill="none" stroke="#1a2a40" stroke-width="0.5" opacity="0.4"/>
+          <circle cx="140" cy="140" r="48" fill="#1e3a5f" stroke="#c9a227" stroke-width="2"/>
+          <circle cx="140" cy="140" r="18" fill="#0a0f1a"/>
+          <circle cx="140" cy="140" r="6" fill="#c9a227"/>
+          <ellipse cx="140" cy="140" rx="132" ry="132" fill="url(#vinylShine)"/>
+          <text x="140" y="138" text-anchor="middle" fill="#c9a227" font-family="Georgia, serif" font-size="9" letter-spacing="2">BLUE HOUR</text>
+          <text x="140" y="150" text-anchor="middle" fill="#8eb4d8" font-family="Georgia, serif" font-size="7" letter-spacing="1.5">CHICAGO</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="section tonight" id="tonight" aria-labelledby="tonight-title">
+      <div class="section-inner">
+        <header class="section-header">
+          <p class="eyebrow">This evening</p>
+          <h2 id="tonight-title">Tonight's set</h2>
+          <p class="section-intro">Two rooms of sound. One continuous night. Arrive early for the first set — the second often stretches past last call.</p>
+        </header>
+
+        <div class="set-cards">
+          <article class="set-card set-card-featured">
+            <div class="set-time">
+              <span class="set-label">First set</span>
+              <time datetime="22:30">10:30 PM</time>
+            </div>
+            <h3 class="set-title">Mira Cole Quartet</h3>
+            <p class="set-desc">Late-night originals and standards reworked for low light. Cole on tenor, with piano, bass, and brushed drums that leave space for the room to breathe.</p>
+            <ul class="set-tags" aria-label="Style tags">
+              <li>Modern jazz</li>
+              <li>Tenor</li>
+              <li>Originals</li>
+            </ul>
+          </article>
+
+          <article class="set-card">
+            <div class="set-time">
+              <span class="set-label">Late set</span>
+              <time datetime="00:30">12:30 AM</time>
+            </div>
+            <h3 class="set-title">After Hours Session</h3>
+            <p class="set-desc">Open floor for residents and guests. No program, no encore — just players who stayed and a crowd that refused the sidewalk.</p>
+            <ul class="set-tags" aria-label="Style tags">
+              <li>Open jam</li>
+              <li>Residents</li>
+              <li>Improvisation</li>
+            </ul>
+          </article>
+
+          <article class="set-card">
+            <div class="set-time">
+              <span class="set-label">Friday</span>
+              <time datetime="2026-07-17">Jul 17</time>
+            </div>
+            <h3 class="set-title">Ellis Ward Trio</h3>
+            <p class="set-desc">Hammond-forward soul jazz with a Chicago backbeat. Expect deep pocket grooves and a second set that does not hurry.</p>
+            <ul class="set-tags" aria-label="Style tags">
+              <li>Soul jazz</li>
+              <li>Organ</li>
+              <li>Groove</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section artists" id="artists" aria-labelledby="artists-title">
+      <div class="section-inner">
+        <header class="section-header">
+          <p class="eyebrow">The house</p>
+          <h2 id="artists-title">Resident artists</h2>
+          <p class="section-intro">The players who shape the room — weekly residencies, guest slots, and the late-night circle that makes Blue Hour feel like home.</p>
+        </header>
+
+        <ul class="artist-grid">
+          <li class="artist-card">
+            <div class="artist-avatar" aria-hidden="true">
+              <svg viewBox="0 0 80 80" width="80" height="80">
+                <rect width="80" height="80" rx="8" fill="#132033"/>
+                <circle cx="40" cy="30" r="14" fill="#2a4a6e"/>
+                <ellipse cx="40" cy="62" rx="22" ry="16" fill="#2a4a6e"/>
+                <path d="M52 28c8 4 12 14 8 22" fill="none" stroke="#c9a227" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="artist-info">
+              <h3>Mira Cole</h3>
+              <p class="artist-role">Tenor saxophone · Tuesdays</p>
+              <p>Searching lines and patient ballads. The Tuesday residency is where new charts meet the room for the first time.</p>
+            </div>
+          </li>
+          <li class="artist-card">
+            <div class="artist-avatar" aria-hidden="true">
+              <svg viewBox="0 0 80 80" width="80" height="80">
+                <rect width="80" height="80" rx="8" fill="#132033"/>
+                <circle cx="40" cy="30" r="14" fill="#1e3a5f"/>
+                <ellipse cx="40" cy="62" rx="22" ry="16" fill="#1e3a5f"/>
+                <rect x="28" y="48" width="24" height="6" rx="1" fill="#c9a227"/>
+                <rect x="22" y="42" width="4" height="18" rx="1" fill="#8eb4d8"/>
+                <rect x="54" y="42" width="4" height="18" rx="1" fill="#8eb4d8"/>
+              </svg>
+            </div>
+            <div class="artist-info">
+              <h3>Ellis Ward</h3>
+              <p class="artist-role">Hammond B3 · Fridays</p>
+              <p>Church roots and club heat. Friday nights belong to the organ — thick, warm, and impossible to leave mid-chorus.</p>
+            </div>
+          </li>
+          <li class="artist-card">
+            <div class="artist-avatar" aria-hidden="true">
+              <svg viewBox="0 0 80 80" width="80" height="80">
+                <rect width="80" height="80" rx="8" fill="#132033"/>
+                <circle cx="40" cy="30" r="14" fill="#243d5c"/>
+                <ellipse cx="40" cy="62" rx="22" ry="16" fill="#243d5c"/>
+                <circle cx="28" cy="52" r="6" fill="none" stroke="#c9a227" stroke-width="1.5"/>
+                <circle cx="52" cy="52" r="6" fill="none" stroke="#c9a227" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div class="artist-info">
+              <h3>The Late Circle</h3>
+              <p class="artist-role">House rhythm · Saturdays</p>
+              <p>Drums, bass, and piano that hold the floor open. Guests sit in; the pocket stays until the blue hour thins.</p>
+            </div>
+          </li>
+          <li class="artist-card">
+            <div class="artist-avatar" aria-hidden="true">
+              <svg viewBox="0 0 80 80" width="80" height="80">
+                <rect width="80" height="80" rx="8" fill="#132033"/>
+                <circle cx="40" cy="30" r="14" fill="#1a334f"/>
+                <ellipse cx="40" cy="62" rx="22" ry="16" fill="#1a334f"/>
+                <path d="M26 44c8-6 20-6 28 0" fill="none" stroke="#8eb4d8" stroke-width="2"/>
+                <path d="M30 50c6-4 14-4 20 0" fill="none" stroke="#c9a227" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div class="artist-info">
+              <h3>Noa Reyes</h3>
+              <p class="artist-role">Voice · Monthly feature</p>
+              <p>Standards stripped to bone and breath. When Noa is on the bill, the room goes quieter and closer.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section room" id="room" aria-labelledby="room-title">
+      <div class="section-inner room-layout">
+        <div class="room-copy">
+          <header class="section-header section-header-left">
+            <p class="eyebrow">Atmosphere</p>
+            <h2 id="room-title">The room</h2>
+          </header>
+          <p>Blue Hour sits below street level in Wicker Park — brick, low ceilings, and a stage that faces a horseshoe of tables. The light stays amber. The bar pours until the last set ends.</p>
+          <p>We book searching jazz: modern, soul, and the improvisations that happen when residents and guests share the stand. No cover for the late set on weeknights. Reservations hold a table; walk-ins fill the rail.</p>
+          <ul class="room-points">
+            <li>
+              <strong>Capacity</strong>
+              <span>84 seated · standing rail at the bar</span>
+            </li>
+            <li>
+              <strong>Sound</strong>
+              <span>Natural room · light reinforcement on vocals</span>
+            </li>
+            <li>
+              <strong>Policy</strong>
+              <span>21+ after 9 · quiet phones during sets</span>
+            </li>
+          </ul>
+        </div>
+        <aside class="room-panel" aria-label="House notes">
+          <h3 class="room-panel-title">House notes</h3>
+          <ol class="house-notes">
+            <li>Doors open at 9:00. First notes around 10:30.</li>
+            <li>Tables are for two hours per reservation on busy nights.</li>
+            <li>Kitchen closes at midnight; bar stays open through the late set.</li>
+            <li>Tip the band if the music moved you — the jar is at the stage.</li>
+          </ol>
+          <div class="room-quote">
+            <blockquote>
+              <p>“Low light, honest time, and a tenor that knows how to wait.”</p>
+              <footer>— regular, third stool from the end</footer>
+            </blockquote>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section visit" id="visit" aria-labelledby="visit-title">
+      <div class="section-inner">
+        <header class="section-header">
+          <p class="eyebrow">Find us</p>
+          <h2 id="visit-title">Visit</h2>
+          <p class="section-intro">We are a short walk from the Damen Blue Line. Look for the blue door under the awning — music starts when the street goes quiet.</p>
+        </header>
+
+        <div class="visit-grid">
+          <div class="visit-card">
+            <h3>Location</h3>
+            <p class="visit-detail">1847 N. Milwaukee Ave<br>Chicago, IL 60647<br>Wicker Park</p>
+            <p class="visit-note">Entrance on the side street. Stairs down. Ring if the door is closed between sets.</p>
+          </div>
+          <div class="visit-card">
+            <h3>Hours</h3>
+            <dl class="hours-list">
+              <div>
+                <dt>Tue – Thu</dt>
+                <dd>9:00 PM – 1:30 AM</dd>
+              </div>
+              <div>
+                <dt>Fri – Sat</dt>
+                <dd>9:00 PM – 2:30 AM</dd>
+              </div>
+              <div>
+                <dt>Sun – Mon</dt>
+                <dd>Closed</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="visit-card">
+            <h3>Contact</h3>
+            <p class="visit-detail">
+              <a href="mailto:tables@bluehour.club">tables@bluehour.club</a><br>
+              <span class="phone">(312) 555-0148</span>
+            </p>
+            <p class="visit-note">Reservations by form or email. Same-day tables: call after 4 PM.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reserve" id="reserve" aria-labelledby="reserve-title">
+      <div class="section-inner reserve-inner">
+        <header class="section-header section-header-left">
+          <p class="eyebrow">Tables</p>
+          <h2 id="reserve-title">Reserve a table</h2>
+          <p class="section-intro">Hold two seats for the first set. We confirm by email within a day. For parties larger than four, email us directly.</p>
+        </header>
+
+        <form class="reserve-form" id="reserve-form" action="#" method="get" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required placeholder="Your name">
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@example.com">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="date">Date</label>
+              <input type="date" id="date" name="date" required>
+            </div>
+            <div class="field">
+              <label for="party">Party size</label>
+              <select id="party" name="party" required>
+                <option value="" disabled selected>Select</option>
+                <option value="1">1 guest</option>
+                <option value="2">2 guests</option>
+                <option value="3">3 guests</option>
+                <option value="4">4 guests</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="set-choice">Preferred set</label>
+            <select id="set-choice" name="set" required>
+              <option value="" disabled selected>Select a set</option>
+              <option value="first">First set (10:30 PM)</option>
+              <option value="late">Late set (12:30 AM)</option>
+              <option value="either">Either works</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="notes">Notes <span class="optional">(optional)</span></label>
+            <textarea id="notes" name="notes" rows="3" placeholder="Anniversary, accessibility needs, or a favorite resident…"></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Request reservation</button>
+            <p class="form-aside" id="form-status" role="status" aria-live="polite"></p>
+          </div>
+          <p class="form-disclaimer">This page stores nothing online. Your request is prepared locally so you can email or call the club to confirm.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="footer-name">Blue Hour Club</p>
+        <p class="footer-tag">The city sounds better after midnight.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#tonight">Tonight</a>
+        <a href="#artists">Artists</a>
+        <a href="#room">The Room</a>
+        <a href="#visit">Visit</a>
+        <a href="#reserve">Reserve</a>
+      </nav>
+      <p class="footer-copy">© 2026 Blue Hour Club · Chicago · Live jazz after dark</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

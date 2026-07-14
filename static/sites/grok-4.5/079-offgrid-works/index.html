@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'">
+  <title>Offgrid Works — A cabin with a steering wheel</title>
+  <meta name="description" content="Modular electric campers engineered for quiet roads, remote work, and weekends beyond signal.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Offgrid Works home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="36" height="36" focusable="false">
+            <rect x="4" y="14" width="32" height="16" rx="3" fill="currentColor" opacity="0.15"/>
+            <path d="M8 22h24v6a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-6z" fill="currentColor"/>
+            <path d="M10 14h20l-2-6H12l-2 6z" fill="currentColor" opacity="0.85"/>
+            <circle cx="13" cy="30" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="27" cy="30" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M16 10h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">Offgrid Works</span>
+          <span class="brand-tag">Adventure Vehicles</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-panel">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+          <span class="visually-hidden">Menu</span>
+        </button>
+        <div class="nav-panel" id="nav-panel">
+          <ul class="nav-list">
+            <li><a href="#platform">Platform</a></li>
+            <li><a href="#modules">Modules</a></li>
+            <li><a href="#tour">Tour</a></li>
+            <li><a href="#specs">Specs</a></li>
+            <li><a href="#configure" class="nav-cta">Configure yours</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <svg class="hero-ridge" viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax slice" focusable="false">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1a2f28"/>
+              <stop offset="55%" stop-color="#2d4a3e"/>
+              <stop offset="100%" stop-color="#c4a574"/>
+            </linearGradient>
+            <linearGradient id="ridgeA" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0f1f1a"/>
+              <stop offset="100%" stop-color="#1c332b"/>
+            </linearGradient>
+          </defs>
+          <rect width="1440" height="420" fill="url(#sky)"/>
+          <path d="M0 280 L180 200 L320 250 L480 140 L640 220 L820 110 L980 190 L1140 130 L1320 200 L1440 160 L1440 420 L0 420 Z" fill="url(#ridgeA)" opacity="0.9"/>
+          <path d="M0 320 L220 250 L400 300 L560 230 L760 290 L960 210 L1180 270 L1440 230 L1440 420 L0 420 Z" fill="#0b1814" opacity="0.85"/>
+          <circle cx="1120" cy="90" r="36" fill="#f0d9a8" opacity="0.9"/>
+          <circle cx="1120" cy="90" r="54" fill="#f0d9a8" opacity="0.12"/>
+        </svg>
+        <div class="hero-camper" aria-hidden="true">
+          <svg viewBox="0 0 520 220" width="100%" height="100%" focusable="false">
+            <rect x="40" y="70" width="400" height="100" rx="14" fill="#e8dcc8"/>
+            <rect x="40" y="70" width="400" height="28" rx="14" fill="#2d4a3e"/>
+            <rect x="40" y="84" width="400" height="14" fill="#2d4a3e"/>
+            <rect x="80" y="108" width="70" height="48" rx="6" fill="#7eb8c9" opacity="0.85"/>
+            <rect x="170" y="108" width="70" height="48" rx="6" fill="#7eb8c9" opacity="0.65"/>
+            <rect x="300" y="100" width="100" height="56" rx="8" fill="#1a2f28"/>
+            <rect x="312" y="112" width="36" height="24" rx="3" fill="#7eb8c9" opacity="0.5"/>
+            <rect x="358" y="112" width="28" height="24" rx="3" fill="#7eb8c9" opacity="0.35"/>
+            <path d="M40 120 H20 a10 10 0 0 0-10 10 v30 a10 10 0 0 0 10 10 h20" fill="#2d4a3e"/>
+            <circle cx="120" cy="178" r="22" fill="#1a2f28" stroke="#c4a574" stroke-width="4"/>
+            <circle cx="360" cy="178" r="22" fill="#1a2f28" stroke="#c4a574" stroke-width="4"/>
+            <circle cx="120" cy="178" r="8" fill="#c4a574"/>
+            <circle cx="360" cy="178" r="8" fill="#c4a574"/>
+            <rect x="440" y="95" width="18" height="50" rx="3" fill="#c4a574"/>
+            <path d="M449 70 v25" stroke="#c4a574" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="449" cy="62" r="8" fill="none" stroke="#7eb8c9" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="shell hero-content">
+        <p class="eyebrow">Built beyond the map</p>
+        <h1 id="hero-title">A cabin with a <em>steering wheel</em>.</h1>
+        <p class="hero-lead">Modular electric campers engineered for quiet roads, remote work, and weekends beyond signal.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#configure">Configure yours</a>
+          <a class="btn btn-secondary" href="#tour">Take the tour</a>
+        </div>
+        <dl class="hero-stats" aria-label="Highlights">
+          <div>
+            <dt>Range</dt>
+            <dd>320 mi</dd>
+          </div>
+          <div>
+            <dt>Silent idle</dt>
+            <dd>0 dB</dd>
+          </div>
+          <div>
+            <dt>Off-grid days</dt>
+            <dd>5+</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section platform" id="platform" aria-labelledby="platform-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">The platform</p>
+          <h2 id="platform-title">Quiet power. Real rooms. No campsite required.</h2>
+          <p class="section-lead">Offgrid Works builds electric chassis and cabin modules that lock together like furniture. Drive farther on battery, work from a full desk, sleep under a dark-sky roof—then unplug the module when the weekend ends.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="40" height="40" focusable="false">
+                <path d="M10 28c0-8 6-14 14-14s14 6 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M18 28h12v6a2 2 0 0 1-2 2H20a2 2 0 0 1-2-2v-6z" fill="currentColor" opacity="0.2"/>
+                <path d="M22 18v-4h4v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="24" cy="31" r="2" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Electric hush</h3>
+            <p>No diesel generator. No idle rumble. Pull into a trailhead before sunrise and the only sound is your kettle.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="40" height="40" focusable="false">
+                <rect x="8" y="12" width="14" height="24" rx="2" fill="currentColor" opacity="0.2"/>
+                <rect x="26" y="12" width="14" height="24" rx="2" fill="currentColor" opacity="0.35"/>
+                <path d="M15 20h4M15 26h4M33 20h4M33 26h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Modular cabins</h3>
+            <p>Swap a desk bay for a galley, a bunk loft for a studio. Modules lock to the chassis rails in under twenty minutes.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="40" height="40" focusable="false">
+                <circle cx="24" cy="24" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M24 14v10l7 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10 38h28" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+              </svg>
+            </div>
+            <h3>Workday range</h3>
+            <p>Battery for the road. Solar for the stay. A dedicated house pack keeps laptops, lights, and climate running for five quiet days.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="40" height="40" focusable="false">
+                <path d="M8 32 L18 18 L28 28 L36 14 L40 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="36" cy="14" r="3" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Beyond signal</h3>
+            <p>Optional mesh antenna and satellite uplink live in the roof spine—so remote work stays remote without going offline.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section modules" id="modules" aria-labelledby="modules-title">
+      <div class="shell">
+        <div class="section-head section-head-split">
+          <div>
+            <p class="eyebrow">Cabin modules</p>
+            <h2 id="modules-title">Build the room you need this season.</h2>
+          </div>
+          <p class="section-lead">Three primary modules ship ready to lock onto any Offgrid Works chassis. Mix finishes later—structure is standardized.</p>
+        </div>
+
+        <div class="module-grid" role="list">
+          <article class="module-card" role="listitem">
+            <div class="module-visual module-visual-a" aria-hidden="true">
+              <svg viewBox="0 0 280 160" focusable="false">
+                <rect x="20" y="40" width="240" height="90" rx="10" fill="#2d4a3e"/>
+                <rect x="36" y="56" width="80" height="50" rx="4" fill="#7eb8c9" opacity="0.5"/>
+                <rect x="130" y="56" width="110" height="18" rx="3" fill="#c4a574" opacity="0.7"/>
+                <rect x="130" y="84" width="70" height="10" rx="2" fill="#e8dcc8" opacity="0.4"/>
+                <rect x="130" y="100" width="50" height="10" rx="2" fill="#e8dcc8" opacity="0.25"/>
+              </svg>
+            </div>
+            <div class="module-body">
+              <h3>Studio Desk</h3>
+              <p>Full-width work surface, standing height options, cable spine, and blackout glass for video calls at trailheads.</p>
+              <ul>
+                <li>1.8 m desk bay</li>
+                <li>Dual monitor rail</li>
+                <li>Acoustic liner package</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="module-card" role="listitem">
+            <div class="module-visual module-visual-b" aria-hidden="true">
+              <svg viewBox="0 0 280 160" focusable="false">
+                <rect x="20" y="40" width="240" height="90" rx="10" fill="#3d5c4a"/>
+                <rect x="40" y="70" width="90" height="40" rx="6" fill="#e8dcc8" opacity="0.85"/>
+                <rect x="150" y="55" width="90" height="55" rx="6" fill="#1a2f28"/>
+                <circle cx="195" cy="82" r="12" fill="#c4a574" opacity="0.5"/>
+                <path d="M165 100h60" stroke="#7eb8c9" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="module-body">
+              <h3>Galley Nest</h3>
+              <p>Induction two-burner, cold drawer, and a fold-down dining ledge that seats three without blocking the aisle.</p>
+              <ul>
+                <li>12 V induction top</li>
+                <li>45 L cold drawer</li>
+                <li>Fresh / gray tanks</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="module-card" role="listitem">
+            <div class="module-visual module-visual-c" aria-hidden="true">
+              <svg viewBox="0 0 280 160" focusable="false">
+                <rect x="20" y="40" width="240" height="90" rx="10" fill="#243f35"/>
+                <rect x="36" y="70" width="100" height="44" rx="8" fill="#e8dcc8" opacity="0.7"/>
+                <rect x="150" y="55" width="90" height="28" rx="6" fill="#c4a574" opacity="0.55"/>
+                <rect x="150" y="92" width="90" height="22" rx="4" fill="#7eb8c9" opacity="0.35"/>
+                <path d="M60 55h50" stroke="#f0d9a8" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+              </svg>
+            </div>
+            <div class="module-body">
+              <h3>Loft Sleep</h3>
+              <p>Queen loft with skylight, under-bunk storage, and a climate micro-zone so nights stay cool without draining the house pack.</p>
+              <ul>
+                <li>Queen loft bed</li>
+                <li>Dark-sky skylight</li>
+                <li>Under-bunk crates</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tour" id="tour" aria-labelledby="tour-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Take the tour</p>
+          <h2 id="tour-title">Walk the cabin without leaving the driveway.</h2>
+          <p class="section-lead">Four stops from nose to tail. Select a step to move through the layout—keyboard arrows work too.</p>
+        </div>
+
+        <div class="tour-layout">
+          <div class="tour-stage" aria-live="polite">
+            <div class="tour-scene" id="tour-scene" data-step="0">
+              <svg class="tour-illustration" viewBox="0 0 640 360" role="img" aria-labelledby="tour-scene-label">
+                <title id="tour-scene-label">Cabin tour illustration</title>
+                <defs>
+                  <linearGradient id="tourFloor" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#3d5c4a"/>
+                    <stop offset="100%" stop-color="#1a2f28"/>
+                  </linearGradient>
+                </defs>
+                <rect width="640" height="360" fill="#0f1f1a"/>
+                <rect x="40" y="50" width="560" height="260" rx="16" fill="url(#tourFloor)"/>
+                <rect x="40" y="50" width="560" height="40" fill="#2d4a3e"/>
+                <!-- windows -->
+                <rect class="tour-hotspot tour-h0" x="70" y="110" width="100" height="70" rx="6" fill="#7eb8c9" opacity="0.45"/>
+                <rect class="tour-hotspot tour-h1" x="200" y="120" width="160" height="50" rx="4" fill="#c4a574" opacity="0.55"/>
+                <rect class="tour-hotspot tour-h2" x="400" y="110" width="80" height="90" rx="6" fill="#e8dcc8" opacity="0.35"/>
+                <rect class="tour-hotspot tour-h3" x="500" y="100" width="70" height="50" rx="6" fill="#f0d9a8" opacity="0.4"/>
+                <path d="M70 250h500" stroke="#c4a574" stroke-width="2" opacity="0.35"/>
+                <text x="320" y="290" text-anchor="middle" fill="#e8dcc8" font-family="system-ui,sans-serif" font-size="14" opacity="0.7">Chassis rails · module locks · house battery</text>
+              </svg>
+              <p class="tour-caption" id="tour-caption">Cab: panoramic glass, quiet drive seat, and a dash that never shouts.</p>
+            </div>
+          </div>
+
+          <ol class="tour-steps" id="tour-steps">
+            <li>
+              <button type="button" class="tour-step is-active" data-step="0" aria-current="step">
+                <span class="step-num">01</span>
+                <span class="step-body">
+                  <span class="step-title">Drive cabin</span>
+                  <span class="step-desc">Low dash, wide glass, regenerative one-pedal calm on forest roads.</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="tour-step" data-step="1">
+                <span class="step-num">02</span>
+                <span class="step-body">
+                  <span class="step-title">Work bay</span>
+                  <span class="step-desc">Desk module locks mid-cabin with power, light, and cable management built in.</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="tour-step" data-step="2">
+                <span class="step-num">03</span>
+                <span class="step-body">
+                  <span class="step-title">Galley &amp; lounge</span>
+                  <span class="step-desc">Cook, eat, and fold everything flat so the aisle stays open end to end.</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="tour-step" data-step="3">
+                <span class="step-num">04</span>
+                <span class="step-body">
+                  <span class="step-title">Sleep loft</span>
+                  <span class="step-desc">Climb up to a queen loft with a dark-sky panel and climate micro-zone.</span>
+                </span>
+              </button>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section specs" id="specs" aria-labelledby="specs-title">
+      <div class="shell">
+        <div class="section-head section-head-split">
+          <div>
+            <p class="eyebrow">Technical notes</p>
+            <h2 id="specs-title">Numbers that matter on a dirt road.</h2>
+          </div>
+          <p class="section-lead">Every chassis ships with dual battery architecture: traction for the road, house for the stay. Specs below are for the Ridge base model.</p>
+        </div>
+
+        <div class="specs-panel">
+          <table class="specs-table">
+            <caption class="visually-hidden">Ridge base specifications</caption>
+            <tbody>
+              <tr>
+                <th scope="row">Drivetrain</th>
+                <td>All-electric dual motor AWD</td>
+              </tr>
+              <tr>
+                <th scope="row">Traction pack</th>
+                <td>95 kWh · estimated 320 mi highway</td>
+              </tr>
+              <tr>
+                <th scope="row">House pack</th>
+                <td>18 kWh LiFePO₄ · 5+ days moderate use</td>
+              </tr>
+              <tr>
+                <th scope="row">Solar array</th>
+                <td>Roof spine · up to 900 W peak</td>
+              </tr>
+              <tr>
+                <th scope="row">Module rails</th>
+                <td>Standardized lock · 3 bay positions</td>
+              </tr>
+              <tr>
+                <th scope="row">Sleeps</th>
+                <td>2 loft + optional dinette conversion</td>
+              </tr>
+              <tr>
+                <th scope="row">Ground clearance</th>
+                <td>11.2 in · approach 28°</td>
+              </tr>
+              <tr>
+                <th scope="row">Water</th>
+                <td>80 L fresh · 60 L gray</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <aside class="specs-aside">
+            <h3>Why dual packs</h3>
+            <p>Traction energy never steals from your lights or laptop. When the road pack is low, the house pack still runs climate, refrigeration, and the desk for days—then solar tops it while you work.</p>
+            <ul class="check-list">
+              <li>Isolated BMS per pack</li>
+              <li>Vehicle-to-cabin boost when needed</li>
+              <li>Shore charge overnight at 11 kW</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section configure" id="configure" aria-labelledby="configure-title">
+      <div class="shell">
+        <div class="configure-card">
+          <div class="configure-copy">
+            <p class="eyebrow">Configure yours</p>
+            <h2 id="configure-title">Start with a chassis. Finish with a cabin.</h2>
+            <p>Pick a base, lock your modules, and choose finishes. This planner runs entirely on your device—no account, no network.</p>
+          </div>
+
+          <form class="configure-form" id="configure-form" action="#" method="get">
+            <fieldset>
+              <legend>Chassis</legend>
+              <div class="option-row">
+                <label class="option">
+                  <input type="radio" name="chassis" value="ridge" checked>
+                  <span class="option-face">
+                    <span class="option-name">Ridge</span>
+                    <span class="option-meta">Base · 320 mi</span>
+                  </span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="chassis" value="summit">
+                  <span class="option-face">
+                    <span class="option-name">Summit</span>
+                    <span class="option-meta">Long · 380 mi</span>
+                  </span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="chassis" value="trail">
+                  <span class="option-face">
+                    <span class="option-name">Trail</span>
+                    <span class="option-meta">Compact · 260 mi</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Primary module</legend>
+              <div class="option-row">
+                <label class="option">
+                  <input type="radio" name="module" value="desk" checked>
+                  <span class="option-face">
+                    <span class="option-name">Studio Desk</span>
+                    <span class="option-meta">Work first</span>
+                  </span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="module" value="galley">
+                  <span class="option-face">
+                    <span class="option-name">Galley Nest</span>
+                    <span class="option-meta">Cook first</span>
+                  </span>
+                </label>
+                <label class="option">
+                  <input type="radio" name="module" value="loft">
+                  <span class="option-face">
+                    <span class="option-name">Loft Sleep</span>
+                    <span class="option-meta">Rest first</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Finish</legend>
+              <div class="option-row option-row-swatch">
+                <label class="option swatch">
+                  <input type="radio" name="finish" value="pine" checked>
+                  <span class="option-face" style="--swatch:#3d5c4a">
+                    <span class="option-name">Pine Ridge</span>
+                  </span>
+                </label>
+                <label class="option swatch">
+                  <input type="radio" name="finish" value="sand">
+                  <span class="option-face" style="--swatch:#c4a574">
+                    <span class="option-name">Desert Sand</span>
+                  </span>
+                </label>
+                <label class="option swatch">
+                  <input type="radio" name="finish" value="slate">
+                  <span class="option-face" style="--swatch:#2a3540">
+                    <span class="option-name">Night Slate</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="configure-summary" id="configure-summary" aria-live="polite">
+              <p class="summary-line"><strong>Your build:</strong> <span id="summary-text">Ridge · Studio Desk · Pine Ridge</span></p>
+              <p class="summary-note">Estimate from <span id="summary-price">$78,400</span> · modular upgrades billed separately</p>
+            </div>
+
+            <div class="configure-actions">
+              <button type="submit" class="btn btn-primary" id="save-build">Save this build</button>
+              <p class="form-status" id="form-status" role="status" hidden>Build saved on this device.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section ethos" aria-labelledby="ethos-title">
+      <div class="shell ethos-inner">
+        <blockquote>
+          <p id="ethos-title">We design for the mile after the pavement ends—and the meeting that still has to start on time.</p>
+          <footer>— Offgrid Works</footer>
+        </blockquote>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <span class="brand-name">Offgrid Works</span>
+        <p>Modular electric campers for quiet roads, remote work, and weekends beyond signal.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#platform">Platform</a>
+        <a href="#modules">Modules</a>
+        <a href="#tour">Tour</a>
+        <a href="#specs">Specs</a>
+        <a href="#configure">Configure</a>
+      </nav>
+      <p class="footer-meta">© Offgrid Works · Adventure Vehicles · Built beyond the map</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self';">
+  <title>NULL Laboratory — Prototypes for uncertain futures</title>
+  <meta name="description" content="Research into spatial computing, machine perception, and delightfully strange interfaces.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="void-field" aria-hidden="true">
+    <div class="grid-plane"></div>
+    <div class="orbit orbit-a"></div>
+    <div class="orbit orbit-b"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="NULL Laboratory home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+            <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="16" cy="16" r="4" fill="currentColor"/>
+            <path d="M16 4v6M16 22v6M4 16h6M22 16h6" stroke="currentColor" stroke-width="1.25" opacity="0.55"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">NULL</span>
+          <span class="brand-sub">Laboratory</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" data-site-nav aria-label="Primary">
+        <ul>
+          <li><a href="#experiments">Experiments</a></li>
+          <li><a href="#domains">Domains</a></li>
+          <li><a href="#manifesto">Manifesto</a></li>
+          <li><a href="#index">Index</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero" aria-labelledby="hero-title">
+      <div class="hero-meta">
+        <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span> Research index / 0090</p>
+        <p class="status-chip"><span class="status-live" aria-hidden="true"></span> Bench active · 14 open prototypes</p>
+      </div>
+
+      <div class="hero-copy">
+        <h1 id="hero-title">
+          <span class="title-line">Prototypes for</span>
+          <span class="title-line accent">uncertain futures.</span>
+        </h1>
+        <p class="lede">
+          NULL Laboratory investigates spatial computing, machine perception,
+          and delightfully strange interfaces — instruments that sense what
+          interfaces usually ignore.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#experiments">Open experiments</a>
+          <a class="btn btn-ghost" href="#manifesto">Read the manifesto</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="Laboratory telemetry">
+        <div class="panel-header">
+          <span>// telemetry</span>
+          <span class="panel-id">NL-CORE</span>
+        </div>
+        <dl class="telemetry">
+          <div>
+            <dt>Perception stack</dt>
+            <dd>v0.9.4-delta</dd>
+          </div>
+          <div>
+            <dt>Spatial nodes</dt>
+            <dd>128 live</dd>
+          </div>
+          <div>
+            <dt>Signal floor</dt>
+            <dd>−48.2 dB</dd>
+          </div>
+          <div>
+            <dt>Null residual</dt>
+            <dd>0.0031</dd>
+          </div>
+        </dl>
+        <div class="signal-trace" aria-hidden="true">
+          <svg viewBox="0 0 280 56" preserveAspectRatio="none">
+            <polyline class="trace-line" points="0,40 18,38 32,42 48,22 64,28 80,12 96,30 112,18 128,34 144,8 160,26 176,20 192,36 208,14 224,32 240,24 256,38 280,30"/>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <section id="experiments" class="section experiments" aria-labelledby="experiments-title">
+      <div class="section-head">
+        <p class="section-kicker">01 — Active bench</p>
+        <h2 id="experiments-title">Open experiments</h2>
+        <p class="section-intro">
+          Working prototypes, not polished products. Each entry is a hypothesis
+          you can hold, break, or rewire.
+        </p>
+      </div>
+
+      <div class="filter-bar" role="group" aria-label="Filter experiments by domain">
+        <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="filter-btn" data-filter="spatial" aria-pressed="false">Spatial</button>
+        <button type="button" class="filter-btn" data-filter="perception" aria-pressed="false">Perception</button>
+        <button type="button" class="filter-btn" data-filter="interface" aria-pressed="false">Interface</button>
+      </div>
+
+      <ul class="experiment-grid" data-experiment-grid>
+        <li class="experiment-card" data-domain="spatial">
+          <article>
+            <div class="card-top">
+              <span class="card-id">EXP-041</span>
+              <span class="card-tag">Spatial</span>
+            </div>
+            <h3>Room-scale null maps</h3>
+            <p>
+              Mesh a room as absences rather than surfaces — furniture as voids,
+              pathways as pressure. Useful when presence is the noise.
+            </p>
+            <div class="card-meta">
+              <span>Status: iterating</span>
+              <span>Depth: 3.2 m</span>
+            </div>
+          </article>
+        </li>
+        <li class="experiment-card" data-domain="perception">
+          <article>
+            <div class="card-top">
+              <span class="card-id">EXP-037</span>
+              <span class="card-tag">Perception</span>
+            </div>
+            <h3>Peripheral attention nets</h3>
+            <p>
+              Models trained only on edge vision. They notice hands, weather,
+              and exits — never the thing you were told to look at.
+            </p>
+            <div class="card-meta">
+              <span>Status: open</span>
+              <span>F1 edge: 0.91</span>
+            </div>
+          </article>
+        </li>
+        <li class="experiment-card" data-domain="interface">
+          <article>
+            <div class="card-top">
+              <span class="card-id">EXP-052</span>
+              <span class="card-tag">Interface</span>
+            </div>
+            <h3>Haptic grammar tablets</h3>
+            <p>
+              A tactile alphabet for operators who cannot look up. Pressure,
+              drag, and double-tap form sentences machines can answer.
+            </p>
+            <div class="card-meta">
+              <span>Status: bench</span>
+              <span>Lexemes: 48</span>
+            </div>
+          </article>
+        </li>
+        <li class="experiment-card" data-domain="spatial">
+          <article>
+            <div class="card-top">
+              <span class="card-id">EXP-029</span>
+              <span class="card-tag">Spatial</span>
+            </div>
+            <h3>Lag-aware volumetric UI</h3>
+            <p>
+              Interfaces that announce their own delay. Depth layers shift when
+              the stack is late so trust stays legible.
+            </p>
+            <div class="card-meta">
+              <span>Status: stable</span>
+              <span>Latency: 18 ms</span>
+            </div>
+          </article>
+        </li>
+        <li class="experiment-card" data-domain="perception">
+          <article>
+            <div class="card-top">
+              <span class="card-id">EXP-061</span>
+              <span class="card-tag">Perception</span>
+            </div>
+            <h3>Uncertainty chroma field</h3>
+            <p>
+              Confidence rendered as color temperature across a scene. Warm
+              means sure; cool means the model is guessing with you.
+            </p>
+            <div class="card-meta">
+              <span>Status: open</span>
+              <span>Bands: 7</span>
+            </div>
+          </article>
+        </li>
+        <li class="experiment-card" data-domain="interface">
+          <article>
+            <div class="card-top">
+              <span class="card-id">EXP-018</span>
+              <span class="card-tag">Interface</span>
+            </div>
+            <h3>Soft-fail gesture panes</h3>
+            <p>
+              Gestures that refuse to complete when intent is ambiguous. The
+              pane blurs instead of mis-firing — refusal as a feature.
+            </p>
+            <div class="card-meta">
+              <span>Status: iterating</span>
+              <span>False OK: 1.4%</span>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <section id="domains" class="section domains" aria-labelledby="domains-title">
+      <div class="section-head">
+        <p class="section-kicker">02 — Research domains</p>
+        <h2 id="domains-title">Where we probe</h2>
+        <p class="section-intro">
+          Three overlapping labs share one bench. The interesting work always
+          happens on the seams.
+        </p>
+      </div>
+
+      <div class="domain-grid">
+        <article class="domain-card">
+          <div class="domain-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="40" height="40" fill="none">
+              <path d="M8 32 L24 8 L40 32 Z" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="24" cy="28" r="3" fill="currentColor"/>
+              <path d="M14 38h20" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3>Spatial computing</h3>
+          <p>
+            Rooms as addressable media. We map occlusion, latency, and social
+            distance as first-class interface materials — not afterthoughts.
+          </p>
+          <ul class="domain-list">
+            <li>Volumetric layout systems</li>
+            <li>Presence-aware lighting stacks</li>
+            <li>Shared null-space calendars</li>
+          </ul>
+        </article>
+
+        <article class="domain-card">
+          <div class="domain-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="40" height="40" fill="none">
+              <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+              <path d="M24 4v6M24 38v6M4 24h6M38 24h6" stroke="currentColor" stroke-width="1.25"/>
+            </svg>
+          </div>
+          <h3>Machine perception</h3>
+          <p>
+            Sensors that admit uncertainty. We train for periphery, occlusion,
+            and social glance — the parts of seeing that dashboards discard.
+          </p>
+          <ul class="domain-list">
+            <li>Edge-only attention models</li>
+            <li>Confidence as chromatic signal</li>
+            <li>Multi-agent gaze arbitration</li>
+          </ul>
+        </article>
+
+        <article class="domain-card">
+          <div class="domain-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="40" height="40" fill="none">
+              <rect x="10" y="14" width="28" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M18 24h12M24 18v12" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="34" cy="34" r="5" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3>Strange interfaces</h3>
+          <p>
+            Controls that feel slightly wrong on purpose. Haptics, refusal
+            states, and soft failure modes that keep humans in the loop.
+          </p>
+          <ul class="domain-list">
+            <li>Tactile operator grammars</li>
+            <li>Ambiguity-preserving gestures</li>
+            <li>Interfaces that document lag</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="manifesto" class="section manifesto" aria-labelledby="manifesto-title">
+      <div class="manifesto-layout">
+        <div class="manifesto-intro">
+          <p class="section-kicker">03 — Field notes</p>
+          <h2 id="manifesto-title">Manifesto for uncertain futures</h2>
+          <p>
+            We build instruments, not oracles. Every prototype at NULL is a
+            question you can run with your hands. If a system cannot show its
+            doubt, it does not ship to the bench.
+          </p>
+        </div>
+
+        <ol class="manifesto-list">
+          <li>
+            <span class="m-num">01</span>
+            <div>
+              <h3>Prefer legible failure</h3>
+              <p>When the model is wrong, the interface should look wrong — not confident.</p>
+            </div>
+          </li>
+          <li>
+            <span class="m-num">02</span>
+            <div>
+              <h3>Treat space as data</h3>
+              <p>Depth, occlusion, and distance are inputs. Flat screens are a temporary constraint.</p>
+            </div>
+          </li>
+          <li>
+            <span class="m-num">03</span>
+            <div>
+              <h3>Keep humans interruptible</h3>
+              <p>Automation that cannot be paused mid-gesture is a hazard, not a feature.</p>
+            </div>
+          </li>
+          <li>
+            <span class="m-num">04</span>
+            <div>
+              <h3>Publish the residual</h3>
+              <p>What the system cannot explain belongs on the surface, not in a footnote.</p>
+            </div>
+          </li>
+          <li>
+            <span class="m-num">05</span>
+            <div>
+              <h3>Delight is a signal</h3>
+              <p>Strange joy is how we notice when an interface has become too sterile to trust.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="index" class="section index-section" aria-labelledby="index-title">
+      <div class="section-head">
+        <p class="section-kicker">04 — Laboratory index</p>
+        <h2 id="index-title">How the bench runs</h2>
+      </div>
+
+      <div class="index-grid">
+        <article class="index-card">
+          <h3>Open hours</h3>
+          <p>
+            Prototypes refresh weekly. Stable builds land on Fridays; volatile
+            stacks stay marked iterating until two consecutive quiet runs.
+          </p>
+        </article>
+        <article class="index-card">
+          <h3>Collaboration</h3>
+          <p>
+            We pair with research groups, spatial studios, and operators who
+            need tools that admit uncertainty without apologizing for it.
+          </p>
+        </article>
+        <article class="index-card">
+          <h3>Archive policy</h3>
+          <p>
+            Failed experiments stay indexed. A discarded hypothesis is still a
+            map of where not to dig twice.
+          </p>
+        </article>
+        <article class="index-card highlight">
+          <h3>Contact the bench</h3>
+          <p>
+            For research partnerships and experiment reviews, reach the duty
+            operator at <span class="mono">bench@null-laboratory.lab</span> —
+            offline mailbox, no runtime network on this page.
+          </p>
+          <p class="index-note">Displayed address only · no forms · no trackers</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark small" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
+            <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="16" cy="16" r="4" fill="currentColor"/>
+          </svg>
+        </span>
+        <div>
+          <strong>NULL Laboratory</strong>
+          <p>Research index / 0090 · Experimental Tech</p>
+        </div>
+      </div>
+      <p class="footer-tag">Prototypes for uncertain futures.</p>
+      <p class="footer-meta">Standalone research artifact · no remote calls · © NULL Laboratory</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

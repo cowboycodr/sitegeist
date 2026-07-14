@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Mosslight — Disappear into the green">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2d4a3a"/>
+      <stop offset="45%" stop-color="#1a2e24"/>
+      <stop offset="100%" stop-color="#0f1c16"/>
+    </linearGradient>
+    <linearGradient id="ray" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#c4a574" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#c4a574" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="pool" cx="55%" cy="58%" r="35%">
+      <stop offset="0%" stop-color="#c4a574" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#1a2e24" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+
+  <!-- Soft ambient light -->
+  <ellipse cx="660" cy="480" rx="320" ry="200" fill="url(#pool)"/>
+  <path d="M660 120 L580 520 L740 520 Z" fill="url(#ray)"/>
+
+  <!-- Distant ridge -->
+  <path d="M0 380 C160 320 280 350 420 300 C560 250 640 230 780 260 C920 290 1020 250 1200 280 L1200 900 L0 900 Z" fill="#243d30"/>
+
+  <!-- Forest silhouette trees -->
+  <g fill="#1a2e24">
+    <path d="M0 520 L50 400 L90 510 L140 360 L190 500 L240 340 L290 490 L350 320 L400 480 L460 300 L520 470 L580 290 L640 460 L700 280 L760 450 L820 310 L880 470 L940 300 L1000 480 L1060 340 L1120 500 L1200 420 L1200 900 L0 900 Z"/>
+  </g>
+
+  <!-- Mid canopy shapes -->
+  <g fill="#2d4a3a" opacity="0.85">
+    <ellipse cx="180" cy="420" rx="90" ry="120"/>
+    <ellipse cx="320" cy="380" rx="70" ry="100"/>
+    <ellipse cx="980" cy="400" rx="100" ry="130"/>
+    <ellipse cx="1100" cy="440" rx="80" ry="110"/>
+  </g>
+
+  <!-- Cabin -->
+  <g transform="translate(520 430)">
+    <path d="M40 140 L160 30 L280 140 V250 H40 Z" fill="#3d3229"/>
+    <path d="M40 140 L160 30 L280 140 Z" fill="#3d5c4a"/>
+    <rect x="130" y="160" width="42" height="90" fill="#c4a574"/>
+    <rect x="200" y="165" width="36" height="30" rx="2" fill="#e8d5b5"/>
+    <rect x="70" y="165" width="28" height="24" rx="2" fill="#8aab90" opacity="0.7"/>
+  </g>
+
+  <!-- Ground moss bands -->
+  <path d="M0 700 C200 660 400 740 600 700 C800 660 1000 720 1200 680 V900 H0 Z" fill="#1f3529"/>
+  <path d="M0 780 C250 740 450 820 700 770 C900 730 1050 800 1200 760 V900 H0 Z" fill="#162820"/>
+
+  <!-- Foreground ferns -->
+  <g fill="#5a7a62">
+    <path d="M80 860 Q140 700 200 860 Q150 780 80 860"/>
+    <path d="M160 880 Q230 700 300 880 Q240 780 160 880"/>
+    <path d="M900 870 Q970 700 1040 870 Q980 780 900 870"/>
+    <path d="M980 890 Q1060 720 1140 890 Q1070 800 980 890"/>
+  </g>
+  <g fill="#3d5c4a">
+    <path d="M40 890 Q90 760 150 890 Q100 820 40 890"/>
+    <path d="M1050 900 Q1120 760 1190 900 Q1130 830 1050 900"/>
+  </g>
+
+  <!-- Floating light motes -->
+  <g fill="#c5d4c8">
+    <circle cx="220" cy="180" r="3" opacity="0.45"/>
+    <circle cx="380" cy="240" r="2" opacity="0.35"/>
+    <circle cx="860" cy="160" r="2.5" opacity="0.4"/>
+    <circle cx="980" cy="220" r="2" opacity="0.3"/>
+    <circle cx="700" cy="200" r="1.5" opacity="0.35"/>
+  </g>
+
+  <!-- Branding panel -->
+  <rect x="72" y="72" width="420" height="8" rx="4" fill="#8aab90" opacity="0.7"/>
+  <text x="72" y="150" fill="#e8efe9" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="78" font-weight="600" letter-spacing="-1.5">Mosslight</text>
+  <text x="72" y="210" fill="#c4a574" font-family="Georgia, 'Iowan Old Style', serif" font-size="32" font-style="italic">Disappear into the green.</text>
+  <text x="72" y="270" fill="#8aab90" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20" letter-spacing="3" font-weight="600">CABINS IN THE CASCADES</text>
+
+  <!-- Corner mark -->
+  <g transform="translate(1040 80)">
+    <rect width="72" height="72" rx="18" fill="#0f1c16" stroke="#5a7a62" stroke-width="2"/>
+    <path d="M16 52c8-16 12-28 20-28s12 12 20 28" fill="none" stroke="#8aab90" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="36" cy="24" r="7" fill="#c4a574"/>
+  </g>
+</svg>

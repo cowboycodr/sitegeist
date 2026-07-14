@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b1220"/>
+      <stop offset="0.55" stop-color="#12253f"/>
+      <stop offset="1" stop-color="#0a3d36"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="600" y1="200" x2="900" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2ec4b6" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#2ec4b6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="card" x1="620" y1="180" x2="1080" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1a2740"/>
+      <stop offset="1" stop-color="#0f1a2e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="900" cy="420" r="320" fill="url(#glow)"/>
+  <circle cx="180" cy="720" r="180" fill="#0d9b8a" opacity="0.12"/>
+
+  <!-- subtle grid -->
+  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+    <path d="M0 180h1200M0 360h1200M0 540h1200M0 720h1200"/>
+    <path d="M200 0v900M400 0v900M600 0v900M800 0v900M1000 0v900"/>
+  </g>
+
+  <!-- dashed delivery path -->
+  <path d="M80 780 C220 640, 320 560, 420 480 S620 320, 760 280" stroke="#2ec4b6" stroke-width="3" stroke-dasharray="10 12" opacity="0.45" stroke-linecap="round"/>
+  <circle cx="80" cy="780" r="10" fill="#0d9b8a"/>
+  <circle cx="760" cy="280" r="10" fill="#7ee8db"/>
+
+  <!-- brand mark -->
+  <g transform="translate(72, 72)">
+    <rect width="64" height="64" rx="16" fill="#1a2740" stroke="#2ec4b6" stroke-width="2"/>
+    <path d="M18 42V28a14 14 0 0 1 28 0v14" stroke="#2ec4b6" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="25" cy="35" r="2.8" fill="#7ee8db"/>
+    <circle cx="39" cy="35" r="2.8" fill="#7ee8db"/>
+    <path d="M20 46h24a5 5 0 0 1 5 5v2H15v-2a5 5 0 0 1 5-5z" fill="#0d9b8a"/>
+    <rect x="27" y="14" width="10" height="6" rx="2" fill="#2ec4b6"/>
+  </g>
+
+  <!-- wordmark & copy -->
+  <text x="156" y="112" fill="#f4f7fb" font-family="Segoe UI, system-ui, sans-serif" font-size="34" font-weight="700" letter-spacing="-0.5">Relay Robotics</text>
+  <text x="156" y="142" fill="#7ee8db" font-family="Segoe UI, system-ui, sans-serif" font-size="16" font-weight="600" letter-spacing="3">AUTONOMY FOR EVERYDAY SPACES</text>
+
+  <text x="72" y="280" fill="#ffffff" font-family="Segoe UI, system-ui, sans-serif" font-size="78" font-weight="750" letter-spacing="-2.5">Robots that</text>
+  <text x="72" y="368" fill="#ffffff" font-family="Segoe UI, system-ui, sans-serif" font-size="78" font-weight="750" letter-spacing="-2.5">work the room.</text>
+
+  <text x="72" y="440" fill="#b8c5d9" font-family="Segoe UI, system-ui, sans-serif" font-size="24">
+    Friendly indoor logistics for hospitals,
+  </text>
+  <text x="72" y="476" fill="#b8c5d9" font-family="Segoe UI, system-ui, sans-serif" font-size="24">
+    hotels, and campuses.
+  </text>
+
+  <!-- stats pills -->
+  <g font-family="Segoe UI, system-ui, sans-serif">
+    <rect x="72" y="540" width="150" height="72" rx="16" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
+    <text x="92" y="572" fill="#ffffff" font-size="26" font-weight="700">2.4M+</text>
+    <text x="92" y="596" fill="#8fa0b8" font-size="14">deliveries</text>
+
+    <rect x="240" y="540" width="150" height="72" rx="16" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
+    <text x="260" y="572" fill="#ffffff" font-size="26" font-weight="700">180+</text>
+    <text x="260" y="596" fill="#8fa0b8" font-size="14">buildings</text>
+
+    <rect x="408" y="540" width="150" height="72" rx="16" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
+    <text x="428" y="572" fill="#ffffff" font-size="26" font-weight="700">99.7%</text>
+    <text x="428" y="596" fill="#8fa0b8" font-size="14">on-time</text>
+  </g>
+
+  <!-- robot card -->
+  <g transform="translate(680, 160)">
+    <rect width="420" height="560" rx="36" fill="url(#card)" stroke="rgba(46,196,182,0.35)" stroke-width="2"/>
+    <circle cx="320" cy="80" r="100" fill="#2ec4b6" opacity="0.15"/>
+
+    <!-- robot illustration -->
+    <g transform="translate(105, 90)">
+      <rect x="30" y="70" width="150" height="190" rx="40" fill="#0b1220"/>
+      <rect x="42" y="86" width="126" height="100" rx="28" fill="#12253f"/>
+      <rect x="60" y="104" width="90" height="54" rx="16" fill="#0a1424"/>
+      <circle cx="88" cy="130" r="8" fill="#7ee8db"/>
+      <circle cx="122" cy="130" r="8" fill="#7ee8db"/>
+      <path d="M96 148h18" stroke="#2ec4b6" stroke-width="4" stroke-linecap="round"/>
+      <rect x="94" y="36" width="22" height="34" rx="10" fill="#2c3d5a"/>
+      <circle cx="105" cy="30" r="14" fill="#2ec4b6"/>
+      <circle cx="105" cy="30" r="6" fill="#f4f7fb"/>
+      <rect x="54" y="200" width="102" height="40" rx="12" fill="#0d9b8a"/>
+      <rect x="70" y="212" width="70" height="12" rx="6" fill="#7ee8db" opacity="0.75"/>
+      <rect x="18" y="255" width="174" height="32" rx="16" fill="#1a2740"/>
+      <circle cx="58" cy="290" r="20" fill="#2c3d5a"/>
+      <circle cx="152" cy="290" r="20" fill="#2c3d5a"/>
+      <circle cx="58" cy="290" r="8" fill="#2ec4b6"/>
+      <circle cx="152" cy="290" r="8" fill="#2ec4b6"/>
+      <rect x="0" y="110" width="26" height="70" rx="13" fill="#2c3d5a"/>
+      <rect x="184" y="110" width="26" height="70" rx="13" fill="#2c3d5a"/>
+    </g>
+
+    <rect x="40" y="460" width="340" height="64" rx="16" fill="rgba(13,155,138,0.18)" stroke="rgba(46,196,182,0.35)"/>
+    <text x="60" y="488" fill="#7ee8db" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="1.5">RELAY ONE</text>
+    <text x="60" y="512" fill="#f4f7fb" font-family="Segoe UI, system-ui, sans-serif" font-size="20" font-weight="600">Meet the indoor courier</text>
+  </g>
+
+  <!-- bottom tag -->
+  <text x="72" y="820" fill="#5a6b84" font-family="Segoe UI, system-ui, sans-serif" font-size="18">relay-robotics · indoor autonomy</text>
+</svg>

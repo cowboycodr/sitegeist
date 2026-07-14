@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Silent, lightweight electric bikes made for elegant movement through dense urban life.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Quiet Mile — The city, softened.</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#top" aria-label="Quiet Mile home">
+        <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <circle cx="16" cy="16" r="15" fill="none" stroke="#161714" stroke-width="1.5"/>
+          <path d="M8 18.5c2.5-6 5.5-9 8-9s5.5 3 8 9" fill="none" stroke="#5f7a6a" stroke-width="1.75" stroke-linecap="round"/>
+          <circle cx="16" cy="20.5" r="2.25" fill="#161714"/>
+        </svg>
+        <span class="logo-text">Quiet Mile</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="#philosophy">Philosophy</a></li>
+          <li><a href="#m1">The M1</a></li>
+          <li><a href="#features">Details</a></li>
+          <li><a href="#ride">Test ride</a></li>
+        </ul>
+        <a class="nav-cta" href="#ride">Book a test ride</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+          <span class="menu-toggle-bars" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+    <ul>
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#m1">The M1</a></li>
+      <li><a href="#features">Details</a></li>
+      <li><a href="#materials">Finishes</a></li>
+      <li><a href="#ride">Test ride</a></li>
+    </ul>
+    <a class="nav-cta" href="#ride">Book a test ride</a>
+  </nav>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Urban electric mobility</p>
+          <h1 id="hero-title">The city, <em>softened.</em></h1>
+          <p class="hero-sub">
+            Silent, lightweight electric bikes made for elegant movement through dense urban life.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#m1">Meet the M1</a>
+            <a class="btn btn-secondary" href="#ride">Book a test ride</a>
+          </div>
+          <div class="hero-meta" role="list">
+            <div class="meta-item" role="listitem">
+              <strong>14.2 kg</strong>
+              <span>Ready-to-ride weight</span>
+            </div>
+            <div class="meta-item" role="listitem">
+              <strong>&lt; 28 dB</strong>
+              <span>At neighborhood pace</span>
+            </div>
+            <div class="meta-item" role="listitem">
+              <strong>72 km</strong>
+              <span>Real-city range</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <svg viewBox="0 0 640 480" role="img" aria-label="Quiet Mile M1 electric bike silhouette against a soft city skyline">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#e8efe9"/>
+                <stop offset="100%" stop-color="#c8d4cc"/>
+              </linearGradient>
+              <linearGradient id="frame" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#2a2e2a"/>
+                <stop offset="100%" stop-color="#161714"/>
+              </linearGradient>
+            </defs>
+            <!-- Soft skyline -->
+            <rect width="640" height="480" fill="url(#sky)"/>
+            <g opacity="0.35" fill="#3d5246">
+              <rect x="40" y="210" width="48" height="160" rx="2"/>
+              <rect x="100" y="160" width="62" height="210" rx="2"/>
+              <rect x="175" y="190" width="40" height="180" rx="2"/>
+              <rect x="230" y="140" width="70" height="230" rx="2"/>
+              <rect x="315" y="175" width="52" height="195" rx="2"/>
+              <rect x="380" y="120" width="80" height="250" rx="2"/>
+              <rect x="475" y="185" width="45" height="185" rx="2"/>
+              <rect x="535" y="150" width="65" height="220" rx="2"/>
+            </g>
+            <!-- Soft road -->
+            <ellipse cx="320" cy="400" rx="280" ry="28" fill="#a8bdb0" opacity="0.35"/>
+            <!-- Bike -->
+            <g transform="translate(70 95)">
+              <!-- Wheels -->
+              <circle cx="110" cy="230" r="78" fill="none" stroke="#161714" stroke-width="7"/>
+              <circle cx="110" cy="230" r="58" fill="none" stroke="#5f7a6a" stroke-width="1.5" opacity="0.5"/>
+              <circle cx="110" cy="230" r="8" fill="#161714"/>
+              <circle cx="390" cy="230" r="78" fill="none" stroke="#161714" stroke-width="7"/>
+              <circle cx="390" cy="230" r="58" fill="none" stroke="#5f7a6a" stroke-width="1.5" opacity="0.5"/>
+              <circle cx="390" cy="230" r="8" fill="#161714"/>
+              <!-- Frame -->
+              <path d="M110 230 L210 120 L340 120 L390 230" fill="none" stroke="url(#frame)" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+              <path d="M210 120 L240 230 L110 230" fill="none" stroke="url(#frame)" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+              <path d="M240 230 L340 120" fill="none" stroke="url(#frame)" stroke-width="7" stroke-linecap="round"/>
+              <!-- Seat post & saddle -->
+              <path d="M210 120 L195 78" fill="none" stroke="#161714" stroke-width="6" stroke-linecap="round"/>
+              <path d="M172 74 Q195 64 218 74" fill="none" stroke="#161714" stroke-width="8" stroke-linecap="round"/>
+              <!-- Stem & bars -->
+              <path d="M340 120 L355 78" fill="none" stroke="#161714" stroke-width="6" stroke-linecap="round"/>
+              <path d="M320 72 H390" fill="none" stroke="#161714" stroke-width="7" stroke-linecap="round"/>
+              <!-- Quiet hub motor hint -->
+              <circle cx="390" cy="230" r="22" fill="#5f7a6a" opacity="0.25"/>
+              <circle cx="390" cy="230" r="14" fill="none" stroke="#3d5246" stroke-width="2"/>
+              <!-- Battery pack -->
+              <rect x="248" y="148" width="52" height="18" rx="5" fill="#5f7a6a"/>
+              <rect x="254" y="152" width="12" height="10" rx="2" fill="#a8bdb0" opacity="0.7"/>
+            </g>
+            <!-- Soft motion trails -->
+            <g stroke="#5f7a6a" stroke-linecap="round" opacity="0.35">
+              <path d="M48 300 H92" stroke-width="2"/>
+              <path d="M40 318 H78" stroke-width="1.5"/>
+              <path d="M55 336 H95" stroke-width="1.5"/>
+            </g>
+          </svg>
+          <div class="float-chip">
+            <span class="chip">Belt drive</span>
+            <span class="chip">Hub silence</span>
+            <span class="chip">City-tuned</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="city-band" id="philosophy" aria-labelledby="philosophy-title">
+      <div class="wrap city-band-inner">
+        <blockquote id="philosophy-title" class="reveal">
+          Noise is not a feature of city life. It is a design failure.
+        </blockquote>
+        <p class="reveal">
+          Quiet Mile builds electric bikes that lower the volume of getting around —
+          light enough to carry up stairs, silent enough to share sidewalks kindly,
+          and refined enough to feel like part of your day rather than another machine in it.
+        </p>
+      </div>
+    </section>
+
+    <section class="section features" id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <div class="features-head reveal">
+          <div>
+            <p class="eyebrow">Designed for density</p>
+            <h2 class="section-title" id="features-title">Movement without the friction.</h2>
+          </div>
+          <p class="section-lead">
+            Every detail serves calm progress: fewer rattles, fewer stops for charging anxiety,
+            and geometry that reads as furniture when you lean it in a hallway.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M4 14c2-5 5-8 8-8s6 3 8 8" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                <circle cx="12" cy="16" r="2.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Near-silent assist</h3>
+            <p>
+              A rear hub motor with sealed internals and a carbon-reinforced belt
+              keep the soundtrack to wind, tires, and the street itself.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect x="7" y="4" width="10" height="16" rx="2" stroke="currentColor" stroke-width="1.75"/>
+                <path d="M10 8h4M10 12h4M10 16h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Carry-up light</h3>
+            <p>
+              A monocoque alloy frame and integrated 320 Wh pack bring the M1
+              to 14.2 kg — light enough for brownstone stairs and loft elevators.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.75"/>
+                <path d="M12 8v4l2.5 1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>City-true range</h3>
+            <p>
+              Tuned for stop-and-go streets, not brochure hills. Expect about 72 km
+              of mixed urban riding with assist that never shouts for attention.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M5 16h14M7 16l2-8h6l2 8" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="9" cy="18" r="1.5" fill="currentColor"/>
+                <circle cx="15" cy="18" r="1.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Low-maintenance belt</h3>
+            <p>
+              No chain lube on your trousers. The carbon belt runs clean for years
+              and pairs with an internal gear hub for weatherproof simplicity.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M6 10h12v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-8z" stroke="currentColor" stroke-width="1.75"/>
+                <path d="M9 10V7a3 3 0 0 1 6 0v3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Everyday security</h3>
+            <p>
+              Frame lock mount, hidden battery release, and a discreet GPS slot
+              keep the M1 present when you step away for coffee or a meeting.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M4 14c4-2 6-6 8-6s4 4 8 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                <path d="M4 18c4-2 6-4 8-4s4 2 8 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.55"/>
+              </svg>
+            </div>
+            <h3>Soft geometry</h3>
+            <p>
+              Upright posture, swept bars, and a step-through option mean you arrive
+              composed — not hunched, not hurried, not in athletic gear.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section product" id="m1" aria-labelledby="m1-title">
+      <div class="wrap">
+        <div class="product-panel reveal">
+          <div class="product-visual" aria-hidden="true">
+            <svg viewBox="0 0 520 360" role="img">
+              <defs>
+                <linearGradient id="m1g" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#3d5246"/>
+                  <stop offset="100%" stop-color="#161714"/>
+                </linearGradient>
+              </defs>
+              <ellipse cx="260" cy="300" rx="200" ry="22" fill="#a8bdb0" opacity="0.3"/>
+              <g transform="translate(30 20)">
+                <circle cx="100" cy="220" r="72" fill="none" stroke="#161714" stroke-width="8"/>
+                <circle cx="100" cy="220" r="12" fill="#161714"/>
+                <circle cx="100" cy="220" r="48" fill="none" stroke="#5f7a6a" stroke-width="1" opacity="0.4"/>
+                <circle cx="360" cy="220" r="72" fill="none" stroke="#161714" stroke-width="8"/>
+                <circle cx="360" cy="220" r="12" fill="#161714"/>
+                <circle cx="360" cy="220" r="28" fill="#5f7a6a" opacity="0.2"/>
+                <circle cx="360" cy="220" r="48" fill="none" stroke="#5f7a6a" stroke-width="1" opacity="0.4"/>
+                <path d="M100 220 L190 110 L320 110 L360 220" fill="none" stroke="url(#m1g)" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+                <path d="M190 110 L220 220 L100 220" fill="none" stroke="url(#m1g)" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+                <path d="M220 220 L320 110" fill="none" stroke="url(#m1g)" stroke-width="8" stroke-linecap="round"/>
+                <path d="M190 110 L178 72" fill="none" stroke="#161714" stroke-width="7" stroke-linecap="round"/>
+                <path d="M158 68 Q178 58 198 68" fill="none" stroke="#161714" stroke-width="9" stroke-linecap="round"/>
+                <path d="M320 110 L334 70" fill="none" stroke="#161714" stroke-width="7" stroke-linecap="round"/>
+                <path d="M300 64 H368" fill="none" stroke="#161714" stroke-width="8" stroke-linecap="round"/>
+                <rect x="230" y="138" width="56" height="20" rx="6" fill="#5f7a6a"/>
+                <text x="230" y="40" font-family="Georgia, serif" font-size="14" fill="#3d5246" letter-spacing="3">M1</text>
+              </g>
+            </svg>
+          </div>
+          <div class="product-info">
+            <p class="eyebrow">The flagship</p>
+            <h2 id="m1-title">Meet the M1</h2>
+            <p>
+              A single-speed spirit with electric grace. The M1 is Quiet Mile’s city bike —
+              balanced for short errands and longer evening loops, finished like something
+              you are proud to leave in the foyer.
+            </p>
+            <ul class="spec-list">
+              <li><span>Motor</span><span>250 W rear hub, silent</span></li>
+              <li><span>Battery</span><span>320 Wh integrated</span></li>
+              <li><span>Weight</span><span>14.2 kg complete</span></li>
+              <li><span>Drive</span><span>Carbon belt · IGH</span></li>
+              <li><span>Assist</span><span>Up to 25 km/h</span></li>
+              <li><span>Frame</span><span>Step-through or diamond</span></li>
+            </ul>
+            <div class="product-actions">
+              <a class="btn btn-primary" href="#ride">Book a test ride</a>
+              <a class="btn btn-soft" href="#materials">See finishes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section journey" id="how" aria-labelledby="how-title">
+      <div class="wrap journey-grid">
+        <div class="reveal">
+          <p class="eyebrow">From door to dusk</p>
+          <h2 class="section-title" id="how-title">A quieter mile, every day.</h2>
+          <p class="section-lead">
+            Ownership is meant to feel unremarkable in the best way —
+            charge overnight, roll out, lock, and forget the machine until morning.
+          </p>
+        </div>
+        <ol class="steps reveal">
+          <li>
+            <span class="step-num" aria-hidden="true"></span>
+            <div>
+              <h3>Wake charged</h3>
+              <p>The pack tops up from a standard outlet in under three hours. Status glows softly — never a loud LED parade.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num" aria-hidden="true"></span>
+            <div>
+              <h3>Roll into the grid</h3>
+              <p>Assist engages with a long, quiet ramp. You choose the cadence; the motor fills the gaps between traffic lights.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num" aria-hidden="true"></span>
+            <div>
+              <h3>Arrive composed</h3>
+              <p>No chain grease, no overheating, no dramatic power cuts. Just the soft click of the frame lock and a calmer arrival.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section materials" id="materials" aria-labelledby="materials-title">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="eyebrow">Finishes</p>
+          <h2 class="section-title" id="materials-title">Quiet colors for loud streets.</h2>
+          <p class="section-lead">
+            Matte coats that hide scuffs and catch city light gently.
+            Each finish is named for the hour it feels most at home.
+          </p>
+        </div>
+        <div class="swatches">
+          <div class="swatch reveal">
+            <div class="swatch-color swatch-midnight"></div>
+            <div class="swatch-info">
+              <strong>Midnight Grove</strong>
+              <span>Deep charcoal green</span>
+            </div>
+          </div>
+          <div class="swatch reveal">
+            <div class="swatch-color swatch-stone"></div>
+            <div class="swatch-info">
+              <strong>Morning Stone</strong>
+              <span>Warm limestone matte</span>
+            </div>
+          </div>
+          <div class="swatch reveal">
+            <div class="swatch-color swatch-canopy"></div>
+            <div class="swatch-info">
+              <strong>Soft Canopy</strong>
+              <span>Muted urban sage</span>
+            </div>
+          </div>
+          <div class="swatch reveal">
+            <div class="swatch-color swatch-clay"></div>
+            <div class="swatch-info">
+              <strong>Dusk Clay</strong>
+              <span>Earthy bronze taupe</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="ride" aria-labelledby="ride-title">
+      <div class="wrap">
+        <div class="cta-panel reveal">
+          <h2 id="ride-title">Book a test ride</h2>
+          <p>
+            Feel the silence on a neighborhood loop. Choose a studio city and a preferred window —
+            we hold your interest locally until you visit.
+          </p>
+          <form class="ride-form" id="ride-form" action="#" method="post" novalidate>
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Alex Rivera" required>
+            </div>
+            <div class="field">
+              <label for="city">Studio city</label>
+              <select id="city" name="city" required>
+                <option value="" disabled selected>Select a city</option>
+                <option value="Lisbon">Lisbon</option>
+                <option value="Copenhagen">Copenhagen</option>
+                <option value="Portland">Portland</option>
+                <option value="Melbourne">Melbourne</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="time">Preferred window</label>
+              <select id="time" name="time" required>
+                <option value="" disabled selected>Select a time</option>
+                <option value="weekday morning">Weekday morning</option>
+                <option value="weekday afternoon">Weekday afternoon</option>
+                <option value="weekend">Weekend</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" type="submit">Hold my test ride</button>
+            <p class="form-note">Stored only in this browser session. No network request is made.</p>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+          <div class="cta-actions">
+            <a class="btn btn-secondary" href="#m1">Review the M1</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="logo" href="#top" aria-label="Quiet Mile home">
+            <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+              <circle cx="16" cy="16" r="15" fill="none" stroke="#161714" stroke-width="1.5"/>
+              <path d="M8 18.5c2.5-6 5.5-9 8-9s5.5 3 8 9" fill="none" stroke="#5f7a6a" stroke-width="1.75" stroke-linecap="round"/>
+              <circle cx="16" cy="20.5" r="2.25" fill="#161714"/>
+            </svg>
+            <span class="logo-text">Quiet Mile</span>
+          </a>
+          <p>Silent, lightweight electric bikes for elegant movement through dense urban life.</p>
+        </div>
+        <div class="footer-nav">
+          <div>
+            <h3>Explore</h3>
+            <ul>
+              <li><a href="#m1">The M1</a></li>
+              <li><a href="#features">Details</a></li>
+              <li><a href="#materials">Finishes</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Visit</h3>
+            <ul>
+              <li><a href="#ride">Test rides</a></li>
+              <li><a href="#philosophy">Philosophy</a></li>
+              <li><a href="#how">How it feels</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Contact</h3>
+            <ul>
+              <li><a href="#ride">Studios</a></li>
+              <li><span class="footer-note">hello at quietmile</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© Quiet Mile. The city, softened.</span>
+        <span>Electric Mobility · Crafted for dense streets</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

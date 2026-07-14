@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Salt Air — Stay close to the tide">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dfecea"/>
+      <stop offset="42%" stop-color="#9fbfb8"/>
+      <stop offset="72%" stop-color="#5a8a84"/>
+      <stop offset="100%" stop-color="#2a4a47"/>
+    </linearGradient>
+    <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8dfd0"/>
+      <stop offset="100%" stop-color="#d4c4ae"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbf8f2"/>
+      <stop offset="100%" stop-color="#f4efe6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Full canvas sky/sea -->
+  <rect width="1200" height="900" fill="url(#sky)"/>
+
+  <!-- Soft sun -->
+  <circle cx="930" cy="210" r="78" fill="#fbf8f2" opacity="0.88"/>
+  <circle cx="930" cy="210" r="108" fill="#f4efe6" opacity="0.22"/>
+
+  <!-- Distant headland -->
+  <path d="M0 430 C160 390 260 410 380 395 C520 375 620 410 760 390 C900 370 1020 395 1200 360 L1200 520 L0 520 Z" fill="#3d6b66" opacity="0.55"/>
+
+  <!-- Water bands -->
+  <path d="M0 500 C200 470 360 520 560 490 C760 460 940 510 1200 475 L1200 700 L0 700 Z" fill="#2a4a47"/>
+  <path d="M0 560 C180 540 340 580 520 555 C740 520 920 575 1200 545" fill="none" stroke="#c5d8d4" stroke-width="3" opacity="0.45"/>
+  <path d="M0 610 C220 585 400 630 620 600 C860 565 1020 625 1200 595" fill="none" stroke="#d4a574" stroke-width="2.5" opacity="0.4"/>
+
+  <!-- Shore -->
+  <path d="M0 680 C260 640 480 710 720 675 C940 640 1080 690 1200 665 L1200 900 L0 900 Z" fill="url(#sand)"/>
+  <path d="M0 720 C200 695 420 740 640 710 C900 670 1050 730 1200 700" fill="none" stroke="#6b5e52" stroke-width="2" opacity="0.18"/>
+
+  <!-- Inn silhouette -->
+  <g transform="translate(160 470)">
+    <rect x="0" y="40" width="220" height="130" rx="6" fill="#4a3f36"/>
+    <path d="M-18 48 L110 -20 L238 48 Z" fill="#3a312a"/>
+    <rect x="28" y="70" width="48" height="54" rx="3" fill="#c5d8d4"/>
+    <rect x="92" y="70" width="48" height="54" rx="3" fill="#e8c9a8"/>
+    <rect x="156" y="70" width="36" height="54" rx="3" fill="#c5d8d4" opacity="0.85"/>
+    <rect x="28" y="135" width="36" height="35" rx="2" fill="#2c2824"/>
+    <!-- porch line -->
+    <rect x="-12" y="160" width="244" height="10" rx="2" fill="#6b5e52"/>
+    <line x1="20" y1="160" x2="20" y2="130" stroke="#6b5e52" stroke-width="4"/>
+    <line x1="200" y1="160" x2="200" y2="130" stroke="#6b5e52" stroke-width="4"/>
+  </g>
+
+  <!-- Driftwood motif -->
+  <path d="M780 760 Q860 700 940 760" fill="none" stroke="#6b5e52" stroke-width="8" stroke-linecap="round" opacity="0.55"/>
+  <path d="M800 758 Q860 720 920 758" fill="none" stroke="#4a3f36" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Title card -->
+  <rect x="90" y="90" width="520" height="290" rx="28" fill="url(#panel)" opacity="0.96"/>
+  <rect x="90" y="90" width="520" height="290" rx="28" fill="none" stroke="#6b5e52" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- Small logo mark -->
+  <g transform="translate(130 130)">
+    <rect width="52" height="52" rx="14" fill="#2a4a47"/>
+    <path d="M8 34c5-10 10-15 18-15s13 5 18 15" fill="none" stroke="#c5d8d4" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M12 37c4-6 8-9 12-9s8 3 12 9" fill="none" stroke="#d4a574" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="26" cy="16" r="3" fill="#e8c9a8"/>
+  </g>
+
+  <text x="200" y="155" font-family="Georgia, 'Iowan Old Style', 'Times New Roman', serif" font-size="28" fill="#5a8a84" letter-spacing="6">COASTAL INN</text>
+  <text x="130" y="240" font-family="Georgia, 'Iowan Old Style', 'Times New Roman', serif" font-size="92" font-weight="600" fill="#2c2824">Salt Air</text>
+  <text x="130" y="305" font-family="Georgia, 'Iowan Old Style', 'Times New Roman', serif" font-size="32" fill="#6b5e52">Stay close to the tide.</text>
+
+  <!-- Bottom caption bar -->
+  <rect x="0" y="830" width="1200" height="70" fill="#2c2824" opacity="0.55"/>
+  <text x="600" y="874" text-anchor="middle" font-family="system-ui, 'Segoe UI', sans-serif" font-size="22" fill="#f4efe6" letter-spacing="3">OPEN WINDOWS · LOCAL FOOD · WEATHERED TIMBER</text>
+</svg>

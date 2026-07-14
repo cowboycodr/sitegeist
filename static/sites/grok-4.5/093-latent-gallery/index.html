@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Latent Gallery — Exhibition 13 / Emergence</title>
+  <meta name="description" content="A digital gallery presenting algorithmic editions, living systems, and machine-assisted practices. Art that never repeats itself.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Latent Gallery home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Latent Gallery</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#exhibition">Exhibition</a></li>
+          <li><a href="#editions">Editions</a></li>
+          <li><a href="#systems">Systems</a></li>
+          <li><a href="#artists">Artists</a></li>
+          <li><a href="#visit">Visit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-canvas-wrap" aria-hidden="true">
+        <canvas id="hero-canvas" width="1200" height="800"></canvas>
+      </div>
+      <div class="hero-content">
+        <p class="eyebrow">Exhibition 13 / Emergence</p>
+        <h1 id="hero-title">Art that never<br>repeats itself.</h1>
+        <p class="hero-lead">
+          A digital gallery of algorithmic editions, living systems,
+          and machine-assisted practices — each visit a new state of the work.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#exhibition">Enter exhibition</a>
+          <a class="btn btn-secondary" href="#artists">Meet the artists</a>
+        </div>
+      </div>
+      <div class="hero-meta" aria-hidden="true">
+        <span>Seed · open</span>
+        <span>Runtime · continuous</span>
+        <span>Editions · infinite</span>
+      </div>
+    </section>
+
+    <section class="section exhibition" id="exhibition" aria-labelledby="exhibition-title">
+      <div class="section-head">
+        <p class="section-label">Current show</p>
+        <h2 id="exhibition-title">Emergence</h2>
+        <p class="section-intro">
+          Works that grow, drift, and recombine. No fixed edition number —
+          only conditions, parameters, and the moment you arrive.
+        </p>
+      </div>
+
+      <article class="feature-work" aria-labelledby="feature-title">
+        <div class="feature-stage">
+          <canvas id="feature-canvas" width="960" height="640" role="img" aria-label="Living generative field of soft particulate light drifting over a deep violet ground"></canvas>
+          <div class="feature-controls">
+            <button type="button" class="chip" id="feature-reseed" aria-controls="feature-canvas">Reseed</button>
+            <button type="button" class="chip" id="feature-pause" aria-controls="feature-canvas" aria-pressed="false">Pause</button>
+            <span class="seed-label" id="feature-seed" aria-live="polite">Seed —</span>
+          </div>
+        </div>
+        <div class="feature-copy">
+          <p class="work-index">01 / Field Study</p>
+          <h3 id="feature-title">Latent Field No. 7</h3>
+          <p>
+            A continuous particulate field whose density, hue drift, and attractor
+            geometry recombine from a visitor seed. The composition is never saved —
+            only observed, then released.
+          </p>
+          <dl class="work-meta">
+            <div>
+              <dt>Medium</dt>
+              <dd>Living system · browser runtime</dd>
+            </div>
+            <div>
+              <dt>Artist</dt>
+              <dd>Mira Solen</dd>
+            </div>
+            <div>
+              <dt>Edition</dt>
+              <dd>Open / non-repeating</dd>
+            </div>
+          </dl>
+        </div>
+      </article>
+    </section>
+
+    <section class="section editions" id="editions" aria-labelledby="editions-title">
+      <div class="section-head">
+        <p class="section-label">Algorithmic editions</p>
+        <h2 id="editions-title">Three states of the show</h2>
+        <p class="section-intro">
+          Each panel is a self-contained generative practice. Interact to reseed;
+          motion respects reduced-motion preferences.
+        </p>
+      </div>
+
+      <div class="edition-grid">
+        <article class="edition-card">
+          <div class="edition-frame">
+            <canvas id="edition-a" width="480" height="360" role="img" aria-label="Orbital ribbons of cyan and rose light"></canvas>
+          </div>
+          <div class="edition-body">
+            <p class="work-index">02</p>
+            <h3>Orbital Ribbons</h3>
+            <p>Closed curves braided by phased oscillators. Each reseed rearranges period and phase offset.</p>
+            <button type="button" class="chip reseed-btn" data-target="edition-a">Reseed</button>
+          </div>
+        </article>
+
+        <article class="edition-card">
+          <div class="edition-frame">
+            <canvas id="edition-b" width="480" height="360" role="img" aria-label="Cellular lattice blooming from a central seed"></canvas>
+          </div>
+          <div class="edition-body">
+            <p class="work-index">03</p>
+            <h3>Bloom Lattice</h3>
+            <p>A soft cellular automaton that expands and erodes. Growth rules stay constant; the seed does not.</p>
+            <button type="button" class="chip reseed-btn" data-target="edition-b">Reseed</button>
+          </div>
+        </article>
+
+        <article class="edition-card">
+          <div class="edition-frame">
+            <canvas id="edition-c" width="480" height="360" role="img" aria-label="Interference gradients of amber and indigo"></canvas>
+          </div>
+          <div class="edition-body">
+            <p class="work-index">04</p>
+            <h3>Interference Veil</h3>
+            <p>Overlapping wave fronts produce moiré color fields. Parameters shift on every entrance.</p>
+            <button type="button" class="chip reseed-btn" data-target="edition-c">Reseed</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section systems" id="systems" aria-labelledby="systems-title">
+      <div class="section-head">
+        <p class="section-label">Living systems</p>
+        <h2 id="systems-title">How the gallery thinks</h2>
+      </div>
+      <div class="systems-grid">
+        <article class="system-card">
+          <span class="system-num" aria-hidden="true">01</span>
+          <h3>Seeded, not stored</h3>
+          <p>
+            Works begin from a seed at runtime. There is no master file and no
+            permanent raster. What you see is the system, not a recording of it.
+          </p>
+        </article>
+        <article class="system-card">
+          <span class="system-num" aria-hidden="true">02</span>
+          <h3>Machine-assisted craft</h3>
+          <p>
+            Artists author rules, palettes, and constraints. Algorithms carry
+            those intentions into states no single hand could enumerate.
+          </p>
+        </article>
+        <article class="system-card">
+          <span class="system-num" aria-hidden="true">03</span>
+          <h3>Local, continuous runtime</h3>
+          <p>
+            Everything runs in your browser. No remote models, no tracking,
+            no network calls after load — only local computation and light.
+          </p>
+        </article>
+        <article class="system-card">
+          <span class="system-num" aria-hidden="true">04</span>
+          <h3>Motion with consent</h3>
+          <p>
+            Living pieces respect reduced-motion preferences, pause on demand,
+            and remain legible as still compositions when animation rests.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section artists" id="artists" aria-labelledby="artists-title">
+      <div class="section-head">
+        <p class="section-label">Practitioners</p>
+        <h2 id="artists-title">Meet the artists</h2>
+        <p class="section-intro">
+          Four practices spanning algorithmic editions, reactive systems,
+          and hybrid machine-assisted drawing.
+        </p>
+      </div>
+      <ul class="artist-list">
+        <li class="artist-card">
+          <div class="artist-swatch swatch-a" aria-hidden="true"></div>
+          <div>
+            <h3>Mira Solen</h3>
+            <p class="artist-role">Living systems · particle fields</p>
+            <p>Builds continuous environments from attractor physics and soft color drift. Based in Lisbon.</p>
+          </div>
+        </li>
+        <li class="artist-card">
+          <div class="artist-swatch swatch-b" aria-hidden="true"></div>
+          <div>
+            <h3>Kenji Okada</h3>
+            <p class="artist-role">Algorithmic editions · curves</p>
+            <p>Composes closed-form oscillators into ribbon geometries that recombine on every seed.</p>
+          </div>
+        </li>
+        <li class="artist-card">
+          <div class="artist-swatch swatch-c" aria-hidden="true"></div>
+          <div>
+            <h3>Ada Vorn</h3>
+            <p class="artist-role">Cellular growth · soft automata</p>
+            <p>Designs lattices that bloom and erode under constrained local rules. Works from Reykjavík.</p>
+          </div>
+        </li>
+        <li class="artist-card">
+          <div class="artist-swatch swatch-d" aria-hidden="true"></div>
+          <div>
+            <h3>Theo Marsh</h3>
+            <p class="artist-role">Wave fields · interference</p>
+            <p>Overlays sinusoidal color channels to produce veils that never settle into a single still.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section visit" id="visit" aria-labelledby="visit-title">
+      <div class="visit-panel">
+        <div class="visit-copy">
+          <p class="section-label">Visit</p>
+          <h2 id="visit-title">The gallery is the runtime</h2>
+          <p>
+            Latent Gallery has no permanent walls. Exhibition 13 opens wherever
+            you load it — desktop, tablet, or phone — and closes when you leave.
+            Return later for a different state of the same works.
+          </p>
+          <ul class="visit-facts">
+            <li><strong>Show</strong> Exhibition 13 / Emergence</li>
+            <li><strong>Hours</strong> Continuous · local device</li>
+            <li><strong>Admission</strong> Open · no account</li>
+            <li><strong>Network</strong> None after load</li>
+          </ul>
+          <a class="btn btn-primary" href="#exhibition">Enter exhibition</a>
+        </div>
+        <div class="visit-visual" aria-hidden="true">
+          <canvas id="visit-canvas" width="420" height="420"></canvas>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <p class="footer-title">Latent Gallery</p>
+          <p class="footer-tag">Art that never repeats itself.</p>
+        </div>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#exhibition">Exhibition</a>
+        <a href="#editions">Editions</a>
+        <a href="#artists">Artists</a>
+        <a href="#top">Back to top</a>
+      </nav>
+      <p class="footer-note">Exhibition 13 · Emergence · Generative Art</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

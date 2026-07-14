@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Monolith Shield — Know what touches your systems">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a1422"/>
+      <stop offset="45%" stop-color="#070b12"/>
+      <stop offset="100%" stop-color="#0c1624"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#3dffe0" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#3dffe0" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="shieldFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#163040"/>
+      <stop offset="100%" stop-color="#0d1a24"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1aa89a"/>
+      <stop offset="100%" stop-color="#3dffe0"/>
+    </linearGradient>
+    <radialGradient id="orb" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#3dffe0" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#3dffe0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#orb)"/>
+
+  <!-- Soft grid motif -->
+  <g stroke="#3dffe0" stroke-opacity="0.05" stroke-width="1">
+    <path d="M0 180 H1200 M0 360 H1200 M0 540 H1200 M0 720 H1200"/>
+    <path d="M150 0 V900 M300 0 V900 M450 0 V900 M600 0 V900 M750 0 V900 M900 0 V900 M1050 0 V900"/>
+  </g>
+
+  <!-- Abstract monolith bars -->
+  <g opacity="0.55">
+    <rect x="88" y="220" width="42" height="460" rx="8" fill="#121c2c" stroke="#3dffe0" stroke-opacity="0.25"/>
+    <rect x="148" y="300" width="34" height="380" rx="7" fill="#101826" stroke="#3dffe0" stroke-opacity="0.18"/>
+    <rect x="1020" y="250" width="36" height="400" rx="7" fill="#121c2c" stroke="#3dffe0" stroke-opacity="0.2"/>
+    <rect x="1070" y="340" width="48" height="310" rx="8" fill="#0f1826" stroke="#3dffe0" stroke-opacity="0.15"/>
+  </g>
+
+  <!-- Central shield -->
+  <g transform="translate(600 430)">
+    <ellipse cx="0" cy="120" rx="170" ry="36" fill="#000" opacity="0.35"/>
+    <path d="M0 -175 L145 -95 V45 C145 145 70 205 0 235 C-70 205 -145 145 -145 45 V-95 Z" fill="url(#shieldFill)" stroke="#3dffe0" stroke-width="4"/>
+    <path d="M0 -140 L110 -80 V35 C110 115 55 165 0 190 C-55 165 -110 115 -110 35 V-80 Z" fill="none" stroke="#3dffe0" stroke-opacity="0.35" stroke-width="2"/>
+    <!-- Cross motif inside shield -->
+    <path d="M0 -70 V95" stroke="url(#accentLine)" stroke-width="10" stroke-linecap="round"/>
+    <path d="M-55 12 H55" stroke="url(#accentLine)" stroke-width="10" stroke-linecap="round"/>
+    <!-- Live indicator -->
+    <circle cx="0" cy="12" r="14" fill="#070b12" stroke="#3dffe0" stroke-width="3"/>
+    <circle cx="0" cy="12" r="6" fill="#3dffe0"/>
+  </g>
+
+  <!-- Top label chip -->
+  <g transform="translate(600 118)">
+    <rect x="-130" y="-22" width="260" height="44" rx="22" fill="#0d1a24" stroke="#3dffe0" stroke-opacity="0.35"/>
+    <circle cx="-98" cy="0" r="6" fill="#3dffe0"/>
+    <text x="8" y="6" text-anchor="middle" fill="#3dffe0" font-family="Segoe UI, system-ui, sans-serif" font-size="16" font-weight="700" letter-spacing="3">SECURITY POSTURE / LIVE</text>
+  </g>
+
+  <!-- Title block -->
+  <text x="600" y="700" text-anchor="middle" fill="#e8eef7" font-family="Segoe UI, system-ui, sans-serif" font-size="64" font-weight="750" letter-spacing="-1.5">Monolith Shield</text>
+  <text x="600" y="760" text-anchor="middle" fill="#93a4bc" font-family="Segoe UI, system-ui, sans-serif" font-size="28" font-weight="500">Know what touches your systems.</text>
+
+  <!-- Bottom accent rule -->
+  <rect x="460" y="800" width="280" height="4" rx="2" fill="url(#accentLine)"/>
+  <text x="600" y="845" text-anchor="middle" fill="#6b7d96" font-family="Segoe UI, system-ui, sans-serif" font-size="18" letter-spacing="2">MAP · VERIFY · RESPOND</text>
+</svg>

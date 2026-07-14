@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Monolith Security — Nothing gets through.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07090d"/>
+      <stop offset="45%" stop-color="#0b0e14"/>
+      <stop offset="100%" stop-color="#101820"/>
+    </linearGradient>
+    <linearGradient id="slab" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#243246"/>
+      <stop offset="55%" stop-color="#121820"/>
+      <stop offset="100%" stop-color="#1a2533"/>
+    </linearGradient>
+    <linearGradient id="slabCore" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0%" stop-color="#2a3d52"/>
+      <stop offset="40%" stop-color="#121820"/>
+      <stop offset="100%" stop-color="#152230"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#3dffb0" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#3dffb0" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="42%" r="45%">
+      <stop offset="0%" stop-color="#3dffb0" stop-opacity="0.2"/>
+      <stop offset="55%" stop-color="#3dffb0" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#3dffb0" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#3dffb0" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#grid)"/>
+  <rect width="1200" height="900" fill="url(#halo)"/>
+
+  <!-- Soft vignette corners -->
+  <rect width="1200" height="900" fill="none" stroke="#3dffb0" stroke-opacity="0.08" stroke-width="2"/>
+
+  <!-- Brand row -->
+  <g transform="translate(72, 64)">
+    <rect x="0" y="2" width="18" height="36" rx="2" fill="#3dffb0"/>
+    <rect x="-10" y="12" width="8" height="20" rx="1.5" fill="#3dffb0" opacity="0.45"/>
+    <rect x="20" y="12" width="8" height="20" rx="1.5" fill="#3dffb0" opacity="0.45"/>
+    <text x="44" y="30" fill="#e8eef7" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="-0.5">Monolith.</text>
+    <text x="180" y="30" fill="#3dffb0" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" letter-spacing="2">SECURITY</text>
+  </g>
+
+  <!-- Category pill -->
+  <g transform="translate(72, 140)">
+    <rect width="250" height="34" rx="17" fill="#3dffb0" fill-opacity="0.1" stroke="#3dffb0" stroke-opacity="0.35"/>
+    <circle cx="22" cy="17" r="4" fill="#3dffb0"/>
+    <text x="36" y="22" fill="#3dffb0" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" letter-spacing="2">ZERO-TRUST INFRASTRUCTURE</text>
+  </g>
+
+  <!-- Headline -->
+  <text x="72" y="280" fill="#e8eef7" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="88" font-weight="750" letter-spacing="-3">Nothing</text>
+  <text x="72" y="375" fill="#e8eef7" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="88" font-weight="750" letter-spacing="-3">gets through.</text>
+
+  <!-- Tagline support -->
+  <text x="72" y="440" fill="#8b98ab" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="22" font-weight="400">
+    Adaptive infrastructure for critical systems.
+  </text>
+
+  <!-- Metrics strip -->
+  <g transform="translate(72, 520)">
+    <rect width="520" height="1" fill="#243041"/>
+    <g transform="translate(0, 40)">
+      <text fill="#5f6d82" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" letter-spacing="1.5">LATENCY</text>
+      <text y="36" fill="#e8eef7" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="32" font-weight="700">&lt; 4 ms</text>
+    </g>
+    <g transform="translate(180, 40)">
+      <text fill="#5f6d82" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" letter-spacing="1.5">ENFORCE</text>
+      <text y="36" fill="#e8eef7" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="32" font-weight="700">100%</text>
+    </g>
+    <g transform="translate(340, 40)">
+      <text fill="#5f6d82" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" letter-spacing="1.5">UPTIME</text>
+      <text y="36" fill="#e8eef7" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="32" font-weight="700">99.995%</text>
+    </g>
+  </g>
+
+  <!-- Monolith motif (right side) -->
+  <g transform="translate(720, 160)">
+    <!-- Glow behind slabs -->
+    <ellipse cx="200" cy="280" rx="200" ry="220" fill="#3dffb0" opacity="0.08"/>
+
+    <!-- Left slab -->
+    <rect x="60" y="160" width="80" height="280" rx="8" fill="url(#slab)" stroke="#334155" stroke-width="1.5"/>
+    <!-- Right slab -->
+    <rect x="260" y="160" width="80" height="280" rx="8" fill="url(#slab)" stroke="#334155" stroke-width="1.5"/>
+    <!-- Center monolith -->
+    <rect x="140" y="80" width="120" height="380" rx="10" fill="url(#slabCore)" stroke="#3dffb0" stroke-opacity="0.45" stroke-width="2"/>
+    <!-- Core light vein -->
+    <rect x="182" y="140" width="36" height="200" rx="4" fill="url(#glow)"/>
+    <rect x="190" y="160" width="20" height="80" rx="3" fill="#3dffb0" opacity="0.55"/>
+
+    <!-- Base platform -->
+    <rect x="40" y="460" width="320" height="12" rx="3" fill="#1a2433" stroke="#334155"/>
+    <rect x="80" y="480" width="240" height="6" rx="2" fill="#243041"/>
+
+    <!-- Status panel -->
+    <g transform="translate(70, 520)">
+      <rect width="260" height="100" rx="10" fill="#0a0e14" stroke="#243041" stroke-width="1.5"/>
+      <text x="18" y="32" fill="#5f6d82" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="13" letter-spacing="1">PERIMETER</text>
+      <text x="170" y="32" fill="#3dffb0" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="13" font-weight="700" letter-spacing="1">SEALED</text>
+      <text x="18" y="58" fill="#5f6d82" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="13" letter-spacing="1">IDENTITY</text>
+      <text x="148" y="58" fill="#3dffb0" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="13" font-weight="700" letter-spacing="1">VERIFIED</text>
+      <text x="18" y="84" fill="#5f6d82" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="13" letter-spacing="1">LATERAL</text>
+      <text x="178" y="84" fill="#3dffb0" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="13" font-weight="700" letter-spacing="1">DENIED</text>
+    </g>
+  </g>
+
+  <!-- Bottom bar -->
+  <rect y="840" width="1200" height="60" fill="#07090d"/>
+  <rect y="840" width="1200" height="1" fill="#243041"/>
+  <text x="72" y="877" fill="#5f6d82" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="15">monolith-security · cybersecurity</text>
+  <text x="900" y="877" fill="#3dffb0" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="15" font-weight="600">Secure your stack →</text>
+</svg>

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'">
+  <meta name="description" content="A field station mapping biodiversity, temperature shifts, and resilient marine habitats.">
+  <title>Tidepool Lab — Reading the edge of the sea</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap nav-row">
+      <a class="brand" href="#top" aria-label="Tidepool Lab home">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <rect width="40" height="40" rx="10" fill="#14324a"/>
+          <ellipse cx="20" cy="24" rx="12" ry="7" fill="#2a7d8a"/>
+          <ellipse cx="20" cy="22" rx="9" ry="4.5" fill="#7ec8c4" opacity="0.85"/>
+          <circle cx="14" cy="16" r="2.2" fill="#b8e0d2"/>
+          <circle cx="22" cy="13" r="1.6" fill="#d9785c"/>
+          <path d="M10 28c3 2 8 3 12 1 4-2 6-1 8 1" stroke="#e6d4b5" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-text">Tidepool Lab</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" id="nav-toggle">
+        Menu
+      </button>
+      <nav id="site-nav" aria-label="Primary">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#mission">Station</a></li>
+          <li><a href="#data">Data</a></li>
+          <li><a href="#biodiversity">Species</a></li>
+          <li><a href="#habitats">Habitats</a></li>
+          <li><a href="#researchers">Team</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Field note / 37.7749° N</p>
+          <h1 id="hero-title">Tidepool Lab</h1>
+          <p class="tagline">Reading the edge of the sea.</p>
+          <p class="lede">
+            A coastal field station documenting biodiversity, temperature shifts, and the resilient
+            habitats that hold the intertidal line—pool by pool, tide by tide.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#data">Dive into the data</a>
+            <a class="btn btn-secondary" href="#researchers">Meet the researchers</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Intertidal pool illustration">
+          <div class="pool-scene">
+            <svg viewBox="0 0 420 360" role="img" aria-labelledby="pool-title pool-desc">
+              <title id="pool-title">Illustrated rocky tidepool at low tide</title>
+              <desc id="pool-desc">Dark basalt rim holding turquoise water with anemones, kelp fronds, and a hermit crab.</desc>
+              <defs>
+                <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#1c5670"/>
+                  <stop offset="100%" stop-color="#0e2133"/>
+                </linearGradient>
+                <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#7ec8c4"/>
+                  <stop offset="55%" stop-color="#2a7d8a"/>
+                  <stop offset="100%" stop-color="#14324a"/>
+                </linearGradient>
+                <radialGradient id="glow" cx="50%" cy="40%" r="50%">
+                  <stop offset="0%" stop-color="#b8e0d2" stop-opacity="0.45"/>
+                  <stop offset="100%" stop-color="#14324a" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <rect width="420" height="360" fill="url(#sky)"/>
+              <ellipse cx="210" cy="200" rx="150" ry="90" fill="url(#glow)"/>
+              <path d="M30 250 C70 180, 120 150, 180 160 C230 168, 250 200, 300 190 C350 180, 380 210, 400 250 L400 340 L30 340 Z" fill="#0a1520"/>
+              <path d="M55 250 C95 200, 140 185, 190 195 C240 205, 270 230, 320 220 C360 212, 385 235, 395 265 L50 265 Z" fill="url(#water)"/>
+              <path d="M70 248 C110 220, 160 215, 210 225 C255 234, 300 228, 345 240" fill="none" stroke="#b8e0d2" stroke-width="2" opacity="0.55"/>
+              <ellipse cx="150" cy="235" rx="18" ry="12" fill="#d9785c" opacity="0.9"/>
+              <circle cx="144" cy="232" r="2" fill="#f3ebe0"/>
+              <circle cx="152" cy="230" r="2" fill="#f3ebe0"/>
+              <circle cx="158" cy="236" r="2" fill="#f3ebe0"/>
+              <ellipse cx="250" cy="245" rx="14" ry="10" fill="#c45c48"/>
+              <path d="M280 250 Q290 210 300 250 Q310 215 318 252" fill="none" stroke="#3d6b4f" stroke-width="4" stroke-linecap="round"/>
+              <path d="M300 248 Q308 220 316 250" fill="none" stroke="#5f8f6d" stroke-width="3" stroke-linecap="round"/>
+              <ellipse cx="190" cy="255" rx="10" ry="7" fill="#e6d4b5"/>
+              <path d="M198 255 c8 0 14 4 16 8" fill="none" stroke="#e6d4b5" stroke-width="2"/>
+              <circle cx="120" cy="252" r="4" fill="#7ec8c4"/>
+              <circle cx="330" cy="258" r="3.5" fill="#b8e0d2"/>
+              <path d="M40 290 C90 275, 160 300, 220 285 C280 270, 340 295, 400 280" fill="none" stroke="#1c5670" stroke-width="10" opacity="0.35"/>
+              <path d="M20 320 C80 300, 150 330, 230 310 C300 292, 360 320, 420 305" fill="none" stroke="#0e2133" stroke-width="18"/>
+            </svg>
+          </div>
+          <div class="panel-caption">
+            <strong>Station Pool 07 · Basalt shelf</strong>
+            <span>Low tide window · salinity 33.8 PSU</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="wrap stats" aria-label="Station metrics">
+      <div class="stats-grid">
+        <div class="stat">
+          <span class="stat-value">214</span>
+          <span class="stat-label">Species logged this season</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">18</span>
+          <span class="stat-label">Instrumented pools</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">+0.6°C</span>
+          <span class="stat-label">10-year surface trend</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">42 km</span>
+          <span class="stat-label">Coastline under survey</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="mission" aria-labelledby="mission-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">Field station</p>
+          <h2 id="mission-title">Where science meets the splash zone</h2>
+          <p>
+            Tidepool Lab sits on a granite headland at 37.7749° N, tracking how heat, harvest, and habitat
+            structure reshape life between high and low water.
+          </p>
+        </div>
+
+        <div class="mission">
+          <article class="mission-card featured">
+            <div>
+              <h3>What we map each tide cycle</h3>
+              <p>
+                Our team combines continuous sensors with hand-sampled transects so short-lived heat spikes
+                and slow community shifts appear in the same record.
+              </p>
+              <ul class="mission-list">
+                <li>Hourly temperature, pH, and dissolved oxygen in permanent pools</li>
+                <li>Seasonal biodiversity counts across rocky, kelp, and estuary edges</li>
+                <li>Resilience scores for habitats that buffer heat and wave energy</li>
+              </ul>
+            </div>
+            <div class="tide-gauge" aria-label="Simulated tide height for the current series">
+              <h4>Today’s tide series</h4>
+              <p class="tide-level">1.4 m</p>
+              <div class="tide-bars" aria-hidden="true">
+                <span class="h35"></span>
+                <span class="h52"></span>
+                <span class="h78"></span>
+                <span class="h95"></span>
+                <span class="h70"></span>
+                <span class="h48"></span>
+                <span class="h30"></span>
+                <span class="h42"></span>
+              </div>
+            </div>
+          </article>
+          <article class="mission-card">
+            <h3>Temperature shifts</h3>
+            <p>
+              Shallow pools can warm faster than open ocean. We publish pool-to-surface contrasts so
+              managers see which shelves overheat first.
+            </p>
+          </article>
+          <article class="mission-card">
+            <h3>Resilient habitats</h3>
+            <p>
+              Not every shoreline responds the same. We highlight canopy cover, shade geometry, and
+              freshwater input that keep communities stable under stress.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="data" aria-labelledby="data-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">Observatory</p>
+          <h2 id="data-title">Temperature and the turning tide</h2>
+          <p>
+            A year of paired readings from surface buoys and permanent intertidal pools—static archive
+            from the current field season, ready offline.
+          </p>
+        </div>
+
+        <div class="data-layout">
+          <article class="chart-card">
+            <h3>Mean monthly temperature</h3>
+            <p class="chart-meta">Station archive · January–December · °C</p>
+            <svg class="chart-svg" viewBox="0 0 640 280" role="img" aria-labelledby="chart-title chart-desc">
+              <title id="chart-title">Line chart of monthly surface and pool temperatures</title>
+              <desc id="chart-desc">Surface temperatures rise from about 10 degrees in winter to 16 in late summer. Pool temperatures track higher, peaking near 19 degrees in August.</desc>
+              <defs>
+                <linearGradient id="areaSurf" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#2a7d8a" stop-opacity="0.28"/>
+                  <stop offset="100%" stop-color="#2a7d8a" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <!-- grid -->
+              <g stroke="#d5e0e4" stroke-width="1">
+                <line x1="56" y1="30" x2="56" y2="220"/>
+                <line x1="56" y1="220" x2="610" y2="220"/>
+                <line x1="56" y1="80" x2="610" y2="80" stroke-dasharray="4 6"/>
+                <line x1="56" y1="130" x2="610" y2="130" stroke-dasharray="4 6"/>
+                <line x1="56" y1="180" x2="610" y2="180" stroke-dasharray="4 6"/>
+              </g>
+              <g fill="#5a7280" font-family="system-ui, sans-serif" font-size="12">
+                <text x="36" y="84" text-anchor="end">16°</text>
+                <text x="36" y="134" text-anchor="end">13°</text>
+                <text x="36" y="184" text-anchor="end">10°</text>
+                <text x="36" y="224" text-anchor="end">8°</text>
+                <text x="56" y="245">J</text>
+                <text x="102" y="245">F</text>
+                <text x="148" y="245">M</text>
+                <text x="194" y="245">A</text>
+                <text x="240" y="245">M</text>
+                <text x="286" y="245">J</text>
+                <text x="332" y="245">J</text>
+                <text x="378" y="245">A</text>
+                <text x="424" y="245">S</text>
+                <text x="470" y="245">O</text>
+                <text x="516" y="245">N</text>
+                <text x="562" y="245">D</text>
+              </g>
+              <!-- surface area + line: approx 10.2,10.0,10.8,11.6,13.0,14.5,15.8,16.2,15.4,13.8,12.0,10.6 mapped y = 220 - (t-8)*15 -->
+              <path d="M56,187 L102,190 L148,178 L194,166 L240,145 L286,122.5 L332,103 L378,97 L424,109 L470,133 L516,160 L562,181 L562,220 L56,220 Z" fill="url(#areaSurf)"/>
+              <path d="M56,187 L102,190 L148,178 L194,166 L240,145 L286,122.5 L332,103 L378,97 L424,109 L470,133 L516,160 L562,181" fill="none" stroke="#2a7d8a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- pool line: 11.5,11.8,12.6,13.8,15.5,17.2,18.6,19.1,18.0,15.8,13.5,12.0 -->
+              <path d="M56,167.5 L102,163 L148,151 L194,133 L240,107.5 L286,82 L332,61 L378,53.5 L424,70 L470,103 L516,137.5 L562,160" fill="none" stroke="#d9785c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"/>
+              <g fill="#2a7d8a">
+                <circle cx="56" cy="187" r="3.5"/><circle cx="194" cy="166" r="3.5"/><circle cx="378" cy="97" r="3.5"/><circle cx="562" cy="181" r="3.5"/>
+              </g>
+              <g fill="#d9785c">
+                <circle cx="56" cy="167.5" r="3.5"/><circle cx="194" cy="133" r="3.5"/><circle cx="378" cy="53.5" r="3.5"/><circle cx="562" cy="160" r="3.5"/>
+              </g>
+            </svg>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="swatch surface" aria-hidden="true"></span> Nearshore surface</span>
+              <span class="legend-item"><span class="swatch pool-temp" aria-hidden="true"></span> Permanent pools</span>
+            </div>
+          </article>
+
+          <aside class="info-card">
+            <h3>Season signals</h3>
+            <p class="chart-meta">Highlights from the same archive</p>
+            <ul class="metric-list">
+              <li class="metric">
+                <strong>19.1°C</strong>
+                <span>August pool peak · <span class="delta-up">+1.2°C vs. decade median</span></span>
+              </li>
+              <li class="metric">
+                <strong>3.0°C</strong>
+                <span>Max pool–surface gap · late July heat event</span>
+              </li>
+              <li class="metric">
+                <strong>11 nights</strong>
+                <span>Cooling below 12°C · <span class="delta-stable">stable winter baseline</span></span>
+              </li>
+              <li class="metric">
+                <strong>6 sensors</strong>
+                <span>Cross-calibrated loggers on the basalt transect</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="biodiversity" aria-labelledby="bio-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">Biodiversity</p>
+          <h2 id="bio-title">Life written on the rocks</h2>
+          <p>
+            Filter the season’s voucher species by habitat guild. Counts are field-verified, not modeled.
+          </p>
+        </div>
+
+        <div class="bio-toolbar" role="group" aria-label="Filter species by guild">
+          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter-btn" data-filter="flora" aria-pressed="false">Flora</button>
+          <button type="button" class="filter-btn" data-filter="fauna" aria-pressed="false">Fauna</button>
+          <button type="button" class="filter-btn" data-filter="indicator" aria-pressed="false">Indicators</button>
+        </div>
+
+        <div class="species-grid" id="species-grid">
+          <article class="species-card" data-tags="flora indicator">
+            <div class="species-art" aria-hidden="true">
+              <svg viewBox="0 0 320 200">
+                <rect width="320" height="200" fill="#0e2133"/>
+                <path d="M40 170 C80 120 100 60 110 30" stroke="#3d6b4f" stroke-width="8" fill="none"/>
+                <path d="M110 30 C130 70 150 110 190 160" stroke="#5f8f6d" stroke-width="6" fill="none"/>
+                <path d="M90 80 C130 70 170 90 210 70" stroke="#7ec8c4" stroke-width="4" fill="none" opacity="0.7"/>
+                <ellipse cx="240" cy="140" rx="40" ry="18" fill="#14324a"/>
+                <path d="M220 140 q20 -30 40 0" fill="#2a7d8a"/>
+              </svg>
+            </div>
+            <div class="species-body">
+              <h3>Bull kelp</h3>
+              <p class="species-latin">Nereocystis luetkeana</p>
+              <p>Canopy former that shades shallow pools and dampens heat stress during long mid-day lows.</p>
+              <div class="tag-row">
+                <span class="tag">Flora</span>
+                <span class="tag">Indicator</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="species-card" data-tags="fauna">
+            <div class="species-art" aria-hidden="true">
+              <svg viewBox="0 0 320 200">
+                <rect width="320" height="200" fill="#12263a"/>
+                <ellipse cx="160" cy="120" rx="70" ry="42" fill="#d9785c"/>
+                <circle cx="130" cy="110" r="5" fill="#f3ebe0"/>
+                <circle cx="150" cy="100" r="4" fill="#f3ebe0"/>
+                <circle cx="175" cy="105" r="5" fill="#f3ebe0"/>
+                <circle cx="195" cy="118" r="4" fill="#f3ebe0"/>
+                <path d="M90 130 C70 150 60 160 55 170" stroke="#c45c48" stroke-width="4" fill="none"/>
+              </svg>
+            </div>
+            <div class="species-body">
+              <h3>Giant green anemone</h3>
+              <p class="species-latin">Anthopleura xanthogrammica</p>
+              <p>Long-lived pool resident; tentacle color tracks symbiotic algae load after heat events.</p>
+              <div class="tag-row">
+                <span class="tag">Fauna</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="species-card" data-tags="fauna indicator">
+            <div class="species-art" aria-hidden="true">
+              <svg viewBox="0 0 320 200">
+                <rect width="320" height="200" fill="#0a1620"/>
+                <ellipse cx="150" cy="115" rx="55" ry="35" fill="#e6d4b5"/>
+                <path d="M200 115 c30 0 55 12 70 30" stroke="#d2bf9d" stroke-width="10" stroke-linecap="round" fill="none"/>
+                <circle cx="125" cy="108" r="4" fill="#14324a"/>
+                <path d="M100 130 q20 20 50 8" stroke="#b8a07e" stroke-width="3" fill="none"/>
+              </svg>
+            </div>
+            <div class="species-body">
+              <h3>Owl limpet</h3>
+              <p class="species-latin">Lottia gigantea</p>
+              <p>Territorial grazer whose home scars reveal how wave exposure and harvest pressure interact.</p>
+              <div class="tag-row">
+                <span class="tag">Fauna</span>
+                <span class="tag">Indicator</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="species-card" data-tags="flora">
+            <div class="species-art" aria-hidden="true">
+              <svg viewBox="0 0 320 200">
+                <rect width="320" height="200" fill="#10283a"/>
+                <circle cx="160" cy="110" r="48" fill="#2a7d8a"/>
+                <circle cx="160" cy="110" r="30" fill="#7ec8c4" opacity="0.55"/>
+                <path d="M120 150 C140 130 180 130 200 155" stroke="#b8e0d2" stroke-width="3" fill="none"/>
+                <path d="M90 80 C120 95 140 70 160 90" stroke="#5f8f6d" stroke-width="5" fill="none"/>
+              </svg>
+            </div>
+            <div class="species-body">
+              <h3>Sea lettuce</h3>
+              <p class="species-latin">Ulva spp.</p>
+              <p>Fast-growing green sheets that bloom after nutrient pulses and mark freshwater seeps.</p>
+              <div class="tag-row">
+                <span class="tag">Flora</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="species-card" data-tags="fauna">
+            <div class="species-art" aria-hidden="true">
+              <svg viewBox="0 0 320 200">
+                <rect width="320" height="200" fill="#0e1f2e"/>
+                <ellipse cx="160" cy="105" rx="36" ry="48" fill="#8a4f3d"/>
+                <ellipse cx="160" cy="105" rx="22" ry="32" fill="#d9785c"/>
+                <path d="M160 153 v28" stroke="#e6d4b5" stroke-width="3"/>
+                <circle cx="148" cy="95" r="3" fill="#f3ebe0"/>
+                <circle cx="172" cy="95" r="3" fill="#f3ebe0"/>
+              </svg>
+            </div>
+            <div class="species-body">
+              <h3>Ochre sea star</h3>
+              <p class="species-latin">Pisaster ochraceus</p>
+              <p>Keystone predator; abundance and arm regeneration rates guide our resilience index.</p>
+              <div class="tag-row">
+                <span class="tag">Fauna</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="species-card" data-tags="flora indicator">
+            <div class="species-art" aria-hidden="true">
+              <svg viewBox="0 0 320 200">
+                <rect width="320" height="200" fill="#112433"/>
+                <path d="M60 160 C90 100 120 80 150 50" stroke="#3d6b4f" stroke-width="7" fill="none"/>
+                <path d="M150 50 C170 90 190 120 240 150" stroke="#2f5d4a" stroke-width="6" fill="none"/>
+                <path d="M100 140 C140 120 180 150 230 130" stroke="#7ec8c4" stroke-width="3" fill="none" opacity="0.6"/>
+                <circle cx="250" cy="70" r="10" fill="#b8e0d2" opacity="0.35"/>
+              </svg>
+            </div>
+            <div class="species-body">
+              <h3>Surfgrass</h3>
+              <p class="species-latin">Phyllospadix spp.</p>
+              <p>Rooted meadows that trap sediment, cool substrate, and nursery small crustaceans.</p>
+              <div class="tag-row">
+                <span class="tag">Flora</span>
+                <span class="tag">Indicator</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="habitats" aria-labelledby="habitats-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">Resilience</p>
+          <h2 id="habitats-title">Habitats that hold the line</h2>
+          <p>
+            Three shoreline types carry most of the station’s heat and wave load. We score each for
+            structural complexity and recovery after extreme tides.
+          </p>
+        </div>
+
+        <div class="habitat-grid">
+          <article class="habitat-card rocky">
+            <h3>Rocky intertidal</h3>
+            <p>
+              Layered basalt shelves with deep pools that retain cool water through midday lows.
+              Highest species richness on the transect.
+            </p>
+            <div class="habitat-meta">
+              <span class="chip">Resilience 82</span>
+              <span class="chip">18 pools</span>
+            </div>
+          </article>
+          <article class="habitat-card kelp">
+            <h3>Kelp fringe</h3>
+            <p>
+              Bull kelp and understory algae shade the mid-shore, cutting peak temperatures by up to
+              2.4°C on calm afternoons.
+            </p>
+            <div class="habitat-meta">
+              <span class="chip">Resilience 76</span>
+              <span class="chip">Canopy 61%</span>
+            </div>
+          </article>
+          <article class="habitat-card estuary">
+            <h3>Estuary mouth</h3>
+            <p>
+              Freshwater seeps and soft sediment create a buffer zone for juveniles, but warm quickly
+              when river flow drops in late summer.
+            </p>
+            <div class="habitat-meta">
+              <span class="chip">Resilience 64</span>
+              <span class="chip">Watch list</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="researchers" aria-labelledby="team-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">People</p>
+          <h2 id="team-title">Meet the researchers</h2>
+          <p>
+            A small field crew, rotating fellows, and community observers keep the station continuous
+            through winter storms and summer tourism surges.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <article class="person">
+            <div class="avatar" aria-hidden="true">MR</div>
+            <div>
+              <h3>Dr. Mira Rios</h3>
+              <p class="role">Station director · thermal ecology</p>
+              <p>
+                Designs the pool sensor network and leads heat-wave response protocols with coastal managers.
+              </p>
+            </div>
+          </article>
+          <article class="person">
+            <div class="avatar" aria-hidden="true">JK</div>
+            <div>
+              <h3>Jonah Kade</h3>
+              <p class="role">Field lead · biodiversity surveys</p>
+              <p>
+                Runs quarterly quadrat campaigns and trains community naturalists on voucher photography.
+              </p>
+            </div>
+          </article>
+          <article class="person">
+            <div class="avatar" aria-hidden="true">AL</div>
+            <div>
+              <h3>Asha Lin</h3>
+              <p class="role">Data curator · habitat resilience</p>
+              <p>
+                Turns logger streams and field notes into open seasonal archives and resilience scores.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="visit-title">
+      <div class="wrap">
+        <div class="field-note">
+          <div>
+            <p class="section-kicker">Open archive</p>
+            <h2 id="visit-title">The shoreline keeps a ledger. We help read it.</h2>
+            <p>
+              Every chart on this page ships with the site—no live feed required. Dive into the temperature
+              archive, scan the species list, or follow a researcher into the splash zone on the next low tide.
+            </p>
+            <div class="actions">
+              <a class="btn btn-primary" href="#data">Dive into the data</a>
+              <a class="btn btn-secondary" href="#mission">Tour the station</a>
+            </div>
+          </div>
+          <dl class="note-side">
+            <dt>Coordinates</dt>
+            <dd>37.7749° N · coastal headland</dd>
+            <dt>Best survey window</dt>
+            <dd>Minus tides · dawn to mid-morning</dd>
+            <dt>Access</dt>
+            <dd>Public overlook · research bench by permit</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">Tidepool Lab</p>
+          <p class="footer-copy">
+            A field station mapping biodiversity, temperature shifts, and resilient marine habitats
+            at the edge of the sea.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="#data">Temperature data</a></li>
+            <li><a href="#biodiversity">Species ledger</a></li>
+            <li><a href="#habitats">Habitat scores</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Station</h3>
+          <ul>
+            <li><a href="#mission">Field methods</a></li>
+            <li><a href="#researchers">Research team</a></li>
+            <li><a href="#top">Back to top</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Reading the edge of the sea.</span>
+        <span>Offline field archive · no external services</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

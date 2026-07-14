@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Kinetic Foundry — Machines with a human sense of motion">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0d11"/>
+      <stop offset="55%" stop-color="#12151c"/>
+      <stop offset="100%" stop-color="#1a1410"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0.2" y1="0" x2="0.9" y2="1">
+      <stop offset="0%" stop-color="#e8943a" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#e8943a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="arm" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c47228"/>
+      <stop offset="50%" stop-color="#e8943a"/>
+      <stop offset="100%" stop-color="#f2c07a"/>
+    </linearGradient>
+    <linearGradient id="arc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7a9bb8" stop-opacity="0"/>
+      <stop offset="35%" stop-color="#7a9bb8" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#e8943a" stop-opacity="0.85"/>
+    </linearGradient>
+    <radialGradient id="spot" cx="78%" cy="28%" r="40%">
+      <stop offset="0%" stop-color="#e8943a" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#e8943a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#spot)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- Subtle grid -->
+  <g stroke="#e8eaef" stroke-opacity="0.04" stroke-width="1">
+    <path d="M0 180 H1200 M0 360 H1200 M0 540 H1200 M0 720 H1200"/>
+    <path d="M200 0 V900 M400 0 V900 M600 0 V900 M800 0 V900 M1000 0 V900"/>
+  </g>
+
+  <!-- Trajectory arcs -->
+  <path d="M80 720 C260 680 320 420 520 380 S820 440 1040 220" fill="none" stroke="url(#arc)" stroke-width="2.5" stroke-dasharray="10 14"/>
+  <path d="M140 780 C340 740 400 500 600 450 S880 500 1100 300" fill="none" stroke="#7a9bb8" stroke-opacity="0.22" stroke-width="1.5" stroke-dasharray="4 12"/>
+
+  <!-- Articulated arm motif -->
+  <g>
+    <line x1="220" y1="680" x2="400" y2="470" stroke="url(#arm)" stroke-width="18" stroke-linecap="round"/>
+    <line x1="400" y1="470" x2="620" y2="530" stroke="url(#arm)" stroke-width="15" stroke-linecap="round"/>
+    <line x1="620" y1="530" x2="790" y2="340" stroke="url(#arm)" stroke-width="12" stroke-linecap="round"/>
+    <line x1="790" y1="340" x2="920" y2="280" stroke="#f2c07a" stroke-width="9" stroke-linecap="round"/>
+
+    <circle cx="220" cy="680" r="28" fill="#12151c" stroke="#e8943a" stroke-width="4"/>
+    <circle cx="400" cy="470" r="22" fill="#12151c" stroke="#e8943a" stroke-width="3.5"/>
+    <circle cx="620" cy="530" r="18" fill="#12151c" stroke="#f2c07a" stroke-width="3.5"/>
+    <circle cx="790" cy="340" r="14" fill="#12151c" stroke="#f2c07a" stroke-width="3"/>
+
+    <!-- End effector -->
+    <g transform="translate(920 280)">
+      <path d="M0 0 L36 -16 L56 4 L36 24 Z" fill="#e8943a"/>
+      <path d="M24 -8 L48 -28 M24 16 L48 36" stroke="#f2c07a" stroke-width="5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Intent rings at tool tip -->
+    <circle cx="920" cy="280" r="42" fill="none" stroke="#e8943a" stroke-opacity="0.35" stroke-width="2"/>
+    <circle cx="920" cy="280" r="64" fill="none" stroke="#e8943a" stroke-opacity="0.18" stroke-width="2"/>
+  </g>
+
+  <!-- Brand mark -->
+  <g transform="translate(72 64)">
+    <circle cx="28" cy="28" r="26" fill="none" stroke="#e8943a" stroke-opacity="0.4" stroke-width="2"/>
+    <path d="M12 40 L18 18 L28 30 L40 12" fill="none" stroke="#e8943a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="12" cy="40" r="3.5" fill="#e8943a"/>
+    <circle cx="18" cy="18" r="3.5" fill="#f2c07a"/>
+    <circle cx="28" cy="30" r="3.5" fill="#e8943a"/>
+    <circle cx="40" cy="12" r="3.5" fill="#f2c07a"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="148" y="92" fill="#9aa3b5" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="4">APPLIED ROBOTICS</text>
+  <text x="72" y="190" fill="#e8eaef" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="72" font-weight="700" letter-spacing="-2">Kinetic Foundry</text>
+  <text x="72" y="260" fill="#f2c07a" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="34" font-weight="600" letter-spacing="-0.5">Machines with a human sense of motion.</text>
+  <text x="72" y="320" fill="#9aa3b5" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="22">Dexterous systems · Adaptable tools · Safer work</text>
+
+  <!-- Bottom accent bar -->
+  <rect x="0" y="860" width="1200" height="40" fill="#080a0d"/>
+  <rect x="0" y="860" width="220" height="4" fill="#e8943a"/>
+  <text x="72" y="888" fill="#6d7689" font-family="Cascadia Code, Consolas, monospace" font-size="16" letter-spacing="2">K7 · H4 · MC-2</text>
+</svg>

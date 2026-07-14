@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Sunday Supper — Come hungry. Stay awhile.">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f7f0e6"/>
+      <stop offset="55%" stop-color="#efe4d4"/>
+      <stop offset="100%" stop-color="#e8d8c4"/>
+    </linearGradient>
+    <linearGradient id="winePanel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6e2c3a"/>
+      <stop offset="100%" stop-color="#3a1822"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="78%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#c9a46a" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#c9a46a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="plateGlow" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#c9a46a" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#c9a46a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- Soft table surface band -->
+  <path d="M0 620 C 220 560, 420 700, 640 640 C 860 580, 1020 700, 1200 640 L 1200 900 L 0 900 Z" fill="#e4d2bc" opacity="0.55"/>
+  <path d="M0 700 C 260 650, 480 760, 720 700 C 940 650, 1080 760, 1200 710 L 1200 900 L 0 900 Z" fill="#d9c4aa" opacity="0.35"/>
+
+  <!-- Left brand block -->
+  <rect x="72" y="72" width="520" height="756" rx="36" fill="url(#winePanel)"/>
+  <circle cx="480" cy="190" r="110" fill="none" stroke="rgba(247,240,230,0.12)" stroke-width="1.5"/>
+  <circle cx="480" cy="190" r="72" fill="none" stroke="rgba(201,164,106,0.35)" stroke-width="1"/>
+
+  <!-- Plate / supper motif on wine panel -->
+  <g transform="translate(320 130)">
+    <ellipse cx="100" cy="120" rx="88" ry="28" fill="rgba(0,0,0,0.18)"/>
+    <circle cx="100" cy="100" r="78" fill="none" stroke="rgba(247,240,230,0.22)" stroke-width="3"/>
+    <circle cx="100" cy="100" r="58" fill="none" stroke="rgba(201,164,106,0.55)" stroke-width="2"/>
+    <circle cx="100" cy="100" r="42" fill="url(#plateGlow)"/>
+    <!-- Leaf / herb cluster -->
+    <path d="M78 92 C 86 72, 108 66, 118 82 C 124 92, 120 106, 108 112 C 92 120, 72 108, 78 92 Z" fill="#c9a46a"/>
+    <path d="M96 108 C 102 96, 118 94, 124 106 C 128 114, 122 124, 112 126 C 100 128, 90 118, 96 108 Z" fill="#e2c99a" opacity="0.9"/>
+    <path d="M88 78 C 92 68, 104 66, 108 76" fill="none" stroke="#f7f0e6" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  </g>
+
+  <!-- Brand text on wine panel -->
+  <text x="120" y="360" fill="#e2c99a" font-family="Georgia, 'Palatino Linotype', serif" font-size="22" letter-spacing="6">DINNER FROM FIVE</text>
+  <text x="120" y="450" fill="#f7f0e6" font-family="Georgia, 'Palatino Linotype', serif" font-size="72" font-weight="600">Sunday</text>
+  <text x="120" y="530" fill="#f7f0e6" font-family="Georgia, 'Palatino Linotype', serif" font-size="72" font-weight="600">Supper</text>
+  <line x1="120" y1="570" x2="280" y2="570" stroke="#c9a46a" stroke-width="3" stroke-linecap="round"/>
+  <text x="120" y="630" fill="rgba(247,240,230,0.85)" font-family="Georgia, 'Palatino Linotype', serif" font-size="30">Come hungry.</text>
+  <text x="120" y="676" fill="rgba(247,240,230,0.85)" font-family="Georgia, 'Palatino Linotype', serif" font-size="30">Stay awhile.</text>
+  <text x="120" y="760" fill="rgba(247,240,230,0.55)" font-family="system-ui, sans-serif" font-size="18">Seasonal plates · Natural wine</text>
+
+  <!-- Right side supporting motif: place setting -->
+  <g transform="translate(700 220)">
+    <!-- Napkin fold -->
+    <rect x="40" y="40" width="280" height="360" rx="18" fill="#fbf6ef" stroke="rgba(42,31,26,0.08)" stroke-width="2"/>
+    <path d="M40 80 L 320 80" stroke="rgba(110,44,58,0.12)" stroke-width="1"/>
+    <!-- Fork -->
+    <g transform="translate(90 140)" fill="none" stroke="#8a7366" stroke-width="4" stroke-linecap="round">
+      <path d="M8 0 V 28"/>
+      <path d="M20 0 V 28"/>
+      <path d="M32 0 V 28"/>
+      <path d="M8 28 Q 20 36 32 28"/>
+      <path d="M20 34 V 120"/>
+    </g>
+    <!-- Knife -->
+    <g transform="translate(220 140)" fill="none" stroke="#8a7366" stroke-width="4" stroke-linecap="round">
+      <path d="M16 0 V 70"/>
+      <path d="M8 0 Q 16 -8 24 0 V 70"/>
+      <path d="M16 70 V 120"/>
+    </g>
+    <!-- Small plate -->
+    <circle cx="180" cy="280" r="54" fill="none" stroke="#6e2c3a" stroke-width="3" opacity="0.55"/>
+    <circle cx="180" cy="280" r="36" fill="none" stroke="#c9a46a" stroke-width="2" opacity="0.7"/>
+    <circle cx="180" cy="280" r="10" fill="#c46b4a" opacity="0.85"/>
+  </g>
+
+  <!-- Bottom right caption -->
+  <text x="740" y="700" fill="#5c4a40" font-family="system-ui, sans-serif" font-size="20">A neighborhood table</text>
+  <text x="740" y="736" fill="#8a7366" font-family="system-ui, sans-serif" font-size="18">Generous plates &amp; unhurried evenings</text>
+</svg>

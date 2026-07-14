@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Zero Hour — The climate story, without distance.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.85" y2="1">
+      <stop offset="0%" stop-color="#0a0e14"/>
+      <stop offset="55%" stop-color="#121820"/>
+      <stop offset="100%" stop-color="#1c1412"/>
+    </linearGradient>
+    <linearGradient id="horizon" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4a9fad" stop-opacity="0"/>
+      <stop offset="35%" stop-color="#f0a05a"/>
+      <stop offset="65%" stop-color="#e85d3a"/>
+      <stop offset="100%" stop-color="#e85d3a" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="72%" cy="32%" r="28%">
+      <stop offset="0%" stop-color="#e85d3a" stop-opacity="0.9"/>
+      <stop offset="45%" stop-color="#e85d3a" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#e85d3a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="iceGlow" cx="18%" cy="78%" r="30%">
+      <stop offset="0%" stop-color="#4a9fad" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#4a9fad" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#sun)"/>
+  <rect width="1200" height="900" fill="url(#iceGlow)"/>
+
+  <!-- Atlas grid -->
+  <g stroke="rgba(243,238,228,0.07)" stroke-width="1">
+    <line x1="0" y1="150" x2="1200" y2="150"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="450" x2="1200" y2="450"/>
+    <line x1="0" y1="600" x2="1200" y2="600"/>
+    <line x1="0" y1="750" x2="1200" y2="750"/>
+    <line x1="150" y1="0" x2="150" y2="900"/>
+    <line x1="300" y1="0" x2="300" y2="900"/>
+    <line x1="450" y1="0" x2="450" y2="900"/>
+    <line x1="600" y1="0" x2="600" y2="900"/>
+    <line x1="750" y1="0" x2="750" y2="900"/>
+    <line x1="900" y1="0" x2="900" y2="900"/>
+    <line x1="1050" y1="0" x2="1050" y2="900"/>
+  </g>
+
+  <!-- Large clock motif -->
+  <g transform="translate(900, 280)">
+    <circle cx="0" cy="0" r="170" fill="none" stroke="rgba(243,238,228,0.12)" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="140" fill="none" stroke="rgba(232,93,58,0.35)" stroke-width="1.5" stroke-dasharray="6 10"/>
+    <circle cx="0" cy="0" r="95" fill="none" stroke="rgba(240,160,90,0.25)" stroke-width="1"/>
+    <!-- hour ticks -->
+    <g stroke="rgba(243,238,228,0.4)" stroke-width="2" stroke-linecap="round">
+      <line x1="0" y1="-155" x2="0" y2="-135"/>
+      <line x1="0" y1="135" x2="0" y2="155"/>
+      <line x1="-155" y1="0" x2="-135" y2="0"/>
+      <line x1="135" y1="0" x2="155" y2="0"/>
+      <line x1="109" y1="-109" x2="96" y2="-96"/>
+      <line x1="-109" y1="109" x2="-96" y2="96"/>
+      <line x1="-109" y1="-109" x2="-96" y2="-96"/>
+      <line x1="109" y1="109" x2="96" y2="96"/>
+    </g>
+    <!-- hands at zero-ish hour drama -->
+    <line x1="0" y1="0" x2="0" y2="-78" stroke="#f3eee4" stroke-width="3" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="62" y2="-62" stroke="#e85d3a" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="0" cy="0" r="8" fill="#e85d3a"/>
+    <circle cx="0" cy="0" r="3" fill="#0a0e14"/>
+  </g>
+
+  <!-- Threshold horizon band -->
+  <rect x="0" y="548" width="1200" height="6" fill="url(#horizon)"/>
+
+  <!-- Abstract city / land silhouette -->
+  <path d="M0 900 V620 H40 V580 H70 V620 H110 V540 H145 V620 H180 V590 H210 V620 H260 V500 H300 V620 H350 V560 H390 V620 H450 V480 H500 V620 H560 V540 H600 V620 H680 V510 H720 V620 H790 V570 H830 V620 H900 V490 H950 V620 H1020 V550 H1060 V620 H1120 V580 H1160 V620 H1200 V900 Z"
+        fill="#070a0f" opacity="0.92"/>
+
+  <!-- Heat corridor strokes above silhouette -->
+  <path d="M80 500 Q280 460 480 500 T880 490 T1180 510" fill="none" stroke="#e85d3a" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+  <path d="M120 530 Q340 500 520 535 T920 520" fill="none" stroke="#f0a05a" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+
+  <!-- Category label -->
+  <text x="80" y="120" fill="#f0a05a" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="22" letter-spacing="6">CLIMATE JOURNALISM</text>
+
+  <!-- Wordmark -->
+  <text x="80" y="250" fill="#f3eee4" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="108" font-weight="700" letter-spacing="-2">Zero Hour</text>
+
+  <!-- Accent underline under title -->
+  <rect x="80" y="275" width="120" height="4" fill="#e85d3a"/>
+
+  <!-- Tagline -->
+  <text x="80" y="350" fill="#c9c2b4" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="36" font-style="italic">The climate story, without distance.</text>
+
+  <!-- Supporting line -->
+  <text x="80" y="420" fill="rgba(243,238,228,0.45)" font-family="ui-monospace, 'Cascadia Code', Consolas, monospace" font-size="16" letter-spacing="2">INVESTIGATIONS · LOCAL VOICES · VISUAL EVIDENCE</text>
+
+  <!-- Small brand mark bottom left -->
+  <g transform="translate(80, 780)">
+    <circle cx="18" cy="18" r="16" fill="none" stroke="#e85d3a" stroke-width="1.5"/>
+    <circle cx="18" cy="18" r="2.5" fill="#e85d3a"/>
+    <path d="M18 6v5M18 25v5M6 18h5M25 18h5" stroke="#f3eee4" stroke-width="1.2" stroke-linecap="round"/>
+    <path d="M18 18L25 11" stroke="#f0a05a" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="48" y="24" fill="rgba(243,238,228,0.55)" font-family="ui-monospace, Consolas, monospace" font-size="14" letter-spacing="3">REPORTING FROM THE THRESHOLD</text>
+  </g>
+</svg>

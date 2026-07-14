@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'">
+  <meta name="description" content="A neighborhood bakery sharing today's counter, preorder specials, and obsessive pastry notes.">
+  <title>Crumb Theory — A daily study in butter and flour</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap nav-bar">
+      <a class="brand" href="#top" aria-label="Crumb Theory home">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+          <rect width="48" height="48" rx="14" fill="#2c1d14"/>
+          <ellipse cx="24" cy="28" rx="14" ry="9" fill="#e8c47a"/>
+          <path d="M12 27c3-6 9-10 12-10s9 4 12 10" fill="none" stroke="#c46a2d" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="18" cy="26" r="1.4" fill="#2c1d14"/>
+          <circle cx="24" cy="24.5" r="1.2" fill="#2c1d14"/>
+          <circle cx="30" cy="26.5" r="1.3" fill="#2c1d14"/>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">Crumb Theory</span>
+          <span class="brand-tag">Butter &amp; flour</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+
+      <nav id="site-nav" aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="#counter">Today's counter</a></li>
+          <li><a href="#preorder">Preorder</a></li>
+          <li><a href="#notes">Pastry notes</a></li>
+          <li><a href="#visit">Visit</a></li>
+          <li><a class="nav-cta" href="#preorder">Preorder a box</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Baked each morning</p>
+          <h1 id="hero-title">A daily study in butter and flour.</h1>
+          <p class="hero-lead">
+            Neighborhood bakery, open counter, and a short list of things we cannot stop refining—
+            laminated doughs, slow ferments, and the crumb that proves the theory.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#counter">See today's counter</a>
+            <a class="btn btn-secondary" href="#preorder">Preorder a box</a>
+          </div>
+          <div class="hero-meta">
+            <span><strong>Counter opens</strong> 7:30 am</span>
+            <span><strong>Last tray out</strong> ~2:00 pm</span>
+            <span><strong>Maple &amp; 12th</strong></span>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Featured bake of the day">
+          <div class="hero-art">
+            <svg class="pastry-scene" viewBox="0 0 280 224" role="img" aria-label="Illustration of a laminated croissant and flour dust">
+              <defs>
+                <radialGradient id="plate" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#fffdf9"/>
+                  <stop offset="100%" stop-color="#f0e2d0"/>
+                </radialGradient>
+                <linearGradient id="shell" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#f0d08a"/>
+                  <stop offset="55%" stop-color="#d48a3c"/>
+                  <stop offset="100%" stop-color="#8b5a2b"/>
+                </linearGradient>
+              </defs>
+              <ellipse cx="140" cy="178" rx="96" ry="22" fill="url(#plate)" opacity="0.9"/>
+              <path d="M58 138c18-52 58-78 82-78 24 0 64 26 82 78-28-18-56-24-82-24s-54 6-82 24z" fill="url(#shell)"/>
+              <path d="M78 132c14-36 40-54 62-54s48 18 62 54c-18-10-38-14-62-14s-44 4-62 14z" fill="#f5e0b0" opacity="0.55"/>
+              <path d="M98 128c8-22 24-34 42-34s34 12 42 34c-12-6-26-9-42-9s-30 3-42 9z" fill="#fff3d6" opacity="0.45"/>
+              <circle cx="46" cy="56" r="3" fill="#e8c47a" opacity="0.7"/>
+              <circle cx="228" cy="48" r="2.5" fill="#c46a2d" opacity="0.45"/>
+              <circle cx="210" cy="72" r="2" fill="#8b5a2b" opacity="0.35"/>
+              <circle cx="62" cy="80" r="1.8" fill="#c46a2d" opacity="0.4"/>
+              <circle cx="160" cy="42" r="2.2" fill="#e8c47a" opacity="0.55"/>
+              <text x="140" y="210" text-anchor="middle" fill="#6e5848" font-family="Georgia, serif" font-size="12">Honey laminated croissant</text>
+            </svg>
+          </div>
+          <div class="hero-card-body">
+            <span class="day-badge">Monday special</span>
+            <h2>Honey laminated croissant</h2>
+            <p>Seventy-two layers, local wildflower honey wash, and a shatter that still leaves a soft honeycomb center.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="counter" aria-labelledby="counter-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">On the counter</p>
+            <h2 id="counter-title">Today's bakes</h2>
+          </div>
+          <p class="section-note">Pulled from the oven this morning. Quantities are small; when a tray is gone, it's gone.</p>
+        </div>
+
+        <div class="counter-grid">
+          <article class="pastry-card">
+            <div class="swatch swatch-croissant" aria-hidden="true"></div>
+            <h3>Honey croissant</h3>
+            <p>European butter, overnight cold proof, brushed with wildflower honey before the final bake.</p>
+            <div class="pastry-meta">
+              <span class="price">$4.50</span>
+              <span class="tag hot">Selling fast</span>
+            </div>
+          </article>
+
+          <article class="pastry-card">
+            <div class="swatch swatch-loaf" aria-hidden="true"></div>
+            <h3>Country levain</h3>
+            <p>Forty percent whole wheat, long bulk ferment, and a deep caramelized crust for weekday toast.</p>
+            <div class="pastry-meta">
+              <span class="price">$9.00</span>
+              <span class="tag">Whole loaf</span>
+            </div>
+          </article>
+
+          <article class="pastry-card">
+            <div class="swatch swatch-tart" aria-hidden="true"></div>
+            <h3>Berry frangipane tart</h3>
+            <p>Buttery pâte sucrée, almond cream, and a glaze of roasted strawberry that sets like glass.</p>
+            <div class="pastry-meta">
+              <span class="price">$6.75</span>
+              <span class="tag">Slice</span>
+            </div>
+          </article>
+
+          <article class="pastry-card">
+            <div class="swatch swatch-bun" aria-hidden="true"></div>
+            <h3>Cardamom morning bun</h3>
+            <p>Soft laminated coil, citrus sugar, and a cardamom finish that lingers like good coffee.</p>
+            <div class="pastry-meta">
+              <span class="price">$4.25</span>
+              <span class="tag hot">Staff pick</span>
+            </div>
+          </article>
+
+          <article class="pastry-card">
+            <div class="swatch swatch-cookie" aria-hidden="true"></div>
+            <h3>Sea-salt chocolate chip</h3>
+            <p>Brown-butter dough, 70% dark chunks, and flaky salt. Baked in small batches until just set.</p>
+            <div class="pastry-meta">
+              <span class="price">$3.50</span>
+              <span class="tag">Two left</span>
+            </div>
+          </article>
+
+          <article class="pastry-card">
+            <div class="swatch swatch-focaccia" aria-hidden="true"></div>
+            <h3>Rosemary focaccia</h3>
+            <p>High hydration, olive oil wells, rosemary from the alley garden, finished with coarse salt.</p>
+            <div class="pastry-meta">
+              <span class="price">$7.50</span>
+              <span class="tag">Quarter sheet</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="preorder" aria-labelledby="preorder-title">
+      <div class="wrap">
+        <div class="preorder-panel">
+          <div class="preorder-copy">
+            <p class="section-kicker" style="color: #e8c47a;">Weekend &amp; gifting</p>
+            <h2 id="preorder-title">Preorder a box before the tray empties</h2>
+            <p>
+              Reserve a mixed pastry box for pickup. We assemble the morning of,
+              pack while still warm, and leave a note with what's inside.
+            </p>
+            <ul class="preorder-list">
+              <li>Place orders by 4 pm the day before pickup</li>
+              <li>Weekend boxes held until 11 am; weekday until 10 am</li>
+              <li>Dietary notes welcome—we'll swap smartly, not blandly</li>
+            </ul>
+            <a class="btn btn-on-dark" href="#visit">Plan a pickup</a>
+          </div>
+
+          <div class="box-grid" role="list">
+            <article class="box-card" role="listitem">
+              <h3>Morning six</h3>
+              <p>Two croissants, two morning buns, one tart slice, and one cookie for the walk home.</p>
+              <div class="box-foot">
+                <span class="price">$24</span>
+                <span>Feeds 2–3</span>
+              </div>
+            </article>
+            <article class="box-card" role="listitem">
+              <h3>Table twelve</h3>
+              <p>A full pastry board: laminateds, tarts, cookies, and a half loaf for the center of the table.</p>
+              <div class="box-foot">
+                <span class="price">$48</span>
+                <span>Feeds 5–7</span>
+              </div>
+            </article>
+            <article class="box-card" role="listitem">
+              <h3>Bread run</h3>
+              <p>One country levain, one focaccia quarter, and a small baguette when the oven allows.</p>
+              <div class="box-foot">
+                <span class="price">$22</span>
+                <span>Weekday favorite</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="notes" aria-labelledby="notes-title">
+      <div class="wrap notes-layout">
+        <div class="notes-intro">
+          <p class="section-kicker">Obsessive pastry notes</p>
+          <h2 id="notes-title">What we're testing on the bench</h2>
+          <p>
+            Crumb Theory is a working kitchen, not a fixed menu. We write down the
+            variables—hydration, folds, rest times—so tomorrow's bake is a little more honest.
+          </p>
+          <p>
+            These notes are for the curious: regulars who ask why the croissant cracks
+            a certain way, and bakers who care about the same small things we do.
+          </p>
+        </div>
+
+        <div class="note-list">
+          <article class="note-card">
+            <header>
+              <h3>Butter temperature is the whole plot</h3>
+              <time class="note-date" datetime="2026-07-10">July 10</time>
+            </header>
+            <p>
+              Lamination fails in the quiet places. Butter at 58°F rolls clean; at 64°F
+              it starts to smear and the layers fuse. We keep a cold marble block and
+              a kitchen timer that only exists for folds.
+            </p>
+            <p>
+              This week's croissants used a 15-minute rest between single folds instead
+              of 20. Edge seal improved; oven spring stayed tall. Keeping it.
+            </p>
+          </article>
+
+          <article class="note-card">
+            <header>
+              <h3>Whole wheat wants water and patience</h3>
+              <time class="note-date" datetime="2026-07-07">July 7</time>
+            </header>
+            <p>
+              The country levain jumped to 78% hydration with a 30-minute autolyse.
+              Bran softens, gluten catches up, and the crumb opens without going gummy.
+            </p>
+            <p>
+              Next trial: mill a coarser cut of the same wheat and compare crust color
+              after a 24-hour cold proof. Notes go on the flour bag, not the whiteboard.
+            </p>
+          </article>
+
+          <article class="note-card">
+            <header>
+              <h3>Frangipane should taste like almond, not paste</h3>
+              <time class="note-date" datetime="2026-07-03">July 3</time>
+            </header>
+            <p>
+              We lightened the cream with whipped egg white and a pinch of salt, then
+              stopped short of full bake so the center stays custardy under the fruit.
+            </p>
+            <p>
+              Strawberry glaze now reduces with a splash of red wine vinegar—brightness
+              against the butter, not more sugar. Regulars noticed before we said anything.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="visit" aria-labelledby="visit-title">
+      <div class="wrap visit-grid">
+        <div class="visit-card">
+          <h2 id="visit-title">Visit the counter</h2>
+          <p>
+            We're a walk-up bakery on Maple—no tables, just the smell of butter and a
+            short line that moves. Preorders get a labeled bag on the side shelf.
+          </p>
+          <address class="address">
+            <strong>Crumb Theory</strong>
+            214 Maple Avenue<br>
+            Corner of Maple &amp; 12th<br>
+            Open for counter service daily
+          </address>
+          <p>
+            Questions about a box or a custom loaf? Leave a note at the counter or
+            call the kitchen after 8 am—someone will be dusted in flour and happy to help.
+          </p>
+          <a class="btn btn-primary" href="#preorder">Preorder a box</a>
+        </div>
+
+        <div class="hours-card">
+          <h2>Hours</h2>
+          <table class="hours-table">
+            <caption class="visually-hidden" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0">
+              Weekly counter hours
+            </caption>
+            <tbody>
+              <tr>
+                <th scope="row">Monday – Friday</th>
+                <td>7:30 am – 2:00 pm</td>
+              </tr>
+              <tr>
+                <th scope="row">Saturday</th>
+                <td>8:00 am – 3:00 pm</td>
+              </tr>
+              <tr>
+                <th scope="row">Sunday</th>
+                <td>8:00 am – 1:00 pm</td>
+              </tr>
+              <tr>
+                <th scope="row">Preorder desk</th>
+                <td>Until 4:00 pm daily</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="hours-note">
+            Holidays may shift tray times. When we sell out early, we post a closed
+            note on the door and start again at dawn.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <div class="footer-brand">Crumb Theory</div>
+        <p class="footer-copy">A daily study in butter and flour. Baked each morning on Maple.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#counter">Counter</a></li>
+        <li><a href="#preorder">Preorder</a></li>
+        <li><a href="#notes">Notes</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

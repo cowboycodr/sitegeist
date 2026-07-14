@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Moss Works — Let the wild back in.">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0.15" y2="1">
+      <stop offset="0%" stop-color="#1a2e22"/>
+      <stop offset="55%" stop-color="#1e3526"/>
+      <stop offset="100%" stop-color="#14241a"/>
+    </linearGradient>
+    <linearGradient id="hill1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a4a35"/>
+      <stop offset="100%" stop-color="#1e3526"/>
+    </linearGradient>
+    <linearGradient id="hill2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3d6b4f"/>
+      <stop offset="100%" stop-color="#243d2c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="78%" cy="22%" r="35%">
+      <stop offset="0%" stop-color="#c4a35a" stop-opacity="0.28"/>
+      <stop offset="55%" stop-color="#c4a35a" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#c4a35a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#sky)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- Soft leaf pattern dots -->
+  <g fill="#8fbc8f" opacity="0.07">
+    <ellipse cx="90" cy="80" rx="14" ry="24" transform="rotate(-25 90 80)"/>
+    <ellipse cx="180" cy="140" rx="10" ry="18" transform="rotate(15 180 140)"/>
+    <ellipse cx="1050" cy="100" rx="12" ry="22" transform="rotate(-10 1050 100)"/>
+    <ellipse cx="1120" cy="200" rx="9" ry="16" transform="rotate(30 1120 200)"/>
+    <ellipse cx="80" cy="240" rx="11" ry="20" transform="rotate(5 80 240)"/>
+  </g>
+
+  <!-- Distant hills -->
+  <path d="M0 520 C180 460 320 500 480 450 C640 400 780 470 960 430 C1080 405 1150 440 1200 420 V900 H0Z" fill="url(#hill1)"/>
+  <path d="M0 600 C220 540 380 620 560 560 C740 500 900 590 1200 540 V900 H0Z" fill="url(#hill2)"/>
+  <path d="M0 700 C200 650 400 730 620 680 C840 630 1000 710 1200 670 V900 H0Z" fill="#14241a"/>
+
+  <!-- Tree / moss canopy forms (left) -->
+  <g>
+    <ellipse cx="220" cy="430" rx="95" ry="160" fill="#2f5640"/>
+    <ellipse cx="220" cy="390" rx="70" ry="120" fill="#3d6b4f"/>
+    <ellipse cx="220" cy="360" rx="48" ry="85" fill="#5a8f6a"/>
+    <ellipse cx="220" cy="340" rx="28" ry="50" fill="#8fbc8f" opacity="0.85"/>
+  </g>
+
+  <!-- Center canopy -->
+  <g>
+    <ellipse cx="480" cy="380" rx="120" ry="190" fill="#1e3526"/>
+    <ellipse cx="480" cy="340" rx="90" ry="145" fill="#3d6b4f"/>
+    <ellipse cx="480" cy="310" rx="62" ry="105" fill="#5a8f6a"/>
+    <ellipse cx="480" cy="285" rx="38" ry="65" fill="#8fbc8f"/>
+  </g>
+
+  <!-- Right canopy cluster -->
+  <g>
+    <ellipse cx="720" cy="450" rx="80" ry="135" fill="#2a4a35"/>
+    <ellipse cx="720" cy="420" rx="58" ry="100" fill="#3d6b4f"/>
+    <ellipse cx="720" cy="400" rx="38" ry="70" fill="#5a8f6a"/>
+    <ellipse cx="860" cy="480" rx="70" ry="115" fill="#243d2c"/>
+    <ellipse cx="860" cy="455" rx="48" ry="85" fill="#3d6b4f"/>
+  </g>
+
+  <!-- Moss ground clumps -->
+  <ellipse cx="160" cy="680" rx="110" ry="40" fill="#5a8f6a" opacity="0.55"/>
+  <ellipse cx="360" cy="720" rx="140" ry="48" fill="#3d6b4f" opacity="0.65"/>
+  <ellipse cx="580" cy="700" rx="120" ry="42" fill="#8fbc8f" opacity="0.35"/>
+  <ellipse cx="820" cy="730" rx="130" ry="45" fill="#3d6b4f" opacity="0.55"/>
+  <ellipse cx="1020" cy="690" rx="100" ry="38" fill="#5a8f6a" opacity="0.45"/>
+
+  <!-- Stones -->
+  <ellipse cx="280" cy="750" rx="40" ry="16" fill="#6b5344" opacity="0.45"/>
+  <ellipse cx="650" cy="760" rx="55" ry="18" fill="#6b5344" opacity="0.35"/>
+  <ellipse cx="940" cy="755" rx="35" ry="14" fill="#6b5344" opacity="0.4"/>
+
+  <!-- Small gold meadow dots -->
+  <g fill="#c4a35a" opacity="0.5">
+    <circle cx="340" cy="640" r="5"/>
+    <circle cx="400" cy="660" r="4"/>
+    <circle cx="530" cy="650" r="6"/>
+    <circle cx="600" cy="670" r="4"/>
+    <circle cx="760" cy="655" r="5"/>
+    <circle cx="880" cy="670" r="4"/>
+  </g>
+
+  <!-- Branding panel -->
+  <rect x="72" y="72" width="520" height="220" rx="20" fill="#0f1a14" opacity="0.72"/>
+  <rect x="72" y="72" width="6" height="220" rx="3" fill="#8fbc8f"/>
+
+  <!-- Logo mark -->
+  <g transform="translate(100, 100)">
+    <rect width="48" height="48" rx="10" fill="#1e3526"/>
+    <path d="M24 8c-1.8 4-7 6.2-7 12.5a7 7 0 0 0 14 0c0-6.3-5.2-8.5-7-12.5z" fill="#8fbc8f"/>
+    <path d="M15 28c-1.2 2.2-4 3.4-4 6.5a4 4 0 0 0 8 0c0-3.1-2.8-4.3-4-6.5z" fill="#5a8f6a"/>
+    <path d="M33 26c-1.2 2.5-3.6 3.6-3.6 7a3.6 3.6 0 0 0 7.2 0c0-3.4-2.4-4.5-3.6-7z" fill="#3d6b4f"/>
+    <circle cx="24" cy="38" r="1.8" fill="#c4a35a"/>
+  </g>
+
+  <text x="168" y="132" fill="#b8d4b8" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="18" letter-spacing="4" font-weight="600">GARDENS FOR THE FUTURE</text>
+  <text x="100" y="195" fill="#f3efe4" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="64" font-weight="600">Moss Works</text>
+  <text x="100" y="250" fill="#8fbc8f" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="32" font-style="italic">Let the wild back in.</text>
+
+  <!-- Bottom caption bar -->
+  <rect x="0" y="830" width="1200" height="70" fill="#0a120e" opacity="0.55"/>
+  <text x="600" y="872" text-anchor="middle" fill="#b8d4b8" font-family="system-ui, 'Segoe UI', sans-serif" font-size="20" letter-spacing="1.5">Ecological gardens · Living landscapes · Biodiversity with room for people</text>
+</svg>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="Emissions intelligence for teams ready to turn climate promises into measurable progress.">
+  <title>Carbon Zero — Make every tonne visible</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="bg-mesh" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Carbon Zero home">
+        <svg class="brand-mark" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+          <rect width="34" height="34" rx="9" fill="#1a2c27"/>
+          <rect x="0.5" y="0.5" width="33" height="33" rx="8.5" stroke="#3dce9a" stroke-opacity="0.35"/>
+          <path d="M10 22V12h3.2c2.4 0 3.9 1.35 3.9 3.35 0 1.35-.7 2.4-1.85 2.9L18.5 22h-2.55l-2.9-3.45H12.2V22H10zm2.2-5.3h1.05c1.15 0 1.85-.6 1.85-1.55s-.7-1.5-1.85-1.5H12.2v3.05z" fill="#3dce9a"/>
+          <path d="M20.5 22l3.4-10h2.45l3.4 10h-2.35l-.6-1.9h-3.35l-.6 1.9H20.5zm3.15-3.75h2.25L24.75 14.4 23.65 18.25z" fill="#e8b86d"/>
+        </svg>
+        <span class="brand-text">Carbon Zero</span>
+      </a>
+
+      <button class="menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path class="icon-menu" d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="#capabilities">Capabilities</a>
+        <a href="#process">Process</a>
+        <a href="#methodology">Methodology</a>
+        <a href="#results">Results</a>
+        <a class="nav-cta" href="#measure">Measure your footprint</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            Operational carbon intelligence
+          </p>
+          <h1>
+            Make every tonne
+            <span class="accent">visible.</span>
+          </h1>
+          <p class="hero-lead">
+            Emissions intelligence for teams ready to turn climate promises into measurable progress.
+            Map Scope 1–3 activity, assign trusted factors, and watch reduction work land in real numbers.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#measure">Measure your footprint</a>
+            <a class="btn btn-secondary" href="#methodology">View methodology</a>
+          </div>
+          <div class="trust-row" role="list">
+            <span class="trust-item" role="listitem">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              GHG Protocol aligned
+            </span>
+            <span class="trust-item" role="listitem">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Audit-ready trails
+            </span>
+            <span class="trust-item" role="listitem">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Works offline-first
+            </span>
+          </div>
+        </div>
+
+        <aside class="dash-card" aria-label="Sample emissions overview">
+          <div class="dash-top">
+            <p class="dash-title">Enterprise footprint · Q3</p>
+            <span class="dash-badge">Live model</span>
+          </div>
+          <div class="dash-body">
+            <div class="metric-row">
+              <div class="metric">
+                <span class="metric-label">Total CO₂e</span>
+                <p class="metric-value">12,480<small>t</small></p>
+                <span class="metric-delta">↓ 8.4% vs last year</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Intensity</span>
+                <p class="metric-value">18.2<small>t / $M</small></p>
+                <span class="metric-delta warn">Target 16.0 by FY26</span>
+              </div>
+            </div>
+            <div class="scope-list" aria-label="Emissions by scope">
+              <div class="scope-item">
+                <div class="scope-head">
+                  <span>Scope 1 · Direct</span>
+                  <span>1,240 t · 10%</span>
+                </div>
+                <div class="bar-track" role="presentation">
+                  <div class="bar-fill" style="--w: 18%"></div>
+                </div>
+              </div>
+              <div class="scope-item">
+                <div class="scope-head">
+                  <span>Scope 2 · Energy</span>
+                  <span>3,110 t · 25%</span>
+                </div>
+                <div class="bar-track" role="presentation">
+                  <div class="bar-fill" style="--w: 42%"></div>
+                </div>
+              </div>
+              <div class="scope-item">
+                <div class="scope-head">
+                  <span>Scope 3 · Value chain</span>
+                  <span>8,130 t · 65%</span>
+                </div>
+                <div class="bar-track" role="presentation">
+                  <div class="bar-fill" style="--w: 88%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="capabilities" aria-labelledby="cap-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-label">Capabilities</p>
+          <h2 id="cap-heading">Carbon accounting that ops teams actually use</h2>
+          <p class="section-lead">
+            From messy activity logs to board-ready inventories—without black-box factors or spreadsheet drift.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19V5M4 19h16"/>
+                <path d="M8 15v-4M12 15V8M16 15v-6"/>
+              </svg>
+            </div>
+            <h3>Activity-level inventory</h3>
+            <p>Ingest fuel, electricity, travel, freight, and purchase data. Every tonne ties back to a source row you can defend.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="8"/>
+                <path d="M12 8v4l2.5 2.5"/>
+              </svg>
+            </div>
+            <h3>Factor library control</h3>
+            <p>Version emission factors by region and year. Swap datasets with full lineage so recalculations stay transparent.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 7h14M5 12h10M5 17h7"/>
+                <path d="M17 14l2 2 3-4"/>
+              </svg>
+            </div>
+            <h3>Hotspot discovery</h3>
+            <p>Rank categories, vendors, and sites by materiality. Focus reduction spend where it moves the inventory.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 4h10v4H7zM5 12h14v8H5z"/>
+                <path d="M9 12v8M15 12v8"/>
+              </svg>
+            </div>
+            <h3>Scenario planning</h3>
+            <p>Model electrification, supplier shifts, and renewable contracts before you commit capital or public targets.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="5" width="16" height="14" rx="2"/>
+                <path d="M8 9h8M8 13h5"/>
+              </svg>
+            </div>
+            <h3>Disclosure packs</h3>
+            <p>Export Scope tables, intensity metrics, and methodology notes ready for CSRD, CDP, and internal audit.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z"/>
+                <path d="M9.5 12l1.8 1.8L15 10"/>
+              </svg>
+            </div>
+            <h3>Assurance trails</h3>
+            <p>Immutable calculation logs, reviewer sign-off, and change history keep every revision accountable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process" aria-labelledby="process-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-label">Process</p>
+          <h2 id="process-heading">From activity data to a defensible inventory</h2>
+          <p class="section-lead">
+            A repeatable loop your finance, facilities, and sustainability teams can run every quarter.
+          </p>
+        </div>
+        <div class="pipeline">
+          <article class="step">
+            <h3>Connect sources</h3>
+            <p>Pull utility bills, fleet logs, travel systems, and spend categories into a single activity ledger.</p>
+          </article>
+          <article class="step">
+            <h3>Classify scopes</h3>
+            <p>Map each stream to Scope 1, 2, or 3 categories with guided rules and exception queues.</p>
+          </article>
+          <article class="step">
+            <h3>Calculate CO₂e</h3>
+            <p>Apply curated factors, unit conversions, and market- vs location-based energy methods.</p>
+          </article>
+          <article class="step">
+            <h3>Act &amp; report</h3>
+            <p>Ship dashboards, reduction scenarios, and signed inventories without rebuilding the model.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="methodology" aria-labelledby="method-heading">
+      <div class="wrap method-panel">
+        <div class="method-copy">
+          <p class="section-label">Methodology</p>
+          <h2 id="method-heading">Transparent math, not a mystery box</h2>
+          <p>
+            Carbon Zero follows the GHG Protocol Corporate Standard and Scope 3 guidance.
+            Every total is the product of activity data, an emission factor, and documented assumptions—
+            all visible to your team and external reviewers.
+          </p>
+          <p>
+            Location-based and market-based Scope 2 are calculated side by side.
+            Uncertainty bands flag spend-based estimates so primary data can replace them over time.
+          </p>
+          <ul class="checklist">
+            <li>
+              <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 9.2l2.2 2.2 4.8-4.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Global Warming Potentials published with each inventory period
+            </li>
+            <li>
+              <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 9.2l2.2 2.2 4.8-4.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Dual-unit tracking (activity + CO₂e) for every line item
+            </li>
+            <li>
+              <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 9.2l2.2 2.2 4.8-4.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Boundary definitions locked per reporting entity
+            </li>
+          </ul>
+          <a class="btn btn-secondary" href="#measure">Open a sample inventory</a>
+        </div>
+        <div class="method-viz" aria-label="Illustrative carbon stack by source">
+          <svg viewBox="0 0 480 280" role="img" aria-labelledby="stack-title stack-desc">
+            <title id="stack-title">Sample emissions stack</title>
+            <desc id="stack-desc">Horizontal stacked bars showing purchased goods, energy, logistics, and travel contributions across three business units.</desc>
+            <rect width="480" height="280" rx="12" fill="#0f1a17"/>
+            <text x="24" y="36" fill="#9bb5a8" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Inventory composition · tCO₂e</text>
+            <text x="24" y="58" fill="#6f8a7d" font-family="ui-monospace,monospace" font-size="11">Business units A–C · illustrative</text>
+
+            <!-- Unit A -->
+            <text x="24" y="100" fill="#e8f2ed" font-family="system-ui,sans-serif" font-size="12">Unit A</text>
+            <rect x="80" y="86" width="140" height="22" rx="4" fill="#3dce9a"/>
+            <rect x="220" y="86" width="72" height="22" rx="0" fill="#6eb5c0"/>
+            <rect x="292" y="86" width="54" height="22" rx="0" fill="#e8b86d"/>
+            <rect x="346" y="86" width="36" height="22" rx="4" fill="#e07a5f"/>
+            <text x="400" y="102" fill="#9bb5a8" font-family="ui-monospace,monospace" font-size="11">4,820</text>
+
+            <!-- Unit B -->
+            <text x="24" y="150" fill="#e8f2ed" font-family="system-ui,sans-serif" font-size="12">Unit B</text>
+            <rect x="80" y="136" width="96" height="22" rx="4" fill="#3dce9a"/>
+            <rect x="176" y="136" width="110" height="22" rx="0" fill="#6eb5c0"/>
+            <rect x="286" y="136" width="40" height="22" rx="0" fill="#e8b86d"/>
+            <rect x="326" y="136" width="28" height="22" rx="4" fill="#e07a5f"/>
+            <text x="370" y="152" fill="#9bb5a8" font-family="ui-monospace,monospace" font-size="11">3,910</text>
+
+            <!-- Unit C -->
+            <text x="24" y="200" fill="#e8f2ed" font-family="system-ui,sans-serif" font-size="12">Unit C</text>
+            <rect x="80" y="186" width="118" height="22" rx="4" fill="#3dce9a"/>
+            <rect x="198" y="186" width="64" height="22" rx="0" fill="#6eb5c0"/>
+            <rect x="262" y="186" width="88" height="22" rx="0" fill="#e8b86d"/>
+            <rect x="350" y="186" width="22" height="22" rx="4" fill="#e07a5f"/>
+            <text x="388" y="202" fill="#9bb5a8" font-family="ui-monospace,monospace" font-size="11">3,750</text>
+
+            <!-- Axis line -->
+            <line x1="80" y1="230" x2="420" y2="230" stroke="rgba(126,196,166,0.2)" stroke-width="1"/>
+            <text x="80" y="250" fill="#6f8a7d" font-family="ui-monospace,monospace" font-size="10">0</text>
+            <text x="240" y="250" fill="#6f8a7d" font-family="ui-monospace,monospace" font-size="10">2,500</text>
+            <text x="390" y="250" fill="#6f8a7d" font-family="ui-monospace,monospace" font-size="10">5,000</text>
+          </svg>
+          <div class="stack-legend">
+            <span class="legend-item"><span class="swatch" style="background:#3dce9a"></span> Purchased goods</span>
+            <span class="legend-item"><span class="swatch" style="background:#6eb5c0"></span> Energy</span>
+            <span class="legend-item"><span class="swatch" style="background:#e8b86d"></span> Logistics</span>
+            <span class="legend-item"><span class="swatch" style="background:#e07a5f"></span> Travel</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results" aria-labelledby="results-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-label">Outcomes</p>
+          <h2 id="results-heading">What becomes possible when tonnes are visible</h2>
+          <p class="section-lead">
+            Teams using structured inventories move faster on targets, capital planning, and stakeholder trust.
+          </p>
+        </div>
+        <div class="insights">
+          <article class="insight">
+            <p class="insight-stat"><span>40%</span> faster</p>
+            <p>Close quarterly inventories with concurrent review instead of end-of-cycle fire drills.</p>
+          </article>
+          <article class="insight">
+            <p class="insight-stat"><span>3×</span> coverage</p>
+            <p>Expand Scope 3 categories from spend-only proxies to supplier-specific activity data.</p>
+          </article>
+          <article class="insight">
+            <p class="insight-stat"><span>100%</span> traceable</p>
+            <p>Answer auditor questions with a drill-down from headline total to source evidence.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="measure" aria-labelledby="cta-heading">
+      <div class="cta-band">
+        <div>
+          <h2 id="cta-heading">Start with a clear baseline</h2>
+          <p>
+            Bring one reporting entity, one fiscal year, and your core activity sources.
+            Carbon Zero turns them into an auditable footprint you can steer.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="#top">Measure your footprint</a>
+          <a class="btn btn-secondary" href="#methodology">View methodology</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>© 2026 Carbon Zero · Operational carbon intelligence</p>
+      <div class="footer-links">
+        <a href="#capabilities">Capabilities</a>
+        <a href="#process">Process</a>
+        <a href="#methodology">Methodology</a>
+        <a href="#top">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

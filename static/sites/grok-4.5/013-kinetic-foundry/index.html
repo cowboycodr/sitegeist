@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self';">
+  <title>Kinetic Foundry — Machines with a human sense of motion</title>
+  <meta name="description" content="Dexterous robotic systems designed around useful movement, adaptable tools, and safer work.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Kinetic Foundry home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="36" height="36" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
+            <path d="M12 26 L16 14 L22 22 L28 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="26" r="2.4" fill="currentColor"/>
+            <circle cx="16" cy="14" r="2.4" fill="currentColor"/>
+            <circle cx="22" cy="22" r="2.4" fill="currentColor"/>
+            <circle cx="28" cy="12" r="2.4" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">Kinetic Foundry</span>
+          <span class="brand-sub">Applied robotics</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" data-site-nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#machines">Machines</a></li>
+          <li><a href="#capabilities">Capabilities</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#safety">Safety</a></li>
+          <li><a class="nav-cta" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true">
+        <svg class="hero-motif" viewBox="0 0 640 480" fill="none" role="presentation">
+          <defs>
+            <linearGradient id="armGlow" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#e8943a"/>
+              <stop offset="100%" stop-color="#f2c07a"/>
+            </linearGradient>
+            <linearGradient id="arcFade" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#7a9bb8" stop-opacity="0"/>
+              <stop offset="40%" stop-color="#7a9bb8" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#e8943a" stop-opacity="0.8"/>
+            </linearGradient>
+          </defs>
+          <path class="traj traj-a" d="M40 380 C140 360 180 220 280 200 S460 240 560 120" stroke="url(#arcFade)" stroke-width="1.5" stroke-dasharray="6 8"/>
+          <path class="traj traj-b" d="M80 420 C200 400 240 280 340 250 S500 280 600 180" stroke="#7a9bb8" stroke-opacity="0.25" stroke-width="1" stroke-dasharray="3 10"/>
+          <g class="arm-assembly">
+            <line x1="120" y1="360" x2="220" y2="250" stroke="url(#armGlow)" stroke-width="6" stroke-linecap="round"/>
+            <line x1="220" y1="250" x2="340" y2="280" stroke="url(#armGlow)" stroke-width="5" stroke-linecap="round"/>
+            <line x1="340" y1="280" x2="430" y2="180" stroke="url(#armGlow)" stroke-width="4" stroke-linecap="round"/>
+            <line x1="430" y1="180" x2="500" y2="150" stroke="#f2c07a" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="120" cy="360" r="14" fill="#151922" stroke="#e8943a" stroke-width="2.5"/>
+            <circle cx="220" cy="250" r="11" fill="#151922" stroke="#e8943a" stroke-width="2"/>
+            <circle cx="340" cy="280" r="10" fill="#151922" stroke="#f2c07a" stroke-width="2"/>
+            <circle cx="430" cy="180" r="8" fill="#151922" stroke="#f2c07a" stroke-width="2"/>
+            <g class="effector" transform="translate(500 150)">
+              <path d="M0 0 L18 -8 L28 2 L18 12 Z" fill="#e8943a" opacity="0.9"/>
+              <path d="M12 -4 L24 -14 M12 8 L24 16" stroke="#f2c07a" stroke-width="2" stroke-linecap="round"/>
+            </g>
+          </g>
+          <circle class="pulse-node" cx="500" cy="150" r="22" stroke="#e8943a" stroke-opacity="0.35" fill="none"/>
+          <circle class="pulse-node delay" cx="500" cy="150" r="34" stroke="#e8943a" stroke-opacity="0.18" fill="none"/>
+        </svg>
+      </div>
+
+      <div class="shell hero-content">
+        <p class="eyebrow">Applied robotics</p>
+        <h1 id="hero-title">Machines with a <em>human sense</em> of motion.</h1>
+        <p class="lede">Dexterous robotic systems designed around useful movement, adaptable tools, and safer work. Kinetic Foundry builds arms, grippers, and control stacks that move like skilled hands—not rigid sequences.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#machines">Meet the machines</a>
+          <a class="btn btn-ghost" href="#capabilities">View capabilities</a>
+        </div>
+        <dl class="hero-stats" aria-label="Highlights">
+          <div>
+            <dt>7-DOF</dt>
+            <dd>Human-scale reach</dd>
+          </div>
+          <div>
+            <dt>12 ms</dt>
+            <dd>Closed-loop response</dd>
+          </div>
+          <div>
+            <dt>ISO 10218</dt>
+            <dd>Safety-aligned design</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section machines" id="machines" aria-labelledby="machines-title">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">Product line</p>
+          <h2 id="machines-title">Meet the machines</h2>
+          <p class="section-intro">Three platforms, one motion language. Each system shares the same joint control, tool interface, and safety architecture so cells can grow without rewriting the floor.</p>
+        </header>
+
+        <div class="card-grid machines-grid">
+          <article class="card machine-card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" width="48" height="48" fill="none">
+                <path d="M12 48 L24 28 L38 36 L50 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="48" r="4" fill="currentColor"/>
+                <circle cx="24" cy="28" r="4" fill="currentColor"/>
+                <circle cx="38" cy="36" r="4" fill="currentColor"/>
+                <circle cx="50" cy="16" r="4" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Kinesis Arm K7</h3>
+            <p class="card-tag">Flagship manipulator</p>
+            <p>A seven-degree-of-freedom arm with continuous wrist rotation and payload up to 12 kg. Tuned for packing, assembly, and inspection where reach and reorientation matter more than raw force.</p>
+            <ul class="feature-list">
+              <li>1.3 m reach envelope</li>
+              <li>Force-torque at the wrist</li>
+              <li>Hot-swap tool flange</li>
+            </ul>
+          </article>
+
+          <article class="card machine-card featured">
+            <div class="card-badge">Workhorse</div>
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" width="48" height="48" fill="none">
+                <rect x="18" y="20" width="28" height="28" rx="4" stroke="currentColor" stroke-width="2.5"/>
+                <path d="M28 34 H36 M32 30 V38" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M24 48 L20 56 M40 48 L44 56" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="32" cy="14" r="5" stroke="currentColor" stroke-width="2.5"/>
+              </svg>
+            </div>
+            <h3>Forge Hand H4</h3>
+            <p class="card-tag">Dexterous end-effector</p>
+            <p>Four underactuated fingers with tactile skin and a palm that conforms to irregular parts. Designed to grasp what fixed jaws drop—cables, soft goods, mixed bins.</p>
+            <ul class="feature-list">
+              <li>Adaptive grasp modes</li>
+              <li>Per-pad pressure sensing</li>
+              <li>Tool-bus compatible</li>
+            </ul>
+          </article>
+
+          <article class="card machine-card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" width="48" height="48" fill="none">
+                <circle cx="32" cy="32" r="18" stroke="currentColor" stroke-width="2.5"/>
+                <path d="M32 18 V32 L42 38" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 32 H8 M56 32 H50 M32 14 V8 M32 56 V50" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+              </svg>
+            </div>
+            <h3>Motion Core MC-2</h3>
+            <p class="card-tag">Control &amp; planning</p>
+            <p>The shared brain for every Kinetic cell. Real-time joint control, collision-aware planning, and teach-by-demonstration so operators shape motion instead of scripting waypoints.</p>
+            <ul class="feature-list">
+              <li>12 ms control cycle</li>
+              <li>Scene-aware pathing</li>
+              <li>Edge-local compute</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section capabilities" id="capabilities" aria-labelledby="capabilities-title">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">What we build for</p>
+          <h2 id="capabilities-title">View capabilities</h2>
+          <p class="section-intro">Useful movement is the product. We optimize for tasks people already understand—pick, place, insert, inspect—then make the machine fluid enough to keep pace on a live floor.</p>
+        </header>
+
+        <div class="cap-grid">
+          <article class="cap-item">
+            <span class="cap-num" aria-hidden="true">01</span>
+            <h3>Dexterous handling</h3>
+            <p>Reorient parts mid-path, seat connectors with controlled compliance, and recover from near-miss grasps without a full stop.</p>
+          </article>
+          <article class="cap-item">
+            <span class="cap-num" aria-hidden="true">02</span>
+            <h3>Adaptable tooling</h3>
+            <p>One flange, many jobs. Quick-change tools, shared electrical and pneumatic pass-through, and profiles that travel with the tool ID.</p>
+          </article>
+          <article class="cap-item">
+            <span class="cap-num" aria-hidden="true">03</span>
+            <h3>Human-paced cells</h3>
+            <p>Speed curves that feel continuous, not stepped. Operators can approach, pause, and resume work beside the arm with clear status at a glance.</p>
+          </article>
+          <article class="cap-item">
+            <span class="cap-num" aria-hidden="true">04</span>
+            <h3>Teachable motion</h3>
+            <p>Demonstrate a trajectory with a pendant or free-drive, refine with constraints, and deploy the same skill across identical cells.</p>
+          </article>
+          <article class="cap-item">
+            <span class="cap-num" aria-hidden="true">05</span>
+            <h3>Mixed-SKU packing</h3>
+            <p>Vision-guided bin pick and carton fill for SKUs that change by the shift, not by the quarter.</p>
+          </article>
+          <article class="cap-item">
+            <span class="cap-num" aria-hidden="true">06</span>
+            <h3>Precision inspection</h3>
+            <p>Stable camera and probe paths with force-limited contact for quality checks that used to require a fixture and a fixture redesign.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section approach" id="approach" aria-labelledby="approach-title">
+      <div class="shell approach-layout">
+        <div class="approach-copy">
+          <p class="eyebrow">Design philosophy</p>
+          <h2 id="approach-title">Motion first, then the metal</h2>
+          <p>Most industrial arms start as structures and get programmed later. We reverse that. Joint layouts, cable routing, and gearing are chosen so natural arcs, soft landings, and recoverable grasps are easy—not bolted on as afterthoughts.</p>
+          <p>The result is hardware that behaves like a skilled colleague: deliberate near people, decisive in free space, and honest about what it cannot reach.</p>
+          <ul class="check-list">
+            <li>Whole-body compliance tuning per application</li>
+            <li>Shared tool bus across the product family</li>
+            <li>Open skill export for plant-level orchestration</li>
+          </ul>
+        </div>
+        <aside class="approach-panel" aria-label="Motion principles">
+          <h3 class="panel-title">Four principles of useful movement</h3>
+          <ol class="principle-list">
+            <li>
+              <strong>Continuity</strong>
+              <span>Paths should read as one gesture, not a chain of poses.</span>
+            </li>
+            <li>
+              <strong>Compliance</strong>
+              <span>Contact is expected; force limits are first-class controls.</span>
+            </li>
+            <li>
+              <strong>Clarity</strong>
+              <span>Status, intent, and stop modes are visible to nearby people.</span>
+            </li>
+            <li>
+              <strong>Composition</strong>
+              <span>Skills combine; cells scale without rewriting the stack.</span>
+            </li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section safety" id="safety" aria-labelledby="safety-title">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">Safer work</p>
+          <h2 id="safety-title">Built for shared floors</h2>
+          <p class="section-intro">Safer work is not a mode you toggle at the end of integration. It is encoded in speed limits, sensing, and how the machine announces what it will do next.</p>
+        </header>
+
+        <div class="safety-grid">
+          <article class="safety-card">
+            <h3>Layered protection</h3>
+            <p>Power and force limiting, monitored stops, and zone-aware velocity caps work together so a single sensor fault does not become a single point of failure.</p>
+          </article>
+          <article class="safety-card">
+            <h3>Readable intent</h3>
+            <p>Status rings, pendant cues, and audible state changes give people near the cell a continuous sense of whether the arm is idle, approaching, or holding force.</p>
+          </article>
+          <article class="safety-card">
+            <h3>Audit-ready logs</h3>
+            <p>Every intervention, mode change, and force event is timestamped and exportable for plant safety reviews and continuous improvement.</p>
+          </article>
+        </div>
+
+        <div class="safety-banner">
+          <p><strong>Aligned with industrial practice.</strong> Kinetic Foundry systems are designed against ISO 10218 and collaborative application guidance so integrators can complete risk assessments with fewer surprises.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="shell contact-panel">
+        <div class="contact-copy">
+          <p class="eyebrow">Next step</p>
+          <h2 id="contact-title">Bring useful motion to your cell</h2>
+          <p>Tell us about the parts you handle, the tools you already own, and the space people share with machines. We will map a pilot that proves motion quality before you scale hardware.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="#machines">Meet the machines</a>
+          <a class="btn btn-ghost" href="#capabilities">View capabilities</a>
+          <p class="contact-note">Pilot programs available for packing, assembly, and inspection lines.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <span class="brand-name">Kinetic Foundry</span>
+        <p>Machines with a human sense of motion.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#machines">Machines</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#approach">Approach</a>
+        <a href="#safety">Safety</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="footer-meta">© 2026 Kinetic Foundry. Applied robotics for safer, more useful work.</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

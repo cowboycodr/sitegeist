@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'">
+  <title>Glyph Department — Typefaces with something to say.</title>
+  <meta name="description" content="An independent foundry where variable letters stretch, collide, and perform across every screen.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="logo" href="#top" aria-label="Glyph Department home">
+        <span class="logo-mark" aria-hidden="true">GD</span>
+        <span class="logo-text">Glyph Department</span>
+      </a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#families">Families</a></li>
+          <li><a href="#tester">Tester</a></li>
+          <li><a href="#studio">Studio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot" aria-hidden="true"></span>
+        Independent type foundry
+      </div>
+      <h1 id="hero-title" class="hero-title">
+        <span class="title-line title-line-1">Typefaces</span>
+        <span class="title-line title-line-2">with something</span>
+        <span class="title-line title-line-3">to <em class="title-accent">say.</em></span>
+      </h1>
+      <p class="hero-lede">
+        Variable letters stretch, collide, and perform across every screen.
+        We design type that carries tone, not just characters.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#tester">Test the type</a>
+        <a class="btn btn-secondary" href="#families">Browse families</a>
+      </div>
+
+      <div class="glyph-stage" aria-hidden="true">
+        <div class="glyph-row glyph-row-a">
+          <span class="g g-stretch">A</span>
+          <span class="g g-collide">g</span>
+          <span class="g g-perform">R</span>
+          <span class="g g-stretch">o</span>
+        </div>
+        <div class="glyph-row glyph-row-b">
+          <span class="g g-perform">S</span>
+          <span class="g g-stretch">y</span>
+          <span class="g g-collide">n</span>
+          <span class="g g-perform">c</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="strip" aria-label="Foundry stats">
+      <div class="strip-inner">
+        <div class="stat">
+          <span class="stat-value">12</span>
+          <span class="stat-label">Released families</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">48</span>
+          <span class="stat-label">Variable axes</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">2019</span>
+          <span class="stat-label">Founded</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">∞</span>
+          <span class="stat-label">Letter collisions</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="families" id="families" aria-labelledby="families-title">
+      <div class="section-head">
+        <p class="section-kicker">Catalog</p>
+        <h2 id="families-title">Browse families</h2>
+        <p class="section-intro">
+          Six working faces from the desk. Each one is tuned for screen, print,
+          and the space between.
+        </p>
+      </div>
+
+      <div class="family-grid" role="list">
+        <article class="family-card" role="listitem" data-family="collide" tabindex="0">
+          <div class="family-meta">
+            <h3 class="family-name">Collide</h3>
+            <p class="family-tags">Display · 5 styles · Width axis</p>
+          </div>
+          <p class="family-specimen family-specimen-collide" aria-label="Specimen for Collide">
+            Impact first
+          </p>
+          <p class="family-blurb">
+            Sharp geometric display type that lets letters crowd the edge—
+            built for headlines that refuse to whisper.
+          </p>
+          <button type="button" class="family-use" data-use="collide">Use in tester</button>
+        </article>
+
+        <article class="family-card" role="listitem" data-family="stretch" tabindex="0">
+          <div class="family-meta">
+            <h3 class="family-name">Stretch</h3>
+            <p class="family-tags">Variable · Weight + Width</p>
+          </div>
+          <p class="family-specimen family-specimen-stretch" aria-label="Specimen for Stretch">
+            Elastic form
+          </p>
+          <p class="family-blurb">
+            A fluid sans that expands from condensed signal to wide billboard
+            without losing its spine.
+          </p>
+          <button type="button" class="family-use" data-use="stretch">Use in tester</button>
+        </article>
+
+        <article class="family-card" role="listitem" data-family="murmur" tabindex="0">
+          <div class="family-meta">
+            <h3 class="family-name">Murmur</h3>
+            <p class="family-tags">Text · 8 styles · Optical sizes</p>
+          </div>
+          <p class="family-specimen family-specimen-murmur" aria-label="Specimen for Murmur">
+            Quiet reading
+          </p>
+          <p class="family-blurb">
+            A literary text face with warm serifs and calm rhythm for long-form
+            screens and printed essays.
+          </p>
+          <button type="button" class="family-use" data-use="murmur">Use in tester</button>
+        </article>
+
+        <article class="family-card" role="listitem" data-family="signal" tabindex="0">
+          <div class="family-meta">
+            <h3 class="family-name">Signal</h3>
+            <p class="family-tags">Mono · 4 styles · Code + UI</p>
+          </div>
+          <p class="family-specimen family-specimen-signal" aria-label="Specimen for Signal">
+            0123 ↔ code
+          </p>
+          <p class="family-blurb">
+            Monospace with character. Clear at 11px, confident at 48px—
+            for interfaces that still feel human.
+          </p>
+          <button type="button" class="family-use" data-use="signal">Use in tester</button>
+        </article>
+
+        <article class="family-card" role="listitem" data-family="perform" tabindex="0">
+          <div class="family-meta">
+            <h3 class="family-name">Perform</h3>
+            <p class="family-tags">Experimental · Motion-ready</p>
+          </div>
+          <p class="family-specimen family-specimen-perform" aria-label="Specimen for Perform">
+            Stage light
+          </p>
+          <p class="family-blurb">
+            An experimental display family designed for animation, collision,
+            and kinetic identity systems.
+          </p>
+          <button type="button" class="family-use" data-use="perform">Use in tester</button>
+        </article>
+
+        <article class="family-card" role="listitem" data-family="ledger" tabindex="0">
+          <div class="family-meta">
+            <h3 class="family-name">Ledger</h3>
+            <p class="family-tags">Grotesk · 10 styles · Workhorse</p>
+          </div>
+          <p class="family-specimen family-specimen-ledger" aria-label="Specimen for Ledger">
+            Daily craft
+          </p>
+          <p class="family-blurb">
+            Neutral without being empty. A contemporary grotesk for product
+            UI, decks, and brand systems that need legs.
+          </p>
+          <button type="button" class="family-use" data-use="ledger">Use in tester</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="tester" id="tester" aria-labelledby="tester-title">
+      <div class="section-head">
+        <p class="section-kicker">Live desk</p>
+        <h2 id="tester-title">Test the type</h2>
+        <p class="section-intro">
+          Type your own line. Tune size, weight, and tracking. Preview how each
+          family holds a sentence under pressure.
+        </p>
+      </div>
+
+      <div class="tester-panel">
+        <div class="tester-controls">
+          <div class="control">
+            <label for="family-select">Family</label>
+            <select id="family-select" name="family">
+              <option value="collide">Collide</option>
+              <option value="stretch" selected>Stretch</option>
+              <option value="murmur">Murmur</option>
+              <option value="signal">Signal</option>
+              <option value="perform">Perform</option>
+              <option value="ledger">Ledger</option>
+            </select>
+          </div>
+          <div class="control">
+            <label for="size-range">Size <span id="size-value">64</span>px</label>
+            <input type="range" id="size-range" min="16" max="120" value="64" step="1">
+          </div>
+          <div class="control">
+            <label for="weight-range">Weight <span id="weight-value">500</span></label>
+            <input type="range" id="weight-range" min="200" max="900" value="500" step="50">
+          </div>
+          <div class="control">
+            <label for="track-range">Tracking <span id="track-value">0</span></label>
+            <input type="range" id="track-range" min="-80" max="200" value="0" step="5">
+          </div>
+          <div class="control control-full">
+            <label for="sample-input">Sample text</label>
+            <input type="text" id="sample-input" value="Letters that perform" maxlength="80" autocomplete="off" spellcheck="false">
+          </div>
+        </div>
+        <div class="tester-stage" id="tester-stage" role="region" aria-label="Type preview" aria-live="polite">
+          <p class="tester-output family-face-stretch" id="tester-output">Letters that perform</p>
+        </div>
+        <p class="tester-hint">Tip: pick a family from Browse, or change the sample and drag the sliders.</p>
+      </div>
+    </section>
+
+    <section class="studio" id="studio" aria-labelledby="studio-title">
+      <div class="studio-grid">
+        <div class="studio-copy">
+          <p class="section-kicker">The desk</p>
+          <h2 id="studio-title">A small department with loud letters</h2>
+          <p>
+            Glyph Department is an independent type foundry. We draw variable
+            faces that stretch across viewports, collide in display lockups, and
+            perform under motion without losing readability.
+          </p>
+          <p>
+            Our process pairs traditional spacing craft with screen-first testing.
+            Every release ships with specimen notes, licensing that respects
+            independent studios, and axes you can actually use.
+          </p>
+          <ul class="studio-points">
+            <li>Variable-first releases for real product systems</li>
+            <li>Optical sizes for UI and editorial pairings</li>
+            <li>Licenses for freelancers, studios, and products</li>
+          </ul>
+        </div>
+        <aside class="studio-panel" aria-label="Studio principles">
+          <h3 class="studio-panel-title">Principles</h3>
+          <ol class="principles">
+            <li>
+              <span class="principle-num">01</span>
+              <span class="principle-text"><strong>Voice before novelty.</strong> A glyph is only useful if it says something.</span>
+            </li>
+            <li>
+              <span class="principle-num">02</span>
+              <span class="principle-text"><strong>Axes with purpose.</strong> Width, weight, and optical size must earn their place.</span>
+            </li>
+            <li>
+              <span class="principle-num">03</span>
+              <span class="principle-text"><strong>Screen is the stage.</strong> If it fails at 390px, it fails.</span>
+            </li>
+            <li>
+              <span class="principle-num">04</span>
+              <span class="principle-text"><strong>Independent by design.</strong> Built by a tight team, licensed without theater.</span>
+            </li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact-inner">
+        <p class="section-kicker">Open desk</p>
+        <h2 id="contact-title">Need a custom cut?</h2>
+        <p class="contact-lede">
+          Commissions, exclusive styles, and product licenses are handled at the desk.
+          Tell us the stage your letters need to perform on.
+        </p>
+        <div class="contact-cards">
+          <div class="contact-card">
+            <h3>Licensing</h3>
+            <p>Desktop, web, and app licenses with transparent tiers.</p>
+            <p class="contact-line">desk@glyphdept.example</p>
+          </div>
+          <div class="contact-card">
+            <h3>Custom work</h3>
+            <p>Wordmarks, variable brand systems, and optical pairings.</p>
+            <p class="contact-line">custom@glyphdept.example</p>
+          </div>
+          <div class="contact-card">
+            <h3>Trials</h3>
+            <p>Request trial packages for Collide, Stretch, and Ledger.</p>
+            <p class="contact-line">trials@glyphdept.example</p>
+          </div>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="#tester">Test the type</a>
+          <a class="btn btn-secondary" href="#families">Browse families</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark" aria-hidden="true">GD</span>
+        <div>
+          <p class="footer-name">Glyph Department</p>
+          <p class="footer-tag">Typefaces with something to say.</p>
+        </div>
+      </div>
+      <p class="footer-note">Independent type foundry · Est. 2019 · Built for every screen</p>
+      <p class="footer-legal">© 2026 Glyph Department. Specimen site for portfolio use.</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -4,17 +4,21 @@
 	import { onMount } from 'svelte';
 	import SiteExperience from '$lib/components/SiteExperience.svelte';
 	import SitePreview from '$lib/components/SitePreview.svelte';
-	import { siteArtifactBySlug } from '$lib/generated/site-artifacts';
-	import { siteBySlug, sites } from '$lib/sites';
+	import {
+		siteArtifactByModel,
+		type BenchmarkModel
+	} from '$lib/generated/site-artifacts';
+	import { sitesByModel } from '$lib/sites';
 	import type { ShowcaseSite } from '$lib/site-types';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
 
-	const filters = [
+	type BenchmarkFilter = BenchmarkModel | 'Fable 5';
+	const filters: Array<{ name: BenchmarkFilter; available: boolean }> = [
 		{ name: '5.6 Sol', available: true },
 		{ name: 'Fable 5', available: false },
-		{ name: 'Grok 4.5', available: false }
+		{ name: 'Grok 4.5', available: true }
 	];
 	const PAGE_THEME_COLOR = 'rgb(242, 240, 233)';
 	const SHELL_THEME_COLOR = 'rgb(17, 18, 16)';
@@ -67,7 +71,7 @@
 	};
 
 	let selected = $state<ShowcaseSite | null>(null);
-	let filter = $state('5.6 Sol');
+	let filter = $state<BenchmarkFilter>('5.6 Sol');
 	let expandOrigin = $state<{ x: number; y: number; scaleX: number; scaleY: number } | null>(null);
 	let collectionElement: HTMLElement;
 	let collectionTopSentinelElement: HTMLDivElement;
@@ -99,8 +103,10 @@
 	let viewerAnimations: Animation[] = [];
 	let viewerGestureSequence = 0;
 
-	let visibleSites = $derived(sites);
-	let selectedArtifact = $derived(selected ? siteArtifactBySlug.get(selected.slug) ?? null : null);
+	let activeModel = $derived<BenchmarkModel>(filter === 'Grok 4.5' ? 'Grok 4.5' : '5.6 Sol');
+	let visibleSites = $derived(sitesByModel[activeModel]);
+	let activeArtifactBySlug = $derived(siteArtifactByModel[activeModel]);
+	let selectedArtifact = $derived(selected ? activeArtifactBySlug.get(selected.slug) ?? null : null);
 	let selectedArtifactUrl = $derived(
 		selectedArtifact && artifactChannel
 			? `${selectedArtifact.artifactUrl}?sitegeistSlug=${encodeURIComponent(selectedArtifact.slug)}&sitegeistChannel=${encodeURIComponent(artifactChannel)}`
@@ -219,7 +225,7 @@
 	}
 
 	function createArtifactChannel(site: ShowcaseSite | null) {
-		if (!browser || !site || !siteArtifactBySlug.has(site.slug)) return '';
+		if (!browser || !site || !activeArtifactBySlug.has(site.slug)) return '';
 		try {
 			if (typeof crypto.randomUUID === 'function') return crypto.randomUUID();
 		} catch {
@@ -246,7 +252,7 @@
 	function syncFromHash() {
 		if (!browser) return;
 		const slug = window.location.hash.startsWith('#site/') ? window.location.hash.slice(6) : '';
-		const nextSite = slug ? siteBySlug.get(slug) ?? null : null;
+		const nextSite = slug ? visibleSites.find((site) => site.slug === slug) ?? null : null;
 		if (nextSite?.slug === selected?.slug) return;
 		resetViewerGesture();
 		returnPreviewElement = null;
@@ -738,8 +744,8 @@
 		returnPreviewElement = null;
 		returnPreviewOrigin = null;
 		viewerArtifactReady = false;
-		const current = sites.findIndex((site) => site.id === selected?.id);
-		const next = sites[(current + direction + sites.length) % sites.length];
+		const current = visibleSites.findIndex((site) => site.id === selected?.id);
+		const next = visibleSites[(current + direction + visibleSites.length) % visibleSites.length];
 		artifactChannel = createArtifactChannel(next);
 		selected = next;
 		if (browser) history.replaceState(null, '', `#site/${next.slug}`);
@@ -983,6 +989,10 @@
 		<div class="collection-head">
 			<div>
 				<h2>The benchmark.</h2>
+				<div class="preview-disclaimer" role="note">
+					<span aria-hidden="true">*</span>
+					<span>Previews do not reflect the exact content of each website.</span>
+				</div>
 			</div>
 		</div>
 
@@ -1008,7 +1018,7 @@
 
 		<div class="site-grid">
 			{#each visibleSites as site (site.id)}
-				{@const artifact = siteArtifactBySlug.get(site.slug)}
+				{@const artifact = activeArtifactBySlug.get(site.slug)}
 				<article class="site-card" style={`--delay:${(site.id % 8) * 35}ms`}>
 					<button
 						class="preview-button-wrap"
@@ -1040,10 +1050,6 @@
 
 		<footer class="gallery-footer">
 			<p>A study in style, repetition, and surprise.</p>
-			<div class="preview-disclaimer" role="note">
-				<span aria-hidden="true">*</span>
-				<span>Previews do not reflect the exact content of each website.</span>
-			</div>
 		</footer>
 	</section>
 
@@ -1160,7 +1166,7 @@
 	@keyframes shell-side-open { from { transform: scaleX(1); } to { transform: scaleX(0); } }
 	@keyframes shell-corner-open { from { transform: scale(1); } to { transform: scale(0); } }
 	.collection-top-sentinel { position: absolute; top: 0; left: 0; width: 1px; height: 1px; pointer-events: none; }
-	.collection-head { padding-bottom: 8px; }
+	.collection-head { padding-bottom: 22px; }
 	.collection h2 { margin: 0; font-size: clamp(36px, 3.7vw, 58px); font-weight: 610; line-height: 0.9; letter-spacing: -0.065em; }
 
 	.filter-sticky-sentinel { height: 1px; margin-bottom: -1px; pointer-events: none; }
@@ -1203,7 +1209,7 @@
 
 	.gallery-footer { margin-top: 80px; padding: 40px 0 50px; }
 	.gallery-footer > p { margin: 0; font-size: clamp(42px, 6vw, 90px); font-weight: 600; line-height: 0.88; letter-spacing: -0.07em; }
-	.preview-disclaimer { display: flex; width: min(100%, 420px); justify-content: flex-end; gap: 7px; margin: 34px 0 0 auto; color: #85877f; font: 600 clamp(10px, 0.8vw, 12px)/1.45 'Inter Variable', Inter, sans-serif; letter-spacing: -0.01em; text-align: right; }
+	.preview-disclaimer { display: flex; width: min(100%, 420px); justify-content: flex-start; gap: 7px; margin: 14px 0 0; color: #85877f; font: 600 clamp(10px, 0.8vw, 12px)/1.45 'Inter Variable', Inter, sans-serif; letter-spacing: -0.01em; text-align: left; }
 	.preview-disclaimer span:first-child { flex: none; }
 	.return-to-top { position: fixed; z-index: 80; right: clamp(16px, 2vw, 28px); bottom: clamp(16px, 2vw, 28px); display: inline-flex; width: 48px; height: 48px; align-items: center; justify-content: center; border-radius: 50%; background: #f3f1e9; color: #111210; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); text-decoration: none; opacity: 0; visibility: hidden; transform: translateY(10px) scale(0.92); pointer-events: none; transition: opacity 240ms ease, visibility 0s linear 240ms, transform 320ms cubic-bezier(.2,.8,.2,1), background 180ms ease; }
 	.return-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0) scale(1); pointer-events: auto; transition-delay: 0s; }

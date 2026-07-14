@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Peloton North</title>
+  <desc id="desc">Gallery poster for Peloton North, an Oslo cycling collective. Dark fjord landscape with a winding road and the tagline Take the longer road.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#061018"/>
+      <stop offset="45%" stop-color="#0d2a34"/>
+      <stop offset="100%" stop-color="#154a45"/>
+    </linearGradient>
+    <linearGradient id="ridgeA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a2830"/>
+      <stop offset="100%" stop-color="#071820"/>
+    </linearGradient>
+    <linearGradient id="ridgeB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#123a3c"/>
+      <stop offset="100%" stop-color="#0a2228"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7ec8c0" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#c9854a" stop-opacity="0.08"/>
+    </linearGradient>
+    <linearGradient id="road" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c9e8e4" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#e8f2ef" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#c9e8e4" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="1200" height="900" fill="url(#sky)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- latitude lines -->
+  <g stroke="#9fd4cc" stroke-opacity="0.1" stroke-width="1.5">
+    <line x1="80" y1="220" x2="1120" y2="220"/>
+    <line x1="80" y1="320" x2="1120" y2="320"/>
+    <line x1="80" y1="420" x2="1120" y2="420"/>
+    <line x1="80" y1="520" x2="1120" y2="520"/>
+  </g>
+
+  <!-- distant mountains -->
+  <path d="M0 480 L160 390 L300 450 L460 320 L620 410 L780 280 L940 380 L1100 310 L1200 360 L1200 900 L0 900 Z" fill="url(#ridgeA)"/>
+  <path d="M0 560 L200 470 L360 540 L540 430 L720 510 L900 400 L1080 490 L1200 450 L1200 900 L0 900 Z" fill="url(#ridgeB)"/>
+
+  <!-- fjord water -->
+  <path d="M520 600 C680 560 820 620 980 560 C1060 530 1140 550 1200 530 L1200 760 C1000 740 780 700 520 730 Z" fill="#7ec8c0" opacity="0.12"/>
+
+  <!-- winding road -->
+  <path d="M-20 780 C180 720 260 660 400 640 C560 612 680 680 820 640 C960 600 1060 560 1220 520" fill="none" stroke="url(#road)" stroke-width="10" stroke-linecap="round"/>
+  <path d="M-20 780 C180 720 260 660 400 640 C560 612 680 680 820 640 C960 600 1060 560 1220 520" fill="none" stroke="#e8f2ef" stroke-width="2.5" stroke-opacity="0.35" stroke-dasharray="16 14" stroke-linecap="round"/>
+
+  <!-- mark circle -->
+  <g transform="translate(120 120)">
+    <circle cx="48" cy="48" r="46" fill="none" stroke="#7ec8c0" stroke-width="2.5"/>
+    <path d="M18 58 L38 28 L58 58 M38 28 V68" fill="none" stroke="#c9e8e4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="70" cy="62" r="9" fill="none" stroke="#c9854a" stroke-width="2.5"/>
+  </g>
+
+  <!-- type block -->
+  <g font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" fill="#e8f2ef">
+    <text x="120" y="640" font-size="28" font-weight="700" letter-spacing="8" fill="#c9854a">RIDE CLUB · OSLO</text>
+    <text x="120" y="720" font-size="92" font-weight="750" letter-spacing="-2">Peloton North</text>
+    <text x="120" y="790" font-size="42" font-weight="500" fill="#9bb5b0" font-style="italic">Take the longer road.</text>
+  </g>
+
+  <!-- corner latitude -->
+  <g font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" fill="#6f8a85" font-size="20" letter-spacing="3">
+    <text x="960" y="150" text-anchor="end">59°54′N</text>
+    <text x="960" y="180" text-anchor="end">CYCLING</text>
+  </g>
+</svg>

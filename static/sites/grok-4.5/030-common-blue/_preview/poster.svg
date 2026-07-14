@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Common Blue — The ocean belongs to everyone">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0%" stop-color="#d7eef9"/>
+      <stop offset="45%" stop-color="#b8dff3"/>
+      <stop offset="100%" stop-color="#7ec8c3"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1565a0"/>
+      <stop offset="55%" stop-color="#0a2540"/>
+      <stop offset="100%" stop-color="#061828"/>
+    </linearGradient>
+    <linearGradient id="foam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c5ebe8"/>
+      <stop offset="100%" stop-color="#7ec8c3"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d3558"/>
+      <stop offset="100%" stop-color="#134a72"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#sky)"/>
+
+  <!-- Soft sun -->
+  <circle cx="980" cy="160" r="72" fill="#f4e9d8" opacity="0.95"/>
+  <circle cx="980" cy="160" r="96" fill="#f4e9d8" opacity="0.22"/>
+
+  <!-- Distant dunes -->
+  <path d="M0 430 C180 380 280 460 420 410 S680 360 820 420 S1040 470 1200 400 V520 H0 Z" fill="#e8d5b7" opacity="0.55"/>
+
+  <!-- Ocean body -->
+  <path d="M0 470 C200 430 340 520 520 480 S820 430 980 490 S1120 530 1200 500 V900 H0 Z" fill="url(#sea)"/>
+
+  <!-- Wave layers -->
+  <path d="M0 560 C140 520 240 600 380 560 S620 500 760 560 S1000 620 1200 560 V640 H0 Z" fill="#1a7ab8" opacity="0.55"/>
+  <path d="M0 620 C160 580 280 660 420 620 S700 560 860 620 S1080 680 1200 630 V720 H0 Z" fill="#0d4a6e" opacity="0.7"/>
+  <path d="M0 700 C180 660 300 740 460 700 S740 640 900 710 S1080 760 1200 720 V900 H0 Z" fill="#061828" opacity="0.5"/>
+
+  <!-- Foam crest lines -->
+  <path d="M40 540 C120 510 180 555 260 535 S400 500 480 530 S620 560 720 525 S900 490 1040 530 S1140 560 1180 545" fill="none" stroke="url(#foam)" stroke-width="6" stroke-linecap="round" opacity="0.85"/>
+  <path d="M20 600 C100 575 190 620 280 595 S450 555 560 595 S740 640 860 600 S1040 555 1180 600" fill="none" stroke="#c5ebe8" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
+
+  <!-- Brand card -->
+  <rect x="90" y="150" width="620" height="360" rx="32" fill="url(#card)" opacity="0.96"/>
+  <rect x="90" y="150" width="620" height="360" rx="32" fill="none" stroke="rgba(197,235,232,0.25)" stroke-width="2"/>
+
+  <!-- Logo mark -->
+  <rect x="130" y="190" width="64" height="64" rx="18" fill="#061828"/>
+  <path d="M142 230c8-12 16-12 24 0s16 12 24 0" fill="none" stroke="#7ec8c3" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M142 218c8-12 16-12 24 0s16 12 24 0" fill="none" stroke="#2e9be6" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="180" cy="206" r="6" fill="#e07a5f"/>
+
+  <!-- Eyebrow -->
+  <text x="214" y="218" fill="#7ec8c3" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-weight="700" letter-spacing="3">COASTAL ACTION NETWORK</text>
+  <text x="214" y="248" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="36" font-weight="700">Common Blue</text>
+
+  <!-- Tagline -->
+  <text x="130" y="320" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="52" font-weight="500">The ocean belongs</text>
+  <text x="130" y="385" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="52" font-weight="500">to everyone.</text>
+
+  <!-- Accent bar -->
+  <rect x="130" y="420" width="120" height="8" rx="4" fill="#e07a5f"/>
+  <text x="270" y="428" fill="rgba(255,255,255,0.8)" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="20" font-weight="600">Restore · Measure · Volunteer</text>
+
+  <!-- Floating metric pills -->
+  <rect x="820" y="420" width="240" height="86" rx="20" fill="rgba(255,255,255,0.94)"/>
+  <text x="845" y="455" fill="#0a2540" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="28" font-weight="700">214 acres</text>
+  <text x="845" y="485" fill="#4a6578" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="18" font-weight="600">shoreline restored</text>
+
+  <rect x="860" y="530" width="240" height="86" rx="20" fill="rgba(10,37,64,0.88)"/>
+  <text x="885" y="565" fill="#c5ebe8" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="28" font-weight="700">4.2k people</text>
+  <text x="885" y="595" fill="rgba(255,255,255,0.75)" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="18" font-weight="600">local volunteers</text>
+
+  <!-- Small bird silhouettes -->
+  <path d="M760 220 q12 -10 24 0 q-10 -4 -12 -12 q-2 8 -12 12z" fill="#0a2540" opacity="0.35"/>
+  <path d="M800 250 q10 -8 20 0 q-8 -3 -10 -10 q-2 7 -10 10z" fill="#0a2540" opacity="0.28"/>
+</svg>

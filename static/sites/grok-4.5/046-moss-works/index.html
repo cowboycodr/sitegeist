@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Moss Works — Ecological Gardens &amp; Living Landscapes</title>
+  <meta name="description" content="Ecological gardens and living landscapes that support biodiversity while making room for people. Let the wild back in.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#top" aria-label="Moss Works home">
+        <svg class="logo-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="8" fill="#1e3526"/>
+          <path d="M18 7c-1.5 3.5-6 5.5-6 11a6 6 0 0 0 12 0c0-5.5-4.5-7.5-6-11z" fill="#8fbc8f"/>
+          <path d="M12 22c-1 2-3.5 3-3.5 6a3.5 3.5 0 0 0 7 0c0-3-2.5-4-3.5-6z" fill="#5a8f6a"/>
+          <path d="M24 20c-1 2.2-3.2 3.2-3.2 6.2a3.2 3.2 0 0 0 6.4 0c0-3-2.2-4-3.2-6.2z" fill="#3d6b4f"/>
+          <circle cx="18" cy="28" r="1.5" fill="#c4a35a"/>
+        </svg>
+        <span>Moss Works</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18"/>
+        </svg>
+      </button>
+
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#landscapes">Landscapes</a></li>
+          <li><a href="#philosophy">Philosophy</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a class="nav-cta" href="#contact">Begin a project</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <svg class="hero-bg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <pattern id="leaf-scatter" width="80" height="80" patternUnits="userSpaceOnUse">
+            <ellipse cx="20" cy="30" rx="8" ry="14" fill="#8fbc8f" opacity="0.08" transform="rotate(-30 20 30)"/>
+            <ellipse cx="55" cy="55" rx="6" ry="11" fill="#5a8f6a" opacity="0.06" transform="rotate(20 55 55)"/>
+          </pattern>
+        </defs>
+        <rect width="1200" height="800" fill="url(#leaf-scatter)"/>
+        <path d="M0 600 Q300 520 600 580 T1200 540 V800 H0Z" fill="#14241a" opacity="0.35"/>
+        <path d="M0 680 Q400 600 800 650 T1200 620 V800 H0Z" fill="#0f1a14" opacity="0.4"/>
+      </svg>
+
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Gardens for the future</p>
+          <h1 id="hero-title">Let the wild back in.</h1>
+          <p class="hero-lead">
+            Ecological gardens and living landscapes that support biodiversity
+            while making room for people — designed to thrive, not just look tidy.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#landscapes">Explore our landscapes</a>
+            <a class="btn btn-secondary" href="#philosophy">Planting philosophy</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-card">
+            <svg viewBox="0 0 320 200" fill="none" role="img" aria-label="">
+              <rect width="320" height="200" rx="12" fill="#14241a"/>
+              <!-- Terrain layers -->
+              <path d="M0 140 C60 120 100 150 160 130 C220 110 260 145 320 125 V200 H0Z" fill="#1e3526"/>
+              <path d="M0 160 C80 145 120 170 180 155 C240 140 280 165 320 150 V200 H0Z" fill="#2a4a35"/>
+              <!-- Trees / moss forms -->
+              <ellipse cx="70" cy="115" rx="28" ry="48" fill="#3d6b4f"/>
+              <ellipse cx="70" cy="100" rx="20" ry="32" fill="#5a8f6a"/>
+              <ellipse cx="160" cy="95" rx="36" ry="58" fill="#3d6b4f"/>
+              <ellipse cx="160" cy="80" rx="26" ry="40" fill="#8fbc8f"/>
+              <ellipse cx="240" cy="120" rx="24" ry="40" fill="#2f5640"/>
+              <ellipse cx="240" cy="108" rx="16" ry="28" fill="#5a8f6a"/>
+              <!-- Ground moss clumps -->
+              <ellipse cx="40" cy="165" rx="22" ry="10" fill="#5a8f6a" opacity="0.7"/>
+              <ellipse cx="110" cy="170" rx="18" ry="8" fill="#8fbc8f" opacity="0.5"/>
+              <ellipse cx="200" cy="168" rx="28" ry="11" fill="#3d6b4f" opacity="0.8"/>
+              <ellipse cx="280" cy="172" rx="20" ry="9" fill="#5a8f6a" opacity="0.6"/>
+              <!-- Soft light -->
+              <circle cx="250" cy="40" r="30" fill="#c4a35a" opacity="0.15"/>
+              <path d="M145 55 Q160 40 175 55" stroke="#c4a35a" stroke-width="1.5" opacity="0.4" fill="none"/>
+            </svg>
+            <div class="hero-stat-grid">
+              <div class="stat">
+                <div class="stat-value">120+</div>
+                <div class="stat-label">Native species planted yearly</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">40%</div>
+                <div class="stat-label">Less irrigation after year two</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="section-inner">
+        <div class="about-grid">
+          <div class="about-text">
+            <p class="section-label">Who we are</p>
+            <h2 id="about-title">Landscapes that work with nature, not against it</h2>
+            <p>
+              Moss Works designs <strong>ecological gardens</strong> for homes, campuses,
+              and civic spaces. We treat every site as a living system — soil, water,
+              pollinators, people — and shape plantings that grow richer over time.
+            </p>
+            <p>
+              Our work favors regionally adapted plants, layered structure, and rooms
+              for both wildlife and everyday life. The result is a landscape that
+              feels wild at the edges and welcoming at the center.
+            </p>
+          </div>
+          <ul class="principle-list">
+            <li class="principle">
+              <div class="principle-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                  <path d="M12 3c-2 4-7 6-7 12a7 7 0 0 0 14 0c0-6-5-8-7-12z"/>
+                  <path d="M12 14v7"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Biodiversity first</h3>
+                <p>Every plan multiplies habitat — nectar, shelter, seed, and seasonal structure for birds, bees, and soil life.</p>
+              </div>
+            </li>
+            <li class="principle">
+              <div class="principle-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                  <circle cx="12" cy="12" r="8"/>
+                  <path d="M12 8v8M8 12h8"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Water-wise design</h3>
+                <p>Rain gardens, permeable paths, and deep-rooted plantings keep moisture on site and reduce runoff.</p>
+              </div>
+            </li>
+            <li class="principle">
+              <div class="principle-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                  <path d="M4 18c3-6 5-9 8-9s5 3 8 9"/>
+                  <path d="M8 10c1-3 2-5 4-5s3 2 4 5"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Room for people</h3>
+                <p>Meadow edges frame seating, paths invite wandering, and productive corners feed the kitchen as well as the canopy.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section landscapes" id="landscapes" aria-labelledby="landscapes-title">
+      <div class="section-inner">
+        <header class="section-head">
+          <p class="section-label">What we build</p>
+          <h2 id="landscapes-title">Living landscapes, tailored to place</h2>
+          <p class="section-intro">
+            From pocket courtyards to multi-acre restorations, each project is drawn
+            from the site’s climate, soil, and story.
+          </p>
+        </header>
+
+        <div class="card-grid">
+          <article class="card">
+            <p class="card-num">01</p>
+            <h3>Residential wild gardens</h3>
+            <p>
+              Front yards that welcome pollinators, back gardens with soft rooms for
+              gathering, and edges that blur gracefully into neighboring land.
+            </p>
+            <ul class="card-tags">
+              <li>Native layers</li>
+              <li>Seating nooks</li>
+              <li>Low maintenance</li>
+            </ul>
+          </article>
+          <article class="card">
+            <p class="card-num">02</p>
+            <h3>Meadow &amp; woodland edges</h3>
+            <p>
+              Successional plantings that replace mown monoculture with seasonal
+              color, habitat structure, and a calmer relationship to the land.
+            </p>
+            <ul class="card-tags">
+              <li>Grasses</li>
+              <li>Understory</li>
+              <li>Seasonal bloom</li>
+            </ul>
+          </article>
+          <article class="card">
+            <p class="card-num">03</p>
+            <h3>Civic &amp; campus ecology</h3>
+            <p>
+              Public landscapes that teach by example — rain-ready plantings,
+              accessible paths, and durable beauty under heavy use.
+            </p>
+            <ul class="card-tags">
+              <li>Stormwater</li>
+              <li>Education</li>
+              <li>Resilience</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section philosophy" id="philosophy" aria-labelledby="philosophy-title">
+      <div class="section-inner">
+        <div class="phil-grid">
+          <div class="phil-visual" aria-hidden="true">
+            <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="phil-sky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#2a4a35"/>
+                  <stop offset="100%" stop-color="#14241a"/>
+                </linearGradient>
+              </defs>
+              <rect width="400" height="500" fill="url(#phil-sky)"/>
+              <!-- Soft sun -->
+              <circle cx="300" cy="90" r="48" fill="#c4a35a" opacity="0.2"/>
+              <circle cx="300" cy="90" r="28" fill="#c4a35a" opacity="0.12"/>
+              <!-- Layered canopy -->
+              <ellipse cx="80" cy="220" rx="70" ry="110" fill="#3d6b4f"/>
+              <ellipse cx="80" cy="200" rx="50" ry="80" fill="#5a8f6a"/>
+              <ellipse cx="200" cy="180" rx="90" ry="140" fill="#1e3526"/>
+              <ellipse cx="200" cy="160" rx="65" ry="100" fill="#3d6b4f"/>
+              <ellipse cx="200" cy="145" rx="45" ry="70" fill="#8fbc8f" opacity="0.85"/>
+              <ellipse cx="320" cy="240" rx="60" ry="95" fill="#2f5640"/>
+              <ellipse cx="320" cy="220" rx="42" ry="70" fill="#5a8f6a"/>
+              <!-- Ground strata -->
+              <path d="M0 340 C100 310 180 360 280 330 C340 310 380 340 400 325 V500 H0Z" fill="#1e3526"/>
+              <path d="M0 400 C120 370 200 420 300 390 C360 375 390 400 400 390 V500 H0Z" fill="#14241a"/>
+              <!-- Moss clumps & stones -->
+              <ellipse cx="60" cy="420" rx="40" ry="18" fill="#5a8f6a" opacity="0.7"/>
+              <ellipse cx="150" cy="445" rx="50" ry="20" fill="#3d6b4f" opacity="0.8"/>
+              <ellipse cx="280" cy="430" rx="55" ry="22" fill="#8fbc8f" opacity="0.45"/>
+              <ellipse cx="340" cy="460" rx="35" ry="14" fill="#5a8f6a" opacity="0.6"/>
+              <ellipse cx="100" cy="470" rx="22" ry="10" fill="#6b5344" opacity="0.5"/>
+              <ellipse cx="220" cy="475" rx="28" ry="12" fill="#6b5344" opacity="0.4"/>
+              <!-- Fern fronds suggestion -->
+              <path d="M40 300 Q55 270 50 240 Q70 265 65 300" fill="#8fbc8f" opacity="0.35"/>
+              <path d="M350 310 Q365 275 360 250 Q380 280 375 315" fill="#8fbc8f" opacity="0.3"/>
+            </svg>
+          </div>
+
+          <div class="phil-content">
+            <p class="section-label">Planting philosophy</p>
+            <h2 id="philosophy-title">Design for succession, not just opening day</h2>
+            <blockquote>
+              “A good garden gets more interesting every year — denser habitat,
+              wiser structure, less work.”
+            </blockquote>
+            <ol class="phil-steps">
+              <li>
+                <div>
+                  <h3>Listen to the site</h3>
+                  <p>We map sun, soil, water paths, wind, and existing life before a single plant is chosen.</p>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h3>Build layered plant communities</h3>
+                  <p>Canopy, understory, shrub, groundcover, and root — each layer supports the next.</p>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h3>Invite people in</h3>
+                  <p>Paths, thresholds, and resting spots turn ecology into a daily experience, not a fenced exhibit.</p>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h3>Steward, then step back</h3>
+                  <p>Early care establishes the system; later years need less intervention as the garden finds its balance.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects" id="projects" aria-labelledby="projects-title">
+      <div class="section-inner">
+        <header class="section-head">
+          <p class="section-label">Selected work</p>
+          <h2 id="projects-title">Places where the wild returned</h2>
+          <p class="section-intro">
+            A sample of gardens and restorations shaped for biodiversity, beauty, and everyday use.
+          </p>
+        </header>
+
+        <div class="project-grid">
+          <article class="project">
+            <div class="project-art" aria-hidden="true">
+              <svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice">
+                <rect width="640" height="400" fill="#1e3526"/>
+                <path d="M0 220 C120 180 200 250 320 200 C440 150 520 230 640 190 V400 H0Z" fill="#2a4a35"/>
+                <path d="M0 280 C160 240 280 300 400 260 C520 220 580 280 640 250 V400 H0Z" fill="#14241a"/>
+                <ellipse cx="140" cy="160" rx="50" ry="85" fill="#3d6b4f"/>
+                <ellipse cx="140" cy="140" rx="35" ry="60" fill="#8fbc8f"/>
+                <ellipse cx="280" cy="130" rx="70" ry="100" fill="#3d6b4f"/>
+                <ellipse cx="280" cy="110" rx="48" ry="72" fill="#5a8f6a"/>
+                <ellipse cx="480" cy="150" rx="55" ry="90" fill="#2f5640"/>
+                <ellipse cx="480" cy="135" rx="38" ry="65" fill="#5a8f6a"/>
+                <ellipse cx="80" cy="310" rx="60" ry="25" fill="#5a8f6a" opacity="0.6"/>
+                <ellipse cx="220" cy="330" rx="80" ry="30" fill="#8fbc8f" opacity="0.35"/>
+                <ellipse cx="420" cy="320" rx="70" ry="28" fill="#3d6b4f" opacity="0.7"/>
+                <circle cx="520" cy="70" r="36" fill="#c4a35a" opacity="0.18"/>
+                <rect x="200" y="300" width="80" height="6" rx="2" fill="#a67c52" opacity="0.5"/>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="project-meta">Ridge home · Pacific Northwest</p>
+              <h3>Fern Line Garden</h3>
+              <p>A steep residential site transformed with fern understories, rain terraces, and a soft meadow rim that replaces a lawn strip.</p>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-art" aria-hidden="true">
+              <svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice">
+                <rect width="640" height="400" fill="#243d2c"/>
+                <path d="M0 180 Q160 140 320 170 T640 150 V400 H0Z" fill="#1e3526"/>
+                <path d="M0 260 Q200 220 360 270 T640 240 V400 H0Z" fill="#14241a"/>
+                <!-- Meadow stalks -->
+                <g fill="#8fbc8f" opacity="0.7">
+                  <rect x="40" y="200" width="3" height="80" rx="1"/>
+                  <rect x="70" y="180" width="3" height="100" rx="1"/>
+                  <rect x="100" y="190" width="3" height="90" rx="1"/>
+                  <rect x="150" y="170" width="3" height="110" rx="1"/>
+                  <rect x="200" y="185" width="3" height="95" rx="1"/>
+                  <rect x="250" y="175" width="3" height="105" rx="1"/>
+                  <rect x="310" y="165" width="3" height="115" rx="1"/>
+                  <rect x="360" y="180" width="3" height="100" rx="1"/>
+                  <rect x="420" y="170" width="3" height="110" rx="1"/>
+                  <rect x="480" y="185" width="3" height="95" rx="1"/>
+                  <rect x="540" y="175" width="3" height="105" rx="1"/>
+                  <rect x="590" y="190" width="3" height="90" rx="1"/>
+                </g>
+                <g fill="#c4a35a" opacity="0.55">
+                  <circle cx="42" cy="195" r="5"/>
+                  <circle cx="102" cy="185" r="4"/>
+                  <circle cx="202" cy="180" r="6"/>
+                  <circle cx="312" cy="160" r="5"/>
+                  <circle cx="422" cy="165" r="4"/>
+                  <circle cx="542" cy="170" r="5"/>
+                </g>
+                <ellipse cx="160" cy="320" rx="90" ry="28" fill="#3d6b4f" opacity="0.5"/>
+                <ellipse cx="400" cy="340" rx="120" ry="32" fill="#5a8f6a" opacity="0.35"/>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="project-meta">Campus green · Midwest</p>
+              <h3>Pollinator Parade</h3>
+              <p>Three acres of former turf reimagined as a walking meadow with educational plant tags and stormwater swales.</p>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-art" aria-hidden="true">
+              <svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice">
+                <rect width="640" height="400" fill="#152018"/>
+                <ellipse cx="320" cy="200" rx="200" ry="140" fill="#1e3526"/>
+                <ellipse cx="320" cy="200" rx="140" ry="100" fill="#2a4a35"/>
+                <ellipse cx="320" cy="210" rx="80" ry="55" fill="#3d6b4f"/>
+                <!-- Water suggestion -->
+                <ellipse cx="320" cy="230" rx="50" ry="18" fill="#5a8f6a" opacity="0.4"/>
+                <ellipse cx="320" cy="228" rx="35" ry="10" fill="#8fbc8f" opacity="0.25"/>
+                <ellipse cx="180" cy="160" rx="40" ry="65" fill="#3d6b4f"/>
+                <ellipse cx="460" cy="155" rx="45" ry="70" fill="#5a8f6a"/>
+                <ellipse cx="120" cy="280" rx="55" ry="22" fill="#2f5640"/>
+                <ellipse cx="520" cy="290" rx="60" ry="24" fill="#3d6b4f"/>
+                <path d="M200 320 Q320 300 440 320" stroke="#c4a35a" stroke-width="2" opacity="0.3" fill="none"/>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="project-meta">Courtyard · Urban core</p>
+              <h3>Moss Court</h3>
+              <p>A shaded city courtyard rebuilt with moss carpets, stone seats, and a rain basin that doubles as a quiet reflecting pool.</p>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-art" aria-hidden="true">
+              <svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice">
+                <rect width="640" height="400" fill="#1a2e22"/>
+                <path d="M0 300 L120 180 L200 240 L320 120 L420 200 L520 100 L640 220 V400 H0Z" fill="#243d2c"/>
+                <path d="M0 340 L140 240 L240 290 L360 180 L480 260 L580 160 L640 250 V400 H0Z" fill="#14241a"/>
+                <ellipse cx="200" cy="200" rx="30" ry="50" fill="#5a8f6a"/>
+                <ellipse cx="360" cy="160" rx="40" ry="65" fill="#3d6b4f"/>
+                <ellipse cx="500" cy="175" rx="28" ry="48" fill="#8fbc8f" opacity="0.7"/>
+                <ellipse cx="100" cy="330" rx="70" ry="25" fill="#3d6b4f" opacity="0.6"/>
+                <ellipse cx="300" cy="350" rx="90" ry="28" fill="#5a8f6a" opacity="0.4"/>
+                <ellipse cx="500" cy="340" rx="75" ry="26" fill="#2f5640" opacity="0.7"/>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="project-meta">Watershed edge · Hill country</p>
+              <h3>Cedar Slope Restore</h3>
+              <p>Invasive scrub cleared for layered native woodland, erosion control plantings, and a trail that follows the contour of the land.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="species" aria-labelledby="species-title">
+      <div class="species-inner">
+        <div class="species-head">
+          <h2 id="species-title">Palette favorites</h2>
+          <p>Regionally adapted plants we return to again and again</p>
+        </div>
+        <ul class="species-list">
+          <li>Serviceberry</li>
+          <li>Switchgrass</li>
+          <li>Wild bergamot</li>
+          <li>Sword fern</li>
+          <li>Red-osier dogwood</li>
+          <li>Asters</li>
+          <li>Sedum mats</li>
+          <li>River birch</li>
+          <li>Milkweed</li>
+          <li>Creeping thyme</li>
+          <li>Oakleaf hydrangea</li>
+          <li>Little bluestem</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cta" id="contact" aria-labelledby="contact-title">
+      <div class="cta-inner">
+        <h2 id="contact-title">Ready to let the wild back in?</h2>
+        <p>
+          Tell us about your site, your climate, and how you want to live outdoors.
+          We will reply with next steps for a discovery visit.
+        </p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="#about">Explore our landscapes</a>
+          <a class="btn btn-secondary" href="#philosophy">Planting philosophy</a>
+        </div>
+        <p style="margin-top: 1.75rem; font-size: 0.95rem; color: var(--lichen);">
+          Studio inquiries · <span style="color: var(--cream);">hello@mossworks.garden</span>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand-wrap">
+        <p class="footer-brand">Moss Works</p>
+        <p>Ecological gardens and living landscapes that support biodiversity while making room for people.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#landscapes">Landscapes</a></li>
+          <li><a href="#philosophy">Philosophy</a></li>
+          <li><a href="#projects">Projects</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Studio</h3>
+        <p>
+          Open by appointment<br>
+          Temperate zones, by project<br>
+          hello@mossworks.garden
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© Moss Works. Gardens for the future.</p>
+      <p>Let the wild back in.</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

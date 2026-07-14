@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <title>Lucid — Learn by seeing</title>
+  <meta name="description" content="Interactive courses turn difficult ideas into playful simulations, diagrams, and experiments." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Lucid home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28" focusable="false">
+            <defs>
+              <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#5EEAD4"/>
+                <stop offset="100%" stop-color="#818CF8"/>
+              </linearGradient>
+            </defs>
+            <circle cx="16" cy="16" r="14" fill="none" stroke="url(#brandGrad)" stroke-width="2"/>
+            <circle cx="16" cy="16" r="5" fill="url(#brandGrad)"/>
+            <path d="M16 2v4M16 26v4M2 16h4M26 16h4" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-text">Lucid</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+          <span class="sr-only">Menu</span>
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#subjects">Subjects</a></li>
+          <li><a href="#lab">Lab</a></li>
+          <li><a href="#paths">Paths</a></li>
+          <li><a href="#method">Method</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn-primary header-cta" href="#lab">Start exploring</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Ideas you can touch</p>
+          <h1 id="hero-title">Learn by <em>seeing</em>.</h1>
+          <p class="lede">
+            Lucid turns abstract concepts into living diagrams, playful simulations,
+            and experiments you can nudge, twist, and test until they click.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#lab">Start exploring</a>
+            <a class="btn btn-ghost" href="#subjects">Browse subjects</a>
+          </div>
+          <dl class="hero-stats" aria-label="Highlights">
+            <div>
+              <dt>Interactive labs</dt>
+              <dd>48</dd>
+            </div>
+            <div>
+              <dt>Subject tracks</dt>
+              <dd>6</dd>
+            </div>
+            <div>
+              <dt>Avg. “aha” time</dt>
+              <dd>12m</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero-stage" aria-hidden="true">
+          <div class="orbit-card">
+            <canvas id="heroCanvas" width="480" height="480" role="img" aria-label="Animated constellation of learning nodes"></canvas>
+            <div class="orbit-caption">
+              <span class="pulse-dot"></span>
+              Live concept graph
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="subjects" id="subjects" aria-labelledby="subjects-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Browse subjects</p>
+          <h2 id="subjects-title">Six doors into difficult ideas</h2>
+          <p class="section-lead">
+            Every track starts with something you can see. Math becomes motion.
+            Physics becomes play. Code becomes cause and effect.
+          </p>
+        </div>
+
+        <div class="subject-grid" role="list">
+          <article class="subject-card" role="listitem" data-accent="teal">
+            <div class="subject-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="40" height="40"><path d="M8 36c8-16 24-16 32 0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M12 28c6-10 18-10 24 0" fill="none" stroke="currentColor" stroke-width="2" opacity=".6"/><circle cx="24" cy="18" r="4" fill="currentColor"/></svg>
+            </div>
+            <h3>Waves &amp; Sound</h3>
+            <p>Interference, resonance, and the shapes hidden inside music.</p>
+            <span class="subject-meta">8 labs · beginner friendly</span>
+          </article>
+
+          <article class="subject-card" role="listitem" data-accent="indigo">
+            <div class="subject-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="40" height="40"><circle cx="24" cy="24" r="14" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="24" cy="24" rx="14" ry="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M24 10v28" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>Orbits &amp; Gravity</h3>
+            <p>Throw planets, stretch orbits, and feel Newton’s laws in your hands.</p>
+            <span class="subject-meta">7 labs · interactive</span>
+          </article>
+
+          <article class="subject-card" role="listitem" data-accent="amber">
+            <div class="subject-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="40" height="40"><rect x="10" y="10" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><rect x="26" y="26" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M22 16h6v6M26 26v-6h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Light &amp; Color</h3>
+            <p>Mix spectra, bend rays, and see why the sky is blue—not green.</p>
+            <span class="subject-meta">6 labs · visual</span>
+          </article>
+
+          <article class="subject-card" role="listitem" data-accent="rose">
+            <div class="subject-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="40" height="40"><path d="M8 32l8-16 8 10 8-18 8 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16" cy="16" r="2.5" fill="currentColor"/><circle cx="32" cy="8" r="2.5" fill="currentColor"/></svg>
+            </div>
+            <h3>Data Sense</h3>
+            <p>Distributions, noise, and the stories hiding between the points.</p>
+            <span class="subject-meta">9 labs · practical</span>
+          </article>
+
+          <article class="subject-card" role="listitem" data-accent="violet">
+            <div class="subject-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="40" height="40"><path d="M14 34V14h8c6 0 10 3 10 8s-4 8-10 8h-8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 30l10 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Algorithms</h3>
+            <p>Sort, search, and recurse—watch complexity unfold step by step.</p>
+            <span class="subject-meta">10 labs · logic</span>
+          </article>
+
+          <article class="subject-card" role="listitem" data-accent="mint">
+            <div class="subject-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="40" height="40"><path d="M24 8c-8 8-12 14-12 20a12 12 0 0024 0c0-6-4-12-12-20z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M20 30c0 4 8 4 8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Systems</h3>
+            <p>Feedback loops, tipping points, and ecosystems that surprise you.</p>
+            <span class="subject-meta">8 labs · systems</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab" id="lab" aria-labelledby="lab-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Interactive lab</p>
+          <h2 id="lab-title">Three experiments. Zero lectures.</h2>
+          <p class="section-lead">
+            Drag a slider. Flick a planet. Layer a wave. Each lab is a miniature course—
+            complete with a guiding question and the answer you build yourself.
+          </p>
+        </div>
+
+        <div class="lab-tabs" role="tablist" aria-label="Choose an experiment">
+          <button type="button" class="lab-tab is-active" role="tab" id="tab-waves" aria-selected="true" aria-controls="panel-waves" data-lab="waves">Waves</button>
+          <button type="button" class="lab-tab" role="tab" id="tab-orbit" aria-selected="false" aria-controls="panel-orbit" data-lab="orbit" tabindex="-1">Orbit</button>
+          <button type="button" class="lab-tab" role="tab" id="tab-sort" aria-selected="false" aria-controls="panel-sort" data-lab="sort" tabindex="-1">Sort</button>
+        </div>
+
+        <div class="lab-panels">
+          <!-- Waves -->
+          <div class="lab-panel is-active" role="tabpanel" id="panel-waves" aria-labelledby="tab-waves" data-lab="waves">
+            <div class="lab-layout">
+              <div class="lab-canvas-wrap">
+                <canvas id="waveCanvas" width="720" height="360" aria-label="Wave interference simulation"></canvas>
+              </div>
+              <div class="lab-controls">
+                <h3>Wave interference</h3>
+                <p class="lab-question">What happens when two waves share the same space?</p>
+                <label class="control">
+                  <span class="control-label">Frequency A <output id="freqAOut" for="freqA">2.0</output> Hz</span>
+                  <input type="range" id="freqA" min="0.5" max="5" step="0.1" value="2" />
+                </label>
+                <label class="control">
+                  <span class="control-label">Frequency B <output id="freqBOut" for="freqB">3.0</output> Hz</span>
+                  <input type="range" id="freqB" min="0.5" max="5" step="0.1" value="3" />
+                </label>
+                <label class="control">
+                  <span class="control-label">Amplitude A <output id="ampAOut" for="ampA">1.0</output></span>
+                  <input type="range" id="ampA" min="0" max="1.5" step="0.05" value="1" />
+                </label>
+                <label class="control">
+                  <span class="control-label">Amplitude B <output id="ampBOut" for="ampB">0.8</output></span>
+                  <input type="range" id="ampB" min="0" max="1.5" step="0.05" value="0.8" />
+                </label>
+                <fieldset class="toggle-row">
+                  <legend class="sr-only">Display options</legend>
+                  <label class="check">
+                    <input type="checkbox" id="showA" checked />
+                    <span>Wave A</span>
+                  </label>
+                  <label class="check">
+                    <input type="checkbox" id="showB" checked />
+                    <span>Wave B</span>
+                  </label>
+                  <label class="check">
+                    <input type="checkbox" id="showSum" checked />
+                    <span>Sum</span>
+                  </label>
+                </fieldset>
+                <p class="lab-insight" id="waveInsight">
+                  Constructive peaks appear where crests align. Try matching frequencies.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Orbit -->
+          <div class="lab-panel" role="tabpanel" id="panel-orbit" aria-labelledby="tab-orbit" data-lab="orbit" hidden>
+            <div class="lab-layout">
+              <div class="lab-canvas-wrap">
+                <canvas id="orbitCanvas" width="720" height="360" aria-label="Gravity orbit sandbox"></canvas>
+              </div>
+              <div class="lab-controls">
+                <h3>Gravity sandbox</h3>
+                <p class="lab-question">Can you place a moon in a stable loop?</p>
+                <label class="control">
+                  <span class="control-label">Gravity <output id="gravOut" for="grav">1.0</output>×</span>
+                  <input type="range" id="grav" min="0.2" max="2.5" step="0.05" value="1" />
+                </label>
+                <label class="control">
+                  <span class="control-label">Launch speed <output id="speedOut" for="speed">1.0</output>×</span>
+                  <input type="range" id="speed" min="0.3" max="2" step="0.05" value="1" />
+                </label>
+                <div class="btn-row">
+                  <button type="button" class="btn btn-primary btn-sm" id="orbitLaunch">Launch</button>
+                  <button type="button" class="btn btn-ghost btn-sm" id="orbitReset">Reset</button>
+                  <button type="button" class="btn btn-ghost btn-sm" id="orbitTrail" aria-pressed="true">Trail on</button>
+                </div>
+                <p class="lab-hint">Tip: drag on the canvas to aim the launch direction.</p>
+                <p class="lab-insight" id="orbitInsight">
+                  Too slow and you fall in. Too fast and you fly free. The sweet spot is elliptical.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sort -->
+          <div class="lab-panel" role="tabpanel" id="panel-sort" aria-labelledby="tab-sort" data-lab="sort" hidden>
+            <div class="lab-layout">
+              <div class="lab-canvas-wrap">
+                <canvas id="sortCanvas" width="720" height="360" aria-label="Sorting algorithm visualization"></canvas>
+              </div>
+              <div class="lab-controls">
+                <h3>Sorting race</h3>
+                <p class="lab-question">Which algorithm finds order with the fewest comparisons?</p>
+                <label class="control">
+                  <span class="control-label">Algorithm</span>
+                  <select id="sortAlgo" class="select">
+                    <option value="bubble">Bubble sort</option>
+                    <option value="insertion" selected>Insertion sort</option>
+                    <option value="selection">Selection sort</option>
+                  </select>
+                </label>
+                <label class="control">
+                  <span class="control-label">Items <output id="sortNOut" for="sortN">24</output></span>
+                  <input type="range" id="sortN" min="8" max="48" step="1" value="24" />
+                </label>
+                <label class="control">
+                  <span class="control-label">Speed <output id="sortSpeedOut" for="sortSpeed">1.0</output>×</span>
+                  <input type="range" id="sortSpeed" min="0.25" max="3" step="0.25" value="1" />
+                </label>
+                <div class="btn-row">
+                  <button type="button" class="btn btn-primary btn-sm" id="sortPlay">Play</button>
+                  <button type="button" class="btn btn-ghost btn-sm" id="sortStep">Step</button>
+                  <button type="button" class="btn btn-ghost btn-sm" id="sortShuffle">Shuffle</button>
+                </div>
+                <p class="lab-insight" id="sortInsight">
+                  Comparisons: <strong id="sortCompares">0</strong> · Swaps: <strong id="sortSwaps">0</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="paths" id="paths" aria-labelledby="paths-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Learning paths</p>
+          <h2 id="paths-title">Courses that start with a picture</h2>
+          <p class="section-lead">
+            Each path is a sequence of labs, diagrams, and challenges—
+            paced so the next idea only appears when the last one is solid.
+          </p>
+        </div>
+
+        <div class="path-grid">
+          <article class="path-card featured">
+            <div class="path-badge">Featured</div>
+            <h3>From silence to sound</h3>
+            <p>Build intuition for frequency, amplitude, and interference using only your eyes—and optional headphones later.</p>
+            <ul class="path-meta">
+              <li>6 labs</li>
+              <li>~90 minutes</li>
+              <li>No prior physics</li>
+            </ul>
+            <a class="path-link" href="#lab">Open first lab →</a>
+          </article>
+
+          <article class="path-card">
+            <h3>Why things fall (and sometimes don’t)</h3>
+            <p>Orbits, free fall, and escape velocity through a gravity sandbox that never runs out of moons.</p>
+            <ul class="path-meta">
+              <li>5 labs</li>
+              <li>~75 minutes</li>
+              <li>Middle school+</li>
+            </ul>
+            <a class="path-link" href="#lab">Open first lab →</a>
+          </article>
+
+          <article class="path-card">
+            <h3>Order from chaos</h3>
+            <p>See sorting algorithms race. Feel the difference between O(n²) and “that was fast.”</p>
+            <ul class="path-meta">
+              <li>7 labs</li>
+              <li>~2 hours</li>
+              <li>Intro CS</li>
+            </ul>
+            <a class="path-link" href="#lab">Open first lab →</a>
+          </article>
+
+          <article class="path-card">
+            <h3>The color of light</h3>
+            <p>Spectra, filters, and additive mixing—why cyan is not a pigment and sunsets lean orange.</p>
+            <ul class="path-meta">
+              <li>4 labs</li>
+              <li>~60 minutes</li>
+              <li>Visual learners</li>
+            </ul>
+            <a class="path-link" href="#subjects">Browse subjects →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="method" id="method" aria-labelledby="method-title">
+      <div class="shell method-grid">
+        <div class="method-copy">
+          <p class="eyebrow">The Lucid method</p>
+          <h2 id="method-title">See first. Name second. Prove third.</h2>
+          <ol class="method-steps">
+            <li>
+              <strong>See</strong>
+              <span>Every concept arrives as a diagram or simulation you can manipulate.</span>
+            </li>
+            <li>
+              <strong>Name</strong>
+              <span>Once the pattern is familiar, we attach the formal language.</span>
+            </li>
+            <li>
+              <strong>Prove</strong>
+              <span>Challenges ask you to predict outcomes before the model runs.</span>
+            </li>
+          </ol>
+        </div>
+        <aside class="method-card" aria-label="Design principles">
+          <h3>Built for clarity</h3>
+          <ul>
+            <li>No video walls—interaction is the lesson</li>
+            <li>Keyboard and screen-reader friendly controls</li>
+            <li>Works offline after load; no accounts required</li>
+            <li>Motion respects your reduced-motion preference</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="shell cta-inner">
+        <h2 id="cta-title">Ready to see an idea clearly?</h2>
+        <p>Pick a subject, open a lab, and let your hands do the teaching.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#lab">Start exploring</a>
+          <a class="btn btn-ghost" href="#subjects">Browse subjects</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <span class="brand-text">Lucid</span>
+        <p>Learn by seeing.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#subjects">Subjects</a>
+        <a href="#lab">Lab</a>
+        <a href="#paths">Paths</a>
+        <a href="#method">Method</a>
+      </nav>
+      <p class="footer-note">Interactive education · Offline-ready · Made for curious minds</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

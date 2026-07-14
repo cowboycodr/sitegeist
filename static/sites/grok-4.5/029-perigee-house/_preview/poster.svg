@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Perigee House — Earth has never looked this good.">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#050a12"/>
+      <stop offset="45%" stop-color="#0a1628"/>
+      <stop offset="75%" stop-color="#0c2438"/>
+      <stop offset="100%" stop-color="#0a3040"/>
+    </linearGradient>
+    <linearGradient id="earth" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9ad4f0"/>
+      <stop offset="8%" stop-color="#3d9fc4"/>
+      <stop offset="28%" stop-color="#1a5a78"/>
+      <stop offset="55%" stop-color="#0d3048"/>
+      <stop offset="100%" stop-color="#061820"/>
+    </linearGradient>
+    <radialGradient id="limbGlow" cx="50%" cy="0%" r="60%">
+      <stop offset="0%" stop-color="#b8e8ff" stop-opacity="0.75"/>
+      <stop offset="40%" stop-color="#7ec8e8" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#7ec8e8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hull" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eef3fa"/>
+      <stop offset="50%" stop-color="#a8b8cc"/>
+      <stop offset="100%" stop-color="#5c6e86"/>
+    </linearGradient>
+    <linearGradient id="goldBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e0c588"/>
+      <stop offset="100%" stop-color="#c9a45c"/>
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#sky)"/>
+
+  <!-- Stars -->
+  <g fill="#ffffff">
+    <circle cx="90" cy="80" r="1.4" opacity="0.85"/>
+    <circle cx="180" cy="140" r="1" opacity="0.55"/>
+    <circle cx="260" cy="60" r="1.2" opacity="0.7"/>
+    <circle cx="340" cy="180" r="1" opacity="0.5"/>
+    <circle cx="420" cy="95" r="1.5" opacity="0.9"/>
+    <circle cx="520" cy="50" r="1" opacity="0.6"/>
+    <circle cx="610" cy="130" r="1.3" opacity="0.75"/>
+    <circle cx="720" cy="70" r="1" opacity="0.55"/>
+    <circle cx="810" cy="160" r="1.4" opacity="0.8"/>
+    <circle cx="900" cy="45" r="1.1" opacity="0.65"/>
+    <circle cx="980" cy="120" r="1" opacity="0.5"/>
+    <circle cx="1060" cy="85" r="1.6" opacity="0.9"/>
+    <circle cx="1120" cy="200" r="1" opacity="0.45"/>
+    <circle cx="150" cy="250" r="1" opacity="0.4"/>
+    <circle cx="480" cy="220" r="1.2" opacity="0.55"/>
+    <circle cx="680" cy="240" r="1" opacity="0.4"/>
+    <circle cx="1020" cy="260" r="1.1" opacity="0.5"/>
+    <circle cx="70" cy="320" r="1" opacity="0.35"/>
+    <circle cx="1180" cy="150" r="1.3" opacity="0.7"/>
+    <circle cx="300" cy="300" r="0.9" opacity="0.4"/>
+  </g>
+
+  <!-- Soft aurora -->
+  <ellipse cx="400" cy="420" rx="380" ry="80" fill="#50c8b4" opacity="0.08"/>
+  <ellipse cx="700" cy="400" rx="300" ry="60" fill="#6480ff" opacity="0.07"/>
+
+  <!-- Earth limb -->
+  <ellipse cx="600" cy="980" rx="820" ry="420" fill="url(#earth)"/>
+  <ellipse cx="600" cy="580" rx="700" ry="70" fill="url(#limbGlow)"/>
+  <path d="M-40 560 Q300 500 600 520 T1240 560" fill="none" stroke="#c8ecff" stroke-width="3" opacity="0.55"/>
+  <path d="M-40 575 Q320 520 600 540 T1240 575" fill="none" stroke="#7ec8e8" stroke-width="1.5" opacity="0.35"/>
+
+  <!-- Orbital ring motif -->
+  <ellipse cx="600" cy="420" rx="340" ry="95" fill="none" stroke="#7ec8e8" stroke-width="1.5" opacity="0.45"/>
+  <ellipse cx="600" cy="420" rx="340" ry="95" fill="none" stroke="#c9a45c" stroke-width="1" opacity="0.3" transform="rotate(-18 600 420)"/>
+  <circle cx="930" cy="400" r="7" fill="#c9a45c" filter="url(#softGlow)"/>
+  <circle cx="930" cy="400" r="3" fill="#f0d9a0"/>
+
+  <!-- Station silhouette -->
+  <g transform="translate(430 355)">
+    <rect x="0" y="28" width="48" height="28" rx="3" fill="#1a2a40" stroke="#8ab4d0" stroke-width="1"/>
+    <line x1="8" y1="28" x2="8" y2="56" stroke="#4a6a88"/>
+    <line x1="16" y1="28" x2="16" y2="56" stroke="#4a6a88"/>
+    <line x1="24" y1="28" x2="24" y2="56" stroke="#4a6a88"/>
+    <line x1="32" y1="28" x2="32" y2="56" stroke="#4a6a88"/>
+    <line x1="40" y1="28" x2="40" y2="56" stroke="#4a6a88"/>
+
+    <rect x="292" y="28" width="48" height="28" rx="3" fill="#1a2a40" stroke="#8ab4d0" stroke-width="1"/>
+    <line x1="300" y1="28" x2="300" y2="56" stroke="#4a6a88"/>
+    <line x1="308" y1="28" x2="308" y2="56" stroke="#4a6a88"/>
+    <line x1="316" y1="28" x2="316" y2="56" stroke="#4a6a88"/>
+    <line x1="324" y1="28" x2="324" y2="56" stroke="#4a6a88"/>
+    <line x1="332" y1="28" x2="332" y2="56" stroke="#4a6a88"/>
+
+    <rect x="58" y="22" width="224" height="40" rx="12" fill="url(#hull)"/>
+    <rect x="78" y="32" width="36" height="16" rx="3" fill="#0a1628" opacity="0.8"/>
+    <rect x="124" y="32" width="36" height="16" rx="3" fill="#0a1628" opacity="0.8"/>
+    <rect x="170" y="32" width="36" height="16" rx="3" fill="#0a1628" opacity="0.8"/>
+    <rect x="216" y="32" width="28" height="16" rx="3" fill="#c9a45c" opacity="0.9"/>
+
+    <circle cx="48" cy="42" r="9" fill="none" stroke="#d0dae8" stroke-width="2"/>
+    <circle cx="292" cy="42" r="9" fill="none" stroke="#d0dae8" stroke-width="2"/>
+    <line x1="48" y1="42" x2="58" y2="42" stroke="#a8b8c8" stroke-width="2"/>
+    <line x1="282" y1="42" x2="292" y2="42" stroke="#a8b8c8" stroke-width="2"/>
+
+    <!-- small torus hint -->
+    <ellipse cx="170" cy="42" rx="42" ry="58" fill="none" stroke="#d8e4f0" stroke-width="5" opacity="0.35"/>
+  </g>
+
+  <!-- Brand mark -->
+  <g transform="translate(96 92)">
+    <circle cx="28" cy="28" r="26" fill="none" stroke="#7ec8e8" stroke-width="1.4" opacity="0.5"/>
+    <circle cx="28" cy="28" r="10" fill="#7ec8e8"/>
+    <ellipse cx="28" cy="28" rx="24" ry="9" fill="none" stroke="#c9a45c" stroke-width="2"/>
+    <circle cx="50" cy="28" r="3.5" fill="#c9a45c"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="175" y="118" fill="#e8eef6" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="28" font-weight="600" letter-spacing="6">PERIGEE HOUSE</text>
+  <text x="175" y="148" fill="#7ec8e8" font-family="SF Mono, Consolas, ui-monospace, monospace" font-size="14" letter-spacing="4">LOW-EARTH ORBIT · 2031</text>
+
+  <text x="96" y="720" fill="#f5f8fc" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="64" font-weight="650" letter-spacing="-1">Earth has never</text>
+  <text x="96" y="790" fill="#f5f8fc" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="64" font-weight="650" letter-spacing="-1">looked this good.</text>
+
+  <rect x="96" y="820" width="64" height="4" rx="2" fill="url(#goldBar)"/>
+  <text x="176" y="832" fill="#93a8be" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="18">Orbital hotel · Aerospace precision · Five-star perspective</text>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="posterTitle posterDesc">
+  <title id="posterTitle">Field Notes</title>
+  <desc id="posterDesc">Gallery poster for Field Notes architecture practice: layered landscape hills, a nestled building, and the practice name.</desc>
+
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8e9df"/>
+      <stop offset="42%" stop-color="#d6cbb6"/>
+      <stop offset="100%" stop-color="#b9a98c"/>
+    </linearGradient>
+    <linearGradient id="hillFar" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6a7a62"/>
+      <stop offset="100%" stop-color="#4a5948"/>
+    </linearGradient>
+    <linearGradient id="hillMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8d7b62"/>
+      <stop offset="100%" stop-color="#6b5a45"/>
+    </linearGradient>
+    <linearGradient id="hillNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3f4d40"/>
+      <stop offset="100%" stop-color="#2a3d30"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#sky)"/>
+
+  <!-- Soft sun -->
+  <circle cx="920" cy="180" r="64" fill="#f2e6c4" opacity="0.55"/>
+  <circle cx="920" cy="180" r="34" fill="#f7efd4" opacity="0.4"/>
+
+  <!-- Contour lines -->
+  <g fill="none" stroke="#2a3d30" stroke-width="1.4" opacity="0.16">
+    <path d="M80 220 C220 170 340 210 480 185 C620 160 740 200 900 170 C1000 150 1080 175 1140 160"/>
+    <path d="M60 270 C210 230 350 265 500 245 C660 220 790 265 960 235 C1040 220 1100 245 1160 230"/>
+    <path d="M40 320 C190 285 340 320 490 300 C650 278 800 320 980 295"/>
+  </g>
+
+  <!-- Far hills -->
+  <path d="M0 420 C160 360 280 380 420 400 C580 425 700 350 860 340 C980 332 1080 360 1200 380 L1200 900 L0 900 Z" fill="url(#hillFar)"/>
+
+  <!-- Mid hills -->
+  <path d="M0 540 C180 480 300 520 460 535 C640 555 760 470 940 490 C1040 502 1120 530 1200 550 L1200 900 L0 900 Z" fill="url(#hillMid)"/>
+
+  <!-- Path -->
+  <path d="M120 760 C280 700 400 680 560 650 C700 625 820 590 980 540" fill="none" stroke="#f6f1e7" stroke-width="2" opacity="0.35" stroke-dasharray="8 10"/>
+
+  <!-- Near land -->
+  <path d="M0 680 C200 630 340 690 520 675 C720 655 860 620 1200 660 L1200 900 L0 900 Z" fill="url(#hillNear)"/>
+
+  <!-- Building motif -->
+  <g transform="translate(700 470)">
+    <rect x="0" y="48" width="168" height="88" fill="#f4efe4"/>
+    <rect x="22" y="8" width="124" height="44" fill="#ebe3d2"/>
+    <rect x="34" y="72" width="28" height="40" fill="#2a3d30"/>
+    <rect x="80" y="72" width="36" height="24" fill="#c97a6e" opacity="0.9"/>
+    <rect x="128" y="72" width="22" height="22" fill="#8a9a82" opacity="0.75"/>
+    <!-- small side volume -->
+    <rect x="168" y="72" width="46" height="64" fill="#e7decd"/>
+    <rect x="178" y="88" width="16" height="16" fill="#2a3d30" opacity="0.45"/>
+  </g>
+
+  <!-- Accent stone block -->
+  <rect x="72" y="72" width="180" height="6" fill="#2a3d30" opacity="0.55"/>
+
+  <!-- Wordmark -->
+  <text x="72" y="160" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="600" fill="#1c1a16" letter-spacing="8">FIELD NOTES</text>
+  <text x="72" y="210" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="26" fill="#3f5a45" letter-spacing="6">BUILDINGS THAT BELONG</text>
+
+  <!-- Bottom label -->
+  <rect x="0" y="820" width="1200" height="80" fill="#1c1a16" opacity="0.18"/>
+  <text x="72" y="868" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="22" fill="#f6f1e7" letter-spacing="4">LANDSCAPE-LED ARCHITECTURE</text>
+  <text x="1128" y="868" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="22" fill="#f6f1e7" text-anchor="end" letter-spacing="3">042</text>
+</svg>

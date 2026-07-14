@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Odd Common — Make the familiar impossible to ignore">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a2030"/>
+      <stop offset="55%" stop-color="#10131c"/>
+      <stop offset="100%" stop-color="#2a1814"/>
+    </linearGradient>
+    <linearGradient id="orbCoral" x1="30%" y1="25%" x2="80%" y2="90%">
+      <stop offset="0%" stop-color="#ffb3a8"/>
+      <stop offset="55%" stop-color="#ff4d3a"/>
+      <stop offset="100%" stop-color="#c43324"/>
+    </linearGradient>
+    <linearGradient id="orbMustard" x1="25%" y1="20%" x2="85%" y2="95%">
+      <stop offset="0%" stop-color="#ffe29a"/>
+      <stop offset="60%" stop-color="#e8b84a"/>
+      <stop offset="100%" stop-color="#c4922a"/>
+    </linearGradient>
+    <linearGradient id="orbMint" x1="30%" y1="25%" x2="80%" y2="90%">
+      <stop offset="0%" stop-color="#c9f0e2"/>
+      <stop offset="60%" stop-color="#7ec8b0"/>
+      <stop offset="100%" stop-color="#4a9f87"/>
+    </linearGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="rgba(255,250,242,0.06)" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="vignette" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.35"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#grid)"/>
+  <rect width="1200" height="900" fill="url(#vignette)"/>
+
+  <!-- Soft ambient glows -->
+  <circle cx="280" cy="260" r="220" fill="#ff4d3a" opacity="0.12"/>
+  <circle cx="920" cy="620" r="240" fill="#e8b84a" opacity="0.1"/>
+  <circle cx="780" cy="220" r="140" fill="#7ec8b0" opacity="0.1"/>
+
+  <!-- Large overlapping orbs (signature motif) -->
+  <circle cx="300" cy="300" r="170" fill="url(#orbCoral)"/>
+  <circle cx="880" cy="580" r="150" fill="url(#orbMustard)"/>
+  <circle cx="760" cy="250" r="95" fill="url(#orbMint)"/>
+
+  <!-- Offset common shapes -->
+  <rect x="170" y="560" width="220" height="28" rx="14" fill="#e8b84a" transform="rotate(-8 280 574)"/>
+  <rect x="700" y="160" width="180" height="22" rx="11" fill="#ff4d3a" transform="rotate(12 790 171)"/>
+
+  <!-- Floating cards -->
+  <g transform="translate(165 600) rotate(-5)">
+    <rect width="220" height="110" rx="18" fill="#fffaf2"/>
+    <text x="24" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#2a3142" letter-spacing="2">COMMON</text>
+    <text x="24" y="82" font-family="Georgia, 'Times New Roman', serif" font-size="36" font-weight="600" fill="#10131c">Street</text>
+  </g>
+  <g transform="translate(820 150) rotate(6)">
+    <rect width="200" height="100" rx="18" fill="#e8b84a"/>
+    <text x="22" y="40" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#2a3142" letter-spacing="2">ODD</text>
+    <text x="22" y="78" font-family="Georgia, 'Times New Roman', serif" font-size="36" font-weight="600" fill="#10131c">Signal</text>
+  </g>
+
+  <!-- Brand lockup -->
+  <g transform="translate(80 70)">
+    <circle cx="22" cy="22" r="22" fill="#10131c" stroke="rgba(255,250,242,0.2)" stroke-width="2"/>
+    <circle cx="15" cy="15" r="8" fill="#e8b84a"/>
+    <circle cx="28" cy="28" r="9" fill="#ff4d3a"/>
+    <circle cx="30" cy="12" r="5" fill="#7ec8b0"/>
+    <text x="60" y="32" font-family="Georgia, 'Times New Roman', serif" font-size="36" font-weight="600" fill="#fffaf2">Odd Common</text>
+  </g>
+
+  <!-- Eyebrow -->
+  <text x="80" y="720" font-family="Menlo, Consolas, monospace" font-size="18" letter-spacing="4" fill="rgba(255,250,242,0.55)">INDEPENDENT CREATIVE PRACTICE</text>
+
+  <!-- Main headline -->
+  <text x="80" y="790" font-family="Georgia, 'Times New Roman', serif" font-size="52" font-weight="600" fill="#fffaf2">Make the familiar</text>
+  <text x="80" y="850" font-family="Georgia, 'Times New Roman', serif" font-size="52" font-weight="600" fill="#ff4d3a" font-style="italic">impossible to ignore.</text>
+
+  <!-- Accent corner mark -->
+  <circle cx="1120" cy="80" r="10" fill="#ff4d3a"/>
+  <circle cx="1145" cy="80" r="10" fill="#e8b84a"/>
+  <circle cx="1132" cy="102" r="8" fill="#7ec8b0"/>
+</svg>

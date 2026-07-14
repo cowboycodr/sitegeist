@@ -25,13 +25,21 @@ const WORKER_TIMEOUT_MS = 25 * 60 * 1000;
 const usage = `Usage:
   node scripts/benchmark/run-neutral-batch.mjs \\
     --briefs benchmark/briefs/generated \\
-    --submissions benchmark/submissions \\
-    --registry src/lib/generated/site-artifacts.ts \\
-    [--concurrency 10] [--max-attempts 8] [--summary benchmark/reports/generation-summary.json]
+		--submissions .benchmark-work/gpt-5.6-sol \\
+		--registry src/lib/generated/site-artifacts.ts \\
+		[--static-root static/sites/gpt-5.6-sol] \\
+		[--public-base /sites/gpt-5.6-sol] \\
+    [--runner scripts/benchmark/run-isolated-worker.sh] \\
+    [--model gpt-5.6-sol] [--harness codex] \\
+    [--concurrency 10] [--max-attempts 8] \\
+    [--summary benchmark/reports/generation-summary.json] \\
+    [--duplicate-output benchmark/reports/exact-duplicates.json]
 
-Runs design-isolated Codex workers in fixed-size waves. Every worker is reviewed
+Runs design-isolated model workers in fixed-size waves. Every worker is reviewed
 in quarantine. Rejected workers are deleted and regenerated from a fresh
-workspace; only accepted submissions are promoted and imported.`;
+workspace; accepted submissions are promoted into the requested working
+directory, audited, and imported once into the canonical static collection.
+The submissions directory is resumable evaluator state and should not be committed.`;
 
 const activeChildren = new Set();
 let stopping = false;
@@ -196,7 +204,7 @@ function freshRecord(brief, previous = null) {
 	};
 }
 
-async function writeSummary(path, records, startedAt, complete = false) {
+async function writeSummary(path, records, startedAt, configuration, complete = false) {
 	const counts = records.reduce(
 		(result, record) => ({ ...result, [record.status]: (result[record.status] ?? 0) + 1 }),
 		{}
@@ -206,18 +214,20 @@ async function writeSummary(path, records, startedAt, complete = false) {
 		startedAt,
 		updatedAt: new Date().toISOString(),
 		completedAt: complete ? new Date().toISOString() : null,
-		model: process.env.CODEX_MODEL ?? 'gpt-5.6-sol',
+		model: configuration.model,
+		harness: configuration.harness,
 		modelReasoningEffort: 'medium',
-		approvalPolicy: 'on-request',
-		approvalsReviewer: 'auto_review',
+		approvalPolicy: configuration.approvalPolicy,
+		approvalsReviewer: configuration.approvalsReviewer,
+		automaticArtifactReview: true,
 		webSearch: 'disabled',
-		workerConcurrency: DEFAULT_CONCURRENCY,
+		workerConcurrency: configuration.concurrency,
 		counts,
 		records
 	}, null, '\t')}\n`);
 }
 
-async function runAttempt({ brief, attempt, repoRoot, tempRoot }) {
+async function runAttempt({ brief, attempt, repoRoot, tempRoot, runner }) {
 	const prefix = `${brief.artifactDirectory}-attempt-${attempt}-`;
 	const prepared = await spawnCaptured(
 		process.execPath,
@@ -237,7 +247,7 @@ async function runAttempt({ brief, attempt, repoRoot, tempRoot }) {
 	const stderrPath = join(tempRoot, `.${basename(worker)}.stderr`);
 	try {
 		const execution = await spawnToFiles(
-			join(repoRoot, 'scripts/benchmark/run-isolated-worker.sh'),
+			runner,
 			[worker],
 			{ cwd: repoRoot, stdoutPath, stderrPath }
 		);
@@ -278,7 +288,11 @@ async function runAttempt({ brief, attempt, repoRoot, tempRoot }) {
 async function main() {
 	const options = parseCli(
 		process.argv.slice(2),
-		new Set(['briefs', 'submissions', 'registry', 'concurrency', 'max-attempts', 'summary']),
+		new Set([
+			'briefs', 'submissions', 'registry', 'static-root', 'public-base', 'runner', 'model', 'harness',
+			'approval-policy', 'approvals-reviewer', 'concurrency', 'max-attempts',
+			'summary', 'duplicate-output'
+		]),
 		new Set(['help'])
 	);
 	if (options.help) {
@@ -292,9 +306,20 @@ async function main() {
 	const briefsDirectory = resolve(requireOption(options, 'briefs'));
 	const submissionsDirectory = resolve(requireOption(options, 'submissions'));
 	const registry = resolve(requireOption(options, 'registry'));
+	const staticRoot = options['static-root'] ? resolve(options['static-root']) : null;
+	const publicBase = options['public-base'] ?? null;
+	const runner = resolve(options.runner ?? join(repoRoot, 'scripts/benchmark/run-isolated-worker.sh'));
 	const summary = resolve(options.summary ?? join(repoRoot, 'benchmark/reports/generation-summary.json'));
+	const duplicateOutput = resolve(options['duplicate-output'] ?? join(repoRoot, 'benchmark/reports/exact-duplicates.json'));
 	const concurrency = positiveInteger(options.concurrency, '--concurrency', DEFAULT_CONCURRENCY);
 	const maxAttempts = positiveInteger(options['max-attempts'], '--max-attempts', DEFAULT_MAX_ATTEMPTS);
+	const configuration = {
+		model: options.model ?? process.env.CODEX_MODEL ?? 'gpt-5.6-sol',
+		harness: options.harness ?? 'codex',
+		approvalPolicy: options['approval-policy'] ?? 'on-request',
+		approvalsReviewer: options['approvals-reviewer'] ?? 'auto_review',
+		concurrency
+	};
 	if (concurrency !== DEFAULT_CONCURRENCY) {
 		throw new Error(`This benchmark is fixed at ${DEFAULT_CONCURRENCY} simultaneous workers for comparability`);
 	}
@@ -341,8 +366,13 @@ async function main() {
 		pending.push(brief);
 	}
 
-	await writeSummary(summary, records, startedAt);
-	logProgress('batch-started', { accepted: records.filter((record) => record.status === 'accepted').length, pending: pending.length });
+	await writeSummary(summary, records, startedAt, configuration);
+	logProgress('batch-started', {
+		model: configuration.model,
+		harness: configuration.harness,
+		accepted: records.filter((record) => record.status === 'accepted').length,
+		pending: pending.length
+	});
 	let wave = 0;
 	while (pending.length > 0) {
 		if (stopping) throw new Error('Batch interrupted');
@@ -358,7 +388,7 @@ async function main() {
 			const record = byId.get(brief.id);
 			let result;
 			try {
-				result = await runAttempt({ brief, attempt: record.attempts, repoRoot, tempRoot });
+				result = await runAttempt({ brief, attempt: record.attempts, repoRoot, tempRoot, runner });
 				if (result.accepted) {
 					const destination = join(submissionsDirectory, brief.artifactDirectory);
 					await atomicCopyDirectory(result.submissionPath, destination, false);
@@ -429,7 +459,7 @@ async function main() {
 				});
 			}
 		}
-		await writeSummary(summary, records, startedAt);
+		await writeSummary(summary, records, startedAt, configuration);
 		if (allInfrastructureFailures) {
 			throw new Error('Every worker in the wave failed at the isolation/runner boundary; stopped before blind retries');
 		}
@@ -448,6 +478,8 @@ async function main() {
 				join(repoRoot, 'scripts/benchmark/import-site.mjs'),
 				'--submission', join(submissionsDirectory, brief.artifactDirectory),
 				'--registry', registry,
+				...(staticRoot ? ['--static-root', staticRoot] : []),
+				...(publicBase ? ['--public-base', publicBase] : []),
 				'--replace'
 			],
 			{ cwd: repoRoot }
@@ -458,11 +490,11 @@ async function main() {
 		[
 			join(repoRoot, 'scripts/benchmark/audit-duplicates.mjs'),
 			'--submissions', submissionsDirectory,
-			'--output', join(repoRoot, 'benchmark/reports/exact-duplicates.json')
+			'--output', duplicateOutput
 		],
 		{ cwd: repoRoot }
 	);
-	await writeSummary(summary, records, startedAt, true);
+	await writeSummary(summary, records, startedAt, configuration, true);
 	logProgress('batch-complete', { accepted: 100, imported: 100 });
 }
 

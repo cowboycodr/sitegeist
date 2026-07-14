@@ -16,12 +16,27 @@ const START_MARKER = '/* SITEGEIST_REGISTRY_JSON_START */';
 const END_MARKER = '/* SITEGEIST_REGISTRY_JSON_END */';
 const usage = `Usage:
   node scripts/benchmark/import-site.mjs --submission <directory> --registry <file.json|file.ts>
-      [--static-root <directory>] [--replace]
+      [--static-root <directory>] [--public-base </sites/model>] [--replace]
 
 Validates one submission, copies its dist/ to static/sites/<artifactDirectory>/,
 copies the authored gallery preview and canonical audit captures, and adds the
 artifact to the generated registry.
---static-root defaults to this repository's static/sites directory.`;
+--static-root defaults to this repository's static/sites directory.
+--public-base defaults to /sites and must match the static root's public URL.`;
+
+function normalizePublicBase(value = '/sites') {
+	if (
+		typeof value !== 'string' ||
+		!value.startsWith('/') ||
+		value.includes('\\') ||
+		value.includes('?') ||
+		value.includes('#') ||
+		value.split('/').includes('..')
+	) {
+		throw new Error('--public-base must be an absolute URL path without traversal, query, or fragment');
+	}
+	return value === '/' ? '' : value.replace(/\/+$/, '');
+}
 
 function assertRegistryRecord(record, source) {
 	const migrated = record && typeof record === 'object'
@@ -173,7 +188,7 @@ async function installArtifact(validated, staticRoot, replace) {
 async function main() {
 	const options = parseCli(
 		process.argv.slice(2),
-		new Set(['submission', 'registry', 'static-root']),
+		new Set(['submission', 'registry', 'static-root', 'public-base']),
 		new Set(['help', 'replace'])
 	);
 	if (options.help) {
@@ -186,10 +201,11 @@ async function main() {
 	const registry = resolve(requireOption(options, 'registry'));
 	const scriptDirectory = dirname(fileURLToPath(import.meta.url));
 	const staticRoot = resolve(options['static-root'] ?? join(scriptDirectory, '../../static/sites'));
+	const publicBase = normalizePublicBase(options['public-base']);
 	const replace = Boolean(options.replace);
 	const validated = await validateSubmission(submission);
 	const directory = validated.manifest.artifactDirectory;
-	const baseUrl = `/sites/${directory}`;
+	const baseUrl = `${publicBase}/${directory}`;
 	const record = {
 		id: validated.manifest.id,
 		slug: validated.manifest.slug,

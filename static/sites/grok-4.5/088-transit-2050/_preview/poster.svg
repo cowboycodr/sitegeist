@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Transit 2050 gallery poster">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1526"/>
+      <stop offset="48%" stop-color="#132a45"/>
+      <stop offset="100%" stop-color="#0f2f3a"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="70%" y1="0%" x2="100%" y2="40%">
+      <stop offset="0%" stop-color="#0db89a" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#0db89a" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#5ee0c8" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#5ee0c8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- Soft grid -->
+  <g stroke="rgba(255,255,255,0.04)" stroke-width="1">
+    <path d="M0 150 H1200 M0 300 H1200 M0 450 H1200 M0 600 H1200 M0 750 H1200"/>
+    <path d="M150 0 V900 M300 0 V900 M450 0 V900 M600 0 V900 M750 0 V900 M900 0 V900 M1050 0 V900"/>
+  </g>
+
+  <!-- Water suggestion -->
+  <path d="M0 680 Q220 620 380 700 T720 680 T1200 740 L1200 900 L0 900 Z" fill="rgba(59,125,221,0.14)"/>
+
+  <!-- Network motif (large, readable at card size) -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M120 720 C280 540 360 300 560 250 S900 280 1080 160" stroke="#0db89a" stroke-width="18"/>
+    <path d="M100 220 L380 320 L620 560 L1020 640" stroke="#3b7ddd" stroke-width="16"/>
+    <path d="M220 120 C290 300 400 440 580 470 S920 410 1060 520" stroke="#e89b2c" stroke-width="16"/>
+    <path d="M180 780 C360 620 500 720 660 560 S860 280 940 140" stroke="#9b6bdb" stroke-width="16"/>
+  </g>
+
+  <!-- Stations -->
+  <g fill="#ffffff">
+    <circle cx="120" cy="720" r="14"/>
+    <circle cx="560" cy="250" r="14"/>
+    <circle cx="1080" cy="160" r="14"/>
+    <circle cx="100" cy="220" r="12"/>
+    <circle cx="620" cy="560" r="12"/>
+    <circle cx="1020" cy="640" r="12"/>
+    <circle cx="220" cy="120" r="12"/>
+    <circle cx="580" cy="470" r="12"/>
+    <circle cx="1060" cy="520" r="12"/>
+    <circle cx="180" cy="780" r="12"/>
+    <circle cx="660" cy="560" r="12"/>
+    <circle cx="940" cy="140" r="12"/>
+  </g>
+
+  <!-- Central hub -->
+  <circle cx="600" cy="430" r="70" fill="url(#hubGlow)"/>
+  <circle cx="600" cy="430" r="34" fill="#0b1526" stroke="#5ee0c8" stroke-width="6"/>
+  <circle cx="600" cy="430" r="12" fill="#0db89a"/>
+
+  <!-- Brand mark -->
+  <g transform="translate(72, 64)">
+    <rect width="72" height="72" rx="18" fill="#0db89a"/>
+    <path d="M18 50 L36 18 L54 50" fill="none" stroke="#0b1526" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="24" cy="46" r="4" fill="#0b1526"/>
+    <circle cx="36" cy="30" r="4" fill="#0b1526"/>
+    <circle cx="48" cy="46" r="4" fill="#0b1526"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="168" y="100" fill="#8fa3bc" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" font-weight="700" letter-spacing="4">URBAN MOBILITY</text>
+  <text x="72" y="210" fill="#ffffff" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="96" font-weight="800" letter-spacing="-3">Transit 2050</text>
+  <text x="72" y="280" fill="#5ee0c8" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="36" font-weight="600">The city moves when everyone can.</text>
+
+  <!-- Bottom bar with route chips -->
+  <rect x="72" y="780" width="1056" height="72" rx="20" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+  <g font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" font-weight="700">
+    <circle cx="120" cy="816" r="14" fill="#0db89a"/>
+    <text x="148" y="824" fill="#f3f6fa">Faster</text>
+    <circle cx="320" cy="816" r="14" fill="#3b7ddd"/>
+    <text x="348" y="824" fill="#f3f6fa">Cleaner</text>
+    <circle cx="530" cy="816" r="14" fill="#e89b2c"/>
+    <text x="558" y="824" fill="#f3f6fa">Equitable</text>
+    <circle cx="780" cy="816" r="14" fill="#9b6bdb"/>
+    <text x="808" y="824" fill="#f3f6fa">One network</text>
+  </g>
+</svg>

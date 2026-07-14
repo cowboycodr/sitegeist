@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Heliograph — Power, beautifully placed.">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a2228"/>
+      <stop offset="55%" stop-color="#243038"/>
+      <stop offset="100%" stop-color="#2a2418"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="72%" cy="28%" r="45%">
+      <stop offset="0%" stop-color="#e8c56a" stop-opacity="0.45"/>
+      <stop offset="55%" stop-color="#d4a84b" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#d4a84b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4a5560"/>
+      <stop offset="100%" stop-color="#2a343c"/>
+    </linearGradient>
+    <linearGradient id="sun" cx="0" cy="0" x1="30%" y1="30%" x2="80%" y2="80%">
+      <stop offset="0%" stop-color="#fff4d4"/>
+      <stop offset="45%" stop-color="#e8c56a"/>
+      <stop offset="100%" stop-color="#a67c2d"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- Soft ground horizon -->
+  <path d="M0 680 Q300 620 600 650 T1200 630 L1200 900 L0 900 Z" fill="#141a1f" opacity="0.55"/>
+
+  <!-- Decorative ray arcs -->
+  <circle cx="860" cy="240" r="160" fill="none" stroke="#d4a84b" stroke-width="1.5" opacity="0.28"/>
+  <circle cx="860" cy="240" r="220" fill="none" stroke="#d4a84b" stroke-width="1" stroke-dasharray="8 10" opacity="0.2"/>
+  <circle cx="860" cy="240" r="280" fill="none" stroke="#e8c56a" stroke-width="0.8" opacity="0.12"/>
+
+  <!-- Sun disc -->
+  <circle cx="860" cy="240" r="72" fill="url(#sun)"/>
+  <circle cx="860" cy="240" r="72" fill="none" stroke="#fff4d4" stroke-width="2" opacity="0.35"/>
+
+  <!-- Sun rays -->
+  <g stroke="#e8c56a" stroke-width="3" stroke-linecap="round" opacity="0.75">
+    <line x1="860" y1="120" x2="860" y2="148"/>
+    <line x1="860" y1="332" x2="860" y2="360"/>
+    <line x1="740" y1="240" x2="768" y2="240"/>
+    <line x1="952" y1="240" x2="980" y2="240"/>
+    <line x1="775" y1="155" x2="795" y2="175"/>
+    <line x1="925" y1="305" x2="945" y2="325"/>
+    <line x1="945" y1="155" x2="925" y2="175"/>
+    <line x1="795" y1="305" x2="775" y2="325"/>
+  </g>
+
+  <!-- Canopy structure (distinctive motif) -->
+  <g transform="translate(140, 380)">
+    <!-- Roof plane -->
+    <path d="M40 80 L420 10 L800 90" fill="none" stroke="#d4a84b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Solar panels on canopy -->
+    <g>
+      <rect x="120" y="48" width="130" height="42" rx="4" fill="url(#panel)" stroke="#d4a84b" stroke-width="1.5" opacity="0.95" transform="rotate(-8 185 69)"/>
+      <rect x="280" y="28" width="130" height="42" rx="4" fill="url(#panel)" stroke="#d4a84b" stroke-width="1.5" opacity="0.95" transform="rotate(-4 345 49)"/>
+      <rect x="440" y="42" width="130" height="42" rx="4" fill="url(#panel)" stroke="#d4a84b" stroke-width="1.5" opacity="0.95" transform="rotate(2 505 63)"/>
+      <rect x="600" y="58" width="120" height="42" rx="4" fill="url(#panel)" stroke="#d4a84b" stroke-width="1.5" opacity="0.9" transform="rotate(6 660 79)"/>
+    </g>
+    <!-- Glass highlight lines -->
+    <g stroke="#e8c56a" stroke-width="1" opacity="0.45">
+      <line x1="135" y1="62" x2="235" y2="48" transform="rotate(-8 185 69)"/>
+      <line x1="295" y1="42" x2="395" y2="35" transform="rotate(-4 345 49)"/>
+      <line x1="455" y1="56" x2="555" y2="60" transform="rotate(2 505 63)"/>
+    </g>
+    <!-- Columns -->
+    <rect x="175" y="95" width="14" height="200" rx="2" fill="#4a5560"/>
+    <rect x="470" y="95" width="14" height="200" rx="2" fill="#4a5560"/>
+    <rect x="720" y="110" width="14" height="185" rx="2" fill="#4a5560"/>
+    <!-- Bases -->
+    <rect x="150" y="290" width="64" height="14" rx="3" fill="#6b7580"/>
+    <rect x="445" y="290" width="64" height="14" rx="3" fill="#6b7580"/>
+    <rect x="695" y="290" width="64" height="14" rx="3" fill="#6b7580"/>
+  </g>
+
+  <!-- Brand wordmark -->
+  <text x="80" y="120" fill="#f6f1e8" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="72" font-weight="600" letter-spacing="-1">Heliograph</text>
+  <text x="84" y="168" fill="#d4a84b" font-family="system-ui, 'Segoe UI', sans-serif" font-size="22" font-weight="600" letter-spacing="6">SOLAR INFRASTRUCTURE</text>
+  <text x="84" y="230" fill="#ebe3d4" font-family="Georgia, 'Iowan Old Style', Palatino, serif" font-size="36" font-style="italic">Power, beautifully placed.</text>
+
+  <!-- Corner accent mark -->
+  <g transform="translate(1040, 760)" fill="none" stroke="#d4a84b" stroke-width="2" opacity="0.7">
+    <circle cx="40" cy="40" r="14" fill="#d4a84b" stroke="none"/>
+    <line x1="40" y1="8" x2="40" y2="18" stroke-linecap="round"/>
+    <line x1="40" y1="62" x2="40" y2="72" stroke-linecap="round"/>
+    <line x1="8" y1="40" x2="18" y2="40" stroke-linecap="round"/>
+    <line x1="62" y1="40" x2="72" y2="40" stroke-linecap="round"/>
+  </g>
+</svg>

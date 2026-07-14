@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Afterimage Digital — Art beyond the frame.">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#05070c"/>
+      <stop offset="45%" stop-color="#0a1020"/>
+      <stop offset="100%" stop-color="#0d0a18"/>
+    </linearGradient>
+    <radialGradient id="bloom" cx="52%" cy="42%" r="42%">
+      <stop offset="0%" stop-color="#7ef9ff" stop-opacity="0.95"/>
+      <stop offset="28%" stop-color="#5ce1ff" stop-opacity="0.55"/>
+      <stop offset="55%" stop-color="#6b5cff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#07090f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="trail" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#ff7ad9" stop-opacity="0"/>
+      <stop offset="35%" stop-color="#ff7ad9" stop-opacity="0.55"/>
+      <stop offset="65%" stop-color="#5ce1ff" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#c8ff7a" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#c5d4f5"/>
+      <stop offset="100%" stop-color="#7eb0ff"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0 H0 V48" fill="none" stroke="rgba(124,160,220,0.08)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#grid)" opacity="0.9"/>
+
+  <!-- Soft color washes -->
+  <ellipse cx="900" cy="160" rx="320" ry="200" fill="#6b5cff" opacity="0.16"/>
+  <ellipse cx="220" cy="700" rx="280" ry="180" fill="#5ce1ff" opacity="0.1"/>
+  <ellipse cx="600" cy="380" rx="340" ry="260" fill="url(#bloom)"/>
+
+  <!-- Afterimage trail motif -->
+  <path d="M120 620 C280 420 420 680 600 480 S920 300 1080 520" fill="none" stroke="url(#trail)" stroke-width="56" stroke-linecap="round" opacity="0.55"/>
+  <path d="M140 640 C300 450 440 700 620 510 S940 320 1060 540" fill="none" stroke="#7ef9ff" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+  <path d="M160 660 C320 480 460 720 640 540 S960 340 1040 560" fill="none" stroke="#ff7ad9" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Central orb -->
+  <circle cx="600" cy="380" r="14" fill="#eaffff"/>
+  <circle cx="600" cy="380" r="36" fill="none" stroke="#7ef9ff" stroke-opacity="0.45" stroke-width="2"/>
+  <circle cx="600" cy="380" r="62" fill="none" stroke="#6b5cff" stroke-opacity="0.28" stroke-width="1.5"/>
+
+  <!-- Frame corners motif -->
+  <g fill="none" stroke="#5ce1ff" stroke-opacity="0.45" stroke-width="2">
+    <path d="M72 140 H140 V72"/>
+    <path d="M1060 72 V140 H1128"/>
+    <path d="M72 760 H140 V828"/>
+    <path d="M1060 828 V760 H1128"/>
+  </g>
+
+  <!-- Brand mark -->
+  <g transform="translate(96, 96)">
+    <circle cx="22" cy="22" r="22" fill="#10152a"/>
+    <circle cx="22" cy="22" r="14" fill="url(#bloom)"/>
+    <circle cx="22" cy="22" r="4" fill="#eaffff"/>
+  </g>
+
+  <!-- Text -->
+  <text x="160" y="118" fill="#9aa8c7" font-family="Segoe UI, system-ui, sans-serif" font-size="22" font-weight="600" letter-spacing="6">AFTERIMAGE DIGITAL</text>
+  <text x="96" y="230" fill="#ff7ad9" font-family="Segoe UI, system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="5">EXHIBITION 017</text>
+  <text x="96" y="320" fill="url(#titleGrad)" font-family="Segoe UI, system-ui, sans-serif" font-size="72" font-weight="700" letter-spacing="-1.5">Art beyond</text>
+  <text x="96" y="400" fill="url(#titleGrad)" font-family="Segoe UI, system-ui, sans-serif" font-size="72" font-weight="700" letter-spacing="-1.5">the frame.</text>
+  <text x="96" y="470" fill="#9aa8c7" font-family="Segoe UI, system-ui, sans-serif" font-size="24" font-weight="500">Luminous interactive work for digital culture</text>
+
+  <!-- Bottom bar -->
+  <rect x="96" y="780" width="1008" height="1" fill="rgba(124,160,220,0.25)"/>
+  <text x="96" y="820" fill="#6b7a9a" font-family="Segoe UI, system-ui, sans-serif" font-size="18" font-weight="600" letter-spacing="3">RESIDUAL LIGHT  ·  ONLINE GALLERY</text>
+  <text x="900" y="820" fill="#5ce1ff" font-family="Segoe UI, system-ui, sans-serif" font-size="18" font-weight="600" text-anchor="end">ENTER →</text>
+</svg>

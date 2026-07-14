@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="NULL Laboratory gallery poster">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d14"/>
+      <stop offset="45%" stop-color="#0c1018"/>
+      <stop offset="100%" stop-color="#12101c"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4ef0d5" stop-opacity="0.22"/>
+      <stop offset="55%" stop-color="#b59cff" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#f0c35a" stop-opacity="0.08"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4ef0d5"/>
+      <stop offset="55%" stop-color="#b59cff"/>
+      <stop offset="100%" stop-color="#f0c35a"/>
+    </linearGradient>
+    <radialGradient id="core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4ef0d5" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#4ef0d5" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#4ef0d5" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="rgba(125,220,255,0.09)" stroke-width="1"/>
+    </pattern>
+    <clipPath id="frame">
+      <rect width="1200" height="900" rx="0"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="900" fill="url(#bg)"/>
+    <rect width="1200" height="900" fill="url(#grid)"/>
+    <ellipse cx="900" cy="220" rx="420" ry="280" fill="url(#glow)"/>
+    <ellipse cx="220" cy="720" rx="320" ry="220" fill="url(#glow)" opacity="0.7"/>
+
+    <!-- large null instrument motif -->
+    <g transform="translate(760 250)">
+      <circle cx="0" cy="0" r="190" fill="none" stroke="rgba(78,240,213,0.22)" stroke-width="1.5"/>
+      <circle cx="0" cy="0" r="140" fill="none" stroke="rgba(181,156,255,0.28)" stroke-width="1.25" stroke-dasharray="6 10"/>
+      <circle cx="0" cy="0" r="95" fill="none" stroke="rgba(78,240,213,0.45)" stroke-width="2"/>
+      <circle cx="0" cy="0" r="70" fill="url(#core)"/>
+      <circle cx="0" cy="0" r="18" fill="#4ef0d5"/>
+      <g stroke="rgba(232,238,248,0.35)" stroke-width="1.25">
+        <path d="M0 -190 v42"/>
+        <path d="M0 148 v42"/>
+        <path d="M-190 0 h42"/>
+        <path d="M148 0 h42"/>
+      </g>
+      <!-- corner ticks -->
+      <g stroke="#b59cff" stroke-width="1.5" opacity="0.7">
+        <path d="M-58 -58 h18 M-58 -58 v18"/>
+        <path d="M58 -58 h-18 M58 -58 v18"/>
+        <path d="M-58 58 h18 M-58 58 v-18"/>
+        <path d="M58 58 h-18 M58 58 v-18"/>
+      </g>
+      <!-- signal polyline -->
+      <polyline fill="none" stroke="#4ef0d5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="-150,40 -120,30 -95,48 -70,8 -45,22 -20,-18 5,12 30,-8 55,28 80,4 110,36 140,18"/>
+    </g>
+
+    <!-- left content block -->
+    <g transform="translate(88 120)">
+      <rect x="0" y="0" width="12" height="12" fill="#4ef0d5"/>
+      <text x="28" y="12" fill="#8b97ad" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" letter-spacing="4">RESEARCH INDEX / 0090</text>
+
+      <text x="0" y="120" fill="#e8eef8" font-family="Segoe UI, system-ui, sans-serif" font-size="78" font-weight="700" letter-spacing="10">NULL</text>
+      <text x="0" y="190" fill="#e8eef8" font-family="Segoe UI, system-ui, sans-serif" font-size="54" font-weight="600" letter-spacing="3">Laboratory</text>
+
+      <rect x="0" y="230" width="92" height="3" fill="url(#titleGrad)"/>
+
+      <text x="0" y="300" fill="url(#titleGrad)" font-family="Segoe UI, system-ui, sans-serif" font-size="36" font-weight="600">Prototypes for</text>
+      <text x="0" y="350" fill="#e8eef8" font-family="Segoe UI, system-ui, sans-serif" font-size="36" font-weight="600">uncertain futures.</text>
+
+      <text x="0" y="430" fill="#8b97ad" font-family="Segoe UI, system-ui, sans-serif" font-size="22">
+        <tspan x="0" dy="0">Spatial computing · Machine perception</tspan>
+        <tspan x="0" dy="34">Delightfully strange interfaces</tspan>
+      </text>
+    </g>
+
+    <!-- bottom bar -->
+    <rect x="0" y="780" width="1200" height="120" fill="rgba(7,8,12,0.72)"/>
+    <line x1="0" y1="780" x2="1200" y2="780" stroke="rgba(78,240,213,0.25)" stroke-width="1"/>
+
+    <g transform="translate(88 830)">
+      <circle cx="10" cy="10" r="6" fill="#4ef0d5"/>
+      <text x="32" y="16" fill="#4ef0d5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" letter-spacing="2">BENCH ACTIVE</text>
+      <text x="250" y="16" fill="#8b97ad" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" letter-spacing="1">14 OPEN PROTOTYPES · EXPERIMENTAL TECH</text>
+    </g>
+
+    <g transform="translate(980 820)">
+      <circle cx="40" cy="24" r="22" fill="none" stroke="#4ef0d5" stroke-width="1.75"/>
+      <circle cx="40" cy="24" r="7" fill="#4ef0d5"/>
+      <g stroke="#b59cff" stroke-width="1.25" opacity="0.85">
+        <path d="M40 2v8M40 38v8M18 24h8M54 24h8"/>
+      </g>
+    </g>
+  </g>
+</svg>

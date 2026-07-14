@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; media-src 'none'; worker-src 'none'; manifest-src 'none';">
+  <meta name="description" content="Gentle breathwork and meditation practices made around spacious pacing and responsive ambient form.">
+  <title>Stillroom — A quieter place inside your day</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient__orb ambient__orb--a"></div>
+    <div class="ambient__orb ambient__orb--b"></div>
+    <div class="ambient__orb ambient__orb--c"></div>
+  </div>
+
+  <div class="shell">
+    <header class="site-header">
+      <a class="brand" href="#top" id="top">
+        <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="#6f8268" stroke-width="1.5" opacity="0.45"/>
+          <circle cx="20" cy="20" r="11" fill="none" stroke="#b8926a" stroke-width="1.25" opacity="0.55"/>
+          <circle cx="20" cy="20" r="5.5" fill="#6f8268"/>
+        </svg>
+        <span class="brand__name">Stillroom</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#practices">Practices</a>
+        <a href="#session">Session</a>
+        <a href="#approach">Approach</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">Daily practices for calm</p>
+          <h1 id="hero-title">A quieter place inside your day.</h1>
+          <p class="hero__lead">
+            Stillroom offers gentle breathwork and meditation with spacious pacing —
+            soft guidance, ambient form, and room to simply arrive.
+          </p>
+          <div class="hero__actions">
+            <button type="button" class="btn btn--primary" id="btn-begin-hero">Begin a session</button>
+            <a class="btn btn--ghost" href="#practices">Explore practices</a>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="Breath preview">
+          <p class="hero-panel__label">Ambient breath</p>
+          <div class="pulse-stage">
+            <div class="pulse-ring pulse-ring--outer"></div>
+            <div class="pulse-ring"></div>
+            <div class="pulse-core"></div>
+          </div>
+          <p class="hero-panel__note">Nothing to perform. Only a rhythm to follow if it helps.</p>
+        </aside>
+      </section>
+
+      <section class="section" id="practices" aria-labelledby="practices-title">
+        <div class="section__head">
+          <div>
+            <h2 id="practices-title">Practices</h2>
+            <p>Four short forms. Choose one, settle in, and let the room hold the pace.</p>
+          </div>
+        </div>
+        <div class="practice-grid">
+          <article class="card">
+            <div class="card__meta">
+              <span>Breathwork</span>
+              <span class="card__swatch" style="background:#6f8268" aria-hidden="true"></span>
+            </div>
+            <h3>Soft Wave</h3>
+            <p>A gentle rising and falling breath for settling the nervous system.</p>
+            <div class="card__footer">
+              <span class="card__duration">3 min</span>
+              <button type="button" class="btn btn--primary" data-practice="softwave">Open</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__meta">
+              <span>Balance</span>
+              <span class="card__swatch" style="background:#b8926a" aria-hidden="true"></span>
+            </div>
+            <h3>Still Box</h3>
+            <p>Equal counts for balance — inhale, hold, exhale, hold.</p>
+            <div class="card__footer">
+              <span class="card__duration">4 min</span>
+              <button type="button" class="btn btn--primary" data-practice="box">Open</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__meta">
+              <span>Quiet</span>
+              <span class="card__swatch" style="background:#8a847a" aria-hidden="true"></span>
+            </div>
+            <h3>Still Point</h3>
+            <p>Longer exhales to arrive in quiet awareness.</p>
+            <div class="card__footer">
+              <span class="card__duration">5 min</span>
+              <button type="button" class="btn btn--primary" data-practice="stillpoint">Open</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__meta">
+              <span>Evening</span>
+              <span class="card__swatch" style="background:#9aab9e" aria-hidden="true"></span>
+            </div>
+            <h3>Evening Softening</h3>
+            <p>A slower cadence for the last light of the day.</p>
+            <div class="card__footer">
+              <span class="card__duration">6 min</span>
+              <button type="button" class="btn btn--primary" data-practice="evening">Open</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="session" aria-labelledby="session-heading">
+        <div class="section__head">
+          <div>
+            <h2 id="session-heading">Session room</h2>
+            <p>Select a practice above, or begin Soft Wave to enter the room.</p>
+          </div>
+        </div>
+
+        <div class="session" id="session-panel" role="region" aria-live="polite" aria-atomic="false">
+          <div class="session__top">
+            <div>
+              <h2 id="session-title">Soft Wave</h2>
+              <p id="session-desc">A gentle rising and falling breath for settling the nervous system.</p>
+            </div>
+            <button type="button" class="btn btn--quiet" id="btn-close-session">Close</button>
+          </div>
+
+          <div class="session-stage">
+            <div class="breath-visual" aria-hidden="true">
+              <div class="breath-visual__halo"></div>
+              <div class="breath-visual__mid"></div>
+              <div class="breath-circle" id="breath-circle"></div>
+              <div class="phase-label" id="phase-label">Ready</div>
+            </div>
+
+            <div class="session-meta">
+              <div class="stat-row">
+                <div class="stat">
+                  <span class="stat__value" id="time-left">3:00</span>
+                  <span class="stat__label">Remaining</span>
+                </div>
+                <div class="stat">
+                  <span class="stat__value" id="phase-time">0:00</span>
+                  <span class="stat__label">Phase</span>
+                </div>
+                <div class="stat">
+                  <span class="stat__value" id="cycle-count">0</span>
+                  <span class="stat__label">Cycles</span>
+                </div>
+              </div>
+
+              <div class="cue" id="cue-text">
+                <strong>Ready when you are.</strong> Choose Begin to start the guided rhythm.
+              </div>
+
+              <div class="session-controls">
+                <button type="button" class="btn btn--primary" id="btn-start">Begin</button>
+                <button type="button" class="btn btn--ghost" id="btn-pause" disabled>Pause</button>
+                <button type="button" class="btn btn--quiet" id="btn-reset">Reset</button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="progress"
+            role="progressbar"
+            aria-label="Session progress"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+          >
+            <div class="progress__bar" id="progress-bar"></div>
+          </div>
+        </div>
+
+        <p class="hero-panel__note" style="margin-top:1rem;text-align:left;max-width:36rem">
+          Sessions run entirely on this page — no accounts, timers in the cloud, or outside services.
+          Press Escape to close an open session.
+        </p>
+      </section>
+
+      <section class="section" id="approach" aria-labelledby="approach-title">
+        <div class="section__head">
+          <div>
+            <h2 id="approach-title">How Stillroom moves</h2>
+            <p>Designed for calm attention, not achievement.</p>
+          </div>
+        </div>
+        <div class="approach">
+          <article class="approach-item">
+            <p class="approach-item__num" aria-hidden="true">01</p>
+            <h3>Spacious pacing</h3>
+            <p>Phases unfold slowly. There is time between counts to notice the body without rushing the next instruction.</p>
+          </article>
+          <article class="approach-item">
+            <p class="approach-item__num" aria-hidden="true">02</p>
+            <h3>Ambient form</h3>
+            <p>Soft shapes and a responsive breath circle mirror the practice — visual cues that stay gentle rather than urgent.</p>
+          </article>
+          <article class="approach-item">
+            <p class="approach-item__num" aria-hidden="true">03</p>
+            <h3>Stay where you are</h3>
+            <p>Works offline once loaded. Keyboard, touch, and screen readers are first-class — so the room stays open to more of us.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Stillroom — a quieter place inside your day.</p>
+      <p>Wellness · offline-friendly</p>
+    </footer>
+  </div>
+
+  <div class="sr-only" id="live-region" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

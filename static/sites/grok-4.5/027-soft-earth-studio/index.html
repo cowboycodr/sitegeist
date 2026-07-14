@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self';">
+  <title>Soft Earth Studio — Hand-thrown ceramics</title>
+  <meta name="description" content="Imperfect vessels, studio rituals, and the landscapes held inside every glaze. Made slowly enough to keep the fingerprints.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Soft Earth Studio home">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <circle cx="20" cy="20" r="19" fill="#ebe3d4" stroke="#a85a3f" stroke-width="1.5"/>
+          <ellipse cx="20" cy="28" rx="9" ry="3.2" fill="#c4785a" opacity="0.35"/>
+          <path d="M12 26c0-7 3.2-14 8-14s8 7 8 14c0 2.4-1.4 3.5-3.2 4H15.2c-1.8-.5-3.2-1.6-3.2-4z" fill="#c4785a"/>
+          <path d="M14.5 22c1.5-1 4-1.5 5.5-1.5s4 .5 5.5 1.5" fill="none" stroke="#f4efe6" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+          <ellipse cx="20" cy="12" rx="4.2" ry="2" fill="#a85a3f"/>
+        </svg>
+        <span class="brand-text">Soft Earth Studio</span>
+      </a>
+
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#philosophy">Philosophy</a></li>
+          <li><a href="#work">Available work</a></li>
+          <li><a href="#glaze">Glaze</a></li>
+          <li><a href="#studio">Studio</a></li>
+          <li><a class="nav-cta" href="#work">View available work</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Hand-thrown ceramics</p>
+          <h1 id="hero-title">Soft Earth Studio</h1>
+          <p class="hero-tagline">Made slowly enough to keep the fingerprints.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#work">View available work</a>
+            <a class="btn btn-secondary" href="#studio">Visit the studio</a>
+          </div>
+          <p class="hero-note">
+            Small-batch vessels thrown on the wheel in a quiet hillside studio—
+            each piece carrying the soft irregularities of hand and clay.
+          </p>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 400 420" role="img" focusable="false">
+            <defs>
+              <linearGradient id="potBody" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#e8c4a8"/>
+                <stop offset="45%" stop-color="#c4785a"/>
+                <stop offset="100%" stop-color="#8f4a35"/>
+              </linearGradient>
+              <linearGradient id="potRim" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#d4a07a"/>
+                <stop offset="100%" stop-color="#a85a3f"/>
+              </linearGradient>
+              <radialGradient id="glazeSpot" cx="35%" cy="35%" r="55%">
+                <stop offset="0%" stop-color="#7a9a8e" stop-opacity="0.55"/>
+                <stop offset="100%" stop-color="#5b7c7a" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <!-- soft ground -->
+            <ellipse cx="200" cy="360" rx="120" ry="22" fill="#3d2b22" opacity="0.1"/>
+            <!-- tall vessel -->
+            <path d="M145 330c-8-40-6-100 8-150 6-22 22-48 47-48s41 26 47 48c14 50 16 110 8 150-2 12-12 18-28 20h-54c-16-2-26-8-28-20z" fill="url(#potBody)"/>
+            <ellipse cx="200" cy="132" rx="48" ry="14" fill="url(#potRim)"/>
+            <ellipse cx="200" cy="132" rx="32" ry="8" fill="#3d2b22" opacity="0.25"/>
+            <ellipse cx="200" cy="330" rx="55" ry="12" fill="#6b3f2e" opacity="0.35"/>
+            <path d="M160 200c20-12 60-12 80 0" fill="none" stroke="#f4efe6" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
+            <path d="M155 250c25-10 65-10 90 0" fill="none" stroke="#f4efe6" stroke-width="1.5" opacity="0.25" stroke-linecap="round"/>
+            <circle cx="175" cy="220" r="28" fill="url(#glazeSpot)"/>
+            <!-- small cup -->
+            <path d="M268 310c-2-28 4-52 18-52s20 24 18 52c-1 8-6 12-14 13h-8c-8-1-13-5-14-13z" fill="#b8957e"/>
+            <ellipse cx="286" cy="258" rx="18" ry="6" fill="#d4b496"/>
+            <ellipse cx="286" cy="258" rx="11" ry="3.5" fill="#3d2b22" opacity="0.2"/>
+            <!-- bowl left -->
+            <path d="M95 318c-2-22 12-42 35-42s37 20 35 42c-1 10-10 14-22 15h-26c-12-1-21-5-22-15z" fill="#8a9a7c"/>
+            <ellipse cx="130" cy="276" rx="36" ry="10" fill="#a3b395"/>
+            <ellipse cx="130" cy="276" rx="24" ry="6" fill="#3d2b22" opacity="0.15"/>
+          </svg>
+          <div class="hero-badge">
+            <span>Thrown by hand. Fired with care.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section philosophy" id="philosophy" aria-labelledby="philosophy-title">
+      <div class="container">
+        <p class="eyebrow" style="color:#c4785a">Studio philosophy</p>
+        <h2 class="section-title" id="philosophy-title">Imperfect vessels, held with intention</h2>
+        <p class="lede">
+          We throw slowly so the clay can answer back. Fingerprints stay.
+          Asymmetry is welcome. Nothing here pretends to be machine-made.
+        </p>
+
+        <div class="philosophy-grid">
+          <div class="philosophy-text">
+            <p>
+              Soft Earth Studio began with a single kick-wheel and a desire to make
+              objects that feel alive in the hand—cups that warm with use, bowls that
+              remember the meal, jars that hold more than storage.
+            </p>
+            <p>
+              Every form passes through the same quiet rituals: wedging, centering,
+              trimming, bisque, glaze, and a final firing where landscapes settle
+              into the surface. No two pieces leave the kiln the same.
+            </p>
+            <p>
+              We work in small editions and one-of-a-kind vessels. When a batch is
+              finished, it is finished. The next clay cycle will write its own story.
+            </p>
+          </div>
+
+          <div class="ritual-cards" aria-label="Studio rituals">
+            <article class="ritual-card">
+              <h3>Morning wedge</h3>
+              <p>Clay is kneaded until air leaves and the body softens—an unhurried start that sets the rhythm of the day.</p>
+            </article>
+            <article class="ritual-card">
+              <h3>Wheel stillness</h3>
+              <p>Forms rise with light pressure and wet hands. We stop when the silhouette feels honest, not when it looks perfect.</p>
+            </article>
+            <article class="ritual-card">
+              <h3>Glaze weather</h3>
+              <p>Each dip and pour is a small climate: misted rims, pooled feet, and mineral skies that only fire can finish.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <div class="work-header">
+          <div>
+            <p class="eyebrow">Current kiln load</p>
+            <h2 class="section-title" id="work-title">Available work</h2>
+            <p class="lede">
+              Six vessels from the spring firing—ready for quiet tables and open shelves.
+            </p>
+          </div>
+          <a class="btn btn-secondary" href="#studio">Inquire at the studio</a>
+        </div>
+
+        <div class="work-grid">
+          <article class="piece">
+            <div class="piece-visual piece-a" aria-hidden="true">
+              <svg viewBox="0 0 160 200" focusable="false">
+                <ellipse cx="80" cy="185" rx="42" ry="8" fill="#3d2b22" opacity="0.1"/>
+                <path d="M48 175c-6-35-4-85 8-120 5-16 18-32 24-32s19 16 24 32c12 35 14 85 8 120-2 10-10 14-22 15H70c-12-1-20-5-22-15z" fill="#c4785a"/>
+                <ellipse cx="80" cy="55" rx="28" ry="9" fill="#d49272"/>
+                <ellipse cx="80" cy="55" rx="16" ry="5" fill="#3d2b22" opacity="0.22"/>
+                <path d="M55 100c18-8 32-8 50 0" fill="none" stroke="#f4efe6" stroke-width="1.5" opacity="0.4"/>
+              </svg>
+            </div>
+            <div class="piece-body">
+              <span class="piece-meta">Bud vase · Stoneware</span>
+              <h3>Riverbank Vase</h3>
+              <p>Tall silhouette with a soft terracotta body and a thin ash wash along the shoulder.</p>
+              <p class="piece-price">$68</p>
+            </div>
+          </article>
+
+          <article class="piece">
+            <div class="piece-visual piece-b" aria-hidden="true">
+              <svg viewBox="0 0 160 200" focusable="false">
+                <ellipse cx="80" cy="185" rx="48" ry="8" fill="#3d2b22" opacity="0.1"/>
+                <path d="M40 170c-4-20 12-55 40-55s44 35 40 55c-2 12-12 16-26 17H66c-14-1-24-5-26-17z" fill="#6f7f64"/>
+                <ellipse cx="80" cy="115" rx="42" ry="12" fill="#8a9a7c"/>
+                <ellipse cx="80" cy="115" rx="28" ry="7" fill="#3d2b22" opacity="0.12"/>
+                <path d="M50 145c20-6 40-6 60 0" fill="none" stroke="#f4efe6" stroke-width="1.4" opacity="0.35"/>
+              </svg>
+            </div>
+            <div class="piece-body">
+              <span class="piece-meta">Serving bowl · Stoneware</span>
+              <h3>Moss Bowl</h3>
+              <p>Wide open form glazed in quiet sage—meant for shared salads and late-night fruit.</p>
+              <p class="piece-price">$92</p>
+            </div>
+          </article>
+
+          <article class="piece">
+            <div class="piece-visual piece-c" aria-hidden="true">
+              <svg viewBox="0 0 160 200" focusable="false">
+                <ellipse cx="80" cy="185" rx="38" ry="7" fill="#3d2b22" opacity="0.1"/>
+                <path d="M52 170c-3-40 6-80 18-95 6-8 16-12 10-12s4 4 10 12c12 15 21 55 18 95-1 9-8 13-18 14H70c-10-1-17-5-18-14z" fill="#b07a5c"/>
+                <ellipse cx="80" cy="75" rx="20" ry="7" fill="#c49278"/>
+                <ellipse cx="80" cy="75" rx="12" ry="4" fill="#3d2b22" opacity="0.2"/>
+                <path d="M58 120c14-10 30-10 44 0" fill="none" stroke="#e8d5c4" stroke-width="2" opacity="0.5"/>
+                <circle cx="70" cy="135" r="10" fill="#5b7c7a" opacity="0.35"/>
+              </svg>
+            </div>
+            <div class="piece-body">
+              <span class="piece-meta">Pourer · Porcelain blend</span>
+              <h3>Thumb Pitcher</h3>
+              <p>A small pourer with a thumb-rest handle and a glaze that pools like rainwater.</p>
+              <p class="piece-price">$78</p>
+            </div>
+          </article>
+
+          <article class="piece">
+            <div class="piece-visual piece-d" aria-hidden="true">
+              <svg viewBox="0 0 160 200" focusable="false">
+                <ellipse cx="80" cy="185" rx="40" ry="7" fill="#3d2b22" opacity="0.1"/>
+                <path d="M50 165c-4-35 8-70 20-85 7-9 16-14 10-14s3 5 10 14c12 15 24 50 20 85-1 10-8 14-20 15H70c-12-1-19-5-20-15z" fill="#5b7c7a"/>
+                <ellipse cx="80" cy="80" rx="22" ry="8" fill="#7a9a98"/>
+                <ellipse cx="80" cy="80" rx="13" ry="4.5" fill="#3d2b22" opacity="0.18"/>
+                <path d="M58 125c12-14 32-14 44 0" fill="none" stroke="#d8e4e2" stroke-width="1.6" opacity="0.45"/>
+              </svg>
+            </div>
+            <div class="piece-body">
+              <span class="piece-meta">Tumbler · Stoneware</span>
+              <h3>Tide Cup</h3>
+              <p>Everyday drinking vessel in a cool coastal glaze, slightly tapered for the palm.</p>
+              <p class="piece-price">$42</p>
+            </div>
+          </article>
+
+          <article class="piece">
+            <div class="piece-visual piece-e" aria-hidden="true">
+              <svg viewBox="0 0 160 200" focusable="false">
+                <ellipse cx="80" cy="185" rx="50" ry="8" fill="#3d2b22" opacity="0.1"/>
+                <path d="M35 160c0-18 18-40 45-40s45 22 45 40c0 14-14 20-30 22H65c-16-2-30-8-30-22z" fill="#c4a882"/>
+                <ellipse cx="80" cy="120" rx="48" ry="14" fill="#d4bc98"/>
+                <ellipse cx="80" cy="120" rx="32" ry="8" fill="#3d2b22" opacity="0.12"/>
+                <path d="M45 148c22-8 48-8 70 0" fill="none" stroke="#f4efe6" stroke-width="1.5" opacity="0.4"/>
+              </svg>
+            </div>
+            <div class="piece-body">
+              <span class="piece-meta">Nesting dish · Earthenware</span>
+              <h3>Low Ridge Bowl</h3>
+              <p>Shallow dish with a raised foot—useful for olives, keys, or a single citrus.</p>
+              <p class="piece-price">$54</p>
+            </div>
+          </article>
+
+          <article class="piece">
+            <div class="piece-visual piece-f" aria-hidden="true">
+              <svg viewBox="0 0 160 200" focusable="false">
+                <ellipse cx="80" cy="185" rx="44" ry="8" fill="#3d2b22" opacity="0.1"/>
+                <path d="M46 172c-8-45-2-95 14-120 6-10 20-18 20-18s14 8 20 18c16 25 22 75 14 120-2 10-12 14-26 15H72c-14-1-24-5-26-15z" fill="#a85a3f"/>
+                <ellipse cx="80" cy="52" rx="24" ry="8" fill="#c4785a"/>
+                <ellipse cx="80" cy="52" rx="14" ry="4.5" fill="#3d2b22" opacity="0.2"/>
+                <path d="M55 95c16-12 34-12 50 0M52 130c20-10 36-10 56 0" fill="none" stroke="#e8d5c4" stroke-width="1.5" opacity="0.4"/>
+              </svg>
+            </div>
+            <div class="piece-body">
+              <span class="piece-meta">Lidded jar · Stoneware</span>
+              <h3>Fingerprint Jar</h3>
+              <p>Storage jar with a lid that still shows the thrower’s spiral—made for tea leaves or salt.</p>
+              <p class="piece-price">$110</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section landscapes" id="glaze" aria-labelledby="glaze-title">
+      <div class="container">
+        <p class="eyebrow">Surface &amp; fire</p>
+        <h2 class="section-title" id="glaze-title">Landscapes held inside every glaze</h2>
+        <p class="lede">
+          Minerals, ash, and heat write weather onto clay. We mix small glaze batches
+          so each kiln load keeps a private climate.
+        </p>
+
+        <div class="landscape-grid">
+          <div class="glaze-panel" aria-hidden="true">
+            <svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <defs>
+                <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#8aa0a8"/>
+                  <stop offset="40%" stop-color="#c4b8a4"/>
+                  <stop offset="75%" stop-color="#c4785a"/>
+                  <stop offset="100%" stop-color="#6b3f2e"/>
+                </linearGradient>
+                <linearGradient id="hillA" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#7a8b6f"/>
+                  <stop offset="100%" stop-color="#4a5a44"/>
+                </linearGradient>
+                <linearGradient id="hillB" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#a85a3f"/>
+                  <stop offset="100%" stop-color="#5c3224"/>
+                </linearGradient>
+                <radialGradient id="sun" cx="70%" cy="28%" r="20%">
+                  <stop offset="0%" stop-color="#f4efe6" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="#f4efe6" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <rect width="640" height="400" fill="url(#sky)"/>
+              <circle cx="450" cy="110" r="90" fill="url(#sun)"/>
+              <path d="M0 250c60-40 120-50 190-30 70 20 100 10 160-20 55-28 110-20 160 5 40 20 80 15 130-10v205H0z" fill="url(#hillA)" opacity="0.85"/>
+              <path d="M0 300c80-35 140-55 220-35 70 18 120 5 180-25 55-28 100-20 150 10 40 22 60 18 90 5v145H0z" fill="url(#hillB)"/>
+              <path d="M0 340c90-20 160-40 250-20s140 10 220-15c50-16 100-10 170 15v80H0z" fill="#3d2b22" opacity="0.45"/>
+              <!-- fingerprint-like glaze drips -->
+              <path d="M120 180c8 30 4 60 0 90" fill="none" stroke="#f4efe6" stroke-width="1.2" opacity="0.25"/>
+              <path d="M200 160c10 40 6 80 2 120" fill="none" stroke="#f4efe6" stroke-width="1" opacity="0.2"/>
+              <path d="M380 150c-6 35 2 70 8 110" fill="none" stroke="#f4efe6" stroke-width="1.1" opacity="0.22"/>
+              <ellipse cx="300" cy="210" rx="70" ry="18" fill="#5b7c7a" opacity="0.25"/>
+            </svg>
+          </div>
+
+          <ul class="glaze-list">
+            <li>
+              <h3>River ash</h3>
+              <p>Local hardwood ash yields a soft olive sheen that breaks pale over rims and edges.</p>
+            </li>
+            <li>
+              <h3>Clay blush</h3>
+              <p>Iron-rich slips flash warm where the flame touches longest—never quite the same twice.</p>
+            </li>
+            <li>
+              <h3>Tide glass</h3>
+              <p>A thin celadon that pools cool in the belly of a cup and thins to a whisper on the lip.</p>
+            </li>
+            <li>
+              <h3>Umber earth</h3>
+              <p>Matte, dry, and grounded—the color of turned soil after rain.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section visit" id="studio" aria-labelledby="studio-title">
+      <div class="container">
+        <div class="visit-card">
+          <div class="visit-copy">
+            <p class="eyebrow">Open by appointment</p>
+            <h2 class="section-title" id="studio-title">Visit the studio</h2>
+            <p class="lede">
+              The shelves change with each firing. Come see what left the kiln,
+              feel the weight of a piece, and leave with something made slowly.
+            </p>
+
+            <dl class="visit-details">
+              <div class="visit-detail">
+                <dt>Where</dt>
+                <dd>14 Quarry Lane, Ridge Hollow</dd>
+              </div>
+              <div class="visit-detail">
+                <dt>Hours</dt>
+                <dd>Thu–Sat, 11:00–17:00 · or by arrangement</dd>
+              </div>
+              <div class="visit-detail">
+                <dt>Contact</dt>
+                <dd>hello@softearth.studio</dd>
+              </div>
+            </dl>
+
+            <div class="btn-row">
+              <a class="btn btn-primary" href="#work">View available work</a>
+              <a class="btn btn-secondary" href="#top">Back to top</a>
+            </div>
+          </div>
+
+          <div class="visit-map" aria-hidden="true">
+            <svg viewBox="0 0 280 240" focusable="false">
+              <rect x="20" y="30" width="240" height="170" rx="16" fill="#ebe3d4" opacity="0.55"/>
+              <!-- paths / contour lines -->
+              <path d="M40 160c40-20 70-10 100 5s70 10 100-15" fill="none" stroke="#6b3f2e" stroke-width="1.5" opacity="0.35"/>
+              <path d="M45 130c35-15 80-5 110 10s75 5 95-20" fill="none" stroke="#6b3f2e" stroke-width="1.2" opacity="0.25"/>
+              <path d="M50 100c30-20 90-15 120 5s70-5 90-25" fill="none" stroke="#6b3f2e" stroke-width="1" opacity="0.2"/>
+              <!-- studio mark -->
+              <circle cx="150" cy="120" r="18" fill="#a85a3f"/>
+              <circle cx="150" cy="120" r="8" fill="#f4efe6"/>
+              <path d="M150 70v20M150 150v20M100 120h20M180 120h20" stroke="#a85a3f" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+              <!-- small pots silhouette -->
+              <path d="M70 185c0-12 6-20 12-20s12 8 12 20h-24z" fill="#c4785a" opacity="0.7"/>
+              <path d="M200 185c0-14 8-24 15-24s15 10 15 24h-30z" fill="#6f7f64" opacity="0.7"/>
+            </svg>
+            <p class="visit-map-label">Ridge Hollow hillside · look for the kiln shed</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <p class="footer-brand">Soft Earth Studio</p>
+          <p class="footer-tag">Made slowly enough to keep the fingerprints.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="#philosophy">Philosophy</a>
+          <a href="#work">Available work</a>
+          <a href="#glaze">Glaze</a>
+          <a href="#studio">Visit</a>
+        </nav>
+      </div>
+      <div class="footer-base">
+        <span>Hand-thrown ceramics · Ridge Hollow</span>
+        <span>© Soft Earth Studio</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

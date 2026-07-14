@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Kinetic Type — Letters made to move.</title>
+  <meta name="description" content="Experimental typefaces for screens, identities, motion systems, and formats still to come.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="shell header-inner">
+      <a class="logo" href="#top" aria-label="Kinetic Type home">
+        <span class="logo-mark" aria-hidden="true">K</span>
+        <span class="logo-text">Kinetic Type</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" data-nav-toggle>
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+          <span class="visually-hidden">Menu</span>
+        </button>
+        <ul class="nav-list" id="nav-menu" data-nav-menu>
+          <li><a href="#faces">Typefaces</a></li>
+          <li><a href="#lab">Variable Lab</a></li>
+          <li><a href="#systems">Systems</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-small header-cta" href="#faces">Browse typefaces</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true">
+        <span class="hero-letter" style="--i:0">K</span>
+        <span class="hero-letter" style="--i:1">I</span>
+        <span class="hero-letter" style="--i:2">N</span>
+        <span class="hero-letter" style="--i:3">E</span>
+        <span class="hero-letter" style="--i:4">T</span>
+        <span class="hero-letter" style="--i:5">I</span>
+        <span class="hero-letter" style="--i:6">C</span>
+      </div>
+      <div class="shell hero-content">
+        <p class="eyebrow">Independent type foundry</p>
+        <h1 id="hero-title" class="hero-title">
+          <span class="hero-line">Letters made</span>
+          <span class="hero-line accent">to move.</span>
+        </h1>
+        <p class="hero-lede">
+          Experimental typefaces for screens, identities, motion systems,
+          and formats still to come.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#faces">Browse typefaces</a>
+          <a class="btn btn-ghost" href="#lab">Try the variable lab</a>
+        </div>
+        <dl class="hero-stats" aria-label="Foundry snapshot">
+          <div>
+            <dt>Release families</dt>
+            <dd>12</dd>
+          </div>
+          <div>
+            <dt>Variable axes</dt>
+            <dd>28</dd>
+          </div>
+          <div>
+            <dt>Motion-ready</dt>
+            <dd>100%</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Weight</span><span>Width</span><span>Optical</span><span>Italic</span>
+        <span>Slant</span><span>Grade</span><span>Contrast</span><span>Softness</span>
+        <span>Weight</span><span>Width</span><span>Optical</span><span>Italic</span>
+        <span>Slant</span><span>Grade</span><span>Contrast</span><span>Softness</span>
+      </div>
+    </section>
+
+    <section class="faces" id="faces" aria-labelledby="faces-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Catalog</p>
+          <h2 id="faces-title">Typefaces built for motion</h2>
+          <p class="section-lede">
+            Each family ships with static cuts and variable fonts engineered for
+            UI transitions, kinetic identity systems, and high-refresh screens.
+          </p>
+        </div>
+
+        <div class="face-filters" role="group" aria-label="Filter typefaces">
+          <button type="button" class="filter-chip is-active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter-chip" data-filter="display" aria-pressed="false">Display</button>
+          <button type="button" class="filter-chip" data-filter="text" aria-pressed="false">Text</button>
+          <button type="button" class="filter-chip" data-filter="mono" aria-pressed="false">Mono</button>
+          <button type="button" class="filter-chip" data-filter="variable" aria-pressed="false">Variable</button>
+        </div>
+
+        <ul class="face-grid" data-face-grid>
+          <li class="face-card" data-tags="display variable" tabindex="0">
+            <div class="face-sample face-sample-orbit">ORBIT</div>
+            <div class="face-meta">
+              <h3>Orbit Display</h3>
+              <p>Wide geometric display with orbital counters and 3 axes.</p>
+              <ul class="face-tags">
+                <li>Display</li>
+                <li>Variable</li>
+                <li>wdth · wght · opsz</li>
+              </ul>
+            </div>
+          </li>
+          <li class="face-card" data-tags="text variable" tabindex="0">
+            <div class="face-sample face-sample-pulse">Pulse Sans</div>
+            <div class="face-meta">
+              <h3>Pulse Sans</h3>
+              <p>Humanist UI sans with grade axis for light-on-dark screens.</p>
+              <ul class="face-tags">
+                <li>Text</li>
+                <li>Variable</li>
+                <li>wght · GRAD · ital</li>
+              </ul>
+            </div>
+          </li>
+          <li class="face-card" data-tags="display" tabindex="0">
+            <div class="face-sample face-sample-vector">VECTOR</div>
+            <div class="face-meta">
+              <h3>Vector Black</h3>
+              <p>High-contrast poster face for titles that snap into place.</p>
+              <ul class="face-tags">
+                <li>Display</li>
+                <li>Static</li>
+                <li>7 weights</li>
+              </ul>
+            </div>
+          </li>
+          <li class="face-card" data-tags="mono variable" tabindex="0">
+            <div class="face-sample face-sample-chrono">chrono()</div>
+            <div class="face-meta">
+              <h3>Chrono Mono</h3>
+              <p>Coding and motion-data mono with tabular timing figures.</p>
+              <ul class="face-tags">
+                <li>Mono</li>
+                <li>Variable</li>
+                <li>wght · slnt</li>
+              </ul>
+            </div>
+          </li>
+          <li class="face-card" data-tags="text" tabindex="0">
+            <div class="face-sample face-sample-ledger">Ledger</div>
+            <div class="face-meta">
+              <h3>Ledger Serif</h3>
+              <p>Editorial serif with soft terminals for long-form reading.</p>
+              <ul class="face-tags">
+                <li>Text</li>
+                <li>Static</li>
+                <li>4 optical sizes</li>
+              </ul>
+            </div>
+          </li>
+          <li class="face-card" data-tags="display variable" tabindex="0">
+            <div class="face-sample face-sample-flux">FLUX</div>
+            <div class="face-meta">
+              <h3>Flux Condensed</h3>
+              <p>Compressed kinetic caps that morph cleanly across width.</p>
+              <ul class="face-tags">
+                <li>Display</li>
+                <li>Variable</li>
+                <li>wdth · wght</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="lab" id="lab" aria-labelledby="lab-title">
+      <div class="shell lab-layout">
+        <div class="lab-copy">
+          <p class="eyebrow">Interactive</p>
+          <h2 id="lab-title">Variable Lab</h2>
+          <p class="section-lede">
+            Drag the axes. Watch letterforms reweight, stretch, and soft-focus
+            in real time — the same behavior our fonts deliver inside product UIs.
+          </p>
+          <div class="lab-controls">
+            <label class="control">
+              <span class="control-label">
+                <span>Weight</span>
+                <output for="axis-weight" data-out-weight>400</output>
+              </span>
+              <input id="axis-weight" type="range" min="100" max="900" value="400" step="1" data-axis="weight">
+            </label>
+            <label class="control">
+              <span class="control-label">
+                <span>Width</span>
+                <output for="axis-width" data-out-width>100</output>
+              </span>
+              <input id="axis-width" type="range" min="75" max="150" value="100" step="1" data-axis="width">
+            </label>
+            <label class="control">
+              <span class="control-label">
+                <span>Slant</span>
+                <output for="axis-slant" data-out-slant>0°</output>
+              </span>
+              <input id="axis-slant" type="range" min="-12" max="12" value="0" step="1" data-axis="slant">
+            </label>
+            <label class="control">
+              <span class="control-label">
+                <span>Tracking</span>
+                <output for="axis-track" data-out-track>0</output>
+              </span>
+              <input id="axis-track" type="range" min="-4" max="16" value="0" step="1" data-axis="track">
+            </label>
+            <label class="control control-text">
+              <span class="control-label"><span>Sample text</span></span>
+              <input id="sample-text" type="text" value="MOVE" maxlength="18" autocomplete="off" spellcheck="false" data-sample-input aria-label="Sample text for the variable lab">
+            </label>
+            <div class="lab-presets" role="group" aria-label="Axis presets">
+              <button type="button" class="filter-chip" data-preset="neutral">Neutral</button>
+              <button type="button" class="filter-chip" data-preset="poster">Poster</button>
+              <button type="button" class="filter-chip" data-preset="ui">UI</button>
+              <button type="button" class="filter-chip" data-preset="kinetic">Kinetic</button>
+            </div>
+          </div>
+        </div>
+        <div class="lab-stage" aria-live="polite">
+          <p class="lab-preview" data-lab-preview>MOVE</p>
+          <p class="lab-caption">Simulated variable rendering · no external fonts required</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="systems" id="systems" aria-labelledby="systems-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Beyond the font file</p>
+          <h2 id="systems-title">Motion systems, not just glyphs</h2>
+          <p class="section-lede">
+            We design type as timed behavior — easing, optical compensation, and
+            axis choreography that holds up from a 12px caption to a stadium screen.
+          </p>
+        </div>
+        <div class="system-grid">
+          <article class="system-card">
+            <div class="system-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M8 32c8-16 24-16 32 0" stroke="currentColor" stroke-width="2"/><path d="M8 20c8-12 24-12 32 0" stroke="currentColor" stroke-width="2" opacity=".45"/><circle cx="24" cy="36" r="2.5" fill="currentColor"/></svg>
+            </div>
+            <h3>Axis choreography</h3>
+            <p>Documented weight/width curves so product and motion teams animate the same interpolations we master in the foundry.</p>
+          </article>
+          <article class="system-card">
+            <div class="system-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="10" width="32" height="28" rx="3" stroke="currentColor" stroke-width="2"/><path d="M14 30h8M14 24h20M14 18h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Screen-first metrics</h3>
+            <p>Hinting strategies, optical sizes, and grade axes tuned for OLED, e-ink, and mixed-DPI product surfaces.</p>
+          </article>
+          <article class="system-card">
+            <div class="system-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M12 36V12h10a8 8 0 010 16H12" stroke="currentColor" stroke-width="2"/><path d="M28 36l12-24M40 36L28 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Identity kits</h3>
+            <p>Logotype masters, kinetic lockups, and usage rules that keep brand type legible while it moves.</p>
+          </article>
+          <article class="system-card">
+            <div class="system-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="2"/><path d="M24 14v10l7 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Licensing for motion</h3>
+            <p>Clear desktop, web, app, and broadcast terms — including sequences where letters change form over time.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="shell about-layout">
+        <div>
+          <p class="eyebrow">Studio</p>
+          <h2 id="about-title">Type for the next format</h2>
+          <p class="about-body">
+            Kinetic Type is an independent foundry focused on letterforms that
+            perform under change — scroll, hover, resize, and real-time data.
+            We release retail families and collaborate with product, film, and
+            cultural studios on custom systems.
+          </p>
+          <p class="about-body">
+            Every face is drawn for screens first, then proven in print. Every
+            variable axis is stress-tested in motion before it ships.
+          </p>
+        </div>
+        <aside class="about-panel" aria-label="Foundry details">
+          <h3>Practice notes</h3>
+          <ul>
+            <li>Independent · founded for experimental screen type</li>
+            <li>Retail + custom commissions</li>
+            <li>Variable fonts with documented motion recipes</li>
+            <li>Desktop, web, app, and broadcast licensing</li>
+          </ul>
+          <a class="btn btn-primary about-cta" href="#faces">Browse typefaces</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="cta-band" aria-labelledby="cta-title">
+      <div class="shell cta-inner">
+        <h2 id="cta-title">Ready when the letters need to move.</h2>
+        <p>Explore the catalog or open the lab and start shaping a kinetic lockup.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#faces">Browse typefaces</a>
+          <a class="btn btn-ghost" href="#lab">Try the variable lab</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark" aria-hidden="true">K</span>
+        <div>
+          <strong>Kinetic Type</strong>
+          <p>Letters made to move.</p>
+        </div>
+      </div>
+      <nav aria-label="Footer">
+        <ul class="footer-links">
+          <li><a href="#faces">Typefaces</a></li>
+          <li><a href="#lab">Variable Lab</a></li>
+          <li><a href="#systems">Systems</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+      <p class="footer-note">Independent type foundry · Experimental screen type · No network required</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Clearwater Index — Know where every drop goes</title>
+  <meta name="description" content="A public information service explaining water supply, maintenance, quality, and long-term infrastructure planning.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Clearwater Index home">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <rect width="40" height="40" rx="10" fill="#0a5c63"/>
+          <path d="M20 8c-5.5 8-9 12.2-9 16.2a9 9 0 0 0 18 0C29 20.2 25.5 16 20 8z" fill="#a8e0e8"/>
+          <path d="M14 24.5c1.2 2.8 3.4 4.2 6 4.2s4.8-1.4 6-4.2" fill="none" stroke="#0e7c86" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">Clearwater Index</span>
+          <span class="brand-sub">Public water data</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#system">System</a></li>
+          <li><a href="#supply">Supply</a></li>
+          <li><a href="#quality">Quality</a></li>
+          <li><a href="#maintenance">Maintenance</a></li>
+          <li><a href="#planning">Planning</a></li>
+          <li><a href="#methodology">Methodology</a></li>
+          <li><a class="nav-cta" href="#system">Explore</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Water systems · Public data</p>
+          <h1 id="hero-title">Know where every drop goes.</h1>
+          <p class="hero-lead">
+            Clearwater Index is a public information service that explains how municipal
+            water is sourced, treated, delivered, monitored, and planned for the decades ahead.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#system">Explore the system</a>
+            <a class="btn btn-secondary" href="#methodology">Read the methodology</a>
+          </div>
+          <div class="stat-row" role="list">
+            <div class="stat" role="listitem">
+              <strong>142</strong>
+              <span>million gallons treated daily</span>
+            </div>
+            <div class="stat" role="listitem">
+              <strong>1,860</strong>
+              <span>miles of distribution pipe</span>
+            </div>
+            <div class="stat" role="listitem">
+              <strong>98.7%</strong>
+              <span>pressure reliability last year</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Water journey overview">
+          <h2>The water journey</h2>
+          <p>From watershed to tap, each stage is measured and published for public review.</p>
+          <div class="flow-diagram">
+            <div class="flow-steps">
+              <div class="flow-step">
+                <span class="flow-num">1</span>
+                <div>
+                  <strong>Source &amp; intake</strong>
+                  <span>Watershed storage and river diversion</span>
+                </div>
+                <span class="flow-val">4 sources</span>
+              </div>
+              <div class="flow-step">
+                <span class="flow-num">2</span>
+                <div>
+                  <strong>Treatment</strong>
+                  <span>Filtration, disinfection, corrosion control</span>
+                </div>
+                <span class="flow-val">3 plants</span>
+              </div>
+              <div class="flow-step">
+                <span class="flow-num">3</span>
+                <div>
+                  <strong>Distribution</strong>
+                  <span>Pressure zones, storage tanks, mains</span>
+                </div>
+                <span class="flow-val">12 zones</span>
+              </div>
+              <div class="flow-step">
+                <span class="flow-num">4</span>
+                <div>
+                  <strong>Monitoring</strong>
+                  <span>Quality labs, sensors, field crews</span>
+                </div>
+                <span class="flow-val">24/7</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="system" id="system" aria-labelledby="system-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-label">Explore the system</p>
+          <h2 id="system-title">How the network moves water</h2>
+          <p>
+            Select a stage to see capacity, active assets, and what operators watch most closely.
+            Figures reflect the latest published annual system report.
+          </p>
+        </div>
+
+        <div class="explorer" role="tablist" aria-label="Water system stages">
+          <div class="explorer-nav">
+            <h3>Stages</h3>
+            <button type="button" role="tab" id="tab-source" data-system-tab="source" aria-controls="panel-source" aria-selected="true">
+              <strong>Sources</strong>
+              <span>Reservoirs &amp; intakes</span>
+            </button>
+            <button type="button" role="tab" id="tab-treat" data-system-tab="treat" aria-controls="panel-treat" aria-selected="false" tabindex="-1">
+              <strong>Treatment</strong>
+              <span>Plant operations</span>
+            </button>
+            <button type="button" role="tab" id="tab-dist" data-system-tab="dist" aria-controls="panel-dist" aria-selected="false" tabindex="-1">
+              <strong>Distribution</strong>
+              <span>Pipes &amp; tanks</span>
+            </button>
+            <button type="button" role="tab" id="tab-use" data-system-tab="use" aria-controls="panel-use" aria-selected="false" tabindex="-1">
+              <strong>Demand</strong>
+              <span>Household &amp; industry</span>
+            </button>
+          </div>
+
+          <div class="explorer-panel">
+            <div class="panel is-active" role="tabpanel" id="panel-source" data-system-panel="source" aria-labelledby="tab-source">
+              <h3>Source watersheds</h3>
+              <p>
+                Raw water arrives from two protected reservoirs, one river intake with seasonal
+                pumping rights, and an emergency intertie with a neighboring utility.
+              </p>
+              <dl class="metric-grid">
+                <div class="metric">
+                  <dt>Usable storage</dt>
+                  <dd>48.2 BG</dd>
+                </div>
+                <div class="metric">
+                  <dt>Drought buffer</dt>
+                  <dd>11 months</dd>
+                </div>
+                <div class="metric">
+                  <dt>Source turbidity</dt>
+                  <dd>0.4–2.1 NTU</dd>
+                </div>
+              </dl>
+              <p class="panel-note">
+                Reservoir releases are paced to keep downstream habitat flows while matching
+                city demand curves. Intake ramps open only when river quality thresholds are met.
+              </p>
+            </div>
+
+            <div class="panel" role="tabpanel" id="panel-treat" data-system-panel="treat" aria-labelledby="tab-treat" hidden>
+              <h3>Treatment plants</h3>
+              <p>
+                Three surface-water plants combine coagulation, multi-media filtration, ultraviolet
+                disinfection, and chloramine residual for the distribution system.
+              </p>
+              <dl class="metric-grid">
+                <div class="metric">
+                  <dt>Peak capacity</dt>
+                  <dd>210 MGD</dd>
+                </div>
+                <div class="metric">
+                  <dt>Typical load</dt>
+                  <dd>68%</dd>
+                </div>
+                <div class="metric">
+                  <dt>Filter runs</dt>
+                  <dd>36–48 hrs</dd>
+                </div>
+              </dl>
+              <p class="panel-note">
+                Operators adjust chemical dosing in real time when storms raise turbidity.
+                Backup power keeps critical processes online during grid interruptions.
+              </p>
+            </div>
+
+            <div class="panel" role="tabpanel" id="panel-dist" data-system-panel="dist" aria-labelledby="tab-dist" hidden>
+              <h3>Distribution network</h3>
+              <p>
+                Pressurized mains move finished water through twelve hydraulic zones served by
+                elevated tanks, ground storage, and booster stations.
+              </p>
+              <dl class="metric-grid">
+                <div class="metric">
+                  <dt>Pipe network</dt>
+                  <dd>1,860 mi</dd>
+                </div>
+                <div class="metric">
+                  <dt>Storage tanks</dt>
+                  <dd>37</dd>
+                </div>
+                <div class="metric">
+                  <dt>Avg. pressure</dt>
+                  <dd>62 psi</dd>
+                </div>
+              </dl>
+              <p class="panel-note">
+                District metered areas help locate leaks before they surface. Night-flow analysis
+                flags zones where non-revenue water rises above seasonal norms.
+              </p>
+            </div>
+
+            <div class="panel" role="tabpanel" id="panel-use" data-system-panel="use" aria-labelledby="tab-use" hidden>
+              <h3>Customer demand</h3>
+              <p>
+                Residential use dominates summer peaks. Commercial corridors and a light industrial
+                district create steadier year-round baseline demand.
+              </p>
+              <dl class="metric-grid">
+                <div class="metric">
+                  <dt>Residential share</dt>
+                  <dd>61%</dd>
+                </div>
+                <div class="metric">
+                  <dt>Peak summer day</dt>
+                  <dd>178 MGD</dd>
+                </div>
+                <div class="metric">
+                  <dt>Per-capita use</dt>
+                  <dd>78 gpd</dd>
+                </div>
+              </dl>
+              <p class="panel-note">
+                Conservation messaging and outdoor irrigation schedules reduce peak load by roughly
+                9% compared with the pre-program baseline decade.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="supply" aria-labelledby="supply-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-label">Supply</p>
+          <h2 id="supply-title">Where the water comes from</h2>
+          <p>
+            Diversified sources reduce risk from drought, wildfire runoff, and single-asset failure.
+            Each source is managed with explicit environmental and reliability constraints.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true">
+              <rect width="48" height="48" rx="12" fill="#e8f7f9"/>
+              <path d="M10 30c4-8 8-14 14-20 6 6 10 12 14 20" fill="none" stroke="#0e7c86" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M12 34h24" stroke="#0a5c63" stroke-width="2.2" stroke-linecap="round"/>
+              <circle cx="24" cy="28" r="3" fill="#1aa6b5"/>
+            </svg>
+            <h3>Highland Reservoir</h3>
+            <p>
+              Primary mountain storage with a protected watershed. Supplies roughly half of annual
+              volume and holds the largest multi-year drought reserve.
+            </p>
+          </article>
+          <article class="card">
+            <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true">
+              <rect width="48" height="48" rx="12" fill="#e8f7f9"/>
+              <path d="M8 28c3-2 6-3 10-3s7 1 10 3 6 3 10 3 7-1 10-3" fill="none" stroke="#0e7c86" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M8 34c3-2 6-3 10-3s7 1 10 3 6 3 10 3 7-1 10-3" fill="none" stroke="#1aa6b5" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+            <h3>River intake corridor</h3>
+            <p>
+              Seasonal pumping rights allow supplemental diversions when reservoir elevations are
+              high and river water quality meets intake standards.
+            </p>
+          </article>
+          <article class="card">
+            <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true">
+              <rect width="48" height="48" rx="12" fill="#e8f7f9"/>
+              <rect x="12" y="14" width="24" height="20" rx="3" fill="none" stroke="#0a5c63" stroke-width="2.2"/>
+              <path d="M18 24h12M24 18v12" stroke="#1aa6b5" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+            <h3>Regional intertie</h3>
+            <p>
+              A mutual-aid connection with an adjacent utility provides emergency volume during
+              outages, major main breaks, or extreme contamination events.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="quality" id="quality" aria-labelledby="quality-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-label">Quality</p>
+          <h2 id="quality-title">What we measure at the tap</h2>
+          <p>
+            Laboratory and field monitoring track regulated contaminants and operational indicators.
+            Results below summarize the most recent full compliance year.
+          </p>
+        </div>
+
+        <div class="quality-layout">
+          <div class="quality-table-wrap" role="region" aria-label="Water quality indicators" tabindex="0">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Indicator</th>
+                  <th scope="col">Typical result</th>
+                  <th scope="col">Standard</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Turbidity (plant effluent)</th>
+                  <td>0.05 NTU</td>
+                  <td>≤ 0.3 NTU</td>
+                  <td><span class="badge badge-ok">Meets</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Total coliform</th>
+                  <td>0% positive</td>
+                  <td>≤ 5% monthly</td>
+                  <td><span class="badge badge-ok">Meets</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Lead (90th percentile)</th>
+                  <td>2.1 ppb</td>
+                  <td>Action 15 ppb</td>
+                  <td><span class="badge badge-ok">Meets</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Disinfection byproducts</th>
+                  <td>38 ppb TTHM</td>
+                  <td>≤ 80 ppb</td>
+                  <td><span class="badge badge-ok">Meets</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Chloramine residual</th>
+                  <td>2.4 mg/L</td>
+                  <td>0.5–4.0 mg/L</td>
+                  <td><span class="badge badge-ok">Meets</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Hardness</th>
+                  <td>86 mg/L</td>
+                  <td>No MCL</td>
+                  <td><span class="badge badge-watch">Informational</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="quality-aside">
+            <div class="callout callout-dark">
+              <h3>Sampling network</h3>
+              <p>
+                Crews collect more than 4,200 distribution samples each year across residential
+                neighborhoods, schools, hospitals, and industrial corridors.
+              </p>
+            </div>
+            <div class="callout">
+              <h3>If something changes</h3>
+              <p>
+                Boil-water notices, advisory maps, and plain-language explanations publish on this
+                service when a main break, pressure loss, or lab result requires public action.
+              </p>
+            </div>
+            <div class="callout">
+              <h3>Home plumbing matters</h3>
+              <p>
+                Finished water leaves plants optimized for corrosion control. Lead risk is highest
+                in buildings with legacy service lines or interior solder—test older homes when renovating.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="maintenance" aria-labelledby="maintenance-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-label">Maintenance</p>
+          <h2 id="maintenance-title">Keeping pipes, pumps, and plants reliable</h2>
+          <p>
+            Reliability is scheduled work—not only emergency response. The program balances risk,
+            age, and customer impact across the asset portfolio.
+          </p>
+        </div>
+
+        <div class="timeline" aria-label="Maintenance program highlights">
+          <article class="timeline-item">
+            <div class="timeline-when">Ongoing</div>
+            <div class="timeline-body">
+              <h3>Valve exercising &amp; hydrant checks</h3>
+              <p>
+                Critical valves are exercised on a multi-year cycle so isolation works when a break
+                occurs. Hydrants are flushed and flow-tested for fire readiness.
+              </p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-when">Spring</div>
+            <div class="timeline-body">
+              <h3>Main flushing window</h3>
+              <p>
+                Controlled unidirectional flushing clears sediment from older cast-iron corridors
+                before summer demand peaks. Temporary discoloration may appear near work zones.
+              </p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-when">Year-round</div>
+            <div class="timeline-body">
+              <h3>Leak detection routes</h3>
+              <p>
+                Acoustic surveys and district night-flow analysis target buried leaks. Fast repair
+                reduces non-revenue water and protects pavement and foundations.
+              </p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-when">Capital</div>
+            <div class="timeline-body">
+              <h3>Priority main replacement</h3>
+              <p>
+                Cast iron and asbestos-cement segments with break history move to the top of the
+                multi-year replacement queue, coordinated with street resurfacing calendars.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="planning" id="planning" aria-labelledby="planning-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-label">Long-term planning</p>
+          <h2 id="planning-title">Infrastructure decisions measured in decades</h2>
+          <p>
+            Capital planning connects climate stress, growth projections, regulatory change, and
+            the condition of assets already in the ground.
+          </p>
+        </div>
+
+        <div class="plan-grid">
+          <article class="plan-card">
+            <h3>Climate-ready supply</h3>
+            <p>
+              Models stress-test multi-year drought, earlier snowmelt, and wildfire ash events.
+              Portfolio options include storage expansion, demand management, and treated-water recycling.
+            </p>
+            <div class="plan-meta">
+              <span class="chip">Horizon: 2050</span>
+              <span class="chip">Scenario planning</span>
+            </div>
+          </article>
+          <article class="plan-card">
+            <h3>Pipe renewal backlog</h3>
+            <p>
+              The index ranks pipe cohorts by material, soil corrosivity, break rate, and critical
+              customers served. Funding targets steady annual renewal rather than boom-and-bust cycles.
+            </p>
+            <div class="plan-meta">
+              <span class="chip">~28 mi / year goal</span>
+              <span class="chip">Risk-ranked</span>
+            </div>
+          </article>
+          <article class="plan-card">
+            <h3>Treatment modernization</h3>
+            <p>
+              Plant upgrades address emerging contaminants, tighter turbidity goals, and energy
+              efficiency. Modular process trains keep capacity online during construction.
+            </p>
+            <div class="plan-meta">
+              <span class="chip">3 plant sites</span>
+              <span class="chip">Phased delivery</span>
+            </div>
+          </article>
+          <article class="plan-card">
+            <h3>Transparent rate path</h3>
+            <p>
+              Multi-year financial plans publish assumed capital, debt service, and operating costs
+              so residents can see how reliability investments map to bills.
+            </p>
+            <div class="plan-meta">
+              <span class="chip">5-year outlook</span>
+              <span class="chip">Public board review</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="methodology" aria-labelledby="method-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-label">Methodology</p>
+          <h2 id="method-title">How Clearwater Index is built</h2>
+          <p>
+            Numbers on this site come from operational systems, certified laboratory results, and
+            the adopted capital program—not marketing estimates.
+          </p>
+        </div>
+
+        <div class="method-list">
+          <article class="method-item">
+            <div class="method-num" aria-hidden="true">01</div>
+            <div>
+              <h3>Operational telemetry</h3>
+              <p>
+                Flow, pressure, tank levels, and plant production export nightly from SCADA historians.
+                Daily aggregates power the system explorer metrics.
+              </p>
+            </div>
+          </article>
+          <article class="method-item">
+            <div class="method-num" aria-hidden="true">02</div>
+            <div>
+              <h3>Certified laboratory results</h3>
+              <p>
+                Compliance samples follow EPA and state protocols. Only validated results that pass
+                quality-control checks enter the public quality tables.
+              </p>
+            </div>
+          </article>
+          <article class="method-item">
+            <div class="method-num" aria-hidden="true">03</div>
+            <div>
+              <h3>Asset &amp; work-order records</h3>
+              <p>
+                Maintenance narratives draw from GIS pipe inventories, break histories, and completed
+                work orders so published programs match field practice.
+              </p>
+            </div>
+          </article>
+          <article class="method-item">
+            <div class="method-num" aria-hidden="true">04</div>
+            <div>
+              <h3>Board-adopted plans</h3>
+              <p>
+                Long-term figures align with the utility’s adopted master plan and capital improvement
+                program, updated after public hearings and engineering review.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-label">Questions</p>
+          <h2 id="faq-title">Common questions from residents</h2>
+          <p>Short answers about taste, pressure, and how to interpret the numbers you see here.</p>
+        </div>
+
+        <details>
+          <summary>Why does my water sometimes taste like chlorine?</summary>
+          <p>
+            A disinfectant residual keeps water safe as it travels through miles of pipe. Taste can
+            strengthen after main repairs or seasonal source shifts. Letting water stand briefly or
+            chilling it usually reduces the odor.
+          </p>
+        </details>
+        <details>
+          <summary>What does cloudy water mean?</summary>
+          <p>
+            Fine air bubbles often make cold water look milky; the glass clears from the bottom up
+            within a minute or two. Persistent brown or yellow color after flushing can signal sediment
+            from a nearby main break—check local advisories.
+          </p>
+        </details>
+        <details>
+          <summary>How current are the statistics?</summary>
+          <p>
+            Capacity and reliability figures refresh with the annual system report. Quality tables
+            show the latest completed compliance year. Emergency notices supersede routine data when posted.
+          </p>
+        </details>
+        <details>
+          <summary>Can I use this data for research or journalism?</summary>
+          <p>
+            Yes. Attribute Clearwater Index and note the reporting year. Methodology details above
+            explain source systems so findings can be reproduced from primary utility records.
+          </p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">Clearwater Index</p>
+          <p>
+            A public information service explaining water supply, maintenance, quality,
+            and long-term infrastructure planning.
+          </p>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="#system">System stages</a></li>
+            <li><a href="#quality">Quality results</a></li>
+            <li><a href="#planning">Capital planning</a></li>
+            <li><a href="#methodology">Methodology</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>About</h3>
+          <ul>
+            <li><a href="#supply">Supply portfolio</a></li>
+            <li><a href="#maintenance">Maintenance program</a></li>
+            <li><a href="#faq">Resident FAQ</a></li>
+            <li><a href="#top">Back to top</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Clearwater Index · Water Infrastructure</span>
+        <span>Know where every drop goes.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Bloom — Medicine, grown differently.</title>
+  <meta name="description" content="Regenerative therapies engineered from cells, fungi, and the surprising intelligence of plants.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Bloom home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="32" height="32" focusable="false">
+            <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
+            <path d="M20 8c-2.4 4.8-6.8 7.6-12 8 5.2.4 9.6 3.2 12 8 2.4-4.8 6.8-7.6 12-8-5.2-.4-9.6-3.2-12-8z" fill="currentColor"/>
+            <circle cx="20" cy="20" r="3.2" fill="currentColor" opacity="0.55"/>
+          </svg>
+        </span>
+        <span class="brand-name">Bloom</span>
+      </a>
+
+      <nav class="nav" data-nav aria-label="Primary">
+        <a href="#science">Science</a>
+        <a href="#platform">Platform</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#lab">Lab notes</a>
+        <a class="nav-cta" href="#connect">Connect</a>
+      </nav>
+
+      <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <span class="menu-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div class="mobile-nav" id="mobile-nav" data-mobile-nav hidden>
+      <nav aria-label="Mobile">
+        <a href="#science">Science</a>
+        <a href="#platform">Platform</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#lab">Lab notes</a>
+        <a href="#connect">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Biology in motion</p>
+          <h1>Medicine, grown differently.</h1>
+          <p class="lede">
+            Bloom engineers regenerative therapies from living systems—
+            cellular scaffolds, fungal networks, and plant intelligence—
+            to restore what injury and age take away.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#science">Explore the science</a>
+            <a class="btn btn-secondary" href="#platform">Meet the platform</a>
+          </div>
+          <dl class="hero-stats">
+            <div>
+              <dt>Living modalities</dt>
+              <dd>3</dd>
+            </div>
+            <div>
+              <dt>Active programs</dt>
+              <dd>12</dd>
+            </div>
+            <div>
+              <dt>Tissue targets</dt>
+              <dd>8</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="orbit-stage">
+            <svg class="orbit-svg" viewBox="0 0 420 420" role="img">
+              <defs>
+                <radialGradient id="cellCore" cx="50%" cy="45%" r="55%">
+                  <stop offset="0%" stop-color="#f4f7ef"/>
+                  <stop offset="45%" stop-color="#9dcc8a"/>
+                  <stop offset="100%" stop-color="#1f4d38"/>
+                </radialGradient>
+                <linearGradient id="petalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#e8f5d8"/>
+                  <stop offset="100%" stop-color="#5a9e72"/>
+                </linearGradient>
+                <linearGradient id="mycGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#c9e4b8" stop-opacity="0"/>
+                  <stop offset="50%" stop-color="#7eb88a"/>
+                  <stop offset="100%" stop-color="#c9e4b8" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <circle class="ring ring-a" cx="210" cy="210" r="175" fill="none" stroke="#2d6b4f" stroke-width="1" stroke-dasharray="4 10" opacity="0.45"/>
+              <circle class="ring ring-b" cx="210" cy="210" r="140" fill="none" stroke="#7eb88a" stroke-width="1.2" opacity="0.5"/>
+              <circle class="ring ring-c" cx="210" cy="210" r="100" fill="none" stroke="#c9e4b8" stroke-width="1" opacity="0.4"/>
+              <g class="mycelium">
+                <path d="M210 70 C170 120 150 150 120 180 C150 200 175 215 210 230 C245 215 270 200 300 180 C270 150 250 120 210 70Z" fill="url(#petalGrad)" opacity="0.85"/>
+                <path d="M90 250 C140 230 170 220 210 210 C180 250 160 290 150 340 C120 300 100 275 90 250Z" fill="#5a9e72" opacity="0.55"/>
+                <path d="M330 250 C300 275 280 300 270 340 C260 290 240 250 210 210 C250 220 280 230 330 250Z" fill="#3d7a58" opacity="0.5"/>
+                <path d="M70 160 C120 170 160 185 210 210 C160 200 130 180 90 140 C75 145 70 152 70 160Z" fill="#a8d49a" opacity="0.45"/>
+                <path d="M350 160 C350 152 345 145 330 140 C290 180 260 200 210 210 C260 185 300 170 350 160Z" fill="#8fbf7a" opacity="0.4"/>
+              </g>
+              <circle cx="210" cy="210" r="48" fill="url(#cellCore)"/>
+              <circle cx="210" cy="210" r="18" fill="#f7fbf2" opacity="0.9"/>
+              <g stroke="url(#mycGrad)" stroke-width="1.5" fill="none" opacity="0.7">
+                <path d="M60 210 C100 190 140 200 170 210"/>
+                <path d="M250 210 C280 200 320 190 360 210"/>
+                <path d="M210 60 C195 100 200 140 210 170"/>
+                <path d="M210 250 C200 280 195 320 210 360"/>
+              </g>
+              <circle class="node" cx="120" cy="120" r="6" fill="#d4f0c4"/>
+              <circle class="node" cx="300" cy="130" r="5" fill="#a8d49a"/>
+              <circle class="node" cx="320" cy="280" r="6" fill="#7eb88a"/>
+              <circle class="node" cx="110" cy="290" r="5" fill="#c9e4b8"/>
+            </svg>
+            <div class="orbit-labels">
+              <span class="olabel olabel-cells">Cells</span>
+              <span class="olabel olabel-fungi">Fungi</span>
+              <span class="olabel olabel-plants">Plants</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-bar" aria-label="Scientific foundations">
+      <div class="shell trust-row">
+        <p>Grounded in regenerative biology</p>
+        <ul>
+          <li>Cellular reprogramming</li>
+          <li>Mycelial scaffolding</li>
+          <li>Phytochemical signaling</li>
+          <li>Tissue integration</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section science" id="science">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">Explore the science</p>
+          <h2>Three living systems. One regenerative path.</h2>
+          <p class="section-intro">
+            Nature already knows how to heal. Bloom translates cellular plasticity,
+            fungal architecture, and plant communication into therapies designed
+            for durable human recovery.
+          </p>
+        </header>
+
+        <div class="pillar-grid">
+          <article class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" width="48" height="48">
+                <circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="32" cy="32" r="10" fill="currentColor" opacity="0.25"/>
+                <circle cx="32" cy="32" r="4" fill="currentColor"/>
+                <circle cx="18" cy="22" r="3" fill="currentColor" opacity="0.55"/>
+                <circle cx="46" cy="40" r="3" fill="currentColor" opacity="0.55"/>
+              </svg>
+            </div>
+            <h3>Cellular renewal</h3>
+            <p>
+              We guide patient-derived cells through controlled reprogramming,
+              producing living grafts that integrate, remodel, and restore function
+              rather than merely patching damage.
+            </p>
+            <ul class="feature-list">
+              <li>Autologous cell lines</li>
+              <li>Matrix-guided differentiation</li>
+              <li>Immune-compatible grafts</li>
+            </ul>
+          </article>
+
+          <article class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" width="48" height="48">
+                <path d="M32 8v48M18 18c8 6 12 12 14 22M46 18c-8 6-12 12-14 22M12 40c10-2 16 0 20 8M52 40c-10-2-16 0-20 8" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                <circle cx="32" cy="30" r="3" fill="currentColor"/>
+                <circle cx="18" cy="18" r="2.5" fill="currentColor" opacity="0.7"/>
+                <circle cx="46" cy="18" r="2.5" fill="currentColor" opacity="0.7"/>
+              </svg>
+            </div>
+            <h3>Fungal architecture</h3>
+            <p>
+              Mycelium is nature’s structural network. Bloom cultivates tunable
+              fungal scaffolds that host cells, guide vascular growth, and dissolve
+              as living tissue takes over.
+            </p>
+            <ul class="feature-list">
+              <li>Porous living matrices</li>
+              <li>Programmable degradation</li>
+              <li>Vascular channel patterning</li>
+            </ul>
+          </article>
+
+          <article class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" width="48" height="48">
+                <path d="M32 52V28M32 28c-8-2-14-10-12-20 10 2 14 10 12 20zM32 28c8-2 14-10 12-20-10 2-14 10-12 20z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+                <path d="M20 40c6-4 12-4 18 0" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+                <circle cx="32" cy="18" r="2.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Plant intelligence</h3>
+            <p>
+              Plants sense injury, redistribute resources, and regenerate organs.
+              We adapt those signaling pathways into molecular cues that instruct
+              human tissues to rebuild with precision.
+            </p>
+            <ul class="feature-list">
+              <li>Injury-response mimetics</li>
+              <li>Growth-factor orchestration</li>
+              <li>Spatially timed dosing</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section platform" id="platform">
+      <div class="shell platform-grid">
+        <div class="platform-copy">
+          <p class="eyebrow">Meet the platform</p>
+          <h2>The Bloom OS for living therapeutics.</h2>
+          <p>
+            A unified development stack that grows therapy candidates from
+            first principles—designing biology the way software designs systems,
+            with feedback loops measured in hours, not seasons.
+          </p>
+          <ol class="platform-steps">
+            <li>
+              <strong>Design</strong>
+              <span>Model cell–scaffold–signal interactions before a single culture is started.</span>
+            </li>
+            <li>
+              <strong>Cultivate</strong>
+              <span>Grow modular constructs under closed-loop environmental control.</span>
+            </li>
+            <li>
+              <strong>Validate</strong>
+              <span>Probe integration, immune quietness, and functional recovery in parallel assays.</span>
+            </li>
+            <li>
+              <strong>Translate</strong>
+              <span>Scale manufacturing with batch identity tracking from seed to patient kit.</span>
+            </li>
+          </ol>
+        </div>
+
+        <div class="platform-panel" aria-hidden="true">
+          <div class="panel-card">
+            <div class="panel-top">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="panel-title">bloom-runtime</span>
+            </div>
+            <div class="panel-body">
+              <div class="meter">
+                <span>Scaffold porosity</span>
+                <div class="bar"><i style="--w:78%"></i></div>
+              </div>
+              <div class="meter">
+                <span>Signal gradient</span>
+                <div class="bar"><i style="--w:64%"></i></div>
+              </div>
+              <div class="meter">
+                <span>Cell viability</span>
+                <div class="bar"><i style="--w:92%"></i></div>
+              </div>
+              <div class="meter">
+                <span>Vascular ingress</span>
+                <div class="bar"><i style="--w:71%"></i></div>
+              </div>
+              <div class="panel-note">
+                <p>Live culture · Batch BL-2041</p>
+                <p class="status">Stable growth phase</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pipeline" id="pipeline">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">Pipeline</p>
+          <h2>Programs rooted in recovery.</h2>
+          <p class="section-intro">
+            Each candidate is a living product—cells, scaffolds, and signals
+            composed for a specific tissue destiny.
+          </p>
+        </header>
+
+        <div class="table-wrap" role="region" aria-label="Pipeline programs" tabindex="0">
+          <table class="pipeline-table">
+            <thead>
+              <tr>
+                <th scope="col">Program</th>
+                <th scope="col">Focus</th>
+                <th scope="col">Modality</th>
+                <th scope="col">Stage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>BL-01 Aurea</td>
+                <td>Dermal regeneration</td>
+                <td>Cell + plant signal</td>
+                <td><span class="stage stage-clinic">Early clinic</span></td>
+              </tr>
+              <tr>
+                <td>BL-04 Rhizome</td>
+                <td>Soft-tissue repair</td>
+                <td>Mycelial scaffold</td>
+                <td><span class="stage stage-ind">IND-enabling</span></td>
+              </tr>
+              <tr>
+                <td>BL-07 Cortex</td>
+                <td>Peripheral nerve</td>
+                <td>Guided cellular graft</td>
+                <td><span class="stage stage-pre">Preclinical</span></td>
+              </tr>
+              <tr>
+                <td>BL-11 Canopy</td>
+                <td>Cartilage recovery</td>
+                <td>Hybrid living matrix</td>
+                <td><span class="stage stage-disc">Discovery</span></td>
+              </tr>
+              <tr>
+                <td>BL-15 Meristem</td>
+                <td>Organoid support</td>
+                <td>Plant-derived cues</td>
+                <td><span class="stage stage-disc">Discovery</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section lab" id="lab">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">Lab notes</p>
+          <h2>What we are learning in culture.</h2>
+        </header>
+
+        <div class="note-grid">
+          <article class="note-card">
+            <time datetime="2026-05-12">May 12, 2026</time>
+            <h3>Mycelium porosity maps that favor endothelial sprouting</h3>
+            <p>
+              Controlled fiber spacing between 80–120 µm accelerated capillary-like
+              network formation without sacrificing mechanical support.
+            </p>
+          </article>
+          <article class="note-card">
+            <time datetime="2026-04-03">April 3, 2026</time>
+            <h3>A plant wound peptide that quiets inflammatory cascades</h3>
+            <p>
+              A short signal peptide inspired by leaf repair reduced cytokine
+              peaks in co-culture assays while preserving proliferative capacity.
+            </p>
+          </article>
+          <article class="note-card">
+            <time datetime="2026-02-18">February 18, 2026</time>
+            <h3>Autologous grafts that remember their destination</h3>
+            <p>
+              Epigenetic priming before scaffold seeding improved tissue-specific
+              marker expression after two weeks of maturation.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section connect" id="connect">
+      <div class="shell connect-panel">
+        <div class="connect-copy">
+          <p class="eyebrow">Collaborate</p>
+          <h2>Grow the next therapy with us.</h2>
+          <p>
+            Clinicians, research partners, and manufacturing collaborators are
+            welcome. Tell us what tissue you hope to restore—we will respond with
+            a scientific briefing, not a sales deck.
+          </p>
+          <ul class="connect-points">
+            <li>Partnership briefings for regenerative programs</li>
+            <li>Investigator-led study inquiries</li>
+            <li>Platform licensing conversations</li>
+          </ul>
+        </div>
+        <div class="connect-card">
+          <h3>Reach the science team</h3>
+          <p class="connect-detail">
+            <span class="label">Scientific correspondence</span>
+            <span class="value">science at bloom.bio</span>
+          </p>
+          <p class="connect-detail">
+            <span class="label">Partnerships</span>
+            <span class="value">partners at bloom.bio</span>
+          </p>
+          <p class="connect-detail">
+            <span class="label">Headquarters</span>
+            <span class="value">Cambridge, Massachusetts</span>
+          </p>
+          <a class="btn btn-primary connect-btn" href="#top">Return to overview</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <span class="brand-name">Bloom</span>
+        <p>Regenerative therapies engineered from cells, fungi, and the surprising intelligence of plants.</p>
+      </div>
+      <div class="footer-meta">
+        <p>Medicine, grown differently.</p>
+        <p class="fineprint">© 2026 Bloom Biosciences. All rights reserved. Research content is illustrative.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

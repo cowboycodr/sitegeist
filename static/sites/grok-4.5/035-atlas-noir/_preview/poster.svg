@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Atlas Noir — Go where the map ends.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c0e12"/>
+      <stop offset="55%" stop-color="#0a0b0d"/>
+      <stop offset="100%" stop-color="#12161c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="78%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#c9a45c" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#c9a45c" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#e8e2d6" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+  <rect width="1200" height="900" fill="url(#grid)"/>
+
+  <!-- Soft horizon band -->
+  <path d="M0 620 C200 560 380 680 560 600 C740 520 900 640 1200 560 L1200 900 L0 900 Z" fill="#c9a45c" opacity="0.06"/>
+  <path d="M0 700 C280 640 420 760 640 690 C860 620 980 720 1200 680 L1200 900 L0 900 Z" fill="#e8e2d6" opacity="0.04"/>
+
+  <!-- Decorative frame -->
+  <rect x="48" y="48" width="1104" height="804" fill="none" stroke="#c9a45c" stroke-opacity="0.28" stroke-width="1"/>
+  <rect x="60" y="60" width="1080" height="780" fill="none" stroke="#e8e2d6" stroke-opacity="0.08" stroke-width="1"/>
+
+  <!-- Compass motif (right) -->
+  <g transform="translate(860 280)" fill="none" stroke="#c9a45c">
+    <circle cx="0" cy="0" r="150" stroke-opacity="0.35" stroke-width="1"/>
+    <circle cx="0" cy="0" r="108" stroke-opacity="0.22" stroke-width="1"/>
+    <circle cx="0" cy="0" r="12" fill="#c9a45c" stroke="none" opacity="0.85"/>
+    <path d="M0 -150 L10 -20 L0 -32 L-10 -20 Z" fill="#c9a45c" stroke="none" opacity="0.75"/>
+    <path d="M0 150 L-10 20 L0 32 L10 20 Z" fill="#e8e2d6" stroke="none" opacity="0.18"/>
+    <path d="M-150 0 L-20 -10 L-32 0 L-20 10 Z" fill="#e8e2d6" stroke="none" opacity="0.18"/>
+    <path d="M150 0 L20 10 L32 0 L20 -10 Z" fill="#e8e2d6" stroke="none" opacity="0.18"/>
+    <path d="M-106 -106 L-24 -24 M106 -106 L24 -24 M106 106 L24 24 M-106 106 L-24 24" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="0" y="-162" text-anchor="middle" fill="#c9a45c" font-family="Georgia, 'Times New Roman', serif" font-size="14" letter-spacing="4" opacity="0.7">N</text>
+  </g>
+
+  <!-- Mountain silhouette suggestion (left lower) -->
+  <path d="M90 640 L180 470 L250 560 L340 380 L430 540 L520 450 L600 610" fill="none" stroke="#c9a45c" stroke-opacity="0.35" stroke-width="1.5"/>
+  <path d="M90 640 L180 470 L250 560 L340 380 L430 540 L520 450 L600 610 L600 720 L90 720 Z" fill="#c9a45c" opacity="0.05"/>
+
+  <!-- Brand mark top-left -->
+  <g transform="translate(120 130)" fill="none" stroke="#c9a45c">
+    <circle cx="28" cy="28" r="26" stroke-width="1.2"/>
+    <circle cx="28" cy="28" r="4" fill="#c9a45c" stroke="none"/>
+    <path d="M28 6v8M28 42v8M6 28h8M42 28h8" stroke-width="1.2"/>
+    <path d="M12 12l5.5 5.5M38.5 38.5l5.5 5.5M44 12l-5.5 5.5M17.5 38.5L12 44" stroke-width="1.2"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="120" y="250" fill="#c9a45c" font-family="system-ui, 'Segoe UI', sans-serif" font-size="15" letter-spacing="6" font-weight="500">BESPOKE JOURNEYS</text>
+  <text x="120" y="340" fill="#e8e2d6" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="400">Atlas Noir</text>
+  <line x1="120" y1="380" x2="320" y2="380" stroke="#c9a45c" stroke-width="1.5" opacity="0.7"/>
+  <text x="120" y="440" fill="#e8e2d6" font-family="Georgia, 'Times New Roman', serif" font-size="36" font-style="italic" opacity="0.92">Go where the map ends.</text>
+  <text x="120" y="500" fill="#9a9488" font-family="system-ui, 'Segoe UI', sans-serif" font-size="20" opacity="0.95">Private expeditions · Remote landscapes · Rare access</text>
+
+  <!-- Coordinates footer strip -->
+  <g font-family="'SF Mono', Consolas, monospace" fill="#9a9488" font-size="14" letter-spacing="1">
+    <text x="120" y="780">64°08′ N</text>
+    <text x="280" y="780">21°56′ W</text>
+    <text x="450" y="780">LUXURY TRAVEL</text>
+  </g>
+  <text x="1080" y="780" text-anchor="end" fill="#c9a45c" font-family="system-ui, 'Segoe UI', sans-serif" font-size="13" letter-spacing="3" opacity="0.8">ATLAS NOIR</text>
+</svg>

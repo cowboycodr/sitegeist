@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Paloma — Wood fire, citrus, late nights</title>
+  <meta name="description" content="A neighborhood kitchen in Roma Norte serving coastal plates, mezcal, and warm evenings around the fire.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Paloma home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="36" height="36" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M12 22c3-6 8-10 14-11-1 5-3 10-7 14-2-1-5-2-7-3z" fill="currentColor" opacity=".9"/>
+            <path d="M18 14c2 1 4 3 5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-text">Paloma</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary">
+        <a href="#menu">Menu</a>
+        <a href="#fire">The Fire</a>
+        <a href="#bar">Bar</a>
+        <a href="#visit">Visit</a>
+        <a class="nav-cta" href="#book">Book a table</a>
+      </nav>
+
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-panel" aria-label="Open menu">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div class="nav-panel" id="nav-panel" hidden>
+      <nav aria-label="Mobile">
+        <a href="#menu">Menu</a>
+        <a href="#fire">The Fire</a>
+        <a href="#bar">Bar</a>
+        <a href="#visit">Visit</a>
+        <a href="#book">Book a table</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Mexico City / Roma Norte</p>
+        <h1 id="hero-title">Wood fire, citrus,<br>late nights.</h1>
+        <p class="hero-lead">A neighborhood kitchen serving coastal plates, mezcal, and warm evenings around the fire.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#book">Book a table</a>
+          <a class="btn btn-ghost" href="#menu">See tonight's menu</a>
+        </div>
+      </div>
+      <div class="hero-aside" aria-hidden="true">
+        <div class="flame-card">
+          <svg class="flame-art" viewBox="0 0 200 260" fill="none">
+            <ellipse cx="100" cy="230" rx="48" ry="10" fill="#1A1410" opacity=".35"/>
+            <path class="flame-outer" d="M100 30c-8 28-40 48-40 98 0 38 28 62 40 62s40-24 40-62c0-50-32-70-40-98z" fill="#D4652F"/>
+            <path class="flame-mid" d="M100 70c-6 20-26 36-26 68 0 26 18 44 26 44s26-18 26-44c0-32-20-48-26-68z" fill="#E8A838"/>
+            <path class="flame-core" d="M100 110c-4 12-14 22-14 40 0 16 10 28 14 28s14-12 14-28c0-18-10-28-14-40z" fill="#F7F0E4"/>
+            <circle cx="72" cy="200" r="6" fill="#C45C3E" opacity=".7"/>
+            <circle cx="128" cy="208" r="4" fill="#E8A838" opacity=".8"/>
+          </svg>
+          <p class="flame-caption">Open fire · Live mezcal · Until late</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="strip" aria-label="Highlights">
+      <ul class="strip-list">
+        <li><strong>Wood-fired</strong> coastal cooking</li>
+        <li><strong>Mezcal</strong> &amp; citrus cocktails</li>
+        <li><strong>Late kitchen</strong> till midnight</li>
+        <li><strong>Roma Norte</strong> courtyard</li>
+      </ul>
+    </section>
+
+    <section class="about" id="fire" aria-labelledby="about-title">
+      <div class="section-grid">
+        <div class="about-copy">
+          <p class="section-label">The fire</p>
+          <h2 id="about-title">Plates kissed by flame, finished with citrus.</h2>
+          <p>Paloma is a neighborhood kitchen built around an open hearth. We pull seafood and vegetables through high heat, then brighten them with lime, bitter orange, and herbs from the courtyard garden.</p>
+          <p>Come for a long lunch under the vines, or stay late when the mezcal list opens up and the room glows copper. No dress code—just an appetite and a little time.</p>
+          <dl class="facts">
+            <div>
+              <dt>Kitchen</dt>
+              <dd>Coastal Mexican, wood fire</dd>
+            </div>
+            <div>
+              <dt>Bar</dt>
+              <dd>Mezcal, agave, citrus</dd>
+            </div>
+            <div>
+              <dt>Seats</dt>
+              <dd>48 indoors · 20 courtyard</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="about-visual" aria-hidden="true">
+          <div class="tile-stack">
+            <div class="tile tile-citrus">
+              <svg viewBox="0 0 120 120" width="100%" height="100%">
+                <circle cx="60" cy="60" r="48" fill="#E8A838"/>
+                <circle cx="60" cy="60" r="40" fill="none" stroke="#F7F0E4" stroke-width="1.5" opacity=".6"/>
+                <g stroke="#C45C3E" stroke-width="1.2" opacity=".85">
+                  <line x1="60" y1="22" x2="60" y2="98"/>
+                  <line x1="28" y1="40" x2="92" y2="80"/>
+                  <line x1="28" y1="80" x2="92" y2="40"/>
+                  <line x1="22" y1="60" x2="98" y2="60"/>
+                </g>
+                <circle cx="60" cy="60" r="8" fill="#F7F0E4"/>
+              </svg>
+            </div>
+            <div class="tile tile-quote">
+              <blockquote>“Salt on the rim, smoke in the air, night stretching longer than planned.”</blockquote>
+            </div>
+            <div class="tile tile-ember">
+              <span class="ember-label">Tonight</span>
+              <span class="ember-dish">Whole huachinango<br>with chile oil &amp; lime</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu" id="menu" aria-labelledby="menu-title">
+      <div class="menu-header">
+        <p class="section-label">Tonight's menu</p>
+        <h2 id="menu-title">From the fire &amp; the bar</h2>
+        <p class="menu-intro">A short list that changes with the catch and the market. Prices in MXN.</p>
+      </div>
+
+      <div class="menu-tabs" role="tablist" aria-label="Menu sections">
+        <button type="button" class="menu-tab is-active" role="tab" id="tab-fire" aria-selected="true" aria-controls="panel-fire">From the fire</button>
+        <button type="button" class="menu-tab" role="tab" id="tab-cold" aria-selected="false" aria-controls="panel-cold" tabindex="-1">Cold &amp; raw</button>
+        <button type="button" class="menu-tab" role="tab" id="tab-sweet" aria-selected="false" aria-controls="panel-sweet" tabindex="-1">Sweet</button>
+      </div>
+
+      <div class="menu-panels">
+        <div class="menu-panel is-active" role="tabpanel" id="panel-fire" aria-labelledby="tab-fire">
+          <ul class="menu-list">
+            <li>
+              <div class="dish-head">
+                <h3>Octopus al carbón</h3>
+                <span class="price">320</span>
+              </div>
+              <p>Charred tentacles, avocado ash, orange oil, pickled red onion</p>
+            </li>
+            <li>
+              <div class="dish-head">
+                <h3>Whole huachinango</h3>
+                <span class="price">480</span>
+              </div>
+              <p>Wood-fired red snapper, chile oil, bitter orange, warm tortillas</p>
+            </li>
+            <li>
+              <div class="dish-head">
+                <h3>Bone-in ribeye</h3>
+                <span class="price">620</span>
+              </div>
+              <p>Dry-aged, salsa negra, grilled spring onions, bone marrow butter</p>
+            </li>
+            <li>
+              <div class="dish-head">
+                <h3>Charred cauliflower</h3>
+                <span class="price">180</span>
+              </div>
+              <p>Walnut salsa macha, cotija, lime, herbs from the courtyard</p>
+            </li>
+            <li>
+              <div class="dish-head">
+                <h3>Fire-roasted corn</h3>
+                <span class="price">140</span>
+              </div>
+              <p>Epazote butter, chile powder, queso fresco, lime</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="menu-panel" role="tabpanel" id="panel-cold" aria-labelledby="tab-cold" hidden>
+          <ul class="menu-list">
+            <li>
+              <div class="dish-head">
+                <h3>Aguachile verde</h3>
+                <span class="price">260</span>
+              </div>
+              <p>Gulf shrimp, cucumber, serrano, coriander water, crispy tostada</p>
+            </li>
+            <li>
+              <div class="dish-head">
+                <h3>Tostada de atún</h3>
+                <span class="price">240</span>
+              </div>
+              <p>Yellowfin, avocado, chile crisp, sesame, micro greens</p>
+            </li>
+            <li>
+              <div class="dish-head">
+                <h3>Ceviche de callo</h3>
+                <span class="price">290</span>
+              </div>
+              <p>Scallops, grapefruit, jalapeño, olive oil, sea salt</p>
+            </li>
+            <li>
+              <div class="dish-head">
+                <h3>Ensalada de nopales</h3>
+                <span class="price">160</span>
+              </div>
+              <p>Grilled cactus, tomato, onion, cilantro, crumbled panela</p>
+            </li>
+            <li>
+              <div class="dish-head">
+                <h3>Oysters on ice</h3>
+                <span class="price">95 <span class="unit">ea</span></span>
+              </div>
+              <p>Baja oysters, mignonette of passion fruit and chile de árbol</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="menu-panel" role="tabpanel" id="panel-sweet" aria-labelledby="tab-sweet" hidden>
+          <ul class="menu-list">
+            <li>
+              <div class="dish-head">
+                <h3>Burnt milk flan</h3>
+                <span class="price">140</span>
+              </div>
+              <p>Caramel from the fire, orange zest, sea salt</p>
+            </li>
+            <li>
+              <div class="dish-head">
+                <h3>Chocolate &amp; chile</h3>
+                <span class="price">160</span>
+              </div>
+              <p>Dark mousse, chile de árbol, cacao nib praline</p>
+            </li>
+            <li>
+              <div class="dish-head">
+                <h3>Grilled pineapple</h3>
+                <span class="price">130</span>
+              </div>
+              <p>Mezcal honey, coconut cream, toasted coconut</p>
+            </li>
+            <li>
+              <div class="dish-head">
+                <h3>Paleta de limón</h3>
+                <span class="price">90</span>
+              </div>
+              <p>House lime ice, chile salt rim—for the table to share</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="bar" id="bar" aria-labelledby="bar-title">
+      <div class="bar-inner">
+        <div class="bar-copy">
+          <p class="section-label light">The bar</p>
+          <h2 id="bar-title">Mezcal, citrus, and a long pour after dark.</h2>
+          <p>Our list leans agave—espadín, tobala, and rare cuishe by the pour—plus highballs built for warm nights. Ask the bar for a flight, or start with the house Paloma.</p>
+        </div>
+        <ul class="drink-list">
+          <li>
+            <div class="drink-head">
+              <h3>House Paloma</h3>
+              <span class="price">165</span>
+            </div>
+            <p>Reposquila blanco, fresh grapefruit, lime, soda, salt rim</p>
+          </li>
+          <li>
+            <div class="drink-head">
+              <h3>Smoke &amp; Citrus</h3>
+              <span class="price">185</span>
+            </div>
+            <p>Mezcal espadín, orange cordial, chile tincture, egg white</p>
+          </li>
+          <li>
+            <div class="drink-head">
+              <h3>Roma Highball</h3>
+              <span class="price">155</span>
+            </div>
+            <p>Raicilla, yuzu, tonic, cucumber ribbon</p>
+          </li>
+          <li>
+            <div class="drink-head">
+              <h3>Late Night Negroni</h3>
+              <span class="price">175</span>
+            </div>
+            <p>Mezcal, Campari, vermouth, orange oil</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="visit" id="visit" aria-labelledby="visit-title">
+      <div class="visit-grid">
+        <div>
+          <p class="section-label">Visit</p>
+          <h2 id="visit-title">Find us in Roma Norte</h2>
+          <p class="visit-lead">A short walk from Parque México. Look for the copper lanterns and the open courtyard gate.</p>
+          <address class="address">
+            Calle Colima 248<br>
+            Roma Norte, Cuauhtémoc<br>
+            06700 Ciudad de México
+          </address>
+          <p class="contact-line"><a href="#book">+52 55 5555 0175</a> · <a href="#book">hola@paloma.kitchen</a></p>
+        </div>
+        <div class="hours-card">
+          <h3>Hours</h3>
+          <dl class="hours">
+            <div>
+              <dt>Tuesday – Thursday</dt>
+              <dd>1:00 pm – 11:00 pm</dd>
+            </div>
+            <div>
+              <dt>Friday – Saturday</dt>
+              <dd>1:00 pm – 12:30 am</dd>
+            </div>
+            <div>
+              <dt>Sunday</dt>
+              <dd>1:00 pm – 9:00 pm</dd>
+            </div>
+            <div>
+              <dt>Monday</dt>
+              <dd>Closed</dd>
+            </div>
+          </dl>
+          <p class="hours-note">Kitchen last call 45 minutes before close. Walk-ins welcome at the bar.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="book" id="book" aria-labelledby="book-title">
+      <div class="book-card">
+        <div class="book-intro">
+          <p class="section-label light">Reservations</p>
+          <h2 id="book-title">Book a table</h2>
+          <p>Parties of up to eight online. For larger groups or private courtyard evenings, leave a note and we’ll follow up.</p>
+        </div>
+        <form class="book-form" id="book-form" novalidate>
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required placeholder="Your name">
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@example.com">
+          </div>
+          <div class="form-pair">
+            <div class="form-row">
+              <label for="date">Date</label>
+              <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-row">
+              <label for="time">Time</label>
+              <select id="time" name="time" required>
+                <option value="">Select</option>
+                <option value="13:00">1:00 pm</option>
+                <option value="13:30">1:30 pm</option>
+                <option value="14:00">2:00 pm</option>
+                <option value="19:00">7:00 pm</option>
+                <option value="19:30">7:30 pm</option>
+                <option value="20:00">8:00 pm</option>
+                <option value="20:30">8:30 pm</option>
+                <option value="21:00">9:00 pm</option>
+                <option value="21:30">9:30 pm</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-pair">
+            <div class="form-row">
+              <label for="guests">Guests</label>
+              <select id="guests" name="guests" required>
+                <option value="2">2</option>
+                <option value="1">1</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="area">Preference</label>
+              <select id="area" name="area">
+                <option value="any">Any seat</option>
+                <option value="courtyard">Courtyard</option>
+                <option value="fire">Near the fire</option>
+                <option value="bar">Bar</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="notes">Notes <span class="optional">(optional)</span></label>
+            <textarea id="notes" name="notes" rows="3" placeholder="Allergies, celebration, accessibility needs…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Request reservation</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-text">Paloma</span>
+        <p>Wood fire, citrus, late nights.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#menu">Menu</a>
+        <a href="#bar">Bar</a>
+        <a href="#visit">Visit</a>
+        <a href="#book">Book</a>
+      </nav>
+      <p class="footer-meta">© <span id="year">2026</span> Paloma Kitchen · Roma Norte, CDMX</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

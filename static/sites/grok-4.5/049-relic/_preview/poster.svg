@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Relic — Objects worth keeping">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f3ebe0"/>
+      <stop offset="55%" stop-color="#e8dccb"/>
+      <stop offset="100%" stop-color="#d9cbb6"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8b5a3c"/>
+      <stop offset="100%" stop-color="#5c3a28"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#b08d57" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#b08d57" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- Paper grain lines -->
+  <g stroke="#1a1410" stroke-opacity="0.04" stroke-width="1">
+    <path d="M0 120h1200M0 240h1200M0 360h1200M0 480h1200M0 600h1200M0 720h1200M0 840h1200"/>
+  </g>
+
+  <!-- Outer archival frame -->
+  <rect x="48" y="48" width="1104" height="804" fill="none" stroke="#1a1410" stroke-opacity="0.18" stroke-width="2"/>
+  <rect x="64" y="64" width="1072" height="772" fill="none" stroke="#6b2f1f" stroke-opacity="0.25" stroke-width="1"/>
+
+  <!-- Left label block -->
+  <g transform="translate(110, 160)">
+    <text font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="28" letter-spacing="8" fill="#9a4e32">NEWLY UNEARTHED</text>
+    <text y="110" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="128" font-weight="600" fill="#1a1410">Relic</text>
+    <text y="180" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="42" font-style="italic" fill="#6b2f1f">Objects worth keeping.</text>
+    <text y="250" font-family="system-ui, Segoe UI, sans-serif" font-size="24" fill="#3d342c">
+      Enduring furniture · rare design · weathered things
+    </text>
+
+    <!-- Meta chips -->
+    <g transform="translate(0, 320)">
+      <rect x="0" y="0" width="160" height="56" rx="2" fill="none" stroke="#1a1410" stroke-opacity="0.28"/>
+      <text x="20" y="35" font-family="ui-monospace, Consolas, monospace" font-size="16" letter-spacing="2" fill="#6b5e52">VINTAGE</text>
+      <rect x="176" y="0" width="160" height="56" rx="2" fill="none" stroke="#1a1410" stroke-opacity="0.28"/>
+      <text x="196" y="35" font-family="ui-monospace, Consolas, monospace" font-size="16" letter-spacing="2" fill="#6b5e52">MARKET</text>
+      <rect x="352" y="0" width="160" height="56" rx="2" fill="#6b2f1f"/>
+      <text x="380" y="35" font-family="ui-monospace, Consolas, monospace" font-size="16" letter-spacing="2" fill="#f3ebe0">EST. FLOOR</text>
+    </g>
+  </g>
+
+  <!-- Featured object card motif -->
+  <g transform="translate(700, 190)">
+    <rect x="0" y="20" width="360" height="420" fill="#faf6ef" stroke="#1a1410" stroke-opacity="0.25" stroke-width="2" transform="rotate(-3 180 230)"/>
+    <g transform="rotate(-3 180 230)">
+      <rect x="24" y="44" width="312" height="230" fill="#dccfb8"/>
+      <!-- Lounge chair illustration -->
+      <path d="M70 200c25-55 50-80 110-80s85 25 110 80" fill="none" stroke="#5c3a28" stroke-width="10" stroke-linecap="round"/>
+      <path d="M90 198h180c10 0 16 8 16 16v10H74v-10c0-8 6-16 16-16z" fill="url(#wood)"/>
+      <path d="M100 224v34M250 224v34" stroke="#3d2818" stroke-width="7" stroke-linecap="round"/>
+      <path d="M84 258h192" stroke="#3d2818" stroke-width="6" stroke-linecap="round"/>
+      <path d="M125 140c20-24 45-32 55-32s35 8 55 32" fill="none" stroke="#6b4228" stroke-width="12" stroke-linecap="round"/>
+      <circle cx="180" cy="135" r="7" fill="#b08d57"/>
+      <!-- Label -->
+      <text x="36" y="310" font-family="ui-monospace, Consolas, monospace" font-size="14" letter-spacing="3" fill="#4f5c42">FURNITURE · 1968</text>
+      <text x="36" y="350" font-family="Georgia, 'Iowan Old Style', serif" font-size="28" font-weight="600" fill="#1a1410">Copenhagen Lounge</text>
+      <text x="36" y="390" font-family="Georgia, 'Iowan Old Style', serif" font-size="26" fill="#6b2f1f">$1,280</text>
+      <text x="200" y="390" font-family="ui-monospace, Consolas, monospace" font-size="14" letter-spacing="2" fill="#6b5e52">HONEST WEAR</text>
+    </g>
+
+    <!-- Brass stamp -->
+    <g transform="translate(280, 40)">
+      <circle cx="0" cy="0" r="48" fill="none" stroke="#9a4e32" stroke-opacity="0.7" stroke-width="3"/>
+      <circle cx="0" cy="0" r="40" fill="none" stroke="#9a4e32" stroke-opacity="0.45" stroke-width="1"/>
+      <text text-anchor="middle" y="-4" font-family="ui-monospace, Consolas, monospace" font-size="13" letter-spacing="2" fill="#9a4e32">LOT</text>
+      <text text-anchor="middle" y="16" font-family="ui-monospace, Consolas, monospace" font-size="16" letter-spacing="3" fill="#9a4e32">014</text>
+    </g>
+  </g>
+
+  <!-- Bottom rule + wordmark -->
+  <line x1="110" y1="780" x2="1090" y2="780" stroke="#1a1410" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="110" y="820" font-family="ui-monospace, Consolas, monospace" font-size="18" letter-spacing="4" fill="#6b5e52">CURATED · VERIFIED · KEPT</text>
+  <text x="1090" y="820" text-anchor="end" font-family="Georgia, 'Iowan Old Style', serif" font-size="22" fill="#1a1410">relic</text>
+</svg>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Latent Garden is an optimistic research studio exploring creative models through organic simulations and open essays.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Latent Garden — Intelligence should feel alive</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="garden-field" aria-hidden="true">
+    <canvas class="garden-canvas" id="ambient-canvas"></canvas>
+    <div class="vignette"></div>
+  </div>
+
+  <div class="shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="Latent Garden home">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <circle cx="16" cy="16" r="15" stroke="rgba(157,255,200,0.35)" stroke-width="1"/>
+            <path d="M16 25c0-8 4.5-12 9-13-2 7-6 11-9 13z" fill="rgba(61,122,85,0.9)"/>
+            <path d="M16 25c0-8-4.5-12-9-13 2 7 6 11 9 13z" fill="rgba(143,188,154,0.75)"/>
+            <circle cx="16" cy="11" r="2.2" fill="#e8b48a"/>
+            <path d="M16 13.5v11.5" stroke="#9dffc8" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+          <span class="brand-text">
+            <span class="brand-name">Latent Garden</span>
+            <span class="brand-tag">Creative intelligence</span>
+          </span>
+        </a>
+
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Primary">
+          <a href="#experiments">Experiments</a>
+          <a href="#simulation">Simulation</a>
+          <a href="#essays">Essays</a>
+          <a href="#studio">Studio</a>
+          <a class="nav-cta" href="#experiments">Explore experiments</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="wrap hero-grid">
+          <div>
+            <p class="eyebrow">
+              <span class="eyebrow-dot" aria-hidden="true"></span>
+              Creative intelligence
+            </p>
+            <h1 id="hero-title">Intelligence should feel <em>alive</em>.</h1>
+            <p class="lead">
+              Latent Garden is an optimistic research studio cultivating creative models
+              through organic simulations, open essays, and living experiments at the edge
+              of machine imagination.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#experiments">Explore experiments</a>
+              <a class="btn btn-secondary" href="#essays">Read our papers</a>
+            </div>
+            <div class="hero-stats" role="list">
+              <div class="stat" role="listitem">
+                <span class="stat-value">12</span>
+                <span class="stat-label">Active growth beds</span>
+              </div>
+              <div class="stat" role="listitem">
+                <span class="stat-value">48</span>
+                <span class="stat-label">Open research notes</span>
+              </div>
+              <div class="stat" role="listitem">
+                <span class="stat-value">∞</span>
+                <span class="stat-label">Possible bloom paths</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-panel" aria-labelledby="panel-title">
+            <div class="panel-canvas-wrap">
+              <canvas id="seed-canvas" aria-label="Animated seedbed simulation of growing latent stems"></canvas>
+            </div>
+            <div class="panel-body">
+              <p class="panel-kicker">Live seedbed</p>
+              <h2 class="panel-title" id="panel-title">Sprouting latent forms</h2>
+              <p class="panel-copy">
+                A small organic model maps density, sway, and bloom chance—how structure
+                emerges when creative priors meet soft constraint.
+              </p>
+              <div class="seed-controls">
+                <label for="seed-density">
+                  Density
+                  <input id="seed-density" type="range" min="8" max="36" value="18" aria-valuemin="8" aria-valuemax="36" aria-valuenow="18">
+                </label>
+                <span class="chip chip-live">sim running</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="experiments" aria-labelledby="experiments-title">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Experiments</p>
+              <h2 id="experiments-title">Plots where models learn to grow</h2>
+            </div>
+            <p class="section-intro">
+              Each bed is a self-contained study: generative systems, tactile interfaces,
+              and evaluations that favor wonder without abandoning rigor.
+            </p>
+          </div>
+
+          <div class="experiment-grid">
+            <article class="card">
+              <svg class="card-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="42" height="42" rx="12" stroke="rgba(157,255,200,0.25)"/>
+                <path d="M12 30c4-10 8-14 20-16-4 9-10 14-14 16" stroke="#9dffc8" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M22 30c-1-7-5-11-10-12 2 6 5 9 10 12z" fill="rgba(61,122,85,0.8)"/>
+                <circle cx="28" cy="14" r="2.5" fill="#e8b48a"/>
+              </svg>
+              <h3>Root Traversal</h3>
+              <p>
+                Attention paths rendered as subterranean root networks—tracing how a model
+                reaches for meaning through soil layers of context.
+              </p>
+              <div class="meta-row">
+                <span class="tag">interpretability</span>
+                <span class="tag">graph sim</span>
+              </div>
+            </article>
+
+            <article class="card">
+              <svg class="card-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="42" height="42" rx="12" stroke="rgba(157,255,200,0.25)"/>
+                <circle cx="22" cy="22" r="8" stroke="#9dffc8" stroke-width="1.5"/>
+                <circle cx="22" cy="22" r="3" fill="#e8b48a"/>
+                <path d="M22 8v4M22 32v4M8 22h4M32 22h4" stroke="#8fbc9a" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+              <h3>Pollinator Loop</h3>
+              <p>
+                Multi-agent creative cycles where critique, synthesis, and play cross-pollinate
+                until a composition stabilizes into a clear bloom.
+              </p>
+              <div class="meta-row">
+                <span class="tag">multi-agent</span>
+                <span class="tag">creativity</span>
+              </div>
+            </article>
+
+            <article class="card">
+              <svg class="card-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="42" height="42" rx="12" stroke="rgba(157,255,200,0.25)"/>
+                <path d="M10 28c6-2 8-8 8-14 4 3 8 8 8 14" stroke="#9dffc8" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M14 28h16" stroke="#8fbc9a" stroke-width="1.4" stroke-linecap="round"/>
+                <path d="M18 20c2 1 4 1 6 0" stroke="#e8b48a" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+              <h3>Canopy Prompting</h3>
+              <p>
+                Hierarchical prompts that branch like canopy layers—broad light first,
+                then fine shade—so generation keeps structure without stifling surprise.
+              </p>
+              <div class="meta-row">
+                <span class="tag">prompt design</span>
+                <span class="tag">composition</span>
+              </div>
+            </article>
+
+            <article class="card">
+              <svg class="card-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="42" height="42" rx="12" stroke="rgba(157,255,200,0.25)"/>
+                <path d="M12 16h20M12 22h14M12 28h17" stroke="#9dffc8" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="30" cy="22" r="3" fill="rgba(232,180,138,0.9)"/>
+              </svg>
+              <h3>Soft Evaluation</h3>
+              <p>
+                Metrics that score vitality, coherence, and delight together—so creative
+                systems are judged by how alive their outputs feel, not only accuracy.
+              </p>
+              <div class="meta-row">
+                <span class="tag">evaluation</span>
+                <span class="tag">human preference</span>
+              </div>
+            </article>
+
+            <article class="card">
+              <svg class="card-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="42" height="42" rx="12" stroke="rgba(157,255,200,0.25)"/>
+                <path d="M14 30V16l8-4 8 4v14" stroke="#9dffc8" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M18 30v-8h8v8" stroke="#e8b48a" stroke-width="1.4" stroke-linejoin="round"/>
+              </svg>
+              <h3>Terrarium Interfaces</h3>
+              <p>
+                Contained worlds for steering models with gestures, seasons, and soil
+                parameters instead of brittle parameter dumps.
+              </p>
+              <div class="meta-row">
+                <span class="tag">HCI</span>
+                <span class="tag">simulation</span>
+              </div>
+            </article>
+
+            <article class="card">
+              <svg class="card-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="42" height="42" rx="12" stroke="rgba(157,255,200,0.25)"/>
+                <circle cx="16" cy="20" r="4" stroke="#9dffc8" stroke-width="1.4"/>
+                <circle cx="28" cy="20" r="4" stroke="#e8b48a" stroke-width="1.4"/>
+                <path d="M20 20h4M16 28c2 3 10 3 12 0" stroke="#8fbc9a" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+              <h3>Symbiotic Tuning</h3>
+              <p>
+                Co-training loops where human taste and model priors revise each other
+                gently—cultivation rather than conquest.
+              </p>
+              <div class="meta-row">
+                <span class="tag">alignment</span>
+                <span class="tag">co-creation</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="sim-band" id="simulation" aria-labelledby="sim-title">
+        <div class="wrap sim-layout">
+          <div class="sim-visual">
+            <canvas id="growth-canvas" aria-label="Network visualization of latent growth connections"></canvas>
+            <div class="sim-legend">
+              <span class="chip">latent nodes</span>
+              <span class="chip">bloom attractors</span>
+              <span class="chip">signal hops</span>
+            </div>
+          </div>
+          <div class="sim-copy">
+            <p class="section-kicker">Organic simulation</p>
+            <h2 id="sim-title">Watch structure take root</h2>
+            <p>
+              Our public growth field treats representation space as living terrain.
+              Nodes drift, link, and occasionally bloom when local energy peaks—
+              a metaphor we run as a real-time model of creative emergence.
+            </p>
+            <ul class="principle-list">
+              <li>
+                <span class="principle-num">01</span>
+                <div>
+                  <strong>Soft constraint</strong>
+                  <span>Boundaries guide growth without freezing surprise mid-branch.</span>
+                </div>
+              </li>
+              <li>
+                <span class="principle-num">02</span>
+                <div>
+                  <strong>Visible process</strong>
+                  <span>Interpretability is a garden path: you should be able to walk it.</span>
+                </div>
+              </li>
+              <li>
+                <span class="principle-num">03</span>
+                <div>
+                  <strong>Optimistic rigor</strong>
+                  <span>Wonder is the hypothesis; measurement is the trellis that holds it.</span>
+                </div>
+              </li>
+            </ul>
+            <a class="btn btn-secondary" href="#essays">Read our papers</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="essays" aria-labelledby="essays-title">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Open essays</p>
+              <h2 id="essays-title">Field notes from the canopy</h2>
+            </div>
+            <p class="section-intro">
+              Long-form writing released in the open—methods, failures, and small
+              revelations from cultivating creative systems.
+            </p>
+          </div>
+
+          <div class="essay-list">
+            <a class="essay" href="#essay-mycelial" data-essay="essay-mycelial" aria-expanded="false" aria-controls="essay-mycelial">
+              <span class="essay-date">2026.03</span>
+              <div>
+                <h3>Mycelial Attention</h3>
+                <p>Why sparse, opportunistic routing can feel more alive than dense global focus.</p>
+              </div>
+              <span class="essay-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <a class="essay" href="#essay-compost" data-essay="essay-compost" aria-expanded="false" aria-controls="essay-compost">
+              <span class="essay-date">2026.01</span>
+              <div>
+                <h3>Composting Failure Modes</h3>
+                <p>Turning brittle collapse into fertile training signal for the next season.</p>
+              </div>
+              <span class="essay-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <a class="essay" href="#essay-greenhouse" data-essay="essay-greenhouse" aria-expanded="false" aria-controls="essay-greenhouse">
+              <span class="essay-date">2025.11</span>
+              <div>
+                <h3>The Greenhouse Protocol</h3>
+                <p>A practical recipe for sandboxed creative agents that still surprise you.</p>
+              </div>
+              <span class="essay-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <a class="essay" href="#essay-photosynthesis" data-essay="essay-photosynthesis" aria-expanded="false" aria-controls="essay-photosynthesis">
+              <span class="essay-date">2025.08</span>
+              <div>
+                <h3>Photosynthetic Evaluation</h3>
+                <p>Measuring generative quality as energy captured, transformed, and shared.</p>
+              </div>
+              <span class="essay-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <article class="essay-panel" id="essay-mycelial" hidden>
+            <h3>Mycelial Attention</h3>
+            <p>
+              Dense attention is a floodlight. Mycelial attention is a network of thin
+              hyphae: opportunistic, thrifty, and remarkably good at finding nutrients
+              in uneven soil. We study routing schemes that activate only the pathways
+              needed for the present context, then quietly recede.
+            </p>
+            <p>
+              Early results suggest sparse organic routing preserves long-range structure
+              while leaving room for local improvisation—the same balance a forest floor
+              keeps between stability and succession. Full lab notes include diagrams of
+              token-to-token mycelium maps from three generative tasks.
+            </p>
+            <button class="btn btn-secondary panel-close" type="button" data-close-panel>Close note</button>
+          </article>
+
+          <article class="essay-panel" id="essay-compost" hidden>
+            <h3>Composting Failure Modes</h3>
+            <p>
+              When a creative model collapses into repetition or noise, the instinct is
+              to discard the run. We treat collapse as compost: stratified traces of what
+              the system almost understood.
+            </p>
+            <p>
+              This essay outlines a failure taxonomy—nutrient burn, root-bound loops,
+              canopy occlusion—and the recovery drills we use to re-seed training. The
+              goal is not zero failure; it is fertile failure that feeds the next bloom.
+            </p>
+            <button class="btn btn-secondary panel-close" type="button" data-close-panel>Close note</button>
+          </article>
+
+          <article class="essay-panel" id="essay-greenhouse" hidden>
+            <h3>The Greenhouse Protocol</h3>
+            <p>
+              Unbounded agents are thrilling and unsafe. Fully locked agents are safe and
+              dull. The Greenhouse Protocol is our middle climate: transparent walls,
+              controlled weather, and doors that open only when evaluation says the
+              ecosystem is ready.
+            </p>
+            <p>
+              We share the full checklist—soil parameters, pollination schedules, escape
+              vents, and human-in-the-loop pruning—so other studios can grow surprising
+              work without abandoning stewardship.
+            </p>
+            <button class="btn btn-secondary panel-close" type="button" data-close-panel>Close note</button>
+          </article>
+
+          <article class="essay-panel" id="essay-photosynthesis" hidden>
+            <h3>Photosynthetic Evaluation</h3>
+            <p>
+              Accuracy alone is a poor measure of creative intelligence. Photosynthetic
+              evaluation asks how much ambient signal a system can convert into structured
+              energy: coherence, novelty that still reads as intentional, and usefulness
+              to a human collaborator.
+            </p>
+            <p>
+              We propose a three-leaf score—capture, transform, share—and show how it
+              correlates with expert preference better than isolated perplexity or CLIP
+              distance on open-ended design tasks.
+            </p>
+            <button class="btn btn-secondary panel-close" type="button" data-close-panel>Close note</button>
+          </article>
+        </div>
+      </section>
+
+      <section id="studio" aria-labelledby="studio-title">
+        <div class="wrap studio-grid">
+          <div class="studio-card">
+            <p class="section-kicker">The studio</p>
+            <h2 id="studio-title">A research plot for living models</h2>
+            <p>
+              Latent Garden is a small studio of researchers, artists, and systems thinkers
+              who believe creative AI should feel cultivated rather than extracted. We
+              publish early, simulate often, and keep our tools as open as the questions
+              that grow them.
+            </p>
+            <p>
+              Our days mix paper drafts with terrarium demos: one desk might hold a
+              branching prompt grammar; another, a soft evaluation suite that scores
+              delight without apologizing for it.
+            </p>
+            <p>
+              If intelligence is to share the world with us, it should learn the ethics of
+              gardens—patience, reciprocity, and care for what is still becoming.
+            </p>
+          </div>
+          <div class="studio-card quote-card">
+            <blockquote>
+              “We do not train models to conquer the blank page. We tend conditions where
+              unexpected life can take root.”
+              <cite>— Latent Garden field charter</cite>
+            </blockquote>
+            <div class="meta-row" style="margin-top: 1.5rem;">
+              <span class="tag">open research</span>
+              <span class="tag">creative systems</span>
+              <span class="tag">organic sim</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="practice" aria-labelledby="practice-title">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Practice</p>
+              <h2 id="practice-title">How we tend the work</h2>
+            </div>
+            <p class="section-intro">
+              A few standing answers for collaborators, readers, and curious passers-by.
+            </p>
+          </div>
+          <div class="details-grid">
+            <details>
+              <summary>What does “organic simulation” mean here?</summary>
+              <p>
+                We build interactive models whose dynamics borrow from growth, pollination,
+                and succession—not as decoration, but as computational metaphors that make
+                latent structure legible and steerable.
+              </p>
+            </details>
+            <details>
+              <summary>Are the essays peer-reviewed papers?</summary>
+              <p>
+                They are open research notes with methods and results. Some later become
+                formal papers; all start public so critique can arrive while the soil is
+                still soft.
+              </p>
+            </details>
+            <details>
+              <summary>Can I try the experiments myself?</summary>
+              <p>
+                The demos on this page are self-contained. Larger toolkits ship as
+                offline packages with the same no-network philosophy as this site—
+                everything you need grows locally.
+              </p>
+            </details>
+            <details>
+              <summary>How do you handle safety and consent?</summary>
+              <p>
+                Through the Greenhouse Protocol: scoped sandboxes, transparent logging of
+                agent actions, and human pruning rights before any system leaves the
+                terrarium stage.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <p class="footer-brand">Latent Garden</p>
+            <p class="footer-copy">
+              An optimistic research studio exploring creative models through organic
+              simulations and open essays.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h3>Explore</h3>
+            <ul>
+              <li><a href="#experiments">Experiments</a></li>
+              <li><a href="#simulation">Simulation</a></li>
+              <li><a href="#essays">Essays</a></li>
+              <li><a href="#studio">Studio</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Principles</h3>
+            <ul>
+              <li><a href="#simulation">Soft constraint</a></li>
+              <li><a href="#simulation">Visible process</a></li>
+              <li><a href="#practice">Optimistic rigor</a></li>
+              <li><a href="#top">Back to canopy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© <span id="year">2026</span> Latent Garden Research Studio</span>
+          <span>Intelligence should feel alive.</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

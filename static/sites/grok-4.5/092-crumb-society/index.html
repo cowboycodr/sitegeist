@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'">
+  <title>Crumb Society — Loud pastry. Quiet mornings.</title>
+  <meta name="description" content="Heritage grain, cultured butter, and seasonal fruit laminated into daily rituals.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="logo" href="#top" aria-label="Crumb Society home">
+        <span class="logo-mark" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8 17c1.2-3.5 3-5.5 6-6.5 3 1 4.8 3 6 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="11" cy="12" r="1.2" fill="currentColor"/>
+            <circle cx="17.5" cy="11" r="1" fill="currentColor"/>
+            <circle cx="14" cy="15.5" r="0.9" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="logo-text">Crumb Society</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" id="nav-toggle">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#bake">Today’s bake</a></li>
+          <li><a href="#craft">Craft</a></li>
+          <li><a href="#boxes">Boxes</a></li>
+          <li><a href="#hours">Hours</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <svg class="hero-layers" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="layer-warm" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#c47a3a"/>
+              <stop offset="100%" stop-color="#8b4518"/>
+            </linearGradient>
+            <linearGradient id="layer-cream" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f5e6d0"/>
+              <stop offset="100%" stop-color="#e8d4b8"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="600" fill="#1a120c"/>
+          <g opacity="0.9">
+            <path d="M0 420 Q200 360 400 400 T800 380 L800 600 L0 600 Z" fill="url(#layer-warm)" opacity="0.35"/>
+            <path d="M0 460 Q250 400 500 440 T800 420 L800 600 L0 600 Z" fill="url(#layer-cream)" opacity="0.12"/>
+            <ellipse cx="620" cy="180" rx="140" ry="90" fill="#d4a574" opacity="0.08"/>
+            <ellipse cx="180" cy="220" rx="100" ry="70" fill="#c47a3a" opacity="0.1"/>
+          </g>
+          <!-- Laminated pastry motif -->
+          <g transform="translate(480,120)" opacity="0.55">
+            <rect x="0" y="0" width="220" height="28" rx="4" fill="#f0d5a8" transform="rotate(-12 110 14)"/>
+            <rect x="8" y="32" width="220" height="22" rx="3" fill="#e8c48a" transform="rotate(-12 118 43)"/>
+            <rect x="16" y="58" width="220" height="18" rx="3" fill="#d4a060" transform="rotate(-12 126 67)"/>
+            <rect x="24" y="80" width="220" height="14" rx="2" fill="#c48840" transform="rotate(-12 134 87)"/>
+            <rect x="32" y="98" width="220" height="12" rx="2" fill="#a86a28" transform="rotate(-12 142 104)"/>
+          </g>
+          <!-- Crumb dots -->
+          <g fill="#e8c48a" opacity="0.4">
+            <circle cx="120" cy="140" r="3"/><circle cx="145" cy="160" r="2"/><circle cx="100" cy="175" r="2.5"/>
+            <circle cx="700" cy="320" r="2.5"/><circle cx="720" cy="340" r="2"/><circle cx="680" cy="350" r="3"/>
+            <circle cx="350" cy="100" r="2"/><circle cx="380" cy="90" r="1.5"/>
+          </g>
+        </svg>
+      </div>
+      <div class="hero-content">
+        <p class="eyebrow">Fresh from 7:00</p>
+        <h1 id="hero-title">Loud pastry.<br>Quiet mornings.</h1>
+        <p class="hero-lead">Heritage grain, cultured butter, and seasonal fruit laminated into daily rituals.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#bake">See today’s bake</a>
+          <a class="btn btn-secondary" href="#boxes">Order a box</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bake" id="bake" aria-labelledby="bake-title">
+      <div class="section-inner">
+        <header class="section-head">
+          <p class="eyebrow">The board</p>
+          <h2 id="bake-title">Today’s bake</h2>
+          <p class="section-intro">Pulled at dawn, laminated by hand, finished with fruit from the week’s market.</p>
+        </header>
+        <ul class="bake-grid">
+          <li class="bake-card">
+            <div class="bake-visual" aria-hidden="true">
+              <svg viewBox="0 0 120 90" class="pastry-icon">
+                <ellipse cx="60" cy="48" rx="42" ry="28" fill="#e8c48a"/>
+                <ellipse cx="60" cy="42" rx="38" ry="24" fill="#f5d9a8"/>
+                <path d="M30 42 Q45 28 60 42 Q75 28 90 42" fill="none" stroke="#c48840" stroke-width="2"/>
+                <circle cx="48" cy="40" r="5" fill="#8b2942"/><circle cx="72" cy="38" r="4.5" fill="#a63d55"/>
+                <circle cx="60" cy="48" r="4" fill="#7a1f38"/>
+              </svg>
+            </div>
+            <div class="bake-body">
+              <h3>Blackberry kouign</h3>
+              <p>Caramelized sugar layers, wild blackberry jam, flaky edge.</p>
+              <span class="price">$5.50</span>
+            </div>
+          </li>
+          <li class="bake-card">
+            <div class="bake-visual" aria-hidden="true">
+              <svg viewBox="0 0 120 90" class="pastry-icon">
+                <path d="M25 55 L40 25 L80 25 L95 55 Z" fill="#d4a060"/>
+                <path d="M30 55 L42 30 L78 30 L90 55 Z" fill="#f0d5a8"/>
+                <rect x="38" y="35" width="44" height="8" rx="2" fill="#c47a3a" opacity="0.7"/>
+                <rect x="40" y="46" width="40" height="6" rx="2" fill="#a86a28" opacity="0.5"/>
+                <ellipse cx="60" cy="58" rx="36" ry="8" fill="#8b4518" opacity="0.3"/>
+              </svg>
+            </div>
+            <div class="bake-body">
+              <h3>Heritage croissant</h3>
+              <p>72-hour cold ferment, cultured butter, deep golden shatter.</p>
+              <span class="price">$4.75</span>
+            </div>
+          </li>
+          <li class="bake-card">
+            <div class="bake-visual" aria-hidden="true">
+              <svg viewBox="0 0 120 90" class="pastry-icon">
+                <rect x="28" y="30" width="64" height="40" rx="6" fill="#e8c48a"/>
+                <rect x="32" y="34" width="56" height="32" rx="4" fill="#f5e6d0"/>
+                <path d="M40 50 Q50 38 60 50 Q70 38 80 50" stroke="#c47a3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="48" cy="44" r="3" fill="#2d5a3d"/><circle cx="72" cy="46" r="3" fill="#2d5a3d"/>
+              </svg>
+            </div>
+            <div class="bake-body">
+              <h3>Rye &amp; plum danish</h3>
+              <p>Stoneground rye, roasted plum, crème fraîche finish.</p>
+              <span class="price">$6.00</span>
+            </div>
+          </li>
+          <li class="bake-card">
+            <div class="bake-visual" aria-hidden="true">
+              <svg viewBox="0 0 120 90" class="pastry-icon">
+                <circle cx="60" cy="45" r="32" fill="#c48840"/>
+                <circle cx="60" cy="45" r="26" fill="#e8c48a"/>
+                <circle cx="60" cy="45" r="14" fill="#f5e6d0"/>
+                <path d="M48 42 Q60 55 72 42" fill="none" stroke="#8b4518" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="54" cy="38" r="2" fill="#a86a28"/><circle cx="66" cy="40" r="1.5" fill="#a86a28"/>
+              </svg>
+            </div>
+            <div class="bake-body">
+              <h3>Salted morning bun</h3>
+              <p>Cinnamon sugar spiral, fleur de sel, still warm by 8.</p>
+              <span class="price">$4.25</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section craft" id="craft" aria-labelledby="craft-title">
+      <div class="section-inner craft-layout">
+        <div class="craft-copy">
+          <p class="eyebrow">How we bake</p>
+          <h2 id="craft-title">Three folds. One quiet hour.</h2>
+          <p>We mill what we can, culture our butter overnight, and laminate only when the dough is ready — never when the clock says so. Seasonal fruit is reduced low and slow so the pastry stays the loud part of the room.</p>
+          <ul class="craft-list">
+            <li>
+              <strong>Heritage grain</strong>
+              <span>Stoneground wheat, rye, and spelt from small mills.</span>
+            </li>
+            <li>
+              <strong>Cultured butter</strong>
+              <span>High-fat European style, turned in-house for depth.</span>
+            </li>
+            <li>
+              <strong>Seasonal fruit</strong>
+              <span>Market fruit laminated into jam, folds, and finishes.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="craft-panel" aria-hidden="true">
+          <svg class="laminate-diagram" viewBox="0 0 280 340" role="img">
+            <title>Laminated pastry layers</title>
+            <rect x="40" y="40" width="200" height="36" rx="4" fill="#f5e6d0"/>
+            <rect x="40" y="80" width="200" height="20" rx="3" fill="#c47a3a"/>
+            <rect x="40" y="104" width="200" height="36" rx="4" fill="#f0d5a8"/>
+            <rect x="40" y="144" width="200" height="20" rx="3" fill="#a86a28"/>
+            <rect x="40" y="168" width="200" height="36" rx="4" fill="#e8c48a"/>
+            <rect x="40" y="208" width="200" height="20" rx="3" fill="#8b4518"/>
+            <rect x="40" y="232" width="200" height="36" rx="4" fill="#d4a060"/>
+            <text x="140" y="300" text-anchor="middle" fill="#c4a882" font-family="Georgia, serif" font-size="14" letter-spacing="0.12em">LAMINATE</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section boxes" id="boxes" aria-labelledby="boxes-title">
+      <div class="section-inner">
+        <header class="section-head">
+          <p class="eyebrow">Take it home</p>
+          <h2 id="boxes-title">Order a box</h2>
+          <p class="section-intro">Assembled the morning of pickup. Leave a note for dietary needs — we read every one.</p>
+        </header>
+        <div class="box-grid">
+          <article class="box-card">
+            <h3>Morning for two</h3>
+            <p class="box-count">4 pieces</p>
+            <p>Two croissants, one fruit danish, one morning bun. Coffee-side perfect.</p>
+            <p class="price">$18</p>
+            <button type="button" class="btn btn-secondary box-order" data-box="Morning for two">Select box</button>
+          </article>
+          <article class="box-card featured">
+            <p class="box-badge">Most ordered</p>
+            <h3>Society dozen</h3>
+            <p class="box-count">12 pieces</p>
+            <p>A full board: kouigns, croissants, danishes, and morning buns mixed by the bake.</p>
+            <p class="price">$48</p>
+            <button type="button" class="btn btn-primary box-order" data-box="Society dozen">Select box</button>
+          </article>
+          <article class="box-card">
+            <h3>Office quiet</h3>
+            <p class="box-count">8 pieces</p>
+            <p>Shareable mix with less sugar, more shatter — for meetings that start at nine.</p>
+            <p class="price">$32</p>
+            <button type="button" class="btn btn-secondary box-order" data-box="Office quiet">Select box</button>
+          </article>
+        </div>
+        <div class="order-note" id="order-note" role="status" aria-live="polite" hidden></div>
+      </div>
+    </section>
+
+    <section class="section hours" id="hours" aria-labelledby="hours-title">
+      <div class="section-inner hours-layout">
+        <div>
+          <p class="eyebrow">Visit</p>
+          <h2 id="hours-title">Open while the oven is loud</h2>
+          <p class="hours-address">14 Laminate Lane<br>Counter service · Cash &amp; card</p>
+        </div>
+        <dl class="hours-list">
+          <div>
+            <dt>Tue – Fri</dt>
+            <dd>7:00 – 2:00</dd>
+          </div>
+          <div>
+            <dt>Saturday</dt>
+            <dd>7:00 – 3:00</dd>
+          </div>
+          <div>
+            <dt>Sunday</dt>
+            <dd>8:00 – 1:00</dd>
+          </div>
+          <div>
+            <dt>Monday</dt>
+            <dd>Closed · dough day</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-brand">Crumb Society</p>
+      <p class="footer-tag">Loud pastry. Quiet mornings.</p>
+      <p class="footer-meta">Heritage grain · Cultured butter · Seasonal fruit</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Paprika — Dinner should feel alive</title>
+  <meta name="description" content="Bold chef-made meals from independent kitchens, delivered hot and ready for the table.">
+  <style>
+    :root {
+      --paprika: #c43c1a;
+      --paprika-deep: #8f240c;
+      --ember: #e85d2a;
+      --saffron: #f0a040;
+      --cream: #faf4eb;
+      --cream-warm: #f3e8d8;
+      --ink: #1c1410;
+      --ink-soft: #3d2e26;
+      --muted: #6b5648;
+      --herb: #3d6b4f;
+      --herb-light: #5a8f6a;
+      --surface: #ffffff;
+      --shadow: rgba(28, 20, 16, 0.08);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --font: "Segoe UI", system-ui, -apple-system, sans-serif;
+      --display: Georgia, "Times New Roman", serif;
+      --max: 1120px;
+      --nav-h: 72px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.55;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+    ul { list-style: none; }
+
+    .wrap {
+      width: min(100% - 2rem, var(--max));
+      margin-inline: auto;
+    }
+
+    /* —— Skip link —— */
+    .skip {
+      position: absolute;
+      left: 1rem;
+      top: -100px;
+      background: var(--ink);
+      color: var(--cream);
+      padding: 0.65rem 1rem;
+      border-radius: 8px;
+      z-index: 1000;
+    }
+    .skip:focus { top: 1rem; }
+
+    /* —— Header —— */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 244, 235, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(28, 20, 16, 0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--nav-h);
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: var(--display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem 1.5rem;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      padding: 0.35rem 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--paprika);
+      border-bottom-color: var(--paprika);
+      outline: none;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 1.15rem;
+      background: var(--paprika);
+      color: #fff !important;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-bottom: none !important;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .nav-cta:hover,
+    .nav-cta:focus-visible {
+      background: var(--paprika-deep);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      border: 1px solid rgba(28, 20, 16, 0.12);
+    }
+
+    .menu-btn:focus-visible {
+      outline: 2px solid var(--paprika);
+      outline-offset: 2px;
+    }
+
+    .menu-btn span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--ink);
+      position: relative;
+    }
+
+    .menu-btn span::before,
+    .menu-btn span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 18px;
+      height: 2px;
+      background: var(--ink);
+    }
+    .menu-btn span::before { top: -6px; }
+    .menu-btn span::after { top: 6px; }
+
+    /* —— Hero —— */
+    .hero {
+      position: relative;
+      padding: 3.5rem 0 4.5rem;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--paprika);
+      margin-bottom: 1.1rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      background: var(--saffron);
+      border-radius: 2px;
+    }
+
+    .hero h1 {
+      font-family: var(--display);
+      font-size: clamp(2.4rem, 5vw, 3.75rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 1.15rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--paprika);
+    }
+
+    .hero-lead {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 34ch;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.98rem;
+      transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+      min-height: 48px;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--paprika);
+      outline-offset: 3px;
+    }
+
+    .btn-primary {
+      background: var(--paprika);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(196, 60, 26, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: var(--paprika-deep);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 1.5px solid rgba(28, 20, 16, 0.18);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--paprika);
+      color: var(--paprika);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid rgba(28, 20, 16, 0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-family: var(--display);
+      font-size: 1.55rem;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+
+    .stat span {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* Hero visual card */
+    .hero-visual {
+      position: relative;
+    }
+
+    .plate-card {
+      background: linear-gradient(155deg, #2a1812 0%, #4a2418 45%, #6b2e18 100%);
+      border-radius: 28px;
+      padding: 1.75rem;
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(28, 20, 16, 0.22);
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .plate-card::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(240, 160, 64, 0.35) 0%, transparent 70%);
+      top: -40px;
+      right: -30px;
+      pointer-events: none;
+    }
+
+    .plate-card::after {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196, 60, 26, 0.4) 0%, transparent 70%);
+      bottom: 40px;
+      left: -40px;
+      pointer-events: none;
+    }
+
+    .plate-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .plate-badge {
+      background: rgba(250, 244, 235, 0.12);
+      border: 1px solid rgba(250, 244, 235, 0.18);
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .plate-heat {
+      font-size: 0.8rem;
+      opacity: 0.75;
+    }
+
+    .plate-art {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      margin: 0.5rem 0 1.5rem;
+    }
+
+    .plate-art svg {
+      width: min(100%, 260px);
+      height: auto;
+    }
+
+    .plate-bottom {
+      position: relative;
+      z-index: 1;
+    }
+
+    .plate-bottom h2 {
+      font-family: var(--display);
+      font-size: 1.45rem;
+      margin-bottom: 0.35rem;
+      font-weight: 600;
+    }
+
+    .plate-bottom p {
+      font-size: 0.9rem;
+      opacity: 0.78;
+      margin-bottom: 1rem;
+    }
+
+    .plate-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .plate-price {
+      font-family: var(--display);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .plate-price small {
+      font-size: 0.75rem;
+      font-family: var(--font);
+      font-weight: 500;
+      opacity: 0.7;
+      margin-left: 0.25rem;
+    }
+
+    .plate-eta {
+      background: var(--saffron);
+      color: var(--ink);
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .float-chip {
+      position: absolute;
+      background: var(--surface);
+      color: var(--ink);
+      border-radius: 14px;
+      padding: 0.7rem 0.95rem;
+      box-shadow: 0 12px 32px var(--shadow);
+      font-size: 0.82rem;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      max-width: 200px;
+    }
+
+    .float-chip strong { display: block; font-size: 0.88rem; }
+    .float-chip span { color: var(--muted); font-size: 0.75rem; }
+
+    .chip-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--herb-light);
+      flex-shrink: 0;
+      box-shadow: 0 0 0 4px rgba(90, 143, 106, 0.2);
+    }
+
+    .chip-1 { top: 12%; left: -12px; }
+    .chip-2 { bottom: 18%; right: -8px; }
+
+    /* —— Sections —— */
+    section { padding: 4.5rem 0; }
+
+    .section-head {
+      max-width: 36rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-head h2 {
+      font-family: var(--display);
+      font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* —— How it works —— */
+    .how {
+      background: var(--cream-warm);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .step {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 1.6rem 1.4rem;
+      border: 1px solid rgba(28, 20, 16, 0.05);
+      box-shadow: 0 8px 24px var(--shadow);
+      transition: transform 0.2s;
+    }
+
+    .step:hover { transform: translateY(-3px); }
+
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(196, 60, 26, 0.1);
+      color: var(--paprika);
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .step h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.45rem;
+      font-weight: 700;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* —— Kitchens —— */
+    .kitchens-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .kitchen {
+      background: var(--surface);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(28, 20, 16, 0.06);
+      box-shadow: 0 10px 30px var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .kitchen-banner {
+      height: 140px;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+
+    .kitchen-banner svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .kitchen-tag {
+      position: relative;
+      z-index: 1;
+      background: rgba(28, 20, 16, 0.55);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      backdrop-filter: blur(4px);
+    }
+
+    .kitchen-body {
+      padding: 1.25rem 1.3rem 1.4rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .kitchen-body h3 {
+      font-family: var(--display);
+      font-size: 1.25rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .kitchen-chef {
+      font-size: 0.85rem;
+      color: var(--paprika);
+      font-weight: 600;
+      margin-bottom: 0.65rem;
+    }
+
+    .kitchen-body > p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+
+    .kitchen-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(28, 20, 16, 0.06);
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-weight: 600;
+    }
+
+    .rating svg { width: 14px; height: 14px; }
+    .eta { color: var(--muted); }
+
+    /* —— Menu —— */
+    .menu-section {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    .menu-section .section-head h2 { color: var(--cream); }
+    .menu-section .section-head p { color: rgba(250, 244, 235, 0.65); }
+    .menu-section .eyebrow { color: var(--saffron); }
+    .menu-section .eyebrow::before { background: var(--ember); }
+
+    .menu-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .menu-tab {
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: rgba(250, 244, 235, 0.7);
+      border: 1px solid rgba(250, 244, 235, 0.15);
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      min-height: 44px;
+    }
+
+    .menu-tab:hover,
+    .menu-tab:focus-visible {
+      color: #fff;
+      border-color: rgba(250, 244, 235, 0.4);
+      outline: none;
+    }
+
+    .menu-tab[aria-selected="true"] {
+      background: var(--paprika);
+      border-color: var(--paprika);
+      color: #fff;
+    }
+
+    .menu-panels { position: relative; }
+
+    .menu-panel {
+      display: none;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .menu-panel.active { display: grid; }
+
+    .dish {
+      display: grid;
+      grid-template-columns: 72px 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      background: rgba(250, 244, 235, 0.05);
+      border: 1px solid rgba(250, 244, 235, 0.08);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .dish:hover {
+      background: rgba(250, 244, 235, 0.09);
+      border-color: rgba(240, 160, 64, 0.25);
+    }
+
+    .dish-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 14px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .dish-icon svg { width: 100%; height: 100%; }
+
+    .dish h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .dish p {
+      font-size: 0.85rem;
+      color: rgba(250, 244, 235, 0.58);
+      line-height: 1.4;
+    }
+
+    .dish-price {
+      font-family: var(--display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--saffron);
+      white-space: nowrap;
+    }
+
+    /* —— Promise —— */
+    .promise-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .promise-copy h2 {
+      font-family: var(--display);
+      font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .promise-copy > p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+      max-width: 38ch;
+    }
+
+    .promise-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .promise-item {
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+    }
+
+    .promise-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(61, 107, 79, 0.12);
+      color: var(--herb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .promise-icon svg { width: 20px; height: 20px; }
+
+    .promise-item strong {
+      display: block;
+      font-size: 0.98rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .promise-item span {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .promise-panel {
+      background: linear-gradient(160deg, var(--herb) 0%, #2a4a36 100%);
+      border-radius: 28px;
+      padding: 2.25rem;
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .promise-panel::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 40px solid rgba(250, 244, 235, 0.06);
+      top: -80px;
+      right: -60px;
+    }
+
+    .promise-panel .quote {
+      font-family: var(--display);
+      font-size: 1.55rem;
+      line-height: 1.35;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .promise-panel .quote-author {
+      position: relative;
+      z-index: 1;
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    .promise-panel .quote-author strong {
+      display: block;
+      font-style: normal;
+      font-size: 1rem;
+      margin-bottom: 0.15rem;
+      opacity: 1;
+    }
+
+    /* —— Neighborhoods —— */
+    .areas {
+      background: var(--cream-warm);
+    }
+
+    .area-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .area-pill {
+      background: var(--surface);
+      border: 1px solid rgba(28, 20, 16, 0.08);
+      border-radius: 999px;
+      padding: 0.7rem 1.2rem;
+      font-weight: 600;
+      font-size: 0.92rem;
+      box-shadow: 0 4px 12px var(--shadow);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .area-pill i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--paprika);
+      display: inline-block;
+    }
+
+    .area-note {
+      margin-top: 1.5rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* —— CTA band —— */
+    .cta-band {
+      padding: 0 0 4.5rem;
+    }
+
+    .cta-card {
+      background: linear-gradient(125deg, var(--paprika) 0%, var(--ember) 55%, var(--saffron) 140%);
+      border-radius: 28px;
+      padding: clamp(2rem, 5vw, 3.25rem);
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 24px 50px rgba(196, 60, 26, 0.25);
+    }
+
+    .cta-card::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      right: -80px;
+      top: -100px;
+    }
+
+    .cta-card h2 {
+      font-family: var(--display);
+      font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-card p {
+      opacity: 0.92;
+      max-width: 36ch;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-card .btn-primary {
+      background: var(--ink);
+      box-shadow: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-card .btn-primary:hover {
+      background: #000;
+    }
+
+    .cta-side {
+      position: relative;
+      z-index: 1;
+      background: rgba(28, 20, 16, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      padding: 1.5rem;
+      backdrop-filter: blur(6px);
+    }
+
+    .cta-side h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.8;
+      margin-bottom: 1rem;
+    }
+
+    .cta-side ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .cta-side li {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.95rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .cta-side li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .cta-side li span:last-child {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* —— Footer —— */
+    .site-footer {
+      background: var(--ink);
+      color: rgba(250, 244, 235, 0.7);
+      padding: 3rem 0 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-brand .logo {
+      color: var(--cream);
+      margin-bottom: 0.85rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.92rem;
+      max-width: 28ch;
+      line-height: 1.55;
+    }
+
+    .footer-col h3 {
+      color: var(--cream);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .footer-col a {
+      font-size: 0.92rem;
+      transition: color 0.15s;
+    }
+
+    .footer-col a:hover,
+    .footer-col a:focus-visible {
+      color: var(--saffron);
+      outline: none;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(250, 244, 235, 0.1);
+      font-size: 0.85rem;
+    }
+
+    /* —— Dialog (neighborhood finder) —— */
+    .dialog-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(28, 20, 16, 0.55);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .dialog-backdrop.open { display: flex; }
+
+    .dialog {
+      background: var(--cream);
+      border-radius: 20px;
+      width: min(100%, 440px);
+      max-height: min(90vh, 560px);
+      overflow: auto;
+      padding: 1.75rem;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .dialog h2 {
+      font-family: var(--display);
+      font-size: 1.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .dialog > p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .dialog-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      line-height: 1;
+      color: var(--muted);
+    }
+
+    .dialog-close:hover,
+    .dialog-close:focus-visible {
+      background: rgba(28, 20, 16, 0.06);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .field {
+      margin-bottom: 1rem;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border-radius: 12px;
+      border: 1.5px solid rgba(28, 20, 16, 0.12);
+      background: var(--surface);
+      font: inherit;
+      color: var(--ink);
+      min-height: 48px;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      outline: 2px solid var(--paprika);
+      outline-offset: 1px;
+      border-color: var(--paprika);
+    }
+
+    .dialog-result {
+      display: none;
+      margin-top: 1rem;
+      padding: 1rem;
+      background: rgba(61, 107, 79, 0.1);
+      border-radius: 12px;
+      border: 1px solid rgba(61, 107, 79, 0.2);
+      color: var(--herb);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .dialog-result.show { display: block; }
+
+    .dialog .btn-primary {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    /* —— Responsive —— */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .promise-grid,
+      .cta-card {
+        grid-template-columns: 1fr;
+      }
+
+      .steps,
+      .kitchens-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .chip-1 { left: 8px; top: 8%; }
+      .chip-2 { right: 8px; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: var(--nav-h);
+        left: 0;
+        right: 0;
+        background: var(--cream);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.75rem 1rem 1.25rem;
+        border-bottom: 1px solid rgba(28, 20, 16, 0.08);
+        box-shadow: 0 16px 32px var(--shadow);
+        gap: 0.25rem;
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav-links a {
+        padding: 0.85rem 0.5rem;
+        border-bottom: none;
+        border-radius: 10px;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        background: rgba(196, 60, 26, 0.08);
+      }
+
+      .nav-cta {
+        margin-top: 0.35rem;
+        text-align: center;
+      }
+
+      .menu-btn { display: flex; }
+
+      .hero { padding: 2rem 0 3rem; }
+
+      .plate-card { min-height: 360px; }
+
+      .dish {
+        grid-template-columns: 56px 1fr;
+        grid-template-rows: auto auto;
+      }
+
+      .dish-price {
+        grid-column: 2;
+        justify-self: start;
+      }
+
+      .dish-icon {
+        width: 56px;
+        height: 56px;
+        grid-row: 1 / span 2;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .hero-stats { gap: 1.25rem; }
+
+      section { padding: 3.25rem 0; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="logo" href="#top" aria-label="Paprika home">
+        <svg class="logo-mark" viewBox="0 0 36 36" aria-hidden="true">
+          <circle cx="18" cy="18" r="18" fill="#c43c1a"/>
+          <path d="M18 7c-1.2 3.5-2 6.8-2 10.2 0 2.6.7 4.8 2 6.3 1.3-1.5 2-3.7 2-6.3 0-3.4-.8-6.7-2-10.2z" fill="#faf4eb"/>
+          <path d="M12 14c2.2 1.4 4.2 2.2 6 2.2s3.8-.8 6-2.2c-1.4 3.8-3.4 6.4-6 7.8-2.6-1.4-4.6-4-6-7.8z" fill="#f0a040" opacity=".9"/>
+          <circle cx="18" cy="12" r="2.2" fill="#3d6b4f"/>
+        </svg>
+        Paprika
+      </a>
+
+      <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu" id="menu-toggle">
+        <span></span>
+      </button>
+
+      <nav class="nav-links" id="nav-menu" aria-label="Primary">
+        <a href="#kitchens">Kitchens</a>
+        <a href="#menu">Tonight's menu</a>
+        <a href="#how">How it works</a>
+        <a href="#areas">Areas</a>
+        <a class="nav-cta" href="#find" data-open-finder>Find tonight's dinner</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Made nearby</p>
+          <h1 id="hero-title">Dinner should feel <em>alive.</em></h1>
+          <p class="hero-lead">Bold chef-made meals from independent kitchens, delivered hot and ready for the table—no heat lamps, no compromise.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#find" data-open-finder>Find tonight's dinner</a>
+            <a class="btn btn-secondary" href="#kitchens">Meet the kitchens</a>
+          </div>
+          <div class="hero-stats" role="list">
+            <div class="stat" role="listitem">
+              <strong>42</strong>
+              <span>independent kitchens</span>
+            </div>
+            <div class="stat" role="listitem">
+              <strong>28 min</strong>
+              <span>avg. door-to-table</span>
+            </div>
+            <div class="stat" role="listitem">
+              <strong>4.9</strong>
+              <span>chef rating average</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="float-chip chip-1" aria-hidden="true">
+            <span class="chip-dot"></span>
+            <div>
+              <strong>Fired to order</strong>
+              <span>Not held under lights</span>
+            </div>
+          </div>
+          <div class="float-chip chip-2" aria-hidden="true">
+            <div>
+              <strong>Chef Lila · Ember &amp; Rye</strong>
+              <span>Tonight's feature plate</span>
+            </div>
+          </div>
+
+          <article class="plate-card" aria-label="Featured dish">
+            <div class="plate-top">
+              <span class="plate-badge">Tonight's feature</span>
+              <span class="plate-heat">Hot · 26 min out</span>
+            </div>
+            <div class="plate-art" aria-hidden="true">
+              <svg viewBox="0 0 240 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="120" cy="165" rx="88" ry="16" fill="rgba(0,0,0,0.25)"/>
+                <ellipse cx="120" cy="150" rx="95" ry="28" fill="#faf4eb"/>
+                <ellipse cx="120" cy="146" rx="82" ry="22" fill="#f3e8d8"/>
+                <ellipse cx="120" cy="142" rx="70" ry="16" fill="#e8d5bc"/>
+                <!-- paprika roasted chicken-ish form -->
+                <path d="M70 115c8-28 28-48 55-50 30-2 48 18 52 42 3 18-6 32-22 38-12 4-28 2-40-4-18-10-32-12-45-26z" fill="#c43c1a"/>
+                <path d="M95 100c12-18 30-24 48-18 8 3 14 10 16 18-14-4-28-2-42 8-8 6-14 8-22 6 0-6 0-10 0-14z" fill="#e85d2a"/>
+                <path d="M78 118c10 4 22 8 36 6" stroke="#8f240c" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+                <!-- greens -->
+                <path d="M150 120c12-8 22-6 28 4 4 8-2 16-12 18-10 2-18-4-20-12-1-5 0-8 4-10z" fill="#3d6b4f"/>
+                <path d="M162 112c6-10 16-12 22-6" stroke="#5a8f6a" stroke-width="3" stroke-linecap="round"/>
+                <!-- sauce swoosh -->
+                <path d="M55 138c25 8 55 12 90 4 20-4 38-4 52 2" stroke="#f0a040" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+                <!-- steam -->
+                <path d="M95 70c0-10 8-12 8-22M120 62c0-12 8-14 8-24M145 68c0-10 8-12 8-20" stroke="rgba(250,244,235,0.45)" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="plate-bottom">
+              <h2>Smoked paprika half-chicken</h2>
+              <p>Charred citrus, herb oil, blistered peppers · Ember &amp; Rye</p>
+              <div class="plate-meta">
+                <div class="plate-price">$24 <small>for two share</small></div>
+                <span class="plate-eta">Order by 7:30</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="how" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Simple path</p>
+          <h2 id="how-title">From independent stove to your table</h2>
+          <p>Paprika connects you with chefs who cook for real service—not warehouse assembly lines.</p>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num" aria-hidden="true">1</span>
+            <h3>Pick a kitchen</h3>
+            <p>Browse independent spots nearby. Each menu is written by the chef, not a corporate template.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">2</span>
+            <h3>Order for tonight</h3>
+            <p>Choose a plate fired when your courier is close—so it leaves the pass hot, not sitting.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">3</span>
+            <h3>Eat while it’s alive</h3>
+            <p>Insulated bags, short routes, and timing that respects the dish. Dinner that still smells like the kitchen.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="kitchens" aria-labelledby="kitchens-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">The kitchens</p>
+          <h2 id="kitchens-title">Meet the independent kitchens</h2>
+          <p>Small teams, big flavor. These are real chefs cooking out of their own rooms—not ghost brands.</p>
+        </div>
+        <div class="kitchens-grid">
+          <article class="kitchen">
+            <div class="kitchen-banner" aria-hidden="true">
+              <svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <linearGradient id="kb1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#8f240c"/>
+                    <stop offset="100%" stop-color="#e85d2a"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="140" fill="url(#kb1)"/>
+                <circle cx="320" cy="40" r="60" fill="rgba(240,160,64,0.25)"/>
+                <path d="M0 100c40-20 80-10 120-25s80-5 120-20 80-10 160-5v90H0z" fill="rgba(28,20,16,0.2)"/>
+              </svg>
+              <span class="kitchen-tag">Wood-fire · Westside</span>
+            </div>
+            <div class="kitchen-body">
+              <h3>Ember &amp; Rye</h3>
+              <p class="kitchen-chef">Chef Lila Mendez</p>
+              <p>Smoke, citrus, and paprika oil. Plates built for sharing after the fire dies down.</p>
+              <div class="kitchen-foot">
+                <span class="rating">
+                  <svg viewBox="0 0 16 16" fill="#f0a040" aria-hidden="true"><path d="M8 1.5l1.8 3.7 4.1.6-3 2.9.7 4.1L8 11.2 4.4 13l.7-4.1-3-2.9 4.1-.6L8 1.5z"/></svg>
+                  4.9
+                </span>
+                <span class="eta">22–32 min</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="kitchen">
+            <div class="kitchen-banner" aria-hidden="true">
+              <svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <linearGradient id="kb2" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#2a4a36"/>
+                    <stop offset="100%" stop-color="#5a8f6a"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="140" fill="url(#kb2)"/>
+                <ellipse cx="80" cy="90" rx="90" ry="50" fill="rgba(250,244,235,0.08)"/>
+                <path d="M200 20c20 30 10 50-10 70s-20 40 10 50" stroke="rgba(240,160,64,0.4)" stroke-width="8" fill="none"/>
+              </svg>
+              <span class="kitchen-tag">Seasonal · River District</span>
+            </div>
+            <div class="kitchen-body">
+              <h3>Green Stem</h3>
+              <p class="kitchen-chef">Chef Noah Park</p>
+              <p>Vegetable-forward bowls and bright sauces. Market produce, finished the minute you order.</p>
+              <div class="kitchen-foot">
+                <span class="rating">
+                  <svg viewBox="0 0 16 16" fill="#f0a040" aria-hidden="true"><path d="M8 1.5l1.8 3.7 4.1.6-3 2.9.7 4.1L8 11.2 4.4 13l.7-4.1-3-2.9 4.1-.6L8 1.5z"/></svg>
+                  4.8
+                </span>
+                <span class="eta">25–35 min</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="kitchen">
+            <div class="kitchen-banner" aria-hidden="true">
+              <svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <linearGradient id="kb3" x1="0" y1="1" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#1c1410"/>
+                    <stop offset="100%" stop-color="#5c3a22"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="140" fill="url(#kb3)"/>
+                <circle cx="200" cy="70" r="45" fill="none" stroke="#f0a040" stroke-width="3" opacity=".5"/>
+                <circle cx="200" cy="70" r="25" fill="#c43c1a" opacity=".7"/>
+                <path d="M40 120h320" stroke="rgba(250,244,235,0.1)" stroke-width="2"/>
+              </svg>
+              <span class="kitchen-tag">Noodle · East End</span>
+            </div>
+            <div class="kitchen-body">
+              <h3>Midnight Broth</h3>
+              <p class="kitchen-chef">Chef Aya Okonkwo</p>
+              <p>Deep stocks, hand-pulled textures, chili crisp that actually bites. Late kitchen hours.</p>
+              <div class="kitchen-foot">
+                <span class="rating">
+                  <svg viewBox="0 0 16 16" fill="#f0a040" aria-hidden="true"><path d="M8 1.5l1.8 3.7 4.1.6-3 2.9.7 4.1L8 11.2 4.4 13l.7-4.1-3-2.9 4.1-.6L8 1.5z"/></svg>
+                  5.0
+                </span>
+                <span class="eta">30–40 min</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu" aria-labelledby="menu-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">On the pass</p>
+          <h2 id="menu-title">Tonight’s menu highlights</h2>
+          <p>A rotating selection from kitchens cooking this evening. Prices include packaging built for the ride over.</p>
+        </div>
+
+        <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+          <button class="menu-tab" role="tab" id="tab-mains" aria-selected="true" aria-controls="panel-mains" tabindex="0">Mains</button>
+          <button class="menu-tab" role="tab" id="tab-bowls" aria-selected="false" aria-controls="panel-bowls" tabindex="-1">Bowls</button>
+          <button class="menu-tab" role="tab" id="tab-sides" aria-selected="false" aria-controls="panel-sides" tabindex="-1">Sides &amp; sweets</button>
+        </div>
+
+        <div class="menu-panels">
+          <div class="menu-panel active" role="tabpanel" id="panel-mains" aria-labelledby="tab-mains">
+            <article class="dish">
+              <div class="dish-icon" aria-hidden="true">
+                <svg viewBox="0 0 72 72"><rect width="72" height="72" fill="#4a2418"/><ellipse cx="36" cy="40" rx="22" ry="14" fill="#c43c1a"/><path d="M22 36c8-12 20-14 28-6" fill="#e85d2a"/><circle cx="48" cy="28" r="6" fill="#3d6b4f"/></svg>
+              </div>
+              <div>
+                <h3>Smoked paprika half-chicken</h3>
+                <p>Charred citrus, herb oil · Ember &amp; Rye</p>
+              </div>
+              <div class="dish-price">$24</div>
+            </article>
+            <article class="dish">
+              <div class="dish-icon" aria-hidden="true">
+                <svg viewBox="0 0 72 72"><rect width="72" height="72" fill="#2a1812"/><circle cx="36" cy="38" r="18" fill="#8f240c"/><path d="M20 38h32M36 22v32" stroke="#f0a040" stroke-width="3"/><circle cx="36" cy="38" r="6" fill="#faf4eb"/></svg>
+              </div>
+              <div>
+                <h3>Chili crisp short rib</h3>
+                <p>Soft bun, pickled shallot · Midnight Broth</p>
+              </div>
+              <div class="dish-price">$22</div>
+            </article>
+            <article class="dish">
+              <div class="dish-icon" aria-hidden="true">
+                <svg viewBox="0 0 72 72"><rect width="72" height="72" fill="#1c2a20"/><ellipse cx="36" cy="42" rx="24" ry="12" fill="#3d6b4f"/><path d="M24 34c4-10 12-14 20-8s8 16 0 20" fill="#5a8f6a"/><circle cx="44" cy="30" r="5" fill="#f0a040"/></svg>
+              </div>
+              <div>
+                <h3>Charred cauliflower steak</h3>
+                <p>Tahini heat, pomegranate · Green Stem</p>
+              </div>
+              <div class="dish-price">$18</div>
+            </article>
+            <article class="dish">
+              <div class="dish-icon" aria-hidden="true">
+                <svg viewBox="0 0 72 72"><rect width="72" height="72" fill="#3d2218"/><path d="M16 44c8-16 32-16 40 0" stroke="#e85d2a" stroke-width="10" stroke-linecap="round" fill="none"/><path d="M22 40c6-8 22-8 28 0" stroke="#f0a040" stroke-width="4" fill="none"/></svg>
+              </div>
+              <div>
+                <h3>Hand-cut lamb skewers</h3>
+                <p>Urfa butter, flatbread · Ember &amp; Rye</p>
+              </div>
+              <div class="dish-price">$26</div>
+            </article>
+          </div>
+
+          <div class="menu-panel" role="tabpanel" id="panel-bowls" aria-labelledby="tab-bowls" hidden>
+            <article class="dish">
+              <div class="dish-icon" aria-hidden="true">
+                <svg viewBox="0 0 72 72"><rect width="72" height="72" fill="#243528"/><ellipse cx="36" cy="40" rx="26" ry="16" fill="#3d6b4f"/><circle cx="28" cy="38" r="6" fill="#c43c1a"/><circle cx="42" cy="36" r="5" fill="#f0a040"/><circle cx="38" cy="44" r="4" fill="#faf4eb"/></svg>
+              </div>
+              <div>
+                <h3>Market grain bowl</h3>
+                <p>Farro, roasted roots, green sauce · Green Stem</p>
+              </div>
+              <div class="dish-price">$16</div>
+            </article>
+            <article class="dish">
+              <div class="dish-icon" aria-hidden="true">
+                <svg viewBox="0 0 72 72"><rect width="72" height="72" fill="#2a1a14"/><ellipse cx="36" cy="42" rx="24" ry="14" fill="#5c3a22"/><path d="M18 40c12 8 24 8 36 0" stroke="#e85d2a" stroke-width="6" fill="none"/><circle cx="36" cy="36" r="8" fill="#f0a040"/></svg>
+              </div>
+              <div>
+                <h3>Midnight ramen</h3>
+                <p>12-hour stock, soft egg, chili oil · Midnight Broth</p>
+              </div>
+              <div class="dish-price">$19</div>
+            </article>
+            <article class="dish">
+              <div class="dish-icon" aria-hidden="true">
+                <svg viewBox="0 0 72 72"><rect width="72" height="72" fill="#1c1410"/><circle cx="36" cy="38" r="20" fill="#4a2418"/><path d="M26 38h20M36 28v20" stroke="#c43c1a" stroke-width="4"/><circle cx="48" cy="28" r="5" fill="#5a8f6a"/></svg>
+              </div>
+              <div>
+                <h3>Fire rice with prawns</h3>
+                <p>Smoked oil, scallion crunch · Ember &amp; Rye</p>
+              </div>
+              <div class="dish-price">$21</div>
+            </article>
+            <article class="dish">
+              <div class="dish-icon" aria-hidden="true">
+                <svg viewBox="0 0 72 72"><rect width="72" height="72" fill="#2a3228"/><ellipse cx="36" cy="42" rx="22" ry="12" fill="#5a8f6a"/><path d="M24 36c8-12 16-12 24 0" fill="#3d6b4f"/><circle cx="30" cy="40" r="3" fill="#faf4eb"/><circle cx="42" cy="42" r="3" fill="#f0a040"/></svg>
+              </div>
+              <div>
+                <h3>Citrus herb salad</h3>
+                <p>Bitter greens, toasted seeds · Green Stem</p>
+              </div>
+              <div class="dish-price">$14</div>
+            </article>
+          </div>
+
+          <div class="menu-panel" role="tabpanel" id="panel-sides" aria-labelledby="tab-sides" hidden>
+            <article class="dish">
+              <div class="dish-icon" aria-hidden="true">
+                <svg viewBox="0 0 72 72"><rect width="72" height="72" fill="#4a3018"/><rect x="18" y="28" width="36" height="20" rx="4" fill="#f0a040"/><path d="M24 28v-6h24v6" stroke="#e85d2a" stroke-width="3" fill="none"/></svg>
+              </div>
+              <div>
+                <h3>Blistered shishitos</h3>
+                <p>Flaky salt, lemon · Ember &amp; Rye</p>
+              </div>
+              <div class="dish-price">$9</div>
+            </article>
+            <article class="dish">
+              <div class="dish-icon" aria-hidden="true">
+                <svg viewBox="0 0 72 72"><rect width="72" height="72" fill="#3d2218"/><circle cx="36" cy="38" r="16" fill="#c43c1a"/><path d="M28 38c4 6 12 6 16 0" stroke="#faf4eb" stroke-width="2" fill="none"/></svg>
+              </div>
+              <div>
+                <h3>Chili oil dumplings</h3>
+                <p>Six pieces, black vinegar · Midnight Broth</p>
+              </div>
+              <div class="dish-price">$12</div>
+            </article>
+            <article class="dish">
+              <div class="dish-icon" aria-hidden="true">
+                <svg viewBox="0 0 72 72"><rect width="72" height="72" fill="#2a2418"/><ellipse cx="36" cy="40" rx="18" ry="12" fill="#8f5a2a"/><ellipse cx="36" cy="34" rx="14" ry="8" fill="#c4843a"/><circle cx="36" cy="32" r="3" fill="#f0a040"/></svg>
+              </div>
+              <div>
+                <h3>Burnt honey cake</h3>
+                <p>Whipped cream, citrus zest · Green Stem</p>
+              </div>
+              <div class="dish-price">$10</div>
+            </article>
+            <article class="dish">
+              <div class="dish-icon" aria-hidden="true">
+                <svg viewBox="0 0 72 72"><rect width="72" height="72" fill="#241810"/><path d="M22 44c0-12 8-20 14-20s14 8 14 20" fill="#f3e8d8"/><ellipse cx="36" cy="46" rx="16" ry="6" fill="#e8d5bc"/><path d="M30 30c2-6 10-6 12 0" stroke="#c43c1a" stroke-width="2" fill="none"/></svg>
+              </div>
+              <div>
+                <h3>Warm flatbread &amp; oil</h3>
+                <p>Paprika butter · Ember &amp; Rye</p>
+              </div>
+              <div class="dish-price">$7</div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="promise" aria-labelledby="promise-title">
+      <div class="wrap promise-grid">
+        <div class="promise-copy">
+          <p class="eyebrow">Why Paprika</p>
+          <h2 id="promise-title">Hot food, short routes, real kitchens</h2>
+          <p>We only partner with independent chefs who still run a pass. No dark warehouses. No reheated trays.</p>
+          <ul class="promise-list">
+            <li class="promise-item">
+              <span class="promise-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3M8 8c0-2 1.5-4 4-4s4 2 4 4c0 4-4 5-4 9M10 21h4"/></svg>
+              </span>
+              <div>
+                <strong>Fired when you’re close</strong>
+                <span>Chefs start your plate when the courier is minutes out.</span>
+              </div>
+            </li>
+            <li class="promise-item">
+              <span class="promise-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+              </span>
+              <div>
+                <strong>Neighborhood timing</strong>
+                <span>Routes stay local so texture and temperature survive the trip.</span>
+              </div>
+            </li>
+            <li class="promise-item">
+              <span class="promise-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h16v8a2 2 0 01-2 2H6a2 2 0 01-2-2v-8zM8 10V7a4 4 0 018 0v3"/></svg>
+              </span>
+              <div>
+                <strong>Packaged for the plate</strong>
+                <span>Containers chosen by the kitchen, not a generic plastic stack.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <aside class="promise-panel">
+          <p class="quote">“Paprika treats dinner like service, not logistics. My food leaves the kitchen the way I’d send it to the dining room.”</p>
+          <p class="quote-author">
+            <strong>Chef Lila Mendez</strong>
+            Ember &amp; Rye
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="areas" id="areas" aria-labelledby="areas-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Coverage</p>
+          <h2 id="areas-title">Delivering where the kitchens live</h2>
+          <p>We stay dense on purpose—so dinner still tastes like it left a real stove.</p>
+        </div>
+        <div class="area-pills" role="list">
+          <span class="area-pill" role="listitem"><i aria-hidden="true"></i> Westside</span>
+          <span class="area-pill" role="listitem"><i aria-hidden="true"></i> River District</span>
+          <span class="area-pill" role="listitem"><i aria-hidden="true"></i> East End</span>
+          <span class="area-pill" role="listitem"><i aria-hidden="true"></i> Old Market</span>
+          <span class="area-pill" role="listitem"><i aria-hidden="true"></i> Harbor Row</span>
+          <span class="area-pill" role="listitem"><i aria-hidden="true"></i> Hillcrest</span>
+          <span class="area-pill" role="listitem"><i aria-hidden="true"></i> North Commons</span>
+          <span class="area-pill" role="listitem"><i aria-hidden="true"></i> Lantern Quarter</span>
+        </div>
+        <p class="area-note">Not sure we reach you? Check with your neighborhood name—no account required.</p>
+        <div style="margin-top: 1.25rem;">
+          <a class="btn btn-primary" href="#find" data-open-finder>Find tonight's dinner</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-band" id="find">
+      <div class="wrap">
+        <div class="cta-card">
+          <div>
+            <h2>Ready when the kitchen is</h2>
+            <p>Tell us where you’re eating tonight. We’ll show kitchens still taking orders—and what’s leaving the pass.</p>
+            <button class="btn btn-primary" type="button" data-open-finder>Find tonight's dinner</button>
+          </div>
+          <div class="cta-side" aria-label="Tonight at a glance">
+            <h3>Tonight at a glance</h3>
+            <ul>
+              <li><span>Kitchens open</span><span>18</span></li>
+              <li><span>Feature plates</span><span>27</span></li>
+              <li><span>Last order window</span><span>9:45 pm</span></li>
+              <li><span>Avg. heat rating</span><span>Hot</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <svg class="logo-mark" viewBox="0 0 36 36" aria-hidden="true">
+              <circle cx="18" cy="18" r="18" fill="#c43c1a"/>
+              <path d="M18 7c-1.2 3.5-2 6.8-2 10.2 0 2.6.7 4.8 2 6.3 1.3-1.5 2-3.7 2-6.3 0-3.4-.8-6.7-2-10.2z" fill="#faf4eb"/>
+              <path d="M12 14c2.2 1.4 4.2 2.2 6 2.2s3.8-.8 6-2.2c-1.4 3.8-3.4 6.4-6 7.8-2.6-1.4-4.6-4-6-7.8z" fill="#f0a040" opacity=".9"/>
+              <circle cx="18" cy="12" r="2.2" fill="#3d6b4f"/>
+            </svg>
+            Paprika
+          </div>
+          <p>Bold chef-made meals from independent kitchens, delivered hot and ready for the table.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="#kitchens">Kitchens</a></li>
+            <li><a href="#menu">Tonight's menu</a></li>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#areas">Delivery areas</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>For chefs</h3>
+          <ul>
+            <li><a href="#promise">Why partner</a></li>
+            <li><a href="#kitchens">Featured kitchens</a></li>
+            <li><a href="#find">Kitchen standards</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#find">Check coverage</a></li>
+            <li><a href="#how">Order timing</a></li>
+            <li><a href="#promise">Heat promise</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Paprika. Dinner should feel alive.</span>
+        <span>Made nearby · Independent kitchens only</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="dialog-backdrop" id="finder-backdrop" role="presentation" hidden>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="finder-title" id="finder-dialog">
+      <button class="dialog-close" type="button" aria-label="Close" data-close-finder>&times;</button>
+      <h2 id="finder-title">Find tonight's dinner</h2>
+      <p>Enter your neighborhood. We’ll show which independent kitchens can deliver hot to your door.</p>
+      <form id="finder-form" action="#" method="dialog">
+        <div class="field">
+          <label for="neighborhood">Neighborhood</label>
+          <select id="neighborhood" name="neighborhood" required>
+            <option value="">Select an area…</option>
+            <option value="Westside">Westside</option>
+            <option value="River District">River District</option>
+            <option value="East End">East End</option>
+            <option value="Old Market">Old Market</option>
+            <option value="Harbor Row">Harbor Row</option>
+            <option value="Hillcrest">Hillcrest</option>
+            <option value="North Commons">North Commons</option>
+            <option value="Lantern Quarter">Lantern Quarter</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="when">When do you want to eat?</label>
+          <select id="when" name="when">
+            <option value="asap">As soon as possible</option>
+            <option value="7">Around 7:00 pm</option>
+            <option value="8">Around 8:00 pm</option>
+            <option value="9">Around 9:00 pm</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Show kitchens</button>
+      </form>
+      <div class="dialog-result" id="finder-result" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

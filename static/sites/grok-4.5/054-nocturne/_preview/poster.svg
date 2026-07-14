@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Nocturne — Scent after dark">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0b10"/>
+      <stop offset="45%" stop-color="#12141c"/>
+      <stop offset="100%" stop-color="#0c0e16"/>
+    </linearGradient>
+    <radialGradient id="glowSmoke" cx="28%" cy="42%" r="42%">
+      <stop offset="0%" stop-color="#8b6a52" stop-opacity="0.45"/>
+      <stop offset="55%" stop-color="#4a3828" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#0a0b10" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowMineral" cx="78%" cy="58%" r="40%">
+      <stop offset="0%" stop-color="#5a7a92" stop-opacity="0.4"/>
+      <stop offset="55%" stop-color="#2a3a4a" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#0a0b10" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="moon" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#f0e6d0"/>
+      <stop offset="40%" stop-color="#c4a574"/>
+      <stop offset="100%" stop-color="#6a5434" stop-opacity="0.2"/>
+    </radialGradient>
+    <linearGradient id="bottleFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2430" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#121018" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="bottleStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c4a574"/>
+      <stop offset="100%" stop-color="#7a6a50"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#glowSmoke)"/>
+  <rect width="1200" height="900" fill="url(#glowMineral)"/>
+
+  <!-- Subtle horizon line -->
+  <line x1="80" y1="720" x2="1120" y2="720" stroke="#c4a574" stroke-opacity="0.12" stroke-width="1"/>
+
+  <!-- Decorative frame -->
+  <rect x="48" y="48" width="1104" height="804" fill="none" stroke="#c4a574" stroke-opacity="0.22" stroke-width="1"/>
+  <rect x="60" y="60" width="1080" height="780" fill="none" stroke="#c4a574" stroke-opacity="0.08" stroke-width="1"/>
+
+  <!-- Moon motif -->
+  <circle cx="600" cy="280" r="72" fill="url(#moon)" opacity="0.95"/>
+  <circle cx="628" cy="268" r="56" fill="#0c0e16" opacity="0.55"/>
+
+  <!-- Thin orbital ring -->
+  <ellipse cx="600" cy="300" rx="210" ry="48" fill="none" stroke="#c4a574" stroke-opacity="0.18" stroke-width="1"/>
+  <ellipse cx="600" cy="300" rx="280" ry="64" fill="none" stroke="#7a8b9a" stroke-opacity="0.1" stroke-width="1"/>
+
+  <!-- Stylized bottle silhouette -->
+  <g transform="translate(552 380)">
+    <rect x="28" y="0" width="40" height="14" rx="2" fill="#c4a574" opacity="0.55"/>
+    <rect x="36" y="14" width="24" height="16" fill="#a88b5c" opacity="0.7"/>
+    <path d="M8 40 h80 l8 120 a10 10 0 0 1-10 10 H10 a10 10 0 0 1-10-10 Z"
+          fill="url(#bottleFill)" stroke="url(#bottleStroke)" stroke-width="1.5"/>
+    <ellipse cx="48" cy="100" rx="22" ry="34" fill="#c4a574" opacity="0.08"/>
+  </g>
+
+  <!-- Brand -->
+  <text x="600" y="620" text-anchor="middle" font-family="Georgia, 'Palatino Linotype', serif"
+        font-size="72" letter-spacing="18" fill="#e8e6e1">NOCTURNE</text>
+  <text x="600" y="668" text-anchor="middle" font-family="Georgia, 'Palatino Linotype', serif"
+        font-size="26" letter-spacing="8" fill="#c4a574">Scent after dark.</text>
+
+  <!-- Pillars as small marks -->
+  <g fill="none" stroke="#9a97a0" stroke-width="1.2" opacity="0.55">
+    <!-- smoke curl -->
+    <path d="M220 780 c8-14 8-22 0-34 c10-8 14-18 8-30"/>
+    <!-- mineral angles -->
+    <path d="M420 812 l28-48 l20 24 l24-40 l8 64"/>
+    <!-- flower -->
+    <circle cx="700" cy="788" r="10"/>
+    <path d="M700 768 v40 M680 788 h40 M686 774 l28 28 M714 774 l-28 28"/>
+    <!-- weather rain -->
+    <path d="M920 760 h48 a18 18 0 0 0 0-36 a24 24 0 0 0-46 6 a14 14 0 0 0-2 30z"/>
+    <path d="M932 804 v16 M948 800 v20 M964 804 v16" stroke-linecap="round"/>
+  </g>
+
+  <text x="600" y="850" text-anchor="middle" font-family="system-ui, sans-serif"
+        font-size="14" letter-spacing="6" fill="#6a6774">PARFUMS DE NUIT</text>
+</svg>

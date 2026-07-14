@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Kintsu — Care for the life between appointments</title>
+  <meta name="description" content="A calm platform connecting daily reflection, therapy, and practical mental health tools.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#top" aria-label="Kintsu home">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <circle cx="16" cy="16" r="15" fill="#dce8e0" stroke="#3a5548" stroke-width="1.5"/>
+          <path d="M10 20c2-6 4.5-10 6-10s4 4 6 10" fill="none" stroke="#c4a04a" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M12 14.5h8" fill="none" stroke="#3a5548" stroke-width="1.2" stroke-linecap="round" opacity="0.55"/>
+        </svg>
+        <span>Kintsu</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+
+      <ul class="nav-links" id="site-nav">
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#practices">Practices</a></li>
+        <li><a href="#therapy">Therapy</a></li>
+        <li><a class="nav-cta" href="#check-in">Begin a check-in</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Whole-person mental care</p>
+          <h1 id="hero-title">Care for the life <em>between</em> appointments.</h1>
+          <p class="hero-lead">
+            Kintsu is a calm space for daily reflection, practical tools, and the quiet continuity that keeps therapy working when you are not in the room.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#check-in">Begin a check-in</a>
+            <a class="btn btn-secondary" href="#how">How it works</a>
+          </div>
+          <div class="hero-meta">
+            <div>
+              <strong>Daily reflection</strong>
+              Short check-ins that stay private on your device
+            </div>
+            <div>
+              <strong>Therapy-aware</strong>
+              Patterns you can bring into sessions
+            </div>
+            <div>
+              <strong>Practical tools</strong>
+              Grounding, boundaries, and recovery rituals
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="float-chip float-chip--tl"><b>●</b> Morning note saved</div>
+          <div class="vessel-card">
+            <svg class="vessel-svg" viewBox="0 0 240 240" role="img" aria-label="">
+              <defs>
+                <linearGradient id="pot" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#efe9df"/>
+                  <stop offset="55%" stop-color="#d7c7b2"/>
+                  <stop offset="100%" stop-color="#c4a992"/>
+                </linearGradient>
+                <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#e8d4a0"/>
+                  <stop offset="100%" stop-color="#c4a04a"/>
+                </linearGradient>
+              </defs>
+              <ellipse cx="120" cy="198" rx="62" ry="10" fill="#3a5548" opacity="0.12"/>
+              <path d="M78 78c-4 18-6 40-4 62 2 28 14 48 46 48s44-20 46-48c2-22 0-44-4-62" fill="url(#pot)" stroke="#3a5548" stroke-width="2"/>
+              <path d="M74 78h92" fill="none" stroke="#3a5548" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M88 78c2-16 10-28 32-28s30 12 32 28" fill="none" stroke="#3a5548" stroke-width="2"/>
+              <path d="M92 92c18 10 28 34 24 62" fill="none" stroke="url(#gold)" stroke-width="2.4" stroke-linecap="round"/>
+              <path d="M128 100c-8 18-6 40 4 58" fill="none" stroke="url(#gold)" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M108 140c12 4 28 2 38-8" fill="none" stroke="url(#gold)" stroke-width="1.6" stroke-linecap="round"/>
+              <circle cx="116" cy="124" r="2.2" fill="#c4a04a"/>
+              <circle cx="148" cy="156" r="1.8" fill="#c4a04a"/>
+            </svg>
+          </div>
+          <div class="float-chip float-chip--br"><b>●</b> Ready for session</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section how" id="how" aria-labelledby="how-title">
+      <div class="section-inner">
+        <p class="eyebrow">How it works</p>
+        <h2 class="section-title" id="how-title">Three gentle loops that hold the week</h2>
+        <p class="section-lead">
+          Kintsu is not another feed. It is a rhythm: notice what is true, practice what helps, and carry insight into care with someone you trust.
+        </p>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num" aria-hidden="true">1</span>
+            <h3>Check in honestly</h3>
+            <p>Name mood and energy in under a minute. Optional notes stay on your device—no account required to begin.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">2</span>
+            <h3>Use a small practice</h3>
+            <p>Pick a grounding, boundary, or recovery tool sized for real life—not a marathon worksheet when you are already tired.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">3</span>
+            <h3>Bridge to therapy</h3>
+            <p>Turn patterns into language you can share with a clinician, coach, or support person when the next appointment arrives.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section checkin" id="check-in" aria-labelledby="checkin-title">
+      <div class="section-inner">
+        <p class="eyebrow">Daily reflection</p>
+        <h2 class="section-title" id="checkin-title">Begin a check-in</h2>
+        <p class="section-lead">
+          There is no perfect answer. Choose what is closest, add a private note if you like, and receive a short reflection you can act on today.
+        </p>
+
+        <div class="checkin-panel">
+          <form id="checkin-form" novalidate>
+            <div role="group" aria-labelledby="mood-label">
+              <span class="field-label" id="mood-label">How are you feeling?</span>
+              <div class="mood-grid">
+                <button type="button" class="mood-btn" data-value="steady" aria-pressed="false">
+                  <span class="mood-icon" aria-hidden="true">◎</span>
+                  <span class="mood-label">Steady</span>
+                </button>
+                <button type="button" class="mood-btn" data-value="heavy" aria-pressed="false">
+                  <span class="mood-icon" aria-hidden="true">◉</span>
+                  <span class="mood-label">Heavy</span>
+                </button>
+                <button type="button" class="mood-btn" data-value="bright" aria-pressed="false">
+                  <span class="mood-icon" aria-hidden="true">✧</span>
+                  <span class="mood-label">Bright</span>
+                </button>
+                <button type="button" class="mood-btn" data-value="restless" aria-pressed="false">
+                  <span class="mood-icon" aria-hidden="true">∿</span>
+                  <span class="mood-label">Restless</span>
+                </button>
+                <button type="button" class="mood-btn" data-value="tender" aria-pressed="false">
+                  <span class="mood-icon" aria-hidden="true">❀</span>
+                  <span class="mood-label">Tender</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="energy-row" role="group" aria-labelledby="energy-label">
+              <span class="field-label" id="energy-label">Energy level</span>
+              <div class="energy-scale">
+                <button type="button" class="energy-btn" data-value="1" aria-pressed="false" aria-label="Energy 1 of 5">1</button>
+                <button type="button" class="energy-btn" data-value="2" aria-pressed="false" aria-label="Energy 2 of 5">2</button>
+                <button type="button" class="energy-btn" data-value="3" aria-pressed="false" aria-label="Energy 3 of 5">3</button>
+                <button type="button" class="energy-btn" data-value="4" aria-pressed="false" aria-label="Energy 4 of 5">4</button>
+                <button type="button" class="energy-btn" data-value="5" aria-pressed="false" aria-label="Energy 5 of 5">5</button>
+              </div>
+            </div>
+
+            <label class="field-label" for="checkin-note">Private note (optional)</label>
+            <textarea
+              id="checkin-note"
+              class="note-field"
+              maxlength="500"
+              placeholder="What is present for you right now? This stays on your device."
+            ></textarea>
+
+            <div class="checkin-actions">
+              <button type="submit" class="btn btn-primary">Save this check-in</button>
+              <button type="button" class="btn btn-secondary" id="checkin-reset">Clear</button>
+            </div>
+          </form>
+
+          <div
+            class="checkin-result"
+            id="checkin-result"
+            role="status"
+            aria-live="polite"
+          >
+            <strong id="checkin-result-title"></strong>
+            <p id="checkin-result-body"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tools" aria-labelledby="tools-title">
+      <div class="section-inner">
+        <p class="eyebrow">Practical tools</p>
+        <h2 class="section-title" id="tools-title">Support that fits the day you are actually having</h2>
+        <p class="section-lead">
+          Whole-person care means mood, body, relationships, and the practical edges of daily life—not only the hour in session.
+        </p>
+        <div class="tools-grid">
+          <article class="tool-card">
+            <div class="tool-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <path d="M12 4v4M12 16v4M4 12h4M16 12h4"/>
+                <circle cx="12" cy="12" r="3.2"/>
+              </svg>
+            </div>
+            <span class="tool-tag">Grounding</span>
+            <h3>Five-sense reset</h3>
+            <p>Name what you see, hear, feel, smell, and taste to return to the present when thoughts loop or the body floods.</p>
+          </article>
+          <article class="tool-card">
+            <div class="tool-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <path d="M6 8h12M6 12h8M6 16h10"/>
+                <path d="M17 14l3 3-3 3"/>
+              </svg>
+            </div>
+            <span class="tool-tag">Boundaries</span>
+            <h3>Kind no scripts</h3>
+            <p>Short phrases that protect capacity without burning bridges—ready when energy is low and pressure is high.</p>
+          </article>
+          <article class="tool-card">
+            <div class="tool-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <path d="M5 16c3-2 5-6 7-6s4 4 7 6"/>
+                <path d="M8 8c1.5 1 3 1.5 4 1.5S15.5 9 17 8"/>
+              </svg>
+            </div>
+            <span class="tool-tag">Recovery</span>
+            <h3>After-hard-day plan</h3>
+            <p>A three-step ritual for sleep, hydration, and one connecting action so difficult days do not erase progress.</p>
+          </article>
+          <article class="tool-card">
+            <div class="tool-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <rect x="5" y="5" width="14" height="14" rx="3"/>
+                <path d="M8 10h8M8 14h5"/>
+              </svg>
+            </div>
+            <span class="tool-tag">Reflection</span>
+            <h3>Session prep notes</h3>
+            <p>Capture wins, stuck points, and questions so therapy time goes to what matters instead of scrambling to remember.</p>
+          </article>
+          <article class="tool-card">
+            <div class="tool-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <path d="M12 6v6l3.5 2"/>
+                <circle cx="12" cy="12" r="8"/>
+              </svg>
+            </div>
+            <span class="tool-tag">Rhythm</span>
+            <h3>Between-session map</h3>
+            <p>Mark soft spots in the week—deadlines, family visits, sleep debt—and plan micro-supports before they arrive.</p>
+          </article>
+          <article class="tool-card">
+            <div class="tool-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <path d="M8 14c0 2.2 1.8 4 4 4s4-1.8 4-4-1.8-5-4-5"/>
+                <path d="M12 5v2"/>
+              </svg>
+            </div>
+            <span class="tool-tag">Body</span>
+            <h3>Breath ladders</h3>
+            <p>Simple inhale–hold–exhale patterns you can run standing in a hallway, on a bus, or before a hard conversation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section practices" id="practices" aria-labelledby="practices-title">
+      <div class="section-inner">
+        <p class="eyebrow">Guided practices</p>
+        <h2 class="section-title" id="practices-title">Try one practice now</h2>
+        <p class="section-lead">
+          Expand a practice to see the steps. Each is designed to be finishable even on a low-energy day.
+        </p>
+        <ul class="practice-list">
+          <li class="practice-item">
+            <span class="practice-time">2 min</span>
+            <div>
+              <h3>Box breath</h3>
+              <p>Even counts to settle the nervous system before a meeting or after scrolling.</p>
+            </div>
+            <button
+              type="button"
+              class="practice-toggle"
+              aria-pressed="false"
+              aria-controls="practice-box"
+            >Show steps</button>
+            <div class="practice-detail" id="practice-box" hidden>
+              Inhale for four. Hold for four. Exhale for four. Hold for four. Repeat four rounds. If counting feels tight, shorten to three. Stop if dizzy and return to natural breathing.
+            </div>
+          </li>
+          <li class="practice-item">
+            <span class="practice-time">4 min</span>
+            <div>
+              <h3>Values check</h3>
+              <p>Reconnect to one value so decisions feel less like survival and more like direction.</p>
+            </div>
+            <button
+              type="button"
+              class="practice-toggle"
+              aria-pressed="false"
+              aria-controls="practice-values"
+            >Show steps</button>
+            <div class="practice-detail" id="practice-values" hidden>
+              Name one value that matters this week (care, honesty, rest, courage). Write one tiny action that expresses it in the next twenty-four hours. Circle anything that is already enough.
+            </div>
+          </li>
+          <li class="practice-item">
+            <span class="practice-time">5 min</span>
+            <div>
+              <h3>Repair letter</h3>
+              <p>Draft what you wish you could say—without sending it—when shame or conflict is loud.</p>
+            </div>
+            <button
+              type="button"
+              class="practice-toggle"
+              aria-pressed="false"
+              aria-controls="practice-repair"
+            >Show steps</button>
+            <div class="practice-detail" id="practice-repair" hidden>
+              Address yourself or another person. Write what happened, what you felt, and what you need next. End with one sentence of care. Decide later whether any part is worth sharing with a trusted person.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section bridge" id="therapy" aria-labelledby="therapy-title">
+      <div class="section-inner">
+        <div class="bridge-panel">
+          <div class="bridge-copy">
+            <p class="eyebrow">Therapy bridge</p>
+            <h2 id="therapy-title">Bring the week into the room with clarity</h2>
+            <p>
+              Appointments are powerful—and brief. Kintsu helps you arrive with language for patterns, not only crisis moments, so care can go deeper.
+            </p>
+            <ul class="bridge-list">
+              <li>Summaries of mood and energy trends you can read aloud or paraphrase</li>
+              <li>Prompts that separate symptoms, stressors, and strengths</li>
+              <li>Space to note questions for your clinician before you forget them</li>
+            </ul>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="#check-in">Begin a check-in</a>
+              <a class="btn btn-ghost" href="#tools">Browse tools</a>
+            </div>
+          </div>
+          <div class="bridge-art">
+            <div class="bridge-quote">
+              <blockquote>
+                “The gold is not the break. It is the care that stayed.”
+              </blockquote>
+              <cite>Kintsu principle</cite>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section closing" aria-labelledby="closing-title">
+      <div class="closing-inner">
+        <p class="eyebrow">Start where you are</p>
+        <h2 id="closing-title">You deserve care on ordinary Tuesdays too</h2>
+        <p>
+          Begin with a single check-in. Return when you need a practice. Carry what you learn into therapy, friendship, and the quiet work of staying well.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#check-in">Begin a check-in</a>
+          <a class="btn btn-secondary" href="#how">How it works</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-brand">Kintsu</p>
+        <p class="footer-note">Care for the life between appointments. A calm platform connecting daily reflection, therapy, and practical mental health tools.</p>
+      </div>
+      <ul class="footer-nav">
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#check-in">Check-in</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#practices">Practices</a></li>
+        <li><a href="#therapy">Therapy</a></li>
+      </ul>
+      <p class="footer-disclaimer">
+        Kintsu is a self-guided wellness companion, not a substitute for professional diagnosis, therapy, crisis care, or emergency services. If you are in immediate danger, contact local emergency services.
+      </p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

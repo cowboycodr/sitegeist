@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Relay Global gallery poster">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07101e"/>
+      <stop offset="48%" stop-color="#102038"/>
+      <stop offset="100%" stop-color="#0f3d3a"/>
+    </linearGradient>
+    <linearGradient id="route" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="55%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="70%" cy="30%" r="45%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="20%" cy="80%" r="40%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+  <rect width="1200" height="900" fill="url(#glow2)"/>
+
+  <!-- grid -->
+  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+    <path d="M0 90h1200M0 180h1200M0 270h1200M0 360h1200M0 450h1200M0 540h1200M0 630h1200M0 720h1200M0 810h1200"/>
+    <path d="M100 0v900M200 0v900M300 0v900M400 0v900M500 0v900M600 0v900M700 0v900M800 0v900M900 0v900M1000 0v900M1100 0v900"/>
+  </g>
+
+  <!-- abstract continents -->
+  <g fill="#16304f" fill-opacity="0.9">
+    <path d="M140 320c90-70 210-80 300-30 55 30 95 100 70 155-30 65-120 85-195 60-90-30-165-105-175-185z"/>
+    <path d="M500 250c110-55 270-40 370 55 60 55 95 140 45 205-55 75-185 90-285 50-120-48-195-160-130-310z"/>
+    <path d="M860 380c90-25 200 15 240 95 30 60 15 135-55 170-75 38-170 22-235-35-70-60-80-150 50-230z"/>
+  </g>
+
+  <!-- route arcs -->
+  <path d="M180 400 C 360 180, 560 200, 720 360 S 980 520, 1060 420" fill="none" stroke="url(#route)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M220 500 C 400 440, 540 560, 700 480 S 920 300, 1020 360" fill="none" stroke="#38bdf8" stroke-width="3" stroke-opacity="0.45" stroke-dasharray="10 14"/>
+  <path d="M260 300 C 440 380, 620 520, 820 500 S 980 560, 1080 540" fill="none" stroke="#14b8a6" stroke-width="3" stroke-opacity="0.5"/>
+
+  <!-- nodes -->
+  <g>
+    <circle cx="180" cy="400" r="16" fill="#14b8a6"/>
+    <circle cx="180" cy="400" r="30" fill="#14b8a6" opacity="0.2"/>
+    <circle cx="420" cy="280" r="12" fill="#38bdf8"/>
+    <circle cx="720" cy="360" r="16" fill="#f59e0b"/>
+    <circle cx="720" cy="360" r="30" fill="#f59e0b" opacity="0.2"/>
+    <circle cx="900" cy="470" r="12" fill="#38bdf8"/>
+    <circle cx="1060" cy="420" r="16" fill="#ffffff"/>
+    <circle cx="1060" cy="420" r="30" fill="#ffffff" opacity="0.15"/>
+  </g>
+
+  <!-- brand mark -->
+  <g transform="translate(96, 88)">
+    <rect width="64" height="64" rx="16" fill="#0d9488"/>
+    <path d="M16 42c8.5-1.8 14-10 17-18 2.8 7.5 8.5 16 17 18" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <circle cx="33" cy="20" r="4.2" fill="#f59e0b"/>
+    <circle cx="16" cy="42" r="3.4" fill="#fff"/>
+    <circle cx="50" cy="42" r="3.4" fill="#fff"/>
+  </g>
+
+  <!-- typography -->
+  <text x="180" y="132" fill="#ffffff" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="-0.5">Relay Global</text>
+  <text x="180" y="168" fill="#14b8a6" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="3">CONNECTED FREIGHT NETWORK</text>
+
+  <text x="96" y="700" fill="#ffffff" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="64" font-weight="750" letter-spacing="-1.8">Every shipment,</text>
+  <text x="96" y="772" fill="#ffffff" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="64" font-weight="750" letter-spacing="-1.8">perfectly in motion.</text>
+  <text x="96" y="830" fill="#9fb4cc" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="24">Global routes · Clear handoffs · Real-time ops</text>
+
+  <!-- corner badge -->
+  <rect x="900" y="96" width="204" height="48" rx="24" fill="rgba(20,184,166,0.12)" stroke="#14b8a6" stroke-opacity="0.45"/>
+  <circle cx="928" cy="120" r="7" fill="#14b8a6"/>
+  <text x="948" y="126" fill="#5eead4" font-family="Segoe UI, system-ui, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="1.5">LIVE NETWORK</text>
+</svg>

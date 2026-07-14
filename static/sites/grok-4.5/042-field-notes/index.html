@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Field Notes — Buildings that belong</title>
+  <meta name="description" content="A landscape-led practice creating low-impact homes, retreats, and generous public spaces.">
+  <style>
+    :root {
+      --ink: #1c1a16;
+      --ink-soft: #3d3932;
+      --stone: #8a8378;
+      --mist: #e8e2d6;
+      --paper: #f6f1e7;
+      --cream: #fbf8f2;
+      --moss: #3f5a45;
+      --moss-deep: #2a3d30;
+      --clay: #b8575c;
+      --clay-soft: #c97a6e;
+      --horizon: #c4b9a4;
+      --focus: #2a5a3a;
+      --radius: 2px;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.75rem;
+      --space-lg: 3rem;
+      --space-xl: 5rem;
+      --space-2xl: 7.5rem;
+      --max: 72rem;
+      --measure: 38rem;
+      --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+      --font-sans: "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --shadow: 0 18px 40px rgba(28, 26, 22, 0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; }
+    button {
+      font: inherit;
+      color: inherit;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: var(--space-sm);
+      top: -4rem;
+      z-index: 100;
+      background: var(--ink);
+      color: var(--cream);
+      padding: 0.65rem 1rem;
+      text-decoration: none;
+      border-radius: var(--radius);
+    }
+    .skip-link:focus { top: var(--space-sm); }
+
+    .wrap {
+      width: min(100% - 2rem, var(--max));
+      margin-inline: auto;
+    }
+    @media (min-width: 720px) {
+      .wrap { width: min(100% - 3.5rem, var(--max)); }
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: color-mix(in srgb, var(--cream) 88%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+    }
+    .site-header.is-scrolled {
+      border-bottom-color: color-mix(in srgb, var(--horizon) 70%, transparent);
+      background: color-mix(in srgb, var(--cream) 94%, transparent);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      min-height: 4.25rem;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .logo-mark {
+      width: 1.65rem;
+      height: 1.65rem;
+      flex-shrink: 0;
+    }
+    .logo-text {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .nav-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      border: 1px solid var(--horizon);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+    .nav-toggle-bars {
+      position: relative;
+      width: 1.1rem;
+      height: 0.8rem;
+    }
+    .nav-toggle-bars span,
+    .nav-toggle-bars::before,
+    .nav-toggle-bars::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 1.5px;
+      background: var(--ink);
+      transition: transform 0.25s var(--ease), opacity 0.2s ease;
+    }
+    .nav-toggle-bars span { top: 50%; transform: translateY(-50%); }
+    .nav-toggle-bars::before { top: 0; }
+    .nav-toggle-bars::after { bottom: 0; }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bars span { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bars::before {
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bars::after {
+      bottom: 50%;
+      transform: translateY(50%) rotate(-45deg);
+    }
+
+    .site-nav {
+      display: none;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      background: var(--cream);
+      border-bottom: 1px solid var(--horizon);
+      padding: var(--space-sm) 0 var(--space-md);
+    }
+    .site-nav.is-open { display: block; }
+    .site-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.15rem;
+    }
+    .site-nav a {
+      display: block;
+      text-decoration: none;
+      padding: 0.7rem 1rem;
+      color: var(--ink-soft);
+      letter-spacing: 0.03em;
+    }
+    .site-nav a:hover,
+    .site-nav a:focus-visible { color: var(--moss-deep); background: var(--mist); }
+
+    @media (min-width: 860px) {
+      .nav-toggle { display: none; }
+      .site-nav {
+        display: block;
+        position: static;
+        border: 0;
+        background: transparent;
+        padding: 0;
+      }
+      .site-nav ul {
+        display: flex;
+        align-items: center;
+        gap: 0.15rem;
+      }
+      .site-nav a {
+        padding: 0.45rem 0.8rem;
+        font-size: 0.92rem;
+        border-radius: var(--radius);
+      }
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      padding: var(--space-xl) 0 var(--space-2xl);
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      gap: var(--space-lg);
+      align-items: end;
+    }
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: var(--space-xl);
+        min-height: min(70vh, 38rem);
+      }
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin: 0 0 var(--space-sm);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--moss);
+      font-weight: 600;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 1.75rem;
+      height: 1px;
+      background: var(--moss);
+    }
+    .hero h1 {
+      margin: 0 0 var(--space-md);
+      font-family: var(--font-serif);
+      font-size: clamp(2.6rem, 7vw, 4.75rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      font-weight: 600;
+      max-width: 11ch;
+    }
+    .hero-lead {
+      margin: 0 0 var(--space-lg);
+      max-width: 28rem;
+      color: var(--ink-soft);
+      font-size: 1.08rem;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 2.9rem;
+      padding: 0.7rem 1.25rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      transition: background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.25s var(--ease);
+    }
+    .btn-primary {
+      background: var(--moss-deep);
+      color: var(--cream);
+      border: 1px solid var(--moss-deep);
+    }
+    .btn-primary:hover { background: var(--moss); border-color: var(--moss); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--horizon);
+    }
+    .btn-secondary:hover {
+      border-color: var(--ink);
+      background: var(--paper);
+    }
+
+    .hero-panel {
+      position: relative;
+      background: linear-gradient(165deg, #d8d0bf 0%, #c5baa5 42%, #a89a82 100%);
+      min-height: 18rem;
+      border-radius: 3px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .hero-panel svg {
+      width: 100%;
+      height: 100%;
+      min-height: 18rem;
+      object-fit: cover;
+    }
+    .hero-caption {
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--cream);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-shadow: 0 1px 8px rgba(28, 26, 22, 0.35);
+    }
+
+    /* Sections shared */
+    section { padding: var(--space-xl) 0; }
+    .section-head {
+      display: grid;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+      max-width: 40rem;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 4vw, 2.75rem);
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      font-weight: 600;
+    }
+    .section-head p {
+      margin: 0;
+      color: var(--ink-soft);
+      max-width: var(--measure);
+    }
+
+    /* Approach */
+    .approach {
+      background: var(--paper);
+      border-block: 1px solid color-mix(in srgb, var(--horizon) 65%, transparent);
+    }
+    .principles {
+      display: grid;
+      gap: 1rem;
+    }
+    @media (min-width: 700px) {
+      .principles { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    }
+    .principle {
+      background: var(--cream);
+      border: 1px solid color-mix(in srgb, var(--horizon) 80%, transparent);
+      padding: var(--space-md);
+      border-radius: 3px;
+      min-height: 100%;
+    }
+    .principle-num {
+      display: block;
+      margin-bottom: var(--space-sm);
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--clay-soft);
+      font-weight: 600;
+    }
+    .principle h3 {
+      margin: 0 0 0.65rem;
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+    .principle p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 0.98rem;
+    }
+
+    /* Projects */
+    .projects-intro {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: end;
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+    .projects-intro .section-head { margin-bottom: 0; }
+    .project-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .filter-btn {
+      min-height: 2.4rem;
+      padding: 0.4rem 0.85rem;
+      border: 1px solid var(--horizon);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--ink-soft);
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      transition: background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
+    }
+    .filter-btn:hover { border-color: var(--ink); color: var(--ink); }
+    .filter-btn[aria-pressed="true"] {
+      background: var(--moss-deep);
+      border-color: var(--moss-deep);
+      color: var(--cream);
+    }
+
+    .project-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+    @media (min-width: 720px) {
+      .project-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .project-card {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      background: var(--paper);
+      border: 1px solid color-mix(in srgb, var(--horizon) 75%, transparent);
+      border-radius: 3px;
+      overflow: hidden;
+      transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    }
+    .project-card:hover,
+    .project-card:focus-within {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .project-card:hover,
+      .project-card:focus-within { transform: none; }
+    }
+    .project-card.is-hidden { display: none; }
+    .project-media {
+      aspect-ratio: 4 / 3;
+      background: var(--mist);
+      position: relative;
+      overflow: hidden;
+    }
+    .project-media svg {
+      width: 100%;
+      height: 100%;
+    }
+    .project-tag {
+      position: absolute;
+      top: 0.85rem;
+      left: 0.85rem;
+      padding: 0.3rem 0.65rem;
+      background: color-mix(in srgb, var(--cream) 92%, transparent);
+      border-radius: 999px;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    .project-body {
+      padding: 1.25rem 1.25rem 1.4rem;
+      display: grid;
+      gap: 0.55rem;
+      align-content: start;
+    }
+    .project-meta {
+      margin: 0;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+    .project-body h3 {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    .project-body p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 0.97rem;
+    }
+
+    /* Landscape band */
+    .band {
+      position: relative;
+      padding: var(--space-2xl) 0;
+      background:
+        linear-gradient(180deg, rgba(28, 26, 22, 0.18), rgba(28, 26, 22, 0.42)),
+        linear-gradient(120deg, #4a5d48 0%, #6b5a45 48%, #8a6d52 100%);
+      color: var(--cream);
+      overflow: hidden;
+    }
+    .band .wrap { position: relative; z-index: 1; }
+    .band-copy {
+      max-width: 34rem;
+    }
+    .band h2 {
+      margin: 0 0 var(--space-sm);
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      line-height: 1.15;
+      font-weight: 600;
+    }
+    .band p {
+      margin: 0 0 var(--space-md);
+      color: color-mix(in srgb, var(--cream) 88%, transparent);
+      font-size: 1.05rem;
+    }
+    .band-art {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.28;
+      pointer-events: none;
+    }
+
+    /* Process */
+    .process-list {
+      display: grid;
+      gap: 0;
+      counter-reset: step;
+      border-top: 1px solid var(--horizon);
+    }
+    .process-item {
+      display: grid;
+      gap: 0.75rem;
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid var(--horizon);
+      counter-increment: step;
+    }
+    @media (min-width: 760px) {
+      .process-item {
+        grid-template-columns: 5rem 12rem 1fr;
+        gap: var(--space-md);
+        align-items: baseline;
+      }
+    }
+    .process-item::before {
+      content: counter(step, decimal-leading-zero);
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--clay-soft);
+      font-weight: 600;
+    }
+    .process-item h3 {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .process-item p {
+      margin: 0;
+      color: var(--ink-soft);
+      max-width: 36rem;
+    }
+
+    /* Studio */
+    .studio {
+      background: var(--paper);
+      border-block: 1px solid color-mix(in srgb, var(--horizon) 65%, transparent);
+    }
+    .studio-grid {
+      display: grid;
+      gap: var(--space-lg);
+    }
+    @media (min-width: 860px) {
+      .studio-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: var(--space-xl);
+      }
+    }
+    .studio-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .stat {
+      padding: var(--space-md);
+      background: var(--cream);
+      border: 1px solid color-mix(in srgb, var(--horizon) 75%, transparent);
+      border-radius: 3px;
+    }
+    .stat strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3vw, 2.3rem);
+      line-height: 1;
+      margin-bottom: 0.45rem;
+      color: var(--moss-deep);
+    }
+    .stat span {
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+    }
+
+    /* Contact / footer CTA */
+    .contact {
+      padding-bottom: var(--space-2xl);
+    }
+    .contact-panel {
+      display: grid;
+      gap: var(--space-lg);
+      padding: clamp(1.5rem, 4vw, 2.75rem);
+      background: var(--moss-deep);
+      color: var(--cream);
+      border-radius: 3px;
+      box-shadow: var(--shadow);
+    }
+    @media (min-width: 800px) {
+      .contact-panel {
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: end;
+      }
+    }
+    .contact-panel h2 {
+      margin: 0 0 var(--space-sm);
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      line-height: 1.15;
+      font-weight: 600;
+    }
+    .contact-panel p {
+      margin: 0;
+      color: color-mix(in srgb, var(--cream) 86%, transparent);
+      max-width: 32rem;
+    }
+    .contact-details {
+      display: grid;
+      gap: 0.85rem;
+    }
+    .contact-details dt {
+      margin: 0;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--cream) 65%, transparent);
+    }
+    .contact-details dd {
+      margin: 0.2rem 0 0;
+      font-size: 1.05rem;
+    }
+    .contact-details a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid color-mix(in srgb, var(--cream) 35%, transparent);
+    }
+    .contact-details a:hover {
+      border-bottom-color: var(--cream);
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--horizon);
+      padding: var(--space-md) 0 var(--space-lg);
+      color: var(--stone);
+      font-size: 0.9rem;
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: var(--font-serif);
+      color: var(--ink-soft);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="logo" href="#top" aria-label="Field Notes home">
+        <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <rect width="32" height="32" fill="#2a3d30"/>
+          <path d="M4 22h24M6 18c4-6 8-9 10-9s6 3 10 9" fill="none" stroke="#f6f1e7" stroke-width="1.4"/>
+          <circle cx="16" cy="11" r="1.3" fill="#c97a6e"/>
+        </svg>
+        <span class="logo-text">Field Notes</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle-bars" aria-hidden="true"><span></span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#studio">Studio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Architecture in context</p>
+          <h1 id="hero-title">Buildings that belong.</h1>
+          <p class="hero-lead">
+            Field Notes is a landscape-led practice creating low-impact homes,
+            retreats, and generous public spaces—quietly tuned to place, climate, and the lives lived within them.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#projects">View projects</a>
+            <a class="btn btn-secondary" href="#approach">Read our approach</a>
+          </div>
+        </div>
+        <figure class="hero-panel" aria-label="Abstract landscape composition">
+          <svg viewBox="0 0 640 520" role="img" aria-labelledby="hero-art-title hero-art-desc" preserveAspectRatio="xMidYMid slice">
+            <title id="hero-art-title">Contour landscape</title>
+            <desc id="hero-art-desc">Layered hills, a path, and a quiet building nestled into the land.</desc>
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#dfe5d8"/>
+                <stop offset="55%" stop-color="#cfc4ad"/>
+                <stop offset="100%" stop-color="#b5a58a"/>
+              </linearGradient>
+              <linearGradient id="hillA" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#5f7158"/>
+                <stop offset="100%" stop-color="#3f5340"/>
+              </linearGradient>
+              <linearGradient id="hillB" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#8a7a62"/>
+                <stop offset="100%" stop-color="#6a5a45"/>
+              </linearGradient>
+            </defs>
+            <rect width="640" height="520" fill="url(#sky)"/>
+            <path d="M0 250 C90 210 150 200 230 220 C320 245 370 200 460 185 C540 172 590 190 640 210 L640 520 L0 520 Z" fill="url(#hillA)" opacity="0.9"/>
+            <path d="M0 320 C120 280 180 300 280 310 C380 320 430 270 520 275 C580 278 610 300 640 320 L640 520 L0 520 Z" fill="url(#hillB)"/>
+            <path d="M0 390 C140 360 220 400 320 395 C430 390 500 360 640 380 L640 520 L0 520 Z" fill="#2f3b31"/>
+            <path d="M70 410 C150 380 220 370 310 360 C380 352 430 340 490 320" fill="none" stroke="#f6f1e7" stroke-width="1.2" opacity="0.45" stroke-dasharray="4 6"/>
+            <g transform="translate(430 250)">
+              <rect x="0" y="20" width="92" height="48" fill="#f4efe4"/>
+              <rect x="12" y="0" width="68" height="22" fill="#ebe3d4"/>
+              <rect x="18" y="34" width="14" height="20" fill="#2a3d30"/>
+              <rect x="42" y="34" width="18" height="12" fill="#c97a6e" opacity="0.85"/>
+              <rect x="68" y="34" width="12" height="12" fill="#8a9a82" opacity="0.7"/>
+            </g>
+            <circle cx="500" cy="95" r="28" fill="#f2e6c8" opacity="0.55"/>
+            <path d="M40 120 C120 90 180 110 240 95" fill="none" stroke="#2a3d30" stroke-width="0.8" opacity="0.25"/>
+            <path d="M80 150 C160 125 210 145 280 130" fill="none" stroke="#2a3d30" stroke-width="0.8" opacity="0.18"/>
+          </svg>
+          <figcaption class="hero-caption">
+            <span>Coastal meadow study</span>
+            <span>North Pacific</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="approach" id="approach" aria-labelledby="approach-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">How we work</p>
+          <h2 id="approach-title">Landscape first, architecture second.</h2>
+          <p>
+            We begin with soil, wind, light, and the patterns of use already present.
+            Buildings arrive as careful responses—not statements imposed on the land.
+          </p>
+        </div>
+        <div class="principles">
+          <article class="principle reveal">
+            <span class="principle-num">01</span>
+            <h3>Read the ground</h3>
+            <p>
+              Contours, water, vegetation, and microclimate set the brief before any room is drawn.
+              Site notes become the first drawings.
+            </p>
+          </article>
+          <article class="principle reveal">
+            <span class="principle-num">02</span>
+            <h3>Build lightly</h3>
+            <p>
+              Compact footprints, durable materials, and passive strategies reduce impact while
+              deepening comfort across seasons.
+            </p>
+          </article>
+          <article class="principle reveal">
+            <span class="principle-num">03</span>
+            <h3>Make room for others</h3>
+            <p>
+              Homes, retreats, and public rooms share a common aim: generous thresholds,
+              shared edges, and spaces that welcome lingering.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="projects" aria-labelledby="projects-title">
+      <div class="wrap">
+        <div class="projects-intro">
+          <div class="section-head reveal">
+            <p class="eyebrow">Selected work</p>
+            <h2 id="projects-title">Projects rooted in place</h2>
+            <p>
+              From hillside dwellings to civic gardens, each commission is shaped by the ecology
+              and culture of its setting.
+            </p>
+          </div>
+          <div class="project-filter" role="group" aria-label="Filter projects by type">
+            <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-btn" data-filter="homes" aria-pressed="false">Homes</button>
+            <button type="button" class="filter-btn" data-filter="retreats" aria-pressed="false">Retreats</button>
+            <button type="button" class="filter-btn" data-filter="public" aria-pressed="false">Public</button>
+          </div>
+        </div>
+
+        <div class="project-grid" id="project-grid">
+          <article class="project-card reveal" data-category="homes">
+            <div class="project-media" aria-hidden="true">
+              <span class="project-tag">Home</span>
+              <svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice">
+                <rect width="480" height="360" fill="#d5cdb8"/>
+                <path d="M0 180 C80 140 160 150 240 170 C320 190 380 150 480 160 L480 360 L0 360 Z" fill="#6d7a62"/>
+                <path d="M0 240 C120 210 200 250 300 235 C380 222 420 240 480 250 L480 360 L0 360 Z" fill="#4d5a48"/>
+                <rect x="150" y="150" width="150" height="90" fill="#f3ece0"/>
+                <rect x="170" y="120" width="110" height="35" fill="#e7decd"/>
+                <rect x="175" y="175" width="28" height="40" fill="#2a3d30"/>
+                <rect x="230" y="175" width="40" height="28" fill="#c97a6e" opacity="0.8"/>
+                <line x1="40" y1="100" x2="200" y2="70" stroke="#2a3d30" stroke-width="1" opacity="0.2"/>
+                <line x1="60" y1="120" x2="220" y2="90" stroke="#2a3d30" stroke-width="1" opacity="0.15"/>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="project-meta">Oregon Coast · 2023</p>
+              <h3>Cedar Hollow House</h3>
+              <p>A low-profile family home tucked into a dune forest, oriented for storm light and quiet mornings.</p>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="retreats">
+            <div class="project-media" aria-hidden="true">
+              <span class="project-tag">Retreat</span>
+              <svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice">
+                <rect width="480" height="360" fill="#c9c2b0"/>
+                <circle cx="360" cy="80" r="36" fill="#efe4c4" opacity="0.7"/>
+                <path d="M0 200 C100 160 180 190 260 175 C340 160 400 175 480 155 L480 360 L0 360 Z" fill="#5a6b58"/>
+                <path d="M0 270 C140 240 220 280 320 260 C400 245 440 270 480 280 L480 360 L0 360 Z" fill="#3f4d40"/>
+                <rect x="95" y="185" width="70" height="55" fill="#f5f0e6"/>
+                <rect x="185" y="175" width="70" height="65" fill="#ebe4d6"/>
+                <rect x="275" y="190" width="70" height="50" fill="#f0e9db"/>
+                <rect x="115" y="205" width="18" height="20" fill="#2a3d30"/>
+                <rect x="205" y="195" width="22" height="18" fill="#8a9a82"/>
+                <rect x="295" y="208" width="18" height="16" fill="#c97a6e" opacity="0.75"/>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="project-meta">High Sierra · 2022</p>
+              <h3>Granite Creek Cabins</h3>
+              <p>Three compact overnight cabins along a seasonal creek, sharing a common cookhouse and meadow edge.</p>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="public">
+            <div class="project-media" aria-hidden="true">
+              <span class="project-tag">Public</span>
+              <svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice">
+                <rect width="480" height="360" fill="#d8d2c2"/>
+                <path d="M0 160 C120 190 180 130 260 150 C340 170 400 140 480 165 L480 360 L0 360 Z" fill="#7a8a6e"/>
+                <path d="M0 250 C100 220 200 260 300 240 C380 225 430 250 480 255 L480 360 L0 360 Z" fill="#556350"/>
+                <rect x="60" y="200" width="360" height="12" fill="#f4efe4" opacity="0.9"/>
+                <rect x="90" y="160" width="14" height="52" fill="#e8e0d0"/>
+                <rect x="150" y="145" width="14" height="67" fill="#e8e0d0"/>
+                <rect x="210" y="155" width="14" height="57" fill="#e8e0d0"/>
+                <rect x="270" y="140" width="14" height="72" fill="#e8e0d0"/>
+                <rect x="330" y="150" width="14" height="62" fill="#e8e0d0"/>
+                <rect x="390" y="165" width="14" height="47" fill="#e8e0d0"/>
+                <circle cx="120" cy="230" r="8" fill="#c97a6e" opacity="0.6"/>
+                <circle cx="300" cy="235" r="6" fill="#c97a6e" opacity="0.45"/>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="project-meta">Willamette Valley · 2024</p>
+              <h3>Riverwalk Pavilion</h3>
+              <p>An open civic room for markets and music, framed by native plantings and seasonal floodplain views.</p>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="homes">
+            <div class="project-media" aria-hidden="true">
+              <span class="project-tag">Home</span>
+              <svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice">
+                <rect width="480" height="360" fill="#cfc6b3"/>
+                <path d="M0 140 C90 170 160 110 250 130 C340 150 400 120 480 145 L480 360 L0 360 Z" fill="#687864"/>
+                <path d="M0 230 C110 200 190 245 290 225 C380 208 430 235 480 245 L480 360 L0 360 Z" fill="#465443"/>
+                <polygon points="200,120 300,120 320,200 180,200" fill="#f2ebe0"/>
+                <rect x="215" y="150" width="20" height="30" fill="#2a3d30"/>
+                <rect x="255" y="150" width="30" height="18" fill="#a89a82"/>
+                <path d="M40 80 C120 60 200 90 280 65" fill="none" stroke="#2a3d30" stroke-width="1" opacity="0.18"/>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="project-meta">Skagit Valley · 2021</p>
+              <h3>Field Edge Residence</h3>
+              <p>A courtyard house at the margin of farmland, opening wide to south light and closing against winter winds.</p>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="retreats">
+            <div class="project-media" aria-hidden="true">
+              <span class="project-tag">Retreat</span>
+              <svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice">
+                <rect width="480" height="360" fill="#d2cbb9"/>
+                <path d="M0 190 C80 150 150 175 230 160 C320 145 390 165 480 140 L480 360 L0 360 Z" fill="#5e6e58"/>
+                <path d="M0 280 C130 250 210 290 320 270 C400 255 440 285 480 290 L480 360 L0 360 Z" fill="#3b493c"/>
+                <rect x="210" y="175" width="60" height="70" fill="#f5f0e6"/>
+                <polygon points="200,175 240,140 280,175" fill="#e8e0d0"/>
+                <rect x="228" y="205" width="16" height="24" fill="#2a3d30"/>
+                <rect x="248" y="200" width="14" height="14" fill="#c97a6e" opacity="0.7"/>
+                <circle cx="90" cy="90" r="22" fill="#efe6c8" opacity="0.5"/>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="project-meta">Olympic Peninsula · 2020</p>
+              <h3>Moss Trail Studio</h3>
+              <p>A writers’ cabin on stilts above a fern understory, with a single long window onto the trail.</p>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="public">
+            <div class="project-media" aria-hidden="true">
+              <span class="project-tag">Public</span>
+              <svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice">
+                <rect width="480" height="360" fill="#cac3b1"/>
+                <path d="M0 170 C100 200 180 140 270 165 C360 190 410 155 480 180 L480 360 L0 360 Z" fill="#71806a"/>
+                <path d="M0 255 C120 230 200 270 310 250 C390 235 440 260 480 268 L480 360 L0 360 Z" fill="#4a5848"/>
+                <ellipse cx="240" cy="230" rx="110" ry="28" fill="#e8e2d4" opacity="0.85"/>
+                <rect x="170" y="175" width="140" height="40" fill="#f4efe4"/>
+                <rect x="185" y="185" width="20" height="18" fill="#2a3d30" opacity="0.35"/>
+                <rect x="220" y="185" width="20" height="18" fill="#2a3d30" opacity="0.35"/>
+                <rect x="255" y="185" width="20" height="18" fill="#2a3d30" opacity="0.35"/>
+                <path d="M60 100 C140 80 200 110 280 85 C340 68 400 90 450 75" fill="none" stroke="#2a3d30" stroke-width="1" opacity="0.16"/>
+              </svg>
+            </div>
+            <div class="project-body">
+              <p class="project-meta">Puget Sound · 2023</p>
+              <h3>Harbor Edge Gardens</h3>
+              <p>A sequence of seating terraces and rain gardens reclaiming a former parking strip for neighbors.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="band-title">
+      <svg class="band-art" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path d="M0 220 C150 160 300 280 450 200 C600 120 750 240 900 180 C1050 120 1120 160 1200 140 L1200 400 L0 400 Z" fill="#1c1a16"/>
+        <path d="M0 280 C200 230 350 320 550 270 C750 220 900 300 1200 250 L1200 400 L0 400 Z" fill="#1c1a16" opacity="0.6"/>
+      </svg>
+      <div class="wrap">
+        <div class="band-copy reveal">
+          <h2 id="band-title">Architecture is a form of listening.</h2>
+          <p>
+            We measure success in how easily a building settles into its field—how doors open
+            to morning air, how rooms hold community, how materials weather with grace.
+          </p>
+          <a class="btn btn-secondary" href="#contact" style="border-color: color-mix(in srgb, #fbf8f2 45%, transparent); color: #fbf8f2;">
+            Start a conversation
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="process-section" id="process" aria-labelledby="process-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">From brief to building</p>
+          <h2 id="process-title">A clear process, patiently paced</h2>
+          <p>
+            Collaboration is deliberate. We keep teams small, decisions legible, and drawings
+            honest about what the land can hold.
+          </p>
+        </div>
+        <ol class="process-list">
+          <li class="process-item reveal">
+            <h3>Fieldwork</h3>
+            <p>Walks, soil notes, light studies, and conversations with those who know the place best.</p>
+          </li>
+          <li class="process-item reveal">
+            <h3>Framework</h3>
+            <p>A site strategy and massing that protect what matters—views, habitat, access, and quiet.</p>
+          </li>
+          <li class="process-item reveal">
+            <h3>Craft</h3>
+            <p>Detail design with builders and makers, refining structure, envelope, and material joints.</p>
+          </li>
+          <li class="process-item reveal">
+            <h3>Stewardship</h3>
+            <p>Construction support and post-occupancy visits so the project thrives through its first seasons.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="studio" id="studio" aria-labelledby="studio-title">
+      <div class="wrap studio-grid">
+        <div class="reveal">
+          <p class="eyebrow">The practice</p>
+          <h2 id="studio-title" style="font-family: var(--font-serif); font-size: clamp(1.9rem, 4vw, 2.75rem); line-height: 1.15; margin: 0 0 1rem; font-weight: 600;">
+            A studio calibrated to landscape
+          </h2>
+          <p style="margin: 0; color: var(--ink-soft); max-width: var(--measure);">
+            Field Notes is an architecture studio based in the Pacific Northwest. We partner with
+            landowners, nonprofits, and public agencies who want buildings that feel inevitable
+            in their setting—durable, hospitable, and low in impact.
+          </p>
+        </div>
+        <div class="studio-stats reveal" aria-label="Studio highlights">
+          <div class="stat">
+            <strong>18</strong>
+            <span>Years of practice across coastal and inland landscapes</span>
+          </div>
+          <div class="stat">
+            <strong>46</strong>
+            <span>Completed homes, retreats, and public rooms</span>
+          </div>
+          <div class="stat">
+            <strong>12</strong>
+            <span>Collaborating disciplines in our regular team</span>
+          </div>
+          <div class="stat">
+            <strong>1</strong>
+            <span>Commitment: buildings that belong</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="contact-panel reveal">
+          <div>
+            <p class="eyebrow" style="color: color-mix(in srgb, #fbf8f2 75%, transparent);">Contact</p>
+            <h2 id="contact-title">Tell us about your place</h2>
+            <p>
+              Whether you are stewarding a family site, planning a retreat, or shaping a public edge,
+              we begin with a conversation and a careful reading of the ground.
+            </p>
+          </div>
+          <dl class="contact-details">
+            <div>
+              <dt>Studio</dt>
+              <dd>214 Field Lane, Portland, OR</dd>
+            </div>
+            <div>
+              <dt>Email</dt>
+              <dd><a href="mailto:hello@fieldnotes.studio">hello@fieldnotes.studio</a></dd>
+            </div>
+            <div>
+              <dt>Hours</dt>
+              <dd>Tuesday–Friday, 9:00–17:00</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span class="footer-brand">Field Notes</span>
+      <span>Buildings that belong. · Landscape-led architecture</span>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

@@ -39,6 +39,14 @@ renderer or raster export step.
 These captures are the visual inputs to exact-duplicate detection and are never
 used as the normal gallery thumbnail.
 
+The submission directory is an evaluator workspace, not a second persisted
+collection. Keep batch submissions outside Git (the repository ignores
+`.benchmark-work/` and `benchmark/*-submissions/`). After review and duplicate
+auditing, import each accepted submission once into `static/sites/<model>/`.
+That model-specific static tree is the canonical deployable website collection;
+the generated registry retains the source and distribution hashes, and the
+benchmark reports retain the audit result.
+
 For a dependency-free site, `source/` may already be deployable. The evaluator
 can create `dist/` without executing submitted code:
 
@@ -77,7 +85,7 @@ Pass `--replace` only when intentionally rebuilding an existing `dist/`.
 
 - `dist/index.html` contains `html` and `body` elements.
 - All runtime files are inside `dist/`; URLs are relative so the site works at
-  `/sites/<artifactDirectory>/index.html`.
+  `/sites/<model>/<artifactDirectory>/index.html`.
 - No CDN assets, remote fonts, analytics, API calls, or runtime network
   dependencies are allowed.
 - Symbolic links and special filesystem entries are forbidden in artifact trees.
@@ -118,6 +126,15 @@ OPENAI_API_KEY="$OPENAI_API_KEY" \
 scripts/benchmark/run-isolated-worker.sh "$worker"
 ```
 
+The equivalent Grok Build worker uses the same one-site mount boundary and a
+fresh temporary Grok home:
+
+```sh
+GROK_AUTH_FILE="$HOME/.grok/auth.json" \
+GROK_MODEL=grok-4.5 \
+scripts/benchmark/run-isolated-grok-worker.sh "$worker"
+```
+
 The runner invokes exactly this Codex mode inside the OS boundary:
 
 ```sh
@@ -153,13 +170,18 @@ JSON or TypeScript registry selected by the caller:
 
 ```sh
 node scripts/benchmark/import-site.mjs \
-  --submission /isolated-results/002-form-haus \
-  --registry src/lib/generated/site-artifacts.ts
+  --submission .benchmark-work/grok-4.5/002-form-haus \
+  --registry src/lib/generated/grok-site-artifacts.ts \
+  --static-root static/sites/grok-4.5 \
+  --public-base /sites/grok-4.5
 ```
 
 `--static-root` defaults to `static/sites`; override it for tests or alternate
-deployments. Existing destinations and registry entries are rejected unless
-`--replace` is supplied. A generated TypeScript registry exports:
+deployments. `--public-base` defaults to `/sites` and controls the URLs written
+to the registry. Benchmark collections must always provide matching
+model-specific values for both options so one model cannot overwrite another.
+Existing destinations and registry entries are rejected unless `--replace` is
+supplied. A generated TypeScript registry exports:
 
 - `SiteArtifact`
 - `siteArtifacts`

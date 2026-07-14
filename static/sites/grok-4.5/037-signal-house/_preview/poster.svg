@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Signal House — Make noise worth hearing.">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#120c0b"/>
+      <stop offset="45%" stop-color="#0b0b0d"/>
+      <stop offset="100%" stop-color="#0c1816"/>
+    </linearGradient>
+    <radialGradient id="glowR" cx="78%" cy="22%" r="45%">
+      <stop offset="0%" stop-color="#ff4d2e" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ff4d2e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowC" cx="18%" cy="78%" r="40%">
+      <stop offset="0%" stop-color="#2de0c5" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2de0c5" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="barHot" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#ff4d2e"/>
+      <stop offset="100%" stop-color="#e8ff4a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#glowR)"/>
+  <rect width="1200" height="900" fill="url(#glowC)"/>
+
+  <!-- Subtle grid -->
+  <g stroke="rgba(244,239,230,0.04)" stroke-width="1">
+    <line x1="0" y1="180" x2="1200" y2="180"/>
+    <line x1="0" y1="450" x2="1200" y2="450"/>
+    <line x1="0" y1="720" x2="1200" y2="720"/>
+    <line x1="200" y1="0" x2="200" y2="900"/>
+    <line x1="600" y1="0" x2="600" y2="900"/>
+    <line x1="1000" y1="0" x2="1000" y2="900"/>
+  </g>
+
+  <!-- Corner frame accents -->
+  <path d="M60 120 H140 M60 120 V200" fill="none" stroke="#2de0c5" stroke-width="3" stroke-linecap="square"/>
+  <path d="M1140 780 H1060 M1140 780 V700" fill="none" stroke="#ff4d2e" stroke-width="3" stroke-linecap="square"/>
+
+  <!-- Logo mark: equalizer bars -->
+  <g transform="translate(96, 168)">
+    <rect x="0" y="42" width="18" height="38" rx="4" fill="#ff4d2e"/>
+    <rect x="28" y="22" width="18" height="58" rx="4" fill="#2de0c5"/>
+    <rect x="56" y="0" width="18" height="80" rx="4" fill="#ff4d2e"/>
+    <rect x="84" y="30" width="18" height="50" rx="4" fill="#e8ff4a"/>
+  </g>
+
+  <!-- Eyebrow -->
+  <text x="96" y="300" fill="#2de0c5" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="6">INDEPENDENT CREATIVE STUDIO</text>
+
+  <!-- Title -->
+  <text x="96" y="400" fill="#f4efe6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="96" font-weight="800" letter-spacing="-3">Signal House</text>
+
+  <!-- Tagline -->
+  <text x="96" y="490" fill="#f4efe6" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="48" font-weight="700" letter-spacing="-1">Make noise worth hearing.</text>
+
+  <!-- Supporting line -->
+  <text x="96" y="560" fill="#c9c2b5" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="24" font-weight="500">Identities · Campaigns · Digital worlds</text>
+
+  <!-- Decorative waveform -->
+  <g transform="translate(96, 640)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 40 C40 10, 80 70, 120 40 S200 10, 240 40 S320 70, 360 40 S440 10, 480 40 S560 70, 600 40 S680 10, 720 40" stroke="#ff4d2e" stroke-width="5"/>
+    <path d="M0 40 C40 55, 80 25, 120 40 S200 55, 240 40 S320 25, 360 40 S440 55, 480 40 S560 25, 600 40 S680 55, 720 40" stroke="#2de0c5" stroke-width="3" opacity="0.7"/>
+  </g>
+
+  <!-- Right-side signal bars cluster -->
+  <g transform="translate(860, 280)">
+    <circle cx="120" cy="160" r="150" fill="none" stroke="rgba(45,224,197,0.18)" stroke-width="2"/>
+    <circle cx="120" cy="160" r="110" fill="none" stroke="rgba(255,77,46,0.22)" stroke-width="2"/>
+    <circle cx="120" cy="160" r="70" fill="none" stroke="rgba(232,255,74,0.2)" stroke-width="2"/>
+    <rect x="70" y="210" width="22" height="70" rx="5" fill="url(#barHot)" opacity="0.9"/>
+    <rect x="102" y="170" width="22" height="110" rx="5" fill="#2de0c5" opacity="0.85"/>
+    <rect x="134" y="140" width="22" height="140" rx="5" fill="#ff4d2e"/>
+    <rect x="166" y="185" width="22" height="95" rx="5" fill="#e8ff4a" opacity="0.9"/>
+  </g>
+
+  <!-- Bottom label -->
+  <rect x="96" y="780" width="8" height="36" rx="2" fill="#ff4d2e"/>
+  <text x="120" y="806" fill="#8a8478" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="3">CULTURE-FIRST STUDIO</text>
+</svg>

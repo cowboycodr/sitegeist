@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Paper Plane — Go somewhere worth writing down.">
+  <defs>
+    <linearGradient id="paperBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7f1e8"/>
+      <stop offset="55%" stop-color="#efe4d4"/>
+      <stop offset="100%" stop-color="#e4d4bc"/>
+    </linearGradient>
+    <linearGradient id="skyWash" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c9d8dc"/>
+      <stop offset="50%" stop-color="#e8dcc8"/>
+      <stop offset="100%" stop-color="#d2b896"/>
+    </linearGradient>
+    <linearGradient id="inkBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a1612"/>
+      <stop offset="100%" stop-color="#2c241c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background paper -->
+  <rect width="1200" height="900" fill="url(#paperBg)"/>
+
+  <!-- Subtle grid like a field notebook -->
+  <g stroke="#c9b89a" stroke-width="1" opacity="0.28">
+    <path d="M0 90 H1200 M0 180 H1200 M0 270 H1200 M0 360 H1200 M0 450 H1200 M0 540 H1200 M0 630 H1200 M0 720 H1200 M0 810 H1200"/>
+    <path d="M90 0 V900 M180 0 V900 M270 0 V900 M360 0 V900 M450 0 V900 M540 0 V900 M630 0 V900 M720 0 V900 M810 0 V900 M900 0 V900 M990 0 V900 M1080 0 V900"/>
+  </g>
+
+  <!-- Large framed illustration panel -->
+  <rect x="70" y="70" width="1060" height="760" rx="28" fill="#faf6f0" stroke="#3d3228" stroke-width="3"/>
+  <rect x="96" y="96" width="1008" height="520" rx="16" fill="url(#skyWash)"/>
+
+  <!-- City silhouette motif -->
+  <g transform="translate(120, 280)">
+    <path d="M0 280 Q180 220 320 250 T640 240 L880 255 V340 H0Z" fill="#8b5e3c" opacity="0.28"/>
+    <path d="M40 300 L95 170 L150 300Z" fill="#2c241c"/>
+    <path d="M130 310 L200 130 L270 310Z" fill="#3d3228"/>
+    <path d="M250 305 L330 155 L410 305Z" fill="#2c241c"/>
+    <path d="M390 315 L480 145 L570 315Z" fill="#4a3a2c"/>
+    <path d="M550 308 L640 160 L730 308Z" fill="#3d3228"/>
+    <path d="M710 318 L800 175 L890 318Z" fill="#2c241c"/>
+    <rect x="70" y="300" width="70" height="90" fill="#5c4030"/>
+    <rect x="175" y="285" width="80" height="105" fill="#6b4a34"/>
+    <rect x="300" y="290" width="75" height="100" fill="#5a3f2e"/>
+    <rect x="440" y="280" width="85" height="110" fill="#4e3628"/>
+    <rect x="590" y="295" width="78" height="95" fill="#5c4030"/>
+    <rect x="740" y="288" width="90" height="102" fill="#4a3a2c"/>
+    <!-- Window glow -->
+    <rect x="90" y="320" width="14" height="18" fill="#e8c96a" opacity="0.75"/>
+    <rect x="200" y="310" width="14" height="18" fill="#e8c96a" opacity="0.6"/>
+    <rect x="325" y="318" width="14" height="18" fill="#e8c96a" opacity="0.7"/>
+    <rect x="470" y="305" width="14" height="18" fill="#e8c96a" opacity="0.55"/>
+    <rect x="620" y="315" width="14" height="18" fill="#e8c96a" opacity="0.65"/>
+    <!-- River ribbon -->
+    <path d="M-20 360 C120 340 220 380 360 370 C520 358 640 390 900 375" fill="none" stroke="#7a9eae" stroke-width="18" stroke-linecap="round" opacity="0.7"/>
+  </g>
+
+  <!-- Paper plane motif -->
+  <g transform="translate(860, 160) rotate(-18)">
+    <path d="M0 40 L150 0 L85 145 L65 85 Z" fill="#1a1612"/>
+    <path d="M65 85 L150 0 L70 95 Z" fill="#c45c3a"/>
+    <path d="M0 40 L65 85 L70 95 L20 55 Z" fill="#3d3228"/>
+  </g>
+
+  <!-- Soft flight trail -->
+  <path d="M620 280 C700 240 760 230 830 200" fill="none" stroke="#c45c3a" stroke-width="3" stroke-dasharray="10 10" opacity="0.75"/>
+
+  <!-- Volume stamp -->
+  <rect x="130" y="130" width="220" height="48" rx="24" fill="#1a1612"/>
+  <text x="240" y="161" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#f7f1e8" letter-spacing="3">DISPATCH 28 · TBILISI</text>
+
+  <!-- Bottom identity band -->
+  <rect x="96" y="640" width="1008" height="160" rx="12" fill="url(#inkBand)"/>
+  <text x="140" y="710" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-weight="600" fill="#f7f1e8">Paper Plane</text>
+  <text x="140" y="760" font-family="system-ui, -apple-system, sans-serif" font-size="26" fill="#e8a88f" letter-spacing="1">Go somewhere worth writing down.</text>
+
+  <!-- Small compass mark -->
+  <g transform="translate(1000, 720)">
+    <circle r="36" fill="none" stroke="#e8a88f" stroke-width="2"/>
+    <path d="M0,-22 L7,4 L0,0 L-7,4 Z" fill="#c45c3a"/>
+    <path d="M0,22 L7,-4 L0,0 L-7,-4 Z" fill="#f7f1e8"/>
+  </g>
+</svg>

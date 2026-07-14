@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self';">
+  <title>Mosslight — Restorative forest cabins in the Cascades</title>
+  <meta name="description" content="Restorative forest cabins, seasonal field notes, and unhurried itineraries in the Cascades.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#top" aria-label="Mosslight home">
+        <svg class="logo-mark" viewBox="0 0 36 36" aria-hidden="true" focusable="false">
+          <rect width="36" height="36" rx="10" fill="#1a2e24"/>
+          <path d="M8 26c4-8 6-14 10-14s6 6 10 14" fill="none" stroke="#8aab90" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="18" cy="12" r="3.2" fill="#c4a574"/>
+          <path d="M12 26h12" stroke="#5a7a62" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>Mosslight</span>
+      </a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#cabins">Cabins</a></li>
+          <li><a href="#grounds">Grounds</a></li>
+          <li><a href="#notes">Field notes</a></li>
+          <li><a href="#itineraries">Itineraries</a></li>
+          <li><a class="nav-cta" href="#stay">Plan your stay</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <svg class="hero-art" viewBox="0 0 1200 780" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2d4a3a"/>
+            <stop offset="55%" stop-color="#1a2e24"/>
+            <stop offset="100%" stop-color="#0f1c16"/>
+          </linearGradient>
+          <linearGradient id="glow" x1="0.5" y1="0.2" x2="0.5" y2="1">
+            <stop offset="0%" stop-color="#c4a574" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#c4a574" stop-opacity="0"/>
+          </linearGradient>
+          <radialGradient id="mistG" cx="50%" cy="70%" r="50%">
+            <stop offset="0%" stop-color="#8aab90" stop-opacity="0.25"/>
+            <stop offset="100%" stop-color="#1a2e24" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="1200" height="780" fill="url(#sky)"/>
+        <ellipse cx="600" cy="620" rx="480" ry="160" fill="url(#mistG)"/>
+        <!-- Far ridge -->
+        <path d="M0 420 C120 360 220 390 340 350 C460 310 520 280 640 300 C760 320 860 280 980 310 C1080 335 1140 360 1200 340 L1200 780 L0 780 Z" fill="#243d30"/>
+        <!-- Mid forest silhouette -->
+        <path d="M0 480 L40 400 L70 470 L110 360 L150 460 L190 340 L230 450 L280 320 L320 440 L370 300 L410 430 L460 310 L500 420 L550 290 L590 410 L640 280 L690 400 L740 300 L790 420 L840 310 L890 430 L940 320 L990 440 L1040 340 L1090 450 L1140 360 L1200 430 L1200 780 L0 780 Z" fill="#1a2e24"/>
+        <!-- Cabin glow -->
+        <ellipse cx="720" cy="520" rx="90" ry="40" fill="url(#glow)"/>
+        <!-- Cabin -->
+        <path d="M640 540 L720 470 L800 540 V620 H640 Z" fill="#3d3229"/>
+        <path d="M640 540 L720 470 L800 540 Z" fill="#2d4a3a"/>
+        <rect x="700" y="555" width="28" height="36" rx="2" fill="#c4a574" opacity="0.9"/>
+        <rect x="750" y="560" width="22" height="18" rx="2" fill="#e8d5b5" opacity="0.85"/>
+        <!-- Foreground ferns -->
+        <path d="M80 700 Q120 600 160 700 Q130 640 80 700" fill="#3d5c4a"/>
+        <path d="M140 720 Q190 600 240 720 Q200 650 140 720" fill="#2d4a3a"/>
+        <path d="M980 710 Q1030 590 1080 710 Q1040 640 980 710" fill="#3d5c4a"/>
+        <path d="M1040 730 Q1100 610 1160 730 Q1110 660 1040 730" fill="#2d4a3a"/>
+        <!-- Soft light rays -->
+        <path d="M720 200 L680 520 L760 520 Z" fill="#c4a574" opacity="0.08"/>
+        <circle cx="200" cy="140" r="2" fill="#c5d4c8" opacity="0.5"/>
+        <circle cx="320" cy="180" r="1.5" fill="#c5d4c8" opacity="0.4"/>
+        <circle cx="900" cy="120" r="2" fill="#c5d4c8" opacity="0.45"/>
+        <circle cx="1040" cy="200" r="1.5" fill="#c5d4c8" opacity="0.35"/>
+      </svg>
+      <div class="hero-content">
+        <p class="eyebrow">Cabins in the Cascades</p>
+        <h1 id="hero-title">Disappear into the green.</h1>
+        <p class="hero-tagline">Restorative forest cabins, seasonal field notes, and unhurried itineraries under moss-filtered light.</p>
+        <div class="btn-row">
+          <a class="btn btn-light" href="#stay">Plan your stay</a>
+          <a class="btn btn-ghost" href="#grounds">Explore the grounds</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro-strip" aria-labelledby="intro-title">
+      <div class="section-inner intro-grid">
+        <div>
+          <p class="eyebrow">Welcome</p>
+          <h2 class="section-title" id="intro-title">A quiet clearing in the Cascades</h2>
+          <blockquote class="intro-quote">Moss softens every footstep. Light finds the floor in long green shafts. You arrive with a full week — and leave with a slower one.</blockquote>
+        </div>
+        <div class="intro-aside">
+          <p>Mosslight is a small collection of forest cabins west of the Cascade crest: timber, wool, woodstoves, and trails that begin at the porch. We keep the pace deliberate so rest can actually take root.</p>
+          <div class="stat-row">
+            <div class="stat">
+              <strong>6</strong>
+              <span>cabins on 40 acres</span>
+            </div>
+            <div class="stat">
+              <strong>2 hrs</strong>
+              <span>from Seattle</span>
+            </div>
+            <div class="stat">
+              <strong>Year-round</strong>
+              <span>open by season</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cabins" id="cabins" aria-labelledby="cabins-title">
+      <div class="section-inner">
+        <p class="eyebrow">Stay</p>
+        <h2 class="section-title" id="cabins-title">Cabins built for deep rest</h2>
+        <p class="lead">Each cabin faces a different stretch of forest. Interiors are spare on purpose: linen, cedar, a stove, and windows that hold the green.</p>
+        <div class="cabin-grid">
+          <article class="cabin-card">
+            <div class="cabin-visual" aria-hidden="true">
+              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+                <rect width="400" height="300" fill="#2d4a3a"/>
+                <path d="M0 180 Q100 120 200 160 T400 140 V300 H0 Z" fill="#1a2e24"/>
+                <path d="M120 220 L200 150 L280 220 V270 H120 Z" fill="#3d3229"/>
+                <path d="M120 220 L200 150 L280 220" fill="none" stroke="#5a7a62" stroke-width="3"/>
+                <rect x="180" y="230" width="30" height="40" fill="#c4a574"/>
+                <circle cx="60" cy="80" r="40" fill="#3d5c4a" opacity="0.5"/>
+                <circle cx="320" cy="70" r="50" fill="#3d5c4a" opacity="0.4"/>
+              </svg>
+            </div>
+            <div class="cabin-body">
+              <h3>Fernhollow</h3>
+              <p class="cabin-meta">Sleeps 2 · Trail edge</p>
+              <p>A compact studio tucked under sword ferns. Perfect for two: a lofted bed, writing desk, and a south-facing window seat for rain watching.</p>
+            </div>
+          </article>
+          <article class="cabin-card">
+            <div class="cabin-visual" aria-hidden="true">
+              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+                <rect width="400" height="300" fill="#243d30"/>
+                <ellipse cx="200" cy="260" rx="180" ry="50" fill="#1a2e24"/>
+                <rect x="100" y="140" width="200" height="110" rx="4" fill="#3d3229"/>
+                <path d="M90 140 L200 70 L310 140 Z" fill="#2d4a3a"/>
+                <rect x="175" y="185" width="50" height="65" fill="#e8d5b5" opacity="0.9"/>
+                <rect x="120" y="165" width="35" height="28" fill="#8aab90" opacity="0.7"/>
+                <rect x="250" y="165" width="35" height="28" fill="#8aab90" opacity="0.7"/>
+                <path d="M40 300 Q80 200 100 300" fill="#3d5c4a"/>
+                <path d="M300 300 Q340 190 380 300" fill="#5a7a62"/>
+              </svg>
+            </div>
+            <div class="cabin-body">
+              <h3>Cedarline</h3>
+              <p class="cabin-meta">Sleeps 4 · Creek view</p>
+              <p>Two rooms, a deep porch, and the sound of cold water all night. Built for families or friends who still want quiet corners.</p>
+            </div>
+          </article>
+          <article class="cabin-card">
+            <div class="cabin-visual" aria-hidden="true">
+              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+                <rect width="400" height="300" fill="#1a2e24"/>
+                <circle cx="200" cy="100" r="70" fill="#c4a574" opacity="0.25"/>
+                <path d="M0 200 C80 160 140 210 200 170 C260 130 320 180 400 150 V300 H0 Z" fill="#2d4a3a"/>
+                <path d="M150 200 L200 145 L250 200 V250 H150 Z" fill="#3d3229"/>
+                <rect x="185" y="215" width="24" height="35" fill="#c4a574"/>
+                <path d="M50 280 Q90 220 130 280" fill="#5a7a62"/>
+                <path d="M270 280 Q310 210 350 280" fill="#3d5c4a"/>
+              </svg>
+            </div>
+            <div class="cabin-body">
+              <h3>Lookout Ridge</h3>
+              <p class="cabin-meta">Sleeps 2 · Canopy</p>
+              <p>Raised on stilts above a steep green drop. Floor-to-ceiling glass, a copper tub, and sunrise over the far ridgeline.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section grounds" id="grounds" aria-labelledby="grounds-title">
+      <div class="section-inner">
+        <p class="eyebrow">On the land</p>
+        <h2 class="section-title" id="grounds-title">Explore the grounds</h2>
+        <p class="lead">Forty acres of second-growth forest, boardwalks over wet meadows, and a fire circle that stays lit on clear evenings.</p>
+        <div class="grounds-grid">
+          <article class="ground-item">
+            <h3>Moss Loop</h3>
+            <p>A 1.2-mile soft-path circuit through nurse logs and nurse-log gardens. Wayfinding markers are carved cedar; maps live in each cabin.</p>
+          </article>
+          <article class="ground-item">
+            <h3>Springhouse bath</h3>
+            <p>A shared sauna and cold plunge fed by a filtered spring. Towels and cedar buckets are provided; reserve a slot at the front desk.</p>
+          </article>
+          <article class="ground-item">
+            <h3>Reading pavilion</h3>
+            <p>Open-air shelter with wool throws, field guides, and a small library of Cascades natural history. No Wi-Fi by design.</p>
+          </article>
+          <article class="ground-item">
+            <h3>Night meadow</h3>
+            <p>On moonless nights, we dim porch lights for stargazing. Blankets and thermos kits wait at the trailhead after dusk.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section notes" id="notes" aria-labelledby="notes-title">
+      <div class="section-inner notes-layout">
+        <div>
+          <p class="eyebrow">Journal</p>
+          <h2 class="section-title" id="notes-title">Seasonal field notes</h2>
+          <p class="lead">Observations from hosts who walk the same trails you will. Updated when the forest asks for it.</p>
+          <ul class="note-list">
+            <li class="note-card">
+              <time datetime="2026-06-18">June field note</time>
+              <h3>Sword fern unfurling</h3>
+              <p>New croziers are open along the Moss Loop boardwalk. Watch for banana slugs after morning mist — they prefer the shaded north side.</p>
+            </li>
+            <li class="note-card">
+              <time datetime="2026-05-02">May field note</time>
+              <h3>Creek running high</h3>
+              <p>Snowmelt keeps the Cedarline bank loud through early summer. Waterproof boots help on the lower spur; poles available at the shed.</p>
+            </li>
+            <li class="note-card">
+              <time datetime="2026-03-12">March field note</time>
+              <h3>Quiet before green-up</h3>
+              <p>Deciduous understory is still bare, so ridge views open farther than summer allows. Bring layers — evenings drop quickly.</p>
+            </li>
+          </ul>
+        </div>
+        <aside class="season-panel" aria-labelledby="season-title">
+          <h3 id="season-title">What the year holds</h3>
+          <p>We open and pace amenities with the weather. Peak green arrives midsummer; storm season is for woodstoves and long books.</p>
+          <ul class="season-list">
+            <li><strong>Spring</strong> Wildflowers, full creeks, shorter hikes.</li>
+            <li><strong>Summer</strong> Long light, meadow dinners, full trail set.</li>
+            <li><strong>Autumn</strong> Mushroom walks, cooler nights, harvest menus.</li>
+            <li><strong>Winter</strong> Soft rain, sauna priority, limited cabins.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section itineraries" id="itineraries" aria-labelledby="itin-title">
+      <div class="section-inner">
+        <p class="eyebrow">Unhurried</p>
+        <h2 class="section-title" id="itin-title">Suggested itineraries</h2>
+        <p class="lead">Not schedules — gentle shapes for a few days. Keep them or leave them behind when the forest wins.</p>
+        <div class="itin-grid">
+          <article class="itin-card">
+            <span class="itin-days">2 nights</span>
+            <h3>First quiet</h3>
+            <p>For travelers who need the noise to stop quickly.</p>
+            <ul>
+              <li>Arrive by 4 — unpack, light the stove</li>
+              <li>Dusk walk on Moss Loop</li>
+              <li>Morning sauna and cold plunge</li>
+              <li>Long lunch on the porch; depart after noon</li>
+            </ul>
+          </article>
+          <article class="itin-card">
+            <span class="itin-days">4 nights</span>
+            <h3>Deep green</h3>
+            <p>Time enough to stop checking the clock.</p>
+            <ul>
+              <li>One full trail day with packed lunch</li>
+              <li>Reading pavilion afternoon</li>
+              <li>Night meadow under clear skies</li>
+              <li>Host-led mushroom or fern walk</li>
+            </ul>
+          </article>
+          <article class="itin-card">
+            <span class="itin-days">7 nights</span>
+            <h3>Seasonal dwell</h3>
+            <p>Live with the weather instead of around it.</p>
+            <ul>
+              <li>Cabin swap mid-week if available</li>
+              <li>Two free days with no planned activity</li>
+              <li>Cook-in kit or chef’s table night</li>
+              <li>Journal session with field notes staff</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stay" id="stay" aria-labelledby="stay-title">
+      <div class="section-inner">
+        <div class="stay-panel">
+          <div class="stay-visual" aria-hidden="true">
+            <svg viewBox="0 0 500 480" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="staySky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#3d5c4a"/>
+                  <stop offset="100%" stop-color="#1a2e24"/>
+                </linearGradient>
+              </defs>
+              <rect width="500" height="480" fill="url(#staySky)"/>
+              <path d="M0 280 Q120 220 250 260 T500 230 V480 H0 Z" fill="#243d30"/>
+              <path d="M0 340 Q150 280 300 320 T500 300 V480 H0 Z" fill="#1a2e24"/>
+              <path d="M180 320 L250 250 L320 320 V390 H180 Z" fill="#3d3229"/>
+              <path d="M180 320 L250 250 L320 320" fill="#2d4a3a"/>
+              <rect x="230" y="335" width="32" height="55" fill="#c4a574"/>
+              <circle cx="250" cy="180" r="50" fill="#c4a574" opacity="0.2"/>
+              <path d="M40 450 Q80 360 120 450" fill="#5a7a62"/>
+              <path d="M380 460 Q420 370 460 460" fill="#3d5c4a"/>
+              <text x="40" y="60" fill="#8aab90" font-family="Georgia, serif" font-size="22">Mosslight</text>
+              <text x="40" y="90" fill="#c5d4c8" font-family="system-ui, sans-serif" font-size="14">Cascades · Washington</text>
+            </svg>
+          </div>
+          <div class="stay-form-wrap">
+            <h2 id="stay-title">Plan your stay</h2>
+            <p>Tell us when you hope to arrive and which cabin calls to you. This form stays on your device — we do not send data over the network from this page. Use the confirmation note as a prompt for your email or phone inquiry.</p>
+            <form id="stay-form" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="guest-name">Name</label>
+                  <input id="guest-name" name="name" type="text" autocomplete="name" required placeholder="Your name">
+                </div>
+                <div class="field">
+                  <label for="guest-email">Email</label>
+                  <input id="guest-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+                </div>
+                <div class="field">
+                  <label for="arrival">Arrival</label>
+                  <input id="arrival" name="arrival" type="date" required>
+                </div>
+                <div class="field">
+                  <label for="departure">Departure</label>
+                  <input id="departure" name="departure" type="date" required>
+                </div>
+                <div class="field full">
+                  <label for="cabin">Preferred cabin</label>
+                  <select id="cabin" name="cabin" required>
+                    <option value="">Choose a cabin</option>
+                    <option value="fernhollow">Fernhollow — sleeps 2</option>
+                    <option value="cedarline">Cedarline — sleeps 4</option>
+                    <option value="lookout">Lookout Ridge — sleeps 2</option>
+                    <option value="any">Surprise me</option>
+                  </select>
+                </div>
+                <div class="field full">
+                  <label for="notes-field">Notes for your host</label>
+                  <textarea id="notes-field" name="notes" placeholder="Dietary needs, celebration, accessibility requests…"></textarea>
+                </div>
+              </div>
+              <div class="btn-row form-actions">
+                <button type="submit" class="btn btn-primary">Send inquiry</button>
+              </div>
+              <p class="form-note">Offline-friendly: your browser validates the form and shows a local confirmation. Contact details appear in the footer for follow-up.</p>
+              <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-brand">Mosslight</p>
+        <p>Restorative forest cabins in the Cascades. Disappear into the green.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="#cabins">Cabins</a></li>
+          <li><a href="#grounds">Grounds</a></li>
+          <li><a href="#notes">Field notes</a></li>
+          <li><a href="#itineraries">Itineraries</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Visit</h3>
+        <ul>
+          <li>Cascade foothills, WA</li>
+          <li>Hosts: stay@mosslight.example</li>
+          <li>+1 (206) 555-0148</li>
+          <li><a href="#stay">Plan your stay</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© Mosslight. A fictional hospitality retreat for demonstration. Built as a standalone static site.</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

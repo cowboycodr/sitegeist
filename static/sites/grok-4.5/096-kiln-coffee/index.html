@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="Expressive coffees sourced carefully and developed with patient, exact roast profiles. Kiln Coffee — heat reveals character.">
+  <title>Kiln Coffee — Heat reveals character.</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Kiln Coffee home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="16" cy="16" r="7" fill="currentColor" opacity="0.85"/>
+            <path d="M16 4v4M16 24v4M4 16h4M24 16h4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-text">Kiln</span>
+      </a>
+
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#coffees">Coffees</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#producers">Producers</a></li>
+          <li><a href="#visit">Visit</a></li>
+        </ul>
+        <a class="btn btn-small btn-ember nav-cta" href="#coffees">Shop fresh coffee</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="eyebrow">
+          <span class="eyebrow-dot" aria-hidden="true"></span>
+          Roasted this week / Batch 214
+        </p>
+        <h1 id="hero-heading">Heat reveals character.</h1>
+        <p class="hero-lede">
+          Expressive coffees sourced carefully and developed with patient,
+          exact roast profiles. We treat heat as a craft instrument — never a shortcut.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-ember" href="#coffees">Shop fresh coffee</a>
+          <a class="btn btn-ghost" href="#producers">Meet the producers</a>
+        </div>
+        <dl class="hero-stats" aria-label="Roastery highlights">
+          <div>
+            <dt>Origins</dt>
+            <dd>11</dd>
+          </div>
+          <div>
+            <dt>Roast profiles</dt>
+            <dd>Exact</dd>
+          </div>
+          <div>
+            <dt>Batch</dt>
+            <dd>#214</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg class="kiln-ring" viewBox="0 0 400 400" role="presentation">
+          <defs>
+            <radialGradient id="emberCore" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#f0a060"/>
+              <stop offset="40%" stop-color="#c45c26"/>
+              <stop offset="100%" stop-color="#3d2214"/>
+            </radialGradient>
+            <linearGradient id="ringStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#e8c9a0"/>
+              <stop offset="50%" stop-color="#c45c26"/>
+              <stop offset="100%" stop-color="#8a6040"/>
+            </linearGradient>
+          </defs>
+          <circle cx="200" cy="200" r="168" fill="none" stroke="url(#ringStroke)" stroke-width="1.5" opacity="0.5"/>
+          <circle cx="200" cy="200" r="132" fill="none" stroke="url(#ringStroke)" stroke-width="1" opacity="0.35" stroke-dasharray="4 8"/>
+          <circle cx="200" cy="200" r="72" fill="url(#emberCore)"/>
+          <circle cx="200" cy="200" r="48" fill="none" stroke="#f4ebe0" stroke-width="0.75" opacity="0.3"/>
+          <g stroke="#e8c9a0" stroke-width="1.25" stroke-linecap="round" opacity="0.55">
+            <line x1="200" y1="28" x2="200" y2="52"/>
+            <line x1="200" y1="348" x2="200" y2="372"/>
+            <line x1="28" y1="200" x2="52" y2="200"/>
+            <line x1="348" y1="200" x2="372" y2="200"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section class="section coffees" id="coffees" aria-labelledby="coffees-heading">
+      <div class="section-inner">
+        <header class="section-header">
+          <p class="section-label">This week’s roast</p>
+          <h2 id="coffees-heading">Coffees with a clear voice</h2>
+          <p class="section-intro">
+            Small lots, careful sourcing, and profiles dialed for sweetness and structure.
+            Roasted to order. Shipped within forty-eight hours of the drum.
+          </p>
+        </header>
+
+        <ul class="coffee-grid">
+          <li class="coffee-card">
+            <div class="coffee-meta">
+              <span class="coffee-origin">Ethiopia · Guji</span>
+              <span class="roast-badge roast-light">Light</span>
+            </div>
+            <h3>Uraga Ember</h3>
+            <p class="coffee-notes">Jasmine · bergamot · white peach</p>
+            <p class="coffee-body">Washed heirloom lots from highland cooperatives. Bright, floral, and finely etched.</p>
+            <div class="coffee-footer">
+              <span class="coffee-price">$22 <span class="unit">/ 250g</span></span>
+              <a class="btn btn-small btn-outline" href="#visit">Add to bag</a>
+            </div>
+          </li>
+          <li class="coffee-card featured">
+            <div class="coffee-meta">
+              <span class="coffee-origin">Colombia · Huila</span>
+              <span class="roast-badge roast-medium">Medium</span>
+            </div>
+            <p class="featured-label">Batch 214 highlight</p>
+            <h3>Finca Kiln</h3>
+            <p class="coffee-notes">Cocoa · cane sugar · red apple</p>
+            <p class="coffee-body">A patient medium profile that opens caramel depth without muting fruit. Our house pour-over and espresso bridge.</p>
+            <div class="coffee-footer">
+              <span class="coffee-price">$20 <span class="unit">/ 250g</span></span>
+              <a class="btn btn-small btn-ember" href="#visit">Add to bag</a>
+            </div>
+          </li>
+          <li class="coffee-card">
+            <div class="coffee-meta">
+              <span class="coffee-origin">Kenya · Nyeri</span>
+              <span class="roast-badge roast-light">Light–med</span>
+            </div>
+            <h3>Karatina Blackcurrant</h3>
+            <p class="coffee-notes">Blackcurrant · tomato leaf · brown sugar</p>
+            <p class="coffee-body">Double-washed SL varieties with classic Kenyan structure and a lingering sweet finish.</p>
+            <div class="coffee-footer">
+              <span class="coffee-price">$24 <span class="unit">/ 250g</span></span>
+              <a class="btn btn-small btn-outline" href="#visit">Add to bag</a>
+            </div>
+          </li>
+          <li class="coffee-card">
+            <div class="coffee-meta">
+              <span class="coffee-origin">Guatemala · Huehuetenango</span>
+              <span class="roast-badge roast-medium">Medium</span>
+            </div>
+            <h3>La Esperanza Clay</h3>
+            <p class="coffee-notes">Chocolate · hazelnut · orange zest</p>
+            <p class="coffee-body">High-grown bourbon developed for balance — ideal daily cup with rounded body and clean acidity.</p>
+            <div class="coffee-footer">
+              <span class="coffee-price">$19 <span class="unit">/ 250g</span></span>
+              <a class="btn btn-small btn-outline" href="#visit">Add to bag</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section process" id="process" aria-labelledby="process-heading">
+      <div class="section-inner">
+        <header class="section-header section-header-light">
+          <p class="section-label">The kiln method</p>
+          <h2 id="process-heading">Patient heat. Exact profiles.</h2>
+          <p class="section-intro">
+            A kiln is a vessel of controlled fire. We roast the same way — measuring every degree,
+            listening to first crack, and recording what the coffee wants rather than forcing a formula.
+          </p>
+        </header>
+
+        <ol class="process-steps">
+          <li class="process-step">
+            <span class="step-num" aria-hidden="true">01</span>
+            <h3>Source with intention</h3>
+            <p>Direct relationships with producers who mill carefully and harvest for quality over volume.</p>
+          </li>
+          <li class="process-step">
+            <span class="step-num" aria-hidden="true">02</span>
+            <h3>Sample &amp; cup</h3>
+            <p>Green evaluation and cupping across multiple roast levels before a profile is locked.</p>
+          </li>
+          <li class="process-step">
+            <span class="step-num" aria-hidden="true">03</span>
+            <h3>Profile the fire</h3>
+            <p>Charge temperature, rate of rise, and development time tuned lot by lot on drum roasters.</p>
+          </li>
+          <li class="process-step">
+            <span class="step-num" aria-hidden="true">04</span>
+            <h3>Rest &amp; release</h3>
+            <p>Degassing windows observed so flavor opens fully when the bag reaches your kitchen.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section producers" id="producers" aria-labelledby="producers-heading">
+      <div class="section-inner">
+        <header class="section-header">
+          <p class="section-label">People behind the cup</p>
+          <h2 id="producers-heading">Meet the producers</h2>
+          <p class="section-intro">
+            Character starts at origin. We buy lots we can stand behind — named farms,
+            cooperatives with transparent premiums, and harvest seasons we visit when we can.
+          </p>
+        </header>
+
+        <div class="producer-grid">
+          <article class="producer-card">
+            <div class="producer-mark" aria-hidden="true">
+              <svg viewBox="0 0 80 80" width="64" height="64">
+                <rect x="8" y="28" width="64" height="36" rx="4" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M20 28 V18 a20 12 0 0 1 40 0 v10" fill="none" stroke="currentColor" stroke-width="2"/>
+                <circle cx="40" cy="46" r="8" fill="currentColor" opacity="0.25"/>
+              </svg>
+            </div>
+            <h3>Uraga Cooperative</h3>
+            <p class="producer-place">Guji, Ethiopia</p>
+            <p>Smallholder members mill washed heirloom lots at elevation above 2,000 meters. Jasmine and stone-fruit clarity year after year.</p>
+          </article>
+          <article class="producer-card">
+            <div class="producer-mark" aria-hidden="true">
+              <svg viewBox="0 0 80 80" width="64" height="64">
+                <path d="M40 12 L68 58 H12 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <circle cx="40" cy="48" r="6" fill="currentColor" opacity="0.3"/>
+              </svg>
+            </div>
+            <h3>Finca El Sol</h3>
+            <p class="producer-place">Huila, Colombia</p>
+            <p>Family-run farm on volcanic soil. Their Caturra and Castillo lots form the backbone of our Batch 214 house roast.</p>
+          </article>
+          <article class="producer-card">
+            <div class="producer-mark" aria-hidden="true">
+              <svg viewBox="0 0 80 80" width="64" height="64">
+                <ellipse cx="40" cy="44" rx="28" ry="18" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M18 40 Q40 20 62 40" fill="none" stroke="currentColor" stroke-width="2"/>
+                <circle cx="40" cy="44" r="5" fill="currentColor" opacity="0.35"/>
+              </svg>
+            </div>
+            <h3>Karatina Factories</h3>
+            <p class="producer-place">Nyeri, Kenya</p>
+            <p>Double-washed processing that preserves the blackcurrant snap Kenya is known for — structured, sweet, unforgettable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section visit" id="visit" aria-labelledby="visit-heading">
+      <div class="section-inner visit-layout">
+        <div class="visit-copy">
+          <p class="section-label">Roastery &amp; counter</p>
+          <h2 id="visit-heading">Come in for heat and quiet</h2>
+          <p>
+            Our kiln-side counter pours what we roast. Ask about Batch 214,
+            cup alongside the team on Fridays, or pick up bags still warm from the cooler.
+          </p>
+          <ul class="visit-details">
+            <li>
+              <strong>Hours</strong>
+              <span>Tue–Sat 8:00–16:00 · Sun 9:00–14:00</span>
+            </li>
+            <li>
+              <strong>Address</strong>
+              <span>214 Ember Lane · Warehouse District</span>
+            </li>
+            <li>
+              <strong>Orders</strong>
+              <span>Local pickup same day · Shipping twice weekly</span>
+            </li>
+          </ul>
+          <div class="visit-actions">
+            <a class="btn btn-ember" href="#coffees">Shop fresh coffee</a>
+            <a class="btn btn-ghost" href="#producers">Meet the producers</a>
+          </div>
+        </div>
+        <aside class="visit-panel" aria-label="Subscription note">
+          <p class="panel-eyebrow">Freshness promise</p>
+          <h3>Roasted, then released</h3>
+          <p>
+            We never sit on inventory. Coffees are roasted in small runs,
+            rested the right number of days, and packed with roast-date clarity on every bag.
+          </p>
+          <dl class="panel-facts">
+            <div>
+              <dt>Roast date</dt>
+              <dd>Printed on every bag</dd>
+            </div>
+            <div>
+              <dt>Best window</dt>
+              <dd>Days 5–28</dd>
+            </div>
+            <div>
+              <dt>Subscription</dt>
+              <dd>Pause anytime</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="Kiln Coffee home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="16" cy="16" r="7" fill="currentColor" opacity="0.85"/>
+            </svg>
+          </span>
+          <span class="brand-text">Kiln Coffee</span>
+        </a>
+        <p class="footer-tagline">Heat reveals character.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#coffees">Coffees</a>
+        <a href="#process">Process</a>
+        <a href="#producers">Producers</a>
+        <a href="#visit">Visit</a>
+      </nav>
+      <p class="footer-meta">© Kiln Coffee · Batch 214 · Roasted with care</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

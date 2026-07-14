@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0a0a0c"/>
+      <stop offset="55%" stop-color="#111118"/>
+      <stop offset="100%" stop-color="#0d0c10"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="900" y1="120" x2="700" y2="700" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#d4b896" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#d4b896" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="goldline" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e2c9a4"/>
+      <stop offset="100%" stop-color="#8a7355"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- Subtle grain-like dots -->
+  <g opacity="0.12" fill="#d4b896">
+    <circle cx="80" cy="120" r="1.2"/>
+    <circle cx="160" cy="80" r="0.9"/>
+    <circle cx="240" cy="200" r="1.1"/>
+    <circle cx="1000" cy="700" r="1"/>
+    <circle cx="1080" cy="620" r="1.2"/>
+    <circle cx="920" cy="780" r="0.8"/>
+    <circle cx="180" cy="760" r="1"/>
+    <circle cx="60" cy="640" r="0.9"/>
+  </g>
+
+  <!-- Outer frame -->
+  <rect x="48" y="48" width="1104" height="804" stroke="#d4b896" stroke-opacity="0.28" stroke-width="1"/>
+  <rect x="64" y="64" width="1072" height="772" stroke="#d4b896" stroke-opacity="0.12" stroke-width="1"/>
+
+  <!-- Crescent motif (right) -->
+  <g transform="translate(780 180)">
+    <circle cx="140" cy="200" r="168" stroke="#d4b896" stroke-opacity="0.22" stroke-width="1"/>
+    <circle cx="140" cy="200" r="128" stroke="#d4b896" stroke-opacity="0.35" stroke-width="1"/>
+    <path d="M168 52c72 22 122 90 122 168 0 98-80 178-178 178-28 0-55-6-79-18 50-18 86-66 86-122 0-72 48-134 112-156z" fill="#d4b896" fill-opacity="0.9"/>
+  </g>
+
+  <!-- Sculptural silhouette (center-left) -->
+  <g transform="translate(220 150)" stroke="url(#goldline)" stroke-width="1.6">
+    <ellipse cx="160" cy="72" rx="36" ry="42" fill="none" opacity="0.85"/>
+    <path d="M95 120 C118 98, 202 98, 225 120 L250 300 C256 348, 232 398, 200 445 L160 490 L120 445 C88 398, 64 348, 70 300 Z" fill="none"/>
+    <path d="M128 190 L160 360 L192 190" fill="none" opacity="0.45" stroke-width="1"/>
+    <line x1="40" y1="520" x2="280" y2="520" opacity="0.3" stroke-width="1"/>
+  </g>
+
+  <!-- Horizontal accent lines -->
+  <line x1="120" y1="280" x2="300" y2="280" stroke="#d4b896" stroke-opacity="0.25" stroke-width="1"/>
+  <line x1="120" y1="640" x2="420" y2="640" stroke="#d4b896" stroke-opacity="0.2" stroke-width="1"/>
+
+  <!-- Brand type -->
+  <text x="120" y="720" fill="#d4b896" font-family="Didot, Bodoni MT, Times New Roman, Georgia, serif" font-size="18" letter-spacing="8">COLLECTION XII · PARIS</text>
+  <text x="120" y="780" fill="#e8e4dc" font-family="Didot, Bodoni MT, Times New Roman, Georgia, serif" font-size="64" letter-spacing="4">Maison Nocturne</text>
+  <text x="120" y="830" fill="#9a958c" font-family="Palatino Linotype, Palatino, Georgia, serif" font-size="24" font-style="italic">Tailored for the hours unseen.</text>
+</svg>

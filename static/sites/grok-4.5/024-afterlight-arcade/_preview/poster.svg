@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Afterlight Arcade — One more run before sunrise">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#140828"/>
+      <stop offset="45%" stop-color="#080512"/>
+      <stop offset="100%" stop-color="#0a1020"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00e8ff"/>
+      <stop offset="50%" stop-color="#ff2ecf"/>
+      <stop offset="100%" stop-color="#ffb84d"/>
+    </linearGradient>
+    <linearGradient id="roadGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1030"/>
+      <stop offset="100%" stop-color="#05030a"/>
+    </linearGradient>
+    <linearGradient id="ship" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7dff9a"/>
+      <stop offset="100%" stop-color="#00e8ff"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="78%" cy="22%" r="28%">
+      <stop offset="0%" stop-color="#ffb84d" stop-opacity="0.55"/>
+      <stop offset="55%" stop-color="#ff2ecf" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#05030a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cyanGlow" cx="20%" cy="70%" r="35%">
+      <stop offset="0%" stop-color="#00e8ff" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#05030a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#sunGlow)"/>
+  <rect width="1200" height="900" fill="url(#cyanGlow)"/>
+
+  <!-- Soft grid -->
+  <g stroke="rgba(155,109,255,0.12)" stroke-width="1">
+    <path d="M0 180 H1200 M0 270 H1200 M0 360 H1200 M0 450 H1200 M0 540 H1200 M0 630 H1200 M0 720 H1200"/>
+    <path d="M150 0 V900 M300 0 V900 M450 0 V900 M600 0 V900 M750 0 V900 M900 0 V900 M1050 0 V900"/>
+  </g>
+
+  <!-- Horizon city -->
+  <path d="M0 470 L90 400 L140 430 L220 350 L300 420 L380 310 L470 400 L560 280 L650 390 L740 300 L830 410 L920 330 L1010 400 L1100 340 L1200 390 L1200 520 L0 520 Z" fill="#12081f"/>
+  <g fill="none" stroke-width="3">
+    <rect x="120" y="380" width="48" height="100" stroke="#ff2ecf"/>
+    <rect x="200" y="340" width="60" height="140" stroke="#00e8ff"/>
+    <rect x="320" y="360" width="40" height="120" stroke="#9b6dff"/>
+    <rect x="420" y="300" width="70" height="180" stroke="#ffb84d"/>
+    <rect x="560" y="330" width="50" height="150" stroke="#00e8ff"/>
+    <rect x="680" y="290" width="80" height="190" stroke="#ff2ecf"/>
+    <rect x="820" y="350" width="55" height="130" stroke="#9b6dff"/>
+    <rect x="940" y="320" width="90" height="160" stroke="#00e8ff"/>
+  </g>
+
+  <!-- Pre-dawn sun -->
+  <circle cx="940" cy="200" r="70" fill="#ffb84d" opacity="0.9"/>
+  <circle cx="940" cy="200" r="100" fill="#ffb84d" opacity="0.15"/>
+  <circle cx="940" cy="200" r="140" fill="#ff2ecf" opacity="0.08"/>
+
+  <!-- Road perspective -->
+  <path d="M0 520 L480 560 L720 560 L1200 520 L1200 900 L0 900 Z" fill="url(#roadGrad)"/>
+  <path d="M480 560 L300 900" stroke="#ff2ecf" stroke-width="4" opacity="0.85"/>
+  <path d="M720 560 L900 900" stroke="#00e8ff" stroke-width="4" opacity="0.85"/>
+  <path d="M600 560 L600 900" stroke="#ffb84d" stroke-width="6" stroke-dasharray="28 22"/>
+
+  <!-- Ship / racer -->
+  <ellipse cx="600" cy="640" rx="70" ry="18" fill="#ff2ecf" opacity="0.25"/>
+  <path d="M520 640 L600 580 L680 640 L650 652 L600 610 L550 652 Z" fill="url(#ship)"/>
+  <circle cx="600" cy="628" r="10" fill="#ff2ecf"/>
+
+  <!-- Cabinet frame motif -->
+  <rect x="70" y="70" width="1060" height="760" rx="28" fill="none" stroke="rgba(0,232,255,0.28)" stroke-width="3"/>
+  <rect x="90" y="90" width="1020" height="720" rx="20" fill="none" stroke="rgba(255,46,207,0.18)" stroke-width="2"/>
+
+  <!-- Brand block -->
+  <g transform="translate(120,140)">
+    <rect x="0" y="0" width="72" height="72" rx="16" fill="#120c22" stroke="#00e8ff" stroke-width="3"/>
+    <path d="M16 50 L36 18 L56 50 Z" fill="none" stroke="#00e8ff" stroke-width="3"/>
+    <circle cx="36" cy="44" r="5" fill="#ff2ecf"/>
+    <path d="M20 58h32" stroke="#ffb84d" stroke-width="3" stroke-linecap="round"/>
+
+    <text x="96" y="34" fill="#b8a8d4" font-family="Segoe UI, system-ui, sans-serif" font-size="22" letter-spacing="6" font-weight="700">INDEPENDENT GAMES UNIVERSE</text>
+    <text x="96" y="88" fill="url(#titleGrad)" font-family="Segoe UI, system-ui, sans-serif" font-size="72" font-weight="800" letter-spacing="2">AFTERLIGHT</text>
+    <text x="96" y="148" fill="#f4eefc" font-family="Segoe UI, system-ui, sans-serif" font-size="56" font-weight="700" letter-spacing="8">ARCADE</text>
+  </g>
+
+  <!-- Tagline pill -->
+  <g transform="translate(216,360)">
+    <rect x="0" y="0" width="520" height="56" rx="28" fill="rgba(12,8,24,0.75)" stroke="#ffb84d" stroke-width="2"/>
+    <text x="260" y="37" text-anchor="middle" fill="#ffb84d" font-family="Segoe UI, system-ui, sans-serif" font-size="24" font-weight="700" letter-spacing="1">One more run before sunrise.</text>
+  </g>
+
+  <!-- Bottom meta -->
+  <g transform="translate(120,780)" font-family="ui-monospace, Consolas, monospace">
+    <text x="0" y="0" fill="#00e8ff" font-size="20" letter-spacing="3">WEEKLY HEAT · GLOBAL BOARD · 12 WORLDS</text>
+    <text x="0" y="36" fill="#8a7aa8" font-size="18" letter-spacing="2">PRESS START</text>
+  </g>
+
+  <!-- Accent lights -->
+  <circle cx="1080" cy="780" r="10" fill="#ff2ecf"/>
+  <circle cx="1115" cy="780" r="10" fill="#ffb84d"/>
+  <circle cx="1150" cy="780" r="10" fill="#00e8ff"/>
+</svg>

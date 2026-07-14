@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; media-src 'none'">
+  <meta name="description" content="A living archive of field recordings, oral histories, and traditional music from across the world.">
+  <title>Folkways — Every song carries a place</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Folkways home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Folkways</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" id="nav-toggle">
+        Menu
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="#listen">Listen</a>
+        <a href="#map">Map</a>
+        <a href="#stories">Stories</a>
+        <a href="#collections">Collections</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Sounds from the archive</p>
+          <h1 id="hero-title">Every song <em>carries a place.</em></h1>
+          <p class="lede">
+            Folkways is a living archive of field recordings, oral histories, and traditional music
+            gathered with care from communities across the world. Listen where the music was made.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#listen" id="start-listening">Start listening</a>
+            <a class="btn btn-secondary" href="#map">Explore the map</a>
+          </div>
+          <div class="hero-meta" aria-label="Archive highlights">
+            <div class="meta-item">
+              <strong>4,280</strong>
+              <span>recordings</span>
+            </div>
+            <div class="meta-item">
+              <strong>86</strong>
+              <span>regions</span>
+            </div>
+            <div class="meta-item">
+              <strong>1921–</strong>
+              <span>still collecting</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Now playing">
+          <div class="hero-card-inner">
+            <p class="card-kicker">Now on the deck</p>
+            <div class="now-playing">
+              <div class="disc" id="deck-disc" aria-hidden="true"></div>
+              <div>
+                <h2 class="now-title" id="now-title">Night Songs of the Sahel</h2>
+                <p class="now-place" id="now-place">Timbuktu · Mali · 1967</p>
+              </div>
+            </div>
+            <div class="wave" id="wave" aria-hidden="true">
+              <span style="--h:42%;--d:0s"></span>
+              <span style="--h:68%;--d:0.05s"></span>
+              <span style="--h:35%;--d:0.1s"></span>
+              <span style="--h:88%;--d:0.15s"></span>
+              <span style="--h:54%;--d:0.2s"></span>
+              <span style="--h:72%;--d:0.25s"></span>
+              <span style="--h:40%;--d:0.3s"></span>
+              <span style="--h:92%;--d:0.35s"></span>
+              <span style="--h:58%;--d:0.4s"></span>
+              <span style="--h:76%;--d:0.45s"></span>
+              <span style="--h:48%;--d:0.5s"></span>
+              <span style="--h:64%;--d:0.55s"></span>
+              <span style="--h:38%;--d:0.6s"></span>
+              <span style="--h:82%;--d:0.65s"></span>
+              <span style="--h:50%;--d:0.7s"></span>
+              <span style="--h:70%;--d:0.75s"></span>
+              <span style="--h:44%;--d:0.8s"></span>
+              <span style="--h:90%;--d:0.85s"></span>
+              <span style="--h:56%;--d:0.9s"></span>
+              <span style="--h:66%;--d:0.95s"></span>
+            </div>
+            <div class="player-controls">
+              <button class="play-btn" type="button" id="play-btn" aria-label="Play Night Songs of the Sahel" aria-pressed="false">
+                <svg id="play-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M8 5.5v13l11-6.5-11-6.5z"/>
+                </svg>
+              </button>
+              <div class="progress-wrap">
+                <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar" aria-label="Playback progress">
+                  <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-meta">
+                  <span id="time-current">0:00</span>
+                  <span id="time-total">3:42</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="listen" aria-labelledby="listen-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-label">Field recordings</p>
+            <h2 id="listen-title">From the listening room</h2>
+            <p>Select a tape to put it on the deck. Each entry preserves place, year, and the people who kept the song alive.</p>
+          </div>
+        </div>
+        <div class="archive-panel">
+          <ul class="track-list" id="track-list" role="listbox" aria-label="Archive recordings" aria-activedescendant="track-0">
+            <li>
+              <button class="track is-active" type="button" role="option" id="track-0" aria-selected="true"
+                data-title="Night Songs of the Sahel"
+                data-place="Timbuktu · Mali · 1967"
+                data-duration="3:42"
+                data-seconds="222">
+                <span class="track-num">01</span>
+                <span>
+                  <p class="track-title">Night Songs of the Sahel</p>
+                  <p class="track-meta">Recorded by Amadou Diallo · voice &amp; ngoni</p>
+                </span>
+                <span>
+                  <span class="track-region">West Africa</span>
+                  <span class="track-dur">3:42</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button class="track" type="button" role="option" id="track-1" aria-selected="false"
+                data-title="Cedar Flute, Early Frost"
+                data-place="Haida Gwaii · Canada · 1979"
+                data-duration="5:08"
+                data-seconds="308">
+                <span class="track-num">02</span>
+                <span>
+                  <p class="track-title">Cedar Flute, Early Frost</p>
+                  <p class="track-meta">Gift of the Raven clan · solo cedar flute</p>
+                </span>
+                <span>
+                  <span class="track-region">Pacific NW</span>
+                  <span class="track-dur">5:08</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button class="track" type="button" role="option" id="track-2" aria-selected="false"
+                data-title="Threshing Songs at Dawn"
+                data-place="Kerala · India · 1954"
+                data-duration="4:15"
+                data-seconds="255">
+                <span class="track-num">03</span>
+                <span>
+                  <p class="track-title">Threshing Songs at Dawn</p>
+                  <p class="track-meta">Village chorus · work song cycle</p>
+                </span>
+                <span>
+                  <span class="track-region">South Asia</span>
+                  <span class="track-dur">4:15</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button class="track" type="button" role="option" id="track-3" aria-selected="false"
+                data-title="Harbor Lullabies"
+                data-place="Faroese coast · 1983"
+                data-duration="2:56"
+                data-seconds="176">
+                <span class="track-num">04</span>
+                <span>
+                  <p class="track-title">Harbor Lullabies</p>
+                  <p class="track-meta">Three generations · unaccompanied</p>
+                </span>
+                <span>
+                  <span class="track-region">North Atlantic</span>
+                  <span class="track-dur">2:56</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button class="track" type="button" role="option" id="track-4" aria-selected="false"
+                data-title="Market Drum Signals"
+                data-place="Kumasi · Ghana · 1961"
+                data-duration="3:21"
+                data-seconds="201">
+                <span class="track-num">05</span>
+                <span>
+                  <p class="track-title">Market Drum Signals</p>
+                  <p class="track-meta">Talking drums · midday exchange</p>
+                </span>
+                <span>
+                  <span class="track-region">West Africa</span>
+                  <span class="track-dur">3:21</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button class="track" type="button" role="option" id="track-5" aria-selected="false"
+                data-title="Andean Processional"
+                data-place="Cusco highlands · Peru · 1972"
+                data-duration="6:04"
+                data-seconds="364">
+                <span class="track-num">06</span>
+                <span>
+                  <p class="track-title">Andean Processional</p>
+                  <p class="track-meta">Panpipe ensemble · feast day march</p>
+                </span>
+                <span>
+                  <span class="track-region">Andes</span>
+                  <span class="track-dur">6:04</span>
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="map-section" id="map" aria-labelledby="map-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-label">Places</p>
+            <h2 id="map-title">Explore the map</h2>
+            <p>Every pin opens a regional shelf: languages, instruments, and the collectors who walked the roads.</p>
+          </div>
+        </div>
+        <div class="map-layout">
+          <div class="map-frame">
+            <svg class="map-svg" viewBox="0 0 640 400" role="img" aria-labelledby="map-svg-title map-svg-desc">
+              <title id="map-svg-title">Stylized world regions map</title>
+              <desc id="map-svg-desc">Selectable regions representing archive holdings across continents.</desc>
+              <rect width="640" height="400" fill="#ebe2d2" rx="8"/>
+              <path fill="#d2c4aa" d="M0 310 Q160 280 320 300 T640 290 L640 400 L0 400 Z" opacity="0.45"/>
+              <!-- Stylized landmasses as interactive regions -->
+              <path class="region is-selected" id="region-sahel" tabindex="0" role="button" aria-pressed="true" aria-label="West Africa and Sahel"
+                d="M290 155 L330 150 L355 175 L345 210 L310 225 L280 205 L275 175 Z"/>
+              <path class="region" id="region-andes" tabindex="0" role="button" aria-pressed="false" aria-label="Andes"
+                d="M175 230 L195 225 L205 280 L195 340 L175 345 L165 300 L168 250 Z"/>
+              <path class="region" id="region-pacific" tabindex="0" role="button" aria-pressed="false" aria-label="Pacific Northwest"
+                d="M120 95 L165 90 L175 120 L160 155 L125 150 L110 120 Z"/>
+              <path class="region" id="region-southasia" tabindex="0" role="button" aria-pressed="false" aria-label="South Asia"
+                d="M420 170 L470 165 L485 195 L460 230 L425 220 L410 190 Z"/>
+              <path class="region" id="region-atlantic" tabindex="0" role="button" aria-pressed="false" aria-label="North Atlantic"
+                d="M285 70 L330 65 L345 95 L325 120 L290 115 L275 90 Z"/>
+              <path class="region" id="region-seasia" tabindex="0" role="button" aria-pressed="false" aria-label="Southeast Asia"
+                d="M490 195 L540 190 L555 220 L530 250 L495 245 L480 215 Z"/>
+              <text class="region-label" x="292" y="192">Sahel</text>
+              <text class="region-label" x="168" y="290">Andes</text>
+              <text class="region-label" x="118" y="125">Pacific NW</text>
+              <text class="region-label" x="422" y="200">S. Asia</text>
+              <text class="region-label" x="288" y="95">N. Atlantic</text>
+              <text class="region-label" x="495" y="225">SE Asia</text>
+              <!-- Decorative dots as archive pins -->
+              <g fill="#b54a32" opacity="0.85">
+                <circle cx="305" cy="180" r="3.5"/>
+                <circle cx="185" cy="270" r="3.5"/>
+                <circle cx="140" cy="120" r="3.5"/>
+                <circle cx="445" cy="195" r="3.5"/>
+                <circle cx="310" cy="90" r="3.5"/>
+                <circle cx="515" cy="215" r="3.5"/>
+              </g>
+            </svg>
+          </div>
+          <div class="region-panel" id="region-panel" aria-live="polite">
+            <p class="card-kicker" style="color: rgba(250,246,239,0.55)">Selected region</p>
+            <h3 id="region-name">West Africa &amp; the Sahel</h3>
+            <p id="region-desc">Griot lineages, desert night songs, and market drum languages recorded from Senegal to Niger.</p>
+            <div class="region-stats">
+              <div class="stat">
+                <strong id="region-count">642</strong>
+                <span>recordings</span>
+              </div>
+              <div class="stat">
+                <strong id="region-langs">18</strong>
+                <span>languages</span>
+              </div>
+            </div>
+            <div class="region-tags" id="region-tags">
+              <span class="tag">ngoni</span>
+              <span class="tag">talking drum</span>
+              <span class="tag">griot</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stories" aria-labelledby="stories-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-label">Oral histories</p>
+            <h2 id="stories-title">Voices behind the songs</h2>
+            <p>Interviews and first-person accounts that situate each recording in living memory.</p>
+          </div>
+        </div>
+        <div class="stories-grid">
+          <article class="story-card">
+            <p class="story-year">Oral history · 1968</p>
+            <h3>How the night songs travel</h3>
+            <p>
+              “We did not write them down. We carried them on the road between wells.
+              When the wind rose, we sang softer so the camels would still hear us.”
+            </p>
+            <p class="story-byline">Aïssata Moussa · singer, Gao</p>
+          </article>
+          <article class="story-card">
+            <p class="story-year">Field note · 1979</p>
+            <h3>Cedar, breath, and tide</h3>
+            <p>
+              The flute was carved the winter the herring returned early. Each hole marks a
+              relative; the last note is left open for those still on the water.
+            </p>
+            <p class="story-byline">Collector’s note · Haida Gwaii</p>
+          </article>
+          <article class="story-card">
+            <p class="story-year">Oral history · 1955</p>
+            <h3>Songs that pace the grain</h3>
+            <p>
+              “If you thresh without the song, the work feels twice as long.
+              The rhythm keeps the arms honest and the gossip kind.”
+            </p>
+            <p class="story-byline">Lakshmi Amma · Kerala</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="collections" aria-labelledby="collections-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-label">Shelves</p>
+            <h2 id="collections-title">Curated collections</h2>
+            <p>Thematic gatherings drawn from decades of expeditions, gifts, and community deposits.</p>
+          </div>
+        </div>
+        <div class="collections">
+          <a class="collection collection-a" href="#listen">
+            <p class="collection-count">128 tapes</p>
+            <h3>Work &amp; season</h3>
+            <p>Harvest, fishing, weaving, and the rhythms that make long labor communal.</p>
+          </a>
+          <a class="collection collection-b" href="#listen">
+            <p class="collection-count">94 tapes</p>
+            <h3>Ceremony &amp; feast</h3>
+            <p>Processionals, wedding cycles, and songs that open and close the year.</p>
+          </a>
+          <a class="collection collection-c" href="#stories">
+            <p class="collection-count">61 sessions</p>
+            <h3>Spoken memory</h3>
+            <p>Storytellers, elders, and the places they describe between the verses.</p>
+          </a>
+          <a class="collection collection-d" href="#map">
+            <p class="collection-count">47 regions</p>
+            <h3>Instruments of place</h3>
+            <p>Flutes, drums, strings, and the materials local to each landscape.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-strip" id="about" aria-labelledby="about-title">
+      <div class="wrap about-grid">
+        <div>
+          <p class="section-label">The archive</p>
+          <h2 id="about-title">Stewarded, not owned</h2>
+          <p>
+            Folkways exists to keep traditional music audible in context: with the names of
+            performers, the languages of origin, and the geographies that shaped each phrase.
+          </p>
+          <p>
+            Recordings enter the archive through community partnership, family gifts, and
+            restored field collections. Playback here is for listening and study; rights remain
+            with the source communities and depositors.
+          </p>
+        </div>
+        <ul class="principles">
+          <li>
+            <span class="principle-icon" aria-hidden="true">1</span>
+            <div>
+              <strong>Place first</strong>
+              <span>Every entry names where it was made and who carried it.</span>
+            </div>
+          </li>
+          <li>
+            <span class="principle-icon" aria-hidden="true">2</span>
+            <div>
+              <strong>Consent &amp; credit</strong>
+              <span>Deposits require attribution and community permission to share.</span>
+            </div>
+          </li>
+          <li>
+            <span class="principle-icon" aria-hidden="true">3</span>
+            <div>
+              <strong>Living shelves</strong>
+              <span>The archive grows with new field work and restored wax cylinders.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <p class="footer-brand">Folkways</p>
+        <p class="footer-note">A living archive of field recordings, oral histories, and traditional music from across the world.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#listen">Listen</a>
+        <a href="#map">Map</a>
+        <a href="#stories">Stories</a>
+        <a href="#about">About</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

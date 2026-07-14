@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; style-src 'self'; script-src 'self'; img-src 'self' data:; font-src 'self'">
+  <title>Perigee House — Orbital Hotel</title>
+  <meta name="description" content="A speculative orbital hotel pairing aerospace precision with five-star perspective. Earth has never looked this good.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Perigee House home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="36" height="36" focusable="false">
+            <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+            <circle cx="20" cy="20" r="7" fill="currentColor" opacity="0.95"/>
+            <ellipse cx="20" cy="20" rx="17" ry="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="35" cy="20" r="2.2" fill="var(--gold)"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">Perigee House</span>
+          <span class="brand-sub">Orbital Stay · LEO</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" data-site-nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#suites">Suites</a></li>
+          <li><a href="#station">Station</a></li>
+          <li><a href="#itinerary">Itinerary</a></li>
+          <li><a href="#reserve">Reserve</a></li>
+        </ul>
+        <a class="btn btn-small btn-primary nav-cta" href="#reserve">Reserve your orbit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-sky" aria-hidden="true">
+        <div class="hero-stars"></div>
+        <div class="hero-aurora"></div>
+        <div class="hero-earth">
+          <div class="earth-limb"></div>
+          <div class="earth-glow"></div>
+        </div>
+        <div class="hero-station">
+          <svg class="station-svg" viewBox="0 0 280 120" role="presentation">
+            <defs>
+              <linearGradient id="hullGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#e8eef8"/>
+                <stop offset="55%" stop-color="#9fb0c8"/>
+                <stop offset="100%" stop-color="#5a6d86"/>
+              </linearGradient>
+            </defs>
+            <ellipse cx="140" cy="60" rx="118" ry="18" fill="none" stroke="#7ec8e8" stroke-width="1" opacity="0.55"/>
+            <rect x="72" y="44" width="136" height="32" rx="10" fill="url(#hullGrad)"/>
+            <rect x="96" y="50" width="28" height="14" rx="3" fill="#0a1628" opacity="0.75"/>
+            <rect x="132" y="50" width="28" height="14" rx="3" fill="#0a1628" opacity="0.75"/>
+            <rect x="168" y="50" width="22" height="14" rx="3" fill="#c9a45c" opacity="0.85"/>
+            <rect x="48" y="52" width="24" height="16" rx="4" fill="#b8c4d4"/>
+            <rect x="208" y="52" width="24" height="16" rx="4" fill="#b8c4d4"/>
+            <circle cx="40" cy="60" r="10" fill="none" stroke="#d8e4f0" stroke-width="2"/>
+            <circle cx="240" cy="60" r="10" fill="none" stroke="#d8e4f0" stroke-width="2"/>
+            <line x1="50" y1="60" x2="72" y2="60" stroke="#a8b8c8" stroke-width="2"/>
+            <line x1="208" y1="60" x2="230" y2="60" stroke="#a8b8c8" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="shell hero-content">
+        <p class="eyebrow">Low-Earth orbit · 2031</p>
+        <h1 id="hero-title">Earth has never looked this good.</h1>
+        <p class="hero-lead">
+          Perigee House is a speculative orbital hotel pairing aerospace precision
+          with five-star perspective—twelve suites, zero gravity lounges, and a
+          continuous dawn that circles the planet every ninety minutes.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#reserve">Reserve your orbit</a>
+          <a class="btn btn-ghost" href="#station">Tour the station</a>
+        </div>
+        <dl class="hero-stats" aria-label="Key facts">
+          <div>
+            <dt>Altitude</dt>
+            <dd>410 km</dd>
+          </div>
+          <div>
+            <dt>Orbit period</dt>
+            <dd>92 min</dd>
+          </div>
+          <div>
+            <dt>Suites</dt>
+            <dd>12</dd>
+          </div>
+          <div>
+            <dt>Sunrises / day</dt>
+            <dd>16</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section experience" id="experience" aria-labelledby="experience-title">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">The experience</p>
+          <h2 id="experience-title">Hospitality calibrated for vacuum</h2>
+          <p class="section-lead">
+            Every surface, schedule, and service is engineered for the thin edge
+            of atmosphere—where engineering discipline meets quiet luxury.
+          </p>
+        </header>
+
+        <div class="card-grid three">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="40" height="40"><circle cx="24" cy="24" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 24h8M36 24h8M24 4v8M24 36v8" stroke="currentColor" stroke-width="1.5"/><circle cx="24" cy="24" r="3" fill="currentColor"/></svg>
+            </div>
+            <h3>Perigee window</h3>
+            <p>
+              Floor-to-ceiling pressure-rated glass frames the bright side of Earth
+              at closest approach—city lights, weather systems, and the thin blue
+              shell of atmosphere in continuous cinema.
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="40" height="40"><path d="M8 32c8-16 24-16 32 0" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="24" cy="18" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M16 38h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Micro-g dining</h3>
+            <p>
+              The Nadir Table serves multi-course orbital cuisine designed for
+              free-fall plating, scent restraint, and wine that behaves itself
+              in zero gravity—paired with live Earth-rise seating.
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="40" height="40"><rect x="10" y="14" width="28" height="20" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M16 24h16M20 20v8M28 20v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Quiet cabin protocol</h3>
+            <p>
+              Acoustic isolation, circadian lighting synced to your home meridian,
+              and a private life-support cascade so sleep feels terrestrial even
+              when the station crosses the terminator twice an hour.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section suites" id="suites" aria-labelledby="suites-title">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">Accommodations</p>
+          <h2 id="suites-title">Twelve suites. One continuous horizon.</h2>
+          <p class="section-lead">
+            Each cabin is a sealed sanctuary with independent environmental control,
+            soft-restraint bedding, and a viewport oriented to your preferred Earth aspect.
+          </p>
+        </header>
+
+        <div class="suite-list" role="list">
+          <article class="suite" role="listitem">
+            <div class="suite-visual suite-visual-a" aria-hidden="true">
+              <span class="suite-orbit-ring"></span>
+            </div>
+            <div class="suite-body">
+              <p class="suite-label">Signature</p>
+              <h3>Apogee Suite</h3>
+              <p>
+                Our flagship cabin: dual viewport bays, a private tea-prep nook,
+                and a soft-dock lounge for two. Night-side city constellations
+                become your ceiling art.
+              </p>
+              <ul class="suite-meta">
+                <li>28 m² pressurized</li>
+                <li>Sleeps 2</li>
+                <li>Forward-facing glass</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="suite" role="listitem">
+            <div class="suite-visual suite-visual-b" aria-hidden="true">
+              <span class="suite-orbit-ring"></span>
+            </div>
+            <div class="suite-body">
+              <p class="suite-label">Horizon line</p>
+              <h3>Meridian Cabin</h3>
+              <p>
+                A streamlined single-guest retreat with panoramic limb view,
+                magnetic desk rail, and curated ambient soundtrack of station
+                systems at half-volume—engineering as lullaby.
+              </p>
+              <ul class="suite-meta">
+                <li>18 m² pressurized</li>
+                <li>Sleeps 1</li>
+                <li>Port-side aspect</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="suite" role="listitem">
+            <div class="suite-visual suite-visual-c" aria-hidden="true">
+              <span class="suite-orbit-ring"></span>
+            </div>
+            <div class="suite-body">
+              <p class="suite-label">Shared orbit</p>
+              <h3>Conjunction Residences</h3>
+              <p>
+                Linked twin cabins for families or crews: shared common node,
+                dual sleep berths, and a compact observation alcove ideal for
+                first-time orbital guests.
+              </p>
+              <ul class="suite-meta">
+                <li>42 m² combined</li>
+                <li>Sleeps 4</li>
+                <li>Aft module</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section station" id="station" aria-labelledby="station-title">
+      <div class="shell">
+        <header class="section-head invert">
+          <p class="eyebrow">Tour the station</p>
+          <h2 id="station-title">A hotel built like a spacecraft</h2>
+          <p class="section-lead">
+            Perigee House rides a modular spine with redundant life support,
+            solar wings, and a rotating observation torus for partial gravity dining.
+          </p>
+        </header>
+
+        <div class="tour-layout">
+          <div class="tour-diagram" aria-hidden="true">
+            <svg viewBox="0 0 520 360" class="diagram-svg">
+              <defs>
+                <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#7ec8e8" stop-opacity="0.35"/>
+                  <stop offset="100%" stop-color="#7ec8e8" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <circle cx="260" cy="180" r="150" fill="url(#coreGlow)"/>
+              <ellipse cx="260" cy="180" rx="200" ry="48" fill="none" stroke="#5aa8c8" stroke-width="1.2" opacity="0.7"/>
+              <ellipse cx="260" cy="180" rx="200" ry="48" fill="none" stroke="#c9a45c" stroke-width="0.8" opacity="0.4" transform="rotate(35 260 180)"/>
+              <!-- solar -->
+              <rect x="40" y="155" width="90" height="50" rx="4" fill="#1a2a40" stroke="#8ab4d0" stroke-width="1"/>
+              <line x1="55" y1="155" x2="55" y2="205" stroke="#4a6a88" stroke-width="1"/>
+              <line x1="70" y1="155" x2="70" y2="205" stroke="#4a6a88" stroke-width="1"/>
+              <line x1="85" y1="155" x2="85" y2="205" stroke="#4a6a88" stroke-width="1"/>
+              <line x1="100" y1="155" x2="100" y2="205" stroke="#4a6a88" stroke-width="1"/>
+              <line x1="115" y1="155" x2="115" y2="205" stroke="#4a6a88" stroke-width="1"/>
+              <rect x="390" y="155" width="90" height="50" rx="4" fill="#1a2a40" stroke="#8ab4d0" stroke-width="1"/>
+              <line x1="405" y1="155" x2="405" y2="205" stroke="#4a6a88" stroke-width="1"/>
+              <line x1="420" y1="155" x2="420" y2="205" stroke="#4a6a88" stroke-width="1"/>
+              <line x1="435" y1="155" x2="435" y2="205" stroke="#4a6a88" stroke-width="1"/>
+              <line x1="450" y1="155" x2="450" y2="205" stroke="#4a6a88" stroke-width="1"/>
+              <line x1="465" y1="155" x2="465" y2="205" stroke="#4a6a88" stroke-width="1"/>
+              <!-- core modules -->
+              <rect x="150" y="150" width="220" height="60" rx="12" fill="#c5d0e0" stroke="#e8eef6" stroke-width="1"/>
+              <rect x="170" y="162" width="36" height="22" rx="3" fill="#0c1a2e"/>
+              <rect x="218" y="162" width="36" height="22" rx="3" fill="#0c1a2e"/>
+              <rect x="266" y="162" width="36" height="22" rx="3" fill="#0c1a2e"/>
+              <rect x="314" y="162" width="36" height="22" rx="3" fill="#c9a45c" opacity="0.9"/>
+              <!-- torus -->
+              <ellipse cx="260" cy="180" rx="70" ry="95" fill="none" stroke="#d0dae8" stroke-width="10" opacity="0.55"/>
+              <ellipse cx="260" cy="180" rx="70" ry="95" fill="none" stroke="#7ec8e8" stroke-width="1.5" opacity="0.8"/>
+              <!-- labels -->
+              <text x="260" y="48" text-anchor="middle" fill="#a8c4d8" font-size="12" font-family="system-ui,sans-serif">Observation Torus</text>
+              <text x="85" y="140" text-anchor="middle" fill="#a8c4d8" font-size="11" font-family="system-ui,sans-serif">Solar array</text>
+              <text x="260" y="240" text-anchor="middle" fill="#e8eef6" font-size="12" font-family="system-ui,sans-serif">Habitation spine</text>
+            </svg>
+          </div>
+
+          <div class="tour-panels" data-tour-panels>
+            <div class="tour-tabs" role="tablist" aria-label="Station modules">
+              <button type="button" class="tour-tab is-active" role="tab" id="tab-hab" aria-selected="true" aria-controls="panel-hab" data-tour-tab="hab">Habitation</button>
+              <button type="button" class="tour-tab" role="tab" id="tab-torus" aria-selected="false" aria-controls="panel-torus" data-tour-tab="torus" tabindex="-1">Torus</button>
+              <button type="button" class="tour-tab" role="tab" id="tab-dock" aria-selected="false" aria-controls="panel-dock" data-tour-tab="dock" tabindex="-1">Docking</button>
+              <button type="button" class="tour-tab" role="tab" id="tab-ops" aria-selected="false" aria-controls="panel-ops" data-tour-tab="ops" tabindex="-1">Operations</button>
+            </div>
+
+            <div class="tour-panel is-active" role="tabpanel" id="panel-hab" aria-labelledby="tab-hab" data-tour-panel="hab">
+              <h3>Habitation spine</h3>
+              <p>
+                Twelve suite modules dock along a pressurized corridor with dual
+                emergency egress paths. Each cabin seals independently; guests
+                never share air with public spaces unless they choose the lounge.
+              </p>
+              <ul>
+                <li>Independent cabin ECLSS cascades</li>
+                <li>Radiation-shadow sleeping cores</li>
+                <li>Soft handholds and tactile wayfinding</li>
+              </ul>
+            </div>
+            <div class="tour-panel" role="tabpanel" id="panel-torus" aria-labelledby="tab-torus" data-tour-panel="torus" hidden>
+              <h3>Observation torus</h3>
+              <p>
+                A slow-spinning ring at 0.2 g hosts the Nadir Table restaurant and
+                the Aurora Lounge. Windows look outward to the star field and
+                inward across the station’s golden solar lattice.
+              </p>
+              <ul>
+                <li>Partial gravity for dining comfort</li>
+                <li>Continuous 360° starfield</li>
+                <li>Private booths for Earth-rise seating</li>
+              </ul>
+            </div>
+            <div class="tour-panel" role="tabpanel" id="panel-dock" aria-labelledby="tab-dock" data-tour-panel="dock" hidden>
+              <h3>Docking node</h3>
+              <p>
+                Crew and guest ferries hard-dock at the axial port. Transfer is
+                choreographed like a five-star arrival: soft lighting, scent-neutral
+                airlocks, and a concierge in a pressure-ready formal layer.
+              </p>
+              <ul>
+                <li>Two active berthing ports</li>
+                <li>Guest orientation before unseal</li>
+                <li>Luggage transfer in soft containers</li>
+              </ul>
+            </div>
+            <div class="tour-panel" role="tabpanel" id="panel-ops" aria-labelledby="tab-ops" data-tour-panel="ops" hidden>
+              <h3>Flight operations</h3>
+              <p>
+                Mission control partners on the ground; onboard ops keep attitude,
+                thermal balance, and guest schedules in quiet lockstep. You feel
+                the craft as calm—never as a machine room.
+              </p>
+              <ul>
+                <li>Triple-redundant guidance</li>
+                <li>Medical bay with telepresence</li>
+                <li>Transparent daily flight briefings</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section itinerary" id="itinerary" aria-labelledby="itinerary-title">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">Sample stay</p>
+          <h2 id="itinerary-title">Seventy-two hours above weather</h2>
+          <p class="section-lead">
+            A three-night orbit is our signature length—long enough for your
+            vestibular system to settle, short enough to feel like pure wonder.
+          </p>
+        </header>
+
+        <ol class="timeline">
+          <li class="timeline-item">
+            <div class="timeline-mark" aria-hidden="true">01</div>
+            <div>
+              <h3>Ascent &amp; arrival</h3>
+              <p>
+                Ferry from the equatorial spaceport. After hard-dock and a guided
+                unseal, your concierge walks you through handhold etiquette,
+                suit orientation, and your first Earth-rise from the arrival cupola.
+              </p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-mark" aria-hidden="true">02</div>
+            <div>
+              <h3>Station morning</h3>
+              <p>
+                Breakfast in the torus as sixteen sunrises stack into one long day.
+                Optional: guided free-float in the Zero Gallery, or a quiet hour
+                in your suite with the limb of Earth as a living wallpaper.
+              </p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-mark" aria-hidden="true">03</div>
+            <div>
+              <h3>Deep night-side</h3>
+              <p>
+                Private observation for aurora season (when the magnetosphere
+                cooperates). Multi-course dinner at the Nadir Table, then sleep
+                under circadian light set to your home city.
+              </p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-mark" aria-hidden="true">04</div>
+            <div>
+              <h3>Return burn</h3>
+              <p>
+                Farewell briefing, photo archive of your orbit path, and a soft
+                re-entry ferry that ends with champagne at sea-level pressure—
+                Earth still looking different forever.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section amenity" id="amenities" aria-labelledby="amenities-title">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">Included for every guest</p>
+          <h2 id="amenities-title">Five-star systems, aerospace manners</h2>
+        </header>
+        <ul class="amenity-grid">
+          <li>
+            <strong>Concierge flight crew</strong>
+            <span>Always on call, always calm, trained for both hospitality and contingency.</span>
+          </li>
+          <li>
+            <strong>Medical telepresence</strong>
+            <span>Onboard clinician plus ground specialists linked through secure station channels.</span>
+          </li>
+          <li>
+            <strong>Photo of your ground track</strong>
+            <span>A printed and digital map of every night-side city you passed above.</span>
+          </li>
+          <li>
+            <strong>Pressure-ready formalwear</strong>
+            <span>Soft layers tailored for free-fall dining and torus evenings.</span>
+          </li>
+          <li>
+            <strong>Vestibular coaching</strong>
+            <span>Private sessions so your first hours in micro-g feel intentional, not improvised.</span>
+          </li>
+          <li>
+            <strong>Return archive</strong>
+            <span>Curated imagery, flight log excerpts, and a sealed perigee memento.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section reserve" id="reserve" aria-labelledby="reserve-title">
+      <div class="shell reserve-shell">
+        <div class="reserve-copy">
+          <p class="eyebrow">Manifest interest</p>
+          <h2 id="reserve-title">Reserve your orbit</h2>
+          <p>
+            Voyages begin in 2031. Share your preferred window and party size—
+            our reservation desk responds with availability for Apogee, Meridian,
+            and Conjunction cabins. This form stays on your device; nothing is sent
+            until our public booking channel opens.
+          </p>
+          <ul class="reserve-notes">
+            <li>Typical stay: 3 nights / ~48 orbits</li>
+            <li>Medical pre-screen required</li>
+            <li>Launch partners announced 2029</li>
+          </ul>
+        </div>
+
+        <form class="reserve-form" id="reserve-form" action="#" method="get" data-reserve-form novalidate>
+          <div class="field">
+            <label for="guest-name">Full name</label>
+            <input id="guest-name" name="name" type="text" autocomplete="name" required maxlength="80" placeholder="Alex Rivera">
+          </div>
+          <div class="field">
+            <label for="guest-email">Email</label>
+            <input id="guest-email" name="email" type="email" autocomplete="email" required maxlength="120" placeholder="you@example.com">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="party-size">Party size</label>
+              <select id="party-size" name="party" required>
+                <option value="">Select</option>
+                <option value="1">1 guest</option>
+                <option value="2">2 guests</option>
+                <option value="3">3 guests</option>
+                <option value="4">4 guests</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="suite-pref">Suite preference</label>
+              <select id="suite-pref" name="suite" required>
+                <option value="">Select</option>
+                <option value="apogee">Apogee Suite</option>
+                <option value="meridian">Meridian Cabin</option>
+                <option value="conjunction">Conjunction Residences</option>
+                <option value="any">Any available</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="window">Preferred window</label>
+            <select id="window" name="window" required>
+              <option value="">Select</option>
+              <option value="2031-q2">2031 · Q2</option>
+              <option value="2031-q3">2031 · Q3</option>
+              <option value="2031-q4">2031 · Q4</option>
+              <option value="2032">2032 · flexible</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="notes">Notes <span class="optional">(optional)</span></label>
+            <textarea id="notes" name="notes" rows="3" maxlength="400" placeholder="Accessibility needs, celebration, or preferred Earth view…"></textarea>
+          </div>
+          <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+          <button class="btn btn-primary btn-block" type="submit">Save interest locally</button>
+          <p class="form-fine">
+            No network request is made. Your details stay in this browser until you clear them.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <p class="brand-name">Perigee House</p>
+        <p class="footer-tag">Earth has never looked this good.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#experience">Experience</a>
+        <a href="#suites">Suites</a>
+        <a href="#station">Station</a>
+        <a href="#itinerary">Itinerary</a>
+        <a href="#reserve">Reserve</a>
+      </nav>
+      <p class="footer-meta">
+        Speculative concept · Low-Earth orbit · 2031 · Aerospace precision, five-star perspective.
+      </p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

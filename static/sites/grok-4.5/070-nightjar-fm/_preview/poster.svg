@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Nightjar FM — Broadcasts after dark">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141c38"/>
+      <stop offset="55%" stop-color="#0a1020"/>
+      <stop offset="100%" stop-color="#06080f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="72%" cy="28%" r="38%">
+      <stop offset="0%" stop-color="#e0a35a" stop-opacity="0.35"/>
+      <stop offset="55%" stop-color="#7b6db0" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0a1020" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="moon" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#f5e8c8"/>
+      <stop offset="100%" stop-color="#c4a574"/>
+    </radialGradient>
+    <linearGradient id="bird" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0d2a8"/>
+      <stop offset="100%" stop-color="#c8965a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#sky)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- stars -->
+  <g fill="#ffffff">
+    <circle cx="120" cy="110" r="1.6" opacity="0.7"/>
+    <circle cx="210" cy="180" r="1.2" opacity="0.5"/>
+    <circle cx="320" cy="90" r="1.8" opacity="0.65"/>
+    <circle cx="430" cy="150" r="1.1" opacity="0.4"/>
+    <circle cx="540" cy="70" r="1.5" opacity="0.55"/>
+    <circle cx="180" cy="280" r="1.2" opacity="0.35"/>
+    <circle cx="980" cy="140" r="1.4" opacity="0.5"/>
+    <circle cx="1080" cy="220" r="1.1" opacity="0.4"/>
+    <circle cx="1020" cy="80" r="1.7" opacity="0.6"/>
+    <circle cx="860" cy="190" r="1.2" opacity="0.35"/>
+    <circle cx="700" cy="120" r="1.3" opacity="0.45"/>
+    <circle cx="90" cy="360" r="1.1" opacity="0.3"/>
+  </g>
+
+  <!-- moon -->
+  <circle cx="900" cy="250" r="110" fill="url(#moon)" opacity="0.92"/>
+  <circle cx="868" cy="230" r="92" fill="#0a1020" opacity="0.18"/>
+
+  <!-- horizon line -->
+  <path d="M0 700 Q300 660 600 680 T1200 650 L1200 900 L0 900 Z" fill="#080c18" opacity="0.9"/>
+  <path d="M0 700 Q300 660 600 680 T1200 650" fill="none" stroke="#2a3558" stroke-width="2" opacity="0.5"/>
+
+  <!-- nightjar silhouette -->
+  <g transform="translate(180 360)">
+    <path d="M40 180c70-40 130-150 230-180 100-30 190 20 260 70-70 30-130 50-180 100-30 35-30 80 5 125-85-20-190-30-315-115z" fill="url(#bird)"/>
+    <circle cx="430" cy="120" r="8" fill="#0a1020"/>
+    <!-- subtle wing marks -->
+    <path d="M160 150c40-10 90-5 130 20" fill="none" stroke="#0a1020" stroke-width="3" opacity="0.2" stroke-linecap="round"/>
+    <path d="M150 185c50-8 100 0 145 28" fill="none" stroke="#0a1020" stroke-width="3" opacity="0.15" stroke-linecap="round"/>
+  </g>
+
+  <!-- radio ring motif -->
+  <g transform="translate(960 620)" fill="none" stroke="#d8b48a" opacity="0.55">
+    <circle r="70" stroke-width="2"/>
+    <circle r="50" stroke-width="1.5" opacity="0.7"/>
+    <circle r="30" stroke-width="1.5" opacity="0.5"/>
+  </g>
+  <circle cx="960" cy="620" r="8" fill="#e0a35a"/>
+
+  <!-- typography -->
+  <text x="96" y="150" font-family="Georgia, 'Times New Roman', serif" font-size="42" fill="#d8b48a" letter-spacing="10">88.7 · INDEPENDENT</text>
+  <text x="90" y="250" font-family="Georgia, 'Times New Roman', serif" font-size="118" font-weight="600" fill="#f3ecdf">Nightjar FM</text>
+  <text x="96" y="320" font-family="Georgia, 'Times New Roman', serif" font-size="42" fill="#c4b8a0">Broadcasts after dark.</text>
+
+  <rect x="96" y="360" width="72" height="4" rx="2" fill="#e0a35a"/>
+
+  <text x="96" y="820" font-family="system-ui, sans-serif" font-size="24" fill="#8a93ad" letter-spacing="3">AMBIENT · EXPERIMENTAL · LEFT-FIELD</text>
+</svg>

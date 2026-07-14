@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none';">
+  <title>One Point Five — Climate Data Observatory</title>
+  <meta name="description" content="A climate observatory turning dense planetary signals into urgent, legible, collective action.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="One Point Five home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="36" height="36" focusable="false">
+            <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="20" cy="20" r="11" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+            <path d="M8 24c4-8 10-12 16-10s10 6 8 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="28" cy="14" r="2.2" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">One Point Five</span>
+          <span class="brand-sub">Climate observatory</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" id="nav-toggle">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#signals">Signals</a></li>
+          <li><a href="#threshold">Threshold</a></li>
+          <li><a href="#pathways">Pathways</a></li>
+          <li><a href="#outlook">Outlook</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true">
+        <svg class="hero-orbit" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <radialGradient id="glow" cx="50%" cy="45%" r="50%">
+              <stop offset="0%" stop-color="#3ee0c4" stop-opacity="0.22"/>
+              <stop offset="45%" stop-color="#1a6b8a" stop-opacity="0.08"/>
+              <stop offset="100%" stop-color="#071018" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#3ee0c4" stop-opacity="0"/>
+              <stop offset="50%" stop-color="#3ee0c4" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#f0a060" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="600" fill="url(#glow)"/>
+          <g fill="none" stroke="url(#lineGrad)" stroke-width="1">
+            <ellipse cx="400" cy="300" rx="280" ry="160"/>
+            <ellipse cx="400" cy="300" rx="200" ry="110"/>
+            <ellipse cx="400" cy="300" rx="120" ry="65"/>
+          </g>
+          <g stroke="#3ee0c4" stroke-width="0.6" opacity="0.25">
+            <line x1="40" y1="120" x2="760" y2="120"/>
+            <line x1="40" y1="220" x2="760" y2="220"/>
+            <line x1="40" y1="320" x2="760" y2="320"/>
+            <line x1="40" y1="420" x2="760" y2="420"/>
+            <line x1="40" y1="520" x2="760" y2="520"/>
+          </g>
+        </svg>
+      </div>
+      <div class="shell hero-content">
+        <p class="eyebrow">Climate data observatory</p>
+        <h1 id="hero-title">Make the future <em>measurable</em>.</h1>
+        <p class="lede">
+          One Point Five turns dense planetary signals into urgent, legible,
+          collective action — a living readout of the 1.5&nbsp;°C threshold
+          that still defines our shared horizon.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#signals">Explore the signals</a>
+          <a class="btn btn-secondary" href="#outlook">Read the outlook</a>
+        </div>
+        <dl class="hero-stats" aria-label="Headline climate metrics">
+          <div>
+            <dt>Global anomaly</dt>
+            <dd><span data-count="1.28" data-suffix=" °C">1.28 °C</span></dd>
+          </div>
+          <div>
+            <dt>Budget remaining</dt>
+            <dd><span data-count="230" data-suffix=" Gt">230 Gt</span></dd>
+          </div>
+          <div>
+            <dt>Years at current pace</dt>
+            <dd><span data-count="6" data-suffix="">6</span></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section signals" id="signals" aria-labelledby="signals-title">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">Live planetary board</p>
+          <h2 id="signals-title">Signals that demand a response</h2>
+          <p class="section-intro">
+            Six interlocking instruments track the systems that keep Earth
+            habitable. Each reading is calibrated against pre-industrial baselines
+            and the 1.5&nbsp;°C guardrail.
+          </p>
+        </header>
+
+        <div class="signal-filters" role="tablist" aria-label="Filter signals by domain">
+          <button type="button" class="filter-btn is-active" role="tab" aria-selected="true" data-filter="all">All</button>
+          <button type="button" class="filter-btn" role="tab" aria-selected="false" data-filter="atmosphere">Atmosphere</button>
+          <button type="button" class="filter-btn" role="tab" aria-selected="false" data-filter="ocean">Ocean</button>
+          <button type="button" class="filter-btn" role="tab" aria-selected="false" data-filter="cryosphere">Cryosphere</button>
+          <button type="button" class="filter-btn" role="tab" aria-selected="false" data-filter="biosphere">Biosphere</button>
+        </div>
+
+        <div class="signal-grid" id="signal-grid">
+          <article class="signal-card" data-domain="atmosphere" tabindex="0">
+            <div class="signal-meta">
+              <span class="domain-tag">Atmosphere</span>
+              <span class="status status-alert">Elevated</span>
+            </div>
+            <h3>CO₂ concentration</h3>
+            <p class="signal-value">422.8 <span class="unit">ppm</span></p>
+            <div class="meter" role="img" aria-label="CO2 at 422.8 ppm, elevated relative to 280 ppm pre-industrial">
+              <div class="meter-track"><div class="meter-fill" style="--level: 86%"></div></div>
+            </div>
+            <p class="signal-note">+50% above pre-industrial 280&nbsp;ppm. Annual growth still near 2.5&nbsp;ppm.</p>
+          </article>
+
+          <article class="signal-card" data-domain="atmosphere" tabindex="0">
+            <div class="signal-meta">
+              <span class="domain-tag">Atmosphere</span>
+              <span class="status status-warn">Watch</span>
+            </div>
+            <h3>Methane burden</h3>
+            <p class="signal-value">1,923 <span class="unit">ppb</span></p>
+            <div class="meter" role="img" aria-label="Methane at 1923 ppb, watch level">
+              <div class="meter-track"><div class="meter-fill warn" style="--level: 72%"></div></div>
+            </div>
+            <p class="signal-note">Roughly 2.6× pre-industrial. Short-lived but high leverage for near-term cooling.</p>
+          </article>
+
+          <article class="signal-card" data-domain="ocean" tabindex="0">
+            <div class="signal-meta">
+              <span class="domain-tag">Ocean</span>
+              <span class="status status-alert">Elevated</span>
+            </div>
+            <h3>Ocean heat content</h3>
+            <p class="signal-value">+0.9 <span class="unit">ZJ / yr</span></p>
+            <div class="meter" role="img" aria-label="Ocean heat content rising at 0.9 zettajoules per year">
+              <div class="meter-track"><div class="meter-fill" style="--level: 78%"></div></div>
+            </div>
+            <p class="signal-note">~90% of excess energy is stored in the oceans, locking in multi-decade warming.</p>
+          </article>
+
+          <article class="signal-card" data-domain="ocean" tabindex="0">
+            <div class="signal-meta">
+              <span class="domain-tag">Ocean</span>
+              <span class="status status-warn">Watch</span>
+            </div>
+            <h3>Surface pH shift</h3>
+            <p class="signal-value">8.05 <span class="unit">pH</span></p>
+            <div class="meter" role="img" aria-label="Ocean surface pH at 8.05, acidifying">
+              <div class="meter-track"><div class="meter-fill warn" style="--level: 64%"></div></div>
+            </div>
+            <p class="signal-note">~0.1 unit drop since 1750 — a ~30% rise in acidity for marine chemistry.</p>
+          </article>
+
+          <article class="signal-card" data-domain="cryosphere" tabindex="0">
+            <div class="signal-meta">
+              <span class="domain-tag">Cryosphere</span>
+              <span class="status status-critical">Critical</span>
+            </div>
+            <h3>Arctic September ice</h3>
+            <p class="signal-value">4.2 <span class="unit">M km²</span></p>
+            <div class="meter" role="img" aria-label="Arctic September sea ice at 4.2 million square kilometers, critical">
+              <div class="meter-track"><div class="meter-fill critical" style="--level: 91%"></div></div>
+            </div>
+            <p class="signal-note">Near half the 1980s September extent. Amplifies polar heating and weather extremes.</p>
+          </article>
+
+          <article class="signal-card" data-domain="biosphere" tabindex="0">
+            <div class="signal-meta">
+              <span class="domain-tag">Biosphere</span>
+              <span class="status status-warn">Watch</span>
+            </div>
+            <h3>Land carbon sink</h3>
+            <p class="signal-value">−2.8 <span class="unit">GtC / yr</span></p>
+            <div class="meter" role="img" aria-label="Land carbon sink removing 2.8 gigatonnes of carbon per year, under pressure">
+              <div class="meter-track"><div class="meter-fill warn" style="--level: 58%"></div></div>
+            </div>
+            <p class="signal-note">Forests and soils still absorb a large share of emissions — stress is rising with heat and drought.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section threshold" id="threshold" aria-labelledby="threshold-title">
+      <div class="shell threshold-layout">
+        <div class="threshold-copy">
+          <p class="eyebrow">The guardrail</p>
+          <h2 id="threshold-title">1.5&nbsp;°C is not a slogan. It is a budget.</h2>
+          <p>
+            Paris-aligned science frames 1.5&nbsp;°C as the line where risks to
+            coral reefs, ice sheets, food systems, and coastal cities rise
+            nonlinearly. Crossing it is not a single moment — it is a sequence
+            of exceedance years that can still be shortened by rapid cuts.
+          </p>
+          <ul class="check-list">
+            <li>Every 0.1&nbsp;°C avoided reduces exposure for hundreds of millions of people.</li>
+            <li>Remaining carbon budget depends on non-CO₂ forcers and Earth-system feedbacks.</li>
+            <li>Overshoot pathways demand both deep cuts and durable carbon removal.</li>
+          </ul>
+        </div>
+        <div class="threshold-visual" aria-hidden="false">
+          <figure class="gauge-panel">
+            <figcaption class="visually-hidden">Warming gauge relative to 1.5 degree Celsius threshold</figcaption>
+            <svg class="gauge" viewBox="0 0 320 220" role="img" aria-label="Current warming 1.28 degrees Celsius against a 1.5 degree limit">
+              <defs>
+                <linearGradient id="gaugeArc" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#2ec4a0"/>
+                  <stop offset="55%" stop-color="#e8b84a"/>
+                  <stop offset="100%" stop-color="#e85d4a"/>
+                </linearGradient>
+              </defs>
+              <path class="gauge-bg" d="M40 180 A120 120 0 0 1 280 180" fill="none" stroke="#1c2d3a" stroke-width="18" stroke-linecap="round"/>
+              <path class="gauge-fg" d="M40 180 A120 120 0 0 1 280 180" fill="none" stroke="url(#gaugeArc)" stroke-width="18" stroke-linecap="round" stroke-dasharray="377" stroke-dashoffset="70"/>
+              <line class="gauge-needle" x1="160" y1="180" x2="160" y2="72" stroke="#f4f7f5" stroke-width="3" stroke-linecap="round" transform="rotate(42 160 180)"/>
+              <circle cx="160" cy="180" r="8" fill="#f4f7f5"/>
+              <text x="40" y="205" fill="#7a93a3" font-size="12" font-family="ui-monospace, monospace">0°</text>
+              <text x="148" y="48" fill="#e8b84a" font-size="12" font-family="ui-monospace, monospace">1.5°</text>
+              <text x="255" y="205" fill="#7a93a3" font-size="12" font-family="ui-monospace, monospace">2°</text>
+              <text x="160" y="150" text-anchor="middle" fill="#f4f7f5" font-size="36" font-weight="600" font-family="Georgia, serif">1.28°</text>
+              <text x="160" y="172" text-anchor="middle" fill="#7a93a3" font-size="11" font-family="system-ui, sans-serif">current anomaly</text>
+            </svg>
+            <p class="gauge-caption">Approximately 0.22&nbsp;°C remains before the multi-year average locks past 1.5&nbsp;°C under high-emissions inertia.</p>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pathways" id="pathways" aria-labelledby="pathways-title">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">Decision space</p>
+          <h2 id="pathways-title">Three pathways, one atmosphere</h2>
+          <p class="section-intro">
+            Policy choices compound. Compare residual emissions trajectories
+            through mid-century — not as forecasts, but as consequence maps.
+          </p>
+        </header>
+
+        <div class="pathway-controls">
+          <label for="pathway-select">Highlight pathway</label>
+          <select id="pathway-select">
+            <option value="aligned">1.5 °C aligned</option>
+            <option value="delayed">Delayed action</option>
+            <option value="current" selected>Current policies</option>
+          </select>
+        </div>
+
+        <div class="chart-wrap" role="img" aria-labelledby="chart-desc">
+          <p id="chart-desc" class="visually-hidden">
+            Line chart of residual global emissions from 2020 to 2050 for three pathways:
+            1.5 aligned falling steeply to near zero, delayed action falling later, and current policies declining slowly.
+          </p>
+          <svg class="pathway-chart" viewBox="0 0 720 320" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="areaAligned" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3ee0c4" stop-opacity="0.28"/>
+                <stop offset="100%" stop-color="#3ee0c4" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <!-- grid -->
+            <g class="chart-grid" stroke="#1c2d3a" stroke-width="1">
+              <line x1="60" y1="40" x2="60" y2="260"/>
+              <line x1="60" y1="260" x2="680" y2="260"/>
+              <line x1="60" y1="200" x2="680" y2="200" stroke-dasharray="3 6"/>
+              <line x1="60" y1="140" x2="680" y2="140" stroke-dasharray="3 6"/>
+              <line x1="60" y1="80" x2="680" y2="80" stroke-dasharray="3 6"/>
+            </g>
+            <g fill="#7a93a3" font-size="11" font-family="ui-monospace, monospace">
+              <text x="60" y="280">2020</text>
+              <text x="250" y="280">2030</text>
+              <text x="450" y="280">2040</text>
+              <text x="640" y="280">2050</text>
+              <text x="28" y="264">0</text>
+              <text x="18" y="144">20</text>
+              <text x="18" y="84">40</text>
+              <text x="8" y="48">GtCO₂e</text>
+            </g>
+            <!-- current policies -->
+            <path id="path-current" class="path-line is-active" d="M60 70 C180 75, 300 90, 420 110 S600 145, 680 160" fill="none" stroke="#e85d4a" stroke-width="2.5"/>
+            <!-- delayed -->
+            <path id="path-delayed" class="path-line" d="M60 70 C160 72, 240 85, 320 120 S480 210, 680 245" fill="none" stroke="#e8b84a" stroke-width="2.5" opacity="0.45"/>
+            <!-- aligned -->
+            <path id="path-aligned" class="path-line" d="M60 70 C140 80, 220 120, 300 180 S480 245, 680 252" fill="none" stroke="#3ee0c4" stroke-width="2.5" opacity="0.45"/>
+            <path d="M60 70 C140 80, 220 120, 300 180 S480 245, 680 252 L680 260 L60 260 Z" fill="url(#areaAligned)" opacity="0.35"/>
+          </svg>
+          <ul class="chart-legend">
+            <li><span class="swatch aligned"></span> 1.5 °C aligned</li>
+            <li><span class="swatch delayed"></span> Delayed action</li>
+            <li><span class="swatch current"></span> Current policies</li>
+          </ul>
+        </div>
+
+        <div class="pathway-cards">
+          <article class="pathway-card" data-pathway="aligned">
+            <h3>1.5 °C aligned</h3>
+            <p>Peak emissions immediately, halve by ~2030, net-zero CO₂ near 2050, with methane cuts front-loaded.</p>
+          </article>
+          <article class="pathway-card" data-pathway="delayed">
+            <h3>Delayed action</h3>
+            <p>Plateau into the late 2020s, then steep later declines — higher overshoot risk and removal demand.</p>
+          </article>
+          <article class="pathway-card is-active" data-pathway="current">
+            <h3>Current policies</h3>
+            <p>Incremental progress leaves multi-degree warming in play without structural acceleration.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section outlook" id="outlook" aria-labelledby="outlook-title">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">Seasonal outlook</p>
+          <h2 id="outlook-title">What the next decade can still rewrite</h2>
+        </header>
+        <div class="outlook-grid">
+          <article class="outlook-card">
+            <span class="outlook-index">01</span>
+            <h3>Near-term heat persistence</h3>
+            <p>
+              Multi-year averages are already brushing the 1.5&nbsp;°C band in some
+              datasets. Single hot years will become more common even as the
+              long-term mean lags slightly behind.
+            </p>
+          </article>
+          <article class="outlook-card">
+            <span class="outlook-index">02</span>
+            <h3>Ocean memory</h3>
+            <p>
+              Heat already stored below the surface commits us to further
+              sea-level rise and marine heatwaves. Mitigation still shapes how
+              far that commitment grows.
+            </p>
+          </article>
+          <article class="outlook-card">
+            <span class="outlook-index">03</span>
+            <h3>Action compounding</h3>
+            <p>
+              Clean power, efficient buildings, electrified transport, and
+              methane abatement stack. Delayed starts shrink the remaining
+              option space faster than most models feel intuitive.
+            </p>
+          </article>
+          <article class="outlook-card highlight">
+            <span class="outlook-index">04</span>
+            <h3>Collective readout</h3>
+            <p>
+              One Point Five exists so dense Earth-system data stays public,
+              comparable, and actionable — not locked in specialist silos.
+            </p>
+            <a class="text-link" href="#signals">Return to the signal board</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta" aria-labelledby="cta-title">
+      <div class="shell cta-panel">
+        <div>
+          <p class="eyebrow">Stay with the numbers</p>
+          <h2 id="cta-title">Measure what we can still change.</h2>
+          <p>
+            The threshold is a shared instrument, not a verdict. Read the
+            signals, track the pathways, and keep the 1.5&nbsp;°C budget visible.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="#signals">Explore the signals</a>
+          <a class="btn btn-secondary" href="#outlook">Read the outlook</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <strong>One Point Five</strong>
+        <span>Climate data observatory</span>
+      </div>
+      <p class="footer-note">
+        Illustrative educational metrics for interface demonstration.
+        Not an operational forecasting service.
+      </p>
+      <p class="footer-copy">© One Point Five Observatory</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

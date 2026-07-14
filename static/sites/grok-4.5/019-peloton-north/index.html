@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Peloton North — Take the longer road.</title>
+  <meta name="description" content="An Oslo cycling collective pairing exploratory routes, precise technical apparel, and weekly rides.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Peloton North home">
+        <svg class="brand-mark" viewBox="0 0 40 40" width="36" height="36" aria-hidden="true" focusable="false">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M8 24 L16 12 L24 24 M16 12 L16 28" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="28" cy="26" r="3.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">Peloton North</span>
+          <span class="brand-place">Oslo · 59°N</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" id="nav-toggle">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#rides">Rides</a></li>
+          <li><a href="#routes">Routes</a></li>
+          <li><a href="#apparel">Apparel</a></li>
+          <li><a href="#collective">Collective</a></li>
+        </ul>
+        <a class="btn btn-small btn-primary nav-cta" href="#join">Join the next ride</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <svg class="hero-map" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0b1f2a"/>
+              <stop offset="55%" stop-color="#143d48"/>
+              <stop offset="100%" stop-color="#1f5a52"/>
+            </linearGradient>
+            <linearGradient id="fjord" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#7ec8c0" stop-opacity="0.15"/>
+              <stop offset="100%" stop-color="#c9e8e4" stop-opacity="0.08"/>
+            </linearGradient>
+          </defs>
+          <rect width="1200" height="800" fill="url(#sky)"/>
+          <!-- latitude lines -->
+          <g stroke="#9fd4cc" stroke-opacity="0.12" stroke-width="1">
+            <line x1="0" y1="180" x2="1200" y2="180"/>
+            <line x1="0" y1="320" x2="1200" y2="320"/>
+            <line x1="0" y1="460" x2="1200" y2="460"/>
+            <line x1="0" y1="600" x2="1200" y2="600"/>
+          </g>
+          <!-- distant ridge -->
+          <path d="M0 520 L140 440 L280 500 L420 380 L560 460 L720 340 L880 420 L1040 360 L1200 430 L1200 800 L0 800 Z" fill="#0a2a30" opacity="0.85"/>
+          <path d="M0 580 L180 500 L340 560 L500 470 L680 540 L860 450 L1020 520 L1200 480 L1200 800 L0 800 Z" fill="#0e3538"/>
+          <!-- road -->
+          <path d="M0 720 C200 680 320 640 480 620 C700 590 820 640 1200 560" fill="none" stroke="#e8f2ef" stroke-width="3" stroke-opacity="0.35" stroke-dasharray="14 10"/>
+          <!-- fjord glint -->
+          <path d="M620 560 C740 540 860 580 980 540 C1040 520 1100 530 1200 510 L1200 720 C1000 700 820 680 620 700 Z" fill="url(#fjord)"/>
+        </svg>
+      </div>
+
+      <div class="shell hero-inner">
+        <p class="eyebrow">Ride club · Oslo</p>
+        <h1 id="hero-title">Take the longer road.</h1>
+        <p class="hero-lead">
+          Peloton North is an Oslo cycling collective for riders who chase contour lines,
+          cold morning starts, and the quiet miles past the city edge.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#join">Join the next ride</a>
+          <a class="btn btn-ghost" href="#routes">Explore routes</a>
+        </div>
+        <dl class="hero-stats" aria-label="Collective snapshot">
+          <div>
+            <dt>Weekly departures</dt>
+            <dd>Thursday · 06:30</dd>
+          </div>
+          <div>
+            <dt>Base</dt>
+            <dd>Grünerløkka, Oslo</dd>
+          </div>
+          <div>
+            <dt>Season</dt>
+            <dd>All weather · year round</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section rides" id="rides" aria-labelledby="rides-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Cadence</p>
+          <h2 id="rides-title">Weekly rides, no parade pace</h2>
+          <p class="section-lead">
+            One steady group, honest efforts, and a coffee stop that earns its place.
+            Bring lights, layers, and a reason to keep going.
+          </p>
+        </div>
+
+        <div class="ride-grid">
+          <article class="ride-card ride-featured">
+            <div class="ride-card-top">
+              <span class="ride-tag">Next ride</span>
+              <time datetime="2026-07-16">Thu 16 Jul</time>
+            </div>
+            <h3>Fjord Edge Loop</h3>
+            <p>72 km · rolling · mixed surface optional</p>
+            <ul class="ride-meta">
+              <li><span>Meet</span> Schous plass · 06:30</li>
+              <li><span>Pace</span> 28–32 km/h rolling</li>
+              <li><span>Notes</span> Lights required · rain plan holds</li>
+            </ul>
+            <a class="text-link" href="#join">Reserve a wheel →</a>
+          </article>
+
+          <article class="ride-card">
+            <div class="ride-card-top">
+              <span class="ride-tag ride-tag-muted">Sunday</span>
+              <time datetime="2026-07-19">19 Jul</time>
+            </div>
+            <h3>Nordmarka Climb Day</h3>
+            <p>54 km · elevation heavy · gravel legs</p>
+            <ul class="ride-meta">
+              <li><span>Meet</span> Storo · 08:00</li>
+              <li><span>Pace</span> Conversational climbs</li>
+              <li><span>Notes</span> 32 mm+ tires recommended</li>
+            </ul>
+          </article>
+
+          <article class="ride-card">
+            <div class="ride-card-top">
+              <span class="ride-tag ride-tag-muted">Night</span>
+              <time datetime="2026-07-23">23 Jul</time>
+            </div>
+            <h3>City Lights Tempo</h3>
+            <p>48 km · flat · structured intervals</p>
+            <ul class="ride-meta">
+              <li><span>Meet</span> Frogner · 21:00</li>
+              <li><span>Pace</span> 2 × 20 efforts</li>
+              <li><span>Notes</span> Reflective kit · no drop until loop end</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section routes" id="routes" aria-labelledby="routes-title">
+      <div class="shell">
+        <div class="section-head split">
+          <div>
+            <p class="eyebrow">Cartography</p>
+            <h2 id="routes-title">Exploratory routes, mapped with intent</h2>
+          </div>
+          <p class="section-lead">
+            We design lines that reward curiosity: ridge roads, quiet farm loops,
+            and water-edge returns when the wind turns.
+          </p>
+        </div>
+
+        <div class="route-list" role="list">
+          <article class="route-item" role="listitem">
+            <div class="route-index" aria-hidden="true">01</div>
+            <div class="route-body">
+              <h3>Oslofjord Ribbon</h3>
+              <p>Coastal tarmac that tracks the water south, then cuts inland through pine and pasture. Best in low wind and late light.</p>
+            </div>
+            <dl class="route-stats">
+              <div><dt>Distance</dt><dd>86 km</dd></div>
+              <div><dt>Climb</dt><dd>780 m</dd></div>
+              <div><dt>Surface</dt><dd>Road</dd></div>
+            </dl>
+          </article>
+
+          <article class="route-item" role="listitem">
+            <div class="route-index" aria-hidden="true">02</div>
+            <div class="route-body">
+              <h3>Maridalen Meridian</h3>
+              <p>North through the valley, a gravel spur if you want it, and a long descent that teaches patience on the brakes.</p>
+            </div>
+            <dl class="route-stats">
+              <div><dt>Distance</dt><dd>61 km</dd></div>
+              <div><dt>Climb</dt><dd>920 m</dd></div>
+              <div><dt>Surface</dt><dd>Mixed</dd></div>
+            </dl>
+          </article>
+
+          <article class="route-item" role="listitem">
+            <div class="route-index" aria-hidden="true">03</div>
+            <div class="route-body">
+              <h3>Bygdøy to Asker Arc</h3>
+              <p>Urban start, peninsula sweep, then a western run that opens the horizon. A classic for new collective members.</p>
+            </div>
+            <dl class="route-stats">
+              <div><dt>Distance</dt><dd>74 km</dd></div>
+              <div><dt>Climb</dt><dd>640 m</dd></div>
+              <div><dt>Surface</dt><dd>Road</dd></div>
+            </dl>
+          </article>
+
+          <article class="route-item" role="listitem">
+            <div class="route-index" aria-hidden="true">04</div>
+            <div class="route-body">
+              <h3>Kolsås Contour</h3>
+              <p>Steep openers, ridge views, and a technical return through forest roads. Bring low gears and a clear head.</p>
+            </div>
+            <dl class="route-stats">
+              <div><dt>Distance</dt><dd>49 km</dd></div>
+              <div><dt>Climb</dt><dd>1,100 m</dd></div>
+              <div><dt>Surface</dt><dd>Gravel bias</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section apparel" id="apparel" aria-labelledby="apparel-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Kit</p>
+          <h2 id="apparel-title">Precise technical apparel</h2>
+          <p class="section-lead">
+            Built for Scandinavian miles: wind-cut panels, reflective seams,
+            and fabrics that stay honest when the temperature drops mid-ride.
+          </p>
+        </div>
+
+        <div class="apparel-grid">
+          <article class="apparel-card">
+            <div class="apparel-visual apparel-visual-a" aria-hidden="true">
+              <svg viewBox="0 0 200 240" focusable="false">
+                <rect x="60" y="40" width="80" height="140" rx="28" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M60 90 H140 M100 40 V180" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+                <circle cx="100" cy="70" r="8" fill="currentColor" opacity="0.2"/>
+                <path d="M72 175 Q100 200 128 175" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+              </svg>
+            </div>
+            <h3>Latitude Jersey</h3>
+            <p>Race-cut merino blend with a full zip and three-pocket rear. Frost-grey with copper reflective tape.</p>
+            <p class="apparel-spec">13°C comfort · 110 g/m² · unisex sizes XS–XXL</p>
+          </article>
+
+          <article class="apparel-card">
+            <div class="apparel-visual apparel-visual-b" aria-hidden="true">
+              <svg viewBox="0 0 200 240" focusable="false">
+                <path d="M50 70 L100 40 L150 70 L140 200 H60 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M70 90 H130 M80 120 H120" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+                <path d="M100 40 V200" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+              </svg>
+            </div>
+            <h3>Fjord Shell</h3>
+            <p>Packable wind shell with taped seams and a collar that seals without bulk. Designed for ridge descents.</p>
+            <p class="apparel-spec">Windproof · 180 g pack weight · pack pocket</p>
+          </article>
+
+          <article class="apparel-card">
+            <div class="apparel-visual apparel-visual-c" aria-hidden="true">
+              <svg viewBox="0 0 200 240" focusable="false">
+                <ellipse cx="100" cy="120" rx="55" ry="70" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M70 90 C90 100 110 100 130 90 M75 130 C95 145 105 145 125 130" fill="none" stroke="currentColor" stroke-width="1.3" opacity="0.5"/>
+                <circle cx="100" cy="170" r="6" fill="currentColor" opacity="0.25"/>
+              </svg>
+            </div>
+            <h3>Contour Bibs</h3>
+            <p>High-compression legs, raw-cut hems, and a chamois tuned for 4–6 hour exploratory days.</p>
+            <p class="apparel-spec">UPF 50 · flatlock seams · black / pine</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section collective" id="collective" aria-labelledby="collective-title">
+      <div class="shell collective-inner">
+        <div class="collective-copy">
+          <p class="eyebrow">The club</p>
+          <h2 id="collective-title">A collective, not a clubhouse</h2>
+          <p>
+            Peloton North started as a Thursday group that refused the shortest commute.
+            We still meet on the same corner, still leave on time, and still take the
+            longer road when the weather argues otherwise.
+          </p>
+          <p>
+            Membership means a place in the group chat, first call on limited kit drops,
+            and a shared standard: ride clean, ride together, leave no one guessing.
+          </p>
+          <ul class="check-list">
+            <li>All-weather, year-round calendar</li>
+            <li>Route notes shared 48 hours before roll-out</li>
+            <li>No-drop policy until the designated regroup</li>
+            <li>Skill nights for winter descending and group form</li>
+          </ul>
+        </div>
+        <aside class="collective-panel" aria-label="Membership notes">
+          <h3>How it works</h3>
+          <ol class="steps">
+            <li>
+              <strong>Show up once</strong>
+              <span>Join any open ride. Introduce yourself at the meet point.</span>
+            </li>
+            <li>
+              <strong>Stay for three</strong>
+              <span>After three rides, request membership — free, invitation-backed.</span>
+            </li>
+            <li>
+              <strong>Own the cadence</strong>
+              <span>Propose routes, lead a Sunday, or help with kit fittings.</span>
+            </li>
+          </ol>
+          <p class="panel-note">Capacity is capped so group size stays rideable. Waiting list opens each season.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section join" id="join" aria-labelledby="join-title">
+      <div class="shell join-inner">
+        <div class="join-copy">
+          <p class="eyebrow">Next departure</p>
+          <h2 id="join-title">Join the next ride</h2>
+          <p>
+            Fjord Edge Loop · Thursday 16 July · Schous plass at 06:30.
+            Tell us your name and preferred pace band. We’ll confirm by the evening before.
+          </p>
+        </div>
+
+        <form class="join-form" id="join-form" action="#" method="get" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label for="pace">Pace band</label>
+            <select id="pace" name="pace" required>
+              <option value="" disabled selected>Select pace</option>
+              <option value="steady">Steady — conversational</option>
+              <option value="tempo">Tempo — 28–32 km/h rolling</option>
+              <option value="hard">Hard — happy to pull</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="bike">Bike setup</label>
+            <select id="bike" name="bike">
+              <option value="road" selected>Road</option>
+              <option value="endurance">Endurance / all-road</option>
+              <option value="gravel">Gravel</option>
+            </select>
+          </div>
+          <div class="field field-full">
+            <label for="notes">Notes <span class="optional">(optional)</span></label>
+            <textarea id="notes" name="notes" rows="3" placeholder="First ride? Prefer the front? Need a loaner light?"></textarea>
+          </div>
+          <div class="form-actions field-full">
+            <button class="btn btn-primary" type="submit">Request a wheel</button>
+            <p class="form-aside" id="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <p class="footer-name">Peloton North</p>
+        <p class="footer-tag">Take the longer road.</p>
+      </div>
+      <div class="footer-meta">
+        <p>Grünerløkka · Oslo</p>
+        <p>Ride club · 59°54′N</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#rides">Rides</a>
+        <a href="#routes">Routes</a>
+        <a href="#apparel">Apparel</a>
+        <a href="#join">Join</a>
+      </nav>
+    </div>
+    <div class="shell footer-base">
+      <p>© Peloton North. Built for the miles past the ring road.</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

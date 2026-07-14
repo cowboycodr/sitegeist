@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Stillroom — A quieter place inside your day.">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3efe7"/>
+      <stop offset="45%" stop-color="#ebe4d6"/>
+      <stop offset="100%" stop-color="#e2ddd0"/>
+    </linearGradient>
+    <radialGradient id="orbA" cx="30%" cy="28%" r="45%">
+      <stop offset="0%" stop-color="#9aab9e" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#9aab9e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbB" cx="78%" cy="22%" r="40%">
+      <stop offset="0%" stop-color="#d4b896" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d4b896" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbC" cx="55%" cy="78%" r="42%">
+      <stop offset="0%" stop-color="#6f8268" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#6f8268" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="core" cx="35%" cy="32%" r="65%">
+      <stop offset="0%" stop-color="#c5d0c0"/>
+      <stop offset="55%" stop-color="#6f8268"/>
+      <stop offset="100%" stop-color="#4f5e49"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#orbA)"/>
+  <rect width="1200" height="900" fill="url(#orbB)"/>
+  <rect width="1200" height="900" fill="url(#orbC)"/>
+
+  <!-- Soft frame -->
+  <rect x="48" y="48" width="1104" height="804" rx="36" fill="none" stroke="#1c1916" stroke-opacity="0.06" stroke-width="2"/>
+
+  <!-- Brand mark: concentric breath rings -->
+  <g transform="translate(600 380)">
+    <circle r="210" fill="none" stroke="#b8926a" stroke-opacity="0.22" stroke-width="1.5"/>
+    <circle r="160" fill="none" stroke="#6f8268" stroke-opacity="0.28" stroke-width="1.5"/>
+    <circle r="112" fill="none" stroke="#9aab9e" stroke-opacity="0.4" stroke-width="1.5"/>
+    <circle r="72" fill="url(#core)"/>
+    <circle r="72" fill="none" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="600" y="640" text-anchor="middle" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', serif" font-size="72" font-weight="500" fill="#1c1916" letter-spacing="-1">Stillroom</text>
+  <text x="600" y="700" text-anchor="middle" font-family="system-ui, 'Segoe UI', sans-serif" font-size="28" font-weight="400" fill="#3d3832" letter-spacing="0.5">A quieter place inside your day.</text>
+
+  <!-- Small accent line -->
+  <line x1="540" y1="730" x2="660" y2="730" stroke="#6f8268" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+  <text x="600" y="768" text-anchor="middle" font-family="system-ui, 'Segoe UI', sans-serif" font-size="16" font-weight="600" fill="#4f5e49" letter-spacing="4" text-transform="uppercase">BREATH · MEDITATION · STILLNESS</text>
+</svg>

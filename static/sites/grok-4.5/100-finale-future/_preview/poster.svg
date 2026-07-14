@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Finale — One hundred visions. One strange future.">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0814"/>
+      <stop offset="55%" stop-color="#100d1c"/>
+      <stop offset="100%" stop-color="#07060c"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c4f542"/>
+      <stop offset="50%" stop-color="#4de4ff"/>
+      <stop offset="100%" stop-color="#9b6bff"/>
+    </linearGradient>
+    <linearGradient id="orb" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c4f542"/>
+      <stop offset="45%" stop-color="#4de4ff"/>
+      <stop offset="100%" stop-color="#9b6bff"/>
+    </linearGradient>
+    <radialGradient id="glowV" cx="30%" cy="35%" r="50%">
+      <stop offset="0%" stop-color="#9b6bff" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#9b6bff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowC" cx="75%" cy="25%" r="40%">
+      <stop offset="0%" stop-color="#4de4ff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#4de4ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowA" cx="60%" cy="80%" r="35%">
+      <stop offset="0%" stop-color="#c4f542" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#c4f542" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#glowV)"/>
+  <rect width="1200" height="900" fill="url(#glowC)"/>
+  <rect width="1200" height="900" fill="url(#glowA)"/>
+
+  <!-- Soft grid -->
+  <g stroke="rgba(232,220,255,0.06)" stroke-width="1">
+    <path d="M0 90 H1200 M0 180 H1200 M0 270 H1200 M0 360 H1200 M0 450 H1200 M0 540 H1200 M0 630 H1200 M0 720 H1200 M0 810 H1200"/>
+    <path d="M120 0 V900 M240 0 V900 M360 0 V900 M480 0 V900 M600 0 V900 M720 0 V900 M840 0 V900 M960 0 V900 M1080 0 V900"/>
+  </g>
+
+  <!-- Abstract motif: concentric signal rings + diamond -->
+  <g transform="translate(900 280)" fill="none">
+    <circle r="210" stroke="rgba(155,107,255,0.2)" stroke-width="1.5"/>
+    <circle r="160" stroke="rgba(77,228,255,0.25)" stroke-width="1.5"/>
+    <circle r="110" stroke="rgba(196,245,66,0.3)" stroke-width="1.5"/>
+    <circle r="55" stroke="rgba(255,92,184,0.35)" stroke-width="2"/>
+    <path d="M0 -36 L36 0 L0 36 L-36 0 Z" fill="url(#orb)" opacity="0.95"/>
+    <circle r="8" fill="#07060c"/>
+  </g>
+
+  <!-- Secondary motif arcs -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M80 720 C200 620, 320 780, 480 700" stroke="#9b6bff" stroke-width="2" opacity="0.45"/>
+    <path d="M100 760 C240 640, 360 800, 520 720" stroke="#4de4ff" stroke-width="2" opacity="0.35"/>
+    <path d="M120 800 C280 660, 400 820, 560 740" stroke="#c4f542" stroke-width="2" opacity="0.28"/>
+  </g>
+
+  <!-- Top meta -->
+  <text x="80" y="100" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="6" fill="#4de4ff">OCTOBER 08–10 / EVERYWHERE</text>
+
+  <!-- Brand mark -->
+  <rect x="80" y="150" width="36" height="36" rx="8" fill="url(#orb)"/>
+  <text x="132" y="178" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#f4f0ff" letter-spacing="-0.5">Finale</text>
+
+  <!-- Main title -->
+  <text x="80" y="320" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" fill="#f4f0ff" letter-spacing="-2">One hundred visions.</text>
+  <text x="80" y="400" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" fill="url(#titleGrad)" letter-spacing="-2">One strange future.</text>
+
+  <!-- Description -->
+  <text x="80" y="480" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#a89bc4">Three days of digital art, sound, code,</text>
+  <text x="80" y="516" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#a89bc4">performance, and conversations</text>
+  <text x="80" y="552" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#a89bc4">beyond the interface.</text>
+
+  <!-- Bottom chips -->
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="1.5">
+    <rect x="80" y="640" width="110" height="40" rx="20" fill="rgba(196,245,66,0.12)" stroke="rgba(196,245,66,0.4)"/>
+    <text x="135" y="666" text-anchor="middle" fill="#c4f542">ART</text>
+    <rect x="206" y="640" width="120" height="40" rx="20" fill="rgba(77,228,255,0.1)" stroke="rgba(77,228,255,0.35)"/>
+    <text x="266" y="666" text-anchor="middle" fill="#4de4ff">SOUND</text>
+    <rect x="342" y="640" width="110" height="40" rx="20" fill="rgba(155,107,255,0.12)" stroke="rgba(155,107,255,0.4)"/>
+    <text x="397" y="666" text-anchor="middle" fill="#c9b0ff">CODE</text>
+    <rect x="468" y="640" width="160" height="40" rx="20" fill="rgba(255,92,184,0.1)" stroke="rgba(255,92,184,0.35)"/>
+    <text x="548" y="666" text-anchor="middle" fill="#ff5cb8">PERFORMANCE</text>
+  </g>
+
+  <!-- Footer line -->
+  <text x="80" y="820" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#6f638a">DIGITAL CULTURE FESTIVAL · 100 VISIONS</text>
+</svg>

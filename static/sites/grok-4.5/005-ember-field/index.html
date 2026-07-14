@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Seasonal coffee traced from highland farms to small-batch roasts and the rituals they become.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Ember &amp; Field — Roasted slowly. Remembered vividly.</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="#top" aria-label="Ember and Field home">
+        <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <rect width="32" height="32" rx="6" fill="#1a1410"/>
+          <path d="M8 22c2-6 4.5-10 8-14 3.5 4 6 8 8 14" fill="none" stroke="#c45c2a" stroke-width="2" stroke-linecap="round"/>
+          <path d="M10 22h12" stroke="#c9a66b" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="16" cy="11" r="1.6" fill="#e07840"/>
+        </svg>
+        <span>Ember &amp; Field</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+      </button>
+
+      <nav id="site-nav" class="nav" aria-label="Primary">
+        <a href="#story">Story</a>
+        <a href="#roasts">Roasts</a>
+        <a href="#producers">Producers</a>
+        <a href="#ritual">Ritual</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__pattern" aria-hidden="true"></div>
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__inner">
+        <div>
+          <p class="hero__eyebrow">Small-batch coffee</p>
+          <h1 id="hero-title">Ember &amp; Field</h1>
+          <p class="hero__tagline">Roasted slowly. Remembered vividly.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="#roasts">Find your roast</a>
+            <a class="btn btn--secondary" href="#producers">Meet the producers</a>
+          </div>
+        </div>
+        <aside class="hero__aside" aria-label="Season overview">
+          <h2>Highland season, open now</h2>
+          <p>Three lots from terraced farms above the cloud line—picked ripe, dried in the field, finished over careful ember heat.</p>
+          <div class="hero-stats">
+            <div>
+              <strong>48h</strong>
+              <span>Roast cycle</span>
+            </div>
+            <div>
+              <strong>12</strong>
+              <span>Farm partners</span>
+            </div>
+            <div>
+              <strong>180g</strong>
+              <span>Bag size</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="terrain" aria-hidden="true">
+      <svg viewBox="0 0 1200 48" preserveAspectRatio="none">
+        <path fill="currentColor" d="M0 48V28c80-18 160-18 240 0s160 18 240 0 160-18 240 0 160 18 240 0 160-18 240 0v20z" opacity="0.08"/>
+        <path fill="none" stroke="currentColor" stroke-width="1.5" d="M0 30c100-14 200-14 300 0s200 14 300 0 200-14 300 0 200 14 300 0" opacity="0.25"/>
+      </svg>
+    </div>
+
+    <section class="section story" id="story" aria-labelledby="story-title">
+      <div class="wrap story__grid">
+        <div class="story__visual" aria-hidden="true">
+          <svg viewBox="0 0 400 500" role="img" aria-label="">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#4a3a2c"/>
+                <stop offset="55%" stop-color="#3d4a2e"/>
+                <stop offset="100%" stop-color="#1a1410"/>
+              </linearGradient>
+              <linearGradient id="emberGrad" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%" stop-color="#8b3518"/>
+                <stop offset="100%" stop-color="#e07840"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="500" fill="url(#sky)"/>
+            <!-- Terrace lines -->
+            <path d="M0 180 Q100 160 200 175 T400 165 L400 500 L0 500 Z" fill="#2f3a24" opacity="0.9"/>
+            <path d="M0 240 Q120 220 220 235 T400 225 L400 500 L0 500 Z" fill="#354228"/>
+            <path d="M0 300 Q90 285 200 298 T400 288 L400 500 L0 500 Z" fill="#2a3320"/>
+            <path d="M0 360 Q140 345 240 358 T400 350 L400 500 L0 500 Z" fill="#232b1b"/>
+            <!-- Coffee trees as simple vertical marks -->
+            <g stroke="#6b7a52" stroke-width="2" opacity="0.7">
+              <line x1="60" y1="200" x2="60" y2="250"/>
+              <line x1="110" y1="195" x2="110" y2="245"/>
+              <line x1="165" y1="205" x2="165" y2="255"/>
+              <line x1="230" y1="198" x2="230" y2="248"/>
+              <line x1="290" y1="192" x2="290" y2="242"/>
+              <line x1="340" y1="200" x2="340" y2="250"/>
+            </g>
+            <!-- Cherries -->
+            <g fill="#c45c2a">
+              <circle cx="58" cy="210" r="3.5"/>
+              <circle cx="64" cy="218" r="3"/>
+              <circle cx="112" cy="205" r="3.5"/>
+              <circle cx="168" cy="215" r="3"/>
+              <circle cx="228" cy="208" r="3.5"/>
+              <circle cx="292" cy="202" r="3"/>
+              <circle cx="338" cy="210" r="3.5"/>
+            </g>
+            <!-- Ember flame motif -->
+            <path d="M200 390c-18 28-18 48 0 70 18-22 18-42 0-70z" fill="url(#emberGrad)" opacity="0.9"/>
+            <path d="M200 410c-10 16-10 28 0 42 10-14 10-26 0-42z" fill="#f4efe6" opacity="0.35"/>
+            <!-- Field horizon curve -->
+            <path d="M40 140 Q200 100 360 140" fill="none" stroke="#c9a66b" stroke-width="1.5" opacity="0.5"/>
+            <circle cx="200" cy="95" r="18" fill="#e07840" opacity="0.25"/>
+            <circle cx="200" cy="95" r="8" fill="#c9a66b" opacity="0.55"/>
+          </svg>
+        </div>
+        <div class="story__copy">
+          <p class="section__eyebrow">From ridge to roast</p>
+          <h2 class="section__title" id="story-title">Coffee that keeps the altitude</h2>
+          <p>
+            Ember &amp; Field traces seasonal lots from highland farms where mornings start in mist
+            and harvests follow the rain, not a calendar. We buy ripe cherry from small producers,
+            dry it where it was grown, and roast in short batches until the cup tastes like the place.
+          </p>
+          <p>
+            No endless menus. No warehouse blend designed for sameness. Each release is finite—
+            named for the field, finished over slow heat, and meant to be remembered long after the bag is empty.
+          </p>
+          <p class="story__note">
+            “We roast for clarity and warmth: the field first, then the ember.”
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section roasts" id="roasts" aria-labelledby="roasts-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section__eyebrow">Seasonal releases</p>
+          <h2 class="section__title" id="roasts-title">Find your roast</h2>
+          <p class="section__lead">
+            Filter by how you brew. Every bag is a single origin, roasted to order in 180g lots
+            and labeled with the field, the process, and a cup note you can taste.
+          </p>
+        </div>
+
+        <div class="roast-filters" role="group" aria-label="Filter roasts by brew method">
+          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All roasts</button>
+          <button type="button" class="filter-btn" data-filter="filter" aria-pressed="false">Filter &amp; pour-over</button>
+          <button type="button" class="filter-btn" data-filter="espresso" aria-pressed="false">Espresso</button>
+          <button type="button" class="filter-btn" data-filter="immersion" aria-pressed="false">Immersion</button>
+        </div>
+
+        <div class="roast-grid" id="roast-grid">
+          <article class="roast-card" data-methods="filter immersion" data-name="Ridge Honey" data-brew="Try 1:16 pour-over at 93°C, medium grind, 2:45 total.">
+            <div class="roast-card__swatch roast-card__swatch--ridge"></div>
+            <div class="roast-card__body">
+              <div class="roast-card__meta">
+                <span class="badge badge--ember">Limited</span>
+                <span class="badge badge--gold">Honey process</span>
+              </div>
+              <h3>Ridge Honey</h3>
+              <p class="roast-card__origin">Sierra Alta · 1,720 m · washed honey</p>
+              <p class="roast-card__notes">Dried apricot, cane sugar, and a clean citrus finish that stays bright as it cools.</p>
+              <div class="roast-card__foot">
+                <span class="roast-card__price">$18</span>
+                <span class="roast-card__process">Light-medium</span>
+              </div>
+              <button type="button" class="btn btn--ghost roast-card__select" data-select-roast>Select this roast</button>
+            </div>
+          </article>
+
+          <article class="roast-card" data-methods="espresso filter" data-name="Ember Lot 07" data-brew="Excellent as espresso 1:2 in 28s, or moka with a light roast grind.">
+            <div class="roast-card__swatch roast-card__swatch--ember"></div>
+            <div class="roast-card__body">
+              <div class="roast-card__meta">
+                <span class="badge badge--ember">House favorite</span>
+                <span class="badge badge--field">Natural</span>
+              </div>
+              <h3>Ember Lot 07</h3>
+              <p class="roast-card__origin">Valle Rojo · 1,540 m · natural dry</p>
+              <p class="roast-card__notes">Dark chocolate, roasted plum, and a lingering ember warmth built for milk or straight shots.</p>
+              <div class="roast-card__foot">
+                <span class="roast-card__price">$17</span>
+                <span class="roast-card__process">Medium</span>
+              </div>
+              <button type="button" class="btn btn--ghost roast-card__select" data-select-roast>Select this roast</button>
+            </div>
+          </article>
+
+          <article class="roast-card" data-methods="filter" data-name="Cloud Terrace" data-brew="V60 or flat-bottom: 1:15.5, 92°C, aim for clarity over body.">
+            <div class="roast-card__swatch roast-card__swatch--cloud"></div>
+            <div class="roast-card__body">
+              <div class="roast-card__meta">
+                <span class="badge badge--field">New harvest</span>
+                <span class="badge badge--gold">Washed</span>
+              </div>
+              <h3>Cloud Terrace</h3>
+              <p class="roast-card__origin">Meseta Norte · 1,910 m · fully washed</p>
+              <p class="roast-card__notes">Jasmine, green apple, and soft honey—high and clear, like morning air above the mist.</p>
+              <div class="roast-card__foot">
+                <span class="roast-card__price">$20</span>
+                <span class="roast-card__process">Light</span>
+              </div>
+              <button type="button" class="btn btn--ghost roast-card__select" data-select-roast>Select this roast</button>
+            </div>
+          </article>
+
+          <article class="roast-card" data-methods="immersion espresso" data-name="Field Blend" data-brew="French press or Aeropress: coarse, 4 minutes, gentle plunge.">
+            <div class="roast-card__swatch roast-card__swatch--field"></div>
+            <div class="roast-card__body">
+              <div class="roast-card__meta">
+                <span class="badge badge--field">Everyday</span>
+                <span class="badge badge--ember">Seasonal blend</span>
+              </div>
+              <h3>Field Blend</h3>
+              <p class="roast-card__origin">Three partner lots · balanced · small batch</p>
+              <p class="roast-card__notes">Toasted almond, brown sugar, and cocoa husk—steady enough for every morning ritual.</p>
+              <div class="roast-card__foot">
+                <span class="roast-card__price">$15</span>
+                <span class="roast-card__process">Medium</span>
+              </div>
+              <button type="button" class="btn btn--ghost roast-card__select" data-select-roast>Select this roast</button>
+            </div>
+          </article>
+
+          <article class="roast-card" data-methods="filter immersion" data-name="Ash Grove Anaerobic" data-brew="Immersion or hybrid brew brings out the tropical notes; keep water under 91°C.">
+            <div class="roast-card__swatch roast-card__swatch--ash"></div>
+            <div class="roast-card__body">
+              <div class="roast-card__meta">
+                <span class="badge badge--ember">Micro-lot</span>
+                <span class="badge badge--gold">Anaerobic</span>
+              </div>
+              <h3>Ash Grove Anaerobic</h3>
+              <p class="roast-card__origin">Bosque Ceniza · 1,680 m · 72h anaerobic</p>
+              <p class="roast-card__notes">Passionfruit, red currant, and a winey sparkle that settles into gentle spice.</p>
+              <div class="roast-card__foot">
+                <span class="roast-card__price">$22</span>
+                <span class="roast-card__process">Light</span>
+              </div>
+              <button type="button" class="btn btn--ghost roast-card__select" data-select-roast>Select this roast</button>
+            </div>
+          </article>
+
+          <article class="roast-card" data-methods="espresso" data-name="Night Ember" data-brew="Espresso 1:2.1, 30s; also deep and quiet as a moka with demerara.">
+            <div class="roast-card__swatch roast-card__swatch--night"></div>
+            <div class="roast-card__body">
+              <div class="roast-card__meta">
+                <span class="badge badge--ember">Dark edge</span>
+                <span class="badge badge--field">Washed</span>
+              </div>
+              <h3>Night Ember</h3>
+              <p class="roast-card__origin">Bajo Cumbre · 1,420 m · washed</p>
+              <p class="roast-card__notes">Molasses, walnut, and cedar smoke—slow-roasted for evening cups and milk drinks.</p>
+              <div class="roast-card__foot">
+                <span class="roast-card__price">$16</span>
+                <span class="roast-card__process">Medium-dark</span>
+              </div>
+              <button type="button" class="btn btn--ghost roast-card__select" data-select-roast>Select this roast</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="roast-detail" id="roast-detail" hidden>
+          <h3 id="roast-detail-title">Your roast</h3>
+          <p id="roast-detail-copy">Select a bag above to see a simple brew guide tailored to that lot.</p>
+          <p class="roast-detail__brew" id="roast-detail-brew"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section producers" id="producers" aria-labelledby="producers-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section__eyebrow">People of the ridge</p>
+          <h2 class="section__title" id="producers-title">Meet the producers</h2>
+          <p class="section__lead">
+            We work with the same highland families season after season—paying for quality,
+            visiting at harvest, and printing their names on every bag.
+          </p>
+        </div>
+
+        <div class="producer-grid">
+          <article class="producer-card">
+            <svg class="producer-card__icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+              <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M14 30c4-10 7-16 10-20 3 4 6 10 10 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              <path d="M16 30h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <h3>Mara Solís</h3>
+            <p class="producer-card__place">Sierra Alta · Ridge Honey</p>
+            <p>
+              Third-generation grower who ferments honey process lots under shade cloth,
+              turning terraces of red Bourbon into fruit-forward cups with a clean line.
+            </p>
+          </article>
+
+          <article class="producer-card">
+            <svg class="producer-card__icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+              <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M12 28h24M14 32h20M16 36h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M18 28V18c0-4 3-7 6-7s6 3 6 7v10" fill="none" stroke="currentColor" stroke-width="1.75"/>
+            </svg>
+            <h3>The Ortega Collective</h3>
+            <p class="producer-card__place">Meseta Norte · Cloud Terrace</p>
+            <p>
+              Seven neighboring plots sharing a mill at 1,900 meters. Washed lots dried on raised beds
+              above the afternoon fog for jasmine-bright clarity.
+            </p>
+          </article>
+
+          <article class="producer-card">
+            <svg class="producer-card__icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+              <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M24 12v10l7 7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="24" cy="24" r="14" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+            </svg>
+            <h3>Diego &amp; Ana Ríos</h3>
+            <p class="producer-card__place">Bosque Ceniza · Ash Grove</p>
+            <p>
+              Experimenters of the valley floor who pioneered anaerobic cherry fermentation
+              for Ember &amp; Field—small tanks, long patience, vivid tropical cups.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="terrain terrain--dark" aria-hidden="true">
+      <svg viewBox="0 0 1200 48" preserveAspectRatio="none">
+        <path fill="currentColor" d="M0 0v20c80 18 160 18 240 0s160-18 240 0 160 18 240 0 160-18 240 0 160 18 240 0V0z" opacity="0.12"/>
+      </svg>
+    </div>
+
+    <section class="section ritual" id="ritual" aria-labelledby="ritual-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section__eyebrow">How a lot becomes a cup</p>
+          <h2 class="section__title" id="ritual-title">The field-to-ember ritual</h2>
+          <p class="section__lead">
+            Four deliberate steps. No shortcuts that erase place. No roast profile that flattens the harvest.
+          </p>
+        </div>
+
+        <ol class="steps">
+          <li class="step">
+            <h3>Pick ripe</h3>
+            <p>Only deep-red cherry, hand-sorted on the slope the morning it is picked.</p>
+          </li>
+          <li class="step">
+            <h3>Dry in place</h3>
+            <p>Raised beds and patios beside the field so the weather of the ridge stays in the seed.</p>
+          </li>
+          <li class="step">
+            <h3>Roast slow</h3>
+            <p>Small drum loads, extended development, cooled before the sweetness turns to ash.</p>
+          </li>
+          <li class="step">
+            <h3>Cup &amp; name</h3>
+            <p>We taste, name the field, bag within days, and ship while the roast still sings.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="cta-band" aria-labelledby="cta-title">
+      <div class="wrap cta-band__inner">
+        <div>
+          <h2 id="cta-title">Start with the season on the table</h2>
+          <p>
+            Choose a roast that matches your brew, meet the people who grew it,
+            and keep a little highland fire in your morning.
+          </p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#roasts">Find your roast</a>
+          <a class="btn btn--secondary" href="#producers">Meet the producers</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="site-footer__inner">
+        <div>
+          <a class="logo" href="#top">
+            <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+              <rect width="32" height="32" rx="6" fill="#f4efe6"/>
+              <path d="M8 22c2-6 4.5-10 8-14 3.5 4 6 8 8 14" fill="none" stroke="#c45c2a" stroke-width="2" stroke-linecap="round"/>
+              <path d="M10 22h12" stroke="#3d4a2e" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="16" cy="11" r="1.6" fill="#8b3518"/>
+            </svg>
+            <span>Ember &amp; Field</span>
+          </a>
+          <p>Seasonal coffee traced from highland farms to small-batch roasts and the rituals they become.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="#story">Story</a>
+          <a href="#roasts">Roasts</a>
+          <a href="#producers">Producers</a>
+          <a href="#ritual">Ritual</a>
+        </nav>
+      </div>
+      <div class="site-footer__base">
+        <span>Ember &amp; Field · Small-batch coffee</span>
+        <span>Roasted slowly. Remembered vividly.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

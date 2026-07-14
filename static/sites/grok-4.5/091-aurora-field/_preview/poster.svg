@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Aurora Field — A darker sky. A clearer universe.">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#03080e"/>
+      <stop offset="45%" stop-color="#08141c"/>
+      <stop offset="100%" stop-color="#0a1816"/>
+    </linearGradient>
+    <linearGradient id="aurora1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3ecf9a" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#3ecf9a" stop-opacity="0.55"/>
+      <stop offset="55%" stop-color="#6b8fd4" stop-opacity="0.4"/>
+      <stop offset="80%" stop-color="#7a5cad" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#3ecf9a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="aurora2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5fd4a4" stop-opacity="0"/>
+      <stop offset="35%" stop-color="#5fd4a4" stop-opacity="0.45"/>
+      <stop offset="70%" stop-color="#4a7a9a" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#5fd4a4" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ridge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#152a28"/>
+      <stop offset="100%" stop-color="#070f12"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="42%" r="45%">
+      <stop offset="0%" stop-color="#2a6b58" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#061018" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-20%" y="-40%" width="140%" height="180%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#sky)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- Stars -->
+  <g fill="#d8ece4">
+    <circle cx="90" cy="70" r="1.4" opacity="0.9"/>
+    <circle cx="160" cy="120" r="1" opacity="0.7"/>
+    <circle cx="240" cy="55" r="1.6" opacity="0.95"/>
+    <circle cx="320" cy="140" r="0.9" opacity="0.65"/>
+    <circle cx="410" cy="80" r="1.3" opacity="0.85"/>
+    <circle cx="500" cy="45" r="1.1" opacity="0.75"/>
+    <circle cx="580" cy="110" r="1.5" opacity="0.9"/>
+    <circle cx="670" cy="60" r="1" opacity="0.7"/>
+    <circle cx="760" cy="95" r="1.7" opacity="0.95"/>
+    <circle cx="850" cy="40" r="1.2" opacity="0.8"/>
+    <circle cx="940" cy="130" r="1" opacity="0.7"/>
+    <circle cx="1020" cy="70" r="1.4" opacity="0.88"/>
+    <circle cx="1100" cy="150" r="0.9" opacity="0.6"/>
+    <circle cx="180" cy="200" r="1.1" opacity="0.75"/>
+    <circle cx="360" cy="220" r="0.8" opacity="0.55"/>
+    <circle cx="640" cy="180" r="1.3" opacity="0.8"/>
+    <circle cx="880" cy="200" r="1" opacity="0.65"/>
+    <circle cx="1050" cy="240" r="1.2" opacity="0.78"/>
+    <circle cx="120" cy="280" r="0.9" opacity="0.55"/>
+    <circle cx="450" cy="260" r="1.1" opacity="0.7"/>
+    <circle cx="720" cy="250" r="0.8" opacity="0.5"/>
+    <circle cx="980" cy="280" r="1.3" opacity="0.75"/>
+    <!-- bright stars with cross -->
+    <g opacity="0.9">
+      <circle cx="300" cy="100" r="2.2" fill="#f0faf6"/>
+      <path d="M300 92v16M292 100h16" stroke="#a8e0c8" stroke-width="0.8" opacity="0.6"/>
+    </g>
+    <g opacity="0.85">
+      <circle cx="900" cy="90" r="2" fill="#f0faf6"/>
+      <path d="M900 83v14M893 90h14" stroke="#a8d0e0" stroke-width="0.8" opacity="0.55"/>
+    </g>
+  </g>
+
+  <!-- Aurora bands -->
+  <g filter="url(#soft)" opacity="0.9">
+    <path d="M-40 280 C200 160, 380 320, 560 220 S900 140, 1240 260 L1240 420 C980 340, 760 420, 560 360 S180 400, -40 320 Z" fill="url(#aurora1)"/>
+    <path d="M-40 340 C220 250, 420 380, 640 300 S980 240, 1240 340 L1240 460 C1000 400, 780 460, 560 420 S160 460, -40 380 Z" fill="url(#aurora2)" opacity="0.85"/>
+  </g>
+  <!-- sharper aurora ribbons -->
+  <path d="M80 300 C260 220, 400 310, 540 250 S820 210, 1120 300" fill="none" stroke="#5fd4a4" stroke-width="3" opacity="0.35" stroke-linecap="round"/>
+  <path d="M120 340 C300 280, 460 360, 620 300 S900 270, 1100 350" fill="none" stroke="#7a9fd4" stroke-width="2.2" opacity="0.28" stroke-linecap="round"/>
+
+  <!-- Ridge / ground -->
+  <path d="M0 620 C160 580, 280 560, 420 575 S680 640, 820 600 S1040 540, 1200 570 L1200 900 L0 900 Z" fill="url(#ridge)"/>
+  <path d="M0 660 C200 630, 360 610, 500 630 S780 690, 940 650 S1120 620, 1200 640 L1200 900 L0 900 Z" fill="#061014" opacity="0.75"/>
+
+  <!-- Observatory domes -->
+  <g>
+    <!-- main dome -->
+    <ellipse cx="480" cy="590" rx="78" ry="20" fill="#050c10" opacity="0.7"/>
+    <path d="M402 590 A78 78 0 0 1 558 590" fill="#1a2e32" stroke="#3d6a62" stroke-width="2.5"/>
+    <rect x="462" y="582" width="36" height="14" rx="2" fill="#243840"/>
+    <line x1="480" y1="512" x2="480" y2="492" stroke="#5a8a7a" stroke-width="2.5"/>
+    <circle cx="480" cy="488" r="4" fill="#5fd4a4" opacity="0.7"/>
+    <!-- secondary dome -->
+    <ellipse cx="620" cy="610" rx="48" ry="13" fill="#050c10" opacity="0.65"/>
+    <path d="M572 610 A48 48 0 0 1 668 610" fill="#15282c" stroke="#3d6a62" stroke-width="2"/>
+    <rect x="608" y="604" width="24" height="10" rx="2" fill="#243840"/>
+    <!-- residence silhouettes -->
+    <g fill="#101e22" stroke="#2f524c" stroke-width="1.5">
+      <rect x="760" y="590" width="90" height="48" rx="4"/>
+      <rect x="860" y="600" width="60" height="38" rx="4"/>
+      <rect x="930" y="595" width="48" height="43" rx="4"/>
+    </g>
+    <!-- red path lights -->
+    <g fill="#c45c4a">
+      <circle cx="700" cy="625" r="3.5" opacity="0.85"/>
+      <circle cx="730" cy="622" r="3" opacity="0.75"/>
+      <circle cx="755" cy="628" r="3.2" opacity="0.8"/>
+    </g>
+  </g>
+
+  <!-- Logo mark -->
+  <g transform="translate(90, 120)">
+    <circle cx="36" cy="36" r="34" fill="none" stroke="#3d6b5a" stroke-width="2" opacity="0.7"/>
+    <path d="M8 50 C20 26, 30 18, 36 34 C42 18, 52 26, 64 50" fill="none" stroke="#5fd4a4" stroke-width="2.8" stroke-linecap="round"/>
+    <circle cx="36" cy="22" r="3.2" fill="#e8f4ef"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="90" y="240" fill="#6fe0b0" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="22" letter-spacing="6" font-weight="600">LATITUDE 64.1466° N</text>
+  <text x="90" y="340" fill="#f2faf6" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="96" font-weight="700" letter-spacing="-2">Aurora Field</text>
+  <text x="90" y="410" fill="#5fd4a4" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="36" font-weight="500">A darker sky. A clearer universe.</text>
+  <text x="90" y="470" fill="#9bb0a8" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="24">Remote observatory · Residencies · Public nights</text>
+
+  <!-- Bottom bar accent -->
+  <rect x="90" y="780" width="120" height="4" rx="2" fill="#5fd4a4"/>
+  <text x="90" y="820" fill="#6a8278" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="18" letter-spacing="2">BORTLE 1–2 · NORTHERN SKIES</text>
+</svg>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none';">
+  <title>Monolith Security — Nothing gets through.</title>
+  <meta name="description" content="Adaptive infrastructure protecting critical systems without slowing the people who run them.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Monolith Security home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect x="8" y="3" width="12" height="22" rx="1.5" fill="currentColor"/>
+            <rect x="4" y="9" width="4" height="12" rx="1" fill="currentColor" opacity="0.55"/>
+            <rect x="20" y="9" width="4" height="12" rx="1" fill="currentColor" opacity="0.55"/>
+          </svg>
+        </span>
+        <span class="brand-text">Monolith<span class="brand-dot">.</span></span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary">
+        <a href="#platform">Platform</a>
+        <a href="#approach">Approach</a>
+        <a href="#research">Research</a>
+        <a href="#trust">Trust</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-ghost btn-sm" href="#research">Threat research</a>
+        <a class="btn btn-primary btn-sm" href="#contact">Secure your stack</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <nav aria-label="Mobile">
+        <a href="#platform">Platform</a>
+        <a href="#approach">Approach</a>
+        <a href="#research">Research</a>
+        <a href="#trust">Trust</a>
+        <a href="#contact" class="btn btn-primary">Secure your stack</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="shell hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Zero-trust infrastructure</p>
+          <h1 id="hero-title">Nothing gets through.</h1>
+          <p class="hero-lede">Adaptive infrastructure protecting critical systems without slowing the people who run them. Monolith is the immovable layer between your operators and the noise.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#contact">Secure your stack</a>
+            <a class="btn btn-secondary" href="#research">View threat research</a>
+          </div>
+          <dl class="hero-metrics">
+            <div>
+              <dt>Mean block latency</dt>
+              <dd>&lt; 4&nbsp;ms</dd>
+            </div>
+            <div>
+              <dt>Policy enforcement</dt>
+              <dd>100%</dd>
+            </div>
+            <div>
+              <dt>Uptime (rolling)</dt>
+              <dd>99.995%</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="monolith-stage">
+            <div class="monolith-glow"></div>
+            <div class="monolith-slab slab-a"></div>
+            <div class="monolith-slab slab-b"></div>
+            <div class="monolith-slab slab-c"></div>
+            <div class="scan-line"></div>
+            <div class="signal-panel">
+              <div class="signal-row">
+                <span class="signal-label">PERIMETER</span>
+                <span class="signal-val ok">SEALED</span>
+              </div>
+              <div class="signal-row">
+                <span class="signal-label">IDENTITY</span>
+                <span class="signal-val ok">VERIFIED</span>
+              </div>
+              <div class="signal-row">
+                <span class="signal-label">LATERAL</span>
+                <span class="signal-val ok">DENIED</span>
+              </div>
+              <div class="signal-row">
+                <span class="signal-label">PAYLOAD</span>
+                <span class="signal-val warn">SCANNING</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="logos-strip" aria-label="Operating environments">
+      <div class="shell">
+        <p class="strip-label">Built for environments that cannot fail</p>
+        <ul class="logo-list">
+          <li>Critical infrastructure</li>
+          <li>Financial networks</li>
+          <li>Healthcare systems</li>
+          <li>Defense supply chains</li>
+          <li>Sovereign cloud</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section platform" id="platform" aria-labelledby="platform-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Platform</p>
+          <h2 id="platform-title">One continuous control plane</h2>
+          <p class="section-lede">Monolith unifies identity, network, and workload policy so every request is authenticated, authorized, and observed—without bolting three products together.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M16 3L5 8v7c0 7.2 4.6 12.4 11 14 6.4-1.6 11-6.8 11-14V8L16 3z" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M11 16l3.2 3.2L21 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Zero-trust by default</h3>
+            <p>No implicit trust between users, devices, services, or segments. Every session is continuously evaluated against live risk signals.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <rect x="4" y="6" width="24" height="20" rx="2" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M4 12h24M12 12v14M20 12v14" stroke="currentColor" stroke-width="1.6"/>
+              </svg>
+            </div>
+            <h3>Adaptive microsegmentation</h3>
+            <p>Policy follows workloads as they scale. Lateral movement collapses because the network itself refuses unapproved paths.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M16 9v7l5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Operator-speed response</h3>
+            <p>Containment actions land in milliseconds. Runbooks and automated playbooks keep humans in control without waiting on ticket queues.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M6 22V10l10-5 10 5v12l-10 5-10-5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                <path d="M16 13v10M11 16h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Cryptographic integrity</h3>
+            <p>Workload attestation and signed policy ensure only verified binaries and configurations ever receive production access.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section approach" id="approach" aria-labelledby="approach-title">
+      <div class="shell approach-inner">
+        <div class="approach-copy">
+          <p class="eyebrow">Approach</p>
+          <h2 id="approach-title">Solid where it counts. Invisible where it should be.</h2>
+          <p class="section-lede">Security that fights operators loses. Monolith sits beneath the tools your teams already use—enforcing intent, not inventing friction.</p>
+          <ol class="steps">
+            <li>
+              <span class="step-num">01</span>
+              <div>
+                <h3>Map the real surface</h3>
+                <p>Discover identities, services, and data flows as they exist today—not as architecture diagrams claim.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">02</span>
+              <div>
+                <h3>Encode intent as policy</h3>
+                <p>Translate operational need into enforceable rules with least privilege, continuous verification, and clear ownership.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">03</span>
+              <div>
+                <h3>Enforce without drag</h3>
+                <p>Inline decisions stay in the path of traffic at wire speed so protection never becomes a bottleneck.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">04</span>
+              <div>
+                <h3>Learn and harden</h3>
+                <p>Threat telemetry feeds back into policy, closing gaps before adversaries can chain them.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <aside class="policy-panel" aria-label="Example policy decision">
+          <header class="policy-header">
+            <span class="policy-title">Live policy decision</span>
+            <span class="policy-badge">ENFORCED</span>
+          </header>
+          <pre class="policy-code" tabindex="0"><code>request:
+  principal: svc.payments.api
+  resource: db.ledger.write
+  context:
+    device: attested
+    network: production-east
+    risk: 0.12
+
+decision: ALLOW
+conditions:
+  - mfa: continuous
+  - session.max: 15m
+  - anomaly: deny-on-raise</code></pre>
+          <p class="policy-note">Every decision is signed, logged, and queryable—audit without the archaeology.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section research" id="research" aria-labelledby="research-title">
+      <div class="shell">
+        <div class="section-head split">
+          <div>
+            <p class="eyebrow">Threat research</p>
+            <h2 id="research-title">What we are seeing in the field</h2>
+          </div>
+          <p class="section-lede narrow">Monolith Research tracks campaigns targeting control planes, identity fabric, and supply chains that underpin critical systems.</p>
+        </div>
+
+        <div class="research-grid">
+          <article class="research-card featured">
+            <p class="research-meta"><time datetime="2026-06-18">18 Jun 2026</time> · Advisory</p>
+            <h3>Lateral movement after token replay in multi-cloud control planes</h3>
+            <p>Adversaries are chaining short-lived credentials across federated identity bridges. Continuous session binding and device attestation cut the replay window to near zero.</p>
+            <span class="research-tag">Identity</span>
+          </article>
+
+          <article class="research-card">
+            <p class="research-meta"><time datetime="2026-05-29">29 May 2026</time> · Brief</p>
+            <h3>Supply-chain implants in signed CI artifacts</h3>
+            <p>Attestation of build provenance is no longer optional when the artifact store itself is the target.</p>
+            <span class="research-tag">Supply chain</span>
+          </article>
+
+          <article class="research-card">
+            <p class="research-meta"><time datetime="2026-04-12">12 Apr 2026</time> · Field note</p>
+            <h3>OT-adjacent VPN pivot patterns</h3>
+            <p>Operators of industrial networks face quiet reconnaissance that never triggers signature-based IDS.</p>
+            <span class="research-tag">Infrastructure</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section trust" id="trust" aria-labelledby="trust-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Trust &amp; assurance</p>
+          <h2 id="trust-title">Designed for scrutiny</h2>
+          <p class="section-lede">When downtime is not an option, proof matters as much as protection. Monolith is built to be examined, measured, and held to account.</p>
+        </div>
+
+        <div class="trust-grid">
+          <div class="trust-stat">
+            <p class="trust-num">SOC 2</p>
+            <p class="trust-label">Type II controls mapped to continuous monitoring</p>
+          </div>
+          <div class="trust-stat">
+            <p class="trust-num">ISO 27001</p>
+            <p class="trust-label">Information security management aligned to operations</p>
+          </div>
+          <div class="trust-stat">
+            <p class="trust-num">FedRAMP</p>
+            <p class="trust-label">Pathways for high-assurance public-sector workloads</p>
+          </div>
+          <div class="trust-stat">
+            <p class="trust-num">24 / 7</p>
+            <p class="trust-label">Dedicated response engineers for critical tenants</p>
+          </div>
+        </div>
+
+        <blockquote class="quote">
+          <p>“We needed a control plane that would not blink under load and would not invent work for our on-call. Monolith made zero-trust feel like infrastructure, not ceremony.”</p>
+          <footer>
+            <cite>Director of Platform Security</cite>
+            <span>National payments network</span>
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="shell contact-inner">
+        <div class="contact-copy">
+          <p class="eyebrow">Get started</p>
+          <h2 id="contact-title">Secure your stack</h2>
+          <p class="section-lede">Tell us about your environment. We will map exposure, draft an enforcement plan, and show you what “nothing gets through” looks like on your own traffic.</p>
+          <ul class="contact-points">
+            <li>Architecture review with Monolith engineers</li>
+            <li>Threat model for your highest-value systems</li>
+            <li>Pilot path with measurable block and latency targets</li>
+          </ul>
+        </div>
+
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-row">
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required placeholder="Alex Rivera">
+          </div>
+          <div class="form-row">
+            <label for="email">Work email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required placeholder="alex@company.com">
+          </div>
+          <div class="form-row">
+            <label for="company">Organization</label>
+            <input type="text" id="company" name="company" autocomplete="organization" required placeholder="Acme Systems">
+          </div>
+          <div class="form-row">
+            <label for="interest">What are you securing?</label>
+            <select id="interest" name="interest" required>
+              <option value="" disabled selected>Select a focus area</option>
+              <option value="cloud">Cloud &amp; multi-cloud control planes</option>
+              <option value="identity">Identity &amp; access fabric</option>
+              <option value="ot">Critical / industrial systems</option>
+              <option value="app">Application &amp; API perimeter</option>
+              <option value="other">Other / not sure yet</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="message">Context <span class="optional">(optional)</span></label>
+            <textarea id="message" name="message" rows="3" placeholder="Current stack, compliance pressure, timeline…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Request a briefing</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          <p class="form-fineprint">This form stays on your device—no data is transmitted. For production deployments, connect your secure intake channel.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="#top">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+              <rect x="8" y="3" width="12" height="22" rx="1.5" fill="currentColor"/>
+              <rect x="4" y="9" width="4" height="12" rx="1" fill="currentColor" opacity="0.55"/>
+              <rect x="20" y="9" width="4" height="12" rx="1" fill="currentColor" opacity="0.55"/>
+            </svg>
+          </span>
+          <span class="brand-text">Monolith<span class="brand-dot">.</span></span>
+        </a>
+        <p>Adaptive infrastructure for systems that cannot fail.</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h3>Product</h3>
+          <ul>
+            <li><a href="#platform">Platform</a></li>
+            <li><a href="#approach">Approach</a></li>
+            <li><a href="#research">Threat research</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#trust">Trust</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2026 Monolith Security. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

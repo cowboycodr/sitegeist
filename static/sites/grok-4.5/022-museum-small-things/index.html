@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="A digital museum revealing the emotional histories hidden inside the things people keep.">
+  <title>Museum of Small Things</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Museum of Small Things home">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <rect x="2" y="2" width="36" height="36" rx="10" fill="#1c1814"/>
+          <circle cx="20" cy="20" r="7.5" fill="none" stroke="#e8c4b0" stroke-width="1.6"/>
+          <circle cx="20" cy="20" r="2.2" fill="#b4532a"/>
+          <path d="M20 8.5v4.2M20 27.3v4.2M8.5 20h4.2M27.3 20h4.2" stroke="#f6f0e6" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">Museum of Small Things</span>
+          <span class="brand-sub">Open collection</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle-bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#philosophy">Philosophy</a></li>
+          <li><a href="#themes">Themes</a></li>
+          <li><a href="#submit">Submit an object</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            Open collection · 4,208 objects
+          </p>
+          <h1 id="hero-title">Ordinary objects. Extraordinary stories.</h1>
+          <p class="hero-lead">
+            A digital museum revealing the emotional histories hidden inside the things people keep—
+            keys that no longer open doors, tickets to nights that rewrote a life, stones carried for decades.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#collection">Browse the collection</a>
+            <a class="btn btn-secondary" href="#submit">Submit an object</a>
+          </div>
+          <div class="hero-meta" role="list" aria-label="Collection snapshot">
+            <div class="meta-item" role="listitem">
+              <span class="meta-value">4,208</span>
+              <span class="meta-label">Objects</span>
+            </div>
+            <div class="meta-item" role="listitem">
+              <span class="meta-value">61</span>
+              <span class="meta-label">Countries</span>
+            </div>
+            <div class="meta-item" role="listitem">
+              <span class="meta-value">12</span>
+              <span class="meta-label">Themes</span>
+            </div>
+          </div>
+        </div>
+
+        <article class="spotlight" aria-labelledby="spotlight-title">
+          <span class="spotlight-label">Now on view</span>
+          <div class="spotlight-visual" aria-hidden="true">
+            <svg viewBox="0 0 220 180" width="220" height="180" role="img">
+              <defs>
+                <linearGradient id="keyMetal" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#c9b48a"/>
+                  <stop offset="55%" stop-color="#8a7348"/>
+                  <stop offset="100%" stop-color="#5c4a2a"/>
+                </linearGradient>
+              </defs>
+              <ellipse cx="110" cy="158" rx="58" ry="10" fill="rgba(28,24,20,0.08)"/>
+              <g transform="translate(48 34) rotate(-18 62 56)">
+                <circle cx="42" cy="42" r="28" fill="none" stroke="url(#keyMetal)" stroke-width="12"/>
+                <circle cx="42" cy="42" r="12" fill="#efe5d4"/>
+                <rect x="64" y="34" width="78" height="16" rx="4" fill="url(#keyMetal)"/>
+                <rect x="118" y="50" width="10" height="18" rx="2" fill="url(#keyMetal)"/>
+                <rect x="132" y="50" width="10" height="26" rx="2" fill="url(#keyMetal)"/>
+              </g>
+            </svg>
+          </div>
+          <div class="spotlight-body">
+            <h2 class="spotlight-object" id="spotlight-title">House key, unused</h2>
+            <p class="spotlight-origin">Accession MST-1194 · Gifted 2019 · Portland</p>
+            <p class="spotlight-story">
+              Cut for an apartment never moved into. Kept on a ring with working keys as a reminder that almost-lives still leave weight in a pocket.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="collection" aria-labelledby="collection-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="section-kicker">The collection</p>
+          <h2 id="collection-title">Objects people refuse to throw away</h2>
+          <p>
+            Each entry pairs a modest thing with the private history that made it irreplaceable.
+            Filter by theme, or wander without a map.
+          </p>
+        </header>
+
+        <div class="filters" role="group" aria-label="Filter collection by theme">
+          <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" type="button" data-filter="leaving" aria-pressed="false">Leaving</button>
+          <button class="filter-btn" type="button" data-filter="love" aria-pressed="false">Love</button>
+          <button class="filter-btn" type="button" data-filter="childhood" aria-pressed="false">Childhood</button>
+          <button class="filter-btn" type="button" data-filter="ritual" aria-pressed="false">Ritual</button>
+        </div>
+        <p class="sr-only" id="filter-live" aria-live="polite"></p>
+
+        <div class="collection-grid" id="collection-grid">
+          <article class="object-card" data-category="leaving">
+            <div class="object-media tone-a" aria-hidden="true">
+              <svg viewBox="0 0 160 120" role="img">
+                <rect x="48" y="28" width="64" height="64" rx="8" fill="none" stroke="#6b6156" stroke-width="3"/>
+                <circle cx="80" cy="60" r="10" fill="#b4532a"/>
+                <path d="M80 42v8M80 70v8M62 60h8M90 60h8" stroke="#3d352c" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="object-body">
+              <p class="object-tag">Leaving</p>
+              <h3>Front-door key</h3>
+              <p class="object-meta">MST-0082 · Accra · 2007</p>
+              <p>The last object removed from a ring after the house sold. Still warm from habit, useless for entry, perfect for memory.</p>
+              <p class="object-id">Cat. leaving / metal</p>
+            </div>
+          </article>
+
+          <article class="object-card" data-category="love">
+            <div class="object-media tone-c" aria-hidden="true">
+              <svg viewBox="0 0 160 120" role="img">
+                <rect x="36" y="34" width="88" height="52" rx="4" fill="#f6f0e6" stroke="#b4532a" stroke-width="2.5"/>
+                <path d="M48 48h40M48 60h28M48 72h34" stroke="#8f3f1f" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="108" cy="72" r="8" fill="none" stroke="#b8944a" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="object-body">
+              <p class="object-tag">Love</p>
+              <h3>Concert ticket stub</h3>
+              <p class="object-meta">MST-2401 · Chicago · 1998</p>
+              <p>Folded twice to fit a wallet. The night two strangers shared a taxi home and never quite became strangers again.</p>
+              <p class="object-id">Cat. love / paper</p>
+            </div>
+          </article>
+
+          <article class="object-card" data-category="childhood">
+            <div class="object-media tone-b" aria-hidden="true">
+              <svg viewBox="0 0 160 120" role="img">
+                <circle cx="80" cy="60" r="28" fill="#5f7260"/>
+                <circle cx="70" cy="52" r="6" fill="rgba(246,240,230,0.35)"/>
+                <ellipse cx="80" cy="96" rx="34" ry="6" fill="rgba(28,24,20,0.08)"/>
+              </svg>
+            </div>
+            <div class="object-body">
+              <p class="object-tag">Childhood</p>
+              <h3>Glass marble</h3>
+              <p class="object-meta">MST-0556 · Kyoto · 1983</p>
+              <p>Found under a porch thirty years later. Still holds a swirl of green like weather trapped in glass.</p>
+              <p class="object-id">Cat. childhood / glass</p>
+            </div>
+          </article>
+
+          <article class="object-card" data-category="ritual">
+            <div class="object-media tone-d" aria-hidden="true">
+              <svg viewBox="0 0 160 120" role="img">
+                <path d="M58 78c0-18 10-36 22-44 12 8 22 26 22 44" fill="none" stroke="#8a7348" stroke-width="4" stroke-linecap="round"/>
+                <ellipse cx="80" cy="80" rx="30" ry="10" fill="#c9b48a" opacity="0.85"/>
+                <path d="M62 78c4 6 11 10 18 10s14-4 18-10" fill="none" stroke="#5c4a2a" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="object-body">
+              <p class="object-tag">Ritual</p>
+              <h3>Pocket stone</h3>
+              <p class="object-meta">MST-3110 · Cornwall · 1971</p>
+              <p>Carried every exam day, then every interview, then every hospital visit. Polished by worry into a soft oval.</p>
+              <p class="object-id">Cat. ritual / stone</p>
+            </div>
+          </article>
+
+          <article class="object-card" data-category="love">
+            <div class="object-media tone-c" aria-hidden="true">
+              <svg viewBox="0 0 160 120" role="img">
+                <path d="M52 42h56l-8 48H60L52 42z" fill="none" stroke="#b4532a" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M64 42c0-8 6-14 16-14s16 6 16 14" fill="none" stroke="#b4532a" stroke-width="3"/>
+                <circle cx="80" cy="68" r="4" fill="#b8944a"/>
+              </svg>
+            </div>
+            <div class="object-body">
+              <p class="object-tag">Love</p>
+              <h3>Thimble</h3>
+              <p class="object-meta">MST-0177 · Warsaw · 1954</p>
+              <p>Grandmother’s copper thimble, dented at the crown. Used to finish every winter coat in the family, including ones never worn again.</p>
+              <p class="object-id">Cat. love / metal</p>
+            </div>
+          </article>
+
+          <article class="object-card" data-category="leaving">
+            <div class="object-media tone-a" aria-hidden="true">
+              <svg viewBox="0 0 160 120" role="img">
+                <rect x="40" y="30" width="80" height="60" rx="3" fill="#f6f0e6" stroke="#3d352c" stroke-width="2.5"/>
+                <path d="M52 48h56M52 60h40M52 72h48" stroke="#6b6156" stroke-width="2" stroke-linecap="round"/>
+                <rect x="98" y="66" width="16" height="12" rx="1" fill="#b4532a" opacity="0.85"/>
+              </svg>
+            </div>
+            <div class="object-body">
+              <p class="object-tag">Leaving</p>
+              <h3>Library card</h3>
+              <p class="object-meta">MST-1888 · Toledo · 1991</p>
+              <p>From a branch closed in a budget cut. The barcode still scans in the mind: late fees forgiven, summers not.</p>
+              <p class="object-id">Cat. leaving / plastic</p>
+            </div>
+          </article>
+
+          <article class="object-card" data-category="childhood">
+            <div class="object-media tone-b" aria-hidden="true">
+              <svg viewBox="0 0 160 120" role="img">
+                <rect x="55" y="28" width="50" height="64" rx="6" fill="#efe5d4" stroke="#5f7260" stroke-width="2.5"/>
+                <circle cx="80" cy="52" r="12" fill="none" stroke="#5f7260" stroke-width="2"/>
+                <path d="M68 76h24M72 84h16" stroke="#6b6156" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="object-body">
+              <p class="object-tag">Childhood</p>
+              <h3>School photo</h3>
+              <p class="object-meta">MST-0903 · Manila · 2002</p>
+              <p>Wallet-sized, edges soft as cloth. The smile was coached; the freckles were not. Kept after every move.</p>
+              <p class="object-id">Cat. childhood / paper</p>
+            </div>
+          </article>
+
+          <article class="object-card" data-category="ritual">
+            <div class="object-media tone-d" aria-hidden="true">
+              <svg viewBox="0 0 160 120" role="img">
+                <path d="M70 30c-10 14-14 28-14 42 0 14 10 24 24 24s24-10 24-24c0-14-4-28-14-42" fill="none" stroke="#b8944a" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M80 40c-4 8-6 16-6 24" stroke="#c9b48a" stroke-width="2" fill="none"/>
+                <ellipse cx="80" cy="96" rx="22" ry="5" fill="rgba(28,24,20,0.08)"/>
+              </svg>
+            </div>
+            <div class="object-body">
+              <p class="object-tag">Ritual</p>
+              <h3>Birthday candle stub</h3>
+              <p class="object-meta">MST-2744 · Lisbon · 2016</p>
+              <p>Wick blackened, wax fused to a matchbox. Saved from the year the wish was for someone else’s recovery.</p>
+              <p class="object-id">Cat. ritual / wax</p>
+            </div>
+          </article>
+
+          <article class="object-card" data-category="love">
+            <div class="object-media tone-c" aria-hidden="true">
+              <svg viewBox="0 0 160 120" role="img">
+                <path d="M44 58h72" stroke="#8f3f1f" stroke-width="3" stroke-linecap="round"/>
+                <path d="M52 50l-8 16M68 48l-4 20M88 48l4 20M108 50l8 16" stroke="#b4532a" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="80" cy="58" r="5" fill="#b8944a"/>
+              </svg>
+            </div>
+            <div class="object-body">
+              <p class="object-tag">Love</p>
+              <h3>Bent paperclip</h3>
+              <p class="object-meta">MST-4012 · Berlin · 2011</p>
+              <p>Once held wedding vows in a pocket while hands shook. Straightened, bent again, never returned to office duty.</p>
+              <p class="object-id">Cat. love / metal</p>
+            </div>
+          </article>
+
+          <div class="empty-state" id="collection-empty" hidden>
+            No objects in this theme are on this page. Choose another filter.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="philosophy" aria-labelledby="philosophy-title">
+      <div class="wrap">
+        <div class="philosophy">
+          <div>
+            <p class="section-kicker">Philosophy</p>
+            <h2 id="philosophy-title">We collect what museums usually overlook</h2>
+            <p>
+              Grand halls favor crowns and canvases. We favor the lint of living: the object that looks worthless
+              until you hear why it survived every clean-out.
+            </p>
+            <p>
+              Stories are accessioned with the same care as materials. Provenance may be a kitchen drawer.
+              Significance may be a single afternoon. Both are enough.
+            </p>
+          </div>
+          <ol class="principle-list">
+            <li>
+              <span class="principle-num" aria-hidden="true">01</span>
+              <div>
+                <strong>Small scale, full dignity</strong>
+                <span>No object is too minor if a person still carries its meaning.</span>
+              </div>
+            </li>
+            <li>
+              <span class="principle-num" aria-hidden="true">02</span>
+              <div>
+                <strong>Story first, spectacle never</strong>
+                <span>We present things quietly so their histories can speak without noise.</span>
+              </div>
+            </li>
+            <li>
+              <span class="principle-num" aria-hidden="true">03</span>
+              <div>
+                <strong>Consent and care</strong>
+                <span>Contributors control how much of a life is shown beside an object.</span>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="themes" aria-labelledby="themes-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="section-kicker">Themes</p>
+          <h2 id="themes-title">How ordinary things gather meaning</h2>
+          <p>Four recurring paths through the collection—useful for browsing, not for boxing anyone in.</p>
+        </header>
+        <div class="themes">
+          <article class="theme-card">
+            <svg class="theme-icon" viewBox="0 0 40 40" aria-hidden="true">
+              <path d="M8 28L20 10l12 18H8z" fill="none" stroke="#b4532a" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M16 28v-6h8v6" fill="none" stroke="#b4532a" stroke-width="2"/>
+            </svg>
+            <h3>Leaving</h3>
+            <p>Keys, tickets, cards, and fragments kept after rooms, cities, and versions of the self were closed.</p>
+          </article>
+          <article class="theme-card">
+            <svg class="theme-icon" viewBox="0 0 40 40" aria-hidden="true">
+              <path d="M20 32s-12-7.5-12-15a6 6 0 0 1 12-2 6 6 0 0 1 12 2c0 7.5-12 15-12 15z" fill="none" stroke="#b4532a" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            <h3>Love</h3>
+            <p>Tokens of care that never needed to be expensive—only durable enough to outlast the occasion.</p>
+          </article>
+          <article class="theme-card">
+            <svg class="theme-icon" viewBox="0 0 40 40" aria-hidden="true">
+              <circle cx="20" cy="18" r="8" fill="none" stroke="#5f7260" stroke-width="2"/>
+              <path d="M10 32c2-5 7-8 10-8s8 3 10 8" fill="none" stroke="#5f7260" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <h3>Childhood</h3>
+            <p>Playthings and papers that still smell, somehow, like summer and fluorescent classrooms.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="submit" aria-labelledby="submit-title">
+      <div class="wrap">
+        <div class="submit-panel">
+          <div class="submit-copy">
+            <p class="section-kicker">Contribute</p>
+            <h2 id="submit-title">Submit an object</h2>
+            <p>
+              If something small has followed you through years—or only through one unforgettable day—
+              it may belong here. We accept photographs and stories; we do not require you to mail the object.
+            </p>
+            <ol class="submit-steps">
+              <li>
+                <span class="step-num" aria-hidden="true">1</span>
+                <span>Name the object in plain language.</span>
+              </li>
+              <li>
+                <span class="step-num" aria-hidden="true">2</span>
+                <span>Tell the story only you can tell—when you keep it, and why.</span>
+              </li>
+              <li>
+                <span class="step-num" aria-hidden="true">3</span>
+                <span>Choose a theme. Curators may suggest another before accession.</span>
+              </li>
+            </ol>
+          </div>
+
+          <form class="form-card" id="object-form" action="#" method="post">
+            <h3>Object proposal</h3>
+            <div class="field">
+              <label for="object-name">Object name</label>
+              <input id="object-name" name="object-name" type="text" autocomplete="off" required maxlength="120" placeholder="e.g. Train ticket from the last visit home">
+            </div>
+            <div class="field">
+              <label for="object-place">Place &amp; year associated</label>
+              <input id="object-place" name="object-place" type="text" autocomplete="off" required maxlength="120" placeholder="e.g. Marseille, 2014">
+            </div>
+            <div class="field">
+              <label for="object-theme">Theme</label>
+              <select id="object-theme" name="object-theme" required>
+                <option value="" selected disabled>Select a theme</option>
+                <option value="leaving">Leaving</option>
+                <option value="love">Love</option>
+                <option value="childhood">Childhood</option>
+                <option value="ritual">Ritual</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="object-story">Story</label>
+              <textarea id="object-story" name="object-story" required maxlength="2000" placeholder="What is this thing, and why does it still matter?"></textarea>
+              <p class="form-note">Stored only in this browser session for demonstration—no network request is made.</p>
+            </div>
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Submit an object</button>
+              <button class="btn btn-ghost" type="reset">Clear</button>
+            </div>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">Museum of Small Things</p>
+          <p class="footer-copy">Ordinary objects. Extraordinary stories. A culture project for the keepsakes that never make it into glass cases.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Visit</h3>
+          <ul>
+            <li><a href="#collection">Browse the collection</a></li>
+            <li><a href="#philosophy">Philosophy</a></li>
+            <li><a href="#themes">Themes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contribute</h3>
+          <ul>
+            <li><a href="#submit">Submit an object</a></li>
+            <li><a href="#top">Back to top</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> Museum of Small Things</span>
+        <span>Culture · Digital gallery · 4,208 objects on record</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

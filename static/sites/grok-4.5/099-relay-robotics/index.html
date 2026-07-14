@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; media-src 'none'; worker-src 'none'; manifest-src 'none';">
+  <meta name="description" content="Friendly autonomous robots handling indoor logistics across hospitals, hotels, and campuses.">
+  <title>Relay Robotics — Robots that work the room.</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Relay Robotics home">
+        <svg class="brand-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="10" fill="#0b1220"/>
+          <path d="M10 22V14a8 8 0 0 1 16 0v8" stroke="#2ec4b6" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="14" cy="18" r="1.6" fill="#7ee8db"/>
+          <circle cx="22" cy="18" r="1.6" fill="#7ee8db"/>
+          <path d="M12 24h12a3 3 0 0 1 3 3v1H9v-1a3 3 0 0 1 3-3z" fill="#0d9b8a"/>
+          <rect x="15.5" y="8" width="5" height="3" rx="1.2" fill="#2ec4b6"/>
+        </svg>
+        <span>Relay Robotics</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+      </button>
+
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="#product">Relay One</a>
+        <a href="#spaces">Spaces</a>
+        <a href="#how">How it works</a>
+        <a href="#ops">Operations</a>
+        <a class="nav-cta" href="#contact">Book a walkthrough</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            Autonomy for everyday spaces
+          </p>
+          <h1 id="hero-title">Robots that work the room.</h1>
+          <p class="hero-lead">
+            Friendly autonomous robots handling indoor logistics across hospitals,
+            hotels, and campuses—quietly, safely, and right on schedule.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#product">Meet Relay One</a>
+            <button class="btn btn-secondary" type="button" data-open-modal>Watch it work</button>
+          </div>
+          <div class="hero-meta" aria-label="Key figures">
+            <div class="meta-item">
+              <strong>2.4M+</strong>
+              <span>deliveries completed</span>
+            </div>
+            <div class="meta-item">
+              <strong>180+</strong>
+              <span>buildings live</span>
+            </div>
+            <div class="meta-item">
+              <strong>99.7%</strong>
+              <span>on-time handoffs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="robot-stage" aria-hidden="true">
+          <div class="stage-floor"></div>
+          <svg class="stage-path" viewBox="0 0 400 420" fill="none">
+            <path d="M60 320 C120 280, 160 240, 200 200 S300 120, 340 90" stroke="#0d9b8a" stroke-width="2" stroke-dasharray="6 8" opacity="0.35"/>
+            <circle cx="60" cy="320" r="5" fill="#0d9b8a" opacity="0.5"/>
+            <circle cx="340" cy="90" r="5" fill="#2ec4b6" opacity="0.6"/>
+          </svg>
+          <svg class="robot-svg" viewBox="0 0 200 260" fill="none">
+            <!-- body -->
+            <rect x="48" y="70" width="104" height="130" rx="28" fill="#1a2740"/>
+            <rect x="56" y="80" width="88" height="72" rx="20" fill="#0b1220"/>
+            <!-- face screen -->
+            <rect x="68" y="92" width="64" height="40" rx="12" fill="#12253f"/>
+            <circle cx="88" cy="112" r="5" fill="#7ee8db"/>
+            <circle cx="112" cy="112" r="5" fill="#7ee8db"/>
+            <path d="M94 124h12" stroke="#2ec4b6" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- antenna -->
+            <rect x="94" y="48" width="12" height="22" rx="6" fill="#2c3d5a"/>
+            <circle cx="100" cy="44" r="8" fill="#2ec4b6"/>
+            <circle cx="100" cy="44" r="3.5" fill="#f4f7fb"/>
+            <!-- cargo bay -->
+            <rect x="64" y="162" width="72" height="28" rx="8" fill="#0d9b8a"/>
+            <rect x="74" y="170" width="52" height="8" rx="4" fill="#7ee8db" opacity="0.7"/>
+            <!-- base / wheels -->
+            <rect x="42" y="200" width="116" height="22" rx="11" fill="#0b1220"/>
+            <circle cx="68" cy="226" r="14" fill="#2c3d5a"/>
+            <circle cx="132" cy="226" r="14" fill="#2c3d5a"/>
+            <circle cx="68" cy="226" r="6" fill="#2ec4b6"/>
+            <circle cx="132" cy="226" r="6" fill="#2ec4b6"/>
+            <!-- arms -->
+            <rect x="28" y="100" width="18" height="48" rx="9" fill="#2c3d5a"/>
+            <rect x="154" y="100" width="18" height="48" rx="9" fill="#2c3d5a"/>
+          </svg>
+          <div class="stage-badge">
+            <p>
+              <strong>Relay One · Wing B</strong>
+              Delivering pharmacy to room 412
+            </p>
+            <span class="status-pill">En route</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust">
+      <div class="wrap trust-inner">
+        <p class="trust-label">Trusted indoors by teams who move things that matter</p>
+        <ul class="trust-list" aria-label="Environment types">
+          <li>Hospitals</li>
+          <li>Hotels</li>
+          <li>Campuses</li>
+          <li>Labs</li>
+          <li>Corporate HQ</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="features" id="capabilities" aria-labelledby="features-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-label">Built for real buildings</p>
+          <h2 id="features-title">Autonomy that feels like a helpful coworker</h2>
+          <p>
+            Relay robots navigate elevators, crowded corridors, and locked doors—
+            then hand off packages with a smile on their screen.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M4 12c2-4 4-6 8-6s6 2 8 6c-2 4-4 6-8 6s-6-2-8-6z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>People-aware navigation</h3>
+            <p>
+              Lidar, cameras, and social pathing keep Relay One predictable around
+              patients, guests, and staff—never blocking a fire door or a gurney.
+            </p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect x="4" y="7" width="16" height="12" rx="3" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M8 7V5.5A2.5 2.5 0 0 1 10.5 3h3A2.5 2.5 0 0 1 16 5.5V7" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M9 13h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Secure cargo bay</h3>
+            <p>
+              PIN, badge, or app unlock for medications, linens, lab samples, and
+              room service—with a full audit trail on every handoff.
+            </p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 3v18M5 8l7-4 7 4M5 16l7 4 7-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Elevator &amp; door fluent</h3>
+            <p>
+              Native integrations with access control and elevator systems mean
+              multi-floor routes just work—no escort, no workarounds.
+            </p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M12 8v4l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Fleet orchestration</h3>
+            <p>
+              A shared ops console assigns jobs, balances battery cycles, and
+              reroutes traffic when a corridor is closed for maintenance.
+            </p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 11V8a5 5 0 0 1 10 0v3" stroke="currentColor" stroke-width="1.8"/>
+                <rect x="5" y="11" width="14" height="10" rx="3" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <h3>Privacy by design</h3>
+            <p>
+              On-device perception with retention controls fit hospital and hotel
+              policies—video never has to leave the building.
+            </p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 4l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                <path d="M9.5 12l1.8 1.8L15 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Safety certified</h3>
+            <p>
+              Indoor logistics hardened for clinical and hospitality environments,
+              with emergency stop, obstacle yield, and overnight self-docking.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="product" id="product" aria-labelledby="product-title" tabindex="-1">
+      <div class="wrap product-layout">
+        <div class="product-visual">
+          <span class="product-chip">Flagship robot</span>
+          <h3>Relay One</h3>
+          <p>The indoor courier your building already understands.</p>
+          <ul class="product-spec-list">
+            <li>
+              <strong>14 hr</strong>
+              <span>active shift life</span>
+            </li>
+            <li>
+              <strong>25 kg</strong>
+              <span>secured payload</span>
+            </li>
+            <li>
+              <strong>1.2 m/s</strong>
+              <span>cruise in hallways</span>
+            </li>
+            <li>
+              <strong>4 min</strong>
+              <span>avg. dock recharge</span>
+            </li>
+          </ul>
+        </div>
+        <div class="product-copy">
+          <p class="section-label">Meet the fleet</p>
+          <h2 id="product-title">Designed to disappear into the workday</h2>
+          <p>
+            Relay One looks approachable, sounds polite, and moves with the
+            confidence of a veteran runner who already knows every shortcut.
+            Staff request a drop-off; the robot handles the rest.
+          </p>
+          <ul class="checklist">
+            <li>
+              <span class="check-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.4 2.4 4.6-4.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Soft exterior shell with crash-safe low center of gravity
+            </li>
+            <li>
+              <span class="check-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.4 2.4 4.6-4.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Multilingual voice and screen cues for guests and patients
+            </li>
+            <li>
+              <span class="check-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.4 2.4 4.6-4.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Hot-swappable cargo inserts for food, pharmacy, or laundry
+            </li>
+            <li>
+              <span class="check-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.4 2.4 4.6-4.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Over-the-air maps so floor plans stay current overnight
+            </li>
+          </ul>
+          <a class="btn btn-primary" href="#contact">Meet Relay One</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="usecases" id="spaces" aria-labelledby="spaces-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-label">Where Relay thrives</p>
+          <h2 id="spaces-title">One platform, three everyday worlds</h2>
+          <p>
+            From sterile corridors to bustling lobbies, Relay robots keep material
+            moving so people can stay focused on care, hospitality, and learning.
+          </p>
+        </div>
+        <div class="use-grid">
+          <article class="use-card">
+            <div class="use-art" aria-hidden="true">
+              <svg viewBox="0 0 360 150" preserveAspectRatio="xMidYMid slice">
+                <rect width="360" height="150" fill="#e3f2f0"/>
+                <rect x="0" y="90" width="360" height="60" fill="#d0e8e4"/>
+                <rect x="40" y="40" width="90" height="70" rx="6" fill="#b7d9d4"/>
+                <rect x="150" y="30" width="70" height="80" rx="6" fill="#9ecbc4"/>
+                <rect x="240" y="48" width="80" height="62" rx="6" fill="#b7d9d4"/>
+                <circle cx="280" cy="115" r="18" fill="#0d9b8a"/>
+                <rect x="272" y="100" width="16" height="20" rx="4" fill="#0b1220"/>
+                <path d="M30 120h300" stroke="#0d9b8a" stroke-width="2" stroke-dasharray="4 6" opacity="0.5"/>
+              </svg>
+            </div>
+            <div class="use-card-body">
+              <h3>Hospitals</h3>
+              <p>
+                Pharmacy runs, lab samples, meal trays, and PPE restocks—delivered
+                without pulling nurses off the floor.
+              </p>
+              <span class="use-tag">Clinical logistics</span>
+            </div>
+          </article>
+          <article class="use-card">
+            <div class="use-art" aria-hidden="true">
+              <svg viewBox="0 0 360 150" preserveAspectRatio="xMidYMid slice">
+                <rect width="360" height="150" fill="#eef2f8"/>
+                <rect x="0" y="100" width="360" height="50" fill="#dce4f0"/>
+                <rect x="50" y="55" width="120" height="55" rx="4" fill="#c5d0e2"/>
+                <rect x="200" y="40" width="100" height="70" rx="4" fill="#aebcd4"/>
+                <circle cx="90" cy="118" r="16" fill="#2ec4b6"/>
+                <rect x="82" y="105" width="16" height="18" rx="4" fill="#1a2740"/>
+                <circle cx="250" cy="118" r="10" fill="#e9b44c" opacity="0.8"/>
+                <path d="M40 125 Q180 90 320 125" stroke="#5a6b84" stroke-width="1.5" opacity="0.35" fill="none"/>
+              </svg>
+            </div>
+            <div class="use-card-body">
+              <h3>Hotels</h3>
+              <p>
+                Late-night amenities, laundry returns, and room service that arrive
+                with a knock on the screen—not a staff interruption.
+              </p>
+              <span class="use-tag">Guest experience</span>
+            </div>
+          </article>
+          <article class="use-card">
+            <div class="use-art" aria-hidden="true">
+              <svg viewBox="0 0 360 150" preserveAspectRatio="xMidYMid slice">
+                <rect width="360" height="150" fill="#eaf4ef"/>
+                <rect x="0" y="95" width="360" height="55" fill="#d5e8dc"/>
+                <rect x="30" y="50" width="60" height="55" rx="4" fill="#a8cbb8"/>
+                <rect x="110" y="35" width="50" height="70" rx="4" fill="#8fbaa4"/>
+                <rect x="180" y="48" width="70" height="57" rx="4" fill="#a8cbb8"/>
+                <rect x="270" y="42" width="55" height="63" rx="4" fill="#8fbaa4"/>
+                <circle cx="200" cy="120" r="17" fill="#087a6c"/>
+                <rect x="192" y="106" width="16" height="18" rx="4" fill="#0b1220"/>
+                <circle cx="80" cy="70" r="8" fill="#e9b44c" opacity="0.5"/>
+              </svg>
+            </div>
+            <div class="use-card-body">
+              <h3>Campuses</h3>
+              <p>
+                Inter-building mail, library holds, and lab supplies across sprawling
+                indoor routes without shuttle delays.
+              </p>
+              <span class="use-tag">Campus logistics</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="how" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-label">From request to handoff</p>
+          <h2 id="how-title">How a Relay run works</h2>
+          <p>
+            No new workflows to invent. Staff place a job; the building does the
+            walking.
+          </p>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <p class="step-num">01</p>
+            <h3>Request</h3>
+            <p>
+              Scan a QR, tap the app, or push from your existing EHR / PMS. Pick a
+              cargo type and destination.
+            </p>
+          </li>
+          <li class="step">
+            <p class="step-num">02</p>
+            <h3>Dispatch</h3>
+            <p>
+              Fleet software assigns the nearest charged robot and plots a clear
+              multi-floor route around live traffic.
+            </p>
+          </li>
+          <li class="step">
+            <p class="step-num">03</p>
+            <h3>Navigate</h3>
+            <p>
+              Relay One rides elevators, waits politely, and announces itself at
+              the door with a soft chime and friendly face.
+            </p>
+          </li>
+          <li class="step">
+            <p class="step-num">04</p>
+            <h3>Handoff</h3>
+            <p>
+              Authorized unlock, digital signature, and automatic return-to-dock
+              or next job—logged end to end.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="demo" id="ops" aria-labelledby="ops-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-label">Operations console</p>
+          <h2 id="ops-title">See the whole building at a glance</h2>
+          <p>
+            Live routes, battery health, and exception alerts in one calm view—
+            built for facilities teams and clinical ops alike.
+          </p>
+        </div>
+        <div class="demo-panel">
+          <div class="demo-screen" aria-hidden="true">
+            <div class="demo-topbar">
+              <strong>Relay Ops · Live</strong>
+              <span>Wing A · Floor 3</span>
+            </div>
+            <svg class="route-map" viewBox="0 0 420 220" fill="none">
+              <rect x="8" y="8" width="404" height="204" rx="12" fill="#0a1424" stroke="rgba(255,255,255,0.08)"/>
+              <!-- rooms -->
+              <rect x="24" y="28" width="80" height="50" rx="6" fill="rgba(46,196,182,0.12)" stroke="rgba(46,196,182,0.35)"/>
+              <rect x="120" y="28" width="70" height="50" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)"/>
+              <rect x="208" y="28" width="90" height="50" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)"/>
+              <rect x="316" y="28" width="80" height="50" rx="6" fill="rgba(233,180,76,0.12)" stroke="rgba(233,180,76,0.4)"/>
+              <rect x="24" y="140" width="100" height="50" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)"/>
+              <rect x="144" y="140" width="120" height="50" rx="6" fill="rgba(13,155,138,0.15)" stroke="rgba(46,196,182,0.4)"/>
+              <rect x="284" y="140" width="112" height="50" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)"/>
+              <!-- path -->
+              <path d="M64 78 V110 H200 V140" stroke="#2ec4b6" stroke-width="2.5" stroke-dasharray="5 6" stroke-linecap="round"/>
+              <circle cx="64" cy="53" r="6" fill="#7ee8db"/>
+              <circle cx="200" cy="165" r="7" fill="#0d9b8a" stroke="#7ee8db" stroke-width="2"/>
+              <text x="34" y="58" fill="rgba(255,255,255,0.55)" font-size="10" font-family="system-ui,sans-serif">Pharmacy</text>
+              <text x="168" y="170" fill="rgba(255,255,255,0.7)" font-size="10" font-family="system-ui,sans-serif">Room 312</text>
+              <text x="330" y="58" fill="rgba(255,255,255,0.55)" font-size="10" font-family="system-ui,sans-serif">Elevator</text>
+            </svg>
+          </div>
+          <div class="demo-side">
+            <h2>Watch it work</h2>
+            <p>
+              Follow live deliveries, pause a robot mid-route, or push an urgent
+              run to the front of the queue—without leaving the desk.
+            </p>
+            <ul class="live-feed" aria-label="Sample activity feed">
+              <li class="feed-item">
+                <span class="feed-dot ok" aria-hidden="true"></span>
+                Relay-07 delivered linens to suite 918
+              </li>
+              <li class="feed-item">
+                <span class="feed-dot" aria-hidden="true"></span>
+                Relay-03 en route · pharmacy → ICU
+              </li>
+              <li class="feed-item">
+                <span class="feed-dot warn" aria-hidden="true"></span>
+                Corridor B2 temporarily closed · auto-reroute
+              </li>
+            </ul>
+            <button class="btn btn-primary" type="button" data-open-modal>Watch it work</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band" id="contact" aria-labelledby="cta-title">
+      <div class="wrap">
+        <div class="cta-card">
+          <div>
+            <h2 id="cta-title">Ready for robots that work the room?</h2>
+            <p>
+              Tell us about your building. We’ll map a pilot route, station a
+              Relay One, and show your team a full shift of indoor logistics.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-ghost" href="#product">Meet Relay One</a>
+            <button class="btn btn-primary" type="button" data-open-modal>Watch it work</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="#top">
+            <svg class="brand-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+              <rect width="36" height="36" rx="10" fill="#1a2740"/>
+              <path d="M10 22V14a8 8 0 0 1 16 0v8" stroke="#2ec4b6" stroke-width="2.2" stroke-linecap="round"/>
+              <circle cx="14" cy="18" r="1.6" fill="#7ee8db"/>
+              <circle cx="22" cy="18" r="1.6" fill="#7ee8db"/>
+              <path d="M12 24h12a3 3 0 0 1 3 3v1H9v-1a3 3 0 0 1 3-3z" fill="#0d9b8a"/>
+              <rect x="15.5" y="8" width="5" height="3" rx="1.2" fill="#2ec4b6"/>
+            </svg>
+            <span>Relay Robotics</span>
+          </a>
+          <p>Friendly autonomous robots for hospitals, hotels, and campuses.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#product">Relay One</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#ops">Operations</a>
+        </div>
+        <div class="footer-col">
+          <h4>Spaces</h4>
+          <a href="#spaces">Hospitals</a>
+          <a href="#spaces">Hotels</a>
+          <a href="#spaces">Campuses</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#how">How it works</a>
+          <a href="#contact">Contact</a>
+          <a href="#top">Home</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Relay Robotics. Indoor logistics, humanly done.</span>
+        <span>Autonomy for everyday spaces</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" id="watch-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal tabindex="-1"></div>
+    <div class="modal-dialog" role="document">
+      <button class="modal-close" type="button" data-close-modal aria-label="Close dialog">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <h2 id="modal-title">Watch Relay One work</h2>
+      <p>
+        A typical mid-shift run inside a multi-wing hospital—no video stream needed.
+        Here’s the sequence your team would see in Relay Ops.
+      </p>
+      <div class="watch-timeline">
+        <div class="watch-step">
+          <strong>0:00 · Job accepted</strong>
+          <span>Pharmacy loads sealed meds into the secure bay. PIN set for nurse station.</span>
+        </div>
+        <div class="watch-step">
+          <strong>0:42 · Elevator boarded</strong>
+          <span>Relay One holds the door etiquette: yields to people, boards last.</span>
+        </div>
+        <div class="watch-step">
+          <strong>3:18 · Corridor yield</strong>
+          <span>Gurney traffic detected—robot pauses and re-plans around Wing C.</span>
+        </div>
+        <div class="watch-step">
+          <strong>5:04 · Handoff complete</strong>
+          <span>Nurse unlocks, confirms contents, robot returns via the service loop.</span>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <a class="btn btn-primary" href="#contact" data-close-modal>Book a walkthrough</a>
+        <button class="btn btn-secondary" type="button" data-close-modal>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

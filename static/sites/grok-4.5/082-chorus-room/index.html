@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Chorus Room — Listening is better together</title>
+  <meta name="description" content="Live album rooms where friends trade discoveries and talk between tracks.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Chorus Room home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28" focusable="false">
+            <circle cx="16" cy="16" r="15" fill="currentColor" opacity=".14"/>
+            <circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="16" cy="16" r="3.2" fill="currentColor"/>
+            <path d="M22 8c3.2 2.2 5 5.2 5 8.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M24.2 6.4c4 2.8 6.3 6.6 6.3 10.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".55"/>
+          </svg>
+        </span>
+        <span class="brand-text">Chorus Room</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary">
+        <a href="#rooms">Rooms</a>
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#stories">Stories</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="btn btn-ghost" data-open-session>Start a session</button>
+        <button type="button" class="btn btn-primary" data-open-join>Join a room</button>
+        <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav-mobile" id="mobile-nav" data-mobile-nav hidden>
+      <nav aria-label="Mobile">
+        <a href="#rooms" data-nav-close>Rooms</a>
+        <a href="#how" data-nav-close>How it works</a>
+        <a href="#features" data-nav-close>Features</a>
+        <a href="#stories" data-nav-close>Stories</a>
+      </nav>
+      <div class="nav-mobile-actions">
+        <button type="button" class="btn btn-ghost" data-open-session data-nav-close>Start a session</button>
+        <button type="button" class="btn btn-primary" data-open-join data-nav-close>Join a room</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span>12,408 listeners online</span>
+          </p>
+          <h1>Listening is better together.</h1>
+          <p class="lede">
+            Live album rooms where friends trade discoveries and talk between tracks.
+            Spin a record together, queue the deep cuts, and keep the chat warm
+            until the last encore.
+          </p>
+          <div class="hero-ctas">
+            <button type="button" class="btn btn-primary btn-lg" data-open-join>Join a room</button>
+            <button type="button" class="btn btn-secondary btn-lg" data-open-session>Start a session</button>
+          </div>
+          <ul class="hero-stats" aria-label="Highlights">
+            <li>
+              <strong>48k+</strong>
+              <span>albums spun this week</span>
+            </li>
+            <li>
+              <strong>2.1k</strong>
+              <span>active rooms right now</span>
+            </li>
+            <li>
+              <strong>0 ads</strong>
+              <span>in the listening flow</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero-stage" aria-hidden="true">
+          <div class="stage-glow"></div>
+          <article class="room-card room-card-featured">
+            <div class="room-card-top">
+              <div class="vinyl">
+                <div class="vinyl-label">CR</div>
+              </div>
+              <div class="room-meta">
+                <p class="room-live"><span class="live-dot"></span> Live · Side B</p>
+                <h2>Midnight Motown Circle</h2>
+                <p class="room-host">Hosted by Mira · 14 listening</p>
+              </div>
+            </div>
+            <div class="now-playing">
+              <div class="track-art" style="--art: linear-gradient(135deg,#f0a36b,#c44b6a)"></div>
+              <div>
+                <p class="now-label">Now playing</p>
+                <p class="track-title">What’s Going On</p>
+                <p class="track-artist">Marvin Gaye · 1971</p>
+              </div>
+              <div class="wave" data-wave>
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="chat-preview">
+              <p><span class="chat-name teal">Jules</span> that horn line still ruins me</p>
+              <p><span class="chat-name coral">Mira</span> right? next up: Trouble Man OST?</p>
+              <p><span class="chat-name gold">Asha</span> already queued · stay for the fadeout</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section rooms" id="rooms">
+      <div class="shell">
+        <div class="section-head">
+          <p class="section-kicker">Open rooms</p>
+          <h2>Drop into a room mid-spin</h2>
+          <p class="section-sub">Each room plays one album start to finish. Chat unlocks between tracks so the music stays center stage.</p>
+        </div>
+
+        <div class="room-filters" role="tablist" aria-label="Room filters">
+          <button type="button" class="chip is-active" role="tab" aria-selected="true" data-filter="all">All rooms</button>
+          <button type="button" class="chip" role="tab" aria-selected="false" data-filter="friends">Friends</button>
+          <button type="button" class="chip" role="tab" aria-selected="false" data-filter="jazz">Jazz & soul</button>
+          <button type="button" class="chip" role="tab" aria-selected="false" data-filter="indie">Indie</button>
+          <button type="button" class="chip" role="tab" aria-selected="false" data-filter="late">Late night</button>
+        </div>
+
+        <div class="room-grid" data-room-grid>
+          <article class="room-tile" data-tags="friends jazz late" tabindex="0">
+            <div class="tile-art" style="--g1:#c44b6a;--g2:#2a1a4a">
+              <span class="tile-badge">Friends</span>
+            </div>
+            <div class="tile-body">
+              <h3>After-Hours Blue Note</h3>
+              <p class="tile-album">Kind of Blue · Miles Davis</p>
+              <div class="tile-foot">
+                <div class="avatars" aria-hidden="true">
+                  <span class="av a1"></span><span class="av a2"></span><span class="av a3"></span>
+                </div>
+                <span>9 listening · track 3</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="room-tile" data-tags="indie" tabindex="0">
+            <div class="tile-art" style="--g1:#3d8b7a;--g2:#1a2f4a">
+              <span class="tile-badge">Discovery</span>
+            </div>
+            <div class="tile-body">
+              <h3>Sunday Soft Launch</h3>
+              <p class="tile-album">Punisher · Phoebe Bridgers</p>
+              <div class="tile-foot">
+                <div class="avatars" aria-hidden="true">
+                  <span class="av a4"></span><span class="av a5"></span>
+                </div>
+                <span>22 listening · track 6</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="room-tile" data-tags="jazz late" tabindex="0">
+            <div class="tile-art" style="--g1:#e8b86d;--g2:#4a2040">
+              <span class="tile-badge">Late night</span>
+            </div>
+            <div class="tile-body">
+              <h3>Candlewax & Corduroy</h3>
+              <p class="tile-album">Voodoo · D’Angelo</p>
+              <div class="tile-foot">
+                <div class="avatars" aria-hidden="true">
+                  <span class="av a2"></span><span class="av a6"></span><span class="av a1"></span>
+                </div>
+                <span>17 listening · track 2</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="room-tile" data-tags="friends indie" tabindex="0">
+            <div class="tile-art" style="--g1:#6b7fd7;--g2:#1e1638">
+              <span class="tile-badge">Friends</span>
+            </div>
+            <div class="tile-body">
+              <h3>The Queue That Got Away</h3>
+              <p class="tile-album">Currents · Tame Impala</p>
+              <div class="tile-foot">
+                <div class="avatars" aria-hidden="true">
+                  <span class="av a3"></span><span class="av a4"></span>
+                </div>
+                <span>11 listening · track 5</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="room-tile" data-tags="jazz" tabindex="0">
+            <div class="tile-art" style="--g1:#d97b4a;--g2:#2c1f18">
+              <span class="tile-badge">Soul</span>
+            </div>
+            <div class="tile-body">
+              <h3>Horn Section Hang</h3>
+              <p class="tile-album">Head Hunters · Herbie Hancock</p>
+              <div class="tile-foot">
+                <div class="avatars" aria-hidden="true">
+                  <span class="av a5"></span><span class="av a6"></span><span class="av a2"></span>
+                </div>
+                <span>31 listening · track 1</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="room-tile" data-tags="late indie" tabindex="0">
+            <div class="tile-art" style="--g1:#8e6bb8;--g2:#141828">
+              <span class="tile-badge">Late night</span>
+            </div>
+            <div class="tile-body">
+              <h3>Insomnia B-Sides</h3>
+              <p class="tile-album">Blonde · Frank Ocean</p>
+              <div class="tile-foot">
+                <div class="avatars" aria-hidden="true">
+                  <span class="av a1"></span><span class="av a3"></span>
+                </div>
+                <span>28 listening · track 8</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section how" id="how">
+      <div class="shell">
+        <div class="section-head">
+          <p class="section-kicker">How it works</p>
+          <h2>One album. One room. Real talk between tracks.</h2>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num">01</span>
+            <h3>Pick or host</h3>
+            <p>Join an open room or start a session with an album you love. Invite friends with a short room code.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">02</span>
+            <h3>Listen in sync</h3>
+            <p>Everyone hears the same side, same second. No skipping chaos—just the album as the artist sequenced it.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">03</span>
+            <h3>Talk in the gaps</h3>
+            <p>Chat opens between tracks and during side breaks. Trade liner notes, stories, and what to queue next.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section features" id="features">
+      <div class="shell">
+        <div class="section-head">
+          <p class="section-kicker">Built for the hang</p>
+          <h2>Everything a listening party needs—nothing it doesn’t.</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" width="36" height="36"><path d="M8 28V12l18-4v16" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="28" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="30" cy="24" r="4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>Album-first playback</h3>
+            <p>Rooms are bound to a full album. Discoveries stay intentional instead of dissolving into endless shuffle.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" width="36" height="36"><path d="M8 26c4-8 8-12 12-12s8 4 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="28" r="2.5" fill="currentColor"/><circle cx="20" cy="16" r="2.5" fill="currentColor"/><circle cx="28" cy="28" r="2.5" fill="currentColor"/></svg>
+            </div>
+            <h3>Between-track chat</h3>
+            <p>Conversation pauses when the music starts, then reopens at natural breaks so nobody talks over the good part.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" width="36" height="36"><circle cx="14" cy="16" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="26" cy="16" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 30c1.5-5 5-8 8-8s6.5 3 8 8M18 30c1.5-5 5-8 8-8s6.5 3 8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Friend circles</h3>
+            <p>Private rooms for your crew, public rooms for curious ears. Presence is visible without becoming a performance.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" width="36" height="36"><rect x="8" y="10" width="24" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M14 18h12M14 24h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Liner-note boards</h3>
+            <p>Pin producer credits, first-listen memories, and “play this next” recommendations right on the room wall.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" width="36" height="36"><path d="M12 28V12h10l6 8v8H12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M20 12v8h8" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>Session recaps</h3>
+            <p>After the final track, save a recap of who joined, favorite moments, and the albums people queued from chat.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" width="36" height="36"><path d="M20 8v24M12 14l8-6 8 6M12 26l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Crossfade invites</h3>
+            <p>Share a room code that lands guests at the current track—no awkward “wait, where are you?” scrambling.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stories" id="stories">
+      <div class="shell">
+        <div class="section-head">
+          <p class="section-kicker">From the rooms</p>
+          <h2>What people say after the needle lifts.</h2>
+        </div>
+        <div class="story-grid">
+          <blockquote class="story">
+            <p>“We finished <em>To Pimp a Butterfly</em> as a room of strangers and somehow it felt like a house show. The chat between tracks was half jokes, half thesis statements.”</p>
+            <footer>
+              <span class="story-av" style="--c:#c44b6a" aria-hidden="true"></span>
+              <div>
+                <cite>Devon R.</cite>
+                <span>Host · West Coast Wings</span>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="story">
+            <p>“My long-distance friends and I finally have a ritual that isn’t just texting links. Same album, same time, then we argue about track five.”</p>
+            <footer>
+              <span class="story-av" style="--c:#3d8b7a" aria-hidden="true"></span>
+              <div>
+                <cite>Priya K.</cite>
+                <span>Weekly with the group chat</span>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="story">
+            <p>“I host a jazz room every Thursday. People show up early just to claim seats. Chorus Room made the listening party digital without making it loud.”</p>
+            <footer>
+              <span class="story-av" style="--c:#e8b86d" aria-hidden="true"></span>
+              <div>
+                <cite>Marcus L.</cite>
+                <span>Candlewax & Corduroy</span>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-band" id="join">
+      <div class="shell cta-inner">
+        <div>
+          <p class="section-kicker">Ready when you are</p>
+          <h2>Find a room—or open one and drop the needle.</h2>
+          <p class="section-sub">No feed to refresh. No algorithm to outsmart. Just people, an album, and the space between tracks.</p>
+        </div>
+        <div class="cta-actions">
+          <button type="button" class="btn btn-primary btn-lg" data-open-join>Join a room</button>
+          <button type="button" class="btn btn-secondary btn-lg" data-open-session>Start a session</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="24" height="24" focusable="false">
+              <circle cx="16" cy="16" r="15" fill="currentColor" opacity=".14"/>
+              <circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
+              <circle cx="16" cy="16" r="3.2" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="brand-text">Chorus Room</span>
+        </a>
+        <p>Live album rooms where friends trade discoveries and talk between tracks.</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="#rooms">Open rooms</a></li>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#features">Features</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Sessions</h3>
+          <ul>
+            <li><button type="button" class="linkish" data-open-join>Join a room</button></li>
+            <li><button type="button" class="linkish" data-open-session>Start a session</button></li>
+            <li><a href="#stories">Stories</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="shell footer-base">
+      <p>© 2026 Chorus Room. Listening is better together.</p>
+      <p class="footer-note">Demo UI · no account required on this page</p>
+    </div>
+  </footer>
+
+  <div class="toast" data-toast role="status" aria-live="polite" hidden></div>
+
+  <div class="modal" data-modal hidden>
+    <div class="modal-backdrop" data-modal-close tabindex="-1"></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title" data-modal-panel>
+      <button type="button" class="modal-close" data-modal-close aria-label="Close dialog">
+        <span aria-hidden="true">×</span>
+      </button>
+      <p class="modal-kicker" data-modal-kicker>Room access</p>
+      <h2 id="modal-title" data-modal-title>Join a room</h2>
+      <p class="modal-copy" data-modal-copy>Enter a six-character room code shared by a host, or browse open rooms below the hero.</p>
+      <form class="modal-form" data-modal-form novalidate>
+        <label class="field">
+          <span data-modal-label>Room code</span>
+          <input type="text" name="value" maxlength="24" autocomplete="off" spellcheck="false" data-modal-input required>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block" data-modal-submit>Enter room</button>
+      </form>
+      <p class="modal-hint" data-modal-hint>Tip: codes look like <code>MOTWN3</code>.</p>
+    </div>
+  </div>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

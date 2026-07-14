@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; media-src 'none'; worker-src 'none'; manifest-src 'none'">
+  <title>Raster Rush — Tiny pixels. Huge worlds.</title>
+  <meta name="description" content="An indie studio building kinetic arcade worlds with tactile mechanics and loud color.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Raster Rush home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect x="2" y="2" width="12" height="12" fill="#FF2D95"/>
+            <rect x="18" y="2" width="12" height="12" fill="#00F0FF"/>
+            <rect x="2" y="18" width="12" height="12" fill="#B8FF00"/>
+            <rect x="18" y="18" width="12" height="12" fill="#FF6B00"/>
+          </svg>
+        </span>
+        <span class="brand-text">Raster Rush</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <a href="#worlds">Worlds</a>
+        <a href="#mechanics">Mechanics</a>
+        <a href="#demo">Demo</a>
+        <a href="#crew">Crew</a>
+        <a class="nav-cta" href="#demo">Play</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="coin" aria-hidden="true"></span> Insert imagination</p>
+          <h1>
+            <span class="title-line">Tiny pixels.</span>
+            <span class="title-line accent">Huge worlds.</span>
+          </h1>
+          <p class="lede">
+            Raster Rush is an indie studio building kinetic arcade worlds with
+            tactile mechanics and loud color. Every frame hits like a high-score
+            chase through neon tunnels and chunky geometry.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#demo">
+              <span class="btn-icon" aria-hidden="true">▶</span>
+              Play the demo
+            </a>
+            <a class="btn btn-secondary" href="#crew">Meet the crew</a>
+          </div>
+          <ul class="hero-stats" aria-label="Studio highlights">
+            <li><strong>8-bit</strong><span>soul, 4K polish</span></li>
+            <li><strong>0</strong><span>load screens we like</span></li>
+            <li><strong>∞</strong><span>coin inserts of joy</span></li>
+          </ul>
+        </div>
+        <div class="hero-stage" aria-hidden="true">
+          <div class="cabinet">
+            <div class="cabinet-bezel">
+              <div class="cabinet-screen">
+                <div class="pixel-runner" id="hero-runner">
+                  <div class="runner-sky"></div>
+                  <div class="runner-track"></div>
+                  <div class="runner-sprite"></div>
+                  <div class="runner-coin c1"></div>
+                  <div class="runner-coin c2"></div>
+                  <div class="runner-coin c3"></div>
+                  <div class="runner-hud">SCORE 128400</div>
+                </div>
+              </div>
+            </div>
+            <div class="cabinet-controls">
+              <span class="cab-btn pink"></span>
+              <span class="cab-btn cyan"></span>
+              <span class="cab-stick"></span>
+            </div>
+          </div>
+          <div class="float-chip chip-a">COMBO x12</div>
+          <div class="float-chip chip-b">1-UP</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="worlds" class="section worlds">
+      <div class="shell">
+        <header class="section-head">
+          <p class="section-kicker">Level select</p>
+          <h2>Arcade worlds, cranked loud</h2>
+          <p class="section-sub">
+            Each world is a pocket universe of color-blocked geometry, snappy
+            collision, and music you can feel in your thumbs.
+          </p>
+        </header>
+        <div class="world-grid">
+          <article class="world-card world-neon">
+            <div class="world-thumb" aria-hidden="true">
+              <svg viewBox="0 0 240 140" role="img">
+                <rect width="240" height="140" fill="#12081F"/>
+                <rect x="0" y="90" width="240" height="50" fill="#1A0F2E"/>
+                <rect x="20" y="50" width="28" height="40" fill="#FF2D95"/>
+                <rect x="60" y="30" width="20" height="60" fill="#00F0FF"/>
+                <rect x="100" y="55" width="36" height="35" fill="#B8FF00"/>
+                <rect x="150" y="20" width="16" height="70" fill="#FF6B00"/>
+                <rect x="180" y="45" width="40" height="45" fill="#8B5CF6"/>
+                <rect x="0" y="100" width="240" height="4" fill="#FF2D95" opacity=".6"/>
+                <circle cx="200" cy="28" r="10" fill="#FFF5E6"/>
+              </svg>
+            </div>
+            <div class="world-body">
+              <h3>Neon Circuit</h3>
+              <p>Dash through pulse-lit corridors where every wall is a drum hit and every corner is a dare.</p>
+              <span class="world-tag">Speed / Rhythm</span>
+            </div>
+          </article>
+          <article class="world-card world-candy">
+            <div class="world-thumb" aria-hidden="true">
+              <svg viewBox="0 0 240 140" role="img">
+                <rect width="240" height="140" fill="#1A0820"/>
+                <circle cx="40" cy="100" r="30" fill="#FF2D95"/>
+                <circle cx="100" cy="80" r="40" fill="#FF6B00"/>
+                <circle cx="160" cy="95" r="25" fill="#B8FF00"/>
+                <circle cx="200" cy="70" r="35" fill="#00F0FF" opacity=".85"/>
+                <rect x="0" y="110" width="240" height="30" fill="#2A1040"/>
+                <rect x="70" y="40" width="12" height="12" fill="#FFF5E6"/>
+                <rect x="130" y="28" width="8" height="8" fill="#FFF5E6"/>
+              </svg>
+            </div>
+            <div class="world-body">
+              <h3>Candy Collapse</h3>
+              <p>Bounce, stack, and smash sugar architecture before the floor folds into confetti.</p>
+              <span class="world-tag">Physics / Puzzle</span>
+            </div>
+          </article>
+          <article class="world-card world-void">
+            <div class="world-thumb" aria-hidden="true">
+              <svg viewBox="0 0 240 140" role="img">
+                <rect width="240" height="140" fill="#050510"/>
+                <rect x="30" y="60" width="180" height="8" fill="#8B5CF6"/>
+                <rect x="50" y="40" width="8" height="50" fill="#00F0FF"/>
+                <rect x="100" y="30" width="8" height="70" fill="#FF2D95"/>
+                <rect x="150" y="45" width="8" height="45" fill="#B8FF00"/>
+                <rect x="110" y="78" width="16" height="16" fill="#FFF5E6"/>
+                <rect x="0" y="0" width="240" height="20" fill="#0A0618"/>
+                <rect x="0" y="120" width="240" height="20" fill="#0A0618"/>
+              </svg>
+            </div>
+            <div class="world-body">
+              <h3>Void Rift</h3>
+              <p>Platforms blink in and out of existence. Trust your timing more than your eyes.</p>
+              <span class="world-tag">Platform / Chaos</span>
+            </div>
+          </article>
+          <article class="world-card world-overworld">
+            <div class="world-thumb" aria-hidden="true">
+              <svg viewBox="0 0 240 140" role="img">
+                <rect width="240" height="140" fill="#0D1A12"/>
+                <rect x="0" y="90" width="240" height="50" fill="#1A3A24"/>
+                <rect x="20" y="70" width="40" height="20" fill="#2D6B3A"/>
+                <rect x="80" y="55" width="50" height="35" fill="#3A8F4A"/>
+                <rect x="150" y="65" width="60" height="25" fill="#2D6B3A"/>
+                <rect x="100" y="95" width="20" height="20" fill="#B8FF00"/>
+                <rect x="40" y="30" width="16" height="16" fill="#FF6B00"/>
+                <rect x="180" y="25" width="12" height="12" fill="#00F0FF"/>
+              </svg>
+            </div>
+            <div class="world-body">
+              <h3>Overworld Rush</h3>
+              <p>Top-down sprints across chunky maps packed with secrets, warps, and loud pickups.</p>
+              <span class="world-tag">Explore / Collect</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="mechanics" class="section mechanics">
+      <div class="shell mechanics-grid">
+        <header class="section-head">
+          <p class="section-kicker">Feel the pixels</p>
+          <h2>Tactile mechanics, no soft landings</h2>
+          <p class="section-sub">
+            We design for thumbs and keyboards that want feedback. Input is
+            immediate. Collisions thump. Combos stack until the screen sings.
+          </p>
+        </header>
+        <ul class="mech-list">
+          <li class="mech-card">
+            <span class="mech-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="48" height="48"><rect x="8" y="20" width="32" height="8" fill="#FF2D95"/><rect x="20" y="8" width="8" height="32" fill="#00F0FF"/></svg>
+            </span>
+            <h3>Frame-tight control</h3>
+            <p>Buffered jumps, coyote time, and snap-turns that reward intent without dulling risk.</p>
+          </li>
+          <li class="mech-card">
+            <span class="mech-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="48" height="48"><rect x="6" y="28" width="10" height="10" fill="#B8FF00"/><rect x="19" y="20" width="10" height="18" fill="#FF6B00"/><rect x="32" y="12" width="10" height="26" fill="#8B5CF6"/></svg>
+            </span>
+            <h3>Readable chaos</h3>
+            <p>Loud palettes and chunky silhouettes keep the heat high while your eyes stay oriented.</p>
+          </li>
+          <li class="mech-card">
+            <span class="mech-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="14" fill="none" stroke="#00F0FF" stroke-width="4"/><rect x="22" y="14" width="4" height="12" fill="#FF2D95"/><rect x="22" y="28" width="8" height="4" fill="#FF2D95"/></svg>
+            </span>
+            <h3>Score as story</h3>
+            <p>Multipliers, near-misses, and style grades turn every run into a brag-worthy narrative.</p>
+          </li>
+          <li class="mech-card">
+            <span class="mech-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="48" height="48"><rect x="10" y="10" width="12" height="12" fill="#FF2D95"/><rect x="26" y="10" width="12" height="12" fill="#00F0FF"/><rect x="10" y="26" width="12" height="12" fill="#B8FF00"/><rect x="26" y="26" width="12" height="12" fill="#FF6B00"/></svg>
+            </span>
+            <h3>Pixel-native craft</h3>
+            <p>Art and code share the same grid. Nothing floats; everything snaps with intention.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="demo" class="section demo">
+      <div class="shell">
+        <header class="section-head center">
+          <p class="section-kicker">Free play</p>
+          <h2>Play the demo</h2>
+          <p class="section-sub">
+            Rush Pixel is a one-button coin dash. Collect cyan coins, clear
+            magenta spikes, and chase a high score before the track ends.
+          </p>
+        </header>
+        <div class="demo-panel">
+          <div class="demo-hud" aria-live="polite">
+            <div class="hud-item"><span class="hud-label">Score</span> <strong id="score">0</strong></div>
+            <div class="hud-item"><span class="hud-label">Best</span> <strong id="best">0</strong></div>
+            <div class="hud-item"><span class="hud-label">Coins</span> <strong id="coins">0</strong></div>
+            <div class="hud-item status" id="status">Ready</div>
+          </div>
+          <canvas id="game" width="720" height="360" role="img" aria-label="Rush Pixel demo game canvas"></canvas>
+          <div class="demo-controls">
+            <p class="control-hint" id="control-hint">
+              Press <kbd>Space</kbd> / <kbd>↑</kbd> or tap the screen to jump. Press <kbd>Enter</kbd> to start.
+            </p>
+            <div class="demo-actions">
+              <button type="button" class="btn btn-primary" id="btn-start">Start run</button>
+              <button type="button" class="btn btn-secondary" id="btn-jump">Jump</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="crew" class="section crew">
+      <div class="shell">
+        <header class="section-head">
+          <p class="section-kicker">High-score humans</p>
+          <h2>Meet the crew</h2>
+          <p class="section-sub">
+            A tight squad of designers, coders, and pixel poets who still get
+            excited when a jump lands on frame one.
+          </p>
+        </header>
+        <div class="crew-grid">
+          <article class="crew-card">
+            <div class="crew-avatar av-a" aria-hidden="true">
+              <svg viewBox="0 0 80 80" width="80" height="80">
+                <rect width="80" height="80" fill="#1A0F2E"/>
+                <rect x="20" y="18" width="40" height="36" fill="#FF2D95"/>
+                <rect x="28" y="28" width="8" height="8" fill="#0A0612"/>
+                <rect x="44" y="28" width="8" height="8" fill="#0A0612"/>
+                <rect x="32" y="44" width="16" height="4" fill="#0A0612"/>
+                <rect x="16" y="54" width="48" height="20" fill="#00F0FF"/>
+              </svg>
+            </div>
+            <h3>Nova Park</h3>
+            <p class="role">Creative Director</p>
+            <p>Maps the loudest paths through every world and keeps the studio palette unapologetic.</p>
+          </article>
+          <article class="crew-card">
+            <div class="crew-avatar av-b" aria-hidden="true">
+              <svg viewBox="0 0 80 80" width="80" height="80">
+                <rect width="80" height="80" fill="#0D1A12"/>
+                <rect x="22" y="16" width="36" height="36" fill="#B8FF00"/>
+                <rect x="30" y="26" width="6" height="8" fill="#0A0612"/>
+                <rect x="44" y="26" width="6" height="8" fill="#0A0612"/>
+                <rect x="34" y="40" width="12" height="4" fill="#0A0612"/>
+                <rect x="18" y="52" width="44" height="22" fill="#FF6B00"/>
+              </svg>
+            </div>
+            <h3>Rex Calder</h3>
+            <p class="role">Gameplay Engineer</p>
+            <p>Obsesses over input latency, collision boxes, and the juiciest screen shake.</p>
+          </article>
+          <article class="crew-card">
+            <div class="crew-avatar av-c" aria-hidden="true">
+              <svg viewBox="0 0 80 80" width="80" height="80">
+                <rect width="80" height="80" fill="#1A0820"/>
+                <rect x="18" y="20" width="44" height="32" fill="#8B5CF6"/>
+                <rect x="28" y="30" width="8" height="8" fill="#FFF5E6"/>
+                <rect x="44" y="30" width="8" height="8" fill="#FFF5E6"/>
+                <rect x="32" y="42" width="16" height="4" fill="#00F0FF"/>
+                <rect x="14" y="54" width="52" height="20" fill="#FF2D95"/>
+              </svg>
+            </div>
+            <h3>Ivy Chen</h3>
+            <p class="role">Pixel Artist</p>
+            <p>Builds silhouettes you can read at 16px and detail you can love at 400% zoom.</p>
+          </article>
+          <article class="crew-card">
+            <div class="crew-avatar av-d" aria-hidden="true">
+              <svg viewBox="0 0 80 80" width="80" height="80">
+                <rect width="80" height="80" fill="#0A1220"/>
+                <rect x="24" y="14" width="32" height="36" fill="#00F0FF"/>
+                <rect x="30" y="24" width="6" height="8" fill="#0A0612"/>
+                <rect x="44" y="24" width="6" height="8" fill="#0A0612"/>
+                <rect x="34" y="38" width="12" height="4" fill="#0A0612"/>
+                <rect x="16" y="52" width="48" height="22" fill="#B8FF00"/>
+              </svg>
+            </div>
+            <h3>Sam Ortiz</h3>
+            <p class="role">Audio Designer</p>
+            <p>Turns coin grabs into dopamine and boss hits into bass you can aim with.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-band">
+      <div class="shell cta-inner">
+        <div>
+          <p class="section-kicker">Continue?</p>
+          <h2>Drop another coin into the future</h2>
+          <p>We ship kinetic prototypes, playtests, and full arcade worlds from a tiny studio with huge energy.</p>
+        </div>
+        <a class="btn btn-primary btn-lg" href="#demo">Play the demo</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+            <rect x="2" y="2" width="12" height="12" fill="#FF2D95"/>
+            <rect x="18" y="2" width="12" height="12" fill="#00F0FF"/>
+            <rect x="2" y="18" width="12" height="12" fill="#B8FF00"/>
+            <rect x="18" y="18" width="12" height="12" fill="#FF6B00"/>
+          </svg>
+        </span>
+        <div>
+          <strong>Raster Rush</strong>
+          <p>Tiny pixels. Huge worlds.</p>
+        </div>
+      </div>
+      <p class="footer-meta">Indie arcade studio · Built for thumbs, keyboards, and loud living rooms · Est. 2024</p>
+      <p class="footer-copy">© 2026 Raster Rush. All high scores belong to the players.</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

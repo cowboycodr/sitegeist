@@ -99,17 +99,23 @@ function reviewText(contents, path, errors) {
 	}
 }
 
-function collectLogEvidence(value, evidence) {
+function collectLogEvidence(value, evidence, seen = new Set()) {
 	if (!value || typeof value !== 'object') return;
-	if (value.type === 'web_search') evidence.webSearches += 1;
-	if (value.type === 'command_execution' && typeof value.command === 'string') {
-		evidence.commands.push(value.command);
+	if (seen.has(value)) return;
+	seen.add(value);
+	const eventIdentity = [value.type, value.name, value.tool, value.tool_name]
+		.filter((part) => typeof part === 'string')
+		.join(':')
+		.toLowerCase();
+	if (/(?:web[_-]?search|web[_-]?fetch|browser\.search)/.test(eventIdentity)) {
+		evidence.webEvents.add(JSON.stringify(value));
 	}
-	for (const nested of Object.values(value)) collectLogEvidence(nested, evidence);
+	if (typeof value.command === 'string') evidence.commands.add(value.command);
+	for (const nested of Object.values(value)) collectLogEvidence(nested, evidence, seen);
 }
 
 async function reviewWorkerLog(workerLogPath, errors) {
-	const evidence = { commands: [], webSearches: 0 };
+	const evidence = { commands: new Set(), webEvents: new Set() };
 	if (!workerLogPath) return evidence;
 	const log = await readFile(workerLogPath, 'utf8');
 	for (const line of log.split('\n')) {
@@ -120,7 +126,7 @@ async function reviewWorkerLog(workerLogPath, errors) {
 			errors.push('worker log contains a non-JSON event');
 		}
 	}
-	if (evidence.webSearches > 0) errors.push('worker attempted web search');
+	if (evidence.webEvents.size > 0) errors.push('worker attempted web search');
 	for (const command of evidence.commands) {
 		if (FORBIDDEN_COMMAND.test(command)) errors.push('worker attempted an out-of-scope command');
 	}
@@ -202,8 +208,8 @@ export async function reviewSubmission({ submission, brief, workerLog = null }) 
 		errors: [...new Set(errors)].sort(lexicalCompare),
 		warnings: [...new Set(warnings)].sort(lexicalCompare),
 		evidence: {
-			commandCount: evidence.commands.length,
-			webSearchCount: evidence.webSearches,
+			commandCount: evidence.commands.size,
+			webSearchCount: evidence.webEvents.size,
 			fileCount: totalFiles,
 			totalBytes,
 			sourceHash: validated.source.hash,

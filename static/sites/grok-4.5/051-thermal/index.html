@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="Industrial systems capture wasted heat and return it as clean, reliable energy.">
+  <title>Thermal — Heat, put to work.</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#top" aria-label="Thermal home">
+        <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <defs>
+            <linearGradient id="lg-mark" x1="8" y1="34" x2="32" y2="6" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#c46a2b"/>
+              <stop offset="0.55" stop-color="#ff6b2c"/>
+              <stop offset="1" stop-color="#f0b060"/>
+            </linearGradient>
+          </defs>
+          <rect width="40" height="40" rx="10" fill="#1c2530"/>
+          <path d="M20 8c-1.2 4.2-4.8 7-9 8.2 4.8 1 8.2 4.6 9 9.3 1-4.7 4.2-8.3 9-9.3C24.8 15 21.2 12.2 20 8z" fill="url(#lg-mark)"/>
+          <circle cx="20" cy="28.5" r="2.2" fill="#5eb3c8"/>
+        </svg>
+        <span>Thermal</span>
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="#problem">The gap</a>
+        <a href="#technology">Technology</a>
+        <a href="#process">How it works</a>
+        <a href="#impact">Impact</a>
+        <a class="nav-cta" href="#technology">See the technology</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Closing the energy loop</p>
+          <h1 id="hero-title">Heat, put to work.</h1>
+          <p class="lead">
+            Industrial systems capture wasted heat and return it as clean, reliable energy—
+            powering plants, campuses, and grids without burning more fuel.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#technology">See the technology</a>
+            <a class="btn btn-secondary" href="#impact">Read the impact report</a>
+          </div>
+          <div class="hero-stats" role="list">
+            <div class="stat" role="listitem">
+              <strong>40–70%</strong>
+              <span>of industrial energy lost as heat</span>
+            </div>
+            <div class="stat" role="listitem">
+              <strong>24/7</strong>
+              <span>recoverable baseload output</span>
+            </div>
+            <div class="stat" role="listitem">
+              <strong>0</strong>
+              <span>new combustion required</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <svg viewBox="0 0 440 440" role="img" aria-label="Abstract heat recovery diagram">
+            <defs>
+              <linearGradient id="coreGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#c46a2b"/>
+                <stop offset="50%" stop-color="#ff6b2c"/>
+                <stop offset="100%" stop-color="#f0b060"/>
+              </linearGradient>
+              <linearGradient id="coolGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3d7a8c"/>
+                <stop offset="100%" stop-color="#5eb3c8"/>
+              </linearGradient>
+              <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ff6b2c" stop-opacity="0.35"/>
+                <stop offset="55%" stop-color="#c46a2b" stop-opacity="0.08"/>
+                <stop offset="100%" stop-color="#0c0f14" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="6"/>
+              </filter>
+            </defs>
+            <circle cx="220" cy="220" r="200" fill="url(#halo)"/>
+            <circle cx="220" cy="220" r="168" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+            <circle cx="220" cy="220" r="132" fill="none" stroke="rgba(232,135,58,0.18)" stroke-width="1" stroke-dasharray="4 8"/>
+            <circle cx="220" cy="220" r="96" fill="none" stroke="rgba(94,179,200,0.22)" stroke-width="1"/>
+
+            <!-- heat exchanger coils -->
+            <g fill="none" stroke="url(#coreGrad)" stroke-width="3" stroke-linecap="round">
+              <path d="M120 280 C140 220, 160 180, 180 150"/>
+              <path d="M145 295 C165 230, 190 185, 215 155"/>
+              <path d="M170 305 C190 245, 220 195, 250 162"/>
+              <path d="M198 312 C215 255, 250 205, 285 172"/>
+            </g>
+            <g fill="none" stroke="url(#coolGrad)" stroke-width="2.5" stroke-linecap="round" opacity="0.9">
+              <path d="M280 290 C300 240, 320 200, 345 170"/>
+              <path d="M255 305 C278 250, 305 208, 335 180"/>
+              <path d="M230 315 C255 262, 290 220, 320 195"/>
+            </g>
+
+            <!-- core node -->
+            <circle cx="220" cy="200" r="36" fill="#141a22" stroke="url(#coreGrad)" stroke-width="2.5"/>
+            <path d="M220 178c-1 3.4-3.9 5.7-7.3 6.7 3.9.8 6.6 3.7 7.3 7.6.8-3.9 3.4-6.8 7.3-7.6-3.4-1-6.3-3.3-7.3-6.7z" fill="url(#coreGrad)"/>
+            <circle cx="220" cy="200" r="4" fill="#5eb3c8"/>
+
+            <!-- output ring -->
+            <circle cx="220" cy="200" r="58" fill="none" stroke="rgba(94,179,200,0.35)" stroke-width="1.5"/>
+            <circle cx="278" cy="200" r="5" fill="#5eb3c8"/>
+            <circle cx="162" cy="200" r="4" fill="#e8873a"/>
+            <circle cx="220" cy="142" r="4" fill="#f0b060"/>
+            <circle cx="220" cy="258" r="4" fill="#3d7a8c"/>
+
+            <!-- base platform -->
+            <rect x="95" y="330" width="250" height="10" rx="5" fill="#1c2530"/>
+            <rect x="120" y="345" width="200" height="6" rx="3" fill="#2a3644"/>
+            <text x="220" y="380" text-anchor="middle" fill="#8b98a8" font-family="system-ui,sans-serif" font-size="12" letter-spacing="2">HEAT → POWER</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band" id="problem" aria-labelledby="problem-title">
+      <div class="wrap">
+        <p class="eyebrow">The industrial reality</p>
+        <h2 id="problem-title">Most heat never becomes work.</h2>
+        <p class="lead" style="margin-bottom: 2rem;">
+          Furnaces, kilns, data centers, and process lines reject enormous thermal energy into air and water.
+          Thermal closes that loop—capturing residual heat before it escapes and converting it into electricity and process steam.
+        </p>
+        <div class="split">
+          <article class="split-card loss">
+            <p class="split-label">Without recovery</p>
+            <h3>Energy leaves as exhaust</h3>
+            <p>
+              High-grade and low-grade heat stream out of stacks, cooling towers, and radiator banks.
+              Plants pay twice: once for fuel, again for cooling infrastructure that only discards value.
+            </p>
+          </article>
+          <article class="split-card gain">
+            <p class="split-label">With Thermal</p>
+            <h3>Heat becomes baseload power</h3>
+            <p>
+              Modular recovery units sit on existing exhaust paths. Organic Rankine cycles, heat pumps,
+              and thermal storage turn waste streams into dispatchable, carbon-free energy on site.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="technology" aria-labelledby="tech-title">
+      <div class="wrap">
+        <div class="tech-intro">
+          <p class="eyebrow">Platform</p>
+          <h2 id="tech-title">Systems built for real plants</h2>
+          <p class="lead">
+            Engineered for continuous duty in harsh industrial environments—retrofit-friendly,
+            metered end-to-end, and sized from single lines to multi-megawatt campuses.
+          </p>
+        </div>
+        <div class="tech-grid">
+          <article class="tech-card">
+            <svg class="tech-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <rect x="6" y="10" width="36" height="28" rx="4" stroke="currentColor" stroke-width="2"/>
+              <path d="M14 30c4-8 8-12 10-16 2 4 6 8 10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="24" cy="34" r="2" fill="currentColor"/>
+            </svg>
+            <h3>Capture modules</h3>
+            <p>
+              Compact heat exchangers mate to flue gas, hot water, and process oil loops without
+              interrupting production. Alloy stacks handle 80–450°C residual streams.
+            </p>
+          </article>
+          <article class="tech-card">
+            <svg class="tech-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="2"/>
+              <path d="M24 14v10l7 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 24h4M36 24h4M24 8v4M24 36v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <h3>Conversion core</h3>
+            <p>
+              Organic Rankine and supercritical CO₂ cycles spin generators from recovered heat.
+              Smart controls track load, temperature, and grid export in real time.
+            </p>
+          </article>
+          <article class="tech-card">
+            <svg class="tech-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M10 34V14h8l4 8 4-8h8v20h-8V24l-4 8-4-8v10H10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            <h3>Thermal storage</h3>
+            <p>
+              Phase-change and sensible storage banks smooth intermittent process heat so recovery
+              stays productive through shift changes, batch cycles, and weekend turndowns.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" id="process" aria-labelledby="process-title">
+      <div class="wrap">
+        <p class="eyebrow">Deployment</p>
+        <h2 id="process-title">From waste stream to watt-hours</h2>
+        <p class="lead">
+          A clear path from audit to continuous generation—engineered to install beside live operations.
+        </p>
+        <ol class="process-steps">
+          <li class="step">
+            <h3>Map the heat</h3>
+            <p>Instrument exhaust, cooling loops, and process returns to quantify recoverable megawatts.</p>
+          </li>
+          <li class="step">
+            <h3>Size the loop</h3>
+            <p>Match capture hardware and cycle chemistry to temperature bands and duty cycles.</p>
+          </li>
+          <li class="step">
+            <h3>Integrate cleanly</h3>
+            <p>Install on bypass ducts and return headers with fail-safe isolation for plant safety.</p>
+          </li>
+          <li class="step">
+            <h3>Deliver power</h3>
+            <p>Feed site loads or export—metered, dispatchable, and reported against carbon targets.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section band" id="impact" aria-labelledby="impact-title">
+      <div class="wrap">
+        <div class="impact-panel">
+          <div class="impact-copy">
+            <p class="eyebrow">Impact report</p>
+            <h2 id="impact-title">Measured results, not projections alone</h2>
+            <p>
+              Facilities running Thermal systems convert discarded heat into firm, low-carbon energy—
+              cutting fuel spend, peak demand charges, and Scope 1–2 emissions in parallel.
+            </p>
+            <ul class="impact-list">
+              <li>
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M6 10.5l2.5 2.5L14 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Average 12–28% site energy cost reduction after full integration</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M6 10.5l2.5 2.5L14 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Continuous generation aligned with industrial baseload profiles</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M6 10.5l2.5 2.5L14 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Auditable carbon accounting for ESG and regulatory reporting</span>
+              </li>
+            </ul>
+          </div>
+          <div class="impact-metrics" aria-label="Key impact metrics">
+            <div class="metric">
+              <strong>2.4 GW</strong>
+              <span>thermal capacity under management</span>
+            </div>
+            <div class="metric">
+              <strong>1.1 Mt</strong>
+              <span>CO₂e avoided annually across fleet</span>
+            </div>
+            <div class="metric">
+              <strong>96.8%</strong>
+              <span>average system uptime last 12 months</span>
+            </div>
+            <div class="metric">
+              <strong>&lt;18 mo</strong>
+              <span>typical simple payback for mid-grade heat</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-section" id="cta" aria-labelledby="cta-title">
+      <div class="wrap">
+        <div class="cta-box">
+          <p class="eyebrow">Next step</p>
+          <h2 id="cta-title">Put your wasted heat on the balance sheet</h2>
+          <p class="lead">
+            Review the technology stack, then explore the impact report for deployment benchmarks
+            across metals, chemicals, food processing, and data infrastructure.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#technology">See the technology</a>
+            <a class="btn btn-secondary" href="#impact">Read the impact report</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <rect width="40" height="40" rx="10" fill="#1c2530"/>
+          <path d="M20 8c-1.2 4.2-4.8 7-9 8.2 4.8 1 8.2 4.6 9 9.3 1-4.7 4.2-8.3 9-9.3C24.8 15 21.2 12.2 20 8z" fill="#e8873a"/>
+          <circle cx="20" cy="28.5" r="2.2" fill="#5eb3c8"/>
+        </svg>
+        <span>Thermal</span>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#problem">The gap</a>
+        <a href="#technology">Technology</a>
+        <a href="#process">How it works</a>
+        <a href="#impact">Impact</a>
+      </nav>
+      <p class="footer-meta">Climate technology · Heat recovery systems</p>
+    </div>
+  </footer>
+
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>
