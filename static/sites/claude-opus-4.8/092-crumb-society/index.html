@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Crumb Society — Loud pastry. Quiet mornings.</title>
+<meta name="description" content="Heritage grain, cultured butter, and seasonal fruit laminated into daily rituals.">
+<link rel="stylesheet" href="styles.css">
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#board">Skip to today's bake</a>
+
+<header class="site" role="banner">
+  <a class="brand" href="#top" aria-label="Crumb Society home">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 48 48" width="34" height="34" focusable="false">
+        <path d="M8 30c0-9 7-16 16-16s16 7 16 16c0 3-3 5-6 4l-4-2-4 3-4-3-4 2c-3 1-6-1-6-4z" fill="currentColor"/>
+        <circle cx="17" cy="27" r="1.7" fill="#402216"/>
+        <circle cx="24" cy="24" r="1.7" fill="#402216"/>
+        <circle cx="31" cy="27" r="1.7" fill="#402216"/>
+      </svg>
+    </span>
+    <span class="brand-name">Crumb<em>Society</em></span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    <a href="#board">Today's bake</a>
+    <a href="#craft">The craft</a>
+    <a href="#box">Order a box</a>
+    <a href="#visit">Visit</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero" id="hero">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Fresh from 7:00</p>
+      <h1>Loud pastry.<br><span class="quiet">Quiet mornings.</span></h1>
+      <p class="lede">Heritage grain, cultured butter, and seasonal fruit laminated into daily rituals. We proof slow, bake bold, and sell out by noon.</p>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="#board">See today's bake</a>
+        <a class="btn btn-ghost" href="#box">Order a box</a>
+      </div>
+      <dl class="stats">
+        <div><dt>Grain milled</dt><dd>weekly</dd></div>
+        <div><dt>Butter culture</dt><dd>72 hrs</dd></div>
+        <div><dt>Loaves daily</dt><dd>240</dd></div>
+      </dl>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="layers">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p class="art-tag">No.&nbsp;07 — Laminated</p>
+    </div>
+  </section>
+
+  <section class="board" id="board" aria-labelledby="board-h">
+    <div class="section-head">
+      <h2 id="board-h">Today's bake</h2>
+      <p>Thursday, warm from the deck. Tap a category to narrow the counter.</p>
+    </div>
+    <div class="filters" role="tablist" aria-label="Filter today's bake">
+      <button role="tab" class="chip is-on" aria-selected="true" data-filter="all">Everything</button>
+      <button role="tab" class="chip" aria-selected="false" data-filter="viennoiserie">Viennoiserie</button>
+      <button role="tab" class="chip" aria-selected="false" data-filter="loaves">Loaves</button>
+      <button role="tab" class="chip" aria-selected="false" data-filter="sweet">Sweet</button>
+    </div>
+    <ul class="menu" id="menu"></ul>
+  </section>
+
+  <section class="craft" id="craft" aria-labelledby="craft-h">
+    <div class="section-head">
+      <h2 id="craft-h">The craft</h2>
+      <p>Three things we refuse to rush.</p>
+    </div>
+    <div class="craft-grid">
+      <article class="craft-card">
+        <span class="num">01</span>
+        <h3>Heritage grain</h3>
+        <p>Red fife and rye stone-milled in small lots, so every crumb keeps its nutty, mineral edge.</p>
+      </article>
+      <article class="craft-card">
+        <span class="num">02</span>
+        <h3>Cultured butter</h3>
+        <p>Cream soured for three days, then churned and folded into 27 whisper-thin layers.</p>
+      </article>
+      <article class="craft-card">
+        <span class="num">03</span>
+        <h3>Seasonal fruit</h3>
+        <p>Whatever the orchard trucks in that morning, roasted down to a jam with backbone.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="box" id="box" aria-labelledby="box-h">
+    <div class="box-inner">
+      <div class="section-head">
+        <h2 id="box-h">Order a box</h2>
+        <p>Build a mixed dozen for pickup. No account, no rush — just tell us the count.</p>
+      </div>
+      <div class="builder">
+        <ul class="builder-list" id="builder"></ul>
+        <div class="builder-summary" aria-live="polite">
+          <p class="tally"><span id="count">0</span> of 12 in the box</p>
+          <p class="price">Est. <span id="price">$0</span></p>
+          <button class="btn btn-solid" id="reset" type="button">Clear box</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit" aria-labelledby="visit-h">
+    <div class="section-head">
+      <h2 id="visit-h">Visit the counter</h2>
+      <p>Corner of Mill &amp; Rye. Come before the loaves walk out the door.</p>
+    </div>
+    <div class="visit-grid">
+      <div class="hours">
+        <h3>Hours</h3>
+        <ul>
+          <li><span>Tue – Fri</span><span>7:00 – 14:00</span></li>
+          <li><span>Sat &amp; Sun</span><span>7:00 – 15:00</span></li>
+          <li><span>Monday</span><span>Milling &amp; rest</span></li>
+        </ul>
+      </div>
+      <div class="find">
+        <h3>Find us</h3>
+        <p>118 Mill Street<br>Old Grain Quarter</p>
+        <p>Ring the bell for the wholesale hatch.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <p class="foot-brand">Crumb<em>Society</em></p>
+  <p>Loud pastry. Quiet mornings. Baked fresh daily since the first proof.</p>
+  <p class="fine">Sold out is a compliment. See you at 7.</p>
+</footer>
+</body>
+</html>

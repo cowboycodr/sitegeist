@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <title>Lumen Clinic — A clearer view of your health</title>
+  <meta name="description" content="Membership diagnostics that turn complex health signals into calm, actionable guidance." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%236fe0c8' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%237bc4ff'/%3E%3C/svg%3E" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="btn btn-ghost" href="#main" style="position:absolute;left:-9999px;top:auto;">Skip to content</a>
+
+  <header class="site">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Lumen Clinic home">
+        <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
+          <circle cx="17" cy="17" r="14" fill="none" stroke="#6fe0c8" stroke-width="2.4" opacity="0.85"/>
+          <circle cx="17" cy="17" r="9" fill="none" stroke="#7bc4ff" stroke-width="2.4" opacity="0.7"/>
+          <circle cx="17" cy="17" r="3.4" fill="#6fe0c8"/>
+        </svg>
+        <span>Lumen Clinic<small>Preventive Health</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#signals">Your signals</a>
+        <a href="#membership">Membership</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-primary" href="#membership">Join Lumen</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <span id="top"></span>
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Preventive care, redesigned</span>
+          <h1 id="hero-title">A clearer view of your health.</h1>
+          <p class="lede">Membership diagnostics that turn complex health signals into calm, actionable guidance — so you act early, not anxiously.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#membership">Join Lumen</a>
+            <a class="btn btn-ghost" href="#how">How it works</a>
+          </div>
+          <div class="trust">
+            <div><strong>60+</strong><span>biomarkers per visit</span></div>
+            <div><strong>2×</strong><span>full panels a year</span></div>
+            <div><strong>48 hrs</strong><span>from draw to guidance</span></div>
+          </div>
+        </div>
+
+        <div class="ring-card" aria-hidden="false">
+          <div class="ring-stage">
+            <svg viewBox="0 0 220 220" role="img" aria-label="Overall wellness index, 86 out of 100, in a healthy range">
+              <defs>
+                <linearGradient id="lumenGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#6fe0c8"/>
+                  <stop offset="1" stop-color="#7bc4ff"/>
+                </linearGradient>
+              </defs>
+              <circle class="ring-track" cx="110" cy="110" r="86"/>
+              <circle class="ring-arc" cx="110" cy="110" r="86" stroke="url(#lumenGrad)"
+                transform="rotate(-90 110 110)" stroke-dasharray="540" stroke-dashoffset="540"/>
+              <circle cx="110" cy="110" r="62" fill="none" stroke="rgba(159,190,203,0.12)" stroke-width="1.5"/>
+              <circle cx="110" cy="110" r="42" fill="none" stroke="rgba(159,190,203,0.1)" stroke-width="1.5"/>
+            </svg>
+            <div class="ring-center">
+              <div class="score" data-score>86</div>
+              <div class="score-label">Wellness index</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">How it works</span>
+          <h2 id="how-title">Three unhurried steps to a full picture.</h2>
+          <p>No frantic searching, no jargon dumps. Lumen collects the right signals and hands you a plan you can actually follow.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <div class="num">01</div>
+            <h3>One calm visit</h3>
+            <p>A single 30-minute appointment covers your blood draw, vitals, and a short conversation about what matters to you this year.</p>
+          </article>
+          <article class="step">
+            <div class="num">02</div>
+            <h3>Signals, translated</h3>
+            <p>Sixty-plus markers are grouped into four everyday themes, each with a plain-language reading — never a wall of numbers.</p>
+          </article>
+          <article class="step">
+            <div class="num">03</div>
+            <h3>A plan that fits</h3>
+            <p>You leave with two or three specific, high-leverage actions and a clear date for your next look — reviewed by a clinician.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGNALS EXPLORER -->
+    <section id="signals" aria-labelledby="signals-title">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Your signals</span>
+          <h2 id="signals-title">Explore how Lumen reads a result.</h2>
+          <p>Select a panel to see the kind of guidance members receive. Sample data, real format.</p>
+        </div>
+        <div class="explorer">
+          <div class="explorer-grid">
+            <div class="signal-list" id="signal-list" role="tablist" aria-label="Health signal panels"></div>
+            <div class="signal-detail" id="signal-detail" role="tabpanel" tabindex="0" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMBERSHIP -->
+    <section id="membership" aria-labelledby="membership-title">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Membership</span>
+          <h2 id="membership-title">Cover the essentials, or go deeper.</h2>
+          <p>Every plan includes clinician-reviewed guidance and no surprise fees. Cancel anytime.</p>
+        </div>
+        <div class="plans">
+          <article class="plan">
+            <h3>Baseline</h3>
+            <div class="price">$29<span>/mo</span></div>
+            <ul>
+              <li>One full diagnostic panel per year</li>
+              <li>Metabolic &amp; cardiovascular signals</li>
+              <li>Plain-language written summary</li>
+              <li>Secure results dashboard</li>
+            </ul>
+            <a class="btn btn-ghost" href="#cta-final">Choose Baseline</a>
+          </article>
+          <article class="plan featured">
+            <h3>Complete</h3>
+            <div class="price">$59<span>/mo</span></div>
+            <ul>
+              <li>Two full panels per year</li>
+              <li>All four signal groups &amp; wearable trends</li>
+              <li>Annual clinician video review</li>
+              <li>Personalized action plan &amp; reminders</li>
+            </ul>
+            <a class="btn btn-primary" href="#cta-final">Choose Complete</a>
+          </article>
+          <article class="plan">
+            <h3>Household</h3>
+            <div class="price">$99<span>/mo</span></div>
+            <ul>
+              <li>Everything in Complete, for two</li>
+              <li>Shared family health overview</li>
+              <li>Priority scheduling</li>
+              <li>Dedicated care coordinator</li>
+            </ul>
+            <a class="btn btn-ghost" href="#cta-final">Choose Household</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <div class="section-head" style="text-align:center;margin-inline:auto;">
+          <span class="eyebrow">Questions</span>
+          <h2 id="faq-title">Good to know before you join.</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq" open>
+            <summary>Is Lumen a replacement for my doctor?</summary>
+            <p>No — Lumen is preventive, not urgent care. We surface early signals and clear next steps, and we'll always tell you when something belongs with your physician. Members keep their existing providers.</p>
+          </details>
+          <details class="faq">
+            <summary>Where does my blood draw happen?</summary>
+            <p>At any partner lab near you, or a home visit on the Complete and Household plans. Results route back to your Lumen dashboard automatically within about 48 hours.</p>
+          </details>
+          <details class="faq">
+            <summary>Who reviews my results?</summary>
+            <p>Every panel is checked by a licensed clinician before guidance reaches you. The dashboard translates the data; a human confirms the interpretation.</p>
+          </details>
+          <details class="faq">
+            <summary>How is my data protected?</summary>
+            <p>Your records are encrypted, never sold, and yours to export or delete at any time. Sharing with a provider only happens when you choose it.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section aria-labelledby="cta-title">
+      <div class="wrap">
+        <div class="cta" id="cta-final">
+          <span class="eyebrow" style="justify-content:center;">Start today</span>
+          <h2 id="cta-title">See your health clearly.</h2>
+          <p>Join Lumen and turn your next set of results into a calm, confident plan.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#membership">Join Lumen</a>
+            <a class="btn btn-ghost" href="#how">How it works</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <div class="foot-grid">
+        <a class="brand" href="#top" aria-label="Lumen Clinic home">
+          <svg width="30" height="30" viewBox="0 0 34 34" aria-hidden="true">
+            <circle cx="17" cy="17" r="14" fill="none" stroke="#6fe0c8" stroke-width="2.4" opacity="0.85"/>
+            <circle cx="17" cy="17" r="9" fill="none" stroke="#7bc4ff" stroke-width="2.4" opacity="0.7"/>
+            <circle cx="17" cy="17" r="3.4" fill="#6fe0c8"/>
+          </svg>
+          <span>Lumen Clinic<small>A clearer view of your health</small></span>
+        </a>
+        <p>&copy; <span id="year">2026</span> Lumen Clinic</p>
+      </div>
+      <p class="foot-note">Lumen Clinic provides preventive wellness diagnostics and educational guidance. It does not diagnose, treat, or replace emergency or primary medical care. All figures shown are illustrative sample data.</p>
+    </div>
+  </footer>
+</body>
+</html>

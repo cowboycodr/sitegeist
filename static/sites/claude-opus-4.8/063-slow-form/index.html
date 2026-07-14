@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+<title>Slow Form — Made at the speed of care</title>
+<meta name="description" content="Numbered furniture shaped from local timber and designed to gather character over decades." />
+<link rel="stylesheet" href="styles.css" />
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#collection">Skip to the collection</a>
+
+<header class="site" id="top">
+  <div class="wrap bar">
+    <a class="mark" href="#top" aria-label="Slow Form, home">
+      <span class="mark__glyph" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="40" height="40" role="img" focusable="false">
+          <rect x="1.5" y="1.5" width="37" height="37" rx="7" fill="none" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M10 26c4-11 16-11 20 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M10 20c4-9 16-9 20 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".55"/>
+          <path d="M10 32c4-13 16-13 20 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".3"/>
+        </svg>
+      </span>
+      <span class="mark__word">Slow&nbsp;Form</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#collection">Collection</a>
+      <a href="#process">Making</a>
+      <a href="#timber">Timber</a>
+      <a href="#workshop">Workshop</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <p class="eyebrow">Furniture for keeping</p>
+    <h1 id="hero-title">Made at the<br /><em>speed of care.</em></h1>
+    <p class="lede">Numbered furniture shaped from local timber and designed to gather
+      character over decades. Each piece leaves the bench with a name, a number, and
+      the small marks of the hands that made it.</p>
+    <div class="cta">
+      <a class="btn btn--solid" href="#collection">View the collection</a>
+      <a class="btn btn--ghost" href="#workshop">Visit the workshop</a>
+    </div>
+    <dl class="figures" aria-label="At a glance">
+      <div><dt>1 of</dt><dd>28</dd><span>pieces a year</span></div>
+      <div><dt>Within</dt><dd>40mi</dd><span>of the bench</span></div>
+      <div><dt>Made to</dt><dd>last</dd><span>generations</span></div>
+    </dl>
+  </section>
+
+  <section class="collection wrap" id="collection" aria-labelledby="collection-title">
+    <div class="head">
+      <h2 id="collection-title">The Collection</h2>
+      <p>Four standing pieces, each in production and each individually numbered.
+        Choose a piece to read its notes.</p>
+    </div>
+
+    <ul class="grid" role="list">
+      <li>
+        <button class="piece" type="button" data-piece="oxbow"
+          aria-expanded="false" aria-controls="note-oxbow">
+          <span class="piece__no">No. 07</span>
+          <span class="piece__art" aria-hidden="true">
+            <svg viewBox="0 0 120 96" preserveAspectRatio="xMidYMid meet">
+              <rect x="6" y="30" width="108" height="10" rx="3" class="p-top"/>
+              <rect x="14" y="40" width="8" height="46" rx="2" class="p-leg"/>
+              <rect x="98" y="40" width="8" height="46" rx="2" class="p-leg"/>
+              <path d="M22 58h76" class="p-stretch"/>
+            </svg>
+          </span>
+          <span class="piece__name">Oxbow Bench</span>
+          <span class="piece__wood">Ash · oiled</span>
+        </button>
+        <div class="note" id="note-oxbow" role="region" aria-label="Oxbow Bench notes" hidden>
+          <p>A five-foot bench read from a single ash plank so the grain runs
+            unbroken from end to end. Wedged through-tenons, no metal.</p>
+        </div>
+      </li>
+      <li>
+        <button class="piece" type="button" data-piece="wren"
+          aria-expanded="false" aria-controls="note-wren">
+          <span class="piece__no">No. 12</span>
+          <span class="piece__art" aria-hidden="true">
+            <svg viewBox="0 0 120 96" preserveAspectRatio="xMidYMid meet">
+              <path d="M40 30h40l6 22H34z" class="p-top"/>
+              <rect x="42" y="52" width="7" height="34" rx="2" class="p-leg"/>
+              <rect x="71" y="52" width="7" height="34" rx="2" class="p-leg"/>
+              <path d="M40 24c0-8 40-8 40 0" class="p-stretch"/>
+            </svg>
+          </span>
+          <span class="piece__name">Wren Chair</span>
+          <span class="piece__wood">Cherry · waxed</span>
+        </button>
+        <div class="note" id="note-wren" role="region" aria-label="Wren Chair notes" hidden>
+          <p>A low dining chair with a steam-bent back that softens as it warms.
+            Cherry darkens honey-deep in the first sunny year.</p>
+        </div>
+      </li>
+      <li>
+        <button class="piece" type="button" data-piece="fallow"
+          aria-expanded="false" aria-controls="note-fallow">
+          <span class="piece__no">No. 03</span>
+          <span class="piece__art" aria-hidden="true">
+            <svg viewBox="0 0 120 96" preserveAspectRatio="xMidYMid meet">
+              <rect x="10" y="26" width="100" height="12" rx="3" class="p-top"/>
+              <rect x="18" y="38" width="9" height="48" rx="2" class="p-leg"/>
+              <rect x="93" y="38" width="9" height="48" rx="2" class="p-leg"/>
+              <path d="M27 46h66" class="p-stretch"/>
+            </svg>
+          </span>
+          <span class="piece__name">Fallow Table</span>
+          <span class="piece__wood">Oak · hardwax</span>
+        </button>
+        <div class="note" id="note-fallow" role="region" aria-label="Fallow Table notes" hidden>
+          <p>A trestle table built to be handed down. Breadboard ends let the top
+            move with the seasons; the oak keeps its own quiet log of them.</p>
+        </div>
+      </li>
+      <li>
+        <button class="piece" type="button" data-piece="ember"
+          aria-expanded="false" aria-controls="note-ember">
+          <span class="piece__no">No. 21</span>
+          <span class="piece__art" aria-hidden="true">
+            <svg viewBox="0 0 120 96" preserveAspectRatio="xMidYMid meet">
+              <rect x="34" y="20" width="52" height="60" rx="4" class="p-top"/>
+              <rect x="40" y="80" width="8" height="8" rx="2" class="p-leg"/>
+              <rect x="72" y="80" width="8" height="8" rx="2" class="p-leg"/>
+              <path d="M40 40h40M40 56h40" class="p-stretch"/>
+            </svg>
+          </span>
+          <span class="piece__name">Ember Cabinet</span>
+          <span class="piece__wood">Walnut · shellac</span>
+        </button>
+        <div class="note" id="note-ember" role="region" aria-label="Ember Cabinet notes" hidden>
+          <p>A hanging cabinet with hand-cut dovetails and doors that shut with a
+            felt-soft thud. Walnut, chosen board by board for its fire.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="process" id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="process-title">How a piece is made</h2>
+        <p>Nothing here is hurried. A single commission moves through the bench over
+          weeks, not hours.</p>
+      </div>
+      <ol class="steps" role="list">
+        <li>
+          <span class="steps__no">01</span>
+          <h3>The tree is chosen</h3>
+          <p>We walk the woodlot with the sawyer and mark standing timber by hand,
+            taking only what the forest can spare that year.</p>
+        </li>
+        <li>
+          <span class="steps__no">02</span>
+          <h3>The boards rest</h3>
+          <p>Fresh-sawn planks air-dry in the loft for two to four years until they
+            settle into a moisture the room will keep.</p>
+        </li>
+        <li>
+          <span class="steps__no">03</span>
+          <h3>The joints are cut</h3>
+          <p>Mortises, tenons and dovetails are marked from the wood itself and
+            pared to a knife line with edge tools, not jigs.</p>
+        </li>
+        <li>
+          <span class="steps__no">04</span>
+          <h3>The number is struck</h3>
+          <p>A final oiling, then a struck number and the maker's name go on the
+            underside — the start of a record only time can finish.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="timber wrap" id="timber" aria-labelledby="timber-title">
+    <div class="timber__copy">
+      <h2 id="timber-title">Local timber,<br />named at the stump</h2>
+      <p>Every board we work can be traced to a tree within forty miles of the bench.
+        Storm-fallen, thinned or gifted from a cleared hedgerow — never shipped
+        across an ocean to sit in a warehouse.</p>
+      <p>Because we know each tree, we can tell you where your table stood before it
+        was a table: the field it shaded, the winters it weathered, the grain those
+        seasons wrote into it.</p>
+      <ul class="species" role="list">
+        <li><span class="dot dot--ash"></span>Ash</li>
+        <li><span class="dot dot--oak"></span>Oak</li>
+        <li><span class="dot dot--cherry"></span>Cherry</li>
+        <li><span class="dot dot--walnut"></span>Walnut</li>
+      </ul>
+    </div>
+    <figure class="rings" aria-labelledby="rings-cap">
+      <svg viewBox="0 0 200 200" role="img" aria-label="Concentric growth rings of a felled tree">
+        <g fill="none" stroke="currentColor" stroke-width="1.6">
+          <circle cx="100" cy="100" r="12" opacity=".9"/>
+          <circle cx="99" cy="101" r="26" opacity=".8"/>
+          <circle cx="101" cy="99" r="40" opacity=".7"/>
+          <circle cx="98" cy="102" r="55" opacity=".6"/>
+          <circle cx="102" cy="98" r="70" opacity=".5"/>
+          <circle cx="100" cy="100" r="85" opacity=".4"/>
+          <circle cx="99" cy="101" r="98" opacity=".3"/>
+        </g>
+      </svg>
+      <figcaption id="rings-cap">Each ring, one year of patience.</figcaption>
+    </figure>
+  </section>
+
+  <section class="workshop" id="workshop" aria-labelledby="workshop-title">
+    <div class="wrap workshop__inner">
+      <div class="head">
+        <h2 id="workshop-title">Visit the workshop</h2>
+        <p>The bench is open by appointment on the last Saturday of each month.
+          Come smell the shavings, sit in an unfinished chair, and put your name to a
+          number that will outlast us both.</p>
+      </div>
+      <div class="workshop__card">
+        <p class="workshop__line"><span>Where</span> Millrace Lane, in the old grain barn</p>
+        <p class="workshop__line"><span>When</span> Last Saturday, 10 til 4</p>
+        <p class="workshop__line"><span>Waitlist</span> Roughly nine months, and worth it</p>
+        <a class="btn btn--solid" href="#collection">View the collection</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <p class="foot__mark">Slow&nbsp;Form</p>
+    <p class="foot__tag">Made at the speed of care.</p>
+    <p class="foot__fine">Numbered furniture from local timber · By appointment</p>
+  </div>
+</footer>
+
+</body>
+</html>

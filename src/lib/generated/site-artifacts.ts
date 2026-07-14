@@ -1,19 +1,22 @@
 import { siteArtifacts as grokArtifacts } from './grok-site-artifacts';
+import { siteArtifacts as opusArtifacts } from './opus-site-artifacts';
 import { siteArtifacts as solArtifacts } from './sol-site-artifacts';
 import type { SiteArtifact } from './sol-site-artifacts';
 
 export type { SiteArtifact } from './sol-site-artifacts';
 
-export const benchmarkModels = ['5.6 Sol', 'Grok 4.5'] as const;
+export const benchmarkModels = ['5.6 Sol', 'Opus 4.8', 'Grok 4.5'] as const;
 export type BenchmarkModel = (typeof benchmarkModels)[number];
 
 export const siteArtifactsByModel: Record<BenchmarkModel, SiteArtifact[]> = {
 	'5.6 Sol': solArtifacts,
+	'Opus 4.8': opusArtifacts,
 	'Grok 4.5': grokArtifacts
 };
 
 export const siteArtifactByModel: Record<BenchmarkModel, Map<string, SiteArtifact>> = {
 	'5.6 Sol': new Map(solArtifacts.map((artifact) => [artifact.slug, artifact])),
+	'Opus 4.8': new Map(opusArtifacts.map((artifact) => [artifact.slug, artifact])),
 	'Grok 4.5': new Map(grokArtifacts.map((artifact) => [artifact.slug, artifact]))
 };
 

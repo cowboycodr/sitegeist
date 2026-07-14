@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Plane Object — Furniture with nothing to hide">
+  <defs>
+    <pattern id="p-grain" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(90)">
+      <rect width="7" height="7" fill="#e7d9bd"/>
+      <path d="M0 0 H7" stroke="#c7ac7c" stroke-width="0.7" opacity="0.6"/>
+    </pattern>
+    <pattern id="p-dots" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1.5" fill="#d7cfbf"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="900" fill="#f4f1ea"/>
+  <rect width="1200" height="900" fill="url(#p-dots)"/>
+
+  <!-- top rule + eyebrow -->
+  <g font-family="Consolas,'SFMono-Regular',monospace">
+    <line x1="80" y1="120" x2="1120" y2="120" stroke="#17110c" stroke-width="2"/>
+    <text x="80" y="105" font-size="24" letter-spacing="8" fill="#a8341f">OBJECTS FOR MODERN ROOMS</text>
+    <text x="1120" y="105" font-size="24" letter-spacing="4" fill="#4a4238" text-anchor="end">PO — 01</text>
+  </g>
+
+  <!-- wordmark -->
+  <g font-family="'Helvetica Neue',Arial,sans-serif" fill="#17110c">
+    <text x="76" y="330" font-size="150" font-weight="700" letter-spacing="-6">Plane<tspan fill="#d9482f">.</tspan></text>
+    <text x="76" y="470" font-size="150" font-weight="700" letter-spacing="-6">Object</text>
+    <text x="80" y="560" font-size="34" font-weight="500" fill="#4a4238">Furniture with nothing to hide.</text>
+  </g>
+
+  <!-- orthographic shelf motif -->
+  <g transform="translate(760 250)" stroke="#17110c">
+    <rect x="-30" y="-30" width="420" height="500" fill="none" stroke="#c7ac7c" stroke-width="2" stroke-dasharray="5 7"/>
+    <!-- horizontal planes -->
+    <g fill="url(#p-grain)" stroke="#c7ac7c" stroke-width="2.5">
+      <rect x="0" y="0"   width="360" height="20"/>
+      <rect x="0" y="140" width="360" height="20"/>
+      <rect x="0" y="280" width="360" height="20"/>
+      <rect x="0" y="420" width="360" height="20"/>
+    </g>
+    <!-- vertical planes -->
+    <g fill="url(#p-grain)" stroke="#c7ac7c" stroke-width="2.5">
+      <rect x="0"   y="0" width="20" height="440"/>
+      <rect x="170" y="0" width="20" height="440"/>
+      <rect x="340" y="0" width="20" height="440"/>
+    </g>
+    <!-- signal nodes -->
+    <g fill="#d9482f" stroke="#17110c" stroke-width="2">
+      <circle cx="10"  cy="10"  r="8"/><circle cx="180" cy="10"  r="8"/><circle cx="350" cy="10"  r="8"/>
+      <circle cx="10"  cy="150" r="8"/><circle cx="180" cy="150" r="8"/><circle cx="350" cy="150" r="8"/>
+      <circle cx="10"  cy="290" r="8"/><circle cx="180" cy="290" r="8"/><circle cx="350" cy="290" r="8"/>
+      <circle cx="10"  cy="430" r="8"/><circle cx="180" cy="430" r="8"/><circle cx="350" cy="430" r="8"/>
+    </g>
+    <!-- dimension line -->
+    <g stroke="#4a4238" stroke-width="1.5">
+      <line x1="0" y1="470" x2="360" y2="470"/>
+      <line x1="0" y1="462" x2="0" y2="478"/>
+      <line x1="360" y1="462" x2="360" y2="478"/>
+    </g>
+    <text x="180" y="495" font-family="Consolas,monospace" font-size="20" fill="#4a4238" text-anchor="middle">2 BAYS · BIRCH</text>
+  </g>
+
+  <!-- footer strip -->
+  <g font-family="Consolas,'SFMono-Regular',monospace" font-size="22" fill="#f4f1ea">
+    <rect x="0" y="810" width="1200" height="90" fill="#17110c"/>
+    <text x="80" y="865" letter-spacing="4">FLAT-PACK · EXPOSED JOINTS · REAL MATERIALS · MODULAR</text>
+    <text x="1120" y="865" letter-spacing="2" text-anchor="end" fill="#e9b7a8">FURNITURE</text>
+  </g>
+</svg>

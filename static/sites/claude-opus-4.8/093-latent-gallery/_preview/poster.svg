@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-labelledby="ptitle pdesc">
+	<title id="ptitle">Latent Gallery — Exhibition 13 / Emergence</title>
+	<desc id="pdesc">A generative art poster: a luminous cyan-to-magenta flow field beneath the gallery name.</desc>
+	<defs>
+		<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#150f2c"/>
+			<stop offset="0.55" stop-color="#0a0912"/>
+			<stop offset="1" stop-color="#08070f"/>
+		</linearGradient>
+		<linearGradient id="flow" x1="0" y1="0" x2="1" y2="0">
+			<stop offset="0" stop-color="#52e0d8"/>
+			<stop offset="0.5" stop-color="#8a6bff"/>
+			<stop offset="1" stop-color="#e857b8"/>
+		</linearGradient>
+		<radialGradient id="glowc" cx="0.5" cy="0.5" r="0.5">
+			<stop offset="0" stop-color="#52e0d8" stop-opacity="0.9"/>
+			<stop offset="1" stop-color="#52e0d8" stop-opacity="0"/>
+		</radialGradient>
+		<radialGradient id="glowm" cx="0.5" cy="0.5" r="0.5">
+			<stop offset="0" stop-color="#e857b8" stop-opacity="0.85"/>
+			<stop offset="1" stop-color="#e857b8" stop-opacity="0"/>
+		</radialGradient>
+		<linearGradient id="brandg" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#52e0d8"/>
+			<stop offset="0.5" stop-color="#8a6bff"/>
+			<stop offset="1" stop-color="#e857b8"/>
+		</linearGradient>
+	</defs>
+
+	<rect width="1200" height="900" fill="url(#bg)"/>
+
+	<!-- ambient glows -->
+	<circle cx="930" cy="230" r="360" fill="url(#glowm)" opacity="0.5"/>
+	<circle cx="230" cy="640" r="320" fill="url(#glowc)" opacity="0.5"/>
+
+	<!-- flow-field motif -->
+	<g fill="none" stroke="url(#flow)" stroke-linecap="round" opacity="0.85">
+		<path d="M60 470 C 240 400, 360 560, 560 520 S 940 440, 1150 500" stroke-width="2" opacity="0.55"/>
+		<path d="M60 510 C 250 450, 380 600, 580 560 S 950 490, 1150 545" stroke-width="2.4" opacity="0.7"/>
+		<path d="M40 555 C 250 500, 400 650, 600 600 S 980 540, 1160 600" stroke-width="3" opacity="0.9"/>
+		<path d="M40 600 C 260 555, 420 700, 620 650 S 1000 600, 1170 660" stroke-width="3.6"/>
+		<path d="M40 650 C 260 615, 430 750, 640 705 S 1010 665, 1170 725" stroke-width="3"/>
+		<path d="M40 705 C 270 675, 450 800, 660 760 S 1020 730, 1170 790" stroke-width="2.4" opacity="0.75"/>
+		<path d="M40 760 C 280 735, 470 850, 680 815 S 1030 795, 1170 850" stroke-width="2" opacity="0.55"/>
+		<path d="M40 420 C 240 360, 340 500, 540 470 S 930 400, 1150 450" stroke-width="1.6" opacity="0.4"/>
+	</g>
+
+	<!-- luminous seed nodes -->
+	<circle cx="560" cy="520" r="46" fill="url(#glowc)"/>
+	<circle cx="560" cy="520" r="6" fill="#eafffb"/>
+	<circle cx="900" cy="560" r="40" fill="url(#glowm)"/>
+	<circle cx="900" cy="560" r="5" fill="#ffeaf7"/>
+	<circle cx="300" cy="600" r="34" fill="url(#glowc)"/>
+	<circle cx="300" cy="600" r="4.5" fill="#eafffb"/>
+
+	<!-- brand seed mark -->
+	<g transform="translate(90,86)">
+		<rect x="0" y="0" width="26" height="26" rx="13" fill="url(#brandg)"/>
+		<rect x="32" y="0" width="26" height="26" rx="13" fill="url(#brandg)" opacity="0.8"/>
+		<rect x="0" y="32" width="26" height="26" rx="13" fill="url(#brandg)" opacity="0.8"/>
+		<rect x="32" y="32" width="26" height="26" rx="13" fill="url(#brandg)" opacity="0.6"/>
+		<text x="80" y="38" font-family="Palatino, Georgia, 'Times New Roman', serif" font-size="34" fill="#eae6ff">Latent<tspan fill="#52e0d8">Gallery</tspan></text>
+	</g>
+
+	<!-- eyebrow -->
+	<g transform="translate(90,210)">
+		<rect x="0" y="-30" width="330" height="46" rx="23" fill="none" stroke="#52e0d8" stroke-opacity="0.4"/>
+		<text x="24" y="1" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="19" letter-spacing="6" fill="#52e0d8">EXHIBITION 13 / EMERGENCE</text>
+	</g>
+
+	<!-- title -->
+	<text font-family="Palatino, Georgia, 'Times New Roman', serif" fill="#eae6ff" font-size="128" letter-spacing="-2">
+		<tspan x="86" y="380">Art that never</tspan>
+		<tspan x="86" y="490">repeats itself.</tspan>
+	</text>
+
+	<!-- footer line -->
+	<text x="90" y="850" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" fill="#a29cc4">Generative Art · Algorithmic editions rendered live, never printed twice</text>
+</svg>

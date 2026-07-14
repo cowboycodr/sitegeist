@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Peloton North — Take the longer road.">
+  <defs>
+    <radialGradient id="sky" cx="80%" cy="6%" r="90%">
+      <stop offset="0%" stop-color="#1b2c4d"/>
+      <stop offset="55%" stop-color="#0d1526"/>
+      <stop offset="100%" stop-color="#080d18"/>
+    </radialGradient>
+    <linearGradient id="amber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f3a53f"/>
+      <stop offset="100%" stop-color="#ffcd86"/>
+    </linearGradient>
+    <linearGradient id="route" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#63d3e6"/>
+      <stop offset="100%" stop-color="#f3a53f"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#sky)"/>
+
+  <!-- glow bloom top right -->
+  <circle cx="960" cy="60" r="520" fill="#63d3e6" opacity="0.08"/>
+  <circle cx="120" cy="120" r="420" fill="#f3a53f" opacity="0.06"/>
+
+  <!-- contour lines -->
+  <g fill="none" stroke="#23375f" stroke-width="2" opacity="0.9">
+    <path d="M-40 720 Q300 640 620 700 T1240 640"/>
+    <path d="M-40 640 Q320 540 640 600 T1240 520"/>
+    <path d="M-40 560 Q300 450 660 500 T1240 420"/>
+    <path d="M-40 480 Q320 370 680 400 T1240 320"/>
+    <path d="M-40 400 Q300 290 700 300 T1240 220"/>
+  </g>
+
+  <!-- the route -->
+  <path d="M120 780 C260 640 320 660 430 560 S620 380 740 320 S940 220 1060 150"
+        fill="none" stroke="url(#route)" stroke-width="9" stroke-linecap="round" stroke-dasharray="1 22"/>
+  <circle cx="120" cy="780" r="15" fill="#63d3e6"/>
+  <circle cx="1060" cy="150" r="17" fill="#f3a53f"/>
+
+  <!-- compass motif -->
+  <g transform="translate(1000 730)">
+    <circle r="96" fill="none" stroke="#26375c" stroke-width="4"/>
+    <path d="M0 -78 L18 -18 L0 72 L-18 -18 Z" fill="url(#amber)"/>
+    <path d="M-72 0 L-18 -15 L72 0 L-18 15 Z" fill="#63d3e6" opacity="0.9"/>
+    <circle r="9" fill="#0a1020" stroke="#eef4ff" stroke-width="3"/>
+    <text x="0" y="-108" fill="#9db0d2" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" text-anchor="middle">N</text>
+  </g>
+
+  <!-- eyebrow -->
+  <g font-family="Helvetica, Arial, sans-serif">
+    <circle cx="96" cy="150" r="8" fill="#f3a53f"/>
+    <text x="118" y="158" fill="#ffcd86" font-size="30" font-weight="700" letter-spacing="7">RIDE CLUB · OSLO</text>
+
+    <!-- wordmark -->
+    <text x="90" y="330" fill="#eef4ff" font-size="128" font-weight="800" letter-spacing="-3">Peloton</text>
+    <text x="90" y="460" fill="#eef4ff" font-size="128" font-weight="800" letter-spacing="-3">North</text>
+
+    <!-- tagline -->
+    <text x="96" y="540" fill="#9db0d2" font-size="40" font-weight="400">Take the <tspan fill="#f3a53f" font-weight="700" font-style="italic">longer</tspan> road.</text>
+  </g>
+</svg>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Paper Moon — Independent Cinema</title>
+<meta name="description" content="A repertory cinema for overlooked classics, midnight oddities, and unforgettable new voices.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23f4d58d'/%3E%3Ccircle cx='21' cy='13' r='13' fill='%23141026'/%3E%3C/svg%3E">
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="script.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="#top" aria-label="Paper Moon, home">
+      <span class="brand-moon" aria-hidden="true">
+        <span class="brand-moon-crescent"></span>
+      </span>
+      <span class="brand-word">Paper&nbsp;Moon</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#tonight">Tonight</a>
+      <a href="#program">Program</a>
+      <a href="#archive">Archive</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="sr-only">Menu</span>
+    </button>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Primary mobile" hidden>
+    <a href="#tonight">Tonight</a>
+    <a href="#program">Program</a>
+    <a href="#archive">Archive</a>
+    <a href="#visit">Visit</a>
+  </nav>
+</header>
+
+<main id="main">
+  <span id="top"></span>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="starfield" aria-hidden="true"></div>
+    <div class="moon" aria-hidden="true">
+      <div class="moon-glow"></div>
+      <div class="moon-body">
+        <span class="crater c1"></span>
+        <span class="crater c2"></span>
+        <span class="crater c3"></span>
+      </div>
+      <div class="moon-string"></div>
+    </div>
+    <div class="wrap hero-inner">
+      <p class="eyebrow">Tonight at Paper Moon</p>
+      <h1 id="hero-title" class="hero-title">Films that linger.</h1>
+      <p class="hero-lede">A repertory cinema for overlooked classics, midnight
+        oddities, and unforgettable new voices — projected on 35&nbsp;mm in a
+        room that still smells of celluloid and coffee.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#tonight">Get tickets</a>
+        <a class="btn btn-ghost" href="#archive">Browse the archive</a>
+      </div>
+      <dl class="hero-facts">
+        <div><dt>Est.</dt><dd>1974</dd></div>
+        <div><dt>Seats</dt><dd>212</dd></div>
+        <div><dt>Screens nightly</dt><dd>7:30 &amp; 10:15</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="tonight" class="tonight" aria-labelledby="tonight-title">
+    <div class="wrap tonight-grid">
+      <div class="tonight-copy">
+        <p class="kicker">Now on the marquee</p>
+        <h2 id="tonight-title">Tonight's double feature</h2>
+        <p>Two prints, one night, no intermission you'd want to leave for. Seats
+          are unreserved — arrive early, stay for the second reel.</p>
+        <ul class="showtimes" aria-label="Tonight's showtimes">
+          <li>
+            <span class="st-time">7:30 PM</span>
+            <span class="st-film">Wings of the Cranes</span>
+            <span class="st-meta">1958 · 96 min · 35mm</span>
+          </li>
+          <li>
+            <span class="st-time">10:15 PM</span>
+            <span class="st-film">Neon Undertow</span>
+            <span class="st-meta">1991 · 108 min · Midnight series</span>
+          </li>
+        </ul>
+      </div>
+      <div class="ticket-stub" aria-labelledby="stub-title">
+        <div class="stub-perf" aria-hidden="true"></div>
+        <div class="stub-body">
+          <p class="stub-house">Paper Moon</p>
+          <h3 id="stub-title" class="stub-title">Admit One</h3>
+          <button class="btn btn-primary stub-btn" id="reserve-btn" type="button" aria-live="polite">
+            Reserve a seat
+          </button>
+          <p class="stub-note" id="stub-note">Choose any open seat when the lights dim.</p>
+          <p class="stub-serial" aria-hidden="true">No. <span id="stub-serial">0074</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="program" class="program" aria-labelledby="program-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="kicker">This week</p>
+          <h2 id="program-title">The program</h2>
+        </div>
+        <div class="filters" role="group" aria-label="Filter the program by strand">
+          <button class="chip is-active" type="button" data-strand="all" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-strand="classic" aria-pressed="false">Classics</button>
+          <button class="chip" type="button" data-strand="midnight" aria-pressed="false">Midnight</button>
+          <button class="chip" type="button" data-strand="new" aria-pressed="false">New voices</button>
+        </div>
+      </div>
+      <ul class="film-grid" id="film-grid">
+        <li class="film-card" data-strand="classic">
+          <div class="film-poster" data-hue="42" aria-hidden="true"><span>WC</span></div>
+          <div class="film-info">
+            <p class="film-strand">Classic</p>
+            <h3 class="film-name">Wings of the Cranes</h3>
+            <p class="film-meta">Mon–Tue · 7:30 PM</p>
+            <p class="film-blurb">A wartime melodrama rescued from a single surviving reel and lovingly restored.</p>
+          </div>
+        </li>
+        <li class="film-card" data-strand="midnight">
+          <div class="film-poster" data-hue="286" aria-hidden="true"><span>NU</span></div>
+          <div class="film-info">
+            <p class="film-strand">Midnight</p>
+            <h3 class="film-name">Neon Undertow</h3>
+            <p class="film-meta">Fri–Sat · 10:15 PM</p>
+            <p class="film-blurb">A rain-slicked cult noir where the city never quite dries out.</p>
+          </div>
+        </li>
+        <li class="film-card" data-strand="new">
+          <div class="film-poster" data-hue="168" aria-hidden="true"><span>SG</span></div>
+          <div class="film-info">
+            <p class="film-strand">New voice</p>
+            <h3 class="film-name">Salt Gardens</h3>
+            <p class="film-meta">Wed · 8:00 PM</p>
+            <p class="film-blurb">A debut shot on a fishing coast, followed by a talk with the director.</p>
+          </div>
+        </li>
+        <li class="film-card" data-strand="classic">
+          <div class="film-poster" data-hue="12" aria-hidden="true"><span>TR</span></div>
+          <div class="film-info">
+            <p class="film-strand">Classic</p>
+            <h3 class="film-name">The Red Ledger</h3>
+            <p class="film-meta">Thu · 7:30 PM</p>
+            <p class="film-blurb">A brisk, forgotten heist picture with the best getaway in cinema.</p>
+          </div>
+        </li>
+        <li class="film-card" data-strand="midnight">
+          <div class="film-poster" data-hue="324" aria-hidden="true"><span>PH</span></div>
+          <div class="film-info">
+            <p class="film-strand">Midnight</p>
+            <h3 class="film-name">Paper Houses</h3>
+            <p class="film-meta">Sat · 12:00 AM</p>
+            <p class="film-blurb">An experimental fever dream projected with live tape loops.</p>
+          </div>
+        </li>
+        <li class="film-card" data-strand="new">
+          <div class="film-poster" data-hue="204" aria-hidden="true"><span>LM</span></div>
+          <div class="film-info">
+            <p class="film-strand">New voice</p>
+            <h3 class="film-name">Low Meridian</h3>
+            <p class="film-meta">Sun · 6:00 PM</p>
+            <p class="film-blurb">Slow-cinema about a lighthouse keeper counting ships that never come.</p>
+          </div>
+        </li>
+      </ul>
+      <p class="film-empty" id="film-empty" hidden>No screenings in this strand this week — check back Monday.</p>
+    </div>
+  </section>
+
+  <section id="archive" class="archive" aria-labelledby="archive-title">
+    <div class="wrap archive-inner">
+      <div class="archive-copy">
+        <p class="kicker">Nine hundred titles and counting</p>
+        <h2 id="archive-title">Browse the archive</h2>
+        <p>Every film we've ever run lives in the archive — restorations,
+          festival premieres, and the strays no one else would screen. Spin the
+          reel to land somewhere unexpected.</p>
+        <button class="btn btn-primary" id="reel-btn" type="button">Spin the reel</button>
+      </div>
+      <figure class="reel" aria-labelledby="reel-caption">
+        <div class="reel-window">
+          <p class="reel-year" id="reel-year">1967</p>
+          <p class="reel-title" id="reel-title" aria-live="polite">Harbor Lights</p>
+          <p class="reel-note" id="reel-tag">Restored classic</p>
+        </div>
+        <figcaption id="reel-caption" class="sr-only">A random pick from the Paper Moon archive.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="visit" class="visit" aria-labelledby="visit-title">
+    <div class="wrap visit-grid">
+      <div>
+        <p class="kicker">Come find us</p>
+        <h2 id="visit-title">Visit the cinema</h2>
+        <p>Tucked behind the old fabric district, the Paper Moon is a
+          single-screen house with a paper-lantern lobby and a projectionist
+          who'll happily tell you which reel to watch for the splice.</p>
+      </div>
+      <ul class="visit-facts">
+        <li>
+          <span class="vf-label">Address</span>
+          <span class="vf-value">14 Lantern Row, Old Fabric District</span>
+        </li>
+        <li>
+          <span class="vf-label">Box office</span>
+          <span class="vf-value">Opens 6:00 PM · Cash and card</span>
+        </li>
+        <li>
+          <span class="vf-label">Membership</span>
+          <span class="vf-value">Reels Club — every fourth film free</span>
+        </li>
+        <li>
+          <span class="vf-label">Getting here</span>
+          <span class="vf-value">Two blocks from the Crescent Line tram</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <p class="foot-brand">Paper Moon</p>
+    <p class="foot-tag">Films that linger. Since 1974.</p>
+    <p class="foot-fine">A repertory cinema for overlooked classics, midnight oddities, and unforgettable new voices.</p>
+  </div>
+</footer>
+
+</body>
+</html>

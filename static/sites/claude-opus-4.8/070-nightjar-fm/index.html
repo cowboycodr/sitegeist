@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+	<meta name="description" content="Independent transmissions of ambient, experimental, and left-field music through the night.">
+	<meta name="color-scheme" content="dark">
+	<title>Nightjar FM — Broadcasts after dark</title>
+	<link rel="icon" href="favicon.svg" type="image/svg+xml">
+	<link rel="stylesheet" href="styles.css">
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="app.js"></script>
+</head>
+<body>
+	<a class="skip-link" href="#schedule">Skip to schedule</a>
+
+	<div class="starfield" aria-hidden="true">
+		<span></span><span></span><span></span><span></span><span></span>
+		<span></span><span></span><span></span><span></span><span></span>
+		<span></span><span></span>
+	</div>
+
+	<header class="site-head">
+		<div class="brand">
+			<svg class="brand-mark" viewBox="0 0 48 48" role="img" aria-label="Nightjar FM">
+				<circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"></circle>
+				<path d="M11 30c5-1 8-4 10-9 1 4 4 6 8 6-2 3-6 5-10 5-3 0-6-1-8-2z" fill="currentColor"></path>
+				<circle cx="32" cy="18" r="1.6" fill="var(--night)"></circle>
+			</svg>
+			<span class="brand-name">Nightjar&nbsp;FM</span>
+		</div>
+		<nav class="site-nav" aria-label="Primary">
+			<a href="#schedule">Schedule</a>
+			<a href="#about">About</a>
+			<a href="#dispatch">Dispatch</a>
+		</nav>
+	</header>
+
+	<main>
+		<section class="hero" aria-labelledby="hero-title">
+			<p class="eyebrow"><span class="pulse" aria-hidden="true"></span>Live from 11:00&nbsp;PM</p>
+			<h1 id="hero-title">Nightjar&nbsp;FM</h1>
+			<p class="lede">Broadcasts after dark. Independent transmissions of ambient, experimental, and left-field music through the night.</p>
+			<div class="actions">
+				<button type="button" id="listen" class="btn btn-primary" aria-pressed="false">
+					<span class="btn-icon" aria-hidden="true"></span>
+					<span class="btn-label">Listen live</span>
+				</button>
+				<a href="#schedule" class="btn btn-ghost">Browse schedule</a>
+			</div>
+		</section>
+
+		<section class="player" aria-label="Now playing" aria-live="polite">
+			<div class="player-inner">
+				<div class="player-art" aria-hidden="true">
+					<div class="wave" id="wave">
+						<span></span><span></span><span></span><span></span><span></span>
+						<span></span><span></span><span></span><span></span><span></span>
+						<span></span><span></span><span></span><span></span><span></span>
+						<span></span><span></span><span></span>
+					</div>
+				</div>
+				<div class="player-meta">
+					<p class="player-status" id="player-status">Signal idle</p>
+					<p class="player-track" id="player-track">Press <em>Listen live</em> to open the transmission</p>
+					<p class="player-sub" id="player-sub">A soft synthesized carrier tone stands in for the live stream.</p>
+				</div>
+				<div class="player-ctl">
+					<label class="vol" for="volume">Level</label>
+					<input type="range" id="volume" min="0" max="100" value="55" aria-label="Playback level">
+				</div>
+			</div>
+		</section>
+
+		<section id="schedule" class="schedule" aria-labelledby="schedule-title">
+			<div class="section-head">
+				<h2 id="schedule-title">Tonight's schedule</h2>
+				<p class="section-note">All times local. The desk is unattended but the signal is not.</p>
+			</div>
+			<ol class="shows">
+				<li class="show" data-hour="23">
+					<span class="show-time">23:00</span>
+					<span class="show-body">
+						<span class="show-name">Threshold</span>
+						<span class="show-desc">Drone and slow tape loops to soften the edge of the day.</span>
+					</span>
+					<span class="show-host">host: Wren</span>
+				</li>
+				<li class="show" data-hour="0">
+					<span class="show-time">00:00</span>
+					<span class="show-body">
+						<span class="show-name">Small Hours</span>
+						<span class="show-desc">Left-field electronics, field recordings, half-remembered melodies.</span>
+					</span>
+					<span class="show-host">host: Corvid</span>
+				</li>
+				<li class="show" data-hour="2">
+					<span class="show-time">02:00</span>
+					<span class="show-body">
+						<span class="show-name">Deep Static</span>
+						<span class="show-desc">Experimental long-form: modular, musique concrète, patient noise.</span>
+					</span>
+					<span class="show-host">host: Fen</span>
+				</li>
+				<li class="show" data-hour="4">
+					<span class="show-time">04:00</span>
+					<span class="show-body">
+						<span class="show-name">Blue Hour</span>
+						<span class="show-desc">Ambient jazz and warm reverbs for the walk home.</span>
+					</span>
+					<span class="show-host">host: Marsh</span>
+				</li>
+				<li class="show" data-hour="6">
+					<span class="show-time">06:00</span>
+					<span class="show-body">
+						<span class="show-name">First Light</span>
+						<span class="show-desc">Birdsong, minimal piano, and the slow fade to silence.</span>
+					</span>
+					<span class="show-host">host: Wren</span>
+				</li>
+			</ol>
+		</section>
+
+		<section id="about" class="about" aria-labelledby="about-title">
+			<div class="about-grid">
+				<div>
+					<h2 id="about-title">About the station</h2>
+					<p>Nightjar FM is a listener-run, non-commercial signal that only wakes when the city sleeps. We favour music that rewards patience: the ambient, the experimental, and the difficult-to-shelve.</p>
+					<p>There are no adverts, no algorithm, and no daytime programming. Just a handful of hosts, a modest transmitter, and the long quiet stretch between midnight and dawn.</p>
+				</div>
+				<dl class="stats">
+					<div><dt>On air</dt><dd>11PM&ndash;7AM</dd></div>
+					<div><dt>Bitrate</dt><dd>256k</dd></div>
+					<div><dt>Hosts</dt><dd>Four</dd></div>
+					<div><dt>Adverts</dt><dd>None</dd></div>
+				</dl>
+			</div>
+		</section>
+
+		<section id="dispatch" class="dispatch" aria-labelledby="dispatch-title">
+			<h2 id="dispatch-title">The nightly dispatch</h2>
+			<p>A short note goes out to members before each broadcast. No account, no tracking — just a line in your notebook for the night ahead.</p>
+			<blockquote class="quote">
+				<p>&ldquo;Tonight we drift. Threshold opens at eleven; stay for Deep Static if the dark suits you.&rdquo;</p>
+				<cite>— last night's note</cite>
+			</blockquote>
+		</section>
+	</main>
+
+	<footer class="site-foot">
+		<p class="foot-brand">Nightjar&nbsp;FM</p>
+		<p class="foot-line">Broadcasts after dark · Independent radio · Non-commercial</p>
+		<p class="foot-clock"><span id="clock" aria-live="off">--:--</span> station time</p>
+	</footer>
+</body>
+</html>

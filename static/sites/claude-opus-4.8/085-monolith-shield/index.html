@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'" />
+<title>Monolith Shield — Know what touches your systems.</title>
+<meta name="description" content="Continuous security maps exposure, verifies controls, and responds at machine speed." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1120'/%3E%3Cpath d='M16 5l8 3v7c0 6-4 9-8 11-4-2-8-5-8-11V8z' fill='none' stroke='%2354e0c7' stroke-width='2'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="styles.css" />
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#top" aria-label="Monolith Shield home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 40" width="26" height="32">
+          <path d="M16 2l12 4v13c0 10-6 15-12 19C10 34 4 29 4 19V6z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+          <path d="M16 11v9M11.5 15.5h9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="brand-name">Monolith<span class="brand-accent">Shield</span></span>
+    </a>
+    <nav class="mainnav" aria-label="Primary">
+      <a href="#surface">Surface</a>
+      <a href="#controls">Controls</a>
+      <a href="#response">Response</a>
+      <a href="#brief">Threat brief</a>
+    </nav>
+    <a class="nav-cta" href="#surface">Run an assessment</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse" aria-hidden="true"></span>Security posture / Live</p>
+        <h1>Know what touches your&nbsp;systems.</h1>
+        <p class="lede">Continuous security maps exposure, verifies controls, and responds at machine speed — so every asset, identity, and connection is accounted for before an attacker finds the gap.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#surface">Run an assessment</a>
+          <a class="btn btn-ghost" href="#brief">View threat brief</a>
+        </div>
+        <dl class="hero-stats">
+          <div><dt>Assets watched</dt><dd data-count="48213">48,213</dd></div>
+          <div><dt>Mean time to isolate</dt><dd>38<span class="unit">s</span></dd></div>
+          <div><dt>Controls verified</dt><dd>1,204</dd></div>
+        </dl>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="obelisk">
+          <div class="obelisk-face">
+            <span class="scanline"></span>
+            <div class="grid-lines"></div>
+            <ul class="face-rows">
+              <li><b>edge</b><i class="ok"></i></li>
+              <li><b>identity</b><i class="ok"></i></li>
+              <li><b>cloud</b><i class="warn"></i></li>
+              <li><b>endpoint</b><i class="ok"></i></li>
+              <li><b>data</b><i class="ok"></i></li>
+            </ul>
+          </div>
+          <span class="obelisk-base"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band-marquee" aria-label="Coverage">
+    <div class="marquee" role="list">
+      <div class="marquee-track">
+        <span role="listitem">Cloud workloads</span><span aria-hidden="true">◆</span>
+        <span role="listitem">Identity &amp; access</span><span aria-hidden="true">◆</span>
+        <span role="listitem">Edge &amp; network</span><span aria-hidden="true">◆</span>
+        <span role="listitem">Endpoints</span><span aria-hidden="true">◆</span>
+        <span role="listitem">SaaS surface</span><span aria-hidden="true">◆</span>
+        <span role="listitem">Data stores</span><span aria-hidden="true">◆</span>
+        <span role="listitem">Cloud workloads</span><span aria-hidden="true">◆</span>
+        <span role="listitem">Identity &amp; access</span><span aria-hidden="true">◆</span>
+        <span role="listitem">Edge &amp; network</span><span aria-hidden="true">◆</span>
+        <span role="listitem">Endpoints</span><span aria-hidden="true">◆</span>
+        <span role="listitem">SaaS surface</span><span aria-hidden="true">◆</span>
+        <span role="listitem">Data stores</span><span aria-hidden="true">◆</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="surface">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="kicker">Attack surface</p>
+        <h2>Map exposure before it maps you.</h2>
+        <p class="section-sub">Kick off a continuous assessment and watch Monolith Shield enumerate every reachable asset, correlate it with known controls, and rank what deserves attention first.</p>
+      </header>
+
+      <div class="assess">
+        <div class="assess-panel" aria-live="polite">
+          <div class="assess-top">
+            <div class="dial" id="dial" role="img" aria-label="Posture score">
+              <svg viewBox="0 0 120 120">
+                <circle class="dial-track" cx="60" cy="60" r="52"/>
+                <circle class="dial-fill" id="dialFill" cx="60" cy="60" r="52"/>
+              </svg>
+              <div class="dial-center">
+                <strong id="dialScore">—</strong>
+                <span>posture</span>
+              </div>
+            </div>
+            <div class="assess-meta">
+              <p class="assess-status" id="assessStatus">Idle — ready to assess.</p>
+              <div class="bar"><span id="assessBar"></span></div>
+              <button class="btn btn-primary btn-sm" id="assessBtn" type="button">Run an assessment</button>
+            </div>
+          </div>
+          <ul class="findings" id="findings" aria-label="Assessment findings"></ul>
+        </div>
+
+        <ul class="tally" aria-label="Findings by severity">
+          <li class="sev-crit"><span class="tally-n" data-sev="crit">0</span>Critical</li>
+          <li class="sev-high"><span class="tally-n" data-sev="high">0</span>High</li>
+          <li class="sev-med"><span class="tally-n" data-sev="med">0</span>Medium</li>
+          <li class="sev-ok"><span class="tally-n" data-sev="ok">0</span>Verified</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="controls">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="kicker">Control verification</p>
+        <h2>Trust, then verify — on a loop.</h2>
+        <p class="section-sub">Policies are only as good as their last check. We continuously test that each control is present, enforced, and doing what it claims.</p>
+      </header>
+      <div class="cards">
+        <article class="card">
+          <span class="card-ico" aria-hidden="true">◈</span>
+          <h3>Exposure mapping</h3>
+          <p>Every internet-facing and internal asset is discovered, fingerprinted, and tied back to an owner — no shadow infrastructure.</p>
+        </article>
+        <article class="card">
+          <span class="card-ico" aria-hidden="true">⬡</span>
+          <h3>Control attestation</h3>
+          <p>MFA, encryption, segmentation and logging are probed against live traffic, not a stale checklist.</p>
+        </article>
+        <article class="card">
+          <span class="card-ico" aria-hidden="true">⚡</span>
+          <h3>Machine-speed response</h3>
+          <p>When signal crosses threshold, automated playbooks isolate, revoke, and page a human with the full context.</p>
+        </article>
+        <article class="card">
+          <span class="card-ico" aria-hidden="true">◎</span>
+          <h3>Evidence on demand</h3>
+          <p>Auditors get a signed, timestamped trail. You get one source of truth instead of a spreadsheet scramble.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="response">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="kicker">Response timeline</p>
+        <h2>From signal to contained in under a minute.</h2>
+      </header>
+      <ol class="timeline">
+        <li><span class="t-time">00:00</span><h3>Signal</h3><p>Anomalous credential use flagged across two regions.</p></li>
+        <li><span class="t-time">00:06</span><h3>Correlate</h3><p>Linked to a stale service token with excess scope.</p></li>
+        <li><span class="t-time">00:19</span><h3>Isolate</h3><p>Token revoked, session killed, blast radius contained.</p></li>
+        <li><span class="t-time">00:38</span><h3>Verify &amp; brief</h3><p>Controls re-tested green; a human gets the full story.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section alt" id="brief">
+    <div class="wrap brief-grid">
+      <div>
+        <p class="kicker">Threat brief</p>
+        <h2>This week on the perimeter.</h2>
+        <p class="section-sub">A living summary of what changed, what we caught, and what we recommend — written for the on-call engineer and the board alike.</p>
+        <a class="btn btn-ghost" href="#top">Back to top</a>
+      </div>
+      <ul class="brief-list">
+        <li>
+          <span class="tag tag-crit">Active</span>
+          <h3>Exposed object storage</h3>
+          <p>Two buckets became publicly listable after a policy drift. Auto-remediated; owners notified.</p>
+        </li>
+        <li>
+          <span class="tag tag-high">Watching</span>
+          <h3>Credential stuffing uptick</h3>
+          <p>Failed-login volume up 4× on the identity edge. Rate limits and step-up auth holding.</p>
+        </li>
+        <li>
+          <span class="tag tag-ok">Resolved</span>
+          <h3>Unpatched gateway</h3>
+          <p>A known CVE on a load balancer was patched within the maintenance window. Re-verified green.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section cta-band">
+    <div class="wrap cta-inner">
+      <h2>See what touches your systems today.</h2>
+      <p>Start a continuous assessment and get a posture score in minutes — no agents to babysit.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#surface">Run an assessment</a>
+        <a class="btn btn-ghost" href="#brief">View threat brief</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 40" width="22" height="27">
+          <path d="M16 2l12 4v13c0 10-6 15-12 19C10 34 4 29 4 19V6z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+          <path d="M16 11v9M11.5 15.5h9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="brand-name">Monolith<span class="brand-accent">Shield</span></span>
+    </span>
+    <p class="footer-tag">Know what touches your systems.</p>
+    <p class="footer-legal">Continuous security posture · Static demonstration build</p>
+  </div>
+</footer>
+</body>
+</html>

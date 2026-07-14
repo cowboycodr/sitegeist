@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+	<title>Atlas Noir — Go where the map ends.</title>
+	<meta name="description" content="Private expeditions shaped around remote landscapes, rare access, and impeccable restraint." />
+	<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+	<link rel="stylesheet" href="styles.css" />
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="app.js"></script>
+</head>
+<body>
+	<a class="skip" href="#main">Skip to content</a>
+
+	<header class="site-head" id="top">
+		<div class="wrap head-inner">
+			<a class="brand" href="#top" aria-label="Atlas Noir, home">
+				<span class="brand-mark" aria-hidden="true">
+					<svg viewBox="0 0 48 48" width="34" height="34" focusable="false">
+						<circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.5" />
+						<path d="M24 5 L29 24 L24 43 L19 24 Z" fill="currentColor" opacity="0.9" />
+						<path d="M5 24 L24 19 L43 24 L24 29 Z" fill="none" stroke="currentColor" stroke-width="1" />
+						<circle cx="24" cy="24" r="2.4" fill="#0a0a0c" stroke="currentColor" stroke-width="1" />
+					</svg>
+				</span>
+				<span class="brand-word">Atlas<em>Noir</em></span>
+			</a>
+			<nav class="nav" aria-label="Primary">
+				<a href="#expeditions">Expeditions</a>
+				<a href="#journal">Field Journal</a>
+				<a href="#ethos">Ethos</a>
+				<a class="nav-cta" href="#plan">Enquire</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main">
+		<section class="hero" aria-labelledby="hero-title">
+			<div class="hero-veil" aria-hidden="true"></div>
+			<canvas class="hero-canvas" id="terrain" aria-hidden="true"></canvas>
+			<div class="wrap hero-inner">
+				<p class="eyebrow">Bespoke journeys</p>
+				<h1 id="hero-title">Go where<br />the map ends.</h1>
+				<p class="lede">Private expeditions shaped around remote landscapes, rare access, and impeccable restraint. A single desk, a small ledger of clients, and the parts of the world still worth the silence.</p>
+				<div class="hero-actions">
+					<a class="btn btn-solid" href="#plan">Plan an expedition</a>
+					<a class="btn btn-ghost" href="#journal">View field journal</a>
+				</div>
+				<dl class="hero-stats">
+					<div><dt>Since</dt><dd>1998</dd></div>
+					<div><dt>Journeys / year</dt><dd>12</dd></div>
+					<div><dt>Continents</dt><dd>7</dd></div>
+				</dl>
+			</div>
+			<div class="scroll-cue" aria-hidden="true"><span></span>Descend</div>
+		</section>
+
+		<section class="strip" aria-label="Guiding principle">
+			<div class="wrap">
+				<p class="marquee">Latitude without itinerary · Access without announcement · Comfort without spectacle · Distance measured in stillness ·</p>
+			</div>
+		</section>
+
+		<section class="section" id="expeditions" aria-labelledby="exp-title">
+			<div class="wrap">
+				<header class="sec-head">
+					<p class="eyebrow">The ledger</p>
+					<h2 id="exp-title">Expeditions currently open</h2>
+					<p class="sec-sub">Four routes we can still shape this cycle. Each is quietly held for a single party.</p>
+				</header>
+				<div class="cards" id="cards"></div>
+			</div>
+		</section>
+
+		<section class="section split" id="ethos" aria-labelledby="ethos-title">
+			<div class="wrap split-grid">
+				<div class="split-art" aria-hidden="true">
+					<svg viewBox="0 0 320 320" preserveAspectRatio="xMidYMid meet">
+						<defs>
+							<radialGradient id="glow" cx="50%" cy="42%" r="60%">
+								<stop offset="0%" stop-color="#caa46a" stop-opacity="0.35" />
+								<stop offset="100%" stop-color="#caa46a" stop-opacity="0" />
+							</radialGradient>
+						</defs>
+						<rect width="320" height="320" fill="url(#glow)" />
+						<g fill="none" stroke="#caa46a" stroke-width="0.8" opacity="0.7">
+							<path d="M40 210 C90 180 130 200 160 175 C195 148 240 168 285 138" />
+							<path d="M35 180 C95 152 128 172 165 145 C205 116 245 138 292 108" />
+							<path d="M45 240 C95 214 132 230 158 205 C190 175 238 196 280 168" />
+							<path d="M52 268 C100 246 140 258 162 236 C188 210 235 226 274 200" />
+						</g>
+						<circle cx="160" cy="160" r="88" fill="none" stroke="#e9e2d2" stroke-width="0.6" opacity="0.35" />
+						<path d="M160 82 L168 160 L160 238 L152 160 Z" fill="#caa46a" opacity="0.85" />
+						<circle cx="160" cy="160" r="4" fill="#0a0a0c" stroke="#e9e2d2" stroke-width="1" />
+					</svg>
+				</div>
+				<div class="split-copy">
+					<p class="eyebrow">Ethos</p>
+					<h2 id="ethos-title">Restraint is the luxury.</h2>
+					<p>We do not sell mileage or brochures of superlatives. We remove friction until only the place remains — the long approach, the unhurried hour, the guide who has walked the valley for thirty winters.</p>
+					<ul class="ethos-list">
+						<li><strong>One party per route.</strong> No shared vehicles, no borrowed itineraries.</li>
+						<li><strong>People before permits.</strong> Access earned through relationships, not brokers.</li>
+						<li><strong>Traceless passage.</strong> Every camp leaves the ground as it was found.</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="journal" aria-labelledby="jour-title">
+			<div class="wrap">
+				<header class="sec-head">
+					<p class="eyebrow">Field journal</p>
+					<h2 id="jour-title">Dispatches from the edge</h2>
+					<p class="sec-sub">Notes carried back from the last few departures.</p>
+				</header>
+				<div class="journal">
+					<article class="entry">
+						<time datetime="2026-05">May 2026</time>
+						<h3>The Windward Fjords</h3>
+						<p>Nineteen hours by sea to a coast without a road. We anchored where the charts turn to guesswork and waited for the fog to lift on its own schedule.</p>
+					</article>
+					<article class="entry">
+						<time datetime="2026-03">March 2026</time>
+						<h3>Salt &amp; Silence, Danakil</h3>
+						<p>Crossing the depression at first light, the horizon dissolving into mirage. A geologist, two camels, and a thermos of cardamom coffee.</p>
+					</article>
+					<article class="entry">
+						<time datetime="2025-11">November 2025</time>
+						<h3>Beneath the Karakoram</h3>
+						<p>A week at altitude with a family whose orchard predates the border it now straddles. Apricots dried on the roof; snow on the passes above.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="section plan" id="plan" aria-labelledby="plan-title">
+			<div class="wrap plan-grid">
+				<div class="plan-intro">
+					<p class="eyebrow">Enquiries</p>
+					<h2 id="plan-title">Plan an expedition</h2>
+					<p>Tell us the shape of the thing you are chasing. A member of the desk replies within two working days — always a person, never a queue.</p>
+					<p class="plan-note">This form is a private demonstration; it stores nothing and sends nothing.</p>
+				</div>
+				<form class="plan-form" id="enquiry" novalidate>
+					<div class="field">
+						<label for="f-name">Name</label>
+						<input id="f-name" name="name" type="text" autocomplete="name" required />
+					</div>
+					<div class="field">
+						<label for="f-email">Email</label>
+						<input id="f-email" name="email" type="email" autocomplete="email" required />
+					</div>
+					<div class="field">
+						<label for="f-region">Region that calls you</label>
+						<select id="f-region" name="region">
+							<option>Polar &amp; sub-polar</option>
+							<option>Desert &amp; salt</option>
+							<option>High mountain</option>
+							<option>Remote coast &amp; island</option>
+							<option>Somewhere unlisted</option>
+						</select>
+					</div>
+					<div class="field">
+						<label for="f-note">What are you looking for?</label>
+						<textarea id="f-note" name="note" rows="3"></textarea>
+					</div>
+					<button class="btn btn-solid" type="submit">Send enquiry</button>
+					<p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+				</form>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-foot">
+		<div class="wrap foot-inner">
+			<p class="foot-brand">Atlas<em>Noir</em></p>
+			<p class="foot-tag">Go where the map ends.</p>
+			<p class="foot-fine">A private travel atelier. All journeys illustrative. &copy; <span id="year">2026</span> Atlas Noir.</p>
+		</div>
+	</footer>
+</body>
+</html>

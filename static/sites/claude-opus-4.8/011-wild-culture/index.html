@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+	<title>Wild Culture — Good things take time.</title>
+	<meta name="description" content="A playful fermentation studio making live cultures, seasonal pantry goods, and hands-on workshops in Brooklyn.">
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235b7a3f'/%3E%3Ccircle cx='11' cy='13' r='3' fill='%23f2c14e'/%3E%3Ccircle cx='20' cy='18' r='4.5' fill='%23f2c14e'/%3E%3Ccircle cx='13' cy='22' r='2' fill='%23f2c14e'/%3E%3C/svg%3E">
+	<link rel="stylesheet" href="styles.css">
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="app.js"></script>
+</head>
+<body>
+	<a class="skip-link" href="#pantry">Skip to the pantry</a>
+
+	<header class="site-header">
+		<div class="wrap header-inner">
+			<a class="brand" href="#top" aria-label="Wild Culture home">
+				<span class="brand-mark" aria-hidden="true">
+					<span class="bubble"></span><span class="bubble"></span><span class="bubble"></span>
+				</span>
+				<span class="brand-name">Wild&nbsp;Culture</span>
+			</a>
+			<nav class="site-nav" aria-label="Primary">
+				<a href="#pantry">Pantry</a>
+				<a href="#process">Process</a>
+				<a href="#workshops">Workshops</a>
+				<a href="#studio">Studio</a>
+			</nav>
+			<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu">
+				<span></span><span></span><span></span>
+			</button>
+		</div>
+		<nav id="mobile-nav" class="mobile-nav" aria-label="Sections" hidden>
+			<a href="#pantry">Pantry</a>
+			<a href="#process">Process</a>
+			<a href="#workshops">Workshops</a>
+			<a href="#studio">Studio</a>
+		</nav>
+	</header>
+
+	<main id="top">
+		<section class="hero" aria-labelledby="hero-title">
+			<div class="jar" aria-hidden="true">
+				<div class="jar-lid"></div>
+				<div class="jar-body">
+					<div class="brine"></div>
+					<div class="ferment" id="ferment"></div>
+				</div>
+			</div>
+			<div class="wrap hero-copy">
+				<p class="eyebrow">Fermented in Brooklyn</p>
+				<h1 id="hero-title">Good things<br>take time.</h1>
+				<p class="lede">Wild Culture is a small fermentation studio brewing live cultures, seasonal pantry goods, and the patience to make them well.</p>
+				<div class="cta-row">
+					<a class="btn btn-primary" href="#pantry">Open the pantry</a>
+					<a class="btn btn-ghost" href="#workshops">Book a workshop</a>
+				</div>
+				<dl class="stat-row">
+					<div><dt>Batches a week</dt><dd>18</dd></div>
+					<div><dt>Live cultures</dt><dd>7</dd></div>
+					<div><dt>Days, min. ferment</dt><dd>21</dd></div>
+				</dl>
+			</div>
+		</section>
+
+		<section id="pantry" class="section pantry" aria-labelledby="pantry-title">
+			<div class="wrap">
+				<header class="section-head">
+					<p class="kicker">The pantry</p>
+					<h2 id="pantry-title">Alive on the shelf</h2>
+					<p class="section-lede">Every jar is wild-fermented in small batches and dated by hand. Flavors rotate with the market, so the shelf is never quite the same twice.</p>
+				</header>
+				<ul class="card-grid" role="list">
+					<li class="card">
+						<span class="card-tag tag-gold">Vegetable</span>
+						<h3>Half-Sour Kraut</h3>
+						<p>Late-cabbage and caraway, brined slow so it stays snappy and bright.</p>
+						<p class="card-meta"><span>28-day ferment</span><span>$11</span></p>
+					</li>
+					<li class="card">
+						<span class="card-tag tag-rose">Fire</span>
+						<h3>Smoked Chili Hot Sauce</h3>
+						<p>Charred fresno and garlic, aged on oak until it hums with heat.</p>
+						<p class="card-meta"><span>60-day ferment</span><span>$14</span></p>
+					</li>
+					<li class="card">
+						<span class="card-tag tag-green">Living drink</span>
+						<h3>Ginger Bug Soda</h3>
+						<p>A wild ginger starter, coaxed lightly effervescent with cane and lemon.</p>
+						<p class="card-meta"><span>10-day ferment</span><span>$8</span></p>
+					</li>
+					<li class="card">
+						<span class="card-tag tag-gold">Culture</span>
+						<h3>House Sourdough Starter</h3>
+						<p>A generous scoop of our oldest levain, ready to raise your kitchen.</p>
+						<p class="card-meta"><span>6-year lineage</span><span>$9</span></p>
+					</li>
+					<li class="card">
+						<span class="card-tag tag-rose">Umami</span>
+						<h3>Barley Miso</h3>
+						<p>Long-aged and mellow, with the deep savory pull of a cold cellar.</p>
+						<p class="card-meta"><span>9-month ferment</span><span>$16</span></p>
+					</li>
+					<li class="card">
+						<span class="card-tag tag-green">Living drink</span>
+						<h3>Seasonal Kvass</h3>
+						<p>Beet and rye in winter, herb and rhubarb in spring — earthy and tart.</p>
+						<p class="card-meta"><span>14-day ferment</span><span>$9</span></p>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<section id="process" class="section process" aria-labelledby="process-title">
+			<div class="wrap">
+				<header class="section-head">
+					<p class="kicker">The slow part</p>
+					<h2 id="process-title">Four moves, a lot of waiting</h2>
+					<p class="section-lede">We don't rush the microbes. Here is roughly how a jar comes together, from market bag to labelled shelf.</p>
+				</header>
+				<ol class="timeline" role="list">
+					<li>
+						<span class="step-num" aria-hidden="true">01</span>
+						<h3>Gather</h3>
+						<p>Whatever's ripe at the Saturday market lands on the bench first, still cold.</p>
+					</li>
+					<li>
+						<span class="step-num" aria-hidden="true">02</span>
+						<h3>Salt &amp; pack</h3>
+						<p>We weigh, salt to the gram, and press everything under its own brine.</p>
+					</li>
+					<li>
+						<span class="step-num" aria-hidden="true">03</span>
+						<h3>Wait &amp; taste</h3>
+						<p>Jars breathe in the cellar for weeks. We taste, note, and taste again.</p>
+					</li>
+					<li>
+						<span class="step-num" aria-hidden="true">04</span>
+						<h3>Date &amp; shelf</h3>
+						<p>When a batch turns just right, it's labelled by hand and set out to sell.</p>
+					</li>
+				</ol>
+			</div>
+		</section>
+
+		<section id="workshops" class="section workshops" aria-labelledby="workshops-title">
+			<div class="wrap workshops-inner">
+				<div class="workshops-copy">
+					<p class="kicker">Hands in the brine</p>
+					<h2 id="workshops-title">Learn it by doing it</h2>
+					<p class="section-lede">Two-hour evening classes in the studio. You leave with a jar of your own, a starter to keep, and a lot fewer reasons to be scared of a little bacteria.</p>
+					<a class="btn btn-primary" href="#studio">See the schedule</a>
+				</div>
+				<ul class="workshop-list" role="list">
+					<li>
+						<div class="workshop-when"><span class="day">Thu</span><span class="date">18</span></div>
+						<div class="workshop-info">
+							<h3>Kraut &amp; Kimchi Basics</h3>
+							<p>Salt ratios, packing, and reading a healthy ferment. Beginners welcome.</p>
+							<p class="workshop-meta">6:30pm · 2 hrs · $65</p>
+						</div>
+					</li>
+					<li>
+						<div class="workshop-when"><span class="day">Sat</span><span class="date">27</span></div>
+						<div class="workshop-info">
+							<h3>Wild Sodas &amp; Ginger Bugs</h3>
+							<p>Build a living soda culture and bottle it safely at home.</p>
+							<p class="workshop-meta">2:00pm · 2 hrs · $60</p>
+						</div>
+					</li>
+					<li>
+						<div class="workshop-when"><span class="day">Wed</span><span class="date">08</span></div>
+						<div class="workshop-info">
+							<h3>Miso from Scratch</h3>
+							<p>Koji, beans, and the long game. Take home a crock to age for months.</p>
+							<p class="workshop-meta">6:30pm · 2.5 hrs · $85</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<section id="studio" class="section studio" aria-labelledby="studio-title">
+			<div class="wrap studio-inner">
+				<div>
+					<p class="kicker">The studio</p>
+					<h2 id="studio-title">Come smell the cellar</h2>
+					<p class="section-lede">Our storefront and ferment room share one warm, slightly sour space in Greenpoint. Stop in, taste a few things, and take the good bugs home.</p>
+					<dl class="visit-list">
+						<div><dt>Where</dt><dd>114 Dupont St, Brooklyn NY</dd></div>
+						<div><dt>Open</dt><dd>Wed–Sun, 11am–7pm</dd></div>
+						<div><dt>Market</dt><dd>Saturdays at McCarren Park</dd></div>
+						<div><dt>Say hi</dt><dd>hello@wildculture.studio</dd></div>
+					</dl>
+				</div>
+				<figure class="quote-card">
+					<blockquote>“They label everything by the day it woke up. My kraut jar has a birthday.”</blockquote>
+					<figcaption>— a regular, holding a very old starter</figcaption>
+				</figure>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap footer-inner">
+			<p class="footer-brand">Wild Culture</p>
+			<p class="footer-tag">Good things take time. Fermented in Brooklyn.</p>
+			<p class="footer-fine">Small batch, wild-fermented, hand-dated. © 2026 Wild Culture Studio.</p>
+		</div>
+	</footer>
+</body>
+</html>

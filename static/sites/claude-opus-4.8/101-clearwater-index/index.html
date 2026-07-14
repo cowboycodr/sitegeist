@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+	<meta name="description" content="Clearwater Index — a public information service explaining water supply, maintenance, quality, and long-term infrastructure planning." />
+	<meta name="color-scheme" content="light dark" />
+	<title>Clearwater Index — Know where every drop goes.</title>
+	<link rel="stylesheet" href="styles.css" />
+	<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="app.js"></script>
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to main content</a>
+
+	<header class="site-header">
+		<div class="wrap header-inner">
+			<a class="brand" href="#main" aria-label="Clearwater Index home">
+				<svg class="brand-mark" viewBox="0 0 40 40" width="34" height="34" aria-hidden="true" focusable="false">
+					<circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.35" />
+					<path d="M20 7 C13 16 11 21 11 25 a9 9 0 0 0 18 0 c0-4-2-9-9-18 Z" fill="currentColor" />
+					<path d="M16 24 a4 4 0 0 0 4 4" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity="0.85" />
+				</svg>
+				<span class="brand-text">
+					<span class="brand-name">Clearwater Index</span>
+					<span class="brand-sub">Public water data</span>
+				</span>
+			</a>
+			<nav class="site-nav" aria-label="Primary">
+				<a href="#explorer">System</a>
+				<a href="#quality">Quality</a>
+				<a href="#planning">Planning</a>
+				<a href="#methodology">Methodology</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main">
+		<section class="hero" aria-labelledby="hero-title">
+			<div class="hero-bg" aria-hidden="true">
+				<svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" role="presentation">
+					<defs>
+						<linearGradient id="wave1" x1="0" y1="0" x2="0" y2="1">
+							<stop offset="0" stop-color="var(--accent)" stop-opacity="0.16" />
+							<stop offset="1" stop-color="var(--accent)" stop-opacity="0" />
+						</linearGradient>
+					</defs>
+					<path class="wave" d="M0 220 C 200 180 300 260 500 230 S 900 180 1200 240 L1200 400 L0 400 Z" fill="url(#wave1)" />
+					<path class="wave wave-2" d="M0 280 C 250 250 350 320 600 290 S 1000 250 1200 300 L1200 400 L0 400 Z" fill="var(--accent)" fill-opacity="0.08" />
+				</svg>
+			</div>
+			<div class="wrap hero-inner">
+				<p class="eyebrow">Water systems · Public data</p>
+				<h1 id="hero-title">Know where every drop goes.</h1>
+				<p class="lede">Clearwater Index is a public information service that traces water from its source through
+					treatment, distribution, and long-term planning — so residents can see how the system works, what
+					it costs to maintain, and how safe the water is to drink.</p>
+				<div class="hero-actions">
+					<a class="btn btn-primary" href="#explorer">Explore the system</a>
+					<a class="btn btn-ghost" href="#methodology">Read the methodology</a>
+				</div>
+				<dl class="hero-stats" aria-label="Service area at a glance">
+					<div><dt>People served</dt><dd data-count="612000" data-suffix="">0</dd></div>
+					<div><dt>Reservoirs &amp; wells</dt><dd data-count="19" data-suffix="">0</dd></div>
+					<div><dt>Pipe network</dt><dd data-count="2840" data-suffix=" km">0</dd></div>
+					<div><dt>Quality tests / yr</dt><dd data-count="48200" data-suffix="">0</dd></div>
+				</dl>
+			</div>
+		</section>
+
+		<section id="explorer" class="section" aria-labelledby="explorer-title">
+			<div class="wrap">
+				<header class="section-head">
+					<p class="kicker">The system</p>
+					<h2 id="explorer-title">From source to tap, one stage at a time</h2>
+					<p class="section-lede">Follow the journey of a single litre. Select a stage to see what happens,
+						who maintains it, and where the pressure points are.</p>
+				</header>
+
+				<div class="explorer">
+					<ol class="flow" role="tablist" aria-label="Water system stages">
+						<li role="presentation">
+							<button class="flow-step is-active" role="tab" id="tab-source" aria-selected="true" aria-controls="panel-source" data-stage="source">
+								<span class="flow-num">1</span>
+								<span class="flow-label">Source</span>
+							</button>
+						</li>
+						<li role="presentation">
+							<button class="flow-step" role="tab" id="tab-treat" aria-selected="false" aria-controls="panel-treat" data-stage="treat" tabindex="-1">
+								<span class="flow-num">2</span>
+								<span class="flow-label">Treatment</span>
+							</button>
+						</li>
+						<li role="presentation">
+							<button class="flow-step" role="tab" id="tab-store" aria-selected="false" aria-controls="panel-store" data-stage="store" tabindex="-1">
+								<span class="flow-num">3</span>
+								<span class="flow-label">Storage</span>
+							</button>
+						</li>
+						<li role="presentation">
+							<button class="flow-step" role="tab" id="tab-dist" aria-selected="false" aria-controls="panel-dist" data-stage="dist" tabindex="-1">
+								<span class="flow-num">4</span>
+								<span class="flow-label">Distribution</span>
+							</button>
+						</li>
+						<li role="presentation">
+							<button class="flow-step" role="tab" id="tab-return" aria-selected="false" aria-controls="panel-return" data-stage="return" tabindex="-1">
+								<span class="flow-num">5</span>
+								<span class="flow-label">Return</span>
+							</button>
+						</li>
+					</ol>
+
+					<div class="panels">
+						<article class="panel is-active" role="tabpanel" id="panel-source" aria-labelledby="tab-source" tabindex="0">
+							<h3>Collection &amp; source protection</h3>
+							<p>Rain and snowmelt gather in six upland reservoirs and thirteen groundwater wells. Watershed
+								land is held in protective easement, keeping contaminants out before treatment even begins.</p>
+							<ul class="panel-facts">
+								<li><span class="fact-k">Raw water sources</span><span class="fact-v">19</span></li>
+								<li><span class="fact-k">Protected watershed</span><span class="fact-v">340 km²</span></li>
+								<li><span class="fact-k">Avg. reservoir level</span><span class="fact-v">78%</span></li>
+							</ul>
+						</article>
+						<article class="panel" role="tabpanel" id="panel-treat" aria-labelledby="tab-treat" tabindex="0" hidden>
+							<h3>Treatment</h3>
+							<p>Water passes through coagulation, sedimentation, filtration, and disinfection at three plants.
+								Continuous sensors adjust dosing so output stays within regulatory limits around the clock.</p>
+							<ul class="panel-facts">
+								<li><span class="fact-k">Treatment plants</span><span class="fact-v">3</span></li>
+								<li><span class="fact-k">Daily capacity</span><span class="fact-v">265 ML</span></li>
+								<li><span class="fact-k">Turbidity target</span><span class="fact-v">&lt; 0.3 NTU</span></li>
+							</ul>
+						</article>
+						<article class="panel" role="tabpanel" id="panel-store" aria-labelledby="tab-store" tabindex="0" hidden>
+							<h3>Storage &amp; balancing</h3>
+							<p>Treated water rests in covered tanks and elevated towers that buffer demand between quiet
+								nights and busy mornings, and hold a reserve for firefighting and outages.</p>
+							<ul class="panel-facts">
+								<li><span class="fact-k">Storage tanks</span><span class="fact-v">27</span></li>
+								<li><span class="fact-k">Stored volume</span><span class="fact-v">190 ML</span></li>
+								<li><span class="fact-k">Reserve margin</span><span class="fact-v">~18 h</span></li>
+							</ul>
+						</article>
+						<article class="panel" role="tabpanel" id="panel-dist" aria-labelledby="tab-dist" tabindex="0" hidden>
+							<h3>Distribution</h3>
+							<p>Pumps and gravity move water through 2,840 km of mains. A district-metered layout isolates
+								leaks quickly, and pressure zones keep flow steady across the hills and the valley floor.</p>
+							<ul class="panel-facts">
+								<li><span class="fact-k">Pipe network</span><span class="fact-v">2,840 km</span></li>
+								<li><span class="fact-k">Metered districts</span><span class="fact-v">54</span></li>
+								<li><span class="fact-k">Water loss rate</span><span class="fact-v">11.2%</span></li>
+							</ul>
+						</article>
+						<article class="panel" role="tabpanel" id="panel-return" aria-labelledby="tab-return" tabindex="0" hidden>
+							<h3>Return to the environment</h3>
+							<p>After use, wastewater is reclaimed, treated to a high standard, and returned to rivers or
+								reused for irrigation — closing the loop and protecting downstream communities.</p>
+							<ul class="panel-facts">
+								<li><span class="fact-k">Reclaimed daily</span><span class="fact-v">148 ML</span></li>
+								<li><span class="fact-k">Reused for irrigation</span><span class="fact-v">22%</span></li>
+								<li><span class="fact-k">Discharge compliance</span><span class="fact-v">99.6%</span></li>
+							</ul>
+						</article>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="quality" class="section section-alt" aria-labelledby="quality-title">
+			<div class="wrap">
+				<header class="section-head">
+					<p class="kicker">Water quality</p>
+					<h2 id="quality-title">What we test, and how it measured last month</h2>
+					<p class="section-lede">Every reading below is the rolling 30-day average against its regulatory
+						limit. Bars fill toward the safe range; shorter is better for contaminants, fuller is better for
+						treatment residual.</p>
+				</header>
+
+				<ul class="gauges" aria-label="Latest water quality readings">
+					<li class="gauge" data-value="46">
+						<div class="gauge-top"><span class="gauge-name">Chlorine residual</span><span class="gauge-read">0.92 mg/L</span></div>
+						<div class="meter"><span class="meter-fill" style="--pct:46%"></span></div>
+						<p class="gauge-note">Within the 0.5–1.5 mg/L disinfection band.</p>
+					</li>
+					<li class="gauge" data-value="18">
+						<div class="gauge-top"><span class="gauge-name">Turbidity</span><span class="gauge-read">0.09 NTU</span></div>
+						<div class="meter"><span class="meter-fill" style="--pct:18%"></span></div>
+						<p class="gauge-note">Well below the 0.3 NTU clarity limit.</p>
+					</li>
+					<li class="gauge" data-value="9">
+						<div class="gauge-top"><span class="gauge-name">Lead</span><span class="gauge-read">0.9 µg/L</span></div>
+						<div class="meter"><span class="meter-fill" style="--pct:9%"></span></div>
+						<p class="gauge-note">Far under the 10 µg/L action level.</p>
+					</li>
+					<li class="gauge" data-value="34">
+						<div class="gauge-top"><span class="gauge-name">Nitrate</span><span class="gauge-read">3.4 mg/L</span></div>
+						<div class="meter"><span class="meter-fill" style="--pct:34%"></span></div>
+						<p class="gauge-note">About a third of the 10 mg/L limit.</p>
+					</li>
+					<li class="gauge" data-value="7">
+						<div class="gauge-top"><span class="gauge-name">E. coli detections</span><span class="gauge-read">0 of 4,010</span></div>
+						<div class="meter"><span class="meter-fill" style="--pct:2%"></span></div>
+						<p class="gauge-note">No detections in the reporting window.</p>
+					</li>
+					<li class="gauge" data-value="52">
+						<div class="gauge-top"><span class="gauge-name">Hardness</span><span class="gauge-read">124 mg/L</span></div>
+						<div class="meter"><span class="meter-fill" style="--pct:52%"></span></div>
+						<p class="gauge-note">Moderately hard — aesthetic, not a health limit.</p>
+					</li>
+				</ul>
+				<p class="quality-foot">Readings shown are illustrative monthly averages compiled for this public index.
+					Formal results are published in the annual water quality report.</p>
+			</div>
+		</section>
+
+		<section id="maintenance" class="section" aria-labelledby="maint-title">
+			<div class="wrap">
+				<header class="section-head">
+					<p class="kicker">Maintenance</p>
+					<h2 id="maint-title">Keeping ageing pipe in service</h2>
+					<p class="section-lede">A network this size needs steady renewal. Here is where crews are working now
+						and what the backlog looks like.</p>
+				</header>
+				<div class="cards">
+					<article class="card">
+						<h3>Active work orders</h3>
+						<p class="card-figure">128</p>
+						<p>Leak repairs, valve replacements, and hydrant servicing currently scheduled across 54 districts.</p>
+					</article>
+					<article class="card">
+						<h3>Mains renewed this year</h3>
+						<p class="card-figure">41 km</p>
+						<p>On pace with the 40&nbsp;km annual target that keeps average pipe age from climbing.</p>
+					</article>
+					<article class="card">
+						<h3>Avg. response time</h3>
+						<p class="card-figure">3.4 h</p>
+						<p>From a reported main break to a crew on site, measured across the last quarter.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section id="planning" class="section section-alt" aria-labelledby="planning-title">
+			<div class="wrap">
+				<header class="section-head">
+					<p class="kicker">Long-term planning</p>
+					<h2 id="planning-title">The next twenty years</h2>
+					<p class="section-lede">Investment is planned in phases so rates stay predictable while the system
+						grows more resilient to drought and demand.</p>
+				</header>
+				<ol class="timeline">
+					<li>
+						<span class="tl-year">2026–2029</span>
+						<h3>Resilience &amp; renewal</h3>
+						<p>Replace the oldest 6% of mains, add pressure sensors network-wide, and complete backup power
+							at all three treatment plants.</p>
+					</li>
+					<li>
+						<span class="tl-year">2030–2034</span>
+						<h3>Supply diversification</h3>
+						<p>Bring a fourth wellfield online and expand reservoir storage to hold a 30-day dry-season reserve.</p>
+					</li>
+					<li>
+						<span class="tl-year">2035–2039</span>
+						<h3>Reuse at scale</h3>
+						<p>Double reclaimed-water reuse so that a quarter of non-potable demand is met without drawing
+							from raw sources.</p>
+					</li>
+					<li>
+						<span class="tl-year">2040+</span>
+						<h3>Carbon-neutral operations</h3>
+						<p>Match all pumping and treatment energy with local renewable generation and recovered biogas.</p>
+					</li>
+				</ol>
+			</div>
+		</section>
+
+		<section id="methodology" class="section" aria-labelledby="method-title">
+			<div class="wrap method-grid">
+				<div>
+					<p class="kicker">Methodology</p>
+					<h2 id="method-title">How this index is built</h2>
+					<p>The Clearwater Index compiles operating data into plain-language explanations. Figures are drawn
+						from source monitoring, plant control systems, the distribution telemetry network, and the
+						asset-management register, then reconciled monthly.</p>
+					<p>Quality readings follow standard sampling protocols and are compared against published regulatory
+						limits. Where a figure is a target or a rolling average, we say so. This page is an educational
+						overview and does not replace official reporting.</p>
+					<ul class="method-list">
+						<li>Sources reconciled monthly against audited records.</li>
+						<li>Limits reference current national drinking-water standards.</li>
+						<li>No personal or address-level data is used or displayed.</li>
+					</ul>
+				</div>
+				<aside class="method-aside" aria-label="Glossary">
+					<h3>Quick glossary</h3>
+					<dl>
+						<dt>ML</dt><dd>Megalitre — one million litres.</dd>
+						<dt>NTU</dt><dd>Nephelometric Turbidity Unit — a measure of cloudiness.</dd>
+						<dt>Residual</dt><dd>Disinfectant kept in the pipes to stay safe to the tap.</dd>
+						<dt>DMA</dt><dd>District Metered Area — a zone metered to find leaks fast.</dd>
+					</dl>
+				</aside>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap footer-inner">
+			<p class="footer-brand">Clearwater Index</p>
+			<p class="footer-tag">Know where every drop goes.</p>
+			<p class="footer-fine">A public information service explaining water supply, maintenance, quality, and
+				long-term infrastructure planning. Figures are illustrative and provided for public education.</p>
+		</div>
+	</footer>
+</body>
+</html>

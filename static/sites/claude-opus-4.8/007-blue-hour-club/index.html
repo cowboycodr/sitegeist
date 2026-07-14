@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Blue Hour Club — Live jazz in Chicago</title>
+<meta name="description" content="A Chicago room for searching sets, resident artists, low light, and conversations that run late.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1230'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%23e8b06a' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23e8b06a'/%3E%3C/svg%3E">
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#tonight">Skip to tonight's set</a>
+
+<div class="haze" aria-hidden="true"></div>
+
+<header class="site-head">
+  <a class="brand" href="#top" aria-label="Blue Hour Club home">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span class="brand-name">Blue&nbsp;Hour<span class="brand-sub">Club</span></span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    <a href="#tonight">Tonight</a>
+    <a href="#residents">Residents</a>
+    <a href="#room">The Room</a>
+    <a href="#reserve">Reserve</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="eyebrow">Live in Chicago</p>
+    <h1 id="hero-title">The city sounds better after midnight.</h1>
+    <p class="lede">A basement room off the river for searching sets, resident
+      artists, low light, and conversations that run late.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#tonight">See tonight's set</a>
+      <a class="btn btn-ghost" href="#reserve">Reserve a table</a>
+    </div>
+    <dl class="marquee" aria-label="At a glance">
+      <div><dt>Doors</dt><dd>8:00 PM</dd></div>
+      <div><dt>Last set</dt><dd>1:30 AM</dd></div>
+      <div><dt>Where</dt><dd>Wacker &amp; Wells</dd></div>
+    </dl>
+  </section>
+
+  <section id="tonight" class="tonight" aria-labelledby="tonight-title">
+    <div class="section-head">
+      <h2 id="tonight-title">Tonight's set</h2>
+      <p class="section-note">Three sets, one cover. Seating is first-come after 11.</p>
+    </div>
+    <ol class="setlist" id="setlist"></ol>
+  </section>
+
+  <section id="residents" class="residents" aria-labelledby="residents-title">
+    <div class="section-head">
+      <h2 id="residents-title">Resident artists</h2>
+      <p class="section-note">The players who keep a standing night on the calendar.</p>
+    </div>
+    <ul class="resident-grid" id="residents-grid"></ul>
+  </section>
+
+  <section id="room" class="room" aria-labelledby="room-title">
+    <div class="room-copy">
+      <h2 id="room-title">The room</h2>
+      <p>Forty seats, a Steinway that's older than the building's second life,
+        and lamps kept low enough that you forget the hour. We keep the volume
+        honest — no screens, no rush, a bar that closes when the last chord does.</p>
+      <ul class="room-facts">
+        <li><span>Capacity</span>40 seats</li>
+        <li><span>Cover</span>$18 / $12 students</li>
+        <li><span>Kitchen</span>Small plates till 12</li>
+        <li><span>Cash bar</span>Open till last set</li>
+      </ul>
+    </div>
+    <div class="room-visual" aria-hidden="true">
+      <div class="stage-glow"></div>
+      <div class="keys"></div>
+    </div>
+  </section>
+
+  <section id="reserve" class="reserve" aria-labelledby="reserve-title">
+    <div class="section-head">
+      <h2 id="reserve-title">Reserve a table</h2>
+      <p class="section-note">We hold reservations until 15 minutes past your set.</p>
+    </div>
+    <form class="reserve-form" id="reserve-form" novalidate>
+      <div class="field">
+        <label for="r-name">Name</label>
+        <input id="r-name" name="name" type="text" autocomplete="name" required placeholder="Who's on the door?">
+      </div>
+      <div class="field">
+        <label for="r-set">Set</label>
+        <select id="r-set" name="set">
+          <option value="First — 8:30 PM">First — 8:30 PM</option>
+          <option value="Second — 10:30 PM" selected>Second — 10:30 PM</option>
+          <option value="Late — 12:30 AM">Late — 12:30 AM</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="r-party">Party</label>
+        <input id="r-party" name="party" type="number" min="1" max="8" value="2" inputmode="numeric">
+      </div>
+      <div class="field field-wide">
+        <label for="r-note">Note <span class="opt">(optional)</span></label>
+        <input id="r-note" name="note" type="text" placeholder="Anniversary, front row, quiet corner…">
+      </div>
+      <button class="btn btn-primary" type="submit">Hold my table</button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <p class="foot-brand">Blue Hour Club</p>
+  <p class="foot-line">217 W&nbsp;Wacker · Chicago, IL · Doors 8&nbsp;PM nightly</p>
+  <p class="foot-fine">The city sounds better after midnight.</p>
+</footer>
+</body>
+</html>

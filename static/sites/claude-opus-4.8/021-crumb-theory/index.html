@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Crumb Theory — A daily study in butter and flour</title>
+<meta name="description" content="A neighborhood bakery sharing today's counter, preorder specials, and obsessive pastry notes.">
+<link rel="stylesheet" href="styles.css">
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#counter">Skip to today's counter</a>
+
+<header class="site-head">
+	<div class="wrap head-inner">
+		<a class="brand" href="#top" aria-label="Crumb Theory home">
+			<span class="brand-mark" aria-hidden="true">
+				<svg viewBox="0 0 40 40" width="40" height="40" role="img" aria-hidden="true">
+					<circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2"/>
+					<circle cx="14" cy="16" r="2.1" fill="currentColor"/>
+					<circle cx="24" cy="13" r="1.5" fill="currentColor"/>
+					<circle cx="27" cy="23" r="2.4" fill="currentColor"/>
+					<circle cx="16" cy="26" r="1.7" fill="currentColor"/>
+					<circle cx="21" cy="20" r="1.2" fill="currentColor"/>
+				</svg>
+			</span>
+			<span class="brand-name">Crumb<span class="brand-thin">Theory</span></span>
+		</a>
+		<nav class="nav" aria-label="Primary">
+			<a href="#counter">Counter</a>
+			<a href="#notes">Notes</a>
+			<a href="#preorder">Preorder</a>
+			<a href="#visit">Visit</a>
+		</nav>
+	</div>
+</header>
+
+<main id="top">
+	<section class="hero" aria-labelledby="hero-title">
+		<div class="wrap hero-inner">
+			<p class="eyebrow">Baked each morning</p>
+			<h1 id="hero-title">A daily study in<br><em>butter and flour.</em></h1>
+			<p class="lede">Crumb Theory is a small neighborhood bakery that treats every loaf and laminated pastry like an experiment worth writing down. Come read today's counter, reserve the good stuff, and geek out over the notes.</p>
+			<div class="cta-row">
+				<a class="btn btn-primary" href="#counter">See today's counter</a>
+				<a class="btn btn-ghost" href="#preorder">Preorder a box</a>
+			</div>
+			<dl class="hero-stats">
+				<div><dt>Ferment</dt><dd>18&nbsp;hr</dd></div>
+				<div><dt>Butter</dt><dd>84%&nbsp;fat</dd></div>
+				<div><dt>Ovens on</dt><dd>4:30&nbsp;am</dd></div>
+			</dl>
+		</div>
+	</section>
+
+	<section id="counter" class="section" aria-labelledby="counter-title" tabindex="-1">
+		<div class="wrap">
+			<div class="section-head">
+				<div>
+					<p class="kicker">Today · <span id="today-date">this morning</span></p>
+					<h2 id="counter-title">Today's counter</h2>
+				</div>
+				<div class="filter" role="group" aria-label="Filter the counter">
+					<button type="button" class="chip is-on" data-filter="all" aria-pressed="true">All</button>
+					<button type="button" class="chip" data-filter="laminated" aria-pressed="false">Laminated</button>
+					<button type="button" class="chip" data-filter="bread" aria-pressed="false">Bread</button>
+					<button type="button" class="chip" data-filter="sweet" aria-pressed="false">Sweet</button>
+				</div>
+			</div>
+
+			<p class="count-line" aria-live="polite"><span id="count-n">6</span> items on the counter</p>
+
+			<ul class="counter-grid" id="counter-grid">
+				<li class="card" data-cat="laminated">
+					<div class="card-top"><h3>Butter croissant</h3><span class="price">$4.50</span></div>
+					<p class="card-note">Triple-folded, 27 layers. Rested cold overnight so the lamination shatters instead of squishes.</p>
+					<p class="card-meta"><span class="tag">Laminated</span><span class="stock stock-low">6 left</span></p>
+				</li>
+				<li class="card" data-cat="laminated">
+					<div class="card-top"><h3>Pain au chocolat</h3><span class="price">$5.00</span></div>
+					<p class="card-note">Two batons of 66% dark, tucked so the ends caramelize into little bitter crackles.</p>
+					<p class="card-meta"><span class="tag">Laminated</span><span class="stock">Plenty</span></p>
+				</li>
+				<li class="card" data-cat="bread">
+					<div class="card-top"><h3>Country sourdough</h3><span class="price">$8.00</span></div>
+					<p class="card-note">15% whole rye, 82% hydration. Open crumb, blistered crust, faintly sour finish.</p>
+					<p class="card-meta"><span class="tag">Bread</span><span class="stock">Plenty</span></p>
+				</li>
+				<li class="card" data-cat="bread">
+					<div class="card-top"><h3>Seeded rye tin</h3><span class="price">$7.50</span></div>
+					<p class="card-note">Soaked flax and sunflower folded through a stiff levain. Keeps for days, toasts like a dream.</p>
+					<p class="card-meta"><span class="tag">Bread</span><span class="stock stock-low">3 left</span></p>
+				</li>
+				<li class="card" data-cat="sweet">
+					<div class="card-top"><h3>Cardamom bun</h3><span class="price">$5.25</span></div>
+					<p class="card-note">Knotted, twice-glazed, dusted with crushed pods. Sweet enough, never cloying.</p>
+					<p class="card-meta"><span class="tag">Sweet</span><span class="stock">Plenty</span></p>
+				</li>
+				<li class="card" data-cat="sweet">
+					<div class="card-top"><h3>Brown-butter canelé</h3><span class="price">$3.75</span></div>
+					<p class="card-note">Dark lacquered shell, custard center. Baked in copper, brushed with beeswax.</p>
+					<p class="card-meta"><span class="tag">Sweet</span><span class="stock stock-low">Sold by 11</span></p>
+				</li>
+			</ul>
+			<p class="empty" id="empty-note" hidden>Nothing in that category today — check back tomorrow morning.</p>
+		</div>
+	</section>
+
+	<section id="notes" class="section section-alt" aria-labelledby="notes-title">
+		<div class="wrap">
+			<div class="section-head">
+				<div>
+					<p class="kicker">From the lab notebook</p>
+					<h2 id="notes-title">Obsessive pastry notes</h2>
+				</div>
+			</div>
+			<p class="notes-intro">We keep a running notebook on the bench. Tap a note to read what we changed and why.</p>
+			<div class="notes">
+				<details class="note">
+					<summary><span class="note-num">No. 041</span> Why we cold-proof the croissants</summary>
+					<div class="note-body"><p>Warm proofing raced the butter to melting before the dough could set. A slow overnight rest at 6&nbsp;°C let the yeast work while the layers stayed distinct — the crumb went from bready to honeycomb.</p></div>
+				</details>
+				<details class="note">
+					<summary><span class="note-num">No. 052</span> Hydration versus the season</summary>
+					<div class="note-body"><p>Flour drinks differently in July. We nudged the sourdough up to 82% and shortened the bulk by twenty minutes so the humid kitchen didn't over-ferment it. Same loaf, adjusted for the weather.</p></div>
+				</details>
+				<details class="note">
+					<summary><span class="note-num">No. 058</span> The beeswax on the canelé</summary>
+					<div class="note-body"><p>Butter alone browned unevenly and stuck. A thin beeswax-and-butter mix on the copper molds gives that glassy, near-burnt shell without tearing the custard when we turn them out.</p></div>
+				</details>
+				<details class="note">
+					<summary><span class="note-num">No. 063</span> Grinding cardamom to order</summary>
+					<div class="note-body"><p>Pre-ground pods lose their top notes within a day. We crack them the morning of, so the buns smell like citrus and pine instead of dusty spice. Worth the extra ten minutes.</p></div>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<section id="preorder" class="section" aria-labelledby="preorder-title">
+		<div class="wrap preorder-inner">
+			<div class="preorder-copy">
+				<p class="kicker">Reserve ahead</p>
+				<h2 id="preorder-title">Preorder specials</h2>
+				<p>Weekend bakes go fast. Reserve a box by Thursday night and it'll be boxed with your name on it, ready at the counter. No account, no fuss — just pick it up warm.</p>
+				<ul class="perk-list">
+					<li>Held until noon on pickup day</li>
+					<li>Mix and match any six items</li>
+					<li>Regulars get first pick of test bakes</li>
+				</ul>
+			</div>
+			<div class="preorder-box" aria-labelledby="box-title">
+				<h3 id="box-title">The Baker's Half-Dozen</h3>
+				<p class="box-sub">This weekend's reservable box</p>
+				<ul class="box-list" id="box-list">
+					<li><span>2 · Butter croissant</span><span class="box-price">$9.00</span></li>
+					<li><span>2 · Cardamom bun</span><span class="box-price">$10.50</span></li>
+					<li><span>1 · Country sourdough</span><span class="box-price">$8.00</span></li>
+					<li><span>1 · Brown-butter canelé</span><span class="box-price">$3.75</span></li>
+				</ul>
+				<p class="box-total"><span>Box total</span><span id="box-total">$31.25</span></p>
+				<button type="button" class="btn btn-primary btn-block" id="reserve-btn" aria-describedby="reserve-status">Reserve this box</button>
+				<p class="reserve-status" id="reserve-status" role="status" aria-live="polite"></p>
+				<p class="box-fine">Reserve online, pay warm at the counter. We'll never ask for card details here.</p>
+			</div>
+		</div>
+	</section>
+
+	<section id="visit" class="section section-alt" aria-labelledby="visit-title">
+		<div class="wrap visit-inner">
+			<div>
+				<p class="kicker">Come by</p>
+				<h2 id="visit-title">Visit the bench</h2>
+				<p class="visit-lede">Corner of Rye &amp; Vine, tucked behind the fruit stand. Follow the smell.</p>
+			</div>
+			<dl class="hours">
+				<div class="hours-row"><dt>Tue – Fri</dt><dd>7:00 am – 2:00 pm</dd></div>
+				<div class="hours-row"><dt>Saturday</dt><dd>7:00 am – 3:00 pm</dd></div>
+				<div class="hours-row"><dt>Sunday</dt><dd>8:00 am – 1:00 pm</dd></div>
+				<div class="hours-row hours-closed"><dt>Monday</dt><dd>Resting the starter</dd></div>
+			</dl>
+		</div>
+	</section>
+</main>
+
+<footer class="site-foot">
+	<div class="wrap foot-inner">
+		<p class="foot-brand">Crumb Theory</p>
+		<p class="foot-tag">A daily study in butter and flour.</p>
+		<p class="foot-small">Baked at the corner of Rye &amp; Vine · No shipping, no apps, just the counter.</p>
+	</div>
+</footer>
+</body>
+</html>

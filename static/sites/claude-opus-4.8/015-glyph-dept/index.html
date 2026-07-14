@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'" />
+  <title>Glyph Department — Typefaces with something to say.</title>
+  <meta name="description" content="An independent foundry where variable letters stretch, collide, and perform across every screen." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#tester">Skip to the type tester</a>
+
+  <header class="topbar">
+    <a class="wordmark" href="#top" aria-label="Glyph Department home">
+      <span class="wordmark__mark" aria-hidden="true">G<span class="wordmark__d">D</span></span>
+      <span class="wordmark__text">Glyph<span>Department</span></span>
+    </a>
+    <nav class="topnav" aria-label="Primary">
+      <a href="#tester">Test</a>
+      <a href="#families">Families</a>
+      <a href="#studio">Studio</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">Independent type foundry</p>
+      <h1 id="hero-title" class="hero__title">
+        <span class="hero__line" data-flex>Letters</span>
+        <span class="hero__line hero__line--wide" data-flex>that</span>
+        <span class="hero__line hero__line--heavy" data-flex>perform.</span>
+      </h1>
+      <p class="hero__lede">
+        Glyph Department draws variable typefaces built to stretch, collide, and
+        carry a voice across every screen size. Pull a slider and watch the
+        letterforms answer.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--solid" href="#tester">Test the type</a>
+        <a class="btn btn--ghost" href="#families">Browse families</a>
+      </div>
+      <dl class="hero__stats">
+        <div><dt>Families</dt><dd>04</dd></div>
+        <div><dt>Axes per face</dt><dd>up to 3</dd></div>
+        <div><dt>Licensing</dt><dd>Perpetual</dd></div>
+      </dl>
+    </section>
+
+    <section id="tester" class="tester" aria-labelledby="tester-title">
+      <div class="section-head">
+        <h2 id="tester-title">Test the type</h2>
+        <p>Type your own words, then drive the axes. Everything renders live.</p>
+      </div>
+
+      <div class="stage" aria-live="polite">
+        <p class="stage__text" id="stage-text" data-specimen>Handgloves</p>
+      </div>
+
+      <form class="controls" aria-label="Type tester controls">
+        <div class="field field--text">
+          <label for="sample">Sample text</label>
+          <input id="sample" type="text" value="Handgloves" maxlength="40"
+                 autocomplete="off" spellcheck="false" />
+        </div>
+
+        <div class="field">
+          <div class="field__row">
+            <label for="weight">Weight</label>
+            <output id="weight-out" for="weight">520</output>
+          </div>
+          <input id="weight" type="range" min="200" max="900" step="10" value="520" />
+        </div>
+
+        <div class="field">
+          <div class="field__row">
+            <label for="width">Width</label>
+            <output id="width-out" for="width">100%</output>
+          </div>
+          <input id="width" type="range" min="60" max="165" step="1" value="100" />
+        </div>
+
+        <div class="field">
+          <div class="field__row">
+            <label for="size">Size</label>
+            <output id="size-out" for="size">120px</output>
+          </div>
+          <input id="size" type="range" min="40" max="180" step="1" value="120" />
+        </div>
+
+        <div class="field">
+          <div class="field__row">
+            <label for="slant">Slant</label>
+            <output id="slant-out" for="slant">0&deg;</output>
+          </div>
+          <input id="slant" type="range" min="-14" max="14" step="1" value="0" />
+        </div>
+
+        <div class="field field--wide field__row">
+          <span id="family-label">Family</span>
+          <div class="segmented" role="radiogroup" aria-labelledby="family-label">
+            <button type="button" role="radio" aria-checked="true" data-family="grotesk">Grotesk</button>
+            <button type="button" role="radio" aria-checked="false" data-family="serif">Serif</button>
+            <button type="button" role="radio" aria-checked="false" data-family="mono">Mono</button>
+          </div>
+        </div>
+
+        <div class="field field--wide field__row controls__end">
+          <button type="button" class="btn btn--ghost" id="reset">Reset axes</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="families" class="families" aria-labelledby="families-title">
+      <div class="section-head">
+        <h2 id="families-title">Browse families</h2>
+        <p>Four working faces, each shipped with a variable range you can bend.</p>
+      </div>
+      <ul class="grid">
+        <li class="card" data-card>
+          <p class="card__spec">Kern</p>
+          <p class="card__big" data-flex>Aa</p>
+          <div class="card__meta">
+            <span>Grotesk</span><span>Thin&ndash;Black</span>
+          </div>
+          <p class="card__note">A workhorse sans with a low waist and open apertures. Built for interface and signage.</p>
+        </li>
+        <li class="card" data-card>
+          <p class="card__spec">Colophon</p>
+          <p class="card__big card__big--serif" data-flex>Rg</p>
+          <div class="card__meta">
+            <span>Serif</span><span>Text&ndash;Display</span>
+          </div>
+          <p class="card__note">A sharp editorial serif with a wide optical range for long reads and loud headlines.</p>
+        </li>
+        <li class="card" data-card>
+          <p class="card__spec">Ledger</p>
+          <p class="card__big card__big--mono" data-flex>{}</p>
+          <div class="card__meta">
+            <span>Mono</span><span>Fixed pitch</span>
+          </div>
+          <p class="card__note">A monospace tuned for code and data. Distinct zero, dotted i, and generous line height.</p>
+        </li>
+        <li class="card" data-card>
+          <p class="card__spec">Marquee</p>
+          <p class="card__big card__big--wide" data-flex>Go</p>
+          <div class="card__meta">
+            <span>Display</span><span>Extreme width</span>
+          </div>
+          <p class="card__note">A poster face that scales from condensed to ultra-wide. Made to fill the whole banner.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="studio" class="studio" aria-labelledby="studio-title">
+      <div class="section-head">
+        <h2 id="studio-title">The Studio</h2>
+      </div>
+      <div class="studio__body">
+        <p class="studio__lead">
+          We are a two-desk foundry drawing type in the open. No committees, no
+          house style forced on your words &mdash; just letters with something to say.
+        </p>
+        <p>
+          Every face ships with a spec sheet, hinting notes, and a perpetual
+          desktop and web license. Trials are unlimited for real work in
+          progress; we only ask that you license before you publish.
+        </p>
+        <ul class="studio__list">
+          <li><strong>Custom axes.</strong> Commission a bespoke weight, width, or optical size range.</li>
+          <li><strong>Local delivery.</strong> Fonts arrive as self-hosted files &mdash; no third-party callbacks.</li>
+          <li><strong>Fair licensing.</strong> One purchase covers your whole team and updates for the life of the face.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p class="foot__mark" aria-hidden="true">GD</p>
+    <p>Glyph Department &mdash; typefaces with something to say.</p>
+    <p class="foot__fine">Independent type foundry &middot; Set in system faces &middot; Built for the open web.</p>
+  </footer>
+</body>
+</html>

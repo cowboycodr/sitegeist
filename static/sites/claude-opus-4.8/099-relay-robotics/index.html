@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self';" />
+	<title>Relay Robotics — Robots that work the room.</title>
+	<meta name="description" content="Friendly autonomous robots handling indoor logistics across hospitals, hotels, and campuses." />
+	<link rel="stylesheet" href="styles.css" />
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230e1b2b'/%3E%3Ccircle cx='12' cy='14' r='2.4' fill='%233ddc97'/%3E%3Ccircle cx='20' cy='14' r='2.4' fill='%233ddc97'/%3E%3Crect x='9' y='21' width='14' height='2.6' rx='1.3' fill='%23ff7a59'/%3E%3C/svg%3E" />
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="app.js"></script>
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<header class="site-header">
+		<a class="brand" href="#top" aria-label="Relay Robotics home">
+			<span class="brand-mark" aria-hidden="true">
+				<span class="eye"></span><span class="eye"></span>
+			</span>
+			<span class="brand-name">Relay<span>Robotics</span></span>
+		</a>
+		<nav class="site-nav" aria-label="Primary">
+			<a href="#spaces">Spaces</a>
+			<a href="#robot">Relay One</a>
+			<a href="#fleet">Fleet</a>
+			<a href="#contact">Talk to us</a>
+		</nav>
+	</header>
+
+	<main id="main">
+		<section class="hero" id="top">
+			<div class="hero-copy">
+				<p class="eyebrow">Autonomy for everyday spaces</p>
+				<h1>Robots that work<br />the room.</h1>
+				<p class="lede">Friendly autonomous robots handling indoor logistics across hospitals, hotels, and campuses — delivering, restocking, and running errands so your people don't have to.</p>
+				<div class="hero-actions">
+					<a class="btn btn-primary" href="#robot">Meet Relay One</a>
+					<button class="btn btn-ghost" type="button" data-demo-jump aria-label="Watch it work — scroll to the live route demo">
+						<span class="play" aria-hidden="true"></span>Watch it work
+					</button>
+				</div>
+				<dl class="hero-stats">
+					<div><dt>Deliveries / day</dt><dd data-count="480">480</dd></div>
+					<div><dt>Uptime</dt><dd data-count="99.4" data-suffix="%">99.4%</dd></div>
+					<div><dt>Sites live</dt><dd data-count="70" data-suffix="+">70+</dd></div>
+				</dl>
+			</div>
+
+			<div class="hero-stage" aria-hidden="true">
+				<div class="floor-grid"></div>
+				<div class="robot">
+					<div class="robot-head">
+						<div class="robot-face">
+							<span class="robot-eye"></span>
+							<span class="robot-eye"></span>
+						</div>
+						<div class="robot-antenna"></div>
+					</div>
+					<div class="robot-body">
+						<div class="robot-screen"><span></span><span></span><span></span></div>
+						<div class="robot-tray"></div>
+					</div>
+					<div class="robot-base"><span class="wheel"></span><span class="wheel"></span></div>
+					<div class="robot-shadow"></div>
+				</div>
+				<span class="ping ping-1"></span>
+				<span class="ping ping-2"></span>
+			</div>
+		</section>
+
+		<section class="spaces" id="spaces">
+			<div class="section-head">
+				<h2>One robot, many rooms</h2>
+				<p>Relay reads the building around it and adapts. The same fleet moves meals, linens, samples, and supplies — quietly, all day.</p>
+			</div>
+			<ul class="space-cards">
+				<li class="space-card" data-tilt>
+					<span class="space-icon" aria-hidden="true">✚</span>
+					<h3>Hospitals</h3>
+					<p>Ferry lab samples, pharmacy orders, and meal trays between wards without pulling clinicians off the floor.</p>
+					<span class="space-tag">Sterile-route aware</span>
+				</li>
+				<li class="space-card" data-tilt>
+					<span class="space-icon" aria-hidden="true">✦</span>
+					<h3>Hotels</h3>
+					<p>Deliver towels, room-service, and forgotten chargers to any door, then call the elevator on the way back.</p>
+					<span class="space-tag">Guest-friendly</span>
+				</li>
+				<li class="space-card" data-tilt>
+					<span class="space-icon" aria-hidden="true">❖</span>
+					<h3>Campuses</h3>
+					<p>Shuttle mail, parts, and lunch orders across sprawling buildings and covered walkways, rain or shine.</p>
+					<span class="space-tag">Multi-building</span>
+				</li>
+			</ul>
+		</section>
+
+		<section class="robot-spec" id="robot">
+			<div class="spec-visual" aria-hidden="true">
+				<div class="spec-card">
+					<span class="spec-badge">Relay One</span>
+					<div class="spec-ring"></div>
+					<div class="spec-figure">
+						<span class="spec-eye"></span><span class="spec-eye"></span>
+					</div>
+				</div>
+			</div>
+			<div class="spec-copy">
+				<p class="eyebrow">Meet Relay One</p>
+				<h2>Small footprint. Big shift covered.</h2>
+				<p>Relay One is built to blend in: it waits at doors, yields in hallways, and greets people with a soft glow instead of a horn. Under the friendly shell is a full autonomy stack.</p>
+				<ul class="spec-list">
+					<li><strong>Payload</strong><span>Up to 22&nbsp;kg across three secured compartments</span></li>
+					<li><strong>Range</strong><span>14&nbsp;hours on a charge, self-docking overnight</span></li>
+					<li><strong>Nav</strong><span>Lidar + depth vision, no floor markers required</span></li>
+					<li><strong>Access</strong><span>Calls elevators and opens doors over encrypted radio</span></li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="route" id="demo">
+			<div class="section-head">
+				<h2>Watch it work</h2>
+				<p>A single delivery, start to finish. Press play to send Relay One down the corridor and drop off its payload.</p>
+			</div>
+			<div class="route-panel">
+				<div class="route-map">
+					<svg viewBox="0 0 600 260" role="img" aria-label="Floor plan showing Relay One's delivery route from the dock to room 214">
+						<defs>
+							<linearGradient id="pathGrad" x1="0" y1="0" x2="1" y2="0">
+								<stop offset="0" stop-color="#3ddc97" />
+								<stop offset="1" stop-color="#ff7a59" />
+							</linearGradient>
+						</defs>
+						<rect x="8" y="8" width="584" height="244" rx="18" class="map-frame" />
+						<g class="map-rooms">
+							<rect x="40" y="40" width="120" height="70" rx="8" />
+							<rect x="180" y="40" width="120" height="70" rx="8" />
+							<rect x="320" y="40" width="110" height="70" rx="8" />
+							<rect x="450" y="40" width="110" height="70" rx="8" />
+							<rect x="40" y="160" width="150" height="60" rx="8" />
+							<rect x="210" y="160" width="180" height="60" rx="8" />
+							<rect x="410" y="160" width="150" height="60" rx="8" />
+						</g>
+						<path id="routeLine" class="route-line" d="M 90 190 L 90 135 L 505 135 L 505 92" pathLength="100" />
+						<circle class="route-dock" cx="90" cy="190" r="9" />
+						<circle class="route-goal" cx="505" cy="92" r="9" />
+						<g class="route-bot" id="routeBot">
+							<circle r="12" class="bot-body" />
+							<circle r="4" cx="-4" cy="-2" class="bot-eye" />
+							<circle r="4" cx="4" cy="-2" class="bot-eye" />
+						</g>
+					</svg>
+				</div>
+				<div class="route-controls">
+					<div class="route-status" id="routeStatus" role="status" aria-live="polite">Ready at the loading dock.</div>
+					<div class="route-steps">
+						<span data-step="0" class="active">Dock</span>
+						<span data-step="1">Corridor</span>
+						<span data-step="2">Elevator</span>
+						<span data-step="3">Room 214</span>
+					</div>
+					<button class="btn btn-primary" type="button" id="routePlay">Play delivery</button>
+					<p class="route-note">Nonessential motion pauses automatically if you prefer reduced motion.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="fleet" id="fleet">
+			<div class="section-head">
+				<h2>Runs itself, reports to you</h2>
+				<p>Every robot streams to one dashboard. Dispatch a task, watch the route, and let the fleet balance its own workload.</p>
+			</div>
+			<div class="fleet-grid">
+				<article class="fleet-tile">
+					<h3>Dispatch in a tap</h3>
+					<p>Staff send a job from a wall tablet or phone. Relay picks the nearest idle robot and confirms an arrival window.</p>
+				</article>
+				<article class="fleet-tile">
+					<h3>Self-charging</h3>
+					<p>Robots return to dock between runs and top up, so the fleet is always ready for the next rush.</p>
+				</article>
+				<article class="fleet-tile">
+					<h3>Human-first hallways</h3>
+					<p>Relay yields to people, slows near corners, and never blocks a doorway. Politeness is the default setting.</p>
+				</article>
+				<article class="fleet-tile">
+					<h3>Audit trail</h3>
+					<p>Every handoff is logged with time, door, and recipient — useful for pharmacy, lab, and secure deliveries.</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="cta" id="contact">
+			<div class="cta-inner">
+				<h2>Ready to give your team an extra pair of wheels?</h2>
+				<p>Tell us about your building and we'll map a pilot route. No forklift, no floor markers, no downtime.</p>
+				<div class="cta-actions">
+					<a class="btn btn-primary" href="#robot">Meet Relay One</a>
+					<a class="btn btn-ghost" href="#demo">Watch it work</a>
+				</div>
+				<p class="cta-fineprint">Relay Robotics — indoor logistics that stays out of the way.</p>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<span class="brand-mark small" aria-hidden="true"><span class="eye"></span><span class="eye"></span></span>
+		<p>© 2026 Relay Robotics. Robots that work the room.</p>
+	</footer>
+</body>
+</html>

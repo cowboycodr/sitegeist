@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Soft Earth Studio — hand-thrown ceramics poster">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f5ecdd"/>
+      <stop offset="1" stop-color="#e9dbc4"/>
+    </linearGradient>
+    <linearGradient id="clay" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c68a63"/>
+      <stop offset="0.55" stop-color="#a76a4a"/>
+      <stop offset="1" stop-color="#7c4a32"/>
+    </linearGradient>
+    <linearGradient id="sage" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9fae90"/>
+      <stop offset="1" stop-color="#6f7f63"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+
+  <!-- horizon bands: the landscape held inside a glaze -->
+  <g opacity="0.9">
+    <path d="M0 640c180 30 320-24 560 6s440 22 640-14V900H0z" fill="#e4d3b8"/>
+    <path d="M0 720c220 34 360-18 600 8s420 14 600-18V900H0z" fill="#d8c3a3"/>
+  </g>
+
+  <!-- ground shadow -->
+  <ellipse cx="600" cy="708" rx="300" ry="34" fill="#3a201316"/>
+
+  <!-- back vessel (sage) -->
+  <g transform="translate(738 320)">
+    <path d="M60 90c-40 20-60 66-60 148 0 118 52 200 118 200s118-82 118-200c0-82-20-128-60-148 10-20 10-46-6-62-14 20-14 42-6 62-20-10-76-10-104 0z" fill="url(#sage)"/>
+    <path d="M28 250c66 30 168 30 234 0" fill="none" stroke="#ffffff40" stroke-width="9" stroke-linecap="round"/>
+  </g>
+
+  <!-- front vessel (clay) -->
+  <g transform="translate(300 300)">
+    <path d="M116 44c-16 0-24 13-24 30 0 8 3 13 6 18-38 14-62 54-62 128 0 108 48 184 108 184s108-76 108-184c0-74-24-114-62-128 3-5 6-10 6-18 0-17-8-30-24-30-11 0-21 8-24 19-3-11-13-19-32-19z" fill="url(#clay)"/>
+    <path d="M50 200c66 38 148 38 214 0" fill="none" stroke="#3a2013aa" stroke-width="7" stroke-linecap="round"/>
+    <path d="M74 280c50 28 106 28 156 0" fill="none" stroke="#ffffff36" stroke-width="12" stroke-linecap="round"/>
+    <!-- fingerprint mark -->
+    <g stroke="#3a201355" stroke-width="3" fill="none" opacity="0.7" transform="translate(150 340)">
+      <path d="M-16 0a16 16 0 0 1 32 0"/>
+      <path d="M-11 3a11 11 0 0 1 22 0"/>
+      <path d="M-6 6a6 6 0 0 1 12 0"/>
+    </g>
+  </g>
+
+  <!-- speckles -->
+  <g fill="#7c4a32" opacity="0.35">
+    <circle cx="220" cy="230" r="4"/><circle cx="980" cy="300" r="5"/>
+    <circle cx="160" cy="470" r="3"/><circle cx="1040" cy="500" r="4"/>
+    <circle cx="920" cy="200" r="3"/>
+  </g>
+
+  <!-- wordmark -->
+  <g text-anchor="middle" font-family="'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif">
+    <text x="600" y="120" font-family="'Segoe UI',system-ui,Arial,sans-serif" font-size="30" letter-spacing="14" fill="#a76a4a" font-weight="700">HAND-THROWN CERAMICS</text>
+    <text x="600" y="820" font-size="104" fill="#3a2c22" font-weight="600">Soft Earth Studio</text>
+    <text x="600" y="872" font-family="'Segoe UI',system-ui,Arial,sans-serif" font-size="27" fill="#6b5a4c" font-style="italic">Made slowly enough to keep the fingerprints.</text>
+  </g>
+</svg>

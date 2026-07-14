@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <meta name="description" content="Vanta Audio Series One — reference headphones tuned for depth, texture, and the emotional weight of sound." />
+  <meta name="theme-color" content="#050507" />
+  <title>Vanta Audio — Hear the space between.</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-head">
+    <a class="wordmark" href="#top" aria-label="Vanta Audio home">
+      <span class="wordmark__glyph" aria-hidden="true">
+        <span class="dot"></span>
+      </span>
+      <span class="wordmark__text">VANTA<span class="wordmark__thin">AUDIO</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#engineering">Engineering</a>
+      <a href="#soundstage">Soundstage</a>
+      <a href="#specs">Specs</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero__stage" aria-hidden="true">
+        <div class="rings">
+          <span class="ring ring--1"></span>
+          <span class="ring ring--2"></span>
+          <span class="ring ring--3"></span>
+          <span class="ring ring--4"></span>
+        </div>
+        <svg class="phones" viewBox="0 0 220 220" role="presentation">
+          <defs>
+            <linearGradient id="cup" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#26232b" />
+              <stop offset="0.55" stop-color="#111014" />
+              <stop offset="1" stop-color="#050507" />
+            </linearGradient>
+            <radialGradient id="driver" cx="0.42" cy="0.4" r="0.75">
+              <stop offset="0" stop-color="#d7975a" />
+              <stop offset="0.35" stop-color="#8a5b34" />
+              <stop offset="1" stop-color="#0a0a0d" />
+            </radialGradient>
+          </defs>
+          <path d="M40 118 A70 70 0 0 1 180 118" fill="none" stroke="#33313a" stroke-width="9" stroke-linecap="round" />
+          <path d="M40 118 A70 70 0 0 1 180 118" fill="none" stroke="#6a4a2c" stroke-width="2.5" stroke-linecap="round" opacity="0.8" />
+          <g>
+            <rect x="30" y="112" width="34" height="66" rx="16" fill="url(#cup)" stroke="#3a3742" stroke-width="1.2" />
+            <circle cx="47" cy="145" r="12" fill="url(#driver)" />
+            <circle cx="47" cy="145" r="12" fill="none" stroke="#e2a768" stroke-width="0.8" opacity="0.5" />
+          </g>
+          <g>
+            <rect x="156" y="112" width="34" height="66" rx="16" fill="url(#cup)" stroke="#3a3742" stroke-width="1.2" />
+            <circle cx="173" cy="145" r="12" fill="url(#driver)" />
+            <circle cx="173" cy="145" r="12" fill="none" stroke="#e2a768" stroke-width="0.8" opacity="0.5" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="hero__copy">
+        <p class="eyebrow">Series One</p>
+        <h1 class="hero__title">Hear the<br /><em>space</em> between.</h1>
+        <p class="hero__lede">Reference headphones tuned for depth, texture, and the emotional weight of sound. A closed acoustic void that lets the quiet parts speak.</p>
+        <div class="actions">
+          <a class="btn btn--primary" href="#soundstage">Listen closer</a>
+          <a class="btn btn--ghost" href="#engineering">Explore the engineering</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <p>Named for the deepest black a chamber can hold. What you notice is not the sound — it is everything around it.</p>
+    </section>
+
+    <section class="section" id="engineering">
+      <div class="section__head">
+        <span class="tag">Engineering</span>
+        <h2>Built to disappear.</h2>
+        <p>Three years of quiet obsession, distilled into a driver that adds nothing and hides nothing.</p>
+      </div>
+      <div class="grid">
+        <article class="card reveal">
+          <span class="card__num">01</span>
+          <h3>Vantablack chamber</h3>
+          <p>A carbon-lined acoustic void absorbs reflections before they smear the stereo image, so decay trails off into true silence.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card__num">02</span>
+          <h3>52&nbsp;mm beryllium driver</h3>
+          <p>Featherweight, ruthlessly rigid. It starts and stops with the transient, never lingering a moment past the note.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card__num">03</span>
+          <h3>Machined memory pads</h3>
+          <p>Slow-return protein leather forms a perfect seal, isolating the room and letting sub-bass arrive as pressure, not noise.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section soundstage" id="soundstage">
+      <div class="section__head">
+        <span class="tag">Soundstage</span>
+        <h2>A room you can walk through.</h2>
+        <p>Move the source and feel the instruments settle into place. This is a visualization — the real thing is wider.</p>
+      </div>
+
+      <div class="stage-panel">
+        <canvas id="spectrum" class="spectrum" width="900" height="260" aria-hidden="true"></canvas>
+        <div class="stage-controls" role="group" aria-label="Soundstage placement">
+          <button type="button" class="chip" data-pos="near" aria-pressed="true">Intimate</button>
+          <button type="button" class="chip" data-pos="mid" aria-pressed="false">Mid hall</button>
+          <button type="button" class="chip" data-pos="far" aria-pressed="false">Far field</button>
+        </div>
+        <p class="stage-caption" id="stage-caption" aria-live="polite">Intimate — the voice a hand's width from your ear, breath and all.</p>
+      </div>
+    </section>
+
+    <section class="section" id="specs">
+      <div class="section__head">
+        <span class="tag">Specs</span>
+        <h2>The measured truth.</h2>
+      </div>
+      <dl class="specs">
+        <div><dt>Transducer</dt><dd>52&nbsp;mm beryllium dome, closed back</dd></div>
+        <div><dt>Frequency response</dt><dd>5&nbsp;Hz – 48&nbsp;kHz</dd></div>
+        <div><dt>Impedance</dt><dd>32&nbsp;Ω nominal</dd></div>
+        <div><dt>Sensitivity</dt><dd>101&nbsp;dB / mW</dd></div>
+        <div><dt>Isolation</dt><dd>−28&nbsp;dB passive</dd></div>
+        <div><dt>Mass</dt><dd>318&nbsp;g without cable</dd></div>
+      </dl>
+    </section>
+
+    <section class="closer">
+      <p class="eyebrow">Series One</p>
+      <h2>Everything, and the silence around it.</h2>
+      <div class="actions actions--center">
+        <a class="btn btn--primary" href="#top">Listen closer</a>
+        <a class="btn btn--ghost" href="#engineering">Explore the engineering</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <span class="wordmark__text foot-mark">VANTA<span class="wordmark__thin">AUDIO</span></span>
+    <p>Reference monitoring for people who listen twice. Hand assembled in limited series.</p>
+    <small>© Vanta Audio — Series One</small>
+  </footer>
+</body>
+</html>

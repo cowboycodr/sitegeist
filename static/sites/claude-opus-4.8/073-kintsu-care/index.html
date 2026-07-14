@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none';">
+	<meta name="description" content="Kintsu is a calm platform connecting daily reflection, therapy, and practical mental health tools — care for the life between appointments.">
+	<meta name="theme-color" content="#f6f1e7">
+	<title>Kintsu — Care for the life between appointments</title>
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236f8b7d'/%3E%3Cpath d='M16 5v22M16 12l6-4M16 18l-6 3' stroke='%23c69a4d' stroke-width='2.4' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+	<link rel="stylesheet" href="styles.css">
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="app.js"></script>
+</head>
+<body>
+	<a class="skip" href="#main">Skip to content</a>
+
+	<header class="site-head">
+		<div class="wrap head-row">
+			<a class="brand" href="#top" aria-label="Kintsu home">
+				<svg class="mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+					<rect x="1" y="1" width="38" height="38" rx="11" fill="#efe7d8" stroke="#e2d7c3"></rect>
+					<path d="M20 6 V34 M20 15 L28 9 M20 22 L12 27 M20 27 L27 31" fill="none" stroke="#c69a4d" stroke-width="2.4" stroke-linecap="round"></path>
+					<circle cx="20" cy="20" r="2.2" fill="#a67c2e"></circle>
+				</svg>
+				<span>Kintsu</span>
+			</a>
+			<nav class="nav" aria-label="Primary">
+				<a class="nav-link" href="#how">How it works</a>
+				<a class="nav-link" href="#checkin">Check-in</a>
+				<a class="nav-link" href="#care">Care</a>
+				<a class="btn btn-ghost" href="#checkin">Begin a check-in</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main">
+		<span id="top"></span>
+		<section class="hero" aria-labelledby="hero-title">
+			<div class="wrap hero-grid">
+				<div class="hero-copy">
+					<p class="eyebrow">Whole-person mental care</p>
+					<h1 id="hero-title">Care for the life between appointments.</h1>
+					<p class="lead">Kintsu is a calm platform connecting daily reflection, therapy, and practical tools — so the days between sessions become part of your care, not a gap in it.</p>
+					<div class="hero-actions">
+						<a class="btn btn-primary" href="#checkin">Begin a check-in</a>
+						<a class="btn btn-ghost" href="#how">How it works</a>
+					</div>
+					<p class="hero-note"><span class="dot" aria-hidden="true"></span> Private by design. Nothing here is stored or sent anywhere.</p>
+				</div>
+				<div class="hero-art" aria-hidden="true">
+					<svg class="vessel" viewBox="0 0 420 460" role="img">
+						<defs>
+							<linearGradient id="bowl" x1="0" y1="0" x2="0" y2="1">
+								<stop offset="0" stop-color="#efe7d8"></stop>
+								<stop offset="1" stop-color="#e2d5bd"></stop>
+							</linearGradient>
+							<linearGradient id="seam" x1="0" y1="0" x2="1" y2="1">
+								<stop offset="0" stop-color="#e0bd75"></stop>
+								<stop offset="0.5" stop-color="#c69a4d"></stop>
+								<stop offset="1" stop-color="#a67c2e"></stop>
+							</linearGradient>
+						</defs>
+						<ellipse cx="210" cy="424" rx="150" ry="20" fill="#d9cdb4"></ellipse>
+						<path d="M70 210 Q210 120 350 210 Q330 380 210 410 Q90 380 70 210 Z" fill="url(#bowl)" stroke="#d3c4a6" stroke-width="3"></path>
+						<path d="M70 210 Q210 250 350 210" fill="none" stroke="#d3c4a6" stroke-width="3" opacity="0.7"></path>
+						<!-- golden seams: brokenness rejoined -->
+						<g fill="none" stroke="url(#seam)" stroke-linecap="round">
+							<path d="M210 128 L206 210 L224 300 L214 405" stroke-width="5"></path>
+							<path d="M206 210 L150 236 L96 262" stroke-width="4"></path>
+							<path d="M224 300 L292 286 L342 258" stroke-width="4"></path>
+							<path d="M214 405 L172 372 L132 372" stroke-width="3.4"></path>
+							<path d="M206 210 L262 190 L300 176" stroke-width="3.4"></path>
+						</g>
+						<g fill="#a67c2e">
+							<circle cx="96" cy="262" r="4"></circle>
+							<circle cx="342" cy="258" r="4"></circle>
+							<circle cx="132" cy="372" r="3.4"></circle>
+							<circle cx="300" cy="176" r="3.4"></circle>
+						</g>
+					</svg>
+				</div>
+			</div>
+		</section>
+
+		<section id="how" class="alt" aria-labelledby="how-title">
+			<div class="wrap">
+				<div class="section-head">
+					<p class="kicker">How it works</p>
+					<h2 id="how-title">Three quiet steps, repeated at your pace</h2>
+					<p>Kintsu is named for kintsugi — the art of mending what's broken with gold. Small daily acts of care become the seams that hold a harder week together.</p>
+				</div>
+				<ol class="steps">
+					<li class="step">
+						<span class="num" aria-hidden="true"></span>
+						<h3>Check in</h3>
+						<p>Take two minutes to notice how you actually are. A short, judgment-free prompt turns a vague feeling into something you can work with.</p>
+					</li>
+					<li class="step">
+						<span class="num" aria-hidden="true"></span>
+						<h3>Reflect &amp; practice</h3>
+						<p>Kintsu offers a gentle reflection and a matching tool — a breathing pace, a grounding list, or a note to bring to therapy.</p>
+					</li>
+					<li class="step">
+						<span class="num" aria-hidden="true"></span>
+						<h3>Carry it forward</h3>
+						<p>Patterns you notice travel with you into sessions, so your time with a therapist starts from what's real, not from scratch.</p>
+					</li>
+				</ol>
+			</div>
+		</section>
+
+		<section id="checkin" aria-labelledby="checkin-title">
+			<div class="wrap">
+				<div class="section-head">
+					<p class="kicker">Daily reflection</p>
+					<h2 id="checkin-title">Begin a check-in</h2>
+					<p>A tiny ritual for the ordinary day. Everything you type stays in this browser tab — it is never saved or sent.</p>
+				</div>
+				<div class="checkin-grid">
+					<form id="checkin-form" class="panel" novalidate>
+						<h3>How are you, honestly?</h3>
+						<fieldset>
+							<legend>Today feels…</legend>
+							<div class="moods" role="radiogroup" aria-label="Pick the closest mood">
+								<label class="mood"><input type="radio" name="mood" value="steady" checked><span>🌿 Steady</span></label>
+								<label class="mood"><input type="radio" name="mood" value="bright"><span>☀️ Bright</span></label>
+								<label class="mood"><input type="radio" name="mood" value="heavy"><span>🌧️ Heavy</span></label>
+								<label class="mood"><input type="radio" name="mood" value="frayed"><span>🧵 Frayed</span></label>
+								<label class="mood"><input type="radio" name="mood" value="numb"><span>🌫️ Flat</span></label>
+							</div>
+						</fieldset>
+						<fieldset>
+							<legend>Energy right now</legend>
+							<div class="range-row">
+								<span aria-hidden="true">Low</span>
+								<input type="range" id="energy" name="energy" min="1" max="10" value="5" aria-describedby="energy-val">
+								<span aria-hidden="true">Full</span>
+								<span class="range-val" id="energy-val" aria-hidden="true">5</span>
+							</div>
+						</fieldset>
+						<div class="field">
+							<label for="note">A sentence for yourself <span style="font-weight:400;color:var(--ink-soft)">(optional)</span></label>
+							<textarea id="note" name="note" placeholder="What's taking up the most room today?"></textarea>
+						</div>
+						<div class="form-foot">
+							<button class="btn btn-primary" type="submit">Reflect on today</button>
+							<p class="privacy"><span aria-hidden="true">🔒</span> Stays on this device.</p>
+						</div>
+					</form>
+
+					<div class="reflect" id="reflect" tabindex="-1" hidden>
+						<svg class="seam" viewBox="0 0 300 10" aria-hidden="true" preserveAspectRatio="none"><path d="M0 5 L70 3 L140 7 L210 2 L300 6" fill="none" stroke="#c69a4d" stroke-width="2.4" stroke-linecap="round"></path></svg>
+						<h3 class="reflect-title" id="reflect-title">Your reflection</h3>
+						<p class="reflect-body" id="reflect-body"></p>
+						<p class="reflect-mirror" id="reflect-mirror" hidden></p>
+						<p class="streak">
+							<span class="pips" id="streak-pips" aria-hidden="true"></span>
+							<span id="streak-label">No check-ins yet</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="care" class="alt" aria-labelledby="care-title">
+			<div class="wrap">
+				<div class="section-head">
+					<p class="kicker">One connected place</p>
+					<h2 id="care-title">Reflection, therapy, and tools that talk to each other</h2>
+					<p>Most support lives in separate apps that forget everything between visits. Kintsu keeps the thread.</p>
+				</div>
+				<div class="pillars">
+					<article class="pillar">
+						<svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="#efe7d8" stroke="#e2d7c3"></circle><path d="M14 30 Q24 14 34 30" fill="none" stroke="#6f8b7d" stroke-width="3" stroke-linecap="round"></path><circle cx="24" cy="24" r="3" fill="#c69a4d"></circle></svg>
+						<h3>Daily reflection</h3>
+						<p>Low-effort check-ins that build a picture of your weeks over time.</p>
+						<ul>
+							<li>Mood &amp; energy in one glance</li>
+							<li>Gentle, non-clinical prompts</li>
+							<li>Private, on-device journaling</li>
+						</ul>
+					</article>
+					<article class="pillar">
+						<svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="#efe7d8" stroke="#e2d7c3"></circle><path d="M17 20a7 7 0 0 1 14 0v6a7 7 0 0 1-14 0z" fill="none" stroke="#6f8b7d" stroke-width="3"></path><path d="M24 33v4" stroke="#c69a4d" stroke-width="3" stroke-linecap="round"></path></svg>
+						<h3>Therapy, connected</h3>
+						<p>Bring what you noticed into sessions, matched with licensed therapists.</p>
+						<ul>
+							<li>Shareable session summaries</li>
+							<li>Book, reschedule, and prepare</li>
+							<li>You choose what's visible</li>
+						</ul>
+					</article>
+					<article class="pillar">
+						<svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="#efe7d8" stroke="#e2d7c3"></circle><rect x="16" y="15" width="16" height="18" rx="3" fill="none" stroke="#6f8b7d" stroke-width="3"></rect><path d="M20 21h8M20 26h5" stroke="#c69a4d" stroke-width="3" stroke-linecap="round"></path></svg>
+						<h3>Practical tools</h3>
+						<p>Small, evidence-informed exercises for the moment you need them.</p>
+						<ul>
+							<li>Paced breathing &amp; grounding</li>
+							<li>Worry set-down &amp; reframing</li>
+							<li>Sleep &amp; wind-down routines</li>
+						</ul>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section aria-labelledby="quote-title">
+			<div class="wrap quote-wrap">
+				<h2 id="quote-title" class="sr-only">What Kintsu believes</h2>
+				<p class="quote">“Healing isn't hiding the cracks. It's tracing them in gold, one ordinary day at a time.”</p>
+				<p class="quote-cite">— The idea behind Kintsu</p>
+			</div>
+		</section>
+
+		<section aria-labelledby="cta-title">
+			<div class="wrap">
+				<div class="cta">
+					<h2 id="cta-title">Your next appointment is weeks away. Your care doesn't have to wait.</h2>
+					<p>Start with a two-minute check-in. Keep the thread that ties your good days to your hard ones.</p>
+					<a class="btn btn-primary" href="#checkin">Begin a check-in</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-foot">
+		<div class="wrap">
+			<div class="foot-grid">
+				<div class="foot-brand">
+					<a class="brand" href="#top" aria-label="Kintsu home">
+						<svg class="mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+							<rect x="1" y="1" width="38" height="38" rx="11" fill="#efe7d8" stroke="#e2d7c3"></rect>
+							<path d="M20 6 V34 M20 15 L28 9 M20 22 L12 27 M20 27 L27 31" fill="none" stroke="#c69a4d" stroke-width="2.4" stroke-linecap="round"></path>
+							<circle cx="20" cy="20" r="2.2" fill="#a67c2e"></circle>
+						</svg>
+						<span>Kintsu</span>
+					</a>
+					<p>Care for the life between appointments. A calm home for daily reflection, therapy, and practical mental health tools.</p>
+				</div>
+				<div class="foot-cols">
+					<div class="foot-col">
+						<h4>Platform</h4>
+						<a href="#how">How it works</a>
+						<a href="#checkin">Daily check-in</a>
+						<a href="#care">Tools &amp; therapy</a>
+					</div>
+					<div class="foot-col">
+						<h4>Care</h4>
+						<a href="#care">Find a therapist</a>
+						<a href="#checkin">Reflection prompts</a>
+						<a href="#how">Getting started</a>
+					</div>
+					<div class="foot-col">
+						<h4>Trust</h4>
+						<a href="#top">Privacy first</a>
+						<a href="#top">On-device by default</a>
+						<a href="#top">Accessibility</a>
+					</div>
+				</div>
+			</div>
+			<p class="crisis"><strong>In crisis?</strong> Kintsu is a companion, not an emergency service. If you or someone else may be in danger, please contact your local emergency number or a crisis line right away.</p>
+			<p class="foot-note">© <span id="year">2026</span> Kintsu. A demonstration of a calm mental-wellness experience. Not a substitute for professional care.</p>
+		</div>
+	</footer>
+</body>
+</html>

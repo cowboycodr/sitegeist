@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <title>Aurora Field — A darker sky. A clearer universe.</title>
+  <meta name="description" content="A remote observatory offering research residencies and public nights under northern skies." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <canvas id="sky" class="sky" aria-hidden="true"></canvas>
+  <div class="aurora" aria-hidden="true">
+    <span class="ribbon r1"></span>
+    <span class="ribbon r2"></span>
+    <span class="ribbon r3"></span>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" id="top">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="28" height="28">
+          <circle cx="16" cy="16" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M2 20 C 9 12, 14 26, 21 17 S 30 12, 30 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity="0.85"/>
+          <circle cx="7" cy="8" r="1" fill="currentColor"/>
+          <circle cx="25" cy="7" r="1.3" fill="currentColor"/>
+          <circle cx="27" cy="24" r="1" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="brand-name">Aurora&nbsp;Field</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#tonight">Tonight</a>
+      <a href="#residencies">Residencies</a>
+      <a href="#nights">Public nights</a>
+      <a href="#visit">Visit</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">Latitude 64.1466° N</p>
+      <h1 id="hero-title">A darker sky.<br />A clearer universe.</h1>
+      <p class="lede">A remote observatory offering research residencies and public
+        nights under northern skies — where the aurora writes across the dark and
+        the Milky Way casts a shadow.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#tonight">See tonight's sky</a>
+        <a class="btn btn-ghost" href="#visit">Plan a visit</a>
+      </div>
+      <dl class="stat-row">
+        <div><dt>Bortle class</dt><dd>1</dd></div>
+        <div><dt>Clear nights / yr</dt><dd>214</dd></div>
+        <div><dt>Elevation</dt><dd>640&nbsp;m</dd></div>
+      </dl>
+    </section>
+
+    <section class="panel" id="tonight" aria-labelledby="tonight-title">
+      <div class="panel-head">
+        <h2 id="tonight-title">Tonight's sky</h2>
+        <p class="panel-sub">Computed locally for the field station. <span id="clock" class="clock" aria-live="polite">—</span></p>
+      </div>
+      <div class="tonight-grid">
+        <article class="card">
+          <h3>Darkness window</h3>
+          <p class="big" id="dark-window">—</p>
+          <p class="muted">Astronomical twilight to first light. Full dark for imaging.</p>
+        </article>
+        <article class="card">
+          <h3>Moon</h3>
+          <p class="big"><span id="moon-glyph" class="moon-glyph" aria-hidden="true"></span> <span id="moon-phase">—</span></p>
+          <p class="muted"><span id="moon-illum">—</span> illuminated · rises <span id="moon-rise">—</span></p>
+        </article>
+        <article class="card">
+          <h3>Aurora forecast</h3>
+          <div class="gauge" role="img" aria-labelledby="kp-label">
+            <div class="gauge-track"><span id="kp-fill" class="gauge-fill"></span></div>
+            <p id="kp-label" class="gauge-label">Kp <span id="kp-value">—</span> · <span id="kp-word">—</span></p>
+          </div>
+        </article>
+        <article class="card card-wide">
+          <h3>Overhead now</h3>
+          <ul class="objlist" id="objlist">
+            <li><span class="obj-name">Loading transits…</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="residencies" aria-labelledby="res-title">
+      <div class="panel-head">
+        <h2 id="res-title">Research residencies</h2>
+        <p class="panel-sub">Two- to eight-week stays with instrument time and quiet.</p>
+      </div>
+      <div class="res-grid">
+        <article class="res">
+          <span class="res-tag">Optical</span>
+          <h3>The 1.0&nbsp;m Cassegrain</h3>
+          <p>Queue-scheduled or classical nights on our flagship reflector, with
+            a 4k CCD and a modest filter wheel. Priority for time-domain and
+            faint-object programs.</p>
+        </article>
+        <article class="res">
+          <span class="res-tag">Wide field</span>
+          <h3>All-sky &amp; survey array</h3>
+          <p>A cluster of fast astrographs for transient hunting, meteor work,
+            and long mosaics of the galactic plane. Data reduced on site.</p>
+        </article>
+        <article class="res">
+          <span class="res-tag">Open</span>
+          <h3>Artist &amp; writer nights</h3>
+          <p>Non-instrument residencies for people whose work is fed by darkness.
+            A heated dome, a cot, and nothing on the horizon.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="nights" aria-labelledby="nights-title">
+      <div class="panel-head">
+        <h2 id="nights-title">Public nights</h2>
+        <p class="panel-sub">Small groups, warm shelter, and a guided tour of the season's sky.</p>
+      </div>
+      <ol class="timeline">
+        <li><span class="when">21:00</span><div><h3>Gather &amp; warm up</h3><p>Meet at the field house. Hot drinks, a look at the night's targets, and time for eyes to adapt.</p></div></li>
+        <li><span class="when">21:40</span><div><h3>Naked-eye tour</h3><p>Constellations, the Milky Way's structure, and — conditions willing — the aurora overhead.</p></div></li>
+        <li><span class="when">22:30</span><div><h3>At the eyepiece</h3><p>Planets, double stars, nebulae, and distant galaxies through the visitor telescope.</p></div></li>
+        <li><span class="when">23:30</span><div><h3>Long exposure</h3><p>Watch a deep image build on screen as the mount tracks the turning sky.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="panel visit" id="visit" aria-labelledby="visit-title">
+      <div class="panel-head">
+        <h2 id="visit-title">Plan a visit</h2>
+        <p class="panel-sub">The field lies three hours north of the nearest town. Come prepared for the cold and the quiet.</p>
+      </div>
+      <div class="visit-grid">
+        <div class="visit-copy">
+          <ul class="checklist">
+            <li>Dress for −20&nbsp;°C, even in shoulder seasons.</li>
+            <li>Red-light head-torch only past the gate.</li>
+            <li>Nights run when skies are clear; we confirm 24&nbsp;hours ahead.</li>
+            <li>No cell coverage on site — download directions before you leave.</li>
+          </ul>
+          <div class="actions">
+            <a class="btn btn-primary" href="#tonight">See tonight's sky</a>
+            <a class="btn btn-ghost" href="#top">Back to top</a>
+          </div>
+        </div>
+        <div class="visit-card" aria-hidden="false">
+          <p class="visit-label">Season</p>
+          <p class="visit-season" id="season">—</p>
+          <p class="visit-note" id="season-note">—</p>
+          <hr />
+          <p class="visit-label">Booking</p>
+          <p class="visit-book">Residencies and public nights are arranged by
+            correspondence. Reference the field code <strong>AF-64N</strong>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>Aurora Field</strong> · Latitude 64.1466° N · A darker sky. A clearer universe.</p>
+    <p class="fine">A remote observatory offering research residencies and public nights under northern skies.</p>
+  </footer>
+</body>
+</html>

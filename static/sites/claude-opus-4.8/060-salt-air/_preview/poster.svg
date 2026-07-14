@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Salt Air — Stay close to the tide. A coastal inn.">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eef4ee"/>
+      <stop offset="0.5" stop-color="#cfe2e0"/>
+      <stop offset="1" stop-color="#a7cbc6"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.45" r="0.55">
+      <stop offset="0" stop-color="#f7dcb2"/>
+      <stop offset="0.6" stop-color="#e9b678"/>
+      <stop offset="1" stop-color="#e9b678" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="frame"><rect x="0" y="0" width="1200" height="900" rx="0"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="900" fill="url(#sky)"/>
+    <circle cx="895" cy="250" r="150" fill="url(#sun)"/>
+
+    <!-- Sea / layered waves motif -->
+    <path d="M0 560 q150 -46 300 0 t300 0 t300 0 t300 0 V900 H0 Z" fill="#8ab7b3" opacity="0.55"/>
+    <path d="M0 630 q150 -44 300 0 t300 0 t300 0 t300 0 V900 H0 Z" fill="#4f918f" opacity="0.7"/>
+    <path d="M0 700 q150 -40 300 0 t300 0 t300 0 t300 0 V900 H0 Z" fill="#1d4b53"/>
+
+    <!-- Wordmark seal -->
+    <g transform="translate(120 150)">
+      <circle cx="34" cy="34" r="33" fill="none" stroke="#1d4b53" stroke-width="2.4"/>
+      <path d="M4 40 q10 -8 17 0 t17 0 t17 0 t10 0" fill="none" stroke="#1d4b53" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M4 50 q10 -8 17 0 t17 0 t17 0 t10 0" fill="none" stroke="#1d4b53" stroke-width="2.4" stroke-linecap="round" opacity="0.55"/>
+    </g>
+
+    <text x="120" y="360" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="152" font-weight="600" fill="#23312f">Salt Air</text>
+
+    <text x="122" y="130" font-family="Avenir Next, Segoe UI, system-ui, sans-serif" font-size="30" letter-spacing="10" fill="#2f6f74">ROOMS BY THE SEA</text>
+
+    <text x="120" y="450" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="58" fill="#1d4b53">Stay close to the tide.</text>
+
+    <text x="120" y="795" font-family="Avenir Next, Segoe UI, system-ui, sans-serif" font-size="30" fill="#f4f1ea">A quiet coastal inn · open windows · slow mornings</text>
+
+    <!-- small window motif on the sea -->
+    <g transform="translate(940 600)" opacity="0.92">
+      <rect x="0" y="0" width="120" height="150" rx="6" fill="#fbfaf6" stroke="#a9805a" stroke-width="4"/>
+      <path d="M0 75 h120 M60 0 v150" stroke="#a9805a" stroke-width="3"/>
+      <path d="M10 128 q25 -14 50 0 t50 0" fill="none" stroke="#4f918f" stroke-width="3"/>
+    </g>
+  </g>
+</svg>

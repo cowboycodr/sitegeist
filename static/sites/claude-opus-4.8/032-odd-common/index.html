@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none';" />
+  <title>Odd Common — Make the familiar impossible to ignore.</title>
+  <meta name="description" content="An independent creative practice making bold identities, playful campaigns, and useful digital worlds." />
+  <link rel="preload" href="styles.css" as="style" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="main.js"></script>
+</head>
+<body>
+  <a class="skip" href="#work">Skip to work</a>
+
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="#top" aria-label="Odd Common, home">
+        <svg class="mark" viewBox="0 0 40 40" role="img" aria-hidden="true">
+          <circle cx="14" cy="20" r="11" fill="none" stroke="#16130f" stroke-width="3"/>
+          <path d="M15 31 a11 11 0 1 0 11-11 a8 9 0 0 1 -11 11 z" fill="#ff4d3d" stroke="#16130f" stroke-width="3"/>
+          <circle cx="26" cy="20" r="3" fill="#2f6bff"/>
+        </svg>
+        <span>Odd&nbsp;Common</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#approach">Approach</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn--sun" href="#contact">Start a project</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Independent creative practice</span>
+          <h1 id="hero-title">Make the familiar <span class="odd">impossible</span> to ignore.</h1>
+          <p class="lede">Odd Common is a small studio building bold identities, playful campaigns, and useful digital worlds — for people who would rather be remembered than blend in.</p>
+          <div class="actions">
+            <a class="btn" href="#work">See selected work
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#contact">Start a project</a>
+          </div>
+        </div>
+
+        <!-- Interactive signature motif -->
+        <div class="spotter" aria-labelledby="spot-title">
+          <h2 id="spot-title">Spot the odd one</h2>
+          <p class="hint" id="spotHint" role="status">Fourteen are common. One is not. Find it.</p>
+          <div class="dot-grid" id="dotGrid" role="group" aria-label="Grid of shapes; find the odd one out"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Brand identity</span><span>Campaigns</span><span>Websites</span><span>Motion</span><span>Packaging</span><span>Naming</span><span>Editorial</span>
+        <span>Brand identity</span><span>Campaigns</span><span>Websites</span><span>Motion</span><span>Packaging</span><span>Naming</span><span>Editorial</span>
+      </div>
+    </div>
+
+    <!-- Work -->
+    <section id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 id="work-title">Selected work</h2>
+          <p>A handful of projects where an ordinary brief turned into something people could not scroll past.</p>
+        </div>
+
+        <div class="filters reveal" role="group" aria-label="Filter work by discipline">
+          <button class="filter" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter" data-filter="identity" aria-pressed="false">Identity</button>
+          <button class="filter" data-filter="campaign" aria-pressed="false">Campaign</button>
+          <button class="filter" data-filter="digital" aria-pressed="false">Digital</button>
+        </div>
+
+        <div class="work-grid" id="workGrid"></div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" aria-labelledby="svc-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 id="svc-title">What we make</h2>
+          <p>Four ways we take the everyday and give it a second, stranger life.</p>
+        </div>
+        <div class="services-list">
+          <article class="svc reveal">
+            <span class="num">01</span>
+            <div>
+              <h3>Brand identity</h3>
+              <p>Names, marks, systems and voice. Foundations flexible enough to grow and odd enough to stick.</p>
+            </div>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="svc reveal">
+            <span class="num">02</span>
+            <div>
+              <h3>Campaigns</h3>
+              <p>Ideas that travel — from a single poster to an integrated launch that behaves differently everywhere it lands.</p>
+            </div>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="svc reveal">
+            <span class="num">03</span>
+            <div>
+              <h3>Digital worlds</h3>
+              <p>Websites, products and tools that are genuinely useful, quietly playful, and fast on any device.</p>
+            </div>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="svc reveal">
+            <span class="num">04</span>
+            <div>
+              <h3>Motion &amp; sound</h3>
+              <p>Title sequences, loops and audio marks that make an identity move without ever showing off.</p>
+            </div>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Approach -->
+    <section id="approach" aria-labelledby="app-title">
+      <div class="wrap">
+        <div class="approach reveal">
+          <span class="eyebrow">How we work</span>
+          <blockquote id="app-title">We start with the <em>common</em> thing everyone overlooks — then find the one small twist that makes it odd.</blockquote>
+          <div class="stats">
+            <div>
+              <span class="n" data-count="120">0</span>
+              <span class="l">Projects shipped since 2016</span>
+            </div>
+            <div>
+              <span class="n" data-count="18">0</span>
+              <span class="l">Awards for work nobody expected</span>
+            </div>
+            <div>
+              <span class="n" data-count="9">0</span>
+              <span class="l">Humans, one studio cat</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact-grid">
+        <div class="contact-card reveal">
+          <h2 id="contact-title">Start a project</h2>
+          <p>Tell us what everyone else finds ordinary about your world. We will find what is not.</p>
+          <form id="briefForm" novalidate>
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="brief">What are we making odd?</label>
+              <textarea id="brief" name="brief" required></textarea>
+            </div>
+            <button class="btn" type="submit">Send the brief
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <p class="status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="reveal">
+          <ul class="info-list">
+            <li>
+              <span class="k">Email</span>
+              <span class="v">hello@oddcommon.studio</span>
+            </li>
+            <li>
+              <span class="k">Studio</span>
+              <span class="v">Unit 7, Common Yard — remote-friendly</span>
+            </li>
+            <li>
+              <span class="k">New work</span>
+              <span class="v">Booking from next quarter</span>
+            </li>
+            <li>
+              <span class="k">Elsewhere</span>
+              <span class="v">Not-your-average newsletter, monthly</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <a class="brand" href="#top" aria-label="Odd Common, back to top">
+        <svg class="mark" viewBox="0 0 40 40" role="img" aria-hidden="true" style="width:34px;height:34px">
+          <circle cx="14" cy="20" r="11" fill="none" stroke="#16130f" stroke-width="3"/>
+          <path d="M15 31 a11 11 0 1 0 11-11 a8 9 0 0 1 -11 11 z" fill="#ff4d3d" stroke="#16130f" stroke-width="3"/>
+          <circle cx="26" cy="20" r="3" fill="#2f6bff"/>
+        </svg>
+        <span>Odd Common</span>
+      </a>
+      <small>© 2016–2026 Odd Common. Make the familiar impossible to ignore.</small>
+    </div>
+  </footer>
+</body>
+</html>

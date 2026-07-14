@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+<title>Future Archive — Save what tomorrow should remember</title>
+<meta name="description" content="Long-term preservation for digital art, cultural records, and the fragile history made online." />
+<style>
+  :root {
+    --ink: #eaf1f5;
+    --ink-soft: #a9bccb;
+    --paper: #f3ead6;
+    --void: #070b16;
+    --void-2: #0c1426;
+    --panel: #111c33;
+    --panel-2: #16233f;
+    --line: #26374f;
+    --teal: #55e0c8;
+    --teal-deep: #1f9d8c;
+    --amber: #ecb45c;
+    --rose: #e08a9a;
+    --ring: rgba(85, 224, 200, 0.55);
+    --shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.9);
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    --mono: "SFMono-Regular", ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    color: var(--ink);
+    background:
+      radial-gradient(120% 80% at 80% -10%, rgba(31, 157, 140, 0.22), transparent 60%),
+      radial-gradient(90% 60% at 0% 0%, rgba(236, 180, 92, 0.1), transparent 55%),
+      var(--void);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    width: min(100% - 2.4rem, 1120px);
+    margin-inline: auto;
+  }
+
+  .skip {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--teal);
+    color: var(--void);
+    padding: 0.6rem 1rem;
+    border-radius: 0 0 10px 0;
+    font-weight: 700;
+    z-index: 50;
+  }
+  .skip:focus { left: 0; }
+
+  /* ---------- Header ---------- */
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    backdrop-filter: blur(9px);
+    background: rgba(7, 11, 22, 0.72);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 0;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .brand .glyph {
+    width: 34px;
+    height: 34px;
+    flex: none;
+  }
+  .brand b { font-size: 1.02rem; }
+  .brand span {
+    display: block;
+    font-size: 0.66rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+  }
+  nav.top {
+    margin-left: auto;
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+  }
+  nav.top a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    padding: 0.45rem 0.7rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+  nav.top a:hover, nav.top a:focus-visible { color: var(--ink); background: var(--panel); }
+  nav.top a.cta {
+    color: var(--void);
+    background: var(--teal);
+    font-weight: 700;
+  }
+  nav.top a.cta:hover { background: #6ef0d9; }
+  .nav-links { display: flex; gap: 0.3rem; }
+
+  :focus-visible {
+    outline: 2px solid var(--teal);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding: clamp(3rem, 8vw, 6rem) 0 clamp(2.5rem, 6vw, 4rem);
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 700;
+    margin: 0 0 1.1rem;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 26px;
+    height: 1px;
+    background: var(--teal);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.35rem, 7vw, 4rem);
+    line-height: 1.04;
+    margin: 0 0 1.1rem;
+    letter-spacing: -0.01em;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--amber);
+  }
+  .lede {
+    font-size: clamp(1.02rem, 2.4vw, 1.2rem);
+    color: var(--ink-soft);
+    max-width: 34ch;
+    margin: 0 0 1.8rem;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  .btn {
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0.85rem 1.4rem;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+  }
+  .btn.primary { background: var(--teal); color: var(--void); }
+  .btn.primary:hover { background: #6ef0d9; transform: translateY(-2px); }
+  .btn.ghost { border-color: var(--line); color: var(--ink); background: transparent; }
+  .btn.ghost:hover { border-color: var(--teal); transform: translateY(-2px); }
+
+  .rings {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    max-width: 460px;
+    margin-inline: auto;
+  }
+  .rings svg { width: 100%; height: auto; display: block; }
+  .ring-anim { transform-box: fill-box; transform-origin: center; }
+  .ring-a { animation: spin 60s linear infinite; }
+  .ring-b { animation: spin 90s linear infinite reverse; }
+  .pulse { animation: glow 6s ease-in-out infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes glow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  .stats {
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .stat { background: var(--void-2); padding: 1.2rem 1.3rem; }
+  .stat b {
+    display: block;
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 4vw, 2.1rem);
+    color: var(--paper);
+  }
+  .stat span { font-size: 0.82rem; color: var(--ink-soft); }
+
+  /* ---------- Sections ---------- */
+  section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
+  .sec-head { max-width: 60ch; margin-bottom: 2.4rem; }
+  .kicker {
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-weight: 700;
+    margin: 0 0 0.8rem;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.7rem, 4.5vw, 2.7rem);
+    line-height: 1.1;
+    margin: 0 0 0.8rem;
+    font-weight: 600;
+  }
+  .sec-head p { color: var(--ink-soft); margin: 0; font-size: 1.05rem; }
+
+  /* ---------- Depth console ---------- */
+  .console {
+    background:
+      linear-gradient(180deg, var(--panel), var(--void-2));
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: clamp(1.4rem, 3vw, 2.4rem);
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 4vw, 2.6rem);
+    align-items: center;
+  }
+  .console .readout {
+    font-family: var(--mono);
+  }
+  .readout .year {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 12vw, 5.2rem);
+    line-height: 1;
+    color: var(--teal);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .readout .horizon {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-top: 0.4rem;
+  }
+  .medium {
+    margin-top: 1.6rem;
+    border-top: 1px dashed var(--line);
+    padding-top: 1.2rem;
+  }
+  .medium .label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); }
+  .medium .name { font-size: 1.25rem; font-weight: 700; color: var(--paper); margin: 0.2rem 0 0.3rem; font-family: var(--sans); }
+  .medium .desc { color: var(--ink-soft); font-size: 0.92rem; }
+
+  .slider-panel label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+  .slider-panel .hint { color: var(--ink-soft); font-size: 0.88rem; margin: 0 0 1.4rem; }
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--teal-deep), var(--teal), var(--amber));
+    outline-offset: 6px;
+    cursor: pointer;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 4px solid var(--void-2);
+    box-shadow: 0 0 0 2px var(--teal), 0 6px 14px rgba(0,0,0,0.5);
+    cursor: pointer;
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 4px solid var(--void-2);
+    box-shadow: 0 0 0 2px var(--teal);
+    cursor: pointer;
+  }
+  .scale {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    margin-top: 0.7rem;
+  }
+  .integrity {
+    margin-top: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+  .integrity .track {
+    flex: 1;
+    height: 7px;
+    border-radius: 999px;
+    background: var(--panel-2);
+    overflow: hidden;
+  }
+  .integrity .fill {
+    height: 100%;
+    width: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--teal), var(--amber));
+    transition: width 0.3s ease;
+  }
+
+  /* ---------- Collections ---------- */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.1rem;
+  }
+  .card {
+    background: linear-gradient(180deg, var(--panel), var(--void-2));
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 1.4rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .card:hover { transform: translateY(-4px); border-color: var(--teal-deep); }
+  .card .tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--void);
+    background: var(--amber);
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    font-weight: 700;
+    margin-bottom: 0.9rem;
+  }
+  .card h3 { font-family: var(--serif); font-size: 1.3rem; margin: 0 0 0.5rem; font-weight: 600; }
+  .card p { color: var(--ink-soft); font-size: 0.92rem; margin: 0 0 1rem; }
+  .card .meta {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--teal);
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+    padding-top: 0.7rem;
+  }
+
+  /* ---------- Process ---------- */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.1rem;
+    counter-reset: step;
+  }
+  .step {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 1.5rem 1.4rem;
+    background: var(--void-2);
+    position: relative;
+  }
+  .step::before {
+    counter-increment: step;
+    content: "0" counter(step);
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--teal);
+    letter-spacing: 0.1em;
+  }
+  .step h3 { font-family: var(--serif); font-size: 1.25rem; margin: 0.5rem 0 0.5rem; font-weight: 600; }
+  .step p { color: var(--ink-soft); font-size: 0.9rem; margin: 0; }
+
+  /* ---------- Pledge / CTA band ---------- */
+  .band {
+    background:
+      radial-gradient(90% 130% at 100% 0%, rgba(31, 157, 140, 0.28), transparent 60%),
+      linear-gradient(180deg, var(--panel-2), var(--void-2));
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: clamp(2rem, 5vw, 3.4rem);
+    text-align: center;
+  }
+  .band h2 { margin-bottom: 0.6rem; }
+  .band p { color: var(--ink-soft); max-width: 48ch; margin: 0 auto 1.8rem; }
+  .band .actions { justify-content: center; }
+
+  /* ---------- Footer ---------- */
+  footer.site {
+    border-top: 1px solid var(--line);
+    padding: 2.6rem 0 3rem;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+  }
+  .foot-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .foot-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+  .foot-links a { text-decoration: none; }
+  .foot-links a:hover { color: var(--ink); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .rings { max-width: 340px; grid-row: 1; }
+    .hero-copy { grid-row: 2; }
+    .console { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 560px) {
+    .stats { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .ring-a, .ring-b, .pulse { animation: none; }
+    .btn, .card { transition: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Future Archive home">
+      <svg class="glyph" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" fill="none" stroke="#1f9d8c" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="12.5" fill="none" stroke="#55e0c8" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="7" fill="none" stroke="#ecb45c" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="2.4" fill="#ecb45c"/>
+      </svg>
+      <span class="brand-text">
+        <b>Future Archive</b>
+        <span>Digital Preservation</span>
+      </span>
+    </a>
+    <nav class="top" aria-label="Primary">
+      <div class="nav-links">
+        <a href="#depth">Depth</a>
+        <a href="#collections">Collections</a>
+        <a href="#process">Process</a>
+      </div>
+      <a class="cta" href="#pledge">Preserve a collection</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <span id="top"></span>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Memory infrastructure</p>
+        <h1>Save what tomorrow should&nbsp;<em>remember</em>.</h1>
+        <p class="lede">Long-term preservation for digital art, cultural records, and the fragile history made online — carried forward across formats, centuries, and outages.</p>
+        <div class="actions">
+          <a class="btn primary" href="#collections">
+            Explore the archive
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn ghost" href="#pledge">Preserve a collection</a>
+        </div>
+      </div>
+      <div class="rings" aria-hidden="true">
+        <svg viewBox="0 0 400 400" role="img">
+          <defs>
+            <radialGradient id="core" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#ecb45c"/>
+              <stop offset="100%" stop-color="#b57e2c"/>
+            </radialGradient>
+          </defs>
+          <g class="ring-anim ring-a">
+            <circle cx="200" cy="200" r="185" fill="none" stroke="#1c2b44" stroke-width="1"/>
+            <circle cx="200" cy="200" r="185" fill="none" stroke="#1f9d8c" stroke-width="1.5" stroke-dasharray="3 22" opacity="0.8"/>
+          </g>
+          <circle cx="200" cy="200" r="150" fill="none" stroke="#22344f" stroke-width="1"/>
+          <g class="ring-anim ring-b">
+            <circle cx="200" cy="200" r="120" fill="none" stroke="#55e0c8" stroke-width="1.5" stroke-dasharray="1 14" opacity="0.7"/>
+          </g>
+          <circle cx="200" cy="200" r="92" fill="none" stroke="#2a3d59" stroke-width="1"/>
+          <circle class="pulse" cx="200" cy="200" r="64" fill="none" stroke="#55e0c8" stroke-width="1.2"/>
+          <circle cx="200" cy="200" r="38" fill="none" stroke="#ecb45c" stroke-width="1.4"/>
+          <circle cx="200" cy="200" r="13" fill="url(#core)"/>
+          <!-- markers along outer ring -->
+          <g fill="#55e0c8">
+            <circle cx="200" cy="15" r="3"/>
+            <circle cx="385" cy="200" r="3" fill="#ecb45c"/>
+            <circle cx="200" cy="385" r="3"/>
+            <circle cx="15" cy="200" r="3" fill="#ecb45c"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat"><b>3.4 PB</b><span>of art &amp; records under active care</span></div>
+        <div class="stat"><b>7×</b><span>geographically mirrored copies</span></div>
+        <div class="stat"><b>200 yr</b><span>minimum readable-format guarantee</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEPTH CONSOLE -->
+  <section id="depth">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Preservation depth</p>
+        <h2>How far ahead should this survive?</h2>
+        <p>Choose a horizon and the archive selects a storage medium, replication tier, and migration cadence tuned to keep the work readable that long.</p>
+      </div>
+      <div class="console">
+        <div class="readout" aria-live="polite">
+          <div class="year" id="yearOut">2125</div>
+          <div class="horizon" id="horizonOut">100-year horizon</div>
+          <div class="medium">
+            <div class="label">Recommended medium</div>
+            <div class="name" id="mediumName">Silica glass + cold cloud mirror</div>
+            <div class="desc" id="mediumDesc">Etched into fused quartz and mirrored across seven vaults, with format checks every decade.</div>
+          </div>
+        </div>
+        <div class="slider-panel">
+          <label for="horizon">Set the preservation horizon</label>
+          <p class="hint">Drag, or use the arrow keys, to move from a decade out to a full millennium.</p>
+          <input id="horizon" type="range" min="0" max="4" step="1" value="2"
+                 aria-valuetext="100-year horizon" />
+          <div class="scale" aria-hidden="true">
+            <span>10y</span><span>50y</span><span>100y</span><span>500y</span><span>1000y</span>
+          </div>
+          <div class="integrity">
+            <span>Redundancy</span>
+            <span class="track"><span class="fill" id="integrityFill"></span></span>
+            <span id="integrityPct">86%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLECTIONS -->
+  <section id="collections">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Inside the vault</p>
+        <h2>Collections held in trust</h2>
+        <p>A cross-section of what the community has chosen to carry forward — each one checksummed, described, and migration-ready.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span class="tag">Net art</span>
+          <h3>The Vanished Web</h3>
+          <p>Interactive works from early browsers, rebuilt to run in emulators long after their plugins died.</p>
+          <div class="meta"><span>1,204 works</span><span>ingested 2043</span></div>
+        </article>
+        <article class="card">
+          <span class="tag">Oral history</span>
+          <h3>Voices of the Delta</h3>
+          <p>Field recordings and transcripts from communities documenting a coastline as it changes.</p>
+          <div class="meta"><span>8,900 hrs</span><span>ingested 2038</span></div>
+        </article>
+        <article class="card">
+          <span class="tag">Generative</span>
+          <h3>Seeds &amp; Systems</h3>
+          <p>Algorithmic art preserved as source, runtime, and rendered proofs so intent outlives any GPU.</p>
+          <div class="meta"><span>560 systems</span><span>ingested 2051</span></div>
+        </article>
+        <article class="card">
+          <span class="tag">Public record</span>
+          <h3>Open Ledger Commons</h3>
+          <p>Civic datasets, maps, and open-government archives kept independent of any single provider.</p>
+          <div class="meta"><span>3.4 PB</span><span>ingested 2047</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">The lifecycle</p>
+        <h2>From upload to a thousand years</h2>
+        <p>Every artifact moves through the same disciplined pipeline, designed so preservation never depends on one company, one format, or one lucky backup.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>Ingest</h3>
+          <p>Files are fixity-checked, described with open metadata, and normalized into durable, well-documented formats.</p>
+        </div>
+        <div class="step">
+          <h3>Replicate</h3>
+          <p>Independent copies fan out to vaults on separate grids and continents, verified against their checksums.</p>
+        </div>
+        <div class="step">
+          <h3>Migrate</h3>
+          <p>Formats are watched for obsolescence and carried onto fresh media before anything becomes unreadable.</p>
+        </div>
+        <div class="step">
+          <h3>Access</h3>
+          <p>Emulation and open readers keep works usable, with rights honored and provenance fully traceable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLEDGE -->
+  <section id="pledge">
+    <div class="wrap">
+      <div class="band">
+        <p class="kicker">Join the stewards</p>
+        <h2>Give your collection a future</h2>
+        <p>Whether it's a lifetime of digital art or a fragile community record, we will help you preserve it for the people who come after us.</p>
+        <div class="actions">
+          <a class="btn primary" href="#depth">Explore the archive</a>
+          <a class="btn ghost" href="#collections">Preserve a collection</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap foot-grid">
+    <div>
+      <div class="brand" style="pointer-events:none">
+        <svg class="glyph" viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="#1f9d8c" stroke-width="1.4"/>
+          <circle cx="20" cy="20" r="11" fill="none" stroke="#55e0c8" stroke-width="1.4"/>
+          <circle cx="20" cy="20" r="2.4" fill="#ecb45c"/>
+        </svg>
+        <span class="brand-text"><b>Future Archive</b><span>Save what tomorrow should remember</span></span>
+      </div>
+    </div>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="#depth">Depth</a>
+      <a href="#collections">Collections</a>
+      <a href="#process">Process</a>
+      <a href="#pledge">Preserve</a>
+    </nav>
+    <p style="margin:0">A nonprofit memory commons · © 2126</p>
+  </div>
+</footer>
+
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>

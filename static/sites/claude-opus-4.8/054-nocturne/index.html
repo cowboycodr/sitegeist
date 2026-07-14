@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Nocturne — Scent after dark</title>
+<meta name="description" content="Perfumes composed from smoke, mineral, night-blooming flowers, and distant weather.">
+<link rel="stylesheet" href="styles.css">
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<div class="sky" aria-hidden="true">
+  <div class="sky__glow"></div>
+  <div class="sky__stars" id="stars"></div>
+</div>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Nocturne, home">
+    <span class="brand__mark" aria-hidden="true">
+      <svg viewBox="0 0 32 32" width="26" height="26" focusable="false"><circle cx="16" cy="16" r="12" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M22 8a11 11 0 1 0 0 16 9 9 0 0 1 0-16Z" fill="currentColor"/></svg>
+    </span>
+    <span class="brand__word">Nocturne</span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    <a href="#collection">Collection</a>
+    <a href="#finder">Find your scent</a>
+    <a href="#house">The house</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <p class="eyebrow">Parfums de nuit</p>
+    <h1 class="hero__title" id="hero-title">Nocturne</h1>
+    <p class="hero__tag">Scent after dark.</p>
+    <p class="hero__lede">Perfumes composed from smoke, mineral, night-blooming flowers, and
+      distant weather — worn for the hours the sun forgets.</p>
+    <div class="hero__actions">
+      <a class="btn btn--solid" href="#collection">Discover the collection</a>
+      <a class="btn btn--ghost" href="#finder">Find your scent</a>
+    </div>
+    <div class="hero__meta" aria-hidden="true">
+      <span>Extrait de parfum</span><span aria-hidden="true">·</span>
+      <span>Small-batch</span><span aria-hidden="true">·</span>
+      <span>Est. under a new moon</span>
+    </div>
+  </section>
+
+  <section class="collection" id="collection" aria-labelledby="collection-title">
+    <div class="section-head">
+      <p class="eyebrow">The collection</p>
+      <h2 id="collection-title">Four studies in darkness</h2>
+      <p class="section-sub">Each flacon holds an hour of the night, bottled at its most quiet.</p>
+    </div>
+    <ul class="flacons" id="flacons"></ul>
+  </section>
+
+  <section class="finder" id="finder" aria-labelledby="finder-title">
+    <div class="section-head">
+      <p class="eyebrow">Find your scent</p>
+      <h2 id="finder-title">What does your night feel like?</h2>
+      <p class="section-sub">Choose a mood and we will read it back to you as a fragrance.</p>
+    </div>
+    <div class="finder__grid">
+      <div class="finder__chips" role="radiogroup" aria-labelledby="finder-title" id="moods"></div>
+      <div class="finder__result" id="result" aria-live="polite">
+        <p class="finder__hint">Select a mood to reveal its match.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="house" id="house" aria-labelledby="house-title">
+    <div class="house__text">
+      <p class="eyebrow">The house</p>
+      <h2 id="house-title">Composed for the dark hours</h2>
+      <p>Nocturne is a small perfumery working only after sundown. Our raw materials are
+        chosen for how they behave in low light: cool minerals that hold the day's warmth,
+        resins that read like distant smoke, and flowers that open only once the garden
+        has gone quiet.</p>
+      <p>Nothing here is bright. Every composition is built to linger close to the skin,
+        the way weather lingers on the far edge of a field before it arrives.</p>
+      <dl class="stats">
+        <div><dt>Ingredients per blend</dt><dd>26+</dd></div>
+        <div><dt>Maceration</dt><dd>8 weeks</dd></div>
+        <div><dt>Poured</dt><dd>By hand</dd></div>
+      </dl>
+    </div>
+    <figure class="house__panel" aria-hidden="true">
+      <div class="orbit">
+        <span class="orbit__moon"></span>
+        <span class="orbit__ring"></span>
+        <span class="orbit__ring orbit__ring--2"></span>
+      </div>
+    </figure>
+  </section>
+</main>
+
+<footer class="foot">
+  <p class="foot__word">Nocturne</p>
+  <p class="foot__line">Scent after dark. — Parfums de nuit</p>
+  <p class="foot__small">Composed from smoke, mineral, night-blooming flowers, and distant weather.</p>
+</footer>
+</body>
+</html>

@@ -30,7 +30,7 @@ const CSP_REQUIREMENTS = [
 	/base-uri\s+'none'/i,
 	/form-action\s+'none'/i
 ];
-const FORBIDDEN_COMMAND = /(?:^|[\s;&|])(?:curl|wget|aria2c|ssh|scp|sftp|nc|ncat|telnet|gh)(?:\s|$)|\bgit\s+(?:clone|fetch|pull)\b|\b(?:npm|pnpm|yarn|bun|pip|pip3|uv)\s+(?:add|install|i)\b|(?:^|\s)(?:\/home\/codex|\/root|\/proc|\/sys|\/nix\/store|\/etc)(?:\/|\s|$)|auth\.json|\.codex/i;
+const FORBIDDEN_COMMAND = /(?:^|[\s;&|])(?:curl|wget|aria2c|ssh|scp|sftp|nc|ncat|telnet|gh)(?:\s|$)|\bgit\s+(?:clone|fetch|pull)\b|\b(?:npm|pnpm|yarn|bun|pip|pip3|uv)\s+(?:add|install|i)\b|(?:^|\s)(?:\/home\/(?:codex|claude|grok)|\/root|\/proc|\/sys|\/nix\/store|\/etc)(?:\/|\s|$)|(?:auth\.json|\.credentials\.json|\.(?:codex|claude|grok))/i;
 
 function lexicalCompare(a, b) {
 	return Buffer.from(a).compare(Buffer.from(b));
@@ -111,11 +111,12 @@ function collectLogEvidence(value, evidence, seen = new Set()) {
 		evidence.webEvents.add(JSON.stringify(value));
 	}
 	if (typeof value.command === 'string') evidence.commands.add(value.command);
+	if (typeof value.file_path === 'string') evidence.filePaths.add(value.file_path);
 	for (const nested of Object.values(value)) collectLogEvidence(nested, evidence, seen);
 }
 
 async function reviewWorkerLog(workerLogPath, errors) {
-	const evidence = { commands: new Set(), webEvents: new Set() };
+	const evidence = { commands: new Set(), webEvents: new Set(), filePaths: new Set() };
 	if (!workerLogPath) return evidence;
 	const log = await readFile(workerLogPath, 'utf8');
 	for (const line of log.split('\n')) {
@@ -129,6 +130,13 @@ async function reviewWorkerLog(workerLogPath, errors) {
 	if (evidence.webEvents.size > 0) errors.push('worker attempted web search');
 	for (const command of evidence.commands) {
 		if (FORBIDDEN_COMMAND.test(command)) errors.push('worker attempted an out-of-scope command');
+	}
+	for (const path of evidence.filePaths) {
+		const absoluteOutsideWorkspace = path.startsWith('/') && path !== '/workspace' && !path.startsWith('/workspace/');
+		const relativeTraversal = !path.startsWith('/') && path.split(/[\\/]+/).includes('..');
+		if (absoluteOutsideWorkspace || relativeTraversal) {
+			errors.push('worker attempted filesystem access outside its isolated workspace');
+		}
 	}
 	return evidence;
 }
@@ -210,6 +218,7 @@ export async function reviewSubmission({ submission, brief, workerLog = null }) 
 		evidence: {
 			commandCount: evidence.commands.size,
 			webSearchCount: evidence.webEvents.size,
+			fileAccessCount: evidence.filePaths.size,
 			fileCount: totalFiles,
 			totalBytes,
 			sourceHash: validated.source.hash,

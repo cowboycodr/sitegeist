@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Relay Robotics — Robots that work the room.">
+	<defs>
+		<radialGradient id="bg" cx="78%" cy="8%" r="90%">
+			<stop offset="0" stop-color="#17324a" />
+			<stop offset="0.55" stop-color="#0b1622" />
+			<stop offset="1" stop-color="#081019" />
+		</radialGradient>
+		<linearGradient id="shell" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#eef4f3" />
+			<stop offset="1" stop-color="#c1d0ce" />
+		</linearGradient>
+		<linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#22405a" />
+			<stop offset="1" stop-color="#13273a" />
+		</linearGradient>
+		<linearGradient id="route" x1="0" y1="0" x2="1" y2="0">
+			<stop offset="0" stop-color="#3ddc97" />
+			<stop offset="1" stop-color="#ff7a59" />
+		</linearGradient>
+		<linearGradient id="mintbtn" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#3ddc97" />
+			<stop offset="1" stop-color="#2bb782" />
+		</linearGradient>
+	</defs>
+
+	<rect width="1200" height="900" fill="url(#bg)" />
+
+	<!-- floor grid -->
+	<g stroke="#9db3bd" stroke-opacity="0.14" stroke-width="1.5">
+		<path d="M0 690 L1200 690 M0 750 L1200 750 M0 820 L1200 820" />
+		<path d="M120 660 L40 900 M360 660 L320 900 M600 660 L600 900 M840 660 L880 900 M1080 660 L1160 900" />
+	</g>
+
+	<!-- route line -->
+	<path d="M150 470 L150 610 L560 610" fill="none" stroke="url(#route)" stroke-width="8" stroke-linecap="round" stroke-dasharray="2 26" />
+	<circle cx="150" cy="470" r="12" fill="#3ddc97" />
+	<circle cx="560" cy="610" r="12" fill="#ff7a59" />
+
+	<!-- pings -->
+	<circle cx="980" cy="250" r="34" fill="none" stroke="#3ddc97" stroke-opacity="0.5" stroke-width="3" />
+	<circle cx="980" cy="250" r="58" fill="none" stroke="#3ddc97" stroke-opacity="0.22" stroke-width="3" />
+
+	<!-- header brand -->
+	<g transform="translate(80 74)">
+		<rect x="0" y="0" width="66" height="48" rx="18" fill="#16293a" stroke="#9db3bd" stroke-opacity="0.2" />
+		<circle cx="24" cy="24" r="6" fill="#3ddc97" />
+		<circle cx="42" cy="24" r="6" fill="#3ddc97" />
+		<text x="84" y="34" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#eaf2f0">Relay<tspan fill="#3ddc97">Robotics</tspan></text>
+	</g>
+
+	<!-- headline -->
+	<g font-family="Segoe UI, Helvetica, Arial, sans-serif">
+		<text x="80" y="300" font-size="34" letter-spacing="6" font-weight="700" fill="#3ddc97">AUTONOMY FOR EVERYDAY SPACES</text>
+		<text x="76" y="420" font-size="118" font-weight="800" fill="#eaf2f0" letter-spacing="-3">Robots that</text>
+		<text x="76" y="540" font-size="118" font-weight="800" fill="#eaf2f0" letter-spacing="-3">work the room.</text>
+		<text x="80" y="620" font-size="30" fill="#9db3bd">Hospitals · Hotels · Campuses</text>
+	</g>
+
+	<!-- button -->
+	<g transform="translate(80 668)">
+		<rect width="290" height="66" rx="33" fill="url(#mintbtn)" />
+		<text x="145" y="43" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#05221a">Meet Relay One</text>
+	</g>
+
+	<!-- robot -->
+	<g transform="translate(940 470)">
+		<ellipse cx="0" cy="235" rx="150" ry="30" fill="#000" opacity="0.45" />
+		<!-- head -->
+		<rect x="-95" y="-230" width="190" height="118" rx="58" fill="url(#shell)" />
+		<line x1="0" y1="-230" x2="0" y2="-262" stroke="#9db3bd" stroke-width="6" stroke-linecap="round" />
+		<circle cx="0" cy="-272" r="13" fill="#ff7a59" />
+		<rect x="-70" y="-192" width="140" height="62" rx="31" fill="#0c1b2a" />
+		<circle cx="-28" cy="-161" r="18" fill="#3ddc97" />
+		<circle cx="28" cy="-161" r="18" fill="#3ddc97" />
+		<!-- body -->
+		<rect x="-118" y="-120" width="236" height="240" rx="42" fill="url(#body)" stroke="#9db3bd" stroke-opacity="0.18" />
+		<rect x="-78" y="-86" width="156" height="58" rx="16" fill="#3ddc97" fill-opacity="0.12" stroke="#3ddc97" stroke-opacity="0.5" />
+		<circle cx="-30" cy="-57" r="10" fill="#3ddc97" />
+		<circle cx="0" cy="-57" r="10" fill="#3ddc97" opacity="0.6" />
+		<circle cx="30" cy="-57" r="10" fill="#3ddc97" opacity="0.35" />
+		<rect x="-96" y="10" width="192" height="20" rx="10" fill="#2f5273" />
+		<rect x="-90" y="52" width="180" height="24" rx="10" fill="#2f5273" />
+		<!-- base -->
+		<rect x="-104" y="120" width="208" height="34" rx="16" fill="#0c1b2a" />
+		<rect x="-84" y="146" width="36" height="14" rx="7" fill="#37536e" />
+		<rect x="48" y="146" width="36" height="14" rx="7" fill="#37536e" />
+	</g>
+</svg>

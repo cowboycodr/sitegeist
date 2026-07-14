@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Aurora Field — a darker sky, a clearer universe">
+  <defs>
+    <radialGradient id="sky" cx="50%" cy="-8%" r="110%">
+      <stop offset="0%" stop-color="#101838"/>
+      <stop offset="45%" stop-color="#090d1c"/>
+      <stop offset="100%" stop-color="#05070f"/>
+    </radialGradient>
+    <linearGradient id="a1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6ff0c0" stop-opacity="0"/>
+      <stop offset="45%" stop-color="#6ff0c0" stop-opacity="0.85"/>
+      <stop offset="70%" stop-color="#4fd9d0" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#4fd9d0" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="a2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#a98cff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#a98cff" stop-opacity="0.7"/>
+      <stop offset="80%" stop-color="#ff9ad4" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#ff9ad4" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6ff0c0"/>
+      <stop offset="100%" stop-color="#4fd9d0"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="26"/></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="3"/></filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#sky)"/>
+
+  <!-- aurora ribbons -->
+  <g filter="url(#blur)" opacity="0.85">
+    <path d="M-80 250 C 250 150, 450 360, 700 240 S 1150 150, 1320 220 L 1320 340 C 1050 300, 800 420, 560 340 S 180 320, -80 400 Z" fill="url(#a1)"/>
+    <path d="M-80 380 C 300 300, 520 480, 780 370 S 1150 330, 1320 400 L 1320 500 C 1000 470, 760 560, 500 480 S 160 500, -80 540 Z" fill="url(#a2)"/>
+  </g>
+
+  <!-- stars -->
+  <g fill="#eaf0ff">
+    <circle cx="120" cy="120" r="2.4" opacity="0.9"/>
+    <circle cx="300" cy="80" r="1.5" opacity="0.7"/>
+    <circle cx="520" cy="150" r="2" opacity="0.8"/>
+    <circle cx="760" cy="90" r="1.6" opacity="0.6"/>
+    <circle cx="980" cy="140" r="2.6" opacity="0.9"/>
+    <circle cx="1080" cy="70" r="1.4" opacity="0.6"/>
+    <circle cx="200" cy="300" r="1.6" opacity="0.7"/>
+    <circle cx="1120" cy="300" r="2" opacity="0.8"/>
+    <circle cx="60" cy="470" r="1.8" opacity="0.7"/>
+    <circle cx="1150" cy="470" r="1.5" opacity="0.6"/>
+    <circle cx="420" cy="70" r="1.2" opacity="0.5"/>
+    <circle cx="880" cy="240" r="1.3" opacity="0.6"/>
+    <circle cx="680" cy="330" r="1.4" opacity="0.55"/>
+    <circle cx="150" cy="210" r="1.2" opacity="0.5"/>
+    <circle cx="1020" cy="380" r="1.6" opacity="0.6"/>
+  </g>
+  <g fill="#a9d6ff" opacity="0.7">
+    <circle cx="360" cy="220" r="1.8"/>
+    <circle cx="620" cy="120" r="1.4"/>
+    <circle cx="930" cy="310" r="1.5"/>
+  </g>
+
+  <!-- horizon ridge -->
+  <path d="M0 780 L 90 740 L 180 770 L 300 700 L 430 760 L 560 720 L 700 775 L 830 715 L 980 765 L 1120 720 L 1200 760 L 1200 900 L 0 900 Z" fill="#04060d"/>
+  <path d="M0 800 L 240 745 L 470 795 L 720 750 L 1000 800 L 1200 760 L 1200 900 L 0 900 Z" fill="#02040a" opacity="0.9"/>
+
+  <!-- observatory dome silhouette -->
+  <g fill="#0b1120" stroke="#2a3760" stroke-width="2">
+    <rect x="548" y="700" width="104" height="70"/>
+    <path d="M548 700 a52 42 0 0 1 104 0 Z"/>
+    <line x1="600" y1="662" x2="600" y2="712" stroke="#4fd9d0" stroke-width="3"/>
+  </g>
+
+  <!-- mark -->
+  <g transform="translate(96,470)" fill="none" stroke="#6ff0c0" stroke-width="3.4" stroke-linecap="round">
+    <circle cx="26" cy="26" r="18"/>
+    <path d="M-8 40 C 12 16, 26 56, 46 30 S 74 16, 74 16"/>
+  </g>
+
+  <!-- text -->
+  <text x="96" y="600" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="30" letter-spacing="8" fill="#4fd9d0">LATITUDE 64.1466° N</text>
+  <text x="94" y="700" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="112" font-weight="700" letter-spacing="-2" fill="#eaf0ff">Aurora Field</text>
+  <text x="98" y="762" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="38" fill="#9aa6c9">A darker sky. A clearer universe.</text>
+
+  <!-- pill -->
+  <g transform="translate(98,808)">
+    <rect x="0" y="0" width="330" height="58" rx="29" fill="url(#btn)"/>
+    <text x="165" y="38" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#04140d">See tonight's sky</text>
+  </g>
+  <text x="452" y="846" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#9aa6c9">Astronomy · Residencies &amp; public nights</text>
+</svg>

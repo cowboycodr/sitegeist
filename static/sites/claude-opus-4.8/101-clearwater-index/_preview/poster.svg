@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Clearwater Index — Know where every drop goes.">
+	<defs>
+		<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#0a5a80" />
+			<stop offset="1" stop-color="#063348" />
+		</linearGradient>
+		<linearGradient id="drop" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#8fd6f0" />
+			<stop offset="1" stop-color="#0e7fb0" />
+		</linearGradient>
+		<linearGradient id="meter" x1="0" y1="0" x2="1" y2="0">
+			<stop offset="0" stop-color="#35a8d6" />
+			<stop offset="1" stop-color="#43c79c" />
+		</linearGradient>
+	</defs>
+
+	<rect width="1200" height="900" fill="url(#bg)" />
+
+	<!-- flowing contour lines motif -->
+	<g fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="3">
+		<path d="M-40 250 C 220 200 380 320 640 270 S 1040 210 1260 280" />
+		<path d="M-40 330 C 220 280 380 400 640 350 S 1040 290 1260 360" />
+		<path d="M-40 640 C 240 600 400 700 660 650 S 1060 600 1260 660" />
+		<path d="M-40 720 C 240 680 400 780 660 730 S 1060 680 1260 740" />
+	</g>
+
+	<!-- droplet -->
+	<g transform="translate(600 360)">
+		<circle r="176" fill="#ffffff" fill-opacity="0.06" />
+		<path d="M0 -150 C -78 -30 -110 25 -110 70 A 110 110 0 0 0 110 70 C 110 25 78 -30 0 -150 Z" fill="url(#drop)" />
+		<path d="M-56 62 A 56 56 0 0 0 0 118" fill="none" stroke="#ffffff" stroke-opacity="0.75" stroke-width="9" stroke-linecap="round" />
+	</g>
+
+	<!-- eyebrow -->
+	<text x="600" y="120" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="26" letter-spacing="7" font-weight="700" fill="#8fd6f0">WATER SYSTEMS · PUBLIC DATA</text>
+
+	<!-- title -->
+	<text x="600" y="650" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="112" font-weight="800" letter-spacing="-2" fill="#ffffff">Clearwater Index</text>
+
+	<!-- tagline -->
+	<text x="600" y="720" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="40" font-weight="500" fill="#a9d6e8">Know where every drop goes.</text>
+
+	<!-- meter bars motif -->
+	<g transform="translate(360 792)">
+		<rect width="480" height="14" rx="7" fill="#ffffff" fill-opacity="0.14" />
+		<rect width="300" height="14" rx="7" fill="url(#meter)" />
+	</g>
+	<text x="600" y="850" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="24" letter-spacing="3" fill="#6ea9bf">SUPPLY · MAINTENANCE · QUALITY · PLANNING</text>
+</svg>

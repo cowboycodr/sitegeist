@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none';" />
+  <meta name="theme-color" content="#0a0618" />
+  <meta name="description" content="A neon-soaked arcade of original worlds, weekly challenges, and a living global leaderboard." />
+  <title>Afterlight Arcade — One more run before sunrise.</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#play">Skip to the arcade</a>
+
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="grid-floor" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Afterlight Arcade home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="28" height="28" role="img" aria-hidden="true">
+          <defs>
+            <linearGradient id="bm" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#24e0ff" />
+              <stop offset="1" stop-color="#ff2e97" />
+            </linearGradient>
+          </defs>
+          <rect x="3" y="3" width="26" height="26" rx="7" fill="none" stroke="url(#bm)" stroke-width="2.4" />
+          <circle cx="16" cy="16" r="4.4" fill="url(#bm)" />
+          <path d="M16 5.5v3.2M16 23.3v3.2M5.5 16h3.2M23.3 16h3.2" stroke="url(#bm)" stroke-width="2.2" stroke-linecap="round" />
+        </svg>
+      </span>
+      <span class="brand-name">Afterlight<em>Arcade</em></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#play">Play</a>
+      <a href="#worlds">Worlds</a>
+      <a href="#challenge">Weekly</a>
+      <a href="#board">Leaderboard</a>
+    </nav>
+    <a class="btn btn-ghost nav-cta" href="#play">Press start</a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Independent games universe</p>
+        <h1 id="hero-title">One more run<br /><span class="grad">before sunrise.</span></h1>
+        <p class="lede">A neon-soaked arcade of original worlds, weekly challenges, and a living
+          global leaderboard. Boot up <strong>Afterglow Run</strong> right here — no download,
+          no coins, just reflexes and the horizon.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#play">Press start</a>
+          <a class="btn btn-outline" href="#board">View leaderboards</a>
+        </div>
+        <dl class="stats" aria-label="Arcade at a glance">
+          <div><dt>Original worlds</dt><dd>12</dd></div>
+          <div><dt>Runs tonight</dt><dd id="stat-runs">—</dd></div>
+          <div><dt>Weekly reset</dt><dd id="stat-reset">—</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-cabinet" id="play">
+        <div class="cabinet" role="group" aria-label="Afterglow Run playable cabinet">
+          <div class="cabinet-marquee">
+            <span>Afterglow Run</span>
+            <span class="score-chip">SCORE <b id="score">0</b></span>
+          </div>
+          <div class="screen-wrap">
+            <canvas id="game" width="360" height="440" aria-label="Afterglow Run game screen">
+              Your browser cannot display the game canvas.
+            </canvas>
+            <div class="overlay" id="overlay" data-state="idle">
+              <div class="overlay-inner">
+                <p class="overlay-kicker" id="overlay-kicker">Ready to ride the neon?</p>
+                <h2 class="overlay-title" id="overlay-title">Afterglow Run</h2>
+                <p class="overlay-body" id="overlay-body">Weave between the light gates. Keep the
+                  glider off the walls. The longer you last, the higher you climb the board.</p>
+                <button class="btn btn-primary" id="start-btn" type="button">Press start</button>
+                <p class="overlay-hint">← → or A / D · tap the screen sides · swipe to steer</p>
+              </div>
+            </div>
+          </div>
+          <div class="cabinet-controls" aria-hidden="false">
+            <button class="dpad" id="btn-left" type="button" aria-label="Steer left">◀</button>
+            <div class="cabinet-readout">
+              <span>BEST</span><b id="best">0</b>
+            </div>
+            <button class="dpad" id="btn-right" type="button" aria-label="Steer right">▶</button>
+          </div>
+        </div>
+        <p class="cabinet-caption">Playable demo · your best run posts to the board below.</p>
+      </div>
+    </section>
+
+    <section class="worlds" id="worlds" aria-labelledby="worlds-title">
+      <div class="section-head">
+        <p class="eyebrow">The lineup</p>
+        <h2 id="worlds-title">Twelve worlds, hand-built by night owls</h2>
+        <p class="section-sub">Every cabinet in Afterlight is an original — no clones, no
+          re-skins. Pick a mood and dive in.</p>
+      </div>
+      <ul class="world-grid" role="list" id="world-grid"></ul>
+    </section>
+
+    <section class="challenge" id="challenge" aria-labelledby="challenge-title">
+      <div class="challenge-card">
+        <div class="challenge-body">
+          <p class="eyebrow">This week's challenge</p>
+          <h2 id="challenge-title">Ghost of the Boulevard</h2>
+          <p>Clear <strong>Afterglow Run</strong> to a score of 900 without brushing a single
+            gate. Everyone plays the same seed until the arcade lights dim. Post a clean run and
+            your handle glows gold on the board all week.</p>
+          <ul class="challenge-meta" role="list">
+            <li><span>Modifier</span><b>No-touch gates</b></li>
+            <li><span>Target</span><b>900 pts</b></li>
+            <li><span>Resets in</span><b id="challenge-countdown">—</b></li>
+          </ul>
+          <a class="btn btn-primary" href="#play">Take the challenge</a>
+        </div>
+        <div class="challenge-art" aria-hidden="true">
+          <div class="orb"></div>
+          <div class="ring"></div>
+          <div class="ring ring-2"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="board" id="board" aria-labelledby="board-title">
+      <div class="section-head">
+        <p class="eyebrow">Living global leaderboard</p>
+        <h2 id="board-title">Tonight's front runners</h2>
+        <p class="section-sub">The board breathes while you watch — riders around the world are
+          posting runs right now. Beat the demo above to slot yourself in.</p>
+      </div>
+      <div class="board-wrap">
+        <table class="leaderboard" aria-live="polite">
+          <thead>
+            <tr><th scope="col">#</th><th scope="col">Rider</th><th scope="col">World</th><th scope="col" class="num">Score</th></tr>
+          </thead>
+          <tbody id="board-body"></tbody>
+        </table>
+      </div>
+      <p class="board-note" id="board-note">Refreshing the tape…</p>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="foot-brand">
+      <span class="brand-name">Afterlight<em>Arcade</em></span>
+      <p>One more run before sunrise.</p>
+    </div>
+    <nav class="foot-nav" aria-label="Footer">
+      <a href="#play">Play</a>
+      <a href="#worlds">Worlds</a>
+      <a href="#challenge">Weekly</a>
+      <a href="#board">Leaderboard</a>
+    </nav>
+    <p class="foot-legal">Built for late nights. Runs entirely in your browser — no accounts, no
+      network, no coins swallowed.</p>
+  </footer>
+</body>
+</html>

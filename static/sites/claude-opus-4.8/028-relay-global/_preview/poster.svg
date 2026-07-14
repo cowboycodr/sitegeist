@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Relay Global — Every shipment, perfectly in motion">
+  <defs>
+    <radialGradient id="bg" cx="72%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#14304a"/>
+      <stop offset="60%" stop-color="#0c1c30"/>
+      <stop offset="100%" stop-color="#080f1c"/>
+    </radialGradient>
+    <linearGradient id="route" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34d3c2"/>
+      <stop offset="100%" stop-color="#f6a531"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#34d3c2"/>
+      <stop offset="100%" stop-color="#f6a531"/>
+    </linearGradient>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+
+  <!-- faint grid -->
+  <g stroke="#8fb7d6" stroke-opacity="0.08" stroke-width="1.5">
+    <path d="M0 225 H1200 M0 450 H1200 M0 675 H1200"/>
+    <path d="M300 0 V900 M600 0 V900 M900 0 V900"/>
+  </g>
+
+  <!-- network motif -->
+  <g fill="none" stroke="url(#route)" stroke-width="4.5" stroke-dasharray="12 14" stroke-opacity="0.9">
+    <path d="M215 470 C 430 300, 620 250, 880 210"/>
+    <path d="M880 210 C 1030 250, 1080 400, 1010 560"/>
+    <path d="M215 470 C 460 640, 780 660, 1010 560"/>
+    <path d="M880 210 C 700 130, 520 160, 470 330"/>
+  </g>
+
+  <!-- moving ping glyphs (static positions) -->
+  <g>
+    <circle cx="560" cy="288" r="9" fill="#f6a531" filter="url(#soft)"/>
+    <circle cx="560" cy="288" r="7" fill="#f6a531"/>
+    <circle cx="980" cy="380" r="8" fill="#34d3c2" filter="url(#soft)"/>
+    <circle cx="980" cy="380" r="6.5" fill="#34d3c2"/>
+    <circle cx="620" cy="638" r="7" fill="#8fb7d6"/>
+  </g>
+
+  <!-- hubs -->
+  <g>
+    <g transform="translate(215,470)"><circle r="26" fill="none" stroke="#f6a531" stroke-opacity="0.35" stroke-width="3"/><circle r="14" fill="#0a1220" stroke="#f6a531" stroke-width="5"/></g>
+    <g transform="translate(880,210)"><circle r="26" fill="none" stroke="#34d3c2" stroke-opacity="0.35" stroke-width="3"/><circle r="14" fill="#0a1220" stroke="#34d3c2" stroke-width="5"/></g>
+    <g transform="translate(1010,560)"><circle r="26" fill="none" stroke="#f6a531" stroke-opacity="0.35" stroke-width="3"/><circle r="14" fill="#0a1220" stroke="#f6a531" stroke-width="5"/></g>
+    <g transform="translate(470,330)"><circle r="11" fill="#0a1220" stroke="#8fb7d6" stroke-width="4.5"/></g>
+  </g>
+
+  <!-- brand mark -->
+  <g transform="translate(96,96)">
+    <circle cx="30" cy="30" r="26" fill="none" stroke="#22364f" stroke-width="5"/>
+    <circle cx="30" cy="4" r="7.5" fill="#34d3c2"/>
+    <circle cx="52.5" cy="43" r="7.5" fill="#f6a531"/>
+    <circle cx="7.5" cy="43" r="7.5" fill="#8fb7d6"/>
+  </g>
+  <text x="176" y="130" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="40" font-weight="800" fill="#eaf1f8" letter-spacing="1">Relay<tspan fill="#f6a531">·</tspan>Global</text>
+
+  <!-- eyebrow -->
+  <text x="96" y="470" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="6" fill="#34d3c2">CONNECTED FREIGHT NETWORK</text>
+
+  <!-- headline -->
+  <text x="92" y="560" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="86" font-weight="800" fill="#eaf1f8" letter-spacing="-1">Every shipment,</text>
+  <text x="92" y="662" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="86" font-weight="800" letter-spacing="-1" fill="url(#accent)">perfectly in motion.</text>
+
+  <!-- subline -->
+  <text x="96" y="726" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="30" fill="#9db3c8">Global routes, handoffs, and operations — clear in real time.</text>
+
+  <!-- pill row -->
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-weight="700">
+    <g transform="translate(96,782)">
+      <rect width="330" height="66" rx="33" fill="#f6a531"/>
+      <text x="165" y="43" font-size="27" fill="#241403" text-anchor="middle">Track a shipment</text>
+    </g>
+    <g transform="translate(448,782)">
+      <rect width="330" height="66" rx="33" fill="none" stroke="#22364f" stroke-width="2.5"/>
+      <text x="165" y="43" font-size="27" fill="#eaf1f8" text-anchor="middle">Explore the network</text>
+    </g>
+  </g>
+
+  <!-- stat card -->
+  <g transform="translate(858,724)" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+    <rect width="246" height="124" rx="18" fill="#101f34" stroke="#22364f" stroke-width="2"/>
+    <text x="28" y="60" font-size="52" font-weight="800" fill="#ffffff">99.2%</text>
+    <text x="28" y="92" font-size="21" fill="#9db3c8">on-time relays</text>
+  </g>
+</svg>

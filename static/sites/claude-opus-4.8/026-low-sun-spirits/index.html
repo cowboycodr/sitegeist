@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <title>Low Sun Spirits — Distilled at the edge of daylight</title>
+  <meta name="description" content="Small-batch spirits rooted in desert botanicals, long shadows, and patient experimentation." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#bottles">Skip to the bottles</a>
+
+  <div class="sky" aria-hidden="true">
+    <div class="sun"></div>
+    <div class="dune dune-1"></div>
+    <div class="dune dune-2"></div>
+    <div class="dune dune-3"></div>
+  </div>
+
+  <header class="site-head">
+    <a class="brand" href="#top" aria-label="Low Sun Spirits, home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="40" height="40" role="img" aria-hidden="true">
+          <circle cx="20" cy="24" r="9" fill="none" stroke="currentColor" stroke-width="2" />
+          <line x1="4" y1="34" x2="36" y2="34" stroke="currentColor" stroke-width="2" />
+          <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="20" y1="7" x2="20" y2="12" />
+            <line x1="8" y1="12" x2="11" y2="15" />
+            <line x1="32" y1="12" x2="29" y2="15" />
+          </g>
+        </svg>
+      </span>
+      <span class="brand-name">Low&nbsp;Sun<span class="brand-sub">Spirits</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#bottles">Bottles</a>
+      <a href="#botanicals">Botanicals</a>
+      <a href="#distillery">Distillery</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">Desert botanical spirits</p>
+      <h1 id="hero-title">Distilled at the<br /><span class="accent">edge of daylight.</span></h1>
+      <p class="lede">Small-batch spirits rooted in desert botanicals, long shadows,
+        and patient experimentation. We harvest at dusk, when the heat lifts and the
+        oils are richest, then rest each run until the light comes back.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#bottles">Discover the bottles</a>
+        <a class="btn btn-ghost" href="#distillery">Visit the distillery</a>
+      </div>
+      <dl class="stats">
+        <div><dt>Founded</dt><dd>Mile 41, high desert</dd></div>
+        <div><dt>Batch size</dt><dd>300 bottles</dd></div>
+        <div><dt>Harvest</dt><dd>Golden hour, by hand</dd></div>
+      </dl>
+    </section>
+
+    <section id="bottles" class="bottles" aria-labelledby="bottles-title">
+      <div class="section-head">
+        <h2 id="bottles-title">The bottles</h2>
+        <p>Three expressions, each keyed to a different hour of the desert evening.</p>
+      </div>
+      <ul class="bottle-grid" role="list"></ul>
+    </section>
+
+    <section id="botanicals" class="botanicals" aria-labelledby="botanicals-title">
+      <div class="section-head">
+        <h2 id="botanicals-title">Rooted in the low light</h2>
+        <p>Everything we distill grows within a day's walk of the still house.
+          These are the plants that carry the desert's smell into the glass.</p>
+      </div>
+      <ul class="botanical-list" role="list"></ul>
+    </section>
+
+    <section id="distillery" class="distillery" aria-labelledby="distillery-title">
+      <div class="distillery-copy">
+        <h2 id="distillery-title">Visit the distillery</h2>
+        <p>Our still house sits where the last road gives out to gravel. Tastings
+          run from the hour before sunset until the sky goes navy — long enough to
+          watch every bottle change color in the fading light.</p>
+        <ul class="visit-facts" role="list">
+          <li><span>Hours</span> Thursday–Sunday, 5pm to dusk</li>
+          <li><span>Where</span> Mile 41, off the old wash road</li>
+          <li><span>Tasting</span> Five pours, guided, no reservation past 6</li>
+        </ul>
+        <p class="fineprint">Enjoy responsibly. Please arrange a ride home after tastings.</p>
+      </div>
+      <div class="distillery-art" aria-hidden="true">
+        <div class="horizon"></div>
+        <div class="still"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <p class="foot-brand">Low Sun Spirits</p>
+    <p class="foot-tag">Distilled at the edge of daylight.</p>
+    <p class="foot-note">Desert botanical spirits, made in small batches at Mile 41.</p>
+  </footer>
+
+  <div class="pull-hint" data-pull-hint hidden aria-hidden="true">Release to dismiss</div>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+<title>Heliograph — Power, beautifully placed.</title>
+<meta name="description" content="Elegant solar infrastructure designed for homes, campuses, and public space." />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <a class="brand" href="#top" aria-label="Heliograph home">
+    <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+      <circle cx="24" cy="24" r="8" fill="currentColor" />
+      <g stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+        <line x1="24" y1="4" x2="24" y2="12" />
+        <line x1="24" y1="36" x2="24" y2="44" />
+        <line x1="4" y1="24" x2="12" y2="24" />
+        <line x1="36" y1="24" x2="44" y2="24" />
+        <line x1="10" y1="10" x2="16" y2="16" />
+        <line x1="32" y1="32" x2="38" y2="38" />
+        <line x1="38" y1="10" x2="32" y2="16" />
+        <line x1="16" y1="32" x2="10" y2="38" />
+      </g>
+    </svg>
+    <span class="brand-name">Heliograph</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#systems">Systems</a>
+    <a href="#calculator">Estimate</a>
+    <a href="#installations">Installations</a>
+    <a href="#contact" class="nav-cta">Get in touch</a>
+  </nav>
+</header>
+
+<main id="main">
+<a id="top"></a>
+
+<section class="hero" id="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">Solar infrastructure / 2026</p>
+    <h1>Power, beautifully placed.</h1>
+    <p class="lede">Elegant solar infrastructure designed for homes, campuses, and public space — engineered to catch the light and disappear into good architecture.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#calculator">Plan your system</a>
+      <a class="btn btn-ghost" href="#installations">See installations</a>
+    </div>
+    <dl class="hero-stats">
+      <div><dt>Installed capacity</dt><dd>42<span>MW</span></dd></div>
+      <div><dt>Sites commissioned</dt><dd>310</dd></div>
+      <div><dt>Avg. yield gain</dt><dd>18<span>%</span></dd></div>
+    </dl>
+  </div>
+
+  <figure class="dial-wrap" aria-labelledby="dial-cap">
+    <svg class="dial" viewBox="0 0 320 320" role="img" aria-labelledby="dial-title">
+      <title id="dial-title">A stylized heliograph tracking the sun across the day</title>
+      <defs>
+        <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fff3d1" />
+          <stop offset="55%" stop-color="#ffc24b" />
+          <stop offset="100%" stop-color="#f39119" />
+        </radialGradient>
+        <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#2b2755" />
+          <stop offset="100%" stop-color="#4a3f86" />
+        </linearGradient>
+      </defs>
+      <circle cx="160" cy="160" r="150" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1.5" />
+      <g id="arc-ticks" stroke="rgba(255,255,255,.28)" stroke-width="2" stroke-linecap="round"></g>
+      <path id="sun-track" d="M 30 200 A 130 130 0 0 1 290 200" fill="none" stroke="rgba(255,214,120,.35)" stroke-width="2" stroke-dasharray="4 8" />
+      <g id="rays" stroke="url(#sun)" stroke-width="2" stroke-linecap="round" opacity=".8"></g>
+      <g class="panels">
+        <rect x="108" y="196" width="104" height="52" rx="6" fill="url(#panel)" stroke="rgba(255,255,255,.25)" />
+        <line x1="134" y1="196" x2="134" y2="248" stroke="rgba(255,255,255,.18)" />
+        <line x1="160" y1="196" x2="160" y2="248" stroke="rgba(255,255,255,.18)" />
+        <line x1="186" y1="196" x2="186" y2="248" stroke="rgba(255,255,255,.18)" />
+      </g>
+      <circle id="sun-orb" cx="160" cy="70" r="20" fill="url(#sun)" />
+    </svg>
+    <figcaption id="dial-cap" class="dial-cap">
+      <label for="hour">Time of day</label>
+      <input id="hour" type="range" min="0" max="100" value="50" step="1" aria-describedby="hour-out" />
+      <output id="hour-out" for="hour">Noon · full irradiance</output>
+    </figcaption>
+  </figure>
+</section>
+
+<section class="band" id="systems" aria-labelledby="systems-h">
+  <div class="section-head">
+    <p class="eyebrow">What we place</p>
+    <h2 id="systems-h">Three scales, one standard of craft</h2>
+  </div>
+  <div class="cards">
+    <article class="card">
+      <div class="card-glyph" aria-hidden="true">
+        <svg viewBox="0 0 40 40"><path d="M6 20 L20 8 L34 20 V34 H6 Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><rect x="13" y="22" width="14" height="10" fill="currentColor" opacity=".35"/></svg>
+      </div>
+      <h3>Homes</h3>
+      <p>Roof-integrated arrays and discreet battery walls tuned to your household rhythm. Flush mounts, clean cable routes, no clutter on the ridge line.</p>
+      <ul class="ticks"><li>Integrated & tile-matched</li><li>Backup-ready storage</li><li>App-free scheduling</li></ul>
+    </article>
+    <article class="card">
+      <div class="card-glyph" aria-hidden="true">
+        <svg viewBox="0 0 40 40"><rect x="6" y="14" width="9" height="20" fill="none" stroke="currentColor" stroke-width="2.2"/><rect x="16" y="8" width="9" height="26" fill="none" stroke="currentColor" stroke-width="2.2"/><rect x="26" y="18" width="8" height="16" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
+      </div>
+      <h3>Campuses</h3>
+      <p>Rooftop, carport, and ground arrays that share one control layer. We phase the build around operations so nothing on site goes dark.</p>
+      <ul class="ticks"><li>Load-shifting microgrids</li><li>Metered by building</li><li>Phased commissioning</li></ul>
+    </article>
+    <article class="card">
+      <div class="card-glyph" aria-hidden="true">
+        <svg viewBox="0 0 40 40"><path d="M8 30 Q20 10 32 30" fill="none" stroke="currentColor" stroke-width="2.2"/><line x1="20" y1="14" x2="20" y2="34" stroke="currentColor" stroke-width="2.2"/><circle cx="20" cy="12" r="3" fill="currentColor"/></svg>
+      </div>
+      <h3>Public space</h3>
+      <p>Canopies, shade structures, and lit walkways that generate while they welcome. Designed with cities to belong in the streetscape.</p>
+      <ul class="ticks"><li>Shade + generation</li><li>Civic-grade finishes</li><li>Open-data ready</li></ul>
+    </article>
+  </div>
+</section>
+
+<section class="calc" id="calculator" aria-labelledby="calc-h">
+  <div class="section-head">
+    <p class="eyebrow">Estimate</p>
+    <h2 id="calc-h">Size a system in seconds</h2>
+    <p class="section-sub">A quick, on-device projection. No data leaves your browser — adjust the sliders to see roughly what a Heliograph array could deliver.</p>
+  </div>
+  <div class="calc-grid">
+    <form class="calc-form" aria-label="System estimator">
+      <div class="field">
+        <label for="area">Usable roof / ground area</label>
+        <input id="area" type="range" min="10" max="400" value="60" step="5" />
+        <output id="area-out">60 m²</output>
+      </div>
+      <div class="field">
+        <label for="sun">Local sun hours (daily avg)</label>
+        <input id="sun" type="range" min="2.5" max="7" value="4.5" step="0.1" />
+        <output id="sun-out">4.5 h</output>
+      </div>
+      <div class="field">
+        <label for="rate">Grid rate</label>
+        <input id="rate" type="range" min="0.08" max="0.45" value="0.22" step="0.01" />
+        <output id="rate-out">$0.22 / kWh</output>
+      </div>
+    </form>
+    <div class="calc-out" aria-live="polite">
+      <div class="readout">
+        <span class="readout-label">Array size</span>
+        <strong id="r-kw">10.2 kW</strong>
+      </div>
+      <div class="readout">
+        <span class="readout-label">Est. annual generation</span>
+        <strong id="r-kwh">16,700 kWh</strong>
+      </div>
+      <div class="readout accent">
+        <span class="readout-label">Est. annual bill offset</span>
+        <strong id="r-save">$3,670</strong>
+      </div>
+      <p class="disclaimer">Indicative only. A site survey refines shading, tilt, and orientation before we quote.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="installations" aria-labelledby="inst-h">
+  <div class="section-head">
+    <p class="eyebrow">Installations</p>
+    <h2 id="inst-h">Placed with intent</h2>
+  </div>
+  <div class="gallery">
+    <figure class="shot shot-a">
+      <div class="shot-art" aria-hidden="true"></div>
+      <figcaption><b>Ridgeway House</b><span>7.8 kW integrated roof · residential</span></figcaption>
+    </figure>
+    <figure class="shot shot-b">
+      <div class="shot-art" aria-hidden="true"></div>
+      <figcaption><b>Meridian Campus</b><span>1.9 MW rooftop + carport microgrid</span></figcaption>
+    </figure>
+    <figure class="shot shot-c">
+      <div class="shot-art" aria-hidden="true"></div>
+      <figcaption><b>Harbour Walk</b><span>Solar canopy &amp; lighting · public</span></figcaption>
+    </figure>
+    <figure class="shot shot-d">
+      <div class="shot-art" aria-hidden="true"></div>
+      <figcaption><b>Fielden Terrace</b><span>Community ground array · 240 kW</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="quote">
+  <blockquote>
+    <p>“They treated the array like part of the building, not something bolted on after. From the street you'd never know — until you see the meter.”</p>
+    <cite>— Dana Okafor, Facilities Director, Meridian Campus</cite>
+  </blockquote>
+</section>
+
+<section class="cta" id="contact" aria-labelledby="cta-h">
+  <div class="cta-inner">
+    <p class="eyebrow">Get in touch</p>
+    <h2 id="cta-h">Let's plan where your power belongs.</h2>
+    <p>Tell us about your roof, campus, or public site. We'll walk the light with you and design an array that earns its place.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#calculator">Plan your system</a>
+      <a class="btn btn-ghost" href="#installations">See installations</a>
+    </div>
+    <p class="fineprint">Design studios in three cities · Installs across the region · Response within two working days.</p>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot">
+  <div class="foot-brand">
+    <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="8" fill="currentColor"/><g stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="24" y1="4" x2="24" y2="12"/><line x1="24" y1="36" x2="24" y2="44"/><line x1="4" y1="24" x2="12" y2="24"/><line x1="36" y1="24" x2="44" y2="24"/><line x1="10" y1="10" x2="16" y2="16"/><line x1="32" y1="32" x2="38" y2="38"/><line x1="38" y1="10" x2="32" y2="16"/><line x1="16" y1="32" x2="10" y2="38"/></g></svg>
+    <span>Heliograph</span>
+  </div>
+  <p class="foot-tag">Power, beautifully placed.</p>
+  <p class="foot-copy">© 2026 Heliograph. Solar infrastructure for homes, campuses, and public space.</p>
+</footer>
+
+</body>
+</html>

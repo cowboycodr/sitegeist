@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-labelledby="poster-title poster-desc">
+	<title id="poster-title">Tidepool Lab</title>
+	<desc id="poster-desc">Gallery poster for Tidepool Lab — an ocean research field station reading the edge of the sea.</desc>
+
+	<defs>
+		<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#0a3a43"/>
+			<stop offset="1" stop-color="#04252b"/>
+		</linearGradient>
+		<linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#0e6b73"/>
+			<stop offset="1" stop-color="#04252b"/>
+		</linearGradient>
+		<radialGradient id="pool" cx="0.5" cy="0.5" r="0.5">
+			<stop offset="0" stop-color="#17a2a6"/>
+			<stop offset="0.65" stop-color="#0e6b73"/>
+			<stop offset="1" stop-color="#0a3a43"/>
+		</radialGradient>
+	</defs>
+
+	<rect width="1200" height="900" fill="url(#sky)"/>
+
+	<!-- water band -->
+	<rect y="560" width="1200" height="340" fill="url(#water)"/>
+
+	<!-- concentric tidepool ripple motif -->
+	<g transform="translate(600 470)" fill="none" stroke="#7fe3d6">
+		<circle r="300" stroke-opacity="0.10" stroke-width="2"/>
+		<circle r="240" stroke-opacity="0.16" stroke-width="2"/>
+		<circle r="180" stroke-opacity="0.24" stroke-width="2.5"/>
+		<circle r="120" stroke-opacity="0.34" stroke-width="3"/>
+		<circle r="64" fill="#7fe3d6" fill-opacity="0.14" stroke-opacity="0.5" stroke-width="3"/>
+		<circle r="16" fill="#7fe3d6" stroke="none"/>
+	</g>
+
+	<!-- foam waves along the shore -->
+	<g fill="#f3f6f4">
+		<path d="M0,600 C180,555 360,645 540,600 C720,555 900,645 1080,600 C1140,585 1170,600 1200,595 L1200,640 C1080,660 900,600 720,635 C540,670 360,590 180,630 C120,642 60,632 0,638 Z" opacity="0.85"/>
+		<path d="M0,660 C200,625 380,700 560,662 C760,620 940,700 1120,660 C1150,653 1180,662 1200,658 L1200,900 L0,900 Z" opacity="1"/>
+	</g>
+	<g fill="#7fe3d6" opacity="0.5">
+		<path d="M0,700 C220,672 400,730 600,700 C800,670 980,730 1200,700 L1200,720 C980,748 800,690 600,720 C400,748 220,690 0,720 Z"/>
+	</g>
+
+	<!-- eyebrow -->
+	<text x="600" y="150" text-anchor="middle" fill="#7fe3d6" font-family="Avenir Next, Segoe UI, system-ui, sans-serif" font-size="26" letter-spacing="10">FIELD NOTE / 37.7749&#176; N</text>
+
+	<!-- title -->
+	<text x="600" y="300" text-anchor="middle" fill="#f5efe2" font-family="Iowan Old Style, Palatino Linotype, Georgia, serif" font-size="124" font-weight="700" letter-spacing="-1">Tidepool Lab</text>
+
+	<!-- tagline -->
+	<text x="600" y="378" text-anchor="middle" fill="rgba(245,239,226,0.9)" font-family="Iowan Old Style, Palatino Linotype, Georgia, serif" font-size="42" font-style="italic">Reading the edge of the sea.</text>
+
+	<!-- category chip -->
+	<g transform="translate(600 810)">
+		<rect x="-150" y="-30" width="300" height="58" rx="29" fill="none" stroke="#7fe3d6" stroke-opacity="0.7" stroke-width="2"/>
+		<text x="0" y="8" text-anchor="middle" fill="#7fe3d6" font-family="Avenir Next, Segoe UI, system-ui, sans-serif" font-size="24" letter-spacing="6">OCEAN RESEARCH</text>
+	</g>
+</svg>

@@ -33,7 +33,10 @@ const usage = `Usage:
     [--model gpt-5.6-sol] [--harness codex] \\
     [--concurrency 10] [--max-attempts 8] \\
     [--summary benchmark/reports/generation-summary.json] \\
-    [--duplicate-output benchmark/reports/exact-duplicates.json]
+    [--duplicate-output benchmark/reports/exact-duplicates.json] \\
+    [--volume-output benchmark/reports/code-volume.json] \\
+    [--max-canonical-files 2000] [--max-canonical-bytes 26214400] \\
+    [--max-canonical-text-lines 250000]
 
 Runs design-isolated model workers in fixed-size waves. Every worker is reviewed
 in quarantine. Rejected workers are deleted and regenerated from a fresh
@@ -76,6 +79,29 @@ async function lastDiagnostic(path) {
 	}
 }
 
+async function lastWorkerDiagnostic(stdoutPath, stderrPath) {
+	const stderr = await lastDiagnostic(stderrPath);
+	if (!['no diagnostic output', 'diagnostic output unavailable'].includes(stderr)) return stderr;
+	try {
+		const lines = (await readFile(stdoutPath, 'utf8')).trim().split('\n').reverse();
+		for (const line of lines) {
+			let event;
+			try {
+				event = JSON.parse(line);
+			} catch {
+				continue;
+			}
+			if (event?.type !== 'result') continue;
+			for (const candidate of [event.result, event.error, event.api_error_status, event.subtype]) {
+				if (typeof candidate === 'string' && candidate.trim()) return cleanDiagnostic(candidate);
+			}
+		}
+	} catch {
+		// Fall through to the original stderr diagnostic.
+	}
+	return stderr;
+}
+
 function terminateChildren() {
 	stopping = true;
 	for (const child of activeChildren) child.kill('SIGTERM');
@@ -113,7 +139,7 @@ async function spawnToFiles(command, args, { cwd, stdoutPath, stderrPath, timeou
 				activeChildren.delete(child);
 				rejectPromise(error);
 			});
-			child.once('exit', (code, signal) => {
+			child.once('close', (code, signal) => {
 				clearTimeout(timer);
 				activeChildren.delete(child);
 				resolvePromise({
@@ -156,7 +182,7 @@ async function spawnCaptured(command, args, { cwd, timeout = 5 * 60 * 1000 } = {
 			activeChildren.delete(child);
 			rejectPromise(error);
 		});
-		child.once('exit', (code, signal) => {
+		child.once('close', (code, signal) => {
 			clearTimeout(timer);
 			activeChildren.delete(child);
 			const result = { code: code ?? 1, signal, stdout, stderr, elapsedMs: Date.now() - startedAt };
@@ -241,7 +267,9 @@ async function runAttempt({ brief, attempt, repoRoot, tempRoot, runner }) {
 	);
 	const worker = resolve(prepared.stdout.trim());
 	if (dirname(worker) !== tempRoot || !basename(worker).startsWith(prefix)) {
-		throw new Error('prepare-run returned an unexpected worker path');
+		throw new Error(
+			`prepare-run returned ${JSON.stringify(prepared.stdout.trim())}; expected parent ${tempRoot} and prefix ${prefix}`
+		);
 	}
 	const stdoutPath = join(tempRoot, `.${basename(worker)}.jsonl`);
 	const stderrPath = join(tempRoot, `.${basename(worker)}.stderr`);
@@ -255,7 +283,11 @@ async function runAttempt({ brief, attempt, repoRoot, tempRoot, runner }) {
 			return {
 				accepted: false,
 				kind: execution.timedOut ? 'timeout' : 'runner',
-				errors: [execution.timedOut ? 'worker exceeded the 25-minute limit' : await lastDiagnostic(stderrPath)],
+				errors: [
+					execution.timedOut
+						? 'worker exceeded the 25-minute limit'
+						: await lastWorkerDiagnostic(stdoutPath, stderrPath)
+				],
 				warnings: [],
 				evidence: null,
 				elapsedMs: execution.elapsedMs
@@ -291,7 +323,8 @@ async function main() {
 		new Set([
 			'briefs', 'submissions', 'registry', 'static-root', 'public-base', 'runner', 'model', 'harness',
 			'approval-policy', 'approvals-reviewer', 'concurrency', 'max-attempts',
-			'summary', 'duplicate-output'
+			'summary', 'duplicate-output', 'volume-output', 'max-canonical-files',
+			'max-canonical-bytes', 'max-canonical-text-lines'
 		]),
 		new Set(['help'])
 	);
@@ -311,6 +344,7 @@ async function main() {
 	const runner = resolve(options.runner ?? join(repoRoot, 'scripts/benchmark/run-isolated-worker.sh'));
 	const summary = resolve(options.summary ?? join(repoRoot, 'benchmark/reports/generation-summary.json'));
 	const duplicateOutput = resolve(options['duplicate-output'] ?? join(repoRoot, 'benchmark/reports/exact-duplicates.json'));
+	const volumeOutput = resolve(options['volume-output'] ?? join(repoRoot, 'benchmark/reports/code-volume.json'));
 	const concurrency = positiveInteger(options.concurrency, '--concurrency', DEFAULT_CONCURRENCY);
 	const maxAttempts = positiveInteger(options['max-attempts'], '--max-attempts', DEFAULT_MAX_ATTEMPTS);
 	const configuration = {
@@ -422,9 +456,35 @@ async function main() {
 			}
 		}));
 
-		const allInfrastructureFailures = results.every(({ result }) =>
-			!result.accepted && ['runner', 'orchestrator'].includes(result.kind) && result.elapsedMs < 45_000
+		const boundaryFailures = results.filter(({ result }) =>
+			!result.accepted && ['runner', 'orchestrator'].includes(result.kind)
 		);
+		const sharedFailurePattern = /(?:usage|rate)[ -]?limit|hit your limit|overage|resets? at|no diagnostic output/i;
+		const sharedFailure = boundaryFailures.find(({ result }) =>
+			result.errors.some((error) => sharedFailurePattern.test(error))
+		);
+		if (sharedFailure || boundaryFailures.length >= Math.ceil(jobs.length / 2)) {
+			await Promise.all(jobs.map(async (brief) => {
+				await rm(join(submissionsDirectory, brief.artifactDirectory), { recursive: true, force: true });
+				const record = byId.get(brief.id);
+				record.status = 'pending';
+				record.attempts = Math.max(0, record.attempts - 1);
+				record.acceptedReview = null;
+			}));
+			await writeSummary(summary, records, startedAt, configuration);
+			logProgress('wave-rolled-back', {
+				wave,
+				ids: jobs.map((brief) => brief.id),
+				boundaryFailures: boundaryFailures.length,
+				reason: sharedFailure?.result.errors[0] ?? 'shared runner/orchestrator failure',
+				failures: boundaryFailures.map(({ brief, result }) => ({
+					id: brief.id,
+					kind: result.kind,
+					errors: result.errors
+				}))
+			});
+			throw new Error('Shared worker boundary failure; rolled back the entire wave before stopping');
+		}
 		for (const { brief, result } of results) {
 			const record = byId.get(brief.id);
 			if (result.accepted) {
@@ -460,9 +520,6 @@ async function main() {
 			}
 		}
 		await writeSummary(summary, records, startedAt, configuration);
-		if (allInfrastructureFailures) {
-			throw new Error('Every worker in the wave failed at the isolation/runner boundary; stopped before blind retries');
-		}
 		logProgress('wave-finished', {
 			wave,
 			accepted: records.filter((record) => record.status === 'accepted').length,
@@ -470,6 +527,21 @@ async function main() {
 		});
 	}
 
+	logProgress('code-volume-audit-started', { count: briefs.length });
+	await spawnCaptured(
+		process.execPath,
+		[
+			join(repoRoot, 'scripts/benchmark/audit-code-volume.mjs'),
+			'--submissions', submissionsDirectory,
+			'--output', volumeOutput,
+			'--expected-count', String(briefs.length),
+			...(options['max-canonical-files'] ? ['--max-canonical-files', options['max-canonical-files']] : []),
+			...(options['max-canonical-bytes'] ? ['--max-canonical-bytes', options['max-canonical-bytes']] : []),
+			...(options['max-canonical-text-lines'] ? ['--max-canonical-text-lines', options['max-canonical-text-lines']] : [])
+		],
+		{ cwd: repoRoot }
+	);
+	logProgress('code-volume-audit-passed', { output: volumeOutput });
 	logProgress('import-started', { count: briefs.length });
 	for (const brief of briefs) {
 		await spawnCaptured(

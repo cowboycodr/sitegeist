@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Nightjar FM — Broadcasts after dark">
+	<defs>
+		<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#0b1020"/>
+			<stop offset="0.5" stop-color="#0a0e1a"/>
+			<stop offset="1" stop-color="#070a14"/>
+		</linearGradient>
+		<radialGradient id="glowP" cx="0.82" cy="0.05" r="0.7">
+			<stop offset="0" stop-color="#c9a6ff" stop-opacity="0.28"/>
+			<stop offset="1" stop-color="#c9a6ff" stop-opacity="0"/>
+		</radialGradient>
+		<radialGradient id="glowT" cx="0.08" cy="0.08" r="0.6">
+			<stop offset="0" stop-color="#7fd4c7" stop-opacity="0.22"/>
+			<stop offset="1" stop-color="#7fd4c7" stop-opacity="0"/>
+		</radialGradient>
+		<linearGradient id="title" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#b9c4ea"/>
+		</linearGradient>
+		<radialGradient id="moon" cx="0.4" cy="0.38" r="0.7">
+			<stop offset="0" stop-color="#f3f0ff"/>
+			<stop offset="1" stop-color="#c9c4e6"/>
+		</radialGradient>
+	</defs>
+
+	<rect width="1200" height="900" fill="url(#sky)"/>
+	<rect width="1200" height="900" fill="url(#glowP)"/>
+	<rect width="1200" height="900" fill="url(#glowT)"/>
+
+	<!-- stars -->
+	<g fill="#dfe6ff">
+		<circle cx="150" cy="130" r="2.2" opacity="0.7"/>
+		<circle cx="320" cy="90" r="1.5" opacity="0.5"/>
+		<circle cx="500" cy="150" r="2.6" opacity="0.8"/>
+		<circle cx="700" cy="100" r="1.4" opacity="0.5"/>
+		<circle cx="1040" cy="180" r="2" opacity="0.6"/>
+		<circle cx="1120" cy="90" r="1.6" opacity="0.5"/>
+		<circle cx="240" cy="240" r="1.4" opacity="0.45"/>
+		<circle cx="880" cy="240" r="2.2" opacity="0.7"/>
+		<circle cx="90" cy="300" r="1.6" opacity="0.5"/>
+	</g>
+
+	<!-- moon -->
+	<circle cx="980" cy="210" r="86" fill="url(#moon)"/>
+	<circle cx="1018" cy="188" r="80" fill="#0a0e1a" opacity="0.92"/>
+
+	<!-- station ring + nightjar mark -->
+	<g transform="translate(210 250)">
+		<circle r="120" fill="none" stroke="#7fd4c7" stroke-width="3" opacity="0.35"/>
+		<circle r="150" fill="none" stroke="#c9a6ff" stroke-width="1.5" opacity="0.2"/>
+		<path d="M-72 34c34-6 58-28 70-64 9 30 30 44 60 44-15 24-45 40-75 40-20 0-40-8-55-20z" fill="#7fd4c7"/>
+		<circle cx="34" cy="-26" r="6.5" fill="#0a0e1a"/>
+	</g>
+
+	<!-- live badge -->
+	<g transform="translate(120 470)">
+		<circle cx="10" cy="0" r="9" fill="#ffb27a"/>
+		<text x="34" y="6" font-family="system-ui, sans-serif" font-size="26" letter-spacing="7" font-weight="600" fill="#7fd4c7">LIVE FROM 11:00 PM</text>
+	</g>
+
+	<!-- title -->
+	<text x="118" y="612" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="168" font-weight="600" letter-spacing="-3" fill="url(#title)">Nightjar</text>
+	<text x="118" y="742" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="168" font-weight="600" letter-spacing="-3" fill="url(#title)">FM<tspan font-family="system-ui, sans-serif" font-size="150" fill="#c9a6ff"> ·</tspan></text>
+
+	<text x="122" y="812" font-family="system-ui, sans-serif" font-size="34" fill="#9aa6c9">Broadcasts after dark — independent radio</text>
+
+	<!-- waveform -->
+	<g transform="translate(760 690)" fill="#7fd4c7">
+		<rect x="0" y="-14" width="8" height="28" rx="4" opacity="0.6"/>
+		<rect x="18" y="-40" width="8" height="80" rx="4"/>
+		<rect x="36" y="-26" width="8" height="52" rx="4" opacity="0.85"/>
+		<rect x="54" y="-58" width="8" height="116" rx="4"/>
+		<rect x="72" y="-20" width="8" height="40" rx="4" opacity="0.7"/>
+		<rect x="90" y="-46" width="8" height="92" rx="4"/>
+		<rect x="108" y="-30" width="8" height="60" rx="4" opacity="0.85"/>
+		<rect x="126" y="-64" width="8" height="128" rx="4"/>
+		<rect x="144" y="-22" width="8" height="44" rx="4" opacity="0.7"/>
+		<rect x="162" y="-38" width="8" height="76" rx="4"/>
+		<rect x="180" y="-16" width="8" height="32" rx="4" opacity="0.6"/>
+		<rect x="198" y="-50" width="8" height="100" rx="4" opacity="0.9"/>
+		<rect x="216" y="-28" width="8" height="56" rx="4" opacity="0.8"/>
+		<rect x="234" y="-42" width="8" height="84" rx="4"/>
+		<rect x="252" y="-18" width="8" height="36" rx="4" opacity="0.65"/>
+		<rect x="270" y="-32" width="8" height="64" rx="4" opacity="0.85"/>
+		<rect x="288" y="-12" width="8" height="24" rx="4" opacity="0.5"/>
+	</g>
+</svg>

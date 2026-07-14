@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <title>Lucid — Learn by seeing.</title>
+  <meta name="description" content="Interactive courses turn difficult ideas into playful simulations, diagrams, and experiments." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-head">
+    <a class="brand" href="#top" aria-label="Lucid home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="34" height="34" role="img" aria-hidden="true">
+          <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <circle cx="20" cy="20" r="7" fill="currentColor"/>
+          <path d="M20 3 A17 17 0 0 1 37 20" fill="none" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="brand-word">Lucid</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#subjects">Subjects</a>
+      <a href="#lab">Experiment</a>
+      <a href="#how">How it works</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Ideas you can touch</p>
+        <h1>Learn by <span class="hl">seeing</span>.</h1>
+        <p class="lede">Interactive courses turn difficult ideas into playful simulations, diagrams, and experiments — so understanding clicks before the words even land.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#lab">Start exploring</a>
+          <a class="btn btn-ghost" href="#subjects">Browse subjects</a>
+        </div>
+        <dl class="stat-row" aria-label="At a glance">
+          <div><dt>Live sims</dt><dd>240+</dd></div>
+          <div><dt>Subjects</dt><dd>9</dd></div>
+          <div><dt>Watch time</dt><dd>0</dd></div>
+        </dl>
+      </div>
+      <figure class="hero-fig">
+        <canvas id="pendulum" width="520" height="420" aria-hidden="true"></canvas>
+        <figcaption>A pendulum wave — every bob keeps its own tempo, yet a pattern surfaces from the crowd.</figcaption>
+      </figure>
+    </section>
+
+    <section class="lab" id="lab" aria-labelledby="lab-h">
+      <div class="lab-intro">
+        <p class="eyebrow">Open experiment</p>
+        <h2 id="lab-h">Two waves, one truth</h2>
+        <p>Drag the sliders and watch interference happen in real time. Where crests meet crests the world gets louder; where a crest meets a trough, silence. No formula to memorize first — just the picture.</p>
+        <div class="controls">
+          <label class="ctrl">
+            <span class="ctrl-top"><span>Frequency A</span><output id="outFa">3</output></span>
+            <input id="fa" type="range" min="1" max="9" step="1" value="3" />
+          </label>
+          <label class="ctrl">
+            <span class="ctrl-top"><span>Frequency B</span><output id="outFb">4</output></span>
+            <input id="fb" type="range" min="1" max="9" step="1" value="4" />
+          </label>
+          <label class="ctrl">
+            <span class="ctrl-top"><span>Amplitude</span><output id="outAmp">70%</output></span>
+            <input id="amp" type="range" min="20" max="100" step="5" value="70" />
+          </label>
+          <div class="ctrl-btns">
+            <button id="playBtn" type="button" class="btn btn-small" aria-pressed="true">Pause motion</button>
+          </div>
+        </div>
+      </div>
+      <figure class="lab-fig">
+        <canvas id="waves" width="640" height="440"></canvas>
+        <figcaption class="wave-legend">
+          <span class="key key-a">Wave A</span>
+          <span class="key key-b">Wave B</span>
+          <span class="key key-sum">Sum</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="subjects" id="subjects" aria-labelledby="sub-h">
+      <div class="section-head">
+        <p class="eyebrow">Browse subjects</p>
+        <h2 id="sub-h">Pick a curiosity</h2>
+        <p>Each track is built from bite-size, tinker-able scenes. Start anywhere — the diagrams meet you where you are.</p>
+      </div>
+      <ul class="card-grid" role="list"></ul>
+    </section>
+
+    <section class="how" id="how" aria-labelledby="how-h">
+      <div class="section-head">
+        <p class="eyebrow">How it works</p>
+        <h2 id="how-h">Three steps to the aha</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="step-num">1</span>
+          <h3>See it move</h3>
+          <p>Every lesson opens with a living diagram. Poke it, break it, put it back — before a single definition arrives.</p>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <h3>Change one thing</h3>
+          <p>Sliders and knobs isolate a single variable so cause and effect become impossible to miss.</p>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <h3>Name what you saw</h3>
+          <p>Only then does the vocabulary land — attached to a picture you already understand.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="closer" aria-labelledby="cl-h">
+      <h2 id="cl-h">Ready to make an idea light up?</h2>
+      <p>No account, no download — just open a scene and start moving things.</p>
+      <a class="btn btn-primary" href="#top">Start exploring</a>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <p><strong>Lucid</strong> — Learn by seeing.</p>
+    <p class="muted">A playful education studio. Interactive courses that turn difficult ideas into simulations, diagrams, and experiments.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+<meta name="description" content="A quiet inn shaped by open windows, local food, weathered timber, and slow mornings." />
+<title>Salt Air — Stay close to the tide.</title>
+<link rel="stylesheet" href="styles.css" />
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head" id="top">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="#top" aria-label="Salt Air, home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="34" height="34" role="img" aria-hidden="true">
+          <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M2 24 q6 -5 10 0 t10 0 t10 0 t6 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M2 30 q6 -5 10 0 t10 0 t10 0 t6 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+      </span>
+      <span class="brand-name">Salt Air</span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+      <span class="nav-toggle-label">Menu</span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#rooms">Rooms</a></li>
+      <li><a href="#table">The Table</a></li>
+      <li><a href="#coast">The Coast</a></li>
+      <li><a href="#stay" class="nav-cta">Book your stay</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-scene" aria-hidden="true">
+      <div class="hero-sky"></div>
+      <div class="hero-sun"></div>
+      <svg class="hero-waves" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
+        <path class="wave wave-a" d="M0 90 q180 -50 360 0 t360 0 t360 0 t360 0 V220 H0 Z"/>
+        <path class="wave wave-b" d="M0 120 q180 -46 360 0 t360 0 t360 0 t360 0 V220 H0 Z"/>
+        <path class="wave wave-c" d="M0 150 q180 -40 360 0 t360 0 t360 0 t360 0 V220 H0 Z"/>
+      </svg>
+    </div>
+    <div class="hero-inner">
+      <p class="eyebrow">Rooms by the sea</p>
+      <h1 id="hero-title">Stay close<br />to the tide.</h1>
+      <p class="lede">A quiet inn shaped by open windows, local food, weathered timber, and slow mornings. Salt Air sits where the lane runs out and the coast begins.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#stay">Book your stay</a>
+        <a class="btn btn-ghost" href="#coast">Explore the coast</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip" aria-label="At a glance">
+    <ul class="strip-list">
+      <li><span class="strip-k">Eight rooms</span><span class="strip-v">Never a crowd</span></li>
+      <li><span class="strip-k">Sea-facing</span><span class="strip-v">Windows that open</span></li>
+      <li><span class="strip-k">Kitchen</span><span class="strip-v">Caught &amp; grown nearby</span></li>
+      <li><span class="strip-k">The path</span><span class="strip-v">Tide-line at the gate</span></li>
+    </ul>
+  </section>
+
+  <section class="rooms" id="rooms" aria-labelledby="rooms-title">
+    <div class="section-head">
+      <p class="eyebrow">Rooms</p>
+      <h2 id="rooms-title">Weathered timber, made soft.</h2>
+      <p class="section-lede">Every room keeps the plain bones of the old house — bare beams, lime-washed walls — with a deep bed and a window wide to the salt air.</p>
+    </div>
+    <div class="room-grid">
+      <article class="room-card">
+        <div class="room-art" aria-hidden="true">
+          <svg viewBox="0 0 120 80"><rect width="120" height="80" fill="none"/><path d="M0 54 h120" class="ln"/><rect x="18" y="20" width="34" height="28" rx="2" class="win"/><path d="M18 34 h34 M35 20 v28" class="mullion"/><circle cx="88" cy="30" r="10" class="orb"/></svg>
+        </div>
+        <div class="room-body">
+          <h3>The Dune Room</h3>
+          <p>A ground-floor corner with two windows and a door to the grass. Best for a slow start and sand on the floor.</p>
+          <p class="room-meta"><span>Sleeps 2</span><span>From £145 / night</span></p>
+        </div>
+      </article>
+      <article class="room-card">
+        <div class="room-art" aria-hidden="true">
+          <svg viewBox="0 0 120 80"><path d="M0 54 h120" class="ln"/><path d="M0 62 q30 -8 60 0 t60 0" class="wv"/><rect x="70" y="14" width="30" height="34" rx="2" class="win"/><path d="M70 31 h30 M85 14 v34" class="mullion"/></svg>
+        </div>
+        <div class="room-body">
+          <h3>The Tide Room</h3>
+          <p>Up one flight, facing the water. Lie in bed and watch the horizon change colour as the morning arrives.</p>
+          <p class="room-meta"><span>Sleeps 2</span><span>From £175 / night</span></p>
+        </div>
+      </article>
+      <article class="room-card">
+        <div class="room-art" aria-hidden="true">
+          <svg viewBox="0 0 120 80"><path d="M0 54 h120" class="ln"/><rect x="20" y="16" width="24" height="32" rx="2" class="win"/><rect x="52" y="16" width="24" height="32" rx="2" class="win"/><path d="M20 32 h24 M52 32 h24" class="mullion"/><circle cx="98" cy="26" r="8" class="orb"/></svg>
+        </div>
+        <div class="room-body">
+          <h3>The Gable Suite</h3>
+          <p>The whole top floor under the eaves, with a reading nook and room for a small family or a long stay.</p>
+          <p class="room-meta"><span>Sleeps 4</span><span>From £230 / night</span></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="table" id="table" aria-labelledby="table-title">
+    <div class="table-inner">
+      <div class="table-copy">
+        <p class="eyebrow">The Table</p>
+        <h2 id="table-title">Whatever the boats bring in.</h2>
+        <p>Breakfast is laid out late and lingered over. Supper is one short menu, written each afternoon around what was landed at the harbour and pulled from the garden that day.</p>
+        <ul class="menu-list">
+          <li><span class="menu-name">Grilled mackerel</span><span class="menu-note">gooseberry, sea herbs</span></li>
+          <li><span class="menu-name">Crab on toast</span><span class="menu-note">brown butter, lemon</span></li>
+          <li><span class="menu-name">Garden broth</span><span class="menu-note">new potatoes, dill</span></li>
+          <li><span class="menu-name">Buttermilk tart</span><span class="menu-note">honey, thyme</span></li>
+        </ul>
+        <p class="table-foot">Served in the timber room, or carried out to the terrace when the wind is kind.</p>
+      </div>
+      <div class="table-art" aria-hidden="true">
+        <svg viewBox="0 0 200 200" role="img" aria-hidden="true">
+          <circle cx="100" cy="100" r="70" class="plate-o"/>
+          <circle cx="100" cy="100" r="52" class="plate-i"/>
+          <path d="M60 100 q20 -26 40 0 t40 0" class="plate-fish" />
+          <path d="M100 74 l16 26 -16 26" class="plate-tail"/>
+          <circle cx="84" cy="96" r="2.4" class="plate-eye"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="coast" id="coast" aria-labelledby="coast-title">
+    <div class="section-head">
+      <p class="eyebrow">The Coast</p>
+      <h2 id="coast-title">Out the gate and gone.</h2>
+      <p class="section-lede">Leave the car where it is. Everything worth reaching starts at the end of the path.</p>
+    </div>
+    <div class="coast-grid">
+      <article class="coast-card">
+        <h3>The low-tide walk</h3>
+        <p>Two hours of firm sand each side of the ebb, past the black rocks to the old lighthouse and back before the water returns.</p>
+      </article>
+      <article class="coast-card">
+        <h3>The harbour</h3>
+        <p>A fifteen-minute stroll to where the day boats tie up. Watch the catch come in, then follow it back to our kitchen.</p>
+      </article>
+      <article class="coast-card">
+        <h3>Cliff meadows</h3>
+        <p>A climb through thrift and wild carrot to a bench with the whole bay below and nothing else to do.</p>
+      </article>
+      <article class="coast-card">
+        <h3>Slow mornings</h3>
+        <p>Or nothing at all. A pot of coffee, an open window, and the long tidal light doing the work for you.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="stay" id="stay" aria-labelledby="stay-title">
+    <div class="stay-inner">
+      <div class="stay-copy">
+        <p class="eyebrow">Book your stay</p>
+        <h2 id="stay-title">Send us your dates.</h2>
+        <p>Tell us when you'd like to arrive and we'll write back with what's free. No deposit to ask a question.</p>
+        <p class="stay-line">Or call the front desk — <a href="#stay">01· by the tide</a> — most mornings.</p>
+      </div>
+      <form class="stay-form" id="stay-form" novalidate>
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-arrive">Arrive</label>
+            <input id="f-arrive" name="arrive" type="date" />
+          </div>
+          <div class="field">
+            <label for="f-nights">Nights</label>
+            <input id="f-nights" name="nights" type="number" min="1" max="30" value="2" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-room">Room</label>
+          <select id="f-room" name="room">
+            <option>The Dune Room</option>
+            <option>The Tide Room</option>
+            <option>The Gable Suite</option>
+            <option>Whichever is quietest</option>
+          </select>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Ask about these dates</button>
+        <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="brand-name">Salt Air</span>
+      <p>Stay close to the tide.</p>
+    </div>
+    <ul class="foot-links">
+      <li><a href="#rooms">Rooms</a></li>
+      <li><a href="#table">The Table</a></li>
+      <li><a href="#coast">The Coast</a></li>
+      <li><a href="#stay">Book</a></li>
+    </ul>
+    <p class="foot-fine">Where the lane runs out and the coast begins.</p>
+  </div>
+</footer>
+
+</body>
+</html>

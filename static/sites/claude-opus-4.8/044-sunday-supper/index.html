@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+	<title>Sunday Supper — Come hungry. Stay awhile.</title>
+	<meta name="description" content="A neighborhood table serving generous seasonal plates, natural wine, and unhurried evenings." />
+	<link rel="stylesheet" href="styles.css" />
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="app.js"></script>
+</head>
+<body>
+	<a class="skip" href="#menu">Skip to menu</a>
+
+	<header class="site-header">
+		<div class="wrap header-inner">
+			<a class="brand" href="#top" aria-label="Sunday Supper home">
+				<span class="brand-mark" aria-hidden="true">
+					<svg viewBox="0 0 48 48" width="34" height="34" role="img" aria-hidden="true">
+						<circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2" />
+						<path d="M17 14v9a3 3 0 0 0 6 0v-9M20 14v20M31 14c-2 1-3 4-3 8s1 5 3 5v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+					</svg>
+				</span>
+				<span class="brand-name">Sunday Supper</span>
+			</a>
+			<nav class="site-nav" aria-label="Primary">
+				<a href="#menu">Menu</a>
+				<a href="#hours">Hours</a>
+				<a href="#visit">Visit</a>
+				<a class="nav-cta" href="#reserve">Book a table</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="top">
+		<section class="hero" aria-labelledby="hero-title">
+			<div class="wrap hero-inner">
+				<p class="eyebrow">Dinner from five</p>
+				<h1 id="hero-title">Come hungry.<br />Stay awhile.</h1>
+				<p class="lede">A neighborhood table serving generous seasonal plates, natural wine, and long, unhurried evenings — right around the corner.</p>
+				<div class="hero-actions">
+					<a class="btn btn-primary" href="#reserve">Book a table</a>
+					<a class="btn btn-ghost" href="#menu">See tonight's menu</a>
+				</div>
+				<dl class="hero-facts">
+					<div><dt>Kitchen</dt><dd>Tue–Sun, 5–10pm</dd></div>
+					<div><dt>Where</dt><dd>114 Larch Street</dd></div>
+					<div><dt>Wine</dt><dd>Low-intervention, all natural</dd></div>
+				</dl>
+			</div>
+			<div class="hero-plate" aria-hidden="true">
+				<span class="steam s1"></span><span class="steam s2"></span><span class="steam s3"></span>
+				<div class="plate"><div class="plate-inner"></div></div>
+			</div>
+		</section>
+
+		<section id="menu" class="menu" aria-labelledby="menu-title">
+			<div class="wrap">
+				<div class="section-head">
+					<p class="eyebrow">Tonight's table</p>
+					<h2 id="menu-title">The menu, changed with the market</h2>
+					<p class="section-sub">Written each afternoon after the deliveries land. A little different every night — this is a good snapshot of what you'll find.</p>
+				</div>
+
+				<div class="menu-grid">
+					<article class="course">
+						<h3>To start</h3>
+						<ul class="dishes">
+							<li><span class="d-name">Warm focaccia</span><span class="d-note">cultured butter, sea salt</span><span class="d-price">9</span></li>
+							<li><span class="d-name">Shaved fennel &amp; blood orange</span><span class="d-note">castelvetrano, mint</span><span class="d-price">14</span></li>
+							<li><span class="d-name">Wood-roasted carrots</span><span class="d-note">whipped feta, dukkah</span><span class="d-price">15</span></li>
+							<li><span class="d-name">Chicken liver toast</span><span class="d-note">pickled shallot, thyme</span><span class="d-price">13</span></li>
+						</ul>
+					</article>
+
+					<article class="course">
+						<h3>The middle</h3>
+						<ul class="dishes">
+							<li><span class="d-name">Hand-rolled cavatelli</span><span class="d-note">braised greens, pecorino</span><span class="d-price">24</span></li>
+							<li><span class="d-name">Whole roasted branzino</span><span class="d-note">salsa verde, lemon</span><span class="d-price">32</span></li>
+							<li><span class="d-name">Sunday roast chicken</span><span class="d-note">for two, bread &amp; jus</span><span class="d-price">54</span></li>
+							<li><span class="d-name">Coal-fired mushrooms</span><span class="d-note">polenta, aged parmesan</span><span class="d-price">26</span></li>
+						</ul>
+					</article>
+
+					<article class="course">
+						<h3>To finish</h3>
+						<ul class="dishes">
+							<li><span class="d-name">Olive oil cake</span><span class="d-note">rosemary, crème fraîche</span><span class="d-price">11</span></li>
+							<li><span class="d-name">Dark chocolate budino</span><span class="d-note">flake salt, olive oil</span><span class="d-price">12</span></li>
+							<li><span class="d-name">Affogato</span><span class="d-note">espresso, vanilla gelato</span><span class="d-price">9</span></li>
+							<li><span class="d-name">Cheese, three ways</span><span class="d-note">honeycomb, crackers</span><span class="d-price">18</span></li>
+						</ul>
+					</article>
+				</div>
+				<p class="menu-foot">Vegetarian by default; ask us and we'll happily adapt any plate. Please tell your server about allergies.</p>
+			</div>
+		</section>
+
+		<section id="hours" class="hours" aria-labelledby="hours-title">
+			<div class="wrap hours-inner">
+				<div class="section-head">
+					<p class="eyebrow">Set your evening</p>
+					<h2 id="hours-title">When we're open</h2>
+					<p class="section-sub">The dining room fills up on weekends — a table on a Tuesday is the quiet secret.</p>
+				</div>
+				<ul class="hours-list" id="hours-list">
+					<li data-day="1"><span class="h-day">Monday</span><span class="h-time">Closed</span></li>
+					<li data-day="2"><span class="h-day">Tuesday</span><span class="h-time">5:00 – 10:00pm</span></li>
+					<li data-day="3"><span class="h-day">Wednesday</span><span class="h-time">5:00 – 10:00pm</span></li>
+					<li data-day="4"><span class="h-day">Thursday</span><span class="h-time">5:00 – 10:00pm</span></li>
+					<li data-day="5"><span class="h-day">Friday</span><span class="h-time">5:00 – 11:00pm</span></li>
+					<li data-day="6"><span class="h-day">Saturday</span><span class="h-time">5:00 – 11:00pm</span></li>
+					<li data-day="0"><span class="h-day">Sunday</span><span class="h-time">4:00 – 9:00pm</span></li>
+				</ul>
+				<p class="hours-status" id="hours-status" role="status" aria-live="polite"></p>
+			</div>
+		</section>
+
+		<section id="reserve" class="reserve" aria-labelledby="reserve-title">
+			<div class="wrap reserve-inner">
+				<div class="reserve-copy">
+					<p class="eyebrow">Save your seat</p>
+					<h2 id="reserve-title">Book a table</h2>
+					<p class="section-sub">Tables of six or fewer online. For larger parties or the whole room, send a note and we'll set it up by hand.</p>
+					<ul class="reserve-notes">
+						<li>Walk-ins always welcome at the bar &amp; counter.</li>
+						<li>We hold reservations for 15 minutes.</li>
+						<li>A little late? Call the room — we'll keep it.</li>
+					</ul>
+				</div>
+				<form class="reserve-form" id="reserve-form" novalidate>
+					<div class="field">
+						<label for="r-name">Name</label>
+						<input id="r-name" name="name" type="text" autocomplete="name" required />
+					</div>
+					<div class="field-row">
+						<div class="field">
+							<label for="r-guests">Guests</label>
+							<select id="r-guests" name="guests">
+								<option>1</option><option selected>2</option><option>3</option>
+								<option>4</option><option>5</option><option>6</option>
+							</select>
+						</div>
+						<div class="field">
+							<label for="r-date">Date</label>
+							<input id="r-date" name="date" type="date" required />
+						</div>
+					</div>
+					<div class="field">
+						<label for="r-time">Time</label>
+						<select id="r-time" name="time">
+							<option>5:00pm</option><option>5:30pm</option><option selected>6:00pm</option>
+							<option>6:30pm</option><option>7:00pm</option><option>7:30pm</option>
+							<option>8:00pm</option><option>8:30pm</option><option>9:00pm</option>
+						</select>
+					</div>
+					<div class="field">
+						<label for="r-note">Anything we should know? <span class="opt">(optional)</span></label>
+						<textarea id="r-note" name="note" rows="2" placeholder="Birthday, allergies, a favorite table…"></textarea>
+					</div>
+					<button class="btn btn-primary btn-block" type="submit">Request table</button>
+					<p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+				</form>
+			</div>
+		</section>
+
+		<section id="visit" class="visit" aria-labelledby="visit-title">
+			<div class="wrap visit-inner">
+				<div class="section-head">
+					<p class="eyebrow">Find us</p>
+					<h2 id="visit-title">Visit</h2>
+				</div>
+				<div class="visit-grid">
+					<div class="visit-card">
+						<h3>Address</h3>
+						<p>114 Larch Street<br />Corner of Larch &amp; Vine<br />Open the green door</p>
+					</div>
+					<div class="visit-card">
+						<h3>Say hello</h3>
+						<p><a href="tel:+15550148820">(555) 014‑8820</a><br />hello@sundaysupper.table</p>
+					</div>
+					<div class="visit-card">
+						<h3>Getting here</h3>
+						<p>Two blocks from the Vine Street stop. Street parking after 6pm and a small lot round the back.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap footer-inner">
+			<p class="foot-brand">Sunday Supper</p>
+			<p class="foot-tag">Come hungry. Stay awhile.</p>
+			<p class="foot-small">114 Larch Street · Tue–Sun from five · Made with the market</p>
+		</div>
+	</footer>
+</body>
+</html>

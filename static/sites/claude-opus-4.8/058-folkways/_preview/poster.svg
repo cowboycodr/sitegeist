@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Folkways — Every song carries a place. A living archive of field recordings and traditional music.">
+  <defs>
+    <radialGradient id="bg" cx="78%" cy="12%" r="90%">
+      <stop offset="0%" stop-color="#2a2033"/>
+      <stop offset="55%" stop-color="#1c1626"/>
+      <stop offset="100%" stop-color="#141019"/>
+    </radialGradient>
+    <radialGradient id="disc" cx="38%" cy="34%" r="72%">
+      <stop offset="0%" stop-color="#3a2c1a"/>
+      <stop offset="55%" stop-color="#26202c"/>
+      <stop offset="100%" stop-color="#171019"/>
+    </radialGradient>
+    <radialGradient id="label" cx="40%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#e0a13c"/>
+      <stop offset="100%" stop-color="#b1502e"/>
+    </radialGradient>
+    <linearGradient id="bar" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#b1502e"/>
+      <stop offset="100%" stop-color="#e0a13c"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="24" y="24" width="1152" height="852" rx="26" fill="none" stroke="rgba(244,234,216,0.14)" stroke-width="2"/>
+
+  <!-- eyebrow -->
+  <text x="88" y="150" fill="#e0a13c" font-family="ui-sans-serif,Segoe UI,Roboto,Arial,sans-serif" font-size="26" letter-spacing="7" font-weight="700">SOUNDS FROM THE ARCHIVE</text>
+
+  <!-- title -->
+  <text x="84" y="300" fill="#f4ead8" font-family="Iowan Old Style,Palatino,Georgia,serif" font-size="150" font-weight="600" letter-spacing="-2">Folkways</text>
+
+  <!-- tagline -->
+  <text x="88" y="388" fill="#d9cdb8" font-family="Iowan Old Style,Palatino,Georgia,serif" font-size="46" font-style="italic">Every song carries a place.</text>
+
+  <!-- spinning record motif -->
+  <g transform="translate(880,300)">
+    <circle r="205" fill="url(#disc)" stroke="#000" stroke-opacity="0.4" stroke-width="3"/>
+    <g fill="none" stroke="#e0a13c" stroke-opacity="0.55" stroke-width="1.6">
+      <circle r="185"/><circle r="168"/><circle r="151"/><circle r="134"/>
+      <circle r="117"/><circle r="100"/><circle r="83"/>
+    </g>
+    <circle r="52" fill="url(#label)" stroke="#000" stroke-opacity="0.35" stroke-width="2"/>
+    <circle r="7" fill="#171019"/>
+    <circle r="205" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="10"/>
+  </g>
+
+  <!-- waveform band -->
+  <g transform="translate(88,560)">
+    <g fill="url(#bar)">
+      <rect x="0"   y="70" width="16" height="30" rx="4"/>
+      <rect x="26"  y="40" width="16" height="90" rx="4"/>
+      <rect x="52"  y="14" width="16" height="142" rx="4"/>
+      <rect x="78"  y="52" width="16" height="66" rx="4"/>
+      <rect x="104" y="0"  width="16" height="170" rx="4"/>
+      <rect x="130" y="60" width="16" height="50" rx="4"/>
+      <rect x="156" y="28" width="16" height="114" rx="4"/>
+      <rect x="182" y="66" width="16" height="38" rx="4"/>
+      <rect x="208" y="6"  width="16" height="158" rx="4"/>
+      <rect x="234" y="48" width="16" height="74" rx="4"/>
+      <rect x="260" y="22" width="16" height="126" rx="4"/>
+      <rect x="286" y="72" width="16" height="26" rx="4"/>
+    </g>
+    <g fill="rgba(244,234,216,0.22)">
+      <rect x="312" y="34" width="16" height="102" rx="4"/>
+      <rect x="338" y="58" width="16" height="54" rx="4"/>
+      <rect x="364" y="12" width="16" height="146" rx="4"/>
+      <rect x="390" y="64" width="16" height="42" rx="4"/>
+      <rect x="416" y="30" width="16" height="110" rx="4"/>
+      <rect x="442" y="70" width="16" height="30" rx="4"/>
+    </g>
+  </g>
+
+  <!-- map thread with pins -->
+  <g transform="translate(88,720)">
+    <path d="M0 60 Q120 10 260 60 T520 50 T780 70 T1010 40" fill="none" stroke="rgba(127,154,114,0.5)" stroke-width="2.5" stroke-dasharray="2 9" stroke-linecap="round"/>
+    <g>
+      <circle cx="0"    cy="60" r="9" fill="#e0a13c"/>
+      <circle cx="260"  cy="60" r="9" fill="#e0a13c"/>
+      <circle cx="520"  cy="50" r="9" fill="#7f9a72"/>
+      <circle cx="780"  cy="70" r="9" fill="#b1502e"/>
+      <circle cx="1010" cy="40" r="9" fill="#e0a13c"/>
+    </g>
+  </g>
+
+  <!-- footer strip -->
+  <text x="88" y="840" fill="#d9cdb8" font-family="ui-sans-serif,Segoe UI,Roboto,Arial,sans-serif" font-size="24">Field recordings · Oral histories · Traditional music from across the world</text>
+  <text x="1112" y="840" text-anchor="end" fill="#e0a13c" font-family="ui-sans-serif,Segoe UI,Roboto,Arial,sans-serif" font-size="24" letter-spacing="4" font-weight="700">MUSIC ARCHIVE</text>
+</svg>

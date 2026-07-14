@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Milkweed School — Let curiosity get muddy.">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cfe1dd"/>
+      <stop offset="1" stop-color="#e9efd9"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4b7a3f"/>
+      <stop offset="1" stop-color="#2f5330"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.7" cy="0.3" r="0.7">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      .head { font-family: "Iowan Old Style", Palatino, Georgia, serif; fill: #26301f; }
+      .body { font-family: ui-sans-serif, "Segoe UI", Helvetica, Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#sky)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- ground -->
+  <path d="M0 690 C 220 640 420 720 640 690 C 860 660 1010 720 1200 680 L1200 900 L0 900 Z" fill="url(#ground)"/>
+  <path d="M0 690 C 220 640 420 720 640 690 C 860 660 1010 720 1200 680" fill="none" stroke="#6f9c5a" stroke-width="6" opacity="0.5"/>
+
+  <!-- milkweed stalks -->
+  <g stroke="#3a6135" stroke-width="7" fill="none" stroke-linecap="round">
+    <path d="M180 900 C 170 780 150 700 165 620"/>
+    <path d="M1030 900 C 1040 790 1060 700 1045 630"/>
+  </g>
+  <!-- leaves -->
+  <g fill="#4b7a3f">
+    <path d="M165 720 C 120 700 100 660 130 640 C 165 660 172 700 165 720Z"/>
+    <path d="M165 680 C 205 660 228 620 200 600 C 170 622 160 660 165 680Z"/>
+    <path d="M1045 730 C 1090 710 1108 670 1078 650 C 1046 672 1040 710 1045 730Z"/>
+  </g>
+
+  <!-- bursting pod with seeds -->
+  <g transform="translate(165 600)">
+    <path d="M0 0 C -34 -14 -40 -56 -14 -78 C 20 -66 30 -22 0 0Z" fill="#c9b98f"/>
+    <path d="M-8 -70 C 6 -50 4 -22 -6 -6" stroke="#4a3520" stroke-width="2.4" fill="none"/>
+  </g>
+  <g fill="#f7f2e6" stroke="#d7c9a8" stroke-width="2">
+    <circle cx="150" cy="520" r="9"/>
+    <circle cx="205" cy="475" r="7"/>
+    <circle cx="255" cy="510" r="8"/>
+    <circle cx="300" cy="450" r="6"/>
+    <circle cx="360" cy="500" r="7"/>
+  </g>
+
+  <!-- monarch butterfly (distinctive motif) -->
+  <g transform="translate(880 300) scale(2.1)">
+    <g fill="#e07b28" stroke="#4a3520" stroke-width="1.6">
+      <path d="M0 0C-14 -28 -40 -32 -46 -16 -51 -2 -34 14 0 6Z"/>
+      <path d="M0 0C14 -28 40 -32 46 -16 51 -2 34 14 0 6Z"/>
+      <path d="M0 2C-10 16 -30 28 -36 24 -42 19 -30 2 0 0Z"/>
+      <path d="M0 2C10 16 30 28 36 24 42 19 30 2 0 0Z"/>
+    </g>
+    <g fill="#f7f2e6"><circle cx="-30" cy="-20" r="3"/><circle cx="30" cy="-20" r="3"/><circle cx="-26" cy="16" r="2.4"/><circle cx="26" cy="16" r="2.4"/></g>
+    <line x1="0" y1="-20" x2="0" y2="24" stroke="#4a3520" stroke-width="3.4" stroke-linecap="round"/>
+  </g>
+
+  <!-- floating seeds -->
+  <g fill="#d7c9a8" stroke="#ffffff" stroke-width="2" opacity="0.9">
+    <path d="M470 210 a10 10 0 1 1 0 0.1Z"/>
+    <circle cx="620" cy="150" r="8"/>
+    <circle cx="740" cy="520" r="7"/>
+  </g>
+
+  <!-- text -->
+  <text class="body" x="90" y="150" font-size="26" letter-spacing="6" font-weight="700" fill="#b95a15">LEARNING OUTSIDE / AGES 4–11</text>
+  <text class="head" x="86" y="300" font-size="128" font-weight="600">Milkweed</text>
+  <text class="head" x="86" y="420" font-size="128" font-weight="600" fill="#b95a15">School</text>
+  <rect x="92" y="450" width="120" height="9" rx="4" fill="#e07b28"/>
+  <text class="head" x="90" y="540" font-size="46" fill="#4a3520" font-style="italic">Let curiosity get muddy.</text>
+
+  <!-- category chip -->
+  <g transform="translate(90 810)">
+    <rect x="0" y="-34" width="330" height="52" rx="26" fill="#2f5330"/>
+    <text class="body" x="26" y="1" font-size="22" font-weight="700" fill="#f7f2e6" letter-spacing="1">Outdoor Education</text>
+  </g>
+</svg>

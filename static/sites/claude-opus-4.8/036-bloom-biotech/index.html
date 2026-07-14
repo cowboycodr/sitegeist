@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+<meta name="color-scheme" content="dark light" />
+<meta name="description" content="Bloom — regenerative therapies engineered from cells, fungi, and the surprising intelligence of plants." />
+<meta name="theme-color" content="#07130f" />
+<title>Bloom — Medicine, grown differently.</title>
+<style>
+  :root{
+    --ink:#eaf5ee;
+    --ink-soft:#a9c3b4;
+    --moss:#07130f;
+    --moss-2:#0b1e17;
+    --panel:#0e241b;
+    --line:rgba(150,214,178,.16);
+    --bloom:#ff9bb4;
+    --bloom-2:#ffd18a;
+    --spore:#6ee7b0;
+    --leaf:#3fd0a3;
+    --focus:#8ff2c8;
+    --maxw:1120px;
+    --r:20px;
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    color:var(--ink);
+    background:
+      radial-gradient(120% 90% at 82% -8%, rgba(255,155,180,.14), transparent 55%),
+      radial-gradient(90% 70% at 5% 8%, rgba(63,208,163,.14), transparent 52%),
+      var(--moss);
+    line-height:1.55;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .sans{font-family:"Avenir Next","Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif}
+  a{color:inherit}
+  img,svg{display:block;max-width:100%}
+  h1,h2,h3{line-height:1.05;margin:0;font-weight:600;letter-spacing:-.01em}
+  p{margin:0}
+  .wrap{width:min(100% - 40px,var(--maxw));margin-inline:auto}
+  .eyebrow{
+    font-family:"Avenir Next","Segoe UI",system-ui,sans-serif;
+    text-transform:uppercase;letter-spacing:.28em;font-size:.72rem;font-weight:600;
+    color:var(--spore);margin:0 0 .2em;
+  }
+  :focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:6px}
+
+  /* Skip link */
+  .skip{position:absolute;left:12px;top:-60px;background:var(--panel);color:var(--ink);
+    padding:10px 16px;border-radius:12px;z-index:60;transition:top .2s var(--ease);
+    border:1px solid var(--line);font-family:"Avenir Next",system-ui,sans-serif}
+  .skip:focus{top:12px}
+
+  /* Header */
+  header.site{position:sticky;top:0;z-index:40;
+    backdrop-filter:blur(10px);
+    background:linear-gradient(to bottom,rgba(7,19,15,.86),rgba(7,19,15,.5));
+    border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;gap:16px;padding:14px 0;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:600;
+    font-size:1.22rem;letter-spacing:.02em}
+  .mark{width:30px;height:30px;flex:0 0 auto}
+  .nav{display:flex;gap:6px;align-items:center;font-family:"Avenir Next",system-ui,sans-serif;
+    font-size:.9rem}
+  .nav a{text-decoration:none;color:var(--ink-soft);padding:8px 12px;border-radius:12px;
+    transition:color .2s,background .2s}
+  .nav a:hover{color:var(--ink);background:rgba(110,231,176,.1)}
+  .cta{display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+    font-family:"Avenir Next",system-ui,sans-serif;font-weight:600;font-size:.92rem;
+    padding:11px 18px;border-radius:999px;transition:transform .2s var(--ease),box-shadow .2s,filter .2s;
+    cursor:pointer;border:0}
+  .cta.primary{color:#0b1a13;background:linear-gradient(120deg,var(--bloom-2),var(--bloom));
+    box-shadow:0 10px 30px -12px rgba(255,155,180,.7)}
+  .cta.primary:hover{transform:translateY(-2px);filter:brightness(1.05)}
+  .cta.ghost{color:var(--ink);background:rgba(255,255,255,.04);border:1px solid var(--line)}
+  .cta.ghost:hover{transform:translateY(-2px);background:rgba(255,255,255,.08)}
+  .nav-cta{display:none}
+  @media(min-width:860px){.nav-cta{display:inline-flex}}
+
+  /* Hero */
+  .hero{position:relative;padding:clamp(48px,9vw,104px) 0 clamp(40px,7vw,80px)}
+  .hero-grid{display:grid;gap:clamp(32px,5vw,56px);align-items:center;
+    grid-template-columns:1fr}
+  @media(min-width:900px){.hero-grid{grid-template-columns:1.05fr .95fr}}
+  h1.title{font-size:clamp(2.6rem,7.4vw,5.1rem);letter-spacing:-.025em}
+  h1.title .accent{
+    background:linear-gradient(105deg,var(--bloom-2),var(--bloom) 55%,var(--spore));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .lede{margin-top:22px;font-size:clamp(1.05rem,2.4vw,1.32rem);color:var(--ink-soft);
+    max-width:34ch}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .stats{display:flex;gap:26px;flex-wrap:wrap;margin-top:40px;
+    font-family:"Avenir Next",system-ui,sans-serif}
+  .stat b{display:block;font-family:"Iowan Old Style",Georgia,serif;font-size:1.7rem;
+    line-height:1;color:var(--ink)}
+  .stat span{font-size:.78rem;letter-spacing:.05em;color:var(--ink-soft);text-transform:uppercase}
+
+  /* Living bloom motif */
+  .stage{position:relative;aspect-ratio:1/1;width:100%;max-width:460px;margin-inline:auto;
+    filter:drop-shadow(0 30px 60px rgba(0,0,0,.45))}
+  .stage svg{width:100%;height:auto}
+  .petal{transform-box:fill-box;transform-origin:center bottom;
+    animation:sway 8s var(--ease) infinite}
+  .ring2 .petal{animation-duration:11s;animation-direction:reverse}
+  .petal:nth-child(2n){animation-delay:-1.4s}
+  .petal:nth-child(3n){animation-delay:-2.8s}
+  .core{transform-box:fill-box;transform-origin:center;animation:pulse 5.5s ease-in-out infinite}
+  .spore-dot{transform-box:fill-box;transform-origin:center;animation:drift 9s ease-in-out infinite}
+  .spore-dot:nth-child(2n){animation-duration:12s}
+  .spore-dot:nth-child(3n){animation-duration:7.5s}
+  @keyframes sway{0%,100%{transform:rotate(-2.2deg) scale(1)}50%{transform:rotate(2.2deg) scale(1.03)}}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.08);opacity:.92}}
+  @keyframes drift{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(-8px);opacity:1}}
+
+  /* Sections */
+  section{padding:clamp(56px,8vw,96px) 0}
+  .sec-head{max-width:56ch}
+  .sec-head h2{font-size:clamp(1.9rem,4.6vw,3.1rem)}
+  .sec-head p{color:var(--ink-soft);margin-top:16px;font-size:clamp(1rem,2.2vw,1.18rem)}
+
+  /* Platform cards */
+  .cards{display:grid;gap:18px;margin-top:44px;grid-template-columns:1fr}
+  @media(min-width:720px){.cards{grid-template-columns:repeat(3,1fr)}}
+  .card{position:relative;padding:26px 24px 28px;border-radius:var(--r);
+    background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+    border:1px solid var(--line);overflow:hidden;
+    transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
+  .card:hover{transform:translateY(-6px);border-color:rgba(110,231,176,.4);
+    box-shadow:0 26px 50px -30px rgba(0,0,0,.8)}
+  .card .glyph{width:46px;height:46px;margin-bottom:18px}
+  .card h3{font-size:1.35rem}
+  .card .tag{font-family:"Avenir Next",system-ui,sans-serif;font-size:.72rem;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--spore)}
+  .card p{color:var(--ink-soft);margin-top:12px;font-size:.98rem}
+  .card::after{content:"";position:absolute;inset:auto -40% -60% -40%;height:120px;
+    background:radial-gradient(closest-side,rgba(255,155,180,.22),transparent);
+    opacity:0;transition:opacity .3s}
+  .card:hover::after{opacity:1}
+
+  /* Pipeline */
+  .pipe{margin-top:40px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+    background:linear-gradient(180deg,rgba(255,255,255,.03),transparent)}
+  .prow{display:grid;grid-template-columns:1.4fr 1fr auto;gap:14px;align-items:center;
+    padding:18px 22px;border-top:1px solid var(--line);
+    font-family:"Avenir Next",system-ui,sans-serif}
+  .prow:first-child{border-top:0}
+  .prow .pname{font-family:"Iowan Old Style",Georgia,serif;font-size:1.12rem;color:var(--ink)}
+  .prow .pind{font-size:.86rem;color:var(--ink-soft)}
+  .track{grid-column:1 / -1;height:8px;border-radius:99px;background:rgba(255,255,255,.06);
+    overflow:hidden;margin-top:6px}
+  .fill{height:100%;border-radius:99px;
+    background:linear-gradient(90deg,var(--leaf),var(--bloom-2),var(--bloom));
+    width:var(--w,20%);transform-origin:left;animation:grow 1.3s var(--ease) both}
+  @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  .phase{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+    padding:5px 12px;border-radius:99px;border:1px solid var(--line);color:var(--spore);
+    white-space:nowrap;justify-self:end}
+  @media(max-width:560px){
+    .prow{grid-template-columns:1fr auto}
+    .prow .pind{grid-column:1 / -1;order:3}
+  }
+
+  /* Science / stat band */
+  .band{background:
+      radial-gradient(90% 120% at 100% 0,rgba(255,155,180,.12),transparent 60%),
+      linear-gradient(180deg,var(--moss-2),var(--moss));
+    border-block:1px solid var(--line)}
+  .duo{display:grid;gap:clamp(28px,5vw,56px);grid-template-columns:1fr;align-items:center}
+  @media(min-width:880px){.duo{grid-template-columns:1fr 1fr}}
+  .facts{display:grid;gap:2px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+  .fact{padding:22px 24px;background:rgba(255,255,255,.025);
+    font-family:"Avenir Next",system-ui,sans-serif}
+  .fact b{font-family:"Iowan Old Style",Georgia,serif;font-size:2rem;display:block;line-height:1;
+    color:var(--bloom-2)}
+  .fact span{color:var(--ink-soft);font-size:.9rem}
+  ul.leaf{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:14px}
+  ul.leaf li{position:relative;padding-left:30px;color:var(--ink-soft)}
+  ul.leaf li::before{content:"";position:absolute;left:0;top:.45em;width:14px;height:14px;
+    border-radius:0 60% 60% 60%;background:linear-gradient(135deg,var(--leaf),var(--spore));
+    transform:rotate(45deg)}
+  ul.leaf b{color:var(--ink);font-family:"Iowan Old Style",Georgia,serif}
+
+  /* CTA closing */
+  .closing{text-align:center}
+  .closing .panel{border:1px solid var(--line);border-radius:28px;
+    padding:clamp(40px,7vw,72px) clamp(24px,5vw,56px);position:relative;overflow:hidden;
+    background:radial-gradient(120% 140% at 50% -20%,rgba(255,155,180,.16),transparent 60%),
+      rgba(255,255,255,.02)}
+  .closing h2{font-size:clamp(2rem,5.5vw,3.4rem);max-width:18ch;margin-inline:auto}
+  .closing p{color:var(--ink-soft);margin:18px auto 0;max-width:48ch;
+    font-size:clamp(1rem,2.2vw,1.15rem)}
+  .closing .hero-actions{justify-content:center}
+
+  footer{border-top:1px solid var(--line);padding:40px 0 56px;color:var(--ink-soft);
+    font-family:"Avenir Next",system-ui,sans-serif;font-size:.88rem}
+  .foot{display:flex;flex-wrap:wrap;gap:18px 32px;justify-content:space-between;align-items:center}
+  .foot nav{display:flex;gap:20px;flex-wrap:wrap}
+  .foot a{text-decoration:none;color:var(--ink-soft)}
+  .foot a:hover{color:var(--ink)}
+  .fine{margin-top:26px;font-size:.78rem;color:rgba(169,195,180,.6);max-width:70ch}
+
+  .reveal{opacity:0;transform:translateY(22px);
+    transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Bloom home">
+      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
+        <defs>
+          <linearGradient id="mg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffd18a"/><stop offset=".55" stop-color="#ff9bb4"/>
+            <stop offset="1" stop-color="#6ee7b0"/>
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke="url(#mg)" stroke-width="2.4" stroke-linecap="round">
+          <path d="M20 34 V19"/>
+          <path d="M20 20 C11 20 8 12 12 8 C17 12 20 14 20 20Z" fill="url(#mg)" fill-opacity=".28"/>
+          <path d="M20 20 C29 20 32 12 28 8 C23 12 20 14 20 20Z" fill="url(#mg)" fill-opacity=".28"/>
+          <path d="M20 21 C20 15 24 10 30 11 C29 18 25 21 20 21Z" fill="url(#mg)" fill-opacity=".4"/>
+          <path d="M20 21 C20 15 16 10 10 11 C11 18 15 21 20 21Z" fill="url(#mg)" fill-opacity=".4"/>
+        </g>
+        <circle cx="20" cy="20" r="3" fill="#ffd18a"/>
+      </svg>
+      Bloom
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#platform">Platform</a>
+      <a href="#pipeline">Pipeline</a>
+      <a href="#science">Science</a>
+      <a class="cta primary nav-cta" href="#contact">Explore the science</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <span id="top"></span>
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Biology in motion</p>
+        <h1 class="title" id="h1">Medicine,<br><span class="accent">grown differently.</span></h1>
+        <p class="lede">Regenerative therapies engineered from living cells, fungal networks, and the surprising intelligence of plants.</p>
+        <div class="hero-actions">
+          <a class="cta primary" href="#platform">Explore the science</a>
+          <a class="cta ghost" href="#pipeline">Meet the platform</a>
+        </div>
+        <div class="stats" aria-label="Company at a glance">
+          <div class="stat"><b data-count="6">0</b><span>Living modalities</span></div>
+          <div class="stat"><b data-count="24">0</b><span>Programs in motion</span></div>
+          <div class="stat"><b data-count="3">0</b><span>Clinical assets</span></div>
+        </div>
+      </div>
+      <div class="stage" aria-hidden="true">
+        <svg viewBox="0 0 400 400" role="presentation">
+          <defs>
+            <radialGradient id="glow" cx="50%" cy="46%" r="52%">
+              <stop offset="0" stop-color="#123227"/><stop offset="1" stop-color="#07130f"/>
+            </radialGradient>
+            <linearGradient id="pOuter" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#3fd0a3"/><stop offset="1" stop-color="#0f7a5b"/>
+            </linearGradient>
+            <linearGradient id="pInner" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffd18a"/><stop offset="1" stop-color="#ff9bb4"/>
+            </linearGradient>
+            <radialGradient id="cCore" cx="50%" cy="42%" r="60%">
+              <stop offset="0" stop-color="#fff4de"/><stop offset=".5" stop-color="#ffd18a"/>
+              <stop offset="1" stop-color="#ff9bb4"/>
+            </radialGradient>
+          </defs>
+          <circle cx="200" cy="200" r="196" fill="url(#glow)"/>
+          <circle cx="200" cy="200" r="150" fill="none" stroke="rgba(110,231,176,.14)" stroke-width="1"/>
+          <circle cx="200" cy="200" r="112" fill="none" stroke="rgba(255,155,180,.14)" stroke-width="1"/>
+          <!-- outer petal ring -->
+          <g class="ring1" transform="translate(200 200)">
+            <g class="petal"><path transform="rotate(0)" d="M0 -6 C46 -30 60 -110 0 -150 C-60 -110 -46 -30 0 -6Z" fill="url(#pOuter)" opacity=".9"/></g>
+            <g class="petal"><path transform="rotate(60)" d="M0 -6 C46 -30 60 -110 0 -150 C-60 -110 -46 -30 0 -6Z" fill="url(#pOuter)" opacity=".9"/></g>
+            <g class="petal"><path transform="rotate(120)" d="M0 -6 C46 -30 60 -110 0 -150 C-60 -110 -46 -30 0 -6Z" fill="url(#pOuter)" opacity=".9"/></g>
+            <g class="petal"><path transform="rotate(180)" d="M0 -6 C46 -30 60 -110 0 -150 C-60 -110 -46 -30 0 -6Z" fill="url(#pOuter)" opacity=".9"/></g>
+            <g class="petal"><path transform="rotate(240)" d="M0 -6 C46 -30 60 -110 0 -150 C-60 -110 -46 -30 0 -6Z" fill="url(#pOuter)" opacity=".9"/></g>
+            <g class="petal"><path transform="rotate(300)" d="M0 -6 C46 -30 60 -110 0 -150 C-60 -110 -46 -30 0 -6Z" fill="url(#pOuter)" opacity=".9"/></g>
+          </g>
+          <!-- inner petal ring -->
+          <g class="ring2" transform="translate(200 200) rotate(30)">
+            <g class="petal"><path transform="rotate(0)" d="M0 -4 C30 -22 40 -78 0 -104 C-40 -78 -30 -22 0 -4Z" fill="url(#pInner)"/></g>
+            <g class="petal"><path transform="rotate(72)" d="M0 -4 C30 -22 40 -78 0 -104 C-40 -78 -30 -22 0 -4Z" fill="url(#pInner)"/></g>
+            <g class="petal"><path transform="rotate(144)" d="M0 -4 C30 -22 40 -78 0 -104 C-40 -78 -30 -22 0 -4Z" fill="url(#pInner)"/></g>
+            <g class="petal"><path transform="rotate(216)" d="M0 -4 C30 -22 40 -78 0 -104 C-40 -78 -30 -22 0 -4Z" fill="url(#pInner)"/></g>
+            <g class="petal"><path transform="rotate(288)" d="M0 -4 C30 -22 40 -78 0 -104 C-40 -78 -30 -22 0 -4Z" fill="url(#pInner)"/></g>
+          </g>
+          <circle class="core" cx="200" cy="200" r="34" fill="url(#cCore)"/>
+          <g fill="#0b1a13" opacity=".55">
+            <circle cx="200" cy="200" r="3"/><circle cx="188" cy="192" r="2.4"/>
+            <circle cx="212" cy="192" r="2.4"/><circle cx="200" cy="212" r="2.4"/>
+            <circle cx="190" cy="208" r="2"/><circle cx="210" cy="208" r="2"/>
+          </g>
+          <!-- floating spores -->
+          <g fill="#6ee7b0">
+            <circle class="spore-dot" cx="70" cy="120" r="3"/>
+            <circle class="spore-dot" cx="330" cy="150" r="2.4"/>
+            <circle class="spore-dot" cx="300" cy="320" r="3.4"/>
+            <circle class="spore-dot" cx="96" cy="300" r="2.6"/>
+            <circle class="spore-dot" cx="52" cy="210" r="2"/>
+            <circle class="spore-dot" cx="352" cy="240" r="2.2"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORM -->
+  <section id="platform" aria-labelledby="platform-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">The living platform</p>
+        <h2 id="platform-h">Three kingdoms of biology, engineered into one therapeutic toolkit.</h2>
+        <p>Bloom doesn't synthesize molecules and hope they stick. We program living systems to make, deliver, and adapt medicine inside the body — sourcing our building blocks from three domains of life.</p>
+      </div>
+      <div class="cards">
+        <article class="card reveal">
+          <svg class="glyph" viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="24" r="16" fill="none" stroke="#6ee7b0" stroke-width="2.2"/>
+            <circle cx="24" cy="24" r="6" fill="#ff9bb4"/>
+            <circle cx="24" cy="24" r="6" fill="none" stroke="#ffd18a" stroke-width="1.4"/>
+            <circle cx="16" cy="18" r="2" fill="#6ee7b0"/><circle cx="32" cy="30" r="2" fill="#6ee7b0"/>
+          </svg>
+          <span class="tag">Cellular</span>
+          <h3>Engineered cells</h3>
+          <p>Autologous cell lines reprogrammed to secrete regenerative signals on demand — dosing that listens to the tissue around it.</p>
+        </article>
+        <article class="card reveal">
+          <svg class="glyph" viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M24 40 V22" stroke="#6ee7b0" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M24 22 C14 22 10 14 12 8 C20 12 24 16 24 22Z" fill="#3fd0a3" opacity=".85"/>
+            <path d="M24 24 C34 24 38 16 36 10 C28 14 24 18 24 24Z" fill="#ffd18a" opacity=".85"/>
+            <circle cx="24" cy="21" r="3" fill="#ff9bb4"/>
+          </svg>
+          <span class="tag">Mycelial</span>
+          <h3>Fungal networks</h3>
+          <p>Mycelium scaffolds grow custom matrices for tissue repair, threading nutrients and drug payloads through their branching architecture.</p>
+        </article>
+        <article class="card reveal">
+          <svg class="glyph" viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M24 42 V12" stroke="#3fd0a3" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M24 26 C16 24 12 18 14 14 C20 16 24 20 24 26Z" fill="#6ee7b0" opacity=".85"/>
+            <path d="M24 20 C32 18 36 12 34 8 C28 10 24 14 24 20Z" fill="#6ee7b0" opacity=".85"/>
+            <circle cx="24" cy="10" r="3.4" fill="#ff9bb4"/>
+          </svg>
+          <span class="tag">Botanical</span>
+          <h3>Plant intelligence</h3>
+          <p>Plants sense and route resources without a brain. We borrow those decentralized circuits to design therapies that self-regulate over time.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section id="pipeline" aria-labelledby="pipe-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Pipeline</p>
+        <h2 id="pipe-h">Programs moving from petri dish to patient.</h2>
+        <p>A living pipeline across regeneration, immunity, and repair. Progress bars reflect internal stage, not regulatory approval.</p>
+      </div>
+      <div class="pipe reveal" role="table" aria-label="Bloom program pipeline">
+        <div class="prow" role="row">
+          <span class="pname" role="cell">BL&#8209;114 &middot; Cardiac patch</span>
+          <span class="pind" role="cell">Post-infarction repair</span>
+          <span class="phase" role="cell">Phase&nbsp;II</span>
+          <div class="track" role="cell"><div class="fill" style="--w:72%"></div></div>
+        </div>
+        <div class="prow" role="row">
+          <span class="pname" role="cell">MYC&#8209;07 &middot; Wound matrix</span>
+          <span class="pind" role="cell">Chronic wound regeneration</span>
+          <span class="phase" role="cell">Phase&nbsp;I</span>
+          <div class="track" role="cell"><div class="fill" style="--w:54%"></div></div>
+        </div>
+        <div class="prow" role="row">
+          <span class="pname" role="cell">RTE&#8209;22 &middot; Retinal graft</span>
+          <span class="pind" role="cell">Degenerative vision loss</span>
+          <span class="phase" role="cell">IND&#8209;enabling</span>
+          <div class="track" role="cell"><div class="fill" style="--w:38%"></div></div>
+        </div>
+        <div class="prow" role="row">
+          <span class="pname" role="cell">PHY&#8209;03 &middot; Adaptive implant</span>
+          <span class="pind" role="cell">Autoimmune modulation</span>
+          <span class="phase" role="cell">Discovery</span>
+          <div class="track" role="cell"><div class="fill" style="--w:20%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCIENCE -->
+  <section id="science" class="band" aria-labelledby="sci-h">
+    <div class="wrap duo">
+      <div class="reveal">
+        <p class="eyebrow">Why grown, not made</p>
+        <h2 id="sci-h" style="font-size:clamp(1.9rem,4.6vw,3rem)">Living medicine adapts. Static molecules can't.</h2>
+        <ul class="leaf">
+          <li><b>Responsive dosing.</b> Cells read their microenvironment and release only what the tissue asks for.</li>
+          <li><b>Self-assembling scaffolds.</b> Fungal matrices build structure in place — no synthetic polymers left behind.</li>
+          <li><b>Decentralized control.</b> Plant-inspired logic keeps therapies stable without a central failure point.</li>
+          <li><b>Grown at scale.</b> Bioreactors cultivate therapeutic tissue the way a greenhouse raises seedlings.</li>
+        </ul>
+      </div>
+      <div class="facts reveal" aria-label="Platform figures">
+        <div class="fact"><b>1.4&times;</b><span>Faster tissue integration vs. synthetic grafts in preclinical models</span></div>
+        <div class="fact"><b>&minus;40%</b><span>Reduction in immune rejection markers with autologous sourcing</span></div>
+        <div class="fact"><b>18 mo</b><span>Median bench-to-IND timeline across the living platform</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section id="contact" class="closing" aria-labelledby="close-h">
+    <div class="wrap">
+      <div class="panel reveal">
+        <p class="eyebrow" style="text-align:center">Grow with us</p>
+        <h2 id="close-h">The next generation of medicine won't be manufactured. It will be cultivated.</h2>
+        <p>Partner with Bloom's living platform, or join the biologists, engineers, and mycologists rewriting how therapies begin.</p>
+        <div class="hero-actions">
+          <a class="cta primary" href="#platform">Explore the science</a>
+          <a class="cta ghost" href="#pipeline">Meet the platform</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a class="brand" href="#top" aria-label="Bloom home" style="font-size:1.05rem">
+        <svg class="mark" viewBox="0 0 40 40" aria-hidden="true" style="width:24px;height:24px">
+          <g fill="none" stroke="#6ee7b0" stroke-width="2.4" stroke-linecap="round">
+            <path d="M20 34 V19"/>
+            <path d="M20 21 C20 15 24 10 30 11 C29 18 25 21 20 21Z" fill="#6ee7b0" fill-opacity=".3"/>
+            <path d="M20 21 C20 15 16 10 10 11 C11 18 15 21 20 21Z" fill="#6ee7b0" fill-opacity=".3"/>
+          </g>
+          <circle cx="20" cy="20" r="3" fill="#ffd18a"/>
+        </svg>
+        Bloom
+      </a>
+      <nav aria-label="Footer">
+        <a href="#platform">Platform</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#science">Science</a>
+        <a href="#contact">Partner</a>
+      </nav>
+    </div>
+    <p class="fine">Bloom is a fictional biotechnology concept created for design demonstration. Figures, programs, and phases shown here are illustrative and not medical claims. Medicine, grown differently.</p>
+  </div>
+</footer>
+
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>

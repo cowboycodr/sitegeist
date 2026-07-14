@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none';" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="Deep Time — an immersive museum tracing the improbable story of Earth through fossils, climates, and extinction." />
+  <title>Deep Time — Four billion years, still unfolding.</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231a1410'/%3E%3Crect y='6' width='32' height='5' fill='%23c9743a'/%3E%3Crect y='14' width='32' height='5' fill='%238a9b7a'/%3E%3Crect y='22' width='32' height='5' fill='%235a7d86'/%3E%3C/svg%3E" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#timeline">Skip to the timeline</a>
+
+  <div class="strata-field" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Deep&nbsp;Time</span>
+      </a>
+      <nav class="head-nav" aria-label="Primary">
+        <a href="#timeline">Timeline</a>
+        <a href="#extinctions">Extinctions</a>
+        <a href="#collection">Collection</a>
+        <a href="#visit">Visit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <p class="eyebrow">An atlas of Earth</p>
+        <h1 id="hero-title">Four billion years,<br />still unfolding.</h1>
+        <p class="lede">An immersive museum tracing the improbable story of Earth through
+          fossils, drifting climates, and the great extinctions — from a molten
+          Hadean sky to the thin, bright present.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#timeline">Begin the timeline</a>
+          <a class="btn btn-ghost" href="#collection">Explore the collection</a>
+        </div>
+        <dl class="hero-figures">
+          <div><dt>4.54 Ga</dt><dd>Age of the Earth</dd></div>
+          <div><dt>5</dt><dd>Mass extinctions</dd></div>
+          <div><dt>~1 Tn</dt><dd>Species that have lived</dd></div>
+        </dl>
+      </div>
+      <div class="scroll-hint" aria-hidden="true"><span></span>Descend</div>
+    </section>
+
+    <section id="timeline" class="timeline" aria-labelledby="timeline-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Gallery one</p>
+          <h2 id="timeline-title">The stratigraphic column</h2>
+          <p class="section-lede">Read the planet from the bottom up. Each band is a chapter
+            of deep time; select one to descend into it.</p>
+        </div>
+
+        <div class="timeline-grid">
+          <nav class="era-rail" aria-label="Geological eras">
+            <ol id="era-list"></ol>
+          </nav>
+
+          <div class="era-stage" id="era-stage" aria-live="polite">
+            <!-- filled by app.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="extinctions" class="extinctions" aria-labelledby="ext-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Gallery two</p>
+          <h2 id="ext-title">The five great silences</h2>
+          <p class="section-lede">Life has been nearly erased and rewritten five times.
+            Each collapse cleared the stage for what we became.</p>
+        </div>
+        <ul class="ext-list" id="ext-list"></ul>
+      </div>
+    </section>
+
+    <section id="collection" class="collection" aria-labelledby="coll-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Gallery three</p>
+          <h2 id="coll-title">From the collection</h2>
+          <p class="section-lede">A handful of specimens from the vaults, each a witness
+            drawn out of stone.</p>
+        </div>
+        <div class="specimens" id="specimen-grid"></div>
+      </div>
+    </section>
+
+    <section id="visit" class="visit" aria-labelledby="visit-title">
+      <div class="wrap visit-inner">
+        <div>
+          <p class="eyebrow">Plan your descent</p>
+          <h2 id="visit-title">Visit the museum</h2>
+          <p class="section-lede">Deep Time is open through every hour of daylight and
+            most of the dark. Admission is a moment's attention.</p>
+        </div>
+        <dl class="visit-facts">
+          <div><dt>Hours</dt><dd>09:00 – 22:00, daily</dd></div>
+          <div><dt>Gallery</dt><dd>The Stratigraph Hall</dd></div>
+          <div><dt>Guided descent</dt><dd>Hourly, at the eon markers</dd></div>
+          <div><dt>Admission</dt><dd>Free, always</dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap foot-inner">
+      <span class="brand-text small">Deep Time</span>
+      <p>Four billion years, still unfolding. &middot; A natural-history exhibition.</p>
+    </div>
+  </footer>
+</body>
+</html>

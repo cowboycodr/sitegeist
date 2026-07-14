@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Drift — a softer landing for your day">
+	<defs>
+		<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#141a3e"/>
+			<stop offset="0.55" stop-color="#0a0e1f"/>
+			<stop offset="1" stop-color="#070a17"/>
+		</linearGradient>
+		<radialGradient id="halo" cx="0.78" cy="0.16" r="0.5">
+			<stop offset="0" stop-color="#c6a0ff" stop-opacity="0.35"/>
+			<stop offset="1" stop-color="#c6a0ff" stop-opacity="0"/>
+		</radialGradient>
+		<radialGradient id="moonGrad" cx="0.4" cy="0.4" r="0.7">
+			<stop offset="0" stop-color="#e9ecff"/>
+			<stop offset="1" stop-color="#b7bdf0"/>
+		</radialGradient>
+		<radialGradient id="ring" cx="0.5" cy="0.5" r="0.5">
+			<stop offset="0" stop-color="#c6a0ff" stop-opacity="0.55"/>
+			<stop offset="0.55" stop-color="#8f9bff" stop-opacity="0.18"/>
+			<stop offset="0.72" stop-color="#8f9bff" stop-opacity="0"/>
+		</radialGradient>
+		<radialGradient id="core" cx="0.5" cy="0.5" r="0.5">
+			<stop offset="0" stop-color="#d7bcff"/>
+			<stop offset="1" stop-color="#8f9bff"/>
+		</radialGradient>
+	</defs>
+
+	<rect width="1200" height="900" fill="url(#sky)"/>
+	<rect width="1200" height="900" fill="url(#halo)"/>
+
+	<!-- stars -->
+	<g fill="#ffffff">
+		<circle cx="140" cy="120" r="2.4" opacity="0.8"/>
+		<circle cx="320" cy="80" r="1.8" opacity="0.6"/>
+		<circle cx="520" cy="150" r="2" opacity="0.7"/>
+		<circle cx="1040" cy="240" r="2.2" opacity="0.7"/>
+		<circle cx="200" cy="300" r="1.6" opacity="0.5"/>
+		<circle cx="90" cy="520" r="2" opacity="0.6"/>
+		<circle cx="1120" cy="470" r="1.8" opacity="0.6"/>
+		<circle cx="700" cy="90" r="1.6" opacity="0.5"/>
+		<circle cx="410" cy="360" r="1.5" opacity="0.45"/>
+		<circle cx="980" cy="120" r="1.8" opacity="0.6"/>
+	</g>
+
+	<!-- breathing ring motif -->
+	<g transform="translate(870 470)">
+		<circle r="230" fill="url(#ring)"/>
+		<circle r="180" fill="none" stroke="#c6a0ff" stroke-opacity="0.35" stroke-width="2"/>
+		<circle r="70" fill="url(#core)"/>
+	</g>
+
+	<!-- crescent moon -->
+	<g transform="translate(300 260)">
+		<circle r="86" fill="url(#moonGrad)"/>
+		<circle cx="34" cy="-16" r="78" fill="#0a0e1f"/>
+	</g>
+
+	<!-- wordmark -->
+	<text x="96" y="590" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="168" font-weight="600" fill="#e8ecff" letter-spacing="2">Drift</text>
+	<text x="100" y="660" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="44" fill="#c6a0ff">A softer landing for your day.</text>
+
+	<text x="100" y="740" font-family="system-ui, sans-serif" font-size="26" letter-spacing="8" fill="#9aa3cc">SLEEP TECHNOLOGY</text>
+	<text x="100" y="800" font-family="system-ui, sans-serif" font-size="26" fill="#9aa3cc">Sound · Breath · Screen-free ritual</text>
+</svg>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <title>Relic — Objects worth keeping.</title>
+  <meta name="description" content="A curated market for enduring furniture, rare design, and beautifully weathered everyday things." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#collection">Skip to the collection</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Relic home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="34" height="34" role="img" aria-hidden="true">
+            <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.4" />
+            <circle cx="20" cy="20" r="12" fill="none" stroke="currentColor" stroke-width="1.4" />
+            <path d="M20 6 L20 34 M6 20 L34 20" stroke="currentColor" stroke-width="1.1" opacity="0.5" />
+            <circle cx="20" cy="20" r="3.2" fill="currentColor" />
+          </svg>
+        </span>
+        <span class="brand-name">Relic</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#collection">Collection</a>
+        <a href="#provenance">Provenance</a>
+        <a href="#sell">Sell</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="#sell">Sell an object</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Newly unearthed</p>
+          <h1 id="hero-title">Objects worth keeping.</h1>
+          <p class="lede">A curated market for enduring furniture, rare design, and beautifully weathered everyday things — each one vetted, dated, and honest about its wear.</p>
+          <div class="hero-buttons">
+            <a class="btn btn-solid" href="#collection">Browse the collection</a>
+            <a class="btn btn-outline" href="#sell">Sell an object</a>
+          </div>
+          <dl class="hero-stats">
+            <div><dt>Pieces vetted</dt><dd>4,200+</dd></div>
+            <div><dt>Decades spanned</dt><dd>1890 – 1989</dd></div>
+            <div><dt>Restorers on call</dt><dd>60</dd></div>
+          </dl>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 300 340" width="100%" height="100%" role="img" aria-label="An illustrated vintage armchair">
+            <defs>
+              <linearGradient id="chairGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#b5673c" />
+                <stop offset="1" stop-color="#8a3f22" />
+              </linearGradient>
+            </defs>
+            <ellipse cx="150" cy="312" rx="118" ry="16" fill="#000" opacity="0.12" />
+            <path d="M60 150 q-20 4 -20 46 v70 q0 14 16 14 q16 0 16 -14 v-64 q6 -30 -12 -52z" fill="url(#chairGrad)" />
+            <path d="M240 150 q20 4 20 46 v70 q0 14 -16 14 q-16 0 -16 -14 v-64 q-6 -30 12 -52z" fill="url(#chairGrad)" />
+            <path d="M64 120 q0 -70 86 -70 q86 0 86 70 v40 q0 20 -18 20 h-136 q-18 0 -18 -20z" fill="url(#chairGrad)" />
+            <path d="M78 176 h144 q22 0 22 26 v34 q0 16 -18 16 h-152 q-18 0 -18 -16 v-34 q0 -26 22 -26z" fill="#9c4d2b" />
+            <path d="M80 254 v40 q0 8 8 8 h124 q8 0 8 -8 v-40" fill="none" stroke="#5a2e19" stroke-width="8" stroke-linecap="round" />
+            <path d="M96 300 v22 M204 300 v22" stroke="#5a2e19" stroke-width="9" stroke-linecap="round" />
+            <path d="M92 96 q58 -28 116 0" fill="none" stroke="#e7cfa6" stroke-width="2" opacity="0.55" />
+            <path d="M92 112 q58 -24 116 0" fill="none" stroke="#e7cfa6" stroke-width="2" opacity="0.4" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="filters" aria-label="Filter the collection">
+      <div class="wrap">
+        <div class="filter-bar" role="group" aria-label="Filter by category">
+          <button type="button" class="chip is-active" data-filter="all" aria-pressed="true">All objects</button>
+          <button type="button" class="chip" data-filter="seating" aria-pressed="false">Seating</button>
+          <button type="button" class="chip" data-filter="lighting" aria-pressed="false">Lighting</button>
+          <button type="button" class="chip" data-filter="ceramics" aria-pressed="false">Ceramics</button>
+          <button type="button" class="chip" data-filter="timepieces" aria-pressed="false">Timepieces</button>
+          <button type="button" class="chip" data-filter="objects" aria-pressed="false">Everyday things</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="collection" class="collection" aria-labelledby="collection-title" tabindex="-1">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="collection-title">The collection</h2>
+          <p class="section-note" id="result-count" aria-live="polite"></p>
+        </div>
+        <ul class="grid" id="catalog"></ul>
+        <p class="empty" id="empty" hidden>Nothing in this drawer yet — try another category.</p>
+      </div>
+    </section>
+
+    <section id="provenance" class="provenance" aria-labelledby="prov-title">
+      <div class="wrap prov-inner">
+        <div class="prov-copy">
+          <p class="eyebrow">How Relic works</p>
+          <h2 id="prov-title">Every object arrives with a paper trail.</h2>
+          <p>We reject far more than we list. What survives is dated, examined under good light, and described with its scars intact. No object is "like new" here — it is <em>still here</em>, which is the point.</p>
+        </div>
+        <ol class="steps">
+          <li>
+            <span class="step-num">01</span>
+            <h3>Sourced</h3>
+            <p>Estates, closing workshops, and quiet attics — found by people who know what to look for.</p>
+          </li>
+          <li>
+            <span class="step-num">02</span>
+            <h3>Vetted</h3>
+            <p>Age, maker, and materials confirmed. Repairs disclosed. Fakes turned away at the door.</p>
+          </li>
+          <li>
+            <span class="step-num">03</span>
+            <h3>Kept</h3>
+            <p>Cleaned, never over-restored. It reaches you carrying the honest weather of its years.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="sell" class="sell" aria-labelledby="sell-title">
+      <div class="wrap sell-inner">
+        <div class="sell-card">
+          <p class="eyebrow">Sell an object</p>
+          <h2 id="sell-title">Have something that outlasted its first owner?</h2>
+          <p>Tell us what you found. Our curators reply within two working days with an estimate and, if it belongs here, a place in the next unearthing.</p>
+          <ul class="sell-points">
+            <li>Free appraisal, no obligation</li>
+            <li>Insured collection from your door</li>
+            <li>You set the reserve — we handle the rest</li>
+          </ul>
+          <a class="btn btn-solid" href="#collection" data-sell-cta>Start with the collection</a>
+        </div>
+        <blockquote class="testimonial">
+          <p>“I sent them a battered brass lamp I nearly threw out. It found a home in a week — and I finally learned who made it.”</p>
+          <footer>— Marguerite D., seller since 2019</footer>
+        </blockquote>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <span class="brand-name footer-brand">Relic</span>
+        <p class="footer-tag">Objects worth keeping.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#collection">Collection</a>
+        <a href="#provenance">Provenance</a>
+        <a href="#sell">Sell an object</a>
+      </nav>
+      <p class="footer-fine">A curated vintage marketplace. Every listing one of a kind.</p>
+    </div>
+  </footer>
+
+  <div class="dialog-backdrop" id="detail" hidden>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="detail-title" aria-describedby="detail-desc">
+      <button type="button" class="dialog-close" id="detail-close" aria-label="Close details">&times;</button>
+      <div class="dialog-art" id="detail-art" aria-hidden="true"></div>
+      <div class="dialog-body">
+        <p class="dialog-era" id="detail-era"></p>
+        <h2 id="detail-title"></h2>
+        <p class="dialog-price" id="detail-price"></p>
+        <p id="detail-desc"></p>
+        <dl class="dialog-meta" id="detail-meta"></dl>
+      </div>
+    </div>
+  </div>
+
+  <noscript>
+    <div class="wrap noscript-note">Enable JavaScript to browse and filter the full collection. The catalog is otherwise fully described above.</div>
+  </noscript>
+</body>
+</html>

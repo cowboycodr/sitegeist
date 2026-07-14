@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+<title>Relay Global — Every shipment, perfectly in motion</title>
+<meta name="description" content="A connected freight network making global routes, handoffs, and operations clear in real time." />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a1220'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23f6a531' stroke-width='2.4'/%3E%3Ccircle cx='16' cy='7' r='3' fill='%2334d3c2'/%3E%3C/svg%3E" />
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="#top" aria-label="Relay Global home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" role="img"><circle class="ring" cx="20" cy="20" r="13"/><circle class="node n1" cx="20" cy="7" r="3.4"/><circle class="node n2" cx="31.3" cy="26.5" r="3.4"/><circle class="node n3" cx="8.7" cy="26.5" r="3.4"/></svg>
+      </span>
+      <span class="brand-text">Relay<span class="brand-dot">·</span>Global</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#network">Network</a>
+      <a href="#track">Track</a>
+      <a href="#ops">Operations</a>
+      <a href="#metrics">Metrics</a>
+    </nav>
+    <a class="btn btn-ghost head-cta" href="#track">Track a shipment</a>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="pulse" aria-hidden="true"></span>Connected freight network</p>
+      <h1>Every shipment,<br /><span class="accent">perfectly in motion.</span></h1>
+      <p class="lede">Relay Global unifies ocean, air, rail, and road into one live view — so every route, handoff, and exception is clear the moment it happens.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#track">Track a shipment</a>
+        <a class="btn btn-ghost" href="#network">Explore the network</a>
+      </div>
+      <ul class="hero-facts">
+        <li><strong>142</strong><span>countries linked</span></li>
+        <li><strong>3.9M</strong><span>handoffs / day</span></li>
+        <li><strong>99.2%</strong><span>on-time relays</span></li>
+      </ul>
+    </div>
+
+    <div class="hero-map" aria-hidden="true">
+      <svg viewBox="0 0 480 360" class="map" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="45%" r="65%">
+            <stop offset="0%" stop-color="#12314a"/>
+            <stop offset="100%" stop-color="#0a1220"/>
+          </radialGradient>
+          <linearGradient id="route" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#34d3c2"/>
+            <stop offset="100%" stop-color="#f6a531"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="480" height="360" rx="18" fill="url(#glow)"/>
+        <g class="grid">
+          <path d="M0 90 H480 M0 180 H480 M0 270 H480"/>
+          <path d="M120 0 V360 M240 0 V360 M360 0 V360"/>
+        </g>
+        <g class="routes" fill="none" stroke="url(#route)">
+          <path id="rA" d="M78 232 C 150 150, 210 120, 300 96"/>
+          <path id="rB" d="M300 96 C 360 110, 400 170, 402 250"/>
+          <path id="rC" d="M78 232 C 160 300, 300 300, 402 250"/>
+          <path id="rD" d="M300 96 C 220 60, 150 70, 120 150"/>
+        </g>
+        <g class="pings">
+          <circle r="4.2" fill="#f6a531"><animateMotion dur="7s" repeatCount="indefinite" rotate="auto"><mpath href="#rA"/></animateMotion></circle>
+          <circle r="4.2" fill="#34d3c2"><animateMotion dur="9s" repeatCount="indefinite" rotate="auto" begin="-2s"><mpath href="#rB"/></animateMotion></circle>
+          <circle r="3.6" fill="#f6a531"><animateMotion dur="11s" repeatCount="indefinite" rotate="auto" begin="-5s"><mpath href="#rC"/></animateMotion></circle>
+          <circle r="3.6" fill="#8fb7d6"><animateMotion dur="8s" repeatCount="indefinite" rotate="auto" begin="-3s"><mpath href="#rD"/></animateMotion></circle>
+        </g>
+        <g class="hubs">
+          <g transform="translate(78,232)"><circle r="7" class="hub"/><circle r="7" class="hub-pulse"/></g>
+          <g transform="translate(300,96)"><circle r="7" class="hub"/><circle r="7" class="hub-pulse"/></g>
+          <g transform="translate(402,250)"><circle r="7" class="hub"/><circle r="7" class="hub-pulse"/></g>
+          <g transform="translate(120,150)"><circle r="5.5" class="hub"/></g>
+        </g>
+      </svg>
+      <div class="map-tag">
+        <span class="dot"></span>Live relay feed · <strong>4 lanes active</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="track" class="section track" aria-labelledby="track-h">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Real-time visibility</p>
+      <h2 id="track-h">Track a shipment</h2>
+      <p class="sub">Enter any Relay waybill to see its live position across the network. Try <button type="button" class="sample-code" data-code="RLG-4471-KX">RLG-4471-KX</button>.</p>
+    </div>
+
+    <div class="track-panel">
+      <form id="track-form" class="track-form" novalidate>
+        <label for="code">Waybill or booking reference</label>
+        <div class="track-input">
+          <input id="code" name="code" type="text" inputmode="latin" autocomplete="off" spellcheck="false" placeholder="e.g. RLG-4471-KX" aria-describedby="track-hint" />
+          <button class="btn btn-primary" type="submit">Track</button>
+        </div>
+        <p id="track-hint" class="hint">Codes are matched against this demo dataset — no data leaves your device.</p>
+      </form>
+
+      <div id="track-result" class="track-result" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section id="network" class="section network" aria-labelledby="net-h">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">One connected map</p>
+      <h2 id="net-h">Explore the network</h2>
+      <p class="sub">Four transport modes, thousands of hubs, one synchronized handoff layer that keeps cargo moving between them.</p>
+    </div>
+    <div class="modes">
+      <article class="mode">
+        <span class="mode-ico" aria-hidden="true">◆</span>
+        <h3>Ocean lanes</h3>
+        <p>Container schedules and port dwell times reconciled hourly across 320 terminals.</p>
+      </article>
+      <article class="mode">
+        <span class="mode-ico" aria-hidden="true">▲</span>
+        <h3>Air corridors</h3>
+        <p>Priority freight routed around weather and slot delays with live rebooking.</p>
+      </article>
+      <article class="mode">
+        <span class="mode-ico" aria-hidden="true">▬</span>
+        <h3>Rail spines</h3>
+        <p>Cross-border rail blocks tracked wagon-by-wagon through every interchange.</p>
+      </article>
+      <article class="mode">
+        <span class="mode-ico" aria-hidden="true">●</span>
+        <h3>Road relays</h3>
+        <p>Last-mile fleets synced to arrival windows so nothing waits on the dock.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="ops" class="section ops" aria-labelledby="ops-h">
+  <div class="wrap ops-grid">
+    <div class="ops-copy">
+      <p class="kicker">Operations, orchestrated</p>
+      <h2 id="ops-h">Handoffs that never drop.</h2>
+      <p class="sub">Relay watches every transfer point and flags the exception before it becomes a delay — then routes around it automatically.</p>
+      <ul class="ops-list">
+        <li><span aria-hidden="true">→</span> Predictive ETAs recomputed on every scan</li>
+        <li><span aria-hidden="true">→</span> Exception alerts routed to the accountable owner</li>
+        <li><span aria-hidden="true">→</span> Automated re-routing across alternate lanes</li>
+        <li><span aria-hidden="true">→</span> Unified chain of custody, port to porch</li>
+      </ul>
+    </div>
+    <ol class="pipeline" aria-label="Relay handoff pipeline">
+      <li class="stage done"><span class="stage-dot"></span><div><strong>Origin pickup</strong><em>Shanghai · scanned 06:12</em></div></li>
+      <li class="stage done"><span class="stage-dot"></span><div><strong>Port relay</strong><em>Yangshan · loaded</em></div></li>
+      <li class="stage active"><span class="stage-dot"></span><div><strong>Ocean leg</strong><em>In transit · ETA on track</em></div></li>
+      <li class="stage"><span class="stage-dot"></span><div><strong>Rail interchange</strong><em>Rotterdam · queued</em></div></li>
+      <li class="stage"><span class="stage-dot"></span><div><strong>Last-mile relay</strong><em>Awaiting window</em></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="metrics" class="section metrics" aria-labelledby="met-h">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Network health</p>
+      <h2 id="met-h">Moving the world, measured.</h2>
+    </div>
+    <div class="metric-grid">
+      <div class="metric"><span class="metric-num" data-count="99.2" data-suffix="%">0%</span><span class="metric-label">On-time relays</span></div>
+      <div class="metric"><span class="metric-num" data-count="142" data-suffix="">0</span><span class="metric-label">Countries linked</span></div>
+      <div class="metric"><span class="metric-num" data-count="3.9" data-suffix="M">0</span><span class="metric-label">Daily handoffs</span></div>
+      <div class="metric"><span class="metric-num" data-count="18" data-suffix="s">0</span><span class="metric-label">Median scan-to-view</span></div>
+    </div>
+    <div class="cta-band">
+      <div>
+        <h3>Ready to see your freight in motion?</h3>
+        <p>Bring every lane into one live view.</p>
+      </div>
+      <a class="btn btn-primary" href="#track">Track a shipment</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <span class="brand small">Relay<span class="brand-dot">·</span>Global</span>
+    <p>Every shipment, perfectly in motion.</p>
+    <span class="foot-meta">Connected freight network · demo experience</span>
+  </div>
+</footer>
+</body>
+</html>

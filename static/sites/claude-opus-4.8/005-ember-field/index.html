@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <title>Ember &amp; Field — Small-batch coffee</title>
+  <meta name="description" content="Seasonal coffee traced from highland farms to small-batch roasts and the rituals they become." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Ember and Field, home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="28" height="28" focusable="false">
+          <defs>
+            <radialGradient id="glow" cx="50%" cy="60%" r="60%">
+              <stop offset="0%" stop-color="#ffd27a" />
+              <stop offset="45%" stop-color="#f2732a" />
+              <stop offset="100%" stop-color="#7a1f10" />
+            </radialGradient>
+          </defs>
+          <path d="M16 3c3 5 6 7 6 12a6 6 0 0 1-12 0c0-3 1-5 3-8 0 3 1 4 2 5 1-2 1-5 1-9z" fill="url(#glow)" />
+        </svg>
+      </span>
+      <span class="brand-name">Ember<span class="amp">&amp;</span>Field</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+        <span class="bars" aria-hidden="true"></span>
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="#roasts">Roasts</a></li>
+        <li><a href="#producers">Producers</a></li>
+        <li><a href="#ritual">The ritual</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Small-batch coffee</p>
+        <h1>Roasted slowly.<br /><em>Remembered vividly.</em></h1>
+        <p class="lede">Seasonal coffee traced from highland farms to small-batch roasts and the rituals they become. We buy a few lots each season, roast them by feel, and share what we learn.</p>
+        <div class="cta-row">
+          <a class="btn btn-solid" href="#roasts">Find your roast</a>
+          <a class="btn btn-ghost" href="#producers">Meet the producers</a>
+        </div>
+        <dl class="hero-stats">
+          <div><dt>Origins this season</dt><dd>6</dd></div>
+          <div><dt>Batch size</dt><dd>12&nbsp;kg</dd></div>
+          <div><dt>Days to your cup</dt><dd>&lt;&nbsp;10</dd></div>
+        </dl>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="cup">
+          <div class="steam"><span></span><span></span><span></span></div>
+          <div class="cup-body"></div>
+          <div class="cup-saucer"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="roasts" aria-labelledby="roasts-title">
+      <div class="section-head">
+        <p class="kicker">The current table</p>
+        <h2 id="roasts-title">Find your roast</h2>
+        <p class="section-sub">Filter by how you brew and how bold you like it. Every lot is roasted to order and rests three days before it ships.</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter roasts">
+        <div class="filter-group" data-filter="method">
+          <span class="filter-label">Brew</span>
+          <div class="chips">
+            <button class="chip is-on" data-value="all" aria-pressed="true">All</button>
+            <button class="chip" data-value="filter" aria-pressed="false">Filter</button>
+            <button class="chip" data-value="espresso" aria-pressed="false">Espresso</button>
+          </div>
+        </div>
+        <div class="filter-group" data-filter="intensity">
+          <span class="filter-label">Roast</span>
+          <div class="chips">
+            <button class="chip is-on" data-value="all" aria-pressed="true">All</button>
+            <button class="chip" data-value="light" aria-pressed="false">Light</button>
+            <button class="chip" data-value="medium" aria-pressed="false">Medium</button>
+            <button class="chip" data-value="dark" aria-pressed="false">Dark</button>
+          </div>
+        </div>
+      </div>
+
+      <ul class="roast-grid" id="roast-grid" aria-live="polite"></ul>
+      <p class="empty" id="roast-empty" hidden>No roasts match that pairing yet — try loosening a filter.</p>
+    </section>
+
+    <section class="section band" id="producers" aria-labelledby="producers-title">
+      <div class="section-head">
+        <p class="kicker">Where it grows</p>
+        <h2 id="producers-title">Meet the producers</h2>
+        <p class="section-sub">We visit each farm before the harvest and pay above the season's reference price. Three of the people behind this season's table.</p>
+      </div>
+      <div class="producer-grid">
+        <article class="producer">
+          <div class="producer-alt">1,950 m</div>
+          <h3>Marisol Tenório</h3>
+          <p class="producer-loc">Nariño, Colombia</p>
+          <p>Shade-grown Caturra on a steep ridge above the Juanambú. Marisol ferments in sealed tanks overnight, coaxing out the stone-fruit sweetness we chase every year.</p>
+        </article>
+        <article class="producer">
+          <div class="producer-alt">2,100 m</div>
+          <h3>Getachew Bekele</h3>
+          <p class="producer-loc">Guji, Ethiopia</p>
+          <p>Heirloom varieties dried on raised beds and turned by hand every hour of daylight. His washing station is a cooperative of forty smallholders.</p>
+        </article>
+        <article class="producer">
+          <div class="producer-alt">1,600 m</div>
+          <h3>La Esperanza collective</h3>
+          <p class="producer-loc">Huehuetenango, Guatemala</p>
+          <p>A family estate turned worker collective, replanting rust-resistant Bourbon between old cedar windbreaks that keep the slope cool through the dry season.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="ritual" aria-labelledby="ritual-title">
+      <div class="section-head">
+        <p class="kicker">The ritual</p>
+        <h2 id="ritual-title">A pour-over, unhurried</h2>
+        <p class="section-sub">The way we brew on the counter each morning. Numbers are a starting point — trust your palate over the scale.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="step-n">01</span>
+          <h3>Weigh &amp; rinse</h3>
+          <p>22&nbsp;g of coffee, ground medium-coarse. Rinse the paper filter with hot water and tip it out to warm the vessel.</p>
+        </li>
+        <li>
+          <span class="step-n">02</span>
+          <h3>Bloom</h3>
+          <p>Pour 50&nbsp;g of 94&nbsp;°C water. Wait forty-five seconds while the grounds swell and breathe out their gas.</p>
+        </li>
+        <li>
+          <span class="step-n">03</span>
+          <h3>Pour in stages</h3>
+          <p>Add water in slow spirals to 360&nbsp;g total, keeping the bed level. The whole draw should finish near three minutes.</p>
+        </li>
+        <li>
+          <span class="step-n">04</span>
+          <h3>Rest &amp; taste</h3>
+          <p>Let it cool a minute. Sweetness arrives as the cup drops below scalding — that is when the origin shows itself.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section visit" id="visit" aria-labelledby="visit-title">
+      <div class="visit-inner">
+        <div class="visit-copy">
+          <p class="kicker">Visit</p>
+          <h2 id="visit-title">Come sit by the roaster</h2>
+          <p>Our counter opens onto the roast room, so the last batch is usually still ticking as it cools. Cup with us on Saturdays, no booking needed.</p>
+          <ul class="visit-facts">
+            <li><span>Where</span> 14 Kiln Lane, Old Mill Quarter</li>
+            <li><span>Hours</span> Wed–Sun · 7:30 to 15:00</li>
+            <li><span>Cupping</span> Saturdays at 10:00</li>
+          </ul>
+        </div>
+        <div class="visit-card" role="note">
+          <p class="visit-quote">&ldquo;Roast for the farmer's work, not the machine's schedule.&rdquo;</p>
+          <p class="visit-by">— house rule, painted above the cooling tray</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">
+      <span class="brand-name">Ember<span class="amp">&amp;</span>Field</span>
+      <p>Roasted slowly. Remembered vividly.</p>
+    </div>
+    <p class="footer-note">Seasonal, single-origin, small-batch. Roasted in the Old Mill Quarter.</p>
+    <p class="footer-meta">© 2026 Ember &amp; Field · Handled with care</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

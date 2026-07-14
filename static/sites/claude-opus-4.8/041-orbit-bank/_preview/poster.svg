@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Orbit — Money that moves with you.">
+  <defs>
+    <radialGradient id="bg" cx="78%" cy="8%" r="90%">
+      <stop offset="0%" stop-color="#141a3a"/>
+      <stop offset="45%" stop-color="#0a0d20"/>
+      <stop offset="100%" stop-color="#05060f"/>
+    </radialGradient>
+    <radialGradient id="planet" cx="34%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#8fb0ff"/>
+      <stop offset="45%" stop-color="#3a4694"/>
+      <stop offset="100%" stop-color="#12162f"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6ef2c6"/>
+      <stop offset="100%" stop-color="#7aa2ff"/>
+    </linearGradient>
+    <radialGradient id="core" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#e6fff4"/>
+      <stop offset="100%" stop-color="#6ef2c6"/>
+    </radialGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+
+  <!-- scattered stars -->
+  <g fill="#ffffff" opacity="0.55">
+    <circle cx="120" cy="120" r="2"/>
+    <circle cx="240" cy="380" r="1.6"/>
+    <circle cx="90" cy="620" r="2.2"/>
+    <circle cx="330" cy="720" r="1.5"/>
+    <circle cx="1080" cy="200" r="1.8"/>
+    <circle cx="1130" cy="470" r="2.2"/>
+    <circle cx="980" cy="700" r="1.6"/>
+    <circle cx="560" cy="90" r="1.6"/>
+    <circle cx="700" cy="820" r="2"/>
+  </g>
+
+  <!-- orbit system -->
+  <g transform="translate(830 470)">
+    <ellipse cx="0" cy="0" rx="300" ry="300" fill="none" stroke="#7aa2ff" stroke-opacity="0.22" stroke-width="1.5" stroke-dasharray="6 10"/>
+    <ellipse cx="0" cy="0" rx="240" ry="240" fill="none" stroke="#6ef2c6" stroke-opacity="0.28" stroke-width="1.5" stroke-dasharray="6 10"/>
+    <ellipse cx="0" cy="0" rx="180" ry="180" fill="none" stroke="#b78dff" stroke-opacity="0.28" stroke-width="1.5" stroke-dasharray="6 10"/>
+
+    <circle cx="0" cy="0" r="130" fill="url(#planet)" stroke="#8ca0ff" stroke-opacity="0.25"/>
+    <text x="0" y="-16" text-anchor="middle" font-family="system-ui, Arial, sans-serif" font-size="18" letter-spacing="3" fill="#a4acd6">TOTAL BALANCE</text>
+    <text x="0" y="30" text-anchor="middle" font-family="system-ui, Arial, sans-serif" font-size="46" font-weight="700" fill="#eef1ff">$28,410</text>
+    <text x="0" y="62" text-anchor="middle" font-family="system-ui, Arial, sans-serif" font-size="18" fill="#6ef2c6">▲ 3.2% this month</text>
+
+    <!-- satellites -->
+    <g font-family="system-ui, Arial, sans-serif" font-size="20" font-weight="600">
+      <g transform="translate(0 -180)">
+        <rect x="-46" y="-22" width="92" height="44" rx="22" fill="#171c3a" stroke="#7aa2ff" stroke-opacity="0.4"/>
+        <text x="0" y="7" text-anchor="middle" fill="#6ef2c6">Save</text>
+      </g>
+      <g transform="translate(208 120)">
+        <rect x="-54" y="-22" width="108" height="44" rx="22" fill="#171c3a" stroke="#7aa2ff" stroke-opacity="0.4"/>
+        <text x="0" y="7" text-anchor="middle" fill="#7aa2ff">Spend</text>
+      </g>
+      <g transform="translate(-190 155)">
+        <rect x="-58" y="-22" width="116" height="44" rx="22" fill="#171c3a" stroke="#b78dff" stroke-opacity="0.45"/>
+        <text x="0" y="7" text-anchor="middle" fill="#b78dff">Invest</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- brand + headline -->
+  <g transform="translate(96 120)">
+    <g>
+      <ellipse cx="24" cy="24" rx="24" ry="12" fill="none" stroke="#7aa2ff" stroke-width="3" transform="rotate(-24 24 24)"/>
+      <circle cx="24" cy="24" r="9" fill="url(#core)" filter="url(#glow)"/>
+    </g>
+    <text x="66" y="34" font-family="system-ui, Arial, sans-serif" font-size="34" font-weight="700" fill="#eef1ff">Orbit</text>
+  </g>
+
+  <text x="96" y="250" font-family="system-ui, Arial, sans-serif" font-size="20" letter-spacing="5" fill="#6ef2c6">BANKING WITHOUT GRAVITY</text>
+
+  <g font-family="system-ui, Arial, sans-serif" font-weight="700" fill="#eef1ff" letter-spacing="-2">
+    <text x="94" y="360" font-size="96">Money that</text>
+    <text x="94" y="456" font-size="96">moves with you.</text>
+  </g>
+
+  <text x="96" y="530" font-family="system-ui, Arial, sans-serif" font-size="26" fill="#a4acd6">One simple account for saving, spending,</text>
+  <text x="96" y="566" font-family="system-ui, Arial, sans-serif" font-size="26" fill="#a4acd6">investing, and living across borders.</text>
+
+  <!-- CTA pill -->
+  <g transform="translate(96 622)">
+    <rect x="0" y="0" width="280" height="64" rx="32" fill="url(#accent)"/>
+    <text x="140" y="41" text-anchor="middle" font-family="system-ui, Arial, sans-serif" font-size="23" font-weight="700" fill="#04241a">Open an account</text>
+  </g>
+
+  <!-- stat row -->
+  <g font-family="system-ui, Arial, sans-serif" transform="translate(96 770)">
+    <text x="0" y="0" font-size="40" font-weight="700" fill="#eef1ff">40+</text>
+    <text x="0" y="30" font-size="18" fill="#7a83b4">currencies</text>
+    <text x="200" y="0" font-size="40" font-weight="700" fill="#eef1ff">0%</text>
+    <text x="200" y="30" font-size="18" fill="#7a83b4">hidden fees</text>
+    <text x="380" y="0" font-size="40" font-weight="700" fill="#eef1ff">4.9★</text>
+    <text x="380" y="30" font-size="18" fill="#7a83b4">member rating</text>
+  </g>
+</svg>

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+	<title>Rare Earth — Sculptural Jewelry</title>
+	<meta name="description" content="Sculptural jewelry made with recycled metals, traceable stones, and an instinct for imperfection.">
+	<style>
+		:root {
+			--ink: #14110e;
+			--graphite: #2a2621;
+			--bone: #f3ede2;
+			--paper: #ece3d4;
+			--bronze: #a9773f;
+			--bronze-lit: #c99a5b;
+			--ox: #5c6b52;
+			--stone: #8a8172;
+			--line: rgba(20, 17, 14, 0.14);
+			--serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+			--sans: "Avenir Next", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+		}
+
+		* { box-sizing: border-box; }
+
+		html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+		body {
+			margin: 0;
+			background: var(--bone);
+			color: var(--ink);
+			font-family: var(--sans);
+			font-size: 17px;
+			line-height: 1.65;
+			letter-spacing: 0.01em;
+			overflow-x: hidden;
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			html { scroll-behavior: auto; }
+			* { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+		}
+
+		a { color: inherit; }
+
+		img, svg { max-width: 100%; display: block; }
+
+		.wrap {
+			width: 100%;
+			max-width: 1160px;
+			margin: 0 auto;
+			padding: 0 clamp(20px, 5vw, 56px);
+		}
+
+		.eyebrow {
+			font-size: 12px;
+			letter-spacing: 0.32em;
+			text-transform: uppercase;
+			color: var(--bronze);
+			font-weight: 600;
+			margin: 0;
+		}
+
+		h1, h2, h3 { font-family: var(--serif); font-weight: 500; letter-spacing: -0.01em; }
+
+		.skip {
+			position: absolute;
+			left: -999px;
+			top: 0;
+			background: var(--ink);
+			color: var(--bone);
+			padding: 10px 16px;
+			z-index: 100;
+			border-radius: 0 0 8px 0;
+		}
+		.skip:focus { left: 0; }
+
+		:focus-visible {
+			outline: 2px solid var(--bronze);
+			outline-offset: 3px;
+			border-radius: 2px;
+		}
+
+		/* ---------- Header ---------- */
+		header {
+			position: sticky;
+			top: 0;
+			z-index: 40;
+			background: rgba(243, 237, 226, 0.86);
+			backdrop-filter: saturate(1.4) blur(8px);
+			border-bottom: 1px solid var(--line);
+		}
+		.bar {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 16px;
+			min-height: 66px;
+		}
+		.brand {
+			display: inline-flex;
+			align-items: center;
+			gap: 12px;
+			text-decoration: none;
+			font-family: var(--serif);
+			font-size: 21px;
+			letter-spacing: 0.02em;
+		}
+		.brand .mark { width: 26px; height: 26px; flex: none; }
+		nav.primary { display: flex; align-items: center; gap: clamp(14px, 3vw, 32px); }
+		nav.primary a {
+			text-decoration: none;
+			font-size: 13px;
+			letter-spacing: 0.14em;
+			text-transform: uppercase;
+			color: var(--graphite);
+			padding: 6px 0;
+			position: relative;
+		}
+		nav.primary a::after {
+			content: "";
+			position: absolute;
+			left: 0; right: 100%;
+			bottom: 0;
+			height: 1px;
+			background: var(--bronze);
+			transition: right 0.35s ease;
+		}
+		nav.primary a:hover::after, nav.primary a:focus-visible::after { right: 0; }
+		.nav-links { display: flex; gap: clamp(14px, 3vw, 32px); }
+
+		.nav-toggle {
+			display: none;
+			background: none;
+			border: 1px solid var(--line);
+			border-radius: 8px;
+			padding: 8px 10px;
+			cursor: pointer;
+			color: var(--ink);
+		}
+		.nav-toggle svg { width: 20px; height: 20px; }
+
+		@media (max-width: 720px) {
+			.nav-toggle { display: inline-flex; }
+			.nav-links {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				right: 0;
+				flex-direction: column;
+				gap: 0;
+				background: var(--bone);
+				border-bottom: 1px solid var(--line);
+				padding: 8px clamp(20px, 5vw, 56px) 18px;
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.35s ease;
+			}
+			.nav-links.open { max-height: 320px; }
+			.nav-links a { padding: 12px 0; border-top: 1px solid var(--line); width: 100%; }
+			.nav-links a:first-child { border-top: none; }
+		}
+
+		/* ---------- Hero ---------- */
+		.hero { position: relative; padding: clamp(48px, 9vw, 104px) 0 clamp(40px, 7vw, 80px); }
+		.hero-grid {
+			display: grid;
+			grid-template-columns: 1.05fr 0.95fr;
+			gap: clamp(28px, 5vw, 64px);
+			align-items: center;
+		}
+		.hero h1 {
+			font-size: clamp(44px, 9vw, 92px);
+			line-height: 0.98;
+			margin: 18px 0 0;
+		}
+		.hero h1 em { font-style: italic; color: var(--bronze); }
+		.hero .lede {
+			margin: 26px 0 0;
+			max-width: 34ch;
+			font-size: clamp(17px, 2.2vw, 19px);
+			color: var(--graphite);
+		}
+		.actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+		.btn {
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
+			text-decoration: none;
+			font-size: 13px;
+			letter-spacing: 0.16em;
+			text-transform: uppercase;
+			font-weight: 600;
+			padding: 15px 26px;
+			border-radius: 100px;
+			border: 1px solid var(--ink);
+			transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+		}
+		.btn.primary { background: var(--ink); color: var(--bone); }
+		.btn.primary:hover { background: var(--bronze); border-color: var(--bronze); transform: translateY(-2px); }
+		.btn.ghost:hover { background: var(--ink); color: var(--bone); transform: translateY(-2px); }
+
+		.specimen {
+			aspect-ratio: 4 / 5;
+			width: 100%;
+			border-radius: 14px;
+			overflow: hidden;
+			box-shadow: 0 30px 60px -34px rgba(20, 17, 14, 0.55);
+			background: var(--graphite);
+		}
+		.specimen svg { width: 100%; height: 100%; }
+
+		.ticker {
+			margin-top: clamp(36px, 6vw, 60px);
+			border-top: 1px solid var(--line);
+			border-bottom: 1px solid var(--line);
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+		}
+		.ticker div { padding: 22px 0; }
+		.ticker div + div { border-left: 1px solid var(--line); padding-left: clamp(14px, 3vw, 28px); }
+		.ticker .n { font-family: var(--serif); font-size: clamp(26px, 4vw, 38px); display: block; }
+		.ticker .l { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--stone); }
+
+		/* ---------- Sections ---------- */
+		section { padding: clamp(56px, 9vw, 104px) 0; }
+		.section-head { max-width: 60ch; margin-bottom: clamp(30px, 5vw, 52px); }
+		.section-head h2 { font-size: clamp(30px, 5vw, 46px); line-height: 1.05; margin: 14px 0 0; }
+		.section-head p { color: var(--graphite); margin: 16px 0 0; }
+
+		/* Collection */
+		#collection { background: var(--paper); }
+		.filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+		.filter {
+			font: inherit;
+			font-size: 13px;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			background: transparent;
+			border: 1px solid var(--line);
+			color: var(--graphite);
+			padding: 9px 18px;
+			border-radius: 100px;
+			cursor: pointer;
+			transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+		}
+		.filter[aria-pressed="true"] { background: var(--ink); color: var(--bone); border-color: var(--ink); }
+		.filter:hover { border-color: var(--bronze); }
+
+		.pieces { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.5vw, 26px); }
+		.piece {
+			background: var(--bone);
+			border: 1px solid var(--line);
+			border-radius: 14px;
+			overflow: hidden;
+			transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+		}
+		.piece.hide { display: none; }
+		.piece:hover { transform: translateY(-4px); box-shadow: 0 24px 40px -28px rgba(20,17,14,0.5); }
+		.piece figure { margin: 0; }
+		.piece .art { aspect-ratio: 1 / 1; background: var(--graphite); }
+		.piece .art svg { width: 100%; height: 100%; }
+		.piece figcaption { padding: 18px 20px 22px; }
+		.piece .tag { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bronze); }
+		.piece h3 { font-size: 21px; margin: 8px 0 6px; }
+		.piece .meta { font-size: 14px; color: var(--stone); margin: 0; }
+		.piece .price { font-family: var(--serif); font-size: 17px; margin-top: 12px; }
+
+		/* Materials */
+		.materials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 60px); align-items: start; }
+		.accordion { border-top: 1px solid var(--line); }
+		.acc-item { border-bottom: 1px solid var(--line); }
+		.acc-btn {
+			width: 100%;
+			text-align: left;
+			background: none;
+			border: none;
+			font-family: var(--serif);
+			font-size: clamp(19px, 3vw, 23px);
+			color: var(--ink);
+			padding: 22px 0;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 16px;
+		}
+		.acc-btn .sign { flex: none; width: 22px; height: 22px; position: relative; }
+		.acc-btn .sign::before, .acc-btn .sign::after {
+			content: ""; position: absolute; background: var(--bronze); left: 50%; top: 50%;
+		}
+		.acc-btn .sign::before { width: 16px; height: 2px; transform: translate(-50%, -50%); }
+		.acc-btn .sign::after { width: 2px; height: 16px; transform: translate(-50%, -50%); transition: transform 0.3s ease, opacity 0.3s ease; }
+		.acc-btn[aria-expanded="true"] .sign::after { transform: translate(-50%, -50%) scaleY(0); opacity: 0; }
+		.acc-panel { overflow: hidden; max-height: 0; transition: max-height 0.35s ease; }
+		.acc-panel .inner { padding: 0 0 24px; color: var(--graphite); }
+		.acc-panel .inner p { margin: 0; }
+
+		.pledge {
+			background: var(--ink);
+			color: var(--bone);
+			border-radius: 16px;
+			padding: clamp(28px, 4vw, 44px);
+		}
+		.pledge h3 { color: var(--bone); font-size: clamp(22px, 3.5vw, 30px); margin: 0 0 10px; }
+		.pledge ul { list-style: none; margin: 22px 0 0; padding: 0; }
+		.pledge li { display: flex; gap: 14px; padding: 14px 0; border-top: 1px solid rgba(243,237,226,0.14); }
+		.pledge li:first-of-type { border-top: none; }
+		.pledge .dot { flex: none; width: 10px; height: 10px; margin-top: 8px; border-radius: 50%; background: var(--bronze-lit); }
+		.pledge b { display: block; font-family: var(--serif); font-weight: 500; font-size: 18px; }
+		.pledge span { color: rgba(243,237,226,0.72); font-size: 14px; }
+
+		/* Process */
+		#process { background: var(--paper); }
+		.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(16px, 2.5vw, 28px); counter-reset: step; }
+		.step { position: relative; padding-top: 20px; border-top: 2px solid var(--ink); }
+		.step::before {
+			counter-increment: step;
+			content: "0" counter(step);
+			font-family: var(--serif);
+			font-size: 28px;
+			color: var(--bronze);
+			display: block;
+			margin-bottom: 10px;
+		}
+		.step h3 { font-size: 20px; margin: 0 0 8px; }
+		.step p { margin: 0; font-size: 15px; color: var(--graphite); }
+
+		/* Quote */
+		.quote { text-align: center; }
+		.quote blockquote {
+			margin: 0 auto;
+			max-width: 24ch;
+			font-family: var(--serif);
+			font-style: italic;
+			font-size: clamp(26px, 5vw, 44px);
+			line-height: 1.2;
+		}
+		.quote cite { display: block; margin-top: 24px; font-style: normal; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--stone); }
+
+		/* Reveal */
+		.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+		.reveal.in { opacity: 1; transform: none; }
+		@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+
+		/* Footer */
+		footer { background: var(--ink); color: var(--bone); padding: clamp(48px, 7vw, 80px) 0 40px; }
+		.foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; }
+		footer h3 { font-size: 26px; color: var(--bone); margin: 0 0 8px; }
+		footer p { color: rgba(243,237,226,0.7); max-width: 34ch; }
+		.foot-col h4 { font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bronze-lit); margin: 0 0 14px; }
+		.foot-col a { display: block; text-decoration: none; color: rgba(243,237,226,0.82); padding: 6px 0; font-size: 15px; }
+		.foot-col a:hover { color: var(--bone); }
+		.foot-bottom {
+			margin-top: clamp(36px, 6vw, 56px);
+			padding-top: 24px;
+			border-top: 1px solid rgba(243,237,226,0.14);
+			display: flex;
+			flex-wrap: wrap;
+			gap: 12px;
+			justify-content: space-between;
+			font-size: 13px;
+			color: rgba(243,237,226,0.6);
+		}
+
+		@media (max-width: 900px) {
+			.pieces { grid-template-columns: repeat(2, 1fr); }
+			.steps { grid-template-columns: repeat(2, 1fr); }
+			.foot-grid { grid-template-columns: 1fr 1fr; }
+		}
+		@media (max-width: 680px) {
+			.hero-grid { grid-template-columns: 1fr; }
+			.specimen { max-width: 380px; margin: 4px auto 0; }
+			.materials-grid { grid-template-columns: 1fr; }
+			.foot-grid { grid-template-columns: 1fr; }
+		}
+		@media (max-width: 460px) {
+			.pieces { grid-template-columns: 1fr; }
+			.steps { grid-template-columns: 1fr; }
+			.ticker { grid-template-columns: 1fr; }
+			.ticker div + div { border-left: none; border-top: 1px solid var(--line); padding-left: 0; }
+		}
+	</style>
+</head>
+<body>
+	<a class="skip" href="#collection">Skip to collection</a>
+
+	<header>
+		<div class="wrap bar">
+			<a class="brand" href="#top" aria-label="Rare Earth, home">
+				<svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
+					<polygon points="20,3 35,14 29,34 11,34 5,14" fill="none" stroke="#a9773f" stroke-width="2"/>
+					<polygon points="20,3 20,40 5,14" fill="#a9773f" opacity="0.16"/>
+					<path d="M5 14 L20 20 L35 14 M20 20 L20 34" fill="none" stroke="#14110e" stroke-width="1.4"/>
+				</svg>
+				Rare Earth
+			</a>
+			<nav class="primary" aria-label="Primary">
+				<button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+				</button>
+				<div class="nav-links" id="navLinks">
+					<a href="#collection">Collection</a>
+					<a href="#materials">Materials</a>
+					<a href="#process">Process</a>
+					<a href="#studio">Studio</a>
+				</div>
+			</nav>
+		</div>
+	</header>
+
+	<main id="top">
+		<section class="hero" aria-labelledby="hero-title">
+			<div class="wrap">
+				<div class="hero-grid">
+					<div>
+						<p class="eyebrow">Objects of permanence</p>
+						<h1 id="hero-title">Formed<br>by <em>pressure.</em></h1>
+						<p class="lede">Sculptural jewelry made with recycled metals, traceable stones, and an instinct for imperfection.</p>
+						<div class="actions">
+							<a class="btn primary" href="#collection">View the collection</a>
+							<a class="btn ghost" href="#materials">Our materials</a>
+						</div>
+					</div>
+					<div class="specimen" aria-hidden="true">
+						<svg viewBox="0 0 400 500" role="presentation">
+							<defs>
+								<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+									<stop offset="0" stop-color="#332e28"/>
+									<stop offset="1" stop-color="#191510"/>
+								</linearGradient>
+								<linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+									<stop offset="0" stop-color="#e6c48a"/>
+									<stop offset="0.5" stop-color="#a9773f"/>
+									<stop offset="1" stop-color="#6b4a24"/>
+								</linearGradient>
+								<radialGradient id="gem" cx="0.4" cy="0.35" r="0.8">
+									<stop offset="0" stop-color="#9fb3a0"/>
+									<stop offset="0.6" stop-color="#5c6b52"/>
+									<stop offset="1" stop-color="#31392c"/>
+								</radialGradient>
+							</defs>
+							<rect width="400" height="500" fill="url(#bg)"/>
+							<circle cx="200" cy="250" r="150" fill="none" stroke="#a9773f" stroke-width="0.6" opacity="0.35"/>
+							<circle cx="200" cy="250" r="110" fill="none" stroke="#a9773f" stroke-width="0.6" opacity="0.25"/>
+							<!-- band -->
+							<path d="M110 300 Q200 380 290 300" fill="none" stroke="url(#metal)" stroke-width="20" stroke-linecap="round"/>
+							<path d="M118 296 Q200 368 282 296" fill="none" stroke="#f0d9a8" stroke-width="2" opacity="0.5" stroke-linecap="round"/>
+							<!-- raw crystal -->
+							<g transform="translate(200 180)">
+								<polygon points="0,-96 46,-40 34,66 -34,66 -46,-40" fill="url(#gem)" stroke="#c99a5b" stroke-width="1.4"/>
+								<polygon points="0,-96 0,66 -46,-40" fill="#ffffff" opacity="0.10"/>
+								<polygon points="0,-96 46,-40 0,10" fill="#ffffff" opacity="0.18"/>
+								<polyline points="-46,-40 0,10 46,-40" fill="none" stroke="#c99a5b" stroke-width="0.8" opacity="0.7"/>
+								<polyline points="0,10 -34,66 M0,10 34,66" fill="none" stroke="#c99a5b" stroke-width="0.8" opacity="0.7"/>
+								<polygon points="8,-58 20,-30 10,-24 2,-46" fill="#ffffff" opacity="0.35"/>
+							</g>
+							<!-- prongs -->
+							<g stroke="url(#metal)" stroke-width="5" stroke-linecap="round" fill="none">
+								<path d="M158 236 Q152 268 172 296"/>
+								<path d="M242 236 Q248 268 228 296"/>
+							</g>
+						</svg>
+					</div>
+				</div>
+
+				<div class="ticker reveal">
+					<div><span class="n">100%</span><span class="l">Recycled metal</span></div>
+					<div><span class="n">Traceable</span><span class="l">Stone provenance</span></div>
+					<div><span class="n">1 of 1</span><span class="l">Made to keep</span></div>
+				</div>
+			</div>
+		</section>
+
+		<section id="collection" aria-labelledby="col-title">
+			<div class="wrap">
+				<div class="section-head reveal">
+					<p class="eyebrow">The collection</p>
+					<h2 id="col-title">Weight you can wear</h2>
+					<p>Each piece begins as scrap and raw mineral, then is cast, cut, and set by hand. No two are identical — the imperfections are the point.</p>
+				</div>
+
+				<div class="filters" role="group" aria-label="Filter pieces by type">
+					<button class="filter" data-filter="all" aria-pressed="true">All</button>
+					<button class="filter" data-filter="rings" aria-pressed="false">Rings</button>
+					<button class="filter" data-filter="ears" aria-pressed="false">Earrings</button>
+					<button class="filter" data-filter="neck" aria-pressed="false">Neckwear</button>
+				</div>
+
+				<div class="pieces" id="pieces">
+					<article class="piece" data-cat="rings">
+						<figure>
+							<div class="art"><svg viewBox="0 0 300 300" aria-hidden="true"><rect width="300" height="300" fill="#2a2621"/><circle cx="150" cy="170" r="70" fill="none" stroke="#a9773f" stroke-width="14"/><polygon points="150,70 178,104 150,138 122,104" fill="#5c6b52" stroke="#c99a5b" stroke-width="1.5"/><polygon points="150,70 150,138 122,104" fill="#fff" opacity="0.15"/></svg></div>
+							<figcaption>
+								<span class="tag">Ring · Signet</span>
+								<h3>Tectonic</h3>
+								<p class="meta">Recycled 18k gold, raw green sapphire</p>
+								<p class="price">$1,480</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="piece" data-cat="ears">
+						<figure>
+							<div class="art"><svg viewBox="0 0 300 300" aria-hidden="true"><rect width="300" height="300" fill="#332e28"/><g stroke="#a9773f" stroke-width="6" fill="none"><path d="M110 70 v60"/><path d="M190 70 v60"/></g><polygon points="110,130 132,180 110,220 88,180" fill="#8a8172" stroke="#c99a5b" stroke-width="1.2"/><polygon points="190,130 212,180 190,220 168,180" fill="#8a8172" stroke="#c99a5b" stroke-width="1.2"/></svg></div>
+							<figcaption>
+								<span class="tag">Earrings · Drop</span>
+								<h3>Faultline</h3>
+								<p class="meta">Recycled silver, rutilated quartz</p>
+								<p class="price">$620</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="piece" data-cat="neck">
+						<figure>
+							<div class="art"><svg viewBox="0 0 300 300" aria-hidden="true"><rect width="300" height="300" fill="#26221d"/><path d="M60 90 Q150 220 240 90" fill="none" stroke="#a9773f" stroke-width="4"/><polygon points="150,150 176,196 150,236 124,196" fill="#5c6b52" stroke="#c99a5b" stroke-width="1.5"/><polygon points="150,150 150,236 124,196" fill="#fff" opacity="0.16"/></svg></div>
+							<figcaption>
+								<span class="tag">Neckwear · Pendant</span>
+								<h3>Bedrock</h3>
+								<p class="meta">Recycled gold chain, traceable emerald</p>
+								<p class="price">$2,150</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="piece" data-cat="rings">
+						<figure>
+							<div class="art"><svg viewBox="0 0 300 300" aria-hidden="true"><rect width="300" height="300" fill="#302b25"/><circle cx="150" cy="165" r="66" fill="none" stroke="#c99a5b" stroke-width="10"/><path d="M118 130 Q150 92 182 130" fill="none" stroke="#a9773f" stroke-width="8"/><circle cx="150" cy="110" r="16" fill="#8a8172" stroke="#c99a5b" stroke-width="1.4"/></svg></div>
+							<figcaption>
+								<span class="tag">Ring · Solitaire</span>
+								<h3>Cairn</h3>
+								<p class="meta">Recycled platinum, salt-and-pepper diamond</p>
+								<p class="price">$3,400</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="piece" data-cat="ears">
+						<figure>
+							<div class="art"><svg viewBox="0 0 300 300" aria-hidden="true"><rect width="300" height="300" fill="#28241f"/><circle cx="110" cy="150" r="30" fill="none" stroke="#a9773f" stroke-width="8"/><circle cx="190" cy="150" r="30" fill="none" stroke="#a9773f" stroke-width="8"/><circle cx="110" cy="150" r="9" fill="#5c6b52"/><circle cx="190" cy="150" r="9" fill="#5c6b52"/></svg></div>
+							<figcaption>
+								<span class="tag">Earrings · Hoop</span>
+								<h3>Orbit</h3>
+								<p class="meta">Recycled 14k gold, seed peridot</p>
+								<p class="price">$540</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="piece" data-cat="neck">
+						<figure>
+							<div class="art"><svg viewBox="0 0 300 300" aria-hidden="true"><rect width="300" height="300" fill="#2d2822"/><path d="M70 100 Q150 210 230 100" fill="none" stroke="#c99a5b" stroke-width="3"/><g fill="#a9773f"><circle cx="120" cy="150" r="7"/><circle cx="150" cy="168" r="9"/><circle cx="180" cy="150" r="7"/></g><polygon points="150,168 162,190 138,190" fill="#8a8172"/></svg></div>
+							<figcaption>
+								<span class="tag">Neckwear · Collar</span>
+								<h3>Sediment</h3>
+								<p class="meta">Recycled silver, graduated grey moonstone</p>
+								<p class="price">$980</p>
+							</figcaption>
+						</figure>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section id="materials" aria-labelledby="mat-title">
+			<div class="wrap">
+				<div class="section-head reveal">
+					<p class="eyebrow">Our materials</p>
+					<h2 id="mat-title">Nothing new is mined for this</h2>
+					<p>We work only with metal that has already lived a life and stones we can trace to a single origin. Provenance travels with every piece.</p>
+				</div>
+
+				<div class="materials-grid">
+					<div class="accordion reveal" id="accordion">
+						<div class="acc-item">
+							<h3 style="margin:0">
+								<button class="acc-btn" aria-expanded="true" aria-controls="p1" id="b1">
+									Recycled metals<span class="sign" aria-hidden="true"></span>
+								</button>
+							</h3>
+							<div class="acc-panel" id="p1" role="region" aria-labelledby="b1">
+								<div class="inner"><p>Our gold, silver, and platinum are refined entirely from post-consumer and industrial scrap. Reclaimed metal is chemically identical to freshly mined — without the extraction. Every casting is poured in our own studio crucible.</p></div>
+							</div>
+						</div>
+						<div class="acc-item">
+							<h3 style="margin:0">
+								<button class="acc-btn" aria-expanded="false" aria-controls="p2" id="b2">
+									Traceable stones<span class="sign" aria-hidden="true"></span>
+								</button>
+							</h3>
+							<div class="acc-panel" id="p2" role="region" aria-labelledby="b2">
+								<div class="inner"><p>Each stone arrives with documented origin — the mine, the cutter, the hands it passed through. We favour sapphires, emeralds, and diamonds with visible inclusions, because a flawless story is usually a fiction.</p></div>
+							</div>
+						</div>
+						<div class="acc-item">
+							<h3 style="margin:0">
+								<button class="acc-btn" aria-expanded="false" aria-controls="p3" id="b3">
+									An instinct for imperfection<span class="sign" aria-hidden="true"></span>
+								</button>
+							</h3>
+							<div class="acc-panel" id="p3" role="region" aria-labelledby="b3">
+								<div class="inner"><p>We leave the marks of making. A slightly uneven bezel, a stone set at its natural tilt, the tooth of a hammered surface. These are not defects to be polished away; they are the record of a human deciding when to stop.</p></div>
+							</div>
+						</div>
+						<div class="acc-item">
+							<h3 style="margin:0">
+								<button class="acc-btn" aria-expanded="false" aria-controls="p4" id="b4">
+									Made to be repaired<span class="sign" aria-hidden="true"></span>
+								</button>
+							</h3>
+							<div class="acc-panel" id="p4" role="region" aria-labelledby="b4">
+								<div class="inner"><p>Permanence means service, not perfection. Every Rare Earth piece can be resized, re-set, and refinished by us for life. When a piece is truly finished, we melt it back into the next one.</p></div>
+							</div>
+						</div>
+					</div>
+
+					<aside class="pledge reveal" aria-label="Material pledge">
+						<h3>The pledge</h3>
+						<p style="color:rgba(243,237,226,0.72);margin:0;font-size:15px">Four promises stamped, in effect, on the inside of every band.</p>
+						<ul>
+							<li><span class="dot" aria-hidden="true"></span><span><b>Reclaimed</b>No newly mined metal enters the studio.</span></li>
+							<li><span class="dot" aria-hidden="true"></span><span><b>Documented</b>Origin papers ship with every stone.</span></li>
+							<li><span class="dot" aria-hidden="true"></span><span><b>Singular</b>Each design is made once, then retired.</span></li>
+							<li><span class="dot" aria-hidden="true"></span><span><b>Returnable</b>Bring any piece back to be remade.</span></li>
+						</ul>
+					</aside>
+				</div>
+			</div>
+		</section>
+
+		<section id="process" aria-labelledby="proc-title">
+			<div class="wrap">
+				<div class="section-head reveal">
+					<p class="eyebrow">From scrap to keepsake</p>
+					<h2 id="proc-title">How pressure becomes form</h2>
+				</div>
+				<div class="steps">
+					<div class="step reveal"><h3>Gather</h3><p>Reclaimed metal and traceable rough are sorted, weighed, and matched to a sketch.</p></div>
+					<div class="step reveal"><h3>Cast</h3><p>Molten metal is poured by hand into carved cuttlebone and lost-wax moulds.</p></div>
+					<div class="step reveal"><h3>Set</h3><p>Stones are seated at their natural angle, bezels closed with a burnisher.</p></div>
+					<div class="step reveal"><h3>Finish</h3><p>Surfaces are hammered, patinated, and hallmarked with the pledge.</p></div>
+				</div>
+			</div>
+		</section>
+
+		<section class="quote" aria-label="Studio statement" id="studio">
+			<div class="wrap reveal">
+				<p class="eyebrow">From the studio</p>
+				<blockquote>Beauty is what survives the pressure.</blockquote>
+				<cite>Mira Voss, Founder &amp; Bench Jeweler</cite>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="wrap">
+			<div class="foot-grid">
+				<div>
+					<h3>Rare Earth</h3>
+					<p>Sculptural jewelry made with recycled metals, traceable stones, and an instinct for imperfection.</p>
+				</div>
+				<div class="foot-col">
+					<h4>Explore</h4>
+					<a href="#collection">Collection</a>
+					<a href="#materials">Materials</a>
+					<a href="#process">Process</a>
+					<a href="#studio">Studio</a>
+				</div>
+				<div class="foot-col">
+					<h4>Care</h4>
+					<a href="#materials">Provenance</a>
+					<a href="#process">Repairs</a>
+					<a href="#collection">Sizing</a>
+					<a href="#materials">The pledge</a>
+				</div>
+			</div>
+			<div class="foot-bottom">
+				<span>© 2026 Rare Earth Studio. Formed by pressure.</span>
+				<span>Recycled metals · Traceable stones · Made to keep</span>
+			</div>
+		</div>
+	</footer>
+
+	<script src="sitegeist-bridge.js" defer></script>
+	<script src="app.js" defer></script>
+</body>
+</html>

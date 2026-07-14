@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+	<meta name="description" content="An open dashboard translating budgets, housing, transit, and participation into local signals.">
+	<title>Agora Index — Public life, made legible.</title>
+	<link rel="stylesheet" href="styles.css">
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="app.js"></script>
+</head>
+<body>
+	<a class="skip" href="#signals">Skip to the signals</a>
+
+	<div class="frame">
+		<header class="masthead">
+			<div class="brand">
+				<span class="brand__mark" aria-hidden="true">
+					<span class="col"></span><span class="col"></span><span class="col"></span><span class="col"></span>
+				</span>
+				<span class="brand__name">Agora Index</span>
+			</div>
+			<p class="eyebrow"><span class="dot" aria-hidden="true"></span>City pulse / Updated hourly</p>
+			<h1 class="headline">Public life, made&nbsp;legible.</h1>
+			<p class="lede">An open dashboard that translates budgets, housing, transit, and participation
+				into local signals you can actually read — one district at a time.</p>
+			<div class="actions">
+				<a class="btn btn--primary" href="#signals">Explore your city</a>
+				<a class="btn btn--ghost" href="#data" data-download>Download open data</a>
+			</div>
+		</header>
+
+		<section class="districts" aria-label="Choose a district">
+			<span class="districts__label">District</span>
+			<div class="districts__row" role="tablist" aria-label="District selector" id="district-tabs"></div>
+		</section>
+
+		<main>
+			<section id="signals" class="signals" aria-label="Local signals" tabindex="-1">
+				<div class="signals__grid" id="signal-grid"></div>
+			</section>
+
+			<section class="detail" aria-live="polite">
+				<div class="detail__head">
+					<h2 class="detail__title" id="detail-title">City overview</h2>
+					<p class="detail__meta" id="detail-meta">Select a signal to read its twelve-month trace.</p>
+				</div>
+				<figure class="chart" aria-labelledby="detail-title">
+					<svg id="chart" viewBox="0 0 720 240" role="img" preserveAspectRatio="none" aria-hidden="true"></svg>
+					<figcaption class="chart__axis" id="chart-axis"></figcaption>
+				</figure>
+				<dl class="stats" id="detail-stats"></dl>
+			</section>
+		</main>
+
+		<footer id="data" class="colophon">
+			<div>
+				<p class="colophon__lede">Every figure here is a synthetic illustration built for this open
+					prototype. In production the Agora Index draws on published municipal ledgers, permit
+					records, and transit feeds — refreshed hourly, released under an open license.</p>
+			</div>
+			<div class="colophon__meta">
+				<p><strong>Coverage</strong> Six districts · 4 signal families</p>
+				<p><strong>License</strong> CC BY 4.0 · No tracking, no accounts</p>
+				<p id="stamp"></p>
+			</div>
+		</footer>
+	</div>
+
+	<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

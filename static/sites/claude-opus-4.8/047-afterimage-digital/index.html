@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+	<meta name="description" content="An online gallery commissioning luminous interactive work from artists shaping digital culture.">
+	<meta name="color-scheme" content="dark">
+	<title>Afterimage Digital — Art beyond the frame.</title>
+	<link rel="stylesheet" href="styles.css">
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="app.js"></script>
+</head>
+<body>
+	<a class="skip-link" href="#exhibition">Skip to the exhibition</a>
+
+	<header class="site-header" id="top">
+		<a class="brand" href="#top" aria-label="Afterimage Digital, home">
+			<span class="brand-mark" aria-hidden="true">
+				<span class="brand-mark-core"></span>
+				<span class="brand-mark-echo"></span>
+			</span>
+			<span class="brand-word">Afterimage<span class="brand-word-thin"> Digital</span></span>
+		</a>
+		<nav class="site-nav" aria-label="Primary">
+			<a href="#exhibition">Exhibition</a>
+			<a href="#artists">Artists</a>
+			<a href="#visit">Visit</a>
+			<a class="nav-cta" href="#exhibition">Enter</a>
+		</nav>
+	</header>
+
+	<main>
+		<section class="hero" aria-labelledby="hero-title">
+			<canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+			<div class="hero-inner">
+				<p class="eyebrow">Exhibition 017 · Currently on view</p>
+				<h1 class="hero-title" id="hero-title">Art beyond<br>the frame.</h1>
+				<p class="hero-lede">An online gallery commissioning luminous, interactive work from
+					the artists shaping digital culture — pieces that keep glowing after you look away.</p>
+				<div class="hero-actions">
+					<a class="btn btn-primary" href="#exhibition">Enter the exhibition</a>
+					<a class="btn btn-ghost" href="#artists">Meet the artists</a>
+				</div>
+				<p class="hero-hint" id="hero-hint">Move a cursor or drag across the light to leave an afterimage.</p>
+			</div>
+		</section>
+
+		<section class="section exhibition" id="exhibition" aria-labelledby="exhibition-title">
+			<div class="section-head">
+				<p class="section-eyebrow">The commissions</p>
+				<h2 class="section-title" id="exhibition-title">Six luminous works, made for the screen</h2>
+				<p class="section-sub">Each piece is generated live in your browser. Select any work to
+					read its statement and study the light up close.</p>
+			</div>
+			<ul class="grid" id="work-grid" role="list"></ul>
+		</section>
+
+		<section class="section artists" id="artists" aria-labelledby="artists-title">
+			<div class="section-head">
+				<p class="section-eyebrow">The makers</p>
+				<h2 class="section-title" id="artists-title">Artists shaping digital culture</h2>
+			</div>
+			<ul class="artist-list" id="artist-list" role="list"></ul>
+		</section>
+
+		<section class="section visit" id="visit" aria-labelledby="visit-title">
+			<div class="visit-panel">
+				<div class="visit-copy">
+					<p class="section-eyebrow">Visit</p>
+					<h2 class="section-title" id="visit-title">The doors never close</h2>
+					<p class="section-sub">Afterimage Digital is a permanent online gallery. Exhibition 017
+						remains on view through the season, refreshed as new commissions arrive.</p>
+					<a class="btn btn-primary" href="#exhibition">Enter the exhibition</a>
+				</div>
+				<dl class="visit-facts">
+					<div><dt>Admission</dt><dd>Free · open access</dd></div>
+					<div><dt>On view</dt><dd>Anywhere with a screen</dd></div>
+					<div><dt>Format</dt><dd>Interactive · light-based</dd></div>
+					<div><dt>Curator</dt><dd>Afterimage Collective</dd></div>
+				</dl>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="footer-brand">
+			<span class="brand-mark" aria-hidden="true">
+				<span class="brand-mark-core"></span>
+				<span class="brand-mark-echo"></span>
+			</span>
+			<span class="brand-word">Afterimage<span class="brand-word-thin"> Digital</span></span>
+		</div>
+		<p class="footer-line">Art beyond the frame. — a gallery of light that lingers.</p>
+		<p class="footer-fine">Exhibition 017 · Curated by the Afterimage Collective</p>
+	</footer>
+
+	<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" hidden>
+		<div class="lightbox-backdrop" data-close></div>
+		<div class="lightbox-panel" role="document">
+			<button class="lightbox-close" type="button" data-close aria-label="Close work">&times;</button>
+			<canvas class="lightbox-canvas" id="lightbox-canvas" aria-hidden="true"></canvas>
+			<div class="lightbox-meta">
+				<p class="lightbox-eyebrow" id="lightbox-eyebrow"></p>
+				<h3 class="lightbox-title" id="lightbox-title"></h3>
+				<p class="lightbox-artist" id="lightbox-artist"></p>
+				<p class="lightbox-statement" id="lightbox-statement"></p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

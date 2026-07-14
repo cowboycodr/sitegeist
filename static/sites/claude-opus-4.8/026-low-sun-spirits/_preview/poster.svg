@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-labelledby="poster-title poster-desc">
+  <title id="poster-title">Low Sun Spirits</title>
+  <desc id="poster-desc">Desert botanical spirits poster with a low sun setting behind dunes and a single bottle.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1d1329"/>
+      <stop offset="0.34" stop-color="#2a1839"/>
+      <stop offset="0.62" stop-color="#4a2440"/>
+      <stop offset="0.84" stop-color="#7a3535"/>
+      <stop offset="1" stop-color="#b8592f"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffe6a8"/>
+      <stop offset="0.44" stop-color="#f2a444"/>
+      <stop offset="0.74" stop-color="#e5642f"/>
+      <stop offset="0.8" stop-color="#e5642f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9b45a"/>
+      <stop offset="1" stop-color="#2a1206"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#sky)"/>
+  <circle cx="600" cy="560" r="290" fill="url(#sun)"/>
+
+  <!-- dunes -->
+  <path d="M0 720 Q300 600 600 700 T1200 690 V900 H0 Z" fill="#6b2c3c" opacity="0.9"/>
+  <path d="M0 790 Q360 700 720 780 T1200 770 V900 H0 Z" fill="#52243a"/>
+  <path d="M0 850 Q300 800 620 840 T1200 830 V900 H0 Z" fill="#3a1f30"/>
+
+  <!-- bottle silhouette -->
+  <g transform="translate(600 470)">
+    <rect x="-30" y="-230" width="60" height="70" rx="10" fill="#1d1329"/>
+    <path d="M-30 -160 h60 v44 q56 30 56 104 v190 q0 34 -34 34 h-74 q-34 0 -34 -34 v-190 q0 -74 56 -104 z" fill="url(#glass)" stroke="#f6e4c8" stroke-opacity="0.28" stroke-width="3"/>
+    <rect x="-84" y="-10" width="120" height="120" rx="10" fill="#fbf3e6" fill-opacity="0.92"/>
+    <text x="-24" y="40" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#43265a" font-style="italic">Longshadow</text>
+    <line x1="-64" y1="60" x2="16" y2="60" stroke="#43265a" stroke-width="3"/>
+    <circle cx="-24" cy="86" r="6" fill="#e5642f"/>
+  </g>
+
+  <!-- sun mark -->
+  <g transform="translate(600 150)" stroke="#f2a444" stroke-width="5" fill="none" stroke-linecap="round">
+    <circle cx="0" cy="14" r="26"/>
+    <line x1="-52" y1="46" x2="52" y2="46"/>
+    <line x1="0" y1="-26" x2="0" y2="-16"/>
+    <line x1="-40" y1="-14" x2="-33" y2="-7"/>
+    <line x1="40" y1="-14" x2="33" y2="-7"/>
+  </g>
+
+  <text x="600" y="290" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="88" fill="#fbf3e6" letter-spacing="2">Low Sun Spirits</text>
+  <text x="600" y="344" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="26" fill="#f2a444" letter-spacing="9">DESERT BOTANICAL SPIRITS</text>
+  <text x="600" y="838" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#f6e4c8" font-style="italic">Distilled at the edge of daylight.</text>
+</svg>

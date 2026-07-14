@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <title>Offgrid Works — A cabin with a steering wheel.</title>
+  <meta name="description" content="Modular electric campers engineered for quiet roads, remote work, and weekends beyond signal." />
+  <meta name="theme-color" content="#10201a" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#config">Skip to the configurator</a>
+
+  <header class="site">
+    <div class="wrap bar">
+      <a class="brand" href="#top" aria-label="Offgrid Works home">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <rect x="2" y="2" width="44" height="44" rx="11" fill="#17322a"/>
+          <path d="M9 30 L24 15 L39 30 Z" fill="none" stroke="#e8a13c" stroke-width="2.4" stroke-linejoin="round"/>
+          <rect x="15" y="30" width="18" height="9" rx="2" fill="#7d9a72"/>
+          <circle cx="19" cy="39" r="2.4" fill="#f4efe4"/>
+          <circle cx="29" cy="39" r="2.4" fill="#f4efe4"/>
+        </svg>
+        <span><b>Offgrid Works</b><span>Adventure Vehicles</span></span>
+      </a>
+      <nav class="main" aria-label="Primary">
+        <a class="nav-link" href="#features">Platform</a>
+        <a class="nav-link" href="#config">Configure</a>
+        <a class="nav-link" href="#tour">Tour</a>
+        <a class="btn btn--ghost" href="#config">Configure yours</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="topo" aria-hidden="true">
+        <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice">
+          <g fill="none" stroke="#7d9a72" stroke-width="1">
+            <path d="M-20 80 C120 40 200 120 320 90 S520 40 640 90"/>
+            <path d="M-20 140 C120 100 200 180 320 150 S520 100 640 150"/>
+            <path d="M-20 200 C120 160 200 240 320 210 S520 160 640 210"/>
+            <path d="M-20 260 C120 220 200 300 320 270 S520 220 640 270"/>
+            <path d="M-20 320 C120 280 200 360 320 330 S520 280 640 330"/>
+          </g>
+        </svg>
+      </div>
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">Built beyond the map</p>
+            <h1 id="hero-title">A cabin with a steering wheel.</h1>
+            <p class="lead">Modular electric campers engineered for quiet roads, remote work, and weekends beyond signal.</p>
+            <div class="actions">
+              <a class="btn" href="#config">Configure yours</a>
+              <a class="btn btn--ghost" href="#tour">Take the tour</a>
+            </div>
+            <div class="hero-stats">
+              <div><span class="stat-value">340<span aria-hidden="true">mi</span></span><span class="stat-label">Range, charged</span></div>
+              <div><span class="stat-value">4</span><span class="stat-label">Sleeps up to</span></div>
+              <div><span class="stat-value">6.2<span aria-hidden="true">kW</span></span><span class="stat-label">Off-grid power</span></div>
+            </div>
+          </div>
+          <div class="scene" role="img" aria-label="An electric camper parked under a night sky beside a pine ridge, its cabin windows glowing.">
+            <svg viewBox="0 0 480 408" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#0b1a22"/>
+                  <stop offset="1" stop-color="#14342c"/>
+                </linearGradient>
+                <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#e8a13c"/>
+                  <stop offset="1" stop-color="#c47a1f"/>
+                </linearGradient>
+              </defs>
+              <rect width="480" height="408" fill="url(#sky)"/>
+              <circle cx="372" cy="86" r="34" fill="#f4efe4" opacity="0.92"/>
+              <circle cx="360" cy="78" r="34" fill="#0b1a22" opacity="0.9"/>
+              <g fill="#f4efe4">
+                <circle cx="60" cy="60" r="1.6"/><circle cx="120" cy="40" r="1.2"/><circle cx="200" cy="70" r="1.4"/>
+                <circle cx="260" cy="46" r="1"/><circle cx="430" cy="140" r="1.3"/><circle cx="96" cy="110" r="1"/>
+                <circle cx="300" cy="110" r="1.2"/><circle cx="160" cy="120" r="1"/>
+              </g>
+              <path d="M0 300 L90 180 L150 260 L230 150 L320 270 L400 190 L480 280 L480 408 L0 408 Z" fill="#0f261f"/>
+              <path d="M120 320 L160 250 L200 320 Z M300 330 L340 258 L380 330 Z" fill="#0b1d17"/>
+              <rect x="150" y="300" width="196" height="78" rx="12" fill="#22463a"/>
+              <rect x="150" y="300" width="196" height="20" rx="10" fill="#2c584a"/>
+              <rect x="166" y="322" width="46" height="34" rx="5" fill="url(#glow)"/>
+              <rect x="224" y="322" width="46" height="34" rx="5" fill="url(#glow)"/>
+              <rect x="286" y="316" width="44" height="46" rx="6" fill="#12352b"/>
+              <rect x="292" y="322" width="32" height="20" rx="3" fill="url(#glow)"/>
+              <rect x="150" y="288" width="120" height="10" rx="4" fill="#1a4235"/>
+              <rect x="156" y="284" width="108" height="6" rx="3" fill="#3a6b52"/>
+              <circle cx="188" cy="380" r="15" fill="#0b1d17" stroke="#3a6b52" stroke-width="3"/>
+              <circle cx="308" cy="380" r="15" fill="#0b1d17" stroke="#3a6b52" stroke-width="3"/>
+              <path d="M150 300 L150 378 L128 378 L128 330 Q128 300 150 300 Z" fill="#2c584a"/>
+              <rect x="132" y="336" width="14" height="18" rx="3" fill="#8fb7c4" opacity="0.6"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">The platform</p>
+          <h2 id="features-title">One chassis. A dozen ways to live on it.</h2>
+          <p>Every Offgrid build starts from the same 800-volt skateboard and grows to fit how you travel. Swap modules in a weekend, not a workshop.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 8l9-5 9 5M4 8v8l8 5 8-5V8"/></svg></div>
+            <h3>Modular by design</h3>
+            <p>Kitchen, bunk, and workspace pods clip to shared rails. Reconfigure the interior for a solo work trip or a family of four.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></div>
+            <h3>Silent electric drive</h3>
+            <p>Dual motors move you up fire roads without waking the valley. Regen recovers charge on every descent.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
+            <h3>Roof that pays rent</h3>
+            <p>2.4 kW of embedded solar tops the house battery while you hike. Wake up to a full pantry of watts.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+            <h3>A real desk</h3>
+            <p>A fold-flat workstation with a matte skylight and mesh-linked hotspot, so remote work feels less remote.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONFIGURATOR -->
+    <section id="config" aria-labelledby="config-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Configure yours</p>
+          <h2 id="config-title">Build the camper that fits your maps.</h2>
+          <p>Pick a trim, then add the modules you actually use. The range and power estimates update live — nothing here touches the network.</p>
+        </div>
+        <div class="config-grid">
+          <form class="builder" id="builder" aria-label="Camper configurator">
+            <fieldset>
+              <legend>Trim</legend>
+              <div class="trim-row" role="group" aria-label="Choose a trim">
+                <button type="button" class="trim" data-trim="scout" aria-pressed="true">Scout</button>
+                <button type="button" class="trim" data-trim="ridgeline" aria-pressed="false">Ridgeline</button>
+                <button type="button" class="trim" data-trim="basecamp" aria-pressed="false">Basecamp</button>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Modules</legend>
+              <div class="opts" id="modules"><!-- modules injected by app.js --></div>
+            </fieldset>
+          </form>
+
+          <aside class="summary" id="summary" aria-live="polite" aria-atomic="true">
+            <span class="trim-badge" id="trim-badge">Scout trim</span>
+            <h3 id="build-name">Your Offgrid build</h3>
+            <div class="gauge-row">
+              <div class="gauge"><b id="g-range">—</b><small>Range mi</small></div>
+              <div class="gauge"><b id="g-sleeps">—</b><small>Sleeps</small></div>
+              <div class="gauge"><b id="g-power">—</b><small>kWh house</small></div>
+            </div>
+            <ul class="mods-list" id="mods-list"></ul>
+            <div class="total">
+              <span class="lbl">Est. from</span>
+              <span class="amt" id="total">$—</span>
+            </div>
+            <a class="btn" href="#reserve" id="reserve-btn">Reserve this build</a>
+            <p class="range-note">Estimates only. Heavier module loads trade a little range for a lot more comfort.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOUR -->
+    <section class="tour" id="tour" aria-labelledby="tour-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Take the tour</p>
+          <h2 id="tour-title">From order to open road in four moves.</h2>
+          <p>No dealership, no haggling. We build to your spec and deliver to a trailhead near you.</p>
+        </div>
+        <div class="steps">
+          <article class="step reveal"><h3>Spec it</h3><p>Use the configurator to lock trim, modules, and colour. Save the sheet for later — no account needed.</p></article>
+          <article class="step reveal"><h3>Reserve</h3><p>A refundable hold reserves your slot in the next build run. We confirm range and lead time in writing.</p></article>
+          <article class="step reveal"><h3>We build</h3><p>Your chassis is assembled and bench-tested off-grid for a full week before it earns its plates.</p></article>
+          <article class="step reveal"><h3>Meet at the trail</h3><p>We hand you the keys at a trailhead and walk the whole rig with you until it feels like yours.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUOTE / SPECS -->
+    <section class="quote" aria-labelledby="quote-title">
+      <div class="wrap quote-grid">
+        <div>
+          <p class="eyebrow" style="color:#10201a">Field notes</p>
+          <p class="big" id="quote-title">"We parked past the last bar of signal and the desk still worked. So did the coffee."</p>
+          <cite>Marisol &amp; Dev<small>Ridgeline owners, 14,000 quiet miles</small></cite>
+        </div>
+        <div class="specsheet" aria-label="Shared platform specifications">
+          <dl>
+            <div><dt>Architecture</dt><dd>800V skateboard</dd></div>
+            <div><dt>House battery</dt><dd>Up to 15 kWh</dd></div>
+            <div><dt>Roof solar</dt><dd>2.4 kW</dd></div>
+            <div><dt>Ground clearance</dt><dd>9.6 in</dd></div>
+            <div><dt>Fast charge</dt><dd>10–80% / 28 min</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="reserve" aria-labelledby="cta-title">
+      <div class="wrap">
+        <p class="eyebrow reveal">Weekends beyond signal</p>
+        <h2 id="cta-title" class="reveal">The map ends. Your weekend doesn't.</h2>
+        <p class="reveal">Reserve a build slot in the next run, or come walk a demo rig at a trailhead near you.</p>
+        <div class="actions reveal">
+          <a class="btn" href="#config">Configure yours</a>
+          <a class="btn btn--ghost" href="#tour">Take the tour</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <div class="foot-grid">
+        <a class="brand" href="#top" aria-label="Offgrid Works home">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="2" y="2" width="44" height="44" rx="11" fill="#17322a"/>
+            <path d="M9 30 L24 15 L39 30 Z" fill="none" stroke="#e8a13c" stroke-width="2.4" stroke-linejoin="round"/>
+            <rect x="15" y="30" width="18" height="9" rx="2" fill="#7d9a72"/>
+            <circle cx="19" cy="39" r="2.4" fill="#f4efe4"/>
+            <circle cx="29" cy="39" r="2.4" fill="#f4efe4"/>
+          </svg>
+          <span><b>Offgrid Works</b><span>A cabin with a steering wheel.</span></span>
+        </a>
+        <nav aria-label="Footer">
+          <a href="#features">Platform</a>
+          <a href="#config">Configure</a>
+          <a href="#tour">Tour</a>
+          <a href="#reserve">Reserve</a>
+        </nav>
+      </div>
+      <div class="foot-note">
+        <span>&copy; 2026 Offgrid Works. Built beyond the map.</span>
+        <span>Range and price estimates shown are illustrative.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

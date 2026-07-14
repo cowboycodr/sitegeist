@@ -14,10 +14,10 @@
 
 	let { data }: { data: PageData } = $props();
 
-	type BenchmarkFilter = BenchmarkModel | 'Fable 5';
+	type BenchmarkFilter = BenchmarkModel;
 	const filters: Array<{ name: BenchmarkFilter; available: boolean }> = [
 		{ name: '5.6 Sol', available: true },
-		{ name: 'Fable 5', available: false },
+		{ name: 'Opus 4.8', available: true },
 		{ name: 'Grok 4.5', available: true }
 	];
 	const PAGE_THEME_COLOR = 'rgb(242, 240, 233)';
@@ -105,7 +105,7 @@
 	let viewerAnimations: Animation[] = [];
 	let viewerGestureSequence = 0;
 
-	let activeModel = $derived<BenchmarkModel>(filter === 'Grok 4.5' ? 'Grok 4.5' : '5.6 Sol');
+	let activeModel = $derived<BenchmarkModel>(filter);
 	let visibleSites = $derived(sitesByModel[activeModel]);
 	let activeArtifactBySlug = $derived(siteArtifactByModel[activeModel]);
 	let selectedArtifact = $derived(selected ? activeArtifactBySlug.get(selected.slug) ?? null : null);

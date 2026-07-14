@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-labelledby="poster-title poster-desc">
+	<title id="poster-title">Veldt Parfums — Landscapes, bottled.</title>
+	<desc id="poster-desc">A grassland horizon at golden hour above the Veldt Parfums wordmark.</desc>
+
+	<defs>
+		<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#ecdcb2"/>
+			<stop offset="0.35" stop-color="#e6c48f"/>
+			<stop offset="0.7" stop-color="#dd9a63"/>
+			<stop offset="1" stop-color="#cd7c52"/>
+		</linearGradient>
+		<radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+			<stop offset="0" stop-color="#fce6b8"/>
+			<stop offset="0.5" stop-color="#f4c877"/>
+			<stop offset="1" stop-color="#f4c877" stop-opacity="0"/>
+		</radialGradient>
+		<linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#4a3c2c"/>
+			<stop offset="1" stop-color="#2f261b"/>
+		</linearGradient>
+		<filter id="grain">
+			<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+			<feColorMatrix type="saturate" values="0"/>
+			<feComponentTransfer><feFuncA type="linear" slope="0.09"/></feComponentTransfer>
+			<feComposite operator="over" in2="SourceGraphic"/>
+		</filter>
+	</defs>
+
+	<rect width="1200" height="900" fill="#f4ecdd"/>
+
+	<!-- landscape scene -->
+	<g>
+		<rect x="60" y="60" width="1080" height="640" fill="url(#sky)"/>
+		<circle cx="780" cy="320" r="150" fill="url(#sun)"/>
+
+		<!-- far ridge -->
+		<path d="M60 500 L200 470 L340 495 L480 455 L620 490 L760 460 L900 495 L1040 465 L1140 490 L1140 700 L60 700 Z" fill="#8f7360" opacity="0.55"/>
+		<!-- mid ridge -->
+		<path d="M60 540 L220 575 L360 530 L520 572 L660 535 L820 580 L960 540 L1140 575 L1140 700 L60 700 Z" fill="#6b5340" opacity="0.85"/>
+
+		<!-- grass foreground -->
+		<rect x="60" y="640" width="1080" height="60" fill="url(#ground)"/>
+		<g fill="none" stroke="#4a3c2c" stroke-width="4" stroke-linecap="round">
+			<path d="M120 660 C120 610 112 580 128 545"/>
+			<path d="M170 660 C170 620 182 588 158 552"/>
+			<path d="M230 662 C230 606 220 578 244 548"/>
+			<path d="M300 660 C300 618 320 588 296 556"/>
+			<path d="M380 662 C380 610 372 576 396 546"/>
+			<path d="M980 660 C980 612 968 582 996 548"/>
+			<path d="M1040 662 C1040 618 1058 588 1030 552"/>
+			<path d="M1100 660 C1100 608 1090 580 1114 548"/>
+		</g>
+
+		<rect x="60" y="60" width="1080" height="640" fill="none" filter="url(#grain)" opacity="0.6"/>
+	</g>
+
+	<!-- eyebrow -->
+	<text x="600" y="128" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="24" letter-spacing="8" fill="#5a4326">OLFACTORY LANDSCAPE No. 06</text>
+
+	<!-- wordmark -->
+	<g font-family="'Iowan Old Style', Palatino, Georgia, serif">
+		<text x="600" y="805" text-anchor="middle" font-size="112" letter-spacing="10" fill="#241a10">VELDT<tspan fill="#c9a24b"> · </tspan>PARFUMS</text>
+		<text x="600" y="862" text-anchor="middle" font-size="34" font-style="italic" letter-spacing="3" fill="#6c655a">Landscapes, bottled.</text>
+	</g>
+
+	<rect x="30" y="30" width="1140" height="840" fill="none" stroke="#c9a24b" stroke-width="2"/>
+</svg>

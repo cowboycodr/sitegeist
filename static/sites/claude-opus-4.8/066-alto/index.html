@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Alto — Room for your best thinking.</title>
+<meta name="description" content="Flexible studios, quiet rooms, and thoughtful hospitality for independent people and small teams.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="Alto home">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M6 34V20a14 14 0 0 1 28 0v14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M20 34V13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-name">Alto</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#spaces">Spaces</a>
+      <a href="#hospitality">Hospitality</a>
+      <a href="#membership">Membership</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn-quiet nav-cta" href="#visit">Find a space</a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu" hidden>
+    <a href="#spaces">Spaces</a>
+    <a href="#hospitality">Hospitality</a>
+    <a href="#membership">Membership</a>
+    <a href="#visit">Visit</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">A better place to work</p>
+        <h1>Room for your<br><em>best thinking.</em></h1>
+        <p class="lede">Flexible studios, quiet rooms, and thoughtful hospitality for independent people and small teams. High ceilings, low noise, and daylight that lasts.</p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="#visit">Find a space</a>
+          <a class="btn btn-ghost" href="#membership">Explore membership</a>
+        </div>
+        <dl class="hero-stats">
+          <div><dt>Locations</dt><dd>4</dd></div>
+          <div><dt>Open</dt><dd>7 days</dd></div>
+          <div><dt>Members</dt><dd>600+</dd></div>
+        </dl>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 400 480" class="arches">
+          <defs>
+            <linearGradient id="light" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f6ede0"/>
+              <stop offset="1" stop-color="#e9d8c2"/>
+            </linearGradient>
+          </defs>
+          <rect x="26" y="60" width="108" height="360" rx="54" fill="url(#light)" stroke="#3a3128" stroke-width="2.5"/>
+          <rect x="146" y="120" width="108" height="300" rx="54" fill="#c9744d" opacity="0.16" stroke="#3a3128" stroke-width="2.5"/>
+          <rect x="266" y="40" width="108" height="380" rx="54" fill="url(#light)" stroke="#3a3128" stroke-width="2.5"/>
+          <line x1="80" y1="150" x2="80" y2="410" stroke="#3a3128" stroke-width="1.5" opacity="0.35"/>
+          <line x1="320" y1="130" x2="320" y2="410" stroke="#3a3128" stroke-width="1.5" opacity="0.35"/>
+          <circle cx="200" cy="250" r="26" fill="#c9744d"/>
+          <circle cx="200" cy="250" r="26" fill="none" stroke="#3a3128" stroke-width="2.5"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="spaces" id="spaces">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="kicker">Spaces</p>
+        <h2>Pick the room that fits the work.</h2>
+        <p class="section-sub">Book by the hour, the day, or the month. Every space comes with fast, wired internet, plants, and a kettle that is always on.</p>
+      </header>
+
+      <div class="filter" role="tablist" aria-label="Filter spaces">
+        <button role="tab" class="chip is-active" aria-selected="true" data-filter="all">All</button>
+        <button role="tab" class="chip" aria-selected="false" data-filter="solo">Solo</button>
+        <button role="tab" class="chip" aria-selected="false" data-filter="team">Teams</button>
+        <button role="tab" class="chip" aria-selected="false" data-filter="quiet">Quiet</button>
+      </div>
+
+      <ul class="space-grid" id="spaceGrid">
+        <li class="card" data-tags="solo quiet">
+          <div class="card-top"><span class="tag">Solo</span><span class="price">£14<small>/day</small></span></div>
+          <h3>Open Desk</h3>
+          <p>A warm seat in the main hall. Come and go, plug in, and settle into a rhythm.</p>
+        </li>
+        <li class="card" data-tags="solo quiet">
+          <div class="card-top"><span class="tag">Solo</span><span class="price">£28<small>/day</small></span></div>
+          <h3>Focus Booth</h3>
+          <p>A soft, sound-lined nook for deep work and calls that need no one else to hear.</p>
+        </li>
+        <li class="card" data-tags="team">
+          <div class="card-top"><span class="tag">Team</span><span class="price">£40<small>/hr</small></span></div>
+          <h3>Studio Loft</h3>
+          <p>A daylit room for two to six. Whiteboard wall, big table, room to spread out.</p>
+        </li>
+        <li class="card" data-tags="team">
+          <div class="card-top"><span class="tag">Team</span><span class="price">£65<small>/hr</small></span></div>
+          <h3>The Long Table</h3>
+          <p>Host a workshop or a working lunch for up to twelve, with a kitchen next door.</p>
+        </li>
+        <li class="card" data-tags="quiet">
+          <div class="card-top"><span class="tag">Quiet</span><span class="price">£20<small>/day</small></span></div>
+          <h3>Reading Room</h3>
+          <p>Phones off, voices low. A library-quiet floor for the thinking that needs stillness.</p>
+        </li>
+        <li class="card" data-tags="solo team">
+          <div class="card-top"><span class="tag">Flexible</span><span class="price">£90<small>/day</small></span></div>
+          <h3>Private Studio</h3>
+          <p>Lock the door, keep your setup, and make it yours from morning to night.</p>
+        </li>
+      </ul>
+      <p class="empty" id="spaceEmpty" hidden>No spaces match that filter.</p>
+    </div>
+  </section>
+
+  <section class="hospitality" id="hospitality">
+    <div class="wrap host-grid">
+      <div class="host-copy">
+        <p class="kicker">Hospitality</p>
+        <h2>The small things, handled.</h2>
+        <p class="section-sub">We look after the details so the day feels easy — and so you can spend your attention where it matters.</p>
+      </div>
+      <ul class="host-list">
+        <li><span class="dot" aria-hidden="true"></span><div><h3>Fresh coffee, all day</h3><p>Locally roasted, ground to order, and never behind a paywall.</p></div></li>
+        <li><span class="dot" aria-hidden="true"></span><div><h3>A real welcome desk</h3><p>A person who knows your name, signs for your parcels, and points guests your way.</p></div></li>
+        <li><span class="dot" aria-hidden="true"></span><div><h3>Calm by design</h3><p>Soft acoustics, natural light, and rooms sized so no one is ever crowded.</p></div></li>
+        <li><span class="dot" aria-hidden="true"></span><div><h3>Bookable, not bureaucratic</h3><p>Reserve a room in seconds and cancel just as fast when plans change.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="membership" id="membership">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="kicker">Membership</p>
+        <h2>Belong on your terms.</h2>
+        <p class="section-sub">Switch between monthly and yearly — yearly saves two months.</p>
+      </header>
+
+      <div class="billing" role="group" aria-label="Billing period">
+        <button class="toggle-btn is-active" id="billMonthly" aria-pressed="true">Monthly</button>
+        <button class="toggle-btn" id="billYearly" aria-pressed="false">Yearly</button>
+      </div>
+
+      <div class="plan-grid">
+        <article class="plan">
+          <h3>Drop-in</h3>
+          <p class="plan-price"><span class="amount" data-monthly="£0" data-yearly="£0">£0</span><span class="per">/mo</span></p>
+          <p class="plan-note">Pay only for the days you come.</p>
+          <ul>
+            <li>Book any open desk</li>
+            <li>Fresh coffee included</li>
+            <li>Guest-day passes</li>
+          </ul>
+          <a class="btn btn-ghost" href="#visit">Start here</a>
+        </article>
+        <article class="plan is-featured">
+          <p class="ribbon">Most chosen</p>
+          <h3>Resident</h3>
+          <p class="plan-price"><span class="amount" data-monthly="£180" data-yearly="£150">£180</span><span class="per">/mo</span></p>
+          <p class="plan-note">Your seat, waiting each morning.</p>
+          <ul>
+            <li>Unlimited desk access</li>
+            <li>8 focus-booth hours a month</li>
+            <li>Mail &amp; parcel handling</li>
+            <li>Bring a guest each week</li>
+          </ul>
+          <a class="btn btn-solid" href="#visit">Become a resident</a>
+        </article>
+        <article class="plan">
+          <h3>Studio</h3>
+          <p class="plan-price"><span class="amount" data-monthly="£520" data-yearly="£433">£520</span><span class="per">/mo</span></p>
+          <p class="plan-note">A private room for your small team.</p>
+          <ul>
+            <li>Lockable private studio</li>
+            <li>Meeting-room credits</li>
+            <li>Named on the door</li>
+            <li>Priority booking</li>
+          </ul>
+          <a class="btn btn-ghost" href="#visit">Enquire</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap visit-inner">
+      <div class="visit-copy">
+        <p class="kicker">Visit</p>
+        <h2>Come and try a day on us.</h2>
+        <p class="section-sub">Walk the halls, take a booth for a spin, and see if the quiet suits you. No card, no commitment.</p>
+        <ul class="visit-facts">
+          <li><strong>Hours</strong> Mon–Fri 7:00–21:00 · Weekends 9:00–18:00</li>
+          <li><strong>Find us</strong> 12 Meridian Yard, near the old print works</li>
+          <li><strong>Say hello</strong> hello@alto.studio · +44 20 7946 0140</li>
+        </ul>
+      </div>
+      <div class="visit-card">
+        <h3>Book a free day</h3>
+        <p>Tell us the day and we will have a desk ready with your name on it.</p>
+        <a class="btn btn-solid btn-block" href="#top">Reserve my day</a>
+        <p class="fineprint">Prefer to just look around? Reception is open — walk in anytime during opening hours.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="foot-brand">
+      <span class="brand-name">Alto</span>
+      <p>Room for your best thinking.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="#spaces">Spaces</a>
+      <a href="#hospitality">Hospitality</a>
+      <a href="#membership">Membership</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <p class="copyright">© 2026 Alto Workspace. Made for people who make things.</p>
+  </div>
+</footer>
+</body>
+</html>

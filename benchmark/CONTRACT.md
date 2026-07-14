@@ -135,6 +135,22 @@ GROK_MODEL=grok-4.5 \
 scripts/benchmark/run-isolated-grok-worker.sh "$worker"
 ```
 
+Claude Code uses a fresh temporary Claude home containing only a copied
+authentication file. The exact model, effort level, tool allowlist, and
+per-attempt budget are fixed by the runner:
+
+```sh
+CLAUDE_MODEL=claude-opus-4-8 \
+CLAUDE_EFFORT_LEVEL=medium \
+CLAUDE_MAX_BUDGET_USD=2.00 \
+scripts/benchmark/run-isolated-claude-worker.sh "$worker"
+```
+
+The Claude worker may only use `Read`, `Write`, and `Edit`. It cannot invoke a
+shell, browser, web search, MCP server, plugin, skill, or persisted session. The
+trusted evaluator builds `dist/` after the model exits, so submitted code is
+never executed during generation.
+
 The runner invokes exactly this Codex mode inside the OS boundary:
 
 ```sh
@@ -162,6 +178,53 @@ own temporary directory, wait for completion, validate its submission, and move
 the completed artifact to an evaluator-owned collection that later workers
 cannot mount. The included runner is ready for future orchestration but is not
 invoked by any benchmark script.
+
+## Neutral batch orchestration
+
+`run-neutral-batch.mjs` fixes concurrency at ten, assigns one fresh worker per
+brief, automatically reviews every candidate, and promotes only validated
+submissions. Always record the CLI harness and exact model explicitly:
+
+```sh
+node scripts/benchmark/run-neutral-batch.mjs \
+  --briefs benchmark/briefs/generated \
+  --submissions .benchmark-work/claude-opus-4.8 \
+  --registry src/lib/generated/opus-site-artifacts.ts \
+  --static-root static/sites/claude-opus-4.8 \
+  --public-base /sites/claude-opus-4.8 \
+  --runner scripts/benchmark/run-isolated-claude-worker.sh \
+  --model claude-opus-4-8 \
+  --harness claude-code \
+  --approval-policy dontAsk \
+  --approvals-reviewer sitegeist-auto-review \
+  --concurrency 10 \
+  --summary benchmark/reports/claude-opus-4.8-generation-summary.json \
+  --duplicate-output benchmark/reports/claude-opus-4.8-exact-duplicates.json \
+  --volume-output benchmark/reports/claude-opus-4.8-code-volume.json
+```
+
+The orchestrator rolls back an entire concurrent wave before stopping when a
+shared runner, authentication, or usage-limit failure appears. This prevents a
+quota boundary from biasing the collection toward whichever workers happened
+to finish first. `reset-batch-to-checkpoint.mjs` is available for recovering
+older interrupted runs that predate automatic rollback.
+
+After generation, audit every real site at a mobile viewport for console errors
+and horizontal document overflow. Do not hand-edit a rejected model output.
+Return only the failing IDs to the queue while retaining their audit history:
+
+```sh
+node scripts/benchmark/requeue-batch-records.mjs \
+  --submissions .benchmark-work/claude-opus-4.8 \
+  --summary benchmark/reports/claude-opus-4.8-generation-summary.json \
+  --ids 15,36 \
+  --reason 'Mobile runtime audit: horizontal document overflow'
+```
+
+Before import, `audit-code-volume.mjs` measures the single canonical payload
+(`dist/` plus `preview/`) separately from evaluator-only source. The batch fails
+if canonical file, byte, or text-line caps are exceeded. Keep `.benchmark-work`
+ignored and commit only the canonical static tree and reports.
 
 ## Import
 
@@ -200,6 +263,18 @@ substitutes an audit capture for a missing poster.
 node scripts/benchmark/audit-duplicates.mjs \
   --submissions /isolated-results \
   --output /reports/exact-duplicates.json
+```
+
+Compare the accepted registry with every existing model collection as a
+separate cross-model lane:
+
+```sh
+node scripts/benchmark/audit-cross-model-duplicates.mjs \
+  --left-registry src/lib/generated/sol-site-artifacts.ts \
+  --left-model '5.6 Sol' \
+  --right-registry src/lib/generated/opus-site-artifacts.ts \
+  --right-model 'Opus 4.8' \
+  --output benchmark/reports/sol-opus-cross-model-exact-duplicates.json
 ```
 
 The audit validates every immediate child and evaluates every unordered pair.

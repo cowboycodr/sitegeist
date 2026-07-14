@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-labelledby="poster-title poster-desc">
+  <title id="poster-title">One Point Five — Make the future measurable</title>
+  <desc id="poster-desc">A climate data observatory poster: a warming gauge climbing toward the 1.5 degree threshold above a rising temperature line.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1f26"/>
+      <stop offset="1" stop-color="#0a1418"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.6">
+      <stop offset="0" stop-color="#3fd0c9" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#3fd0c9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="arc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3fd0c9"/>
+      <stop offset="0.55" stop-color="#f2c14e"/>
+      <stop offset="1" stop-color="#ff5d4b"/>
+    </linearGradient>
+    <linearGradient id="heat" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#3fd0c9"/>
+      <stop offset="0.6" stop-color="#f2c14e"/>
+      <stop offset="1" stop-color="#ff5d4b"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f2c14e"/>
+      <stop offset="1" stop-color="#ff5d4b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- dotted grain motif -->
+  <g fill="#ffffff" opacity="0.05">
+    <circle cx="90" cy="120" r="2"/><circle cx="150" cy="120" r="2"/><circle cx="210" cy="120" r="2"/>
+    <circle cx="1050" cy="760" r="2"/><circle cx="1110" cy="760" r="2"/><circle cx="990" cy="760" r="2"/>
+  </g>
+
+  <!-- eyebrow -->
+  <text x="100" y="150" fill="#3fd0c9" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="8">CLIMATE DATA OBSERVATORY</text>
+
+  <!-- brand mark -->
+  <g transform="translate(100 190)">
+    <rect x="0" y="0" width="118" height="70" rx="16" fill="url(#warm)"/>
+    <text x="59" y="52" text-anchor="middle" fill="#0c1c22" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="46" font-weight="800">1.5</text>
+  </g>
+
+  <!-- title -->
+  <text x="100" y="400" fill="#eaf5f4" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="118" font-weight="800" letter-spacing="-3">One Point</text>
+  <text x="100" y="520" fill="#eaf5f4" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="118" font-weight="800" letter-spacing="-3">Five<tspan fill="#ff5d4b">.</tspan></text>
+
+  <!-- tagline -->
+  <text x="104" y="600" fill="#a7c2c2" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="40" font-weight="600">Make the future measurable.</text>
+
+  <!-- gauge motif -->
+  <g transform="translate(870 300)">
+    <path d="M-160 40 A200 200 0 0 1 160 40" fill="none" stroke="#24424c" stroke-width="26" stroke-linecap="round"/>
+    <path d="M-160 40 A200 200 0 0 1 116 -100" fill="none" stroke="url(#arc)" stroke-width="26" stroke-linecap="round"/>
+    <line x1="141" y1="-92" x2="167" y2="-108" stroke="#ff5d4b" stroke-width="6" stroke-linecap="round"/>
+    <text x="196" y="-96" fill="#ff5d4b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="26" font-weight="700">1.5</text>
+    <text x="0" y="20" text-anchor="middle" fill="#ffd27a" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="76" font-weight="800">1.36</text>
+    <text x="0" y="58" text-anchor="middle" fill="#a7c2c2" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="24">°C above baseline</text>
+  </g>
+
+  <!-- rising temperature line -->
+  <g transform="translate(0 620)">
+    <line x1="100" y1="200" x2="1100" y2="200" stroke="#24424c" stroke-width="2"/>
+    <line x1="100" y1="60" x2="1100" y2="60" stroke="#ff5d4b" stroke-width="2" stroke-dasharray="8 8" opacity="0.7"/>
+    <text x="1096" y="48" text-anchor="end" fill="#ff5d4b" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="700">1.5 °C threshold</text>
+    <path d="M100 180 L240 172 L360 150 L500 138 L640 110 L780 96 L900 78 L1040 66 L1100 60 L1100 200 L100 200 Z" fill="url(#heat)" opacity="0.14"/>
+    <path d="M100 180 L240 172 L360 150 L500 138 L640 110 L780 96 L900 78 L1040 66 L1100 60" fill="none" stroke="url(#heat)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="1100" cy="60" r="8" fill="#ff5d4b"/>
+  </g>
+</svg>

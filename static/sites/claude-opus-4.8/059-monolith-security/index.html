@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+	<meta name="color-scheme" content="dark" />
+	<meta name="description" content="Adaptive infrastructure protecting critical systems without slowing the people who run them." />
+	<title>Monolith Security — Nothing gets through.</title>
+	<link rel="preload" href="styles.css" as="style" />
+	<link rel="stylesheet" href="styles.css" />
+	<script src="sitegeist-bridge.js" defer></script>
+	<script src="app.js" defer></script>
+</head>
+<body>
+	<a class="skip" href="#main">Skip to content</a>
+
+	<header class="topbar">
+		<a class="brand" href="#top" aria-label="Monolith Security home">
+			<span class="brand__mark" aria-hidden="true">
+				<svg viewBox="0 0 24 32" width="20" height="27" focusable="false">
+					<rect x="6" y="1" width="12" height="30" rx="1.5" class="glyph-slab" />
+					<rect x="9" y="6" width="6" height="20" rx="1" class="glyph-core" />
+					<line x1="6" y1="16" x2="18" y2="16" class="glyph-scan" />
+				</svg>
+			</span>
+			<span class="brand__text">Monolith<span class="brand__sub">Security</span></span>
+		</a>
+		<nav class="nav" aria-label="Primary">
+			<a href="#capabilities">Platform</a>
+			<a href="#posture">Posture</a>
+			<a href="#research">Research</a>
+			<a class="nav__cta" href="#contact">Secure your stack</a>
+		</nav>
+	</header>
+
+	<main id="main">
+		<a id="top"></a>
+		<section class="hero" aria-labelledby="hero-title">
+			<div class="hero__copy">
+				<p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Zero-trust infrastructure</p>
+				<h1 id="hero-title">Nothing gets<br />through.</h1>
+				<p class="lede">Adaptive infrastructure protecting critical systems without slowing the people who run them. Every packet is verified, every identity is proven, every path is watched.</p>
+				<div class="cta-row">
+					<a class="btn btn--primary" href="#contact">Secure your stack</a>
+					<a class="btn btn--ghost" href="#research">View threat research</a>
+				</div>
+				<ul class="hero__trust" aria-label="Compliance coverage">
+					<li>SOC&nbsp;2 Type&nbsp;II</li>
+					<li>ISO&nbsp;27001</li>
+					<li>FedRAMP-ready</li>
+				</ul>
+			</div>
+			<div class="hero__visual" aria-hidden="true">
+				<canvas id="scanner" width="520" height="560"></canvas>
+				<div class="visual__caption"><span class="pulse"></span>Perimeter online · 0 breaches</div>
+			</div>
+		</section>
+
+		<section class="stats" aria-label="Platform at a glance">
+			<dl>
+				<div class="stat"><dt>Threats deflected daily</dt><dd data-count="41800000" data-suffix="+">0</dd></div>
+				<div class="stat"><dt>Median decision time</dt><dd data-count="3" data-suffix="ms">0</dd></div>
+				<div class="stat"><dt>Verified request uptime</dt><dd data-count="99.999" data-decimals="3" data-suffix="%">0</dd></div>
+				<div class="stat"><dt>Critical systems shielded</dt><dd data-count="12400" data-suffix="+">0</dd></div>
+			</dl>
+		</section>
+
+		<section id="capabilities" class="capabilities" aria-labelledby="cap-title">
+			<div class="section-head">
+				<p class="kicker">The platform</p>
+				<h2 id="cap-title">One monolith. Every layer covered.</h2>
+				<p class="section-lede">Security that assumes nothing and inspects everything — from the identity requesting access to the byte leaving your network.</p>
+			</div>
+			<div class="grid">
+				<article class="card">
+					<span class="card__icon" aria-hidden="true">◈</span>
+					<h3>Continuous verification</h3>
+					<p>Identity, device posture, and context are re-checked on every request. Trust is earned in milliseconds, never assumed.</p>
+				</article>
+				<article class="card">
+					<span class="card__icon" aria-hidden="true">▦</span>
+					<h3>Micro-segmentation</h3>
+					<p>Workloads are isolated into single-purpose cells, so a compromise stays contained instead of spreading laterally.</p>
+				</article>
+				<article class="card">
+					<span class="card__icon" aria-hidden="true">◎</span>
+					<h3>Adaptive policy engine</h3>
+					<p>Rules rewrite themselves against live threat signals, tightening automatically the moment behavior drifts.</p>
+				</article>
+				<article class="card">
+					<span class="card__icon" aria-hidden="true">⟁</span>
+					<h3>Encrypted everywhere</h3>
+					<p>Data is sealed in transit and at rest with keys you control and can rotate without a maintenance window.</p>
+				</article>
+				<article class="card">
+					<span class="card__icon" aria-hidden="true">◇</span>
+					<h3>Human-speed operations</h3>
+					<p>Approvals, audits, and access flow through a single console your team already understands — no friction tax.</p>
+				</article>
+				<article class="card">
+					<span class="card__icon" aria-hidden="true">⌬</span>
+					<h3>Immutable audit trail</h3>
+					<p>Every decision is signed and stored append-only, giving investigators and regulators one source of truth.</p>
+				</article>
+			</div>
+		</section>
+
+		<section id="posture" class="posture" aria-labelledby="posture-title">
+			<div class="posture__intro">
+				<p class="kicker">Live posture</p>
+				<h2 id="posture-title">See the wall hold.</h2>
+				<p class="section-lede">A real deployment reports its defensive posture continuously. This is what a healthy monolith looks like.</p>
+				<a class="btn btn--ghost" href="#contact">Request a live demo</a>
+			</div>
+			<ul class="meters" aria-label="Defensive posture indicators">
+				<li class="meter" data-value="98"><span class="meter__label">Identity assurance</span><span class="meter__track"><span class="meter__fill"></span></span><span class="meter__num">98%</span></li>
+				<li class="meter" data-value="94"><span class="meter__label">Segmentation coverage</span><span class="meter__track"><span class="meter__fill"></span></span><span class="meter__num">94%</span></li>
+				<li class="meter" data-value="100"><span class="meter__label">Encryption in transit</span><span class="meter__track"><span class="meter__fill"></span></span><span class="meter__num">100%</span></li>
+				<li class="meter" data-value="87"><span class="meter__label">Patch currency</span><span class="meter__track"><span class="meter__fill"></span></span><span class="meter__num">87%</span></li>
+				<li class="meter" data-value="99"><span class="meter__label">Audit completeness</span><span class="meter__track"><span class="meter__fill"></span></span><span class="meter__num">99%</span></li>
+			</ul>
+		</section>
+
+		<section id="research" class="research" aria-labelledby="research-title">
+			<div class="section-head">
+				<p class="kicker">Threat research</p>
+				<h2 id="research-title">From our field team.</h2>
+				<p class="section-lede">The Monolith research group tracks adversaries so your defenses ship a step ahead. Recent briefings:</p>
+			</div>
+			<div class="grid grid--research">
+				<article class="post">
+					<p class="post__tag">Identity</p>
+					<h3>Anatomy of a token-replay campaign</h3>
+					<p>How short-lived credentials and device binding collapse the window attackers rely on.</p>
+					<p class="post__meta">8 min read · Advisory 2026-114</p>
+				</article>
+				<article class="post">
+					<p class="post__tag">Cloud</p>
+					<h3>Lateral movement in flat networks</h3>
+					<p>A teardown of a real intrusion and the segmentation that would have stopped it cold.</p>
+					<p class="post__meta">11 min read · Advisory 2026-109</p>
+				</article>
+				<article class="post">
+					<p class="post__tag">Supply chain</p>
+					<h3>Signing what you actually ship</h3>
+					<p>Provenance you can prove, from build agent to production, without slowing releases.</p>
+					<p class="post__meta">6 min read · Advisory 2026-102</p>
+				</article>
+			</div>
+		</section>
+
+		<section id="contact" class="contact" aria-labelledby="contact-title">
+			<div class="contact__panel">
+				<p class="kicker">Get started</p>
+				<h2 id="contact-title">Put a monolith between you and the noise.</h2>
+				<p class="section-lede">Bring us your riskiest surface. We'll map your zero-trust path in a 30-minute working session — no rip-and-replace required.</p>
+				<div class="cta-row cta-row--center">
+					<a class="btn btn--primary" href="#top">Secure your stack</a>
+					<a class="btn btn--ghost" href="#research">View threat research</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="footer__row">
+			<span class="brand brand--foot">
+				<span class="brand__mark" aria-hidden="true">
+					<svg viewBox="0 0 24 32" width="16" height="21" focusable="false">
+						<rect x="6" y="1" width="12" height="30" rx="1.5" class="glyph-slab" />
+						<rect x="9" y="6" width="6" height="20" rx="1" class="glyph-core" />
+					</svg>
+				</span>
+				<span class="brand__text">Monolith<span class="brand__sub">Security</span></span>
+			</span>
+			<p class="footer__tag">Nothing gets through.</p>
+		</div>
+		<p class="footer__fine">© 2026 Monolith Security. Zero-trust infrastructure for critical systems.</p>
+	</footer>
+</body>
+</html>

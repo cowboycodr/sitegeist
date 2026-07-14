@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <title>Selene Mission — The moon is our next address</title>
+  <meta name="description" content="A private lunar program preparing its first autonomous surface habitat and a new chapter off-world." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="main.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-head">
+    <a class="brand" href="#top" aria-label="Selene Mission home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="40" height="40" role="img" aria-label="Selene crescent">
+          <circle cx="20" cy="20" r="15" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.5"/>
+          <path d="M27 8a15 15 0 1 0 0 24 12 12 0 0 1 0-24z" fill="currentColor"/>
+          <circle cx="14" cy="15" r="1.6" fill="var(--void)"/>
+          <circle cx="12" cy="24" r="1" fill="var(--void)"/>
+        </svg>
+      </span>
+      <span class="brand-name">Selene<span class="brand-name-sub">Mission</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#mission">Mission</a>
+      <a href="#vehicle">Vehicle</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#join">Join</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="starfield" aria-hidden="true"></div>
+      <div class="moon-stage" aria-hidden="true">
+        <div class="moon">
+          <span class="crater c1"></span>
+          <span class="crater c2"></span>
+          <span class="crater c3"></span>
+          <span class="crater c4"></span>
+          <span class="crater c5"></span>
+        </div>
+        <div class="orbit"><span class="craft"></span></div>
+      </div>
+
+      <div class="hero-copy">
+        <p class="eyebrow">Lunar habitat · M01</p>
+        <h1 id="hero-title">The moon is our<br />next address.</h1>
+        <p class="lede">A private lunar program preparing its first autonomous surface
+          habitat and a new chapter off-world.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#timeline">Track the mission</a>
+          <a class="btn btn-ghost" href="#vehicle">Explore the vehicle</a>
+        </div>
+
+        <div class="countdown" role="group" aria-label="Time to launch window">
+          <span class="countdown-label">Launch window opens in</span>
+          <ol class="clock" id="clock">
+            <li><b id="cd-days">—</b><span>days</span></li>
+            <li><b id="cd-hours">—</b><span>hrs</span></li>
+            <li><b id="cd-mins">—</b><span>min</span></li>
+            <li><b id="cd-secs">—</b><span>sec</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Program at a glance">
+      <dl>
+        <div><dt>Target orbit</dt><dd>Low lunar, 100&nbsp;km</dd></div>
+        <div><dt>Surface stay</dt><dd>90 sols, autonomous</dd></div>
+        <div><dt>Landing site</dt><dd>Shackleton rim</dd></div>
+        <div><dt>Payload</dt><dd>1,240&nbsp;kg to surface</dd></div>
+      </dl>
+    </section>
+
+    <section class="panel" id="mission" aria-labelledby="mission-title">
+      <div class="panel-head">
+        <p class="kicker">Why the south pole</p>
+        <h2 id="mission-title">A habitat that runs itself before we arrive.</h2>
+      </div>
+      <p class="panel-lede">Selene M01 lands an uncrewed habitat in permanent
+        sunlight near the lunar south pole, then commissions its own power,
+        thermal, and life-support loops. When the first crew follows, the
+        address is already home.</p>
+      <div class="cards">
+        <article class="card">
+          <span class="card-num">01</span>
+          <h3>Sunlit power</h3>
+          <p>Peaks of near-eternal light keep the array charged through the long
+            lunar night, banking energy in regenerative fuel cells.</p>
+        </article>
+        <article class="card">
+          <span class="card-num">02</span>
+          <h3>Water in the dark</h3>
+          <p>Shadowed craters hold ice. Our rover prospects, extracts, and
+            electrolyses it into breathable air and propellant.</p>
+        </article>
+        <article class="card">
+          <span class="card-num">03</span>
+          <h3>Regolith shelter</h3>
+          <p>An autonomous printer heaps local dust over the pressure shell,
+            shielding crew from radiation and micrometeorites.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel vehicle" id="vehicle" aria-labelledby="vehicle-title">
+      <div class="panel-head">
+        <p class="kicker">The vehicle</p>
+        <h2 id="vehicle-title">Meet <em>Crescent</em>, our surface lander.</h2>
+      </div>
+      <div class="vehicle-grid">
+        <figure class="blueprint" aria-labelledby="blueprint-cap">
+          <svg viewBox="0 0 320 320" role="img" aria-labelledby="blueprint-title">
+            <title id="blueprint-title">Schematic of the Crescent lander</title>
+            <g fill="none" stroke="currentColor" stroke-width="1.2">
+              <circle cx="160" cy="160" r="120" opacity="0.25"/>
+              <circle cx="160" cy="160" r="80" opacity="0.4"/>
+              <path d="M160 70 v180 M70 160 h180" opacity="0.2"/>
+              <path d="M120 120 h80 v70 h-80 z"/>
+              <path d="M160 120 v-34 M148 92 h24"/>
+              <path d="M120 190 l-26 34 M200 190 l26 34"/>
+              <path d="M94 224 h-14 M226 224 h14"/>
+              <path d="M132 150 h56 M132 165 h56" opacity="0.6"/>
+              <circle cx="160" cy="120" r="8" fill="currentColor" stroke="none"/>
+            </g>
+          </svg>
+          <figcaption id="blueprint-cap">Crescent — autonomous descent &amp; habitat carrier</figcaption>
+        </figure>
+        <ul class="specs">
+          <li><b>Height</b><span>6.4 m stowed</span></li>
+          <li><b>Descent engine</b><span>Throttleable methalox, 12 kN</span></li>
+          <li><b>Navigation</b><span>Terrain-relative optical, hazard-aware</span></li>
+          <li><b>Comms</b><span>Direct-to-Earth + relay backup</span></li>
+          <li><b>Autonomy</b><span>Self-commissioning after touchdown</span></li>
+          <li><b>Power</b><span>Deployable 9 kW gallium-arsenide array</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel" id="timeline" aria-labelledby="timeline-title">
+      <div class="panel-head">
+        <p class="kicker">Mission timeline</p>
+        <h2 id="timeline-title">From pad to permanent light.</h2>
+      </div>
+      <ol class="timeline">
+        <li class="done">
+          <span class="dot" aria-hidden="true"></span>
+          <div><h3>Integration complete</h3><p>Crescent mated to the upper stage. All systems green.</p></div>
+        </li>
+        <li class="done">
+          <span class="dot" aria-hidden="true"></span>
+          <div><h3>Static fire</h3><p>Full-duration descent-engine test passed at the test stand.</p></div>
+        </li>
+        <li class="active">
+          <span class="dot" aria-hidden="true"></span>
+          <div><h3>Launch window</h3><p>Departure to lunar transfer orbit. You are watching this step.</p></div>
+        </li>
+        <li>
+          <span class="dot" aria-hidden="true"></span>
+          <div><h3>Powered descent</h3><p>Autonomous landing on the Shackleton rim.</p></div>
+        </li>
+        <li>
+          <span class="dot" aria-hidden="true"></span>
+          <div><h3>Habitat live</h3><p>Self-commissioning of power, water, and shelter loops.</p></div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="join" id="join" aria-labelledby="join-title">
+      <div class="join-inner">
+        <p class="kicker">Come with us</p>
+        <h2 id="join-title">Follow every step of M01.</h2>
+        <p>We publish flight readiness reviews, telemetry recaps, and surface
+          imagery as the mission unfolds. No account, no noise — just the mission.</p>
+        <a class="btn btn-primary" href="#top">Back to the top</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <p><span aria-hidden="true">◗</span> Selene Mission — an independent lunar program.</p>
+    <p class="fine">The moon is our next address.</p>
+  </footer>
+</body>
+</html>

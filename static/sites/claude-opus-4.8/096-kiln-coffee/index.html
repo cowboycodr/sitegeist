@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Kiln Coffee — Heat reveals character.</title>
+<meta name="description" content="Expressive coffees sourced carefully and developed with patient, exact roast profiles.">
+<link rel="stylesheet" href="styles.css">
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+	<a class="brand" href="#top" aria-label="Kiln Coffee home">
+		<span class="brand__mark" aria-hidden="true">
+			<svg viewBox="0 0 40 40" width="40" height="40" role="img" focusable="false">
+				<path class="mark-flame" d="M20 5c5 6 9 9 9 15a9 9 0 0 1-18 0c0-3 1.6-5 3.4-6.6C15 12 18 9 20 5Z"/>
+				<path class="mark-core" d="M20 15c2.4 2.6 4 4.4 4 7a4 4 0 0 1-8 0c0-2 1.2-3.4 2.4-4.6C19 16.6 19.6 15.9 20 15Z"/>
+			</svg>
+		</span>
+		<span class="brand__type">Kiln<em>Coffee</em></span>
+	</a>
+	<nav class="nav" aria-label="Primary">
+		<a href="#batch">This week</a>
+		<a href="#coffees">Coffees</a>
+		<a href="#producers">Producers</a>
+		<a href="#craft">Roasting</a>
+	</nav>
+</header>
+
+<main id="main">
+	<span id="top"></span>
+
+	<section class="hero" aria-labelledby="hero-title">
+		<div class="hero__copy">
+			<p class="eyebrow">Roasted this week / Batch 214</p>
+			<h1 id="hero-title">Heat reveals <span>character.</span></h1>
+			<p class="lede">Expressive coffees sourced carefully and developed with patient,
+				exact roast profiles. We chase clarity, not char — the moment a bean turns
+				honest.</p>
+			<div class="hero__actions">
+				<a class="btn btn--solid" href="#coffees">Shop fresh coffee</a>
+				<a class="btn btn--ghost" href="#producers">Meet the producers</a>
+			</div>
+			<dl class="hero__stats">
+				<div><dt>Roast day</dt><dd>Tuesdays</dd></div>
+				<div><dt>Rest before shipping</dt><dd>3 days</dd></div>
+				<div><dt>Batch size</dt><dd>12 kg drum</dd></div>
+			</dl>
+		</div>
+		<div class="hero__figure" role="img" aria-label="A roast development curve rising from green to first crack">
+			<svg class="curve" viewBox="0 0 320 240" preserveAspectRatio="none" focusable="false" aria-hidden="true">
+				<defs>
+					<linearGradient id="emberFill" x1="0" y1="1" x2="0" y2="0">
+						<stop offset="0" stop-color="#e8632a" stop-opacity="0"/>
+						<stop offset="1" stop-color="#e8632a" stop-opacity="0.35"/>
+					</linearGradient>
+				</defs>
+				<g class="grid">
+					<line x1="0" y1="60" x2="320" y2="60"/>
+					<line x1="0" y1="120" x2="320" y2="120"/>
+					<line x1="0" y1="180" x2="320" y2="180"/>
+				</g>
+				<path class="curve__area" d="M0 220 C70 210 120 150 180 96 C230 54 270 40 320 30 L320 240 L0 240 Z" fill="url(#emberFill)"/>
+				<path class="curve__line" d="M0 220 C70 210 120 150 180 96 C230 54 270 40 320 30"/>
+				<circle class="curve__crack" cx="196" cy="83" r="5"/>
+			</svg>
+			<span class="curve__tag curve__tag--drop">Charge 205°C</span>
+			<span class="curve__tag curve__tag--crack">First crack</span>
+			<span class="curve__tag curve__tag--drop2">Drop 210°C</span>
+		</div>
+	</section>
+
+	<section class="batch" id="batch" aria-labelledby="batch-title">
+		<div class="section-head">
+			<h2 id="batch-title">On the drum this week</h2>
+			<p>Batch 214 landed off the cooling tray this morning. Small lots, logged by
+				the second, shipped while they still smell like the roastery.</p>
+		</div>
+		<div class="batch__grid">
+			<article class="batch-card">
+				<span class="batch-card__phase">Drying</span>
+				<h3>0:00 – 4:30</h3>
+				<p>Free moisture leaves the bean. We hold the heat steady so the seed keeps
+					up and nothing scorches on the surface.</p>
+			</article>
+			<article class="batch-card">
+				<span class="batch-card__phase">Maillard</span>
+				<h3>4:30 – 8:10</h3>
+				<p>Sugars and amino acids meet. Aromas build toward toast and dried fruit;
+					the room turns from grassy to sweet.</p>
+			</article>
+			<article class="batch-card">
+				<span class="batch-card__phase">Development</span>
+				<h3>8:10 – 10:20</h3>
+				<p>After first crack we ride out the last stretch — enough to resolve acidity
+					into structure, never so far that origin disappears.</p>
+			</article>
+		</div>
+	</section>
+
+	<section class="coffees" id="coffees" aria-labelledby="coffees-title">
+		<div class="section-head">
+			<h2 id="coffees-title">Shop fresh coffee</h2>
+			<p>Three profiles from the current table. Ground to order or whole bean, sent
+				within a day of resting.</p>
+		</div>
+		<div class="coffees__grid">
+			<article class="coffee">
+				<div class="coffee__swatch coffee__swatch--light" aria-hidden="true"><span>Light</span></div>
+				<h3>Hana Washed</h3>
+				<p class="coffee__origin">Gedeb, Ethiopia · 2050m</p>
+				<p class="coffee__notes">Jasmine, bergamot, white peach. A high, bright roast
+					stopped just past first crack.</p>
+				<p class="coffee__price">£14 <span>/ 250g</span></p>
+			</article>
+			<article class="coffee coffee--feature">
+				<div class="coffee__swatch coffee__swatch--medium" aria-hidden="true"><span>Medium</span></div>
+				<h3>Kiln House Blend</h3>
+				<p class="coffee__origin">Colombia &amp; Ethiopia</p>
+				<p class="coffee__notes">Cocoa, red apple, brown sugar. Our everyday cup —
+					balanced, forgiving, endlessly drinkable.</p>
+				<p class="coffee__price">£12 <span>/ 250g</span></p>
+			</article>
+			<article class="coffee">
+				<div class="coffee__swatch coffee__swatch--dark" aria-hidden="true"><span>Dark</span></div>
+				<h3>Ember Deep</h3>
+				<p class="coffee__origin">Nariño, Colombia</p>
+				<p class="coffee__notes">Dark chocolate, molasses, roasted hazelnut. Built for
+					milk and long mornings.</p>
+				<p class="coffee__price">£13 <span>/ 250g</span></p>
+			</article>
+		</div>
+	</section>
+
+	<section class="producers" id="producers" aria-labelledby="producers-title">
+		<div class="section-head">
+			<h2 id="producers-title">Meet the producers</h2>
+			<p>We buy from the same farms year after year. Prices are named, not hidden —
+				character starts long before the drum.</p>
+		</div>
+		<ul class="producer-list">
+			<li>
+				<h3>Tariku Bekele</h3>
+				<p class="producer-list__where">Gedeb, Ethiopia</p>
+				<p>Twelve hectares on a north slope. Cherries dried on raised beds and turned
+					by hand through the cool of the afternoon.</p>
+			</li>
+			<li>
+				<h3>Familia Ortega</h3>
+				<p class="producer-list__where">Nariño, Colombia</p>
+				<p>Three generations high in the Andes. Slow overnight fermentation gives the
+					Ember Deep its deep, syrupy body.</p>
+			</li>
+			<li>
+				<h3>Nuru Cooperative</h3>
+				<p class="producer-list__where">Nyeri, Kenya</p>
+				<p>Forty smallholders pooling a single washing station, chasing the blackcurrant
+					snap Kenya is known for.</p>
+			</li>
+		</ul>
+	</section>
+
+	<section class="craft" id="craft" aria-labelledby="craft-title">
+		<div class="craft__inner">
+			<div class="section-head">
+				<h2 id="craft-title">How we roast</h2>
+				<p>No two greens want the same fire. We read each lot before we commit a curve.</p>
+			</div>
+			<ol class="steps">
+				<li>
+					<span class="steps__num" aria-hidden="true">01</span>
+					<h3>Sample &amp; cup</h3>
+					<p>Every arrival is roasted small and tasted blind before it earns a place on the table.</p>
+				</li>
+				<li>
+					<span class="steps__num" aria-hidden="true">02</span>
+					<h3>Profile</h3>
+					<p>We map charge temperature, airflow and the turn, then chase the same curve batch to batch.</p>
+				</li>
+				<li>
+					<span class="steps__num" aria-hidden="true">03</span>
+					<h3>Rest &amp; ship</h3>
+					<p>Beans settle three days to let carbon dioxide off-gas, then leave the roastery the same week.</p>
+				</li>
+			</ol>
+		</div>
+	</section>
+
+	<section class="cta" aria-labelledby="cta-title">
+		<h2 id="cta-title">Fresh from Batch 214</h2>
+		<p>A rotating box, roasted the day it ships. Character, revealed weekly.</p>
+		<a class="btn btn--solid" href="#coffees">Shop fresh coffee</a>
+	</section>
+</main>
+
+<footer class="foot">
+	<div class="foot__brand">
+		<span class="brand__type">Kiln<em>Coffee</em></span>
+		<p>Heat reveals character.</p>
+	</div>
+	<div class="foot__cols">
+		<div>
+			<h4>Roastery</h4>
+			<p>Unit 7, Tannery Yard</p>
+			<p>Open Thu–Sun, 8–4</p>
+		</div>
+		<div>
+			<h4>Say hello</h4>
+			<p>hello@kiln.coffee</p>
+			<p>@kilncoffee</p>
+		</div>
+	</div>
+	<p class="foot__fine">© 2026 Kiln Coffee. Roasted in small batches.</p>
+</footer>
+</body>
+</html>

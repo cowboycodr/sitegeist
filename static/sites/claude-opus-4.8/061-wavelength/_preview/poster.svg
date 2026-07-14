@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Wavelength — Listen to the ocean change.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a2c3d"/>
+      <stop offset="1" stop-color="#041520"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="72%" cy="16%" r="80%">
+      <stop offset="0" stop-color="#35d4c4" stop-opacity="0.28"/>
+      <stop offset="0.6" stop-color="#35d4c4" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wave1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#35d4c4" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#35d4c4"/>
+      <stop offset="1" stop-color="#35d4c4" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="wave2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4fb8ff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#4fb8ff"/>
+      <stop offset="1" stop-color="#4fb8ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="wave3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a6ff7a" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#a6ff7a"/>
+      <stop offset="1" stop-color="#a6ff7a" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- Spectrogram-style band bars -->
+  <g opacity="0.5">
+    <rect x="0" y="150" width="1200" height="4" fill="#12455c"/>
+    <rect x="0" y="450" width="1200" height="4" fill="#12455c"/>
+    <rect x="0" y="750" width="1200" height="4" fill="#12455c"/>
+  </g>
+
+  <!-- Concentric sonar rings -->
+  <g transform="translate(950 640)" fill="none" stroke-width="3">
+    <circle r="60" stroke="#35d4c4" stroke-opacity="0.5"/>
+    <circle r="120" stroke="#35d4c4" stroke-opacity="0.32"/>
+    <circle r="185" stroke="#35d4c4" stroke-opacity="0.18"/>
+    <circle r="250" stroke="#35d4c4" stroke-opacity="0.08"/>
+    <circle r="10" fill="#a6ff7a" stroke="none"/>
+  </g>
+
+  <!-- Layered waveform motif -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M0 470 Q90 320 180 470 T360 470 T540 470 T720 470 T900 470 T1080 470 T1260 470"
+          stroke="url(#wave1)" stroke-width="7"/>
+    <path d="M0 470 Q75 570 150 470 T300 470 T450 470 T600 470 T750 470 T900 470 T1050 470 T1200 470"
+          stroke="url(#wave2)" stroke-width="5" opacity="0.85"/>
+    <path d="M0 470 Q60 410 120 470 T240 470 T360 470 T480 470 T600 470 T720 470 T840 470 T960 470 T1080 470 T1200 470"
+          stroke="url(#wave3)" stroke-width="3" opacity="0.75"/>
+  </g>
+
+  <!-- Brand mark -->
+  <g transform="translate(90 96)">
+    <path d="M0 24 Q12 -6 24 24 T48 24 T72 24" fill="none" stroke="#35d4c4" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Type -->
+  <text x="180" y="132" font-family="Segoe UI, system-ui, sans-serif" font-size="40" font-weight="700" fill="#eaf6fb" letter-spacing="1">Wavelength</text>
+
+  <text x="90" y="290" font-family="Segoe UI, system-ui, sans-serif" font-size="30" font-weight="600" fill="#35d4c4" letter-spacing="8">OCEAN INTELLIGENCE</text>
+
+  <text x="86" y="640" font-family="Segoe UI, system-ui, sans-serif" font-size="118" font-weight="700" fill="#eaf6fb" letter-spacing="-3">Listen to the</text>
+  <text x="86" y="760" font-family="Segoe UI, system-ui, sans-serif" font-size="118" font-weight="700" fill="#eaf6fb" letter-spacing="-3">ocean change.</text>
+
+  <text x="90" y="838" font-family="Segoe UI, system-ui, sans-serif" font-size="30" fill="#9db8c4">Open acoustic sensing for marine ecosystems</text>
+</svg>
