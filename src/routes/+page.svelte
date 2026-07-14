@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { ArrowUp, ChevronLeft, ChevronRight, X } from '@lucide/svelte';
+	import { ArrowUp, ChevronDown, ChevronLeft, ChevronRight, Columns2, X } from '@lucide/svelte';
 	import { onMount } from 'svelte';
 	import SiteExperience from '$lib/components/SiteExperience.svelte';
 	import SitePreview from '$lib/components/SitePreview.svelte';
@@ -87,6 +87,7 @@
 	let viewerFrameElement = $state<HTMLIFrameElement>();
 	let viewerBackdropElement = $state<HTMLDivElement>();
 	let viewerControlsElement = $state<HTMLDivElement>();
+	let compareControlElement = $state<HTMLDivElement>();
 	let showReturnToTop = $state(false);
 	let filtersPinned = $state(false);
 	let shellThemeActive = $state(false);
@@ -94,6 +95,11 @@
 	let viewerDragActive = $state(false);
 	let viewerSettling = $state(false);
 	let viewerArtifactReady = $state(false);
+	let comparisonArtifactReady = $state(false);
+	let desktopCompareAvailable = $state(false);
+	let modelMenuOpen = $state(false);
+	let compareMenuOpen = $state(false);
+	let compareModel = $state<BenchmarkModel | null>(null);
 	let artifactChannel = $state('');
 	let previewPointerGesture: PreviewPointerGesture | null = null;
 	let blockedPreviewTrigger: HTMLElement | null = null;
@@ -113,6 +119,17 @@
 		selectedArtifact && artifactChannel
 			? `${selectedArtifact.artifactUrl}?sitegeistSlug=${encodeURIComponent(selectedArtifact.slug)}&sitegeistChannel=${encodeURIComponent(artifactChannel)}`
 			: ''
+	);
+	let viewerModels = $derived(
+		filters
+			.filter((item) => item.available && (!selected || siteArtifactByModel[item.name].has(selected.slug)))
+			.map((item) => item.name)
+	);
+	let comparisonModels = $derived(viewerModels.filter((model) => model !== activeModel));
+	let comparisonArtifact = $derived(
+		compareModel && selected
+			? siteArtifactByModel[compareModel].get(selected.slug) ?? null
+			: null
 	);
 	let themeColor = $derived(Boolean(selected) || shellThemeActive ? SHELL_THEME_COLOR : PAGE_THEME_COLOR);
 
@@ -262,6 +279,7 @@
 		returnPreviewOrigin = null;
 		expandOrigin = null;
 		viewerArtifactReady = false;
+		comparisonArtifactReady = false;
 		artifactChannel = createArtifactChannel(nextSite);
 		selected = nextSite;
 	}
@@ -284,6 +302,7 @@
 		returnPreviewElement = trigger;
 		returnPreviewOrigin = { x: rect.left, y: rect.top, width: rect.width, height: rect.height };
 		viewerArtifactReady = false;
+		comparisonArtifactReady = false;
 		artifactChannel = createArtifactChannel(site);
 		expandOrigin = {
 			x: rect.left,
@@ -345,6 +364,10 @@
 		viewerSettling = false;
 		selected = null;
 		viewerArtifactReady = false;
+		comparisonArtifactReady = false;
+		modelMenuOpen = false;
+		compareMenuOpen = false;
+		compareModel = null;
 		artifactChannel = '';
 		expandOrigin = null;
 		returnPreviewElement = null;
@@ -355,6 +378,68 @@
 	function closeSite() {
 		resetViewerGesture();
 		completeCloseSite();
+	}
+
+	function selectComparisonModel(model: BenchmarkModel) {
+		if (model === compareModel) {
+			compareMenuOpen = false;
+			return;
+		}
+		comparisonArtifactReady = false;
+		compareModel = model;
+		modelMenuOpen = false;
+		compareMenuOpen = false;
+	}
+
+	function selectPrimaryModel(model: BenchmarkModel) {
+		if (model === activeModel) {
+			modelMenuOpen = false;
+			return;
+		}
+		const previousModel = activeModel;
+		filter = model;
+		if (compareModel === model) compareModel = previousModel;
+		viewerArtifactReady = false;
+		comparisonArtifactReady = false;
+		modelMenuOpen = false;
+		compareMenuOpen = false;
+		artifactChannel = createArtifactChannel(selected);
+	}
+
+	function toggleModelMenu() {
+		modelMenuOpen = !modelMenuOpen;
+		compareMenuOpen = false;
+	}
+
+	function toggleCompareMenu() {
+		if (!compareModel) return;
+		compareMenuOpen = !compareMenuOpen;
+		modelMenuOpen = false;
+	}
+
+	function handleCompareControl() {
+		if (compareModel) {
+			toggleCompareMenu();
+			return;
+		}
+		const currentModelIndex = viewerModels.indexOf(activeModel);
+		const nextModel = viewerModels[(currentModelIndex + 1) % viewerModels.length];
+		if (nextModel && nextModel !== activeModel) selectComparisonModel(nextModel);
+	}
+
+	function stopComparison() {
+		modelMenuOpen = false;
+		compareMenuOpen = false;
+		compareModel = null;
+		comparisonArtifactReady = false;
+	}
+
+	function handleWindowPointerDown(event: PointerEvent) {
+		if ((!modelMenuOpen && !compareMenuOpen) || !(event.target instanceof Node)) return;
+		if (!compareControlElement?.contains(event.target)) {
+			modelMenuOpen = false;
+			compareMenuOpen = false;
+		}
 	}
 
 	function activatePullGesture(gesture: PullGesture) {
@@ -762,13 +847,17 @@
 
 	function step(direction: number) {
 		if (!selected || viewerSettling) return;
+		modelMenuOpen = false;
+		compareMenuOpen = false;
 		resetViewerGesture();
 		expandOrigin = null;
 		returnPreviewElement = null;
 		returnPreviewOrigin = null;
 		viewerArtifactReady = false;
+		comparisonArtifactReady = false;
 		const current = visibleSites.findIndex((site) => site.id === selected?.id);
 		const next = visibleSites[(current + direction + visibleSites.length) % visibleSites.length];
+		if (compareModel && !siteArtifactByModel[compareModel].has(next.slug)) stopComparison();
 		artifactChannel = createArtifactChannel(next);
 		selected = next;
 		if (browser) history.replaceState(null, '', `#site/${next.slug}`);
@@ -776,6 +865,11 @@
 
 	function handleViewerShortcut(key: string) {
 		if (!selected || viewerSettling) return;
+		if (key === 'Escape' && (modelMenuOpen || compareMenuOpen)) {
+			modelMenuOpen = false;
+			compareMenuOpen = false;
+			return;
+		}
 		if (key === 'Escape') closeSite();
 		if (key === 'ArrowLeft') step(-1);
 		if (key === 'ArrowRight') step(1);
@@ -784,6 +878,17 @@
 	function handleKeydown(event: KeyboardEvent) {
 		handleViewerShortcut(event.key);
 	}
+
+	onMount(() => {
+		const desktopCompareMedia = window.matchMedia('(min-width: 721px) and (hover: hover) and (pointer: fine)');
+		const syncDesktopCompare = () => {
+			desktopCompareAvailable = desktopCompareMedia.matches;
+			if (!desktopCompareAvailable) stopComparison();
+		};
+		syncDesktopCompare();
+		desktopCompareMedia.addEventListener('change', syncDesktopCompare);
+		return () => desktopCompareMedia.removeEventListener('change', syncDesktopCompare);
+	});
 
 	onMount(() => {
 		const syncNavigation = () => {
@@ -973,7 +1078,7 @@
 	<meta name="twitter:image" content={`${data.origin}/og.png`} />
 </svelte:head>
 
-<svelte:window onkeydown={handleKeydown} onmessage={handleArtifactMessage} />
+<svelte:window onkeydown={handleKeydown} onmessage={handleArtifactMessage} onpointerdown={handleWindowPointerDown} />
 
 <main class="gallery-shell">
 	<section class="intro" id="top">
@@ -1102,46 +1207,154 @@
 		<div class="viewer-backdrop" bind:this={viewerBackdropElement} aria-hidden="true"></div>
 		<div class="viewer-entry" bind:this={viewerEntryElement}>
 			<div class="viewer-surface" bind:this={viewerSurfaceElement}>
-				<div class="viewer-content" bind:this={viewerContentElement}>
-					{#if selectedArtifact}
-						<div class="viewer-site artifact-shell" class:ready={viewerArtifactReady} role="document">
-							<img
-								class="artifact-viewer-poster"
-								src={selectedArtifact.posterUrl}
-								alt=""
-								aria-hidden="true"
-							/>
-							<iframe
-								class="artifact-frame"
-								bind:this={viewerFrameElement}
-								src={selectedArtifactUrl}
-								title={`${selected.name} standalone website`}
-								sandbox="allow-scripts"
-								referrerpolicy="no-referrer"
-								allow="camera 'none'; geolocation 'none'; microphone 'none'; payment 'none'"
-								loading="eager"
-								onload={() => (viewerArtifactReady = true)}
-							></iframe>
-						</div>
-					{:else}
-						<div
-							class="viewer-site"
-							bind:this={viewerSiteElement}
-							use:pullToDismiss
-							role="document"
-						>
-							<SiteExperience site={selected} />
+				<div class="viewer-content" class:comparing={Boolean(comparisonArtifact)} bind:this={viewerContentElement}>
+					<div class="viewer-pane primary-pane">
+						{#if selectedArtifact}
+							<div class="viewer-site artifact-shell" class:ready={viewerArtifactReady} role="document">
+								<img
+									class="artifact-viewer-poster"
+									src={selectedArtifact.posterUrl}
+									alt=""
+									aria-hidden="true"
+								/>
+								<iframe
+									class="artifact-frame"
+									bind:this={viewerFrameElement}
+									src={selectedArtifactUrl}
+									title={`${selected.name} ${activeModel} website`}
+									sandbox="allow-scripts"
+									referrerpolicy="no-referrer"
+									allow="camera 'none'; geolocation 'none'; microphone 'none'; payment 'none'"
+									loading="eager"
+									onload={() => (viewerArtifactReady = true)}
+								></iframe>
+							</div>
+						{:else}
+							<div
+								class="viewer-site"
+								bind:this={viewerSiteElement}
+								use:pullToDismiss
+								role="document"
+							>
+								<SiteExperience site={selected} />
+							</div>
+						{/if}
+					</div>
+					{#if desktopCompareAvailable}
+						<div class="viewer-pane comparison-pane" aria-hidden={!comparisonArtifact}>
+							{#if comparisonArtifact && compareModel}
+								<div class="viewer-site artifact-shell" class:ready={comparisonArtifactReady} role="document">
+									<img
+										class="artifact-viewer-poster"
+										src={comparisonArtifact.posterUrl}
+										alt=""
+										aria-hidden="true"
+									/>
+									<iframe
+										class="artifact-frame"
+										src={comparisonArtifact.artifactUrl}
+										title={`${selected.name} ${compareModel} comparison website`}
+										sandbox="allow-scripts"
+										referrerpolicy="no-referrer"
+										allow="camera 'none'; geolocation 'none'; microphone 'none'; payment 'none'"
+										loading="eager"
+										onload={() => (comparisonArtifactReady = true)}
+									></iframe>
+								</div>
+							{/if}
 						</div>
 					{/if}
 				</div>
 			</div>
 		</div>
 		<div class="viewer-controls" bind:this={viewerControlsElement}>
-			<button class="close-control" onclick={closeSite} aria-label="Close site and return to gallery" title="Close"><X size={16} strokeWidth={2.2} /></button>
-			<div class="viewer-id"><span>{String(selected.id).padStart(3, '0')}</span></div>
-			<div class="right-controls">
-				<button class="step-control" onclick={() => step(-1)} aria-label="Previous website" title="Previous site"><ChevronLeft size={19} strokeWidth={2.3} /></button>
-				<button class="step-control" onclick={() => step(1)} aria-label="Next website" title="Next site"><ChevronRight size={19} strokeWidth={2.3} /></button>
+			<div class="viewer-controls-cluster" bind:this={compareControlElement}>
+				<div class="close-control-pill">
+					<button class="close-control" onclick={closeSite} aria-label="Close site and return to gallery" title="Close"><X size={16} strokeWidth={2.2} /></button>
+				</div>
+				{#if desktopCompareAvailable}
+					<div class="model-control-wrap">
+						<button
+							class="model-control model-segment"
+							class:open={modelMenuOpen}
+							onclick={toggleModelMenu}
+							aria-label={`${activeModel} is visible. Choose visible model`}
+							aria-haspopup="menu"
+							aria-expanded={modelMenuOpen}
+							title="Choose visible model"
+						>
+							<span>{activeModel}</span>
+							<ChevronDown class="model-control-chevron" size={14} strokeWidth={2.2} />
+						</button>
+						{#if compareModel}
+							<i class="model-separator" aria-hidden="true">|</i>
+							<button
+								class="comparison-model-control model-segment"
+								class:open={compareMenuOpen}
+								onclick={toggleCompareMenu}
+								aria-label={`${compareModel} is the comparison model. Choose comparison model`}
+								aria-haspopup="menu"
+								aria-expanded={compareMenuOpen}
+								title="Choose comparison model"
+							>
+								<span>{compareModel}</span>
+								<ChevronDown class="model-control-chevron" size={14} strokeWidth={2.2} />
+							</button>
+						{/if}
+						<button
+							class="compare-control"
+							class:active={Boolean(compareModel)}
+							onclick={handleCompareControl}
+							aria-label={compareModel ? 'Change or remove comparison model' : 'Add comparison model'}
+							aria-haspopup="menu"
+							aria-expanded={compareMenuOpen}
+							aria-pressed={Boolean(compareModel)}
+							title={compareModel ? 'Change comparison' : 'Compare models'}
+						><Columns2 size={17} strokeWidth={2.1} /></button>
+						{#if modelMenuOpen}
+							<div class="compare-picker" role="menu" aria-label="Choose the visible model">
+								<div class="compare-picker-label">View model</div>
+								{#each viewerModels as model}
+									<button
+										class="compare-option"
+										class:selected={activeModel === model}
+										role="menuitemradio"
+										aria-checked={activeModel === model}
+										onclick={() => selectPrimaryModel(model)}
+									>
+										<span>{model}</span><i aria-hidden="true"></i>
+									</button>
+								{/each}
+							</div>
+						{/if}
+						{#if compareMenuOpen && compareModel}
+							<div class="compare-picker" role="menu" aria-label="Choose a model to compare">
+								<div class="compare-picker-label">Compare with</div>
+								{#each comparisonModels as model}
+									<button
+										class="compare-option"
+										class:selected={compareModel === model}
+										role="menuitemradio"
+										aria-checked={compareModel === model}
+										onclick={() => selectComparisonModel(model)}
+									>
+										<span>{model}</span><i aria-hidden="true"></i>
+									</button>
+								{/each}
+								<button class="compare-option" role="menuitem" onclick={stopComparison}>
+									<span>Remove model</span><i aria-hidden="true"></i>
+								</button>
+							</div>
+						{/if}
+					</div>
+				{/if}
+				<div class="navigation-control-pill">
+					<div class="right-controls">
+						<button class="step-control" onclick={() => step(-1)} aria-label="Previous website" title="Previous site"><ChevronLeft size={19} strokeWidth={2.3} /></button>
+						<div class="viewer-id"><span>{String(selected.id).padStart(3, '0')}</span></div>
+						<button class="step-control" onclick={() => step(1)} aria-label="Next website" title="Next site"><ChevronRight size={19} strokeWidth={2.3} /></button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -1244,7 +1457,11 @@
 	.viewer-entry, .viewer-surface, .viewer-content { position: absolute; inset: 0; }
 	.viewer-entry { z-index: 1; overflow: hidden; }
 	.viewer-surface { overflow: hidden; background: #0c0c0b; transform-origin: top left; backface-visibility: hidden; }
-	.viewer-content { transform-origin: top left; backface-visibility: hidden; }
+	.viewer-content { display: flex; transform-origin: top left; backface-visibility: hidden; }
+	.viewer-pane { position: relative; height: 100%; min-width: 0; overflow: hidden; }
+	.primary-pane { flex: 1 1 auto; }
+	.comparison-pane { flex: 0 0 0; opacity: 0; transform: translate3d(18px, 0, 0); box-shadow: inset 1px 0 rgba(255, 255, 255, 0); pointer-events: none; transition: flex-basis 520ms cubic-bezier(.22,1,.36,1), box-shadow 220ms ease, opacity 240ms ease, transform 520ms cubic-bezier(.22,1,.36,1); }
+	.viewer-content.comparing .comparison-pane { flex-basis: 50%; opacity: 1; transform: translate3d(0, 0, 0); box-shadow: inset 1px 0 rgba(255, 255, 255, 0.18); pointer-events: auto; }
 	.viewer-site { height: 100%; overflow: auto; overscroll-behavior: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; }
 	.artifact-shell { position: relative; overflow: hidden; background: #07090d; }
 	.artifact-viewer-poster, .artifact-frame { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
@@ -1260,7 +1477,8 @@
 		.viewer-backdrop { will-change: opacity; }
 	}
 	.viewer.dragging .viewer-surface, .viewer.settling .viewer-surface { border-radius: clamp(14px, 4vw, 22px); box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42); }
-	.viewer.dragging .viewer-controls, .viewer.settling .viewer-controls { background: rgba(20, 20, 19, 0.985); -webkit-backdrop-filter: none; backdrop-filter: none; will-change: transform, opacity; }
+	.viewer.dragging .viewer-controls, .viewer.settling .viewer-controls { will-change: transform, opacity; }
+	.viewer.dragging .close-control-pill, .viewer.dragging .model-control-wrap, .viewer.dragging .navigation-control-pill, .viewer.settling .close-control-pill, .viewer.settling .model-control-wrap, .viewer.settling .navigation-control-pill { background: #141413; -webkit-backdrop-filter: none; backdrop-filter: none; }
 	.viewer.settling { pointer-events: none; }
 	.viewer.from-card .viewer-entry { transform-origin: top left; animation: site-expand 640ms cubic-bezier(0.22, 1, 0.36, 1) both; will-change: transform, border-radius, box-shadow; }
 	.viewer.from-card .viewer-controls { animation: toolbar-enter 220ms ease 430ms both; }
@@ -1273,16 +1491,32 @@
 		from { opacity: 0; transform: translate(-50%, 10px) scale(0.96); }
 		to { opacity: 1; transform: translate(-50%, 0) scale(1); }
 	}
-	.viewer-controls { position: fixed; z-index: 1100; left: 50%; bottom: 14px; display: flex; width: max-content; max-width: calc(100vw - 24px); align-items: center; justify-content: center; gap: 2px; padding: 4px; border: 1px solid rgba(255, 255, 255, 0.13); border-radius: 999px; background: rgba(20, 20, 19, 0.94); color: #fff; box-shadow: 0 14px 44px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08); backdrop-filter: blur(18px) saturate(140%); transform: translateX(-50%); pointer-events: auto; }
+	.viewer-controls { position: fixed; z-index: 1100; left: 50%; bottom: 14px; width: max-content; max-width: calc(100vw - 24px); color: #fff; transform: translateX(-50%); pointer-events: none; }
+	.viewer-controls-cluster { display: flex; max-width: 100%; align-items: center; justify-content: center; gap: 8px; pointer-events: auto; }
+	.close-control-pill, .model-control-wrap, .navigation-control-pill { position: relative; display: flex; align-items: center; gap: 2px; padding: 4px; border: 1px solid rgba(255, 255, 255, 0.13); border-radius: 999px; background: rgba(20, 20, 19, 0.96); box-shadow: 0 14px 44px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%); }
 	.viewer-controls button, .viewer-id { height: 34px; border: 0; border-radius: 999px; background: transparent; color: #fff; box-shadow: none; pointer-events: auto; }
 	.viewer-controls button { transition: background 160ms ease, color 160ms ease; }
 	.viewer-controls button:hover, .viewer-controls button:focus-visible { background: rgba(255, 255, 255, 0.1); }
 	.viewer-controls button:focus-visible { outline: 1px solid rgba(255, 255, 255, 0.7); outline-offset: -1px; }
-	.close-control { display: grid; width: 34px; place-items: center; margin-right: 4px; padding: 0; background: #fff !important; color: #111 !important; box-shadow: 5px 0 0 -4px rgba(255, 255, 255, 0.18) !important; cursor: pointer; }
-	.viewer-id { display: flex; align-items: center; margin-right: 2px; padding: 0 13px 0 10px; border-radius: 0; box-shadow: 1px 0 0 rgba(255, 255, 255, 0.14); font: 750 11px/1 ui-monospace, monospace; pointer-events: none; }
-	.right-controls { display: flex; gap: 2px; pointer-events: auto; }
+	.close-control { display: grid; width: 34px; min-width: 34px; place-items: center; padding: 0; background: #fff !important; color: #111 !important; cursor: pointer; }
+	.model-segment { display: flex; max-width: min(145px, calc(50vw - 135px)); align-items: center; gap: 7px; padding: 0 8px 0 11px; font: 700 10px/1 'Inter Variable', Inter, sans-serif; letter-spacing: -0.01em; white-space: nowrap; cursor: pointer; }
+	.model-segment > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+	.model-separator { flex: none; margin: 0 -2px; color: rgba(255, 255, 255, 0.34); font: 600 10px/1 'Inter Variable', Inter, sans-serif; font-style: normal; }
+	.model-control-wrap > .compare-control { display: grid; width: 34px; min-width: 34px; padding: 0; place-items: center; cursor: pointer; }
+	.model-control-wrap > .compare-control.active { background: rgba(255, 255, 255, 0.14); }
+	.model-segment :global(.model-control-chevron) { flex: none; color: rgba(255, 255, 255, 0.62); transition: transform 180ms cubic-bezier(.22,1,.36,1); }
+	.model-segment.open :global(.model-control-chevron) { transform: rotate(180deg); }
+	.compare-picker { position: absolute; z-index: 2; bottom: calc(100% + 12px); left: 50%; display: grid; width: 184px; gap: 3px; padding: 7px; border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 15px; background: #141413; box-shadow: 0 18px 48px rgba(0, 0, 0, 0.46), inset 0 1px 0 rgba(255, 255, 255, 0.06); transform: translateX(-50%); transform-origin: 50% 100%; animation: compare-picker-enter 180ms cubic-bezier(.22,1,.36,1) both; }
+	@keyframes compare-picker-enter { from { opacity: 0; transform: translate(-50%, 7px) scale(.96); } to { opacity: 1; transform: translate(-50%, 0) scale(1); } }
+	.compare-picker-label { padding: 6px 8px 5px; color: rgba(255, 255, 255, 0.48); font: 700 9px/1 'Inter Variable', Inter, sans-serif; letter-spacing: 0.07em; text-transform: uppercase; }
+	.viewer-controls .compare-picker button { display: flex; width: 100%; height: 36px; align-items: center; justify-content: space-between; padding: 0 10px; border-radius: 9px; color: rgba(255, 255, 255, 0.78); font: 650 11px/1 'Inter Variable', Inter, sans-serif; text-align: left; cursor: pointer; }
+	.viewer-controls .compare-picker button:hover, .viewer-controls .compare-picker button:focus-visible, .viewer-controls .compare-picker button.selected { background: rgba(255, 255, 255, 0.1); color: #fff; }
+	.compare-option i { width: 6px; height: 6px; border-radius: 50%; background: transparent; }
+	.compare-option.selected i { background: #fff; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12); }
+	.right-controls { display: flex; align-items: center; gap: 2px; pointer-events: auto; }
 	.right-controls button { display: grid; min-width: 32px; padding: 0; place-items: center; cursor: pointer; }
 	.right-controls .step-control { min-width: 35px; }
+	.viewer-id { display: flex; min-width: 35px; align-items: center; justify-content: center; padding: 0 5px; font: 750 11px/1 ui-monospace, monospace; pointer-events: none; }
 
 	@media (max-width: 1500px) {
 		.intro h1 { font-size: clamp(64px, 6.8vw, 102px); }
@@ -1305,12 +1539,17 @@
 		.site-grid { grid-template-columns: 1fr; row-gap: 55px; }
 		.site-card { contain-intrinsic-size: auto calc(clamp(280px, 71vw, 460px) + 58px); }
 		.card-caption h3 { font-size: 18px; }
+		.model-control-wrap { display: none; }
+	}
+
+	@media (hover: none), (pointer: coarse) {
+		.model-control-wrap { display: none; }
 	}
 
 	@media (max-width: 430px) {
 		.card-caption p { display: none; }
 		.viewer-controls { bottom: 8px; max-width: calc(100vw - 12px); }
-		.viewer-id { padding-inline: 9px 11px; }
+		.viewer-id { min-width: 31px; padding-inline: 3px; }
 		.right-controls button { min-width: 30px; }
 		.right-controls .step-control { min-width: 33px; }
 	}
