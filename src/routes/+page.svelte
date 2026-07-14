@@ -22,6 +22,8 @@
 	];
 	const PAGE_THEME_COLOR = 'rgb(242, 240, 233)';
 	const SHELL_THEME_COLOR = 'rgb(17, 18, 16)';
+	const TRIPLE_COMPARE_MIN_WIDTH = 1260;
+	const TRIPLE_COMPARE_LIMIT_MESSAGE = 'This screen is not large enough to reliably show three websites side by side.';
 
 	type PreviewPointerGesture = {
 		pointerId: number;
@@ -96,10 +98,15 @@
 	let viewerSettling = $state(false);
 	let viewerArtifactReady = $state(false);
 	let comparisonArtifactReady = $state(false);
+	let thirdArtifactReady = $state(false);
 	let desktopCompareAvailable = $state(false);
+	let tripleCompareAvailable = $state(false);
 	let modelMenuOpen = $state(false);
 	let compareMenuOpen = $state(false);
+	let thirdMenuOpen = $state(false);
 	let compareModel = $state<BenchmarkModel | null>(null);
+	let thirdModel = $state<BenchmarkModel | null>(null);
+	let viewerToast = $state<string | null>(null);
 	let artifactChannel = $state('');
 	let previewPointerGesture: PreviewPointerGesture | null = null;
 	let blockedPreviewTrigger: HTMLElement | null = null;
@@ -110,6 +117,7 @@
 	let pendingArtifactPull: PendingArtifactPull | null = null;
 	let viewerAnimations: Animation[] = [];
 	let viewerGestureSequence = 0;
+	let viewerToastTimeout: ReturnType<typeof setTimeout> | null = null;
 
 	let activeModel = $derived<BenchmarkModel>(filter);
 	let visibleSites = $derived(sitesByModel[activeModel]);
@@ -125,10 +133,20 @@
 			.filter((item) => item.available && (!selected || siteArtifactByModel[item.name].has(selected.slug)))
 			.map((item) => item.name)
 	);
-	let comparisonModels = $derived(viewerModels.filter((model) => model !== activeModel));
+	let comparisonModels = $derived(
+		viewerModels.filter((model) => model !== activeModel && model !== thirdModel)
+	);
+	let thirdComparisonModels = $derived(
+		viewerModels.filter((model) => model !== activeModel && model !== compareModel)
+	);
 	let comparisonArtifact = $derived(
 		compareModel && selected
 			? siteArtifactByModel[compareModel].get(selected.slug) ?? null
+			: null
+	);
+	let thirdArtifact = $derived(
+		thirdModel && selected
+			? siteArtifactByModel[thirdModel].get(selected.slug) ?? null
 			: null
 	);
 	let themeColor = $derived(Boolean(selected) || shellThemeActive ? SHELL_THEME_COLOR : PAGE_THEME_COLOR);
@@ -280,6 +298,7 @@
 		expandOrigin = null;
 		viewerArtifactReady = false;
 		comparisonArtifactReady = false;
+		thirdArtifactReady = false;
 		artifactChannel = createArtifactChannel(nextSite);
 		selected = nextSite;
 	}
@@ -303,6 +322,7 @@
 		returnPreviewOrigin = { x: rect.left, y: rect.top, width: rect.width, height: rect.height };
 		viewerArtifactReady = false;
 		comparisonArtifactReady = false;
+		thirdArtifactReady = false;
 		artifactChannel = createArtifactChannel(site);
 		expandOrigin = {
 			x: rect.left,
@@ -365,9 +385,15 @@
 		selected = null;
 		viewerArtifactReady = false;
 		comparisonArtifactReady = false;
+		thirdArtifactReady = false;
 		modelMenuOpen = false;
 		compareMenuOpen = false;
+		thirdMenuOpen = false;
 		compareModel = null;
+		thirdModel = null;
+		viewerToast = null;
+		if (viewerToastTimeout) clearTimeout(viewerToastTimeout);
+		viewerToastTimeout = null;
 		artifactChannel = '';
 		expandOrigin = null;
 		returnPreviewElement = null;
@@ -380,6 +406,15 @@
 		completeCloseSite();
 	}
 
+	function showViewerToast(message: string) {
+		viewerToast = message;
+		if (viewerToastTimeout) clearTimeout(viewerToastTimeout);
+		viewerToastTimeout = setTimeout(() => {
+			viewerToast = null;
+			viewerToastTimeout = null;
+		}, 3200);
+	}
+
 	function selectComparisonModel(model: BenchmarkModel) {
 		if (model === compareModel) {
 			compareMenuOpen = false;
@@ -389,6 +424,19 @@
 		compareModel = model;
 		modelMenuOpen = false;
 		compareMenuOpen = false;
+		thirdMenuOpen = false;
+	}
+
+	function selectThirdComparisonModel(model: BenchmarkModel) {
+		if (model === thirdModel) {
+			thirdMenuOpen = false;
+			return;
+		}
+		thirdArtifactReady = false;
+		thirdModel = model;
+		modelMenuOpen = false;
+		compareMenuOpen = false;
+		thirdMenuOpen = false;
 	}
 
 	function selectPrimaryModel(model: BenchmarkModel) {
@@ -399,22 +447,34 @@
 		const previousModel = activeModel;
 		filter = model;
 		if (compareModel === model) compareModel = previousModel;
+		else if (thirdModel === model) thirdModel = previousModel;
 		viewerArtifactReady = false;
 		comparisonArtifactReady = false;
+		thirdArtifactReady = false;
 		modelMenuOpen = false;
 		compareMenuOpen = false;
+		thirdMenuOpen = false;
 		artifactChannel = createArtifactChannel(selected);
 	}
 
 	function toggleModelMenu() {
 		modelMenuOpen = !modelMenuOpen;
 		compareMenuOpen = false;
+		thirdMenuOpen = false;
 	}
 
 	function toggleCompareMenu() {
 		if (!compareModel) return;
 		compareMenuOpen = !compareMenuOpen;
 		modelMenuOpen = false;
+		thirdMenuOpen = false;
+	}
+
+	function toggleThirdMenu() {
+		if (!thirdModel) return;
+		thirdMenuOpen = !thirdMenuOpen;
+		modelMenuOpen = false;
+		compareMenuOpen = false;
 	}
 
 	function handleCompareControl() {
@@ -427,18 +487,56 @@
 		if (nextModel && nextModel !== activeModel) selectComparisonModel(nextModel);
 	}
 
+	function addThirdComparison() {
+		modelMenuOpen = false;
+		compareMenuOpen = false;
+		thirdMenuOpen = false;
+		if (!tripleCompareAvailable) {
+			showViewerToast(TRIPLE_COMPARE_LIMIT_MESSAGE);
+			return;
+		}
+		const nextModel = viewerModels.find(
+			(model) => model !== activeModel && model !== compareModel
+		);
+		if (!nextModel) return;
+		thirdArtifactReady = false;
+		thirdModel = nextModel;
+	}
+
 	function stopComparison() {
 		modelMenuOpen = false;
 		compareMenuOpen = false;
-		compareModel = null;
+		thirdMenuOpen = false;
+		compareModel = thirdModel;
+		thirdModel = null;
 		comparisonArtifactReady = false;
+		thirdArtifactReady = false;
+	}
+
+	function stopThirdComparison() {
+		modelMenuOpen = false;
+		compareMenuOpen = false;
+		thirdMenuOpen = false;
+		thirdModel = null;
+		thirdArtifactReady = false;
+	}
+
+	function clearComparisons() {
+		modelMenuOpen = false;
+		compareMenuOpen = false;
+		thirdMenuOpen = false;
+		compareModel = null;
+		thirdModel = null;
+		comparisonArtifactReady = false;
+		thirdArtifactReady = false;
 	}
 
 	function handleWindowPointerDown(event: PointerEvent) {
-		if ((!modelMenuOpen && !compareMenuOpen) || !(event.target instanceof Node)) return;
+		if ((!modelMenuOpen && !compareMenuOpen && !thirdMenuOpen) || !(event.target instanceof Node)) return;
 		if (!compareControlElement?.contains(event.target)) {
 			modelMenuOpen = false;
 			compareMenuOpen = false;
+			thirdMenuOpen = false;
 		}
 	}
 
@@ -849,15 +947,18 @@
 		if (!selected || viewerSettling) return;
 		modelMenuOpen = false;
 		compareMenuOpen = false;
+		thirdMenuOpen = false;
 		resetViewerGesture();
 		expandOrigin = null;
 		returnPreviewElement = null;
 		returnPreviewOrigin = null;
 		viewerArtifactReady = false;
 		comparisonArtifactReady = false;
+		thirdArtifactReady = false;
 		const current = visibleSites.findIndex((site) => site.id === selected?.id);
 		const next = visibleSites[(current + direction + visibleSites.length) % visibleSites.length];
 		if (compareModel && !siteArtifactByModel[compareModel].has(next.slug)) stopComparison();
+		if (thirdModel && !siteArtifactByModel[thirdModel].has(next.slug)) stopThirdComparison();
 		artifactChannel = createArtifactChannel(next);
 		selected = next;
 		if (browser) history.replaceState(null, '', `#site/${next.slug}`);
@@ -865,9 +966,10 @@
 
 	function handleViewerShortcut(key: string) {
 		if (!selected || viewerSettling) return;
-		if (key === 'Escape' && (modelMenuOpen || compareMenuOpen)) {
+		if (key === 'Escape' && (modelMenuOpen || compareMenuOpen || thirdMenuOpen)) {
 			modelMenuOpen = false;
 			compareMenuOpen = false;
+			thirdMenuOpen = false;
 			return;
 		}
 		if (key === 'Escape') closeSite();
@@ -881,13 +983,23 @@
 
 	onMount(() => {
 		const desktopCompareMedia = window.matchMedia('(min-width: 721px) and (hover: hover) and (pointer: fine)');
+		const tripleCompareMedia = window.matchMedia(`(min-width: ${TRIPLE_COMPARE_MIN_WIDTH}px)`);
 		const syncDesktopCompare = () => {
 			desktopCompareAvailable = desktopCompareMedia.matches;
-			if (!desktopCompareAvailable) stopComparison();
+			tripleCompareAvailable = desktopCompareAvailable && tripleCompareMedia.matches;
+			if (!desktopCompareAvailable) clearComparisons();
+			else if (!tripleCompareAvailable && thirdModel) {
+				stopThirdComparison();
+				showViewerToast(TRIPLE_COMPARE_LIMIT_MESSAGE);
+			}
 		};
 		syncDesktopCompare();
 		desktopCompareMedia.addEventListener('change', syncDesktopCompare);
-		return () => desktopCompareMedia.removeEventListener('change', syncDesktopCompare);
+		tripleCompareMedia.addEventListener('change', syncDesktopCompare);
+		return () => {
+			desktopCompareMedia.removeEventListener('change', syncDesktopCompare);
+			tripleCompareMedia.removeEventListener('change', syncDesktopCompare);
+		};
 	});
 
 	onMount(() => {
@@ -1207,7 +1319,12 @@
 		<div class="viewer-backdrop" bind:this={viewerBackdropElement} aria-hidden="true"></div>
 		<div class="viewer-entry" bind:this={viewerEntryElement}>
 			<div class="viewer-surface" bind:this={viewerSurfaceElement}>
-				<div class="viewer-content" class:comparing={Boolean(comparisonArtifact)} bind:this={viewerContentElement}>
+				<div
+					class="viewer-content"
+					class:comparing={Boolean(comparisonArtifact)}
+					class:triple={Boolean(comparisonArtifact && thirdArtifact)}
+					bind:this={viewerContentElement}
+				>
 					<div class="viewer-pane primary-pane">
 						{#if selectedArtifact}
 							<div class="viewer-site artifact-shell" class:ready={viewerArtifactReady} role="document">
@@ -1263,10 +1380,35 @@
 								</div>
 							{/if}
 						</div>
+						<div class="viewer-pane third-pane" aria-hidden={!thirdArtifact}>
+							{#if thirdArtifact && thirdModel}
+								<div class="viewer-site artifact-shell" class:ready={thirdArtifactReady} role="document">
+									<img
+										class="artifact-viewer-poster"
+										src={thirdArtifact.posterUrl}
+										alt=""
+										aria-hidden="true"
+									/>
+									<iframe
+										class="artifact-frame"
+										src={thirdArtifact.artifactUrl}
+										title={`${selected.name} ${thirdModel} third comparison website`}
+										sandbox="allow-scripts"
+										referrerpolicy="no-referrer"
+										allow="camera 'none'; geolocation 'none'; microphone 'none'; payment 'none'"
+										loading="eager"
+										onload={() => (thirdArtifactReady = true)}
+									></iframe>
+								</div>
+							{/if}
+						</div>
 					{/if}
 				</div>
 			</div>
 		</div>
+		{#if viewerToast}
+			<div class="viewer-toast" role="status">{viewerToast}</div>
+		{/if}
 		<div class="viewer-controls" bind:this={viewerControlsElement}>
 			<div class="viewer-controls-cluster" bind:this={compareControlElement}>
 				<div class="close-control-pill">
@@ -1298,6 +1440,21 @@
 								title="Choose comparison model"
 							>
 								<span>{compareModel}</span>
+								<ChevronDown class="model-control-chevron" size={14} strokeWidth={2.2} />
+							</button>
+						{/if}
+						{#if thirdModel}
+							<i class="model-separator" aria-hidden="true">|</i>
+							<button
+								class="third-model-control model-segment"
+								class:open={thirdMenuOpen}
+								onclick={toggleThirdMenu}
+								aria-label={`${thirdModel} is the third comparison model. Choose third model`}
+								aria-haspopup="menu"
+								aria-expanded={thirdMenuOpen}
+								title="Choose third model"
+							>
+								<span>{thirdModel}</span>
 								<ChevronDown class="model-control-chevron" size={14} strokeWidth={2.2} />
 							</button>
 						{/if}
@@ -1341,7 +1498,31 @@
 										<span>{model}</span><i aria-hidden="true"></i>
 									</button>
 								{/each}
+								{#if !thirdModel && viewerModels.length >= 3}
+									<button class="compare-option" role="menuitem" onclick={addThirdComparison}>
+										<span>Add third model</span><i aria-hidden="true"></i>
+									</button>
+								{/if}
 								<button class="compare-option" role="menuitem" onclick={stopComparison}>
+									<span>Remove model</span><i aria-hidden="true"></i>
+								</button>
+							</div>
+						{/if}
+						{#if thirdMenuOpen && thirdModel}
+							<div class="compare-picker" role="menu" aria-label="Choose the third model">
+								<div class="compare-picker-label">Third model</div>
+								{#each thirdComparisonModels as model}
+									<button
+										class="compare-option"
+										class:selected={thirdModel === model}
+										role="menuitemradio"
+										aria-checked={thirdModel === model}
+										onclick={() => selectThirdComparisonModel(model)}
+									>
+										<span>{model}</span><i aria-hidden="true"></i>
+									</button>
+								{/each}
+								<button class="compare-option" role="menuitem" onclick={stopThirdComparison}>
 									<span>Remove model</span><i aria-hidden="true"></i>
 								</button>
 							</div>
@@ -1460,8 +1641,9 @@
 	.viewer-content { display: flex; transform-origin: top left; backface-visibility: hidden; }
 	.viewer-pane { position: relative; height: 100%; min-width: 0; overflow: hidden; }
 	.primary-pane { flex: 1 1 auto; }
-	.comparison-pane { flex: 0 0 0; opacity: 0; transform: translate3d(18px, 0, 0); box-shadow: inset 1px 0 rgba(255, 255, 255, 0); pointer-events: none; transition: flex-basis 520ms cubic-bezier(.22,1,.36,1), box-shadow 220ms ease, opacity 240ms ease, transform 520ms cubic-bezier(.22,1,.36,1); }
+	.comparison-pane, .third-pane { flex: 0 0 0; opacity: 0; transform: translate3d(18px, 0, 0); box-shadow: inset 1px 0 rgba(255, 255, 255, 0); pointer-events: none; transition: flex-basis 520ms cubic-bezier(.22,1,.36,1), box-shadow 220ms ease, opacity 240ms ease, transform 520ms cubic-bezier(.22,1,.36,1); }
 	.viewer-content.comparing .comparison-pane { flex-basis: 50%; opacity: 1; transform: translate3d(0, 0, 0); box-shadow: inset 1px 0 rgba(255, 255, 255, 0.18); pointer-events: auto; }
+	.viewer-content.triple .comparison-pane, .viewer-content.triple .third-pane { flex-basis: 33.3333%; opacity: 1; transform: translate3d(0, 0, 0); box-shadow: inset 1px 0 rgba(255, 255, 255, 0.18); pointer-events: auto; }
 	.viewer-site { height: 100%; overflow: auto; overscroll-behavior: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; }
 	.artifact-shell { position: relative; overflow: hidden; background: #07090d; }
 	.artifact-viewer-poster, .artifact-frame { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
@@ -1492,6 +1674,8 @@
 		to { opacity: 1; transform: translate(-50%, 0) scale(1); }
 	}
 	.viewer-controls { position: fixed; z-index: 1100; left: 50%; bottom: 14px; width: max-content; max-width: calc(100vw - 24px); color: #fff; transform: translateX(-50%); pointer-events: none; }
+	.viewer-toast { position: fixed; z-index: 1090; left: 50%; bottom: 74px; width: max-content; max-width: min(440px, calc(100vw - 32px)); padding: 11px 15px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 999px; background: #141413; color: rgba(255, 255, 255, 0.9); box-shadow: 0 14px 44px rgba(0, 0, 0, 0.34); font: 650 11px/1.35 'Inter Variable', Inter, sans-serif; text-align: center; transform: translateX(-50%); animation: viewer-toast-enter 220ms cubic-bezier(.22,1,.36,1) both; pointer-events: none; }
+	@keyframes viewer-toast-enter { from { opacity: 0; transform: translate(-50%, 8px) scale(.97); } to { opacity: 1; transform: translate(-50%, 0) scale(1); } }
 	.viewer-controls-cluster { display: flex; max-width: 100%; align-items: center; justify-content: center; gap: 8px; pointer-events: auto; }
 	.close-control-pill, .model-control-wrap, .navigation-control-pill { position: relative; display: flex; align-items: center; gap: 2px; padding: 4px; border: 1px solid rgba(255, 255, 255, 0.13); border-radius: 999px; background: rgba(20, 20, 19, 0.96); box-shadow: 0 14px 44px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%); }
 	.viewer-controls button, .viewer-id { height: 34px; border: 0; border-radius: 999px; background: transparent; color: #fff; box-shadow: none; pointer-events: auto; }
@@ -1560,6 +1744,6 @@
 		.preview-button-wrap:hover .preview-window, .preview-button-wrap:focus-visible .preview-window { transform: none; }
 		.collection-shell-side { animation: none !important; transform: scaleX(0) !important; }
 		.collection-shell-corner { animation: none !important; transform: scale(0) !important; }
-		.viewer.from-card .viewer-entry, .viewer.from-card .viewer-controls { animation: none; }
+		.viewer.from-card .viewer-entry, .viewer.from-card .viewer-controls, .viewer-toast { animation: none; }
 	}
 </style>
