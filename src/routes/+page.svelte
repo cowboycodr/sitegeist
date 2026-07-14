@@ -33,6 +33,7 @@
 	};
 	type PreviewOrigin = { x: number; y: number; width: number; height: number };
 	type PullPoint = { identifier: number; x: number; y: number; time: number };
+	type PendingArtifactPull = { point: PullPoint; scrollTop: number };
 	type ArtifactBridgeMessage = {
 		protocol: 'sitegeist-embed';
 		version: 1;
@@ -100,6 +101,7 @@
 	let returnPreviewElement: HTMLElement | null = null;
 	let returnPreviewOrigin: PreviewOrigin | null = null;
 	let pullGesture: PullGesture | null = null;
+	let pendingArtifactPull: PendingArtifactPull | null = null;
 	let viewerAnimations: Animation[] = [];
 	let viewerGestureSequence = 0;
 
@@ -182,6 +184,7 @@
 	function clearPullGesture() {
 		if (pullGesture?.frame) cancelAnimationFrame(pullGesture.frame);
 		pullGesture = null;
+		pendingArtifactPull = null;
 		viewerGesturePrepared = false;
 	}
 
@@ -714,10 +717,30 @@
 		const scrollTop = typeof message.scrollTop === 'number' && Number.isFinite(message.scrollTop)
 			? clamp(0, message.scrollTop, 1_000_000)
 			: 0;
-		if (message.kind === 'pull-start' && point) beginPullGesture(point, scrollTop);
-		if (message.kind === 'pull-move' && message.claimed === true && point) updatePullGesture(point, scrollTop);
-		if (message.kind === 'pull-end' && point) finishPullGesture(point);
-		if (message.kind === 'pull-cancel') handleViewerTouchCancel();
+		if (message.kind === 'pull-start' && point) {
+			// Keep touch intent inert until the iframe has rejected native scrolling and
+			// explicitly claimed a downward pull from the top of its document.
+			pendingArtifactPull = { point, scrollTop };
+			return;
+		}
+		if (message.kind === 'pull-move' && message.claimed === true && point) {
+			const pending = pendingArtifactPull;
+			pendingArtifactPull = null;
+			if (!pullGesture && pending?.point.identifier === point.identifier) {
+				beginPullGesture(pending.point, pending.scrollTop);
+			}
+			updatePullGesture(point, scrollTop);
+			return;
+		}
+		if (message.kind === 'pull-end' && point) {
+			pendingArtifactPull = null;
+			finishPullGesture(point);
+			return;
+		}
+		if (message.kind === 'pull-cancel') {
+			pendingArtifactPull = null;
+			handleViewerTouchCancel();
+		}
 	}
 
 	function pullToDismiss(node: HTMLDivElement) {
@@ -1232,6 +1255,10 @@
 	.viewer.preparing .viewer-surface { border-radius: 0; box-shadow: 0 24px 70px rgba(0, 0, 0, 0); will-change: transform; }
 	.viewer.preparing .viewer-content { will-change: transform; }
 	.viewer.preparing .viewer-backdrop { will-change: opacity; }
+	@media (hover: none) and (pointer: coarse) {
+		.viewer-surface, .viewer-content { will-change: transform; }
+		.viewer-backdrop { will-change: opacity; }
+	}
 	.viewer.dragging .viewer-surface, .viewer.settling .viewer-surface { border-radius: clamp(14px, 4vw, 22px); box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42); }
 	.viewer.dragging .viewer-controls, .viewer.settling .viewer-controls { background: rgba(20, 20, 19, 0.985); -webkit-backdrop-filter: none; backdrop-filter: none; will-change: transform, opacity; }
 	.viewer.settling { pointer-events: none; }
