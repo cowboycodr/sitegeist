@@ -1452,13 +1452,13 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Sitegeist" />
 	<meta property="og:description" content="One hundred generated websites testing how well leading models maintain visual quality, consistency, and originality." />
-	<meta property="og:image" content={`${data.origin}/og.png`} />
-	<meta property="og:image:width" content="1728" />
-	<meta property="og:image:height" content="972" />
+	<meta property="og:image" content={`${data.origin}/og.jpg`} />
+	<meta property="og:image:width" content="1712" />
+	<meta property="og:image:height" content="963" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Sitegeist" />
 	<meta name="twitter:description" content="One hundred generated websites testing how well leading models maintain visual quality, consistency, and originality." />
-	<meta name="twitter:image" content={`${data.origin}/og.png`} />
+	<meta name="twitter:image" content={`${data.origin}/og.jpg`} />
 </svelte:head>
 
 <svelte:window onkeydown={handleKeydown} onmessage={handleArtifactMessage} onpointerdown={handleWindowPointerDown} />
