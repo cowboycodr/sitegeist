@@ -1,81 +1,104 @@
 (() => {
   "use strict";
 
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* Scroll-reveal */
-  const revealables = Array.from(document.querySelectorAll(".reveal"));
-  if (reduce || !("IntersectionObserver" in window)) {
-    revealables.forEach((el) => el.classList.add("in"));
+  /* ---------- Mobile nav ---------- */
+  const toggle = document.getElementById("navToggle");
+  const links = document.getElementById("navLinks");
+  if (toggle && links) {
+    const setOpen = (open) => {
+      links.classList.toggle("open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+    toggle.addEventListener("click", () => setOpen(!links.classList.contains("open")));
+    links.addEventListener("click", (e) => {
+      if (e.target.closest("a")) setOpen(false);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && links.classList.contains("open")) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  const reveals = document.querySelectorAll(".reveal");
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    reveals.forEach((el) => el.classList.add("in"));
   } else {
     const io = new IntersectionObserver(
-      (entries, obs) => {
+      (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("in");
-            obs.unobserve(entry.target);
+            io.unobserve(entry.target);
           }
         });
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.12 },
+      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
     );
-    revealables.forEach((el) => io.observe(el));
+    reveals.forEach((el) => io.observe(el));
   }
 
-  /* Count-up stats */
-  const counters = Array.from(document.querySelectorAll("[data-count]"));
-  const runCount = (el) => {
-    const target = Number(el.getAttribute("data-count")) || 0;
-    if (reduce) {
-      el.textContent = String(target);
-      return;
+  /* ---------- Living colony ---------- */
+  const svgNS = "http://www.w3.org/2000/svg";
+  const colony = document.getElementById("colony");
+  const CX = 200, CY = 200;
+  const cells = [];
+  if (colony) {
+    // Deterministic spiral of cells (phyllotaxis) so layout is stable.
+    const N = 90;
+    const golden = Math.PI * (3 - Math.sqrt(5));
+    for (let i = 0; i < N; i += 1) {
+      const radius = 12 + 138 * Math.sqrt(i / N);
+      const angle = i * golden;
+      const x = CX + radius * Math.cos(angle);
+      const y = CY + radius * Math.sin(angle);
+      const c = document.createElementNS(svgNS, "circle");
+      c.setAttribute("cx", x.toFixed(1));
+      c.setAttribute("cy", y.toFixed(1));
+      c.setAttribute("r", "0");
+      colony.appendChild(c);
+      cells.push({ el: c, order: radius });
     }
-    const duration = 1100;
-    const start = performance.now();
-    const step = (now) => {
-      const p = Math.min(1, (now - start) / duration);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = String(Math.round(target * eased));
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  };
-
-  if ("IntersectionObserver" in window && !reduce) {
-    const co = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            runCount(entry.target);
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.6 },
-    );
-    counters.forEach((el) => co.observe(el));
-  } else {
-    counters.forEach(runCount);
   }
 
-  /* Smooth in-page navigation with focus management */
-  document.addEventListener("click", (event) => {
-    const link = event.target.closest('a[href^="#"]');
-    if (!link) return;
-    const id = link.getAttribute("href").slice(1);
-    if (!id) return;
-    const target = document.getElementById(id);
-    if (!target) return;
-    event.preventDefault();
-    target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
-    target.setAttribute("tabindex", "-1");
-    target.focus({ preventScroll: true });
-  });
+  const signal = document.getElementById("signal");
+  const signalOut = document.getElementById("signalOut");
+  const growthVal = document.getElementById("growthVal");
 
-  /* Bridge pull-state hook: gently fade the page while the viewer pulls to dismiss */
-  document.addEventListener("sitegeist:pull-state", (event) => {
-    const active = !!(event.detail && event.detail.active);
-    document.body.style.transition = reduce ? "" : "opacity .2s ease";
-    document.body.style.opacity = active ? "0.82" : "";
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+
+  function render(pct) {
+    if (signalOut) signalOut.textContent = pct + "%";
+    // Regeneration curve: saturating response to signal.
+    const regen = Math.round(100 * (1 - Math.exp(-pct / 34)));
+    if (growthVal) growthVal.textContent = regen;
+
+    // How many cells are "alive" scales with signal; radius/color scale too.
+    const activeRadius = 12 + (pct / 100) * 150;
+    cells.forEach((cell) => {
+      const alive = cell.order <= activeRadius;
+      const t = clamp((activeRadius - cell.order) / 40, 0, 1);
+      cell.el.setAttribute("r", alive ? (2.4 + 4.6 * t).toFixed(1) : "0");
+      cell.el.setAttribute("opacity", alive ? (0.35 + 0.65 * t).toFixed(2) : "0");
+      // Blend green -> pink toward the outer active frontier.
+      const g = Math.round(155 - 40 * (1 - t));
+      cell.el.setAttribute("fill", t > 0.75 ? "#d98cae" : `rgb(79, ${g}, 108)`);
+    });
+  }
+
+  if (signal) {
+    signal.addEventListener("input", () => render(clamp(parseInt(signal.value, 10) || 0, 0, 100)));
+    render(parseInt(signal.value, 10) || 0);
+  }
+
+  /* ---------- Bridge pull-state (dim while pulling to dismiss) ---------- */
+  document.addEventListener("sitegeist:pull-state", (e) => {
+    document.body.style.transition = "opacity .2s ease";
+    document.body.style.opacity = e.detail && e.detail.active ? "0.72" : "1";
   });
 })();

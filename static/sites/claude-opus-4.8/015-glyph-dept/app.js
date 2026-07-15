@@ -1,118 +1,136 @@
 (() => {
-  "use strict";
+	"use strict";
 
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+	const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- Type tester ---------- */
-  const stage = document.getElementById("stage-text");
-  const sample = document.getElementById("sample");
-  const inputs = {
-    weight: document.getElementById("weight"),
-    width: document.getElementById("width"),
-    size: document.getElementById("size"),
-    slant: document.getElementById("slant"),
-  };
-  const outs = {
-    weight: document.getElementById("weight-out"),
-    width: document.getElementById("width-out"),
-    size: document.getElementById("size-out"),
-    slant: document.getElementById("slant-out"),
-  };
-  const families = {
-    grotesk: 'var(--sans)',
-    serif: 'var(--serif)',
-    mono: 'var(--mono)',
-  };
+	const $ = (id) => document.getElementById(id);
+	const specimen = $("specimen");
+	const stage = specimen ? specimen.parentElement : null;
+	const textInput = $("sampleText");
 
-  let family = "grotesk";
+	const axes = {
+		weight: { input: $("ctlWeight"), out: $("outWeight") },
+		width: { input: $("ctlWidth"), out: $("outWidth") },
+		size: { input: $("ctlSize"), out: $("outSize") },
+		track: { input: $("ctlTrack"), out: $("outTrack") },
+		slant: { input: $("ctlSlant"), out: $("outSlant") },
+	};
 
-  const defaults = { weight: 520, width: 100, size: 120, slant: 0 };
+	// Visual fill for the range track.
+	function paintRange(input) {
+		const min = Number(input.min);
+		const max = Number(input.max);
+		const val = Number(input.value);
+		const pct = max > min ? ((val - min) / (max - min)) * 100 : 0;
+		input.style.setProperty("--fill", pct + "%");
+	}
 
-  function render() {
-    if (!stage) return;
-    const weight = Number(inputs.weight.value);
-    const width = Number(inputs.width.value);
-    const size = Number(inputs.size.value);
-    const slant = Number(inputs.slant.value);
+	// Apply every axis to the specimen and keep it inside the stage.
+	function render() {
+		if (!specimen) return;
+		const weight = Number(axes.weight.input.value);
+		const width = Number(axes.width.input.value);
+		const size = Number(axes.size.input.value);
+		const track = Number(axes.track.input.value);
+		const slant = Number(axes.slant.input.value);
 
-    const text = sample.value.trim() === "" ? "Handgloves" : sample.value;
-    stage.textContent = text;
+		axes.weight.out.textContent = weight;
+		axes.width.out.textContent = width;
+		axes.size.out.textContent = size;
+		axes.track.out.textContent = track;
+		axes.slant.out.textContent = slant;
 
-    stage.style.fontFamily =
-      family === "grotesk" ? '"Helvetica Neue", Arial, system-ui, sans-serif'
-      : family === "serif" ? '"Iowan Old Style", Palatino, Georgia, serif'
-      : '"SFMono-Regular", Menlo, Consolas, monospace';
-    stage.style.fontStyle = family === "serif" && slant !== 0 ? "italic" : "normal";
-    stage.style.fontWeight = String(weight);
-    stage.style.fontSize = size + "px";
-    stage.style.transform = `scaleX(${width / 100}) skewX(${-slant}deg)`;
+		specimen.style.fontWeight = weight;
+		specimen.style.fontSize = size + "px";
+		specimen.style.letterSpacing = (track / 100) + "em";
 
-    outs.weight.textContent = String(weight);
-    outs.width.textContent = width + "%";
-    outs.size.textContent = size + "px";
-    outs.slant.textContent = slant + "°";
-  }
+		const scaleX = width / 100;
+		const skew = -slant;
+		// Reset horizontal scale before measuring so the fit stays accurate.
+		specimen.style.transform = "scaleX(" + scaleX + ") skewX(" + skew + "deg)";
+		fit(scaleX, skew);
+	}
 
-  Object.values(inputs).forEach((el) => el && el.addEventListener("input", render));
-  if (sample) sample.addEventListener("input", render);
+	// Shrink the whole specimen if it would spill past the stage padding.
+	function fit(scaleX, skew) {
+		if (!stage) return;
+		specimen.style.transform = "scaleX(" + scaleX + ") skewX(" + skew + "deg)";
+		const avail = stage.clientWidth - 40;
+		const rect = specimen.getBoundingClientRect();
+		if (rect.width > avail && rect.width > 0) {
+			const shrink = avail / rect.width;
+			specimen.style.transform =
+				"scale(" + (scaleX * shrink) + ", " + shrink + ") skewX(" + skew + "deg)";
+		}
+	}
 
-  const reset = document.getElementById("reset");
-  if (reset) {
-    reset.addEventListener("click", () => {
-      Object.keys(defaults).forEach((k) => { inputs[k].value = defaults[k]; });
-      render();
-    });
-  }
+	Object.values(axes).forEach(({ input }) => {
+		if (!input) return;
+		paintRange(input);
+		input.addEventListener("input", () => {
+			paintRange(input);
+			render();
+		});
+	});
 
-  /* ---------- Family segmented control ---------- */
-  const segButtons = Array.from(document.querySelectorAll(".segmented button"));
-  function selectFamily(btn) {
-    family = btn.dataset.family;
-    segButtons.forEach((b) => b.setAttribute("aria-checked", String(b === btn)));
-    render();
-  }
-  segButtons.forEach((btn, i) => {
-    btn.addEventListener("click", () => selectFamily(btn));
-    btn.addEventListener("keydown", (e) => {
-      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
-      e.preventDefault();
-      const dir = e.key === "ArrowRight" ? 1 : -1;
-      const next = segButtons[(i + dir + segButtons.length) % segButtons.length];
-      next.focus();
-      selectFamily(next);
-    });
-  });
+	if (textInput && specimen) {
+		textInput.addEventListener("input", () => {
+			const value = textInput.value.trim();
+			specimen.textContent = value || "Handgloves";
+			render();
+		});
+	}
 
-  render();
+	// Presets snap the axes to a curated look.
+	const presets = {
+		poster: { weight: 900, width: 155, size: 128, track: -2, slant: 0 },
+		editorial: { weight: 400, width: 100, size: 76, track: 1, slant: 0 },
+		condensed: { weight: 700, width: 62, size: 112, track: 4, slant: -8 },
+		reset: { weight: 600, width: 100, size: 88, track: 0, slant: 0 },
+	};
 
-  /* ---------- Pointer-driven "flex" on display letters ---------- */
-  if (!reduceMotion.matches) {
-    document.querySelectorAll("[data-flex]").forEach((el) => {
-      const base = el.closest("[data-card]") ? el : el;
-      el.addEventListener("pointermove", (e) => {
-        const rect = el.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width;
-        const y = (e.clientY - rect.top) / rect.height;
-        const weight = 300 + Math.round(x * 550);
-        const stretch = 0.9 + y * 0.35;
-        el.style.fontWeight = String(weight);
-        if (!el.classList.contains("hero__line--wide")) {
-          el.style.transform = `scaleX(${stretch.toFixed(3)})`;
-          el.style.transformOrigin = "left";
-        }
-      });
-      el.addEventListener("pointerleave", () => {
-        el.style.fontWeight = "";
-        if (!el.classList.contains("hero__line--heavy") &&
-            !el.classList.contains("card__big--wide")) {
-          el.style.transform = "";
-        }
-      });
-    });
-  }
+	document.querySelectorAll("[data-preset]").forEach((btn) => {
+		btn.addEventListener("click", () => {
+			const preset = presets[btn.dataset.preset];
+			if (!preset) return;
+			Object.entries(preset).forEach(([key, val]) => {
+				const axis = axes[key];
+				if (!axis || !axis.input) return;
+				axis.input.value = val;
+				paintRange(axis.input);
+			});
+			render();
+		});
+	});
 
-  /* ---------- Bridge pull-state: dim while the viewer is pulling ---------- */
-  document.addEventListener("sitegeist:pull-state", (e) => {
-    document.body.style.opacity = e.detail && e.detail.active ? "0.96" : "";
-  });
+	window.addEventListener("resize", render, { passive: true });
+
+	// Subtle scroll-driven stretch on the hero words (motion-optional).
+	if (!reduceMotion) {
+		const words = Array.from(document.querySelectorAll(".hero-title .line"));
+		let ticking = false;
+		const update = () => {
+			ticking = false;
+			const y = window.scrollY || 0;
+			words.forEach((word, i) => {
+				const s = 1 + Math.min(0.28, y / 1400) * (1 + i * 0.35);
+				word.style.transform = "scaleX(" + s.toFixed(3) + ")";
+			});
+		};
+		window.addEventListener(
+			"scroll",
+			() => {
+				if (ticking) return;
+				ticking = true;
+				requestAnimationFrame(update);
+			},
+			{ passive: true }
+		);
+		update();
+	}
+
+	// Reset from the bridge's pull-to-dismiss gesture state (no-op visual hook).
+	document.addEventListener("sitegeist:pull-state", () => {});
+
+	render();
 })();

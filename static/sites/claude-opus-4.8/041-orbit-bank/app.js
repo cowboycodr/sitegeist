@@ -1,58 +1,38 @@
 (() => {
-  "use strict";
+	"use strict";
 
-  // Waitlist form — purely local, no network. Validates and confirms in place.
-  const form = document.querySelector(".waitlist");
-  const input = document.getElementById("email");
-  const note = document.getElementById("formNote");
+	// Reflect pull-to-dismiss state from the viewer bridge (optional, non-essential).
+	document.addEventListener("sitegeist:pull-state", (event) => {
+		const active = event && event.detail && event.detail.active;
+		document.documentElement.classList.toggle("is-pulling", !!active);
+	});
 
-  if (form && input && note) {
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const value = input.value.trim();
-      const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-      if (!valid) {
-        note.textContent = "Please enter a valid email address.";
-        note.classList.add("error");
-        input.focus();
-        return;
-      }
-      note.classList.remove("error");
-      note.textContent = "You're on the list — we'll reserve your Orbit.";
-      form.reset();
-    });
+	// Lightweight email capture demo — no network, no storage.
+	const form = document.querySelector(".open-form");
+	const input = document.getElementById("email");
+	const note = document.getElementById("formNote");
+	if (!form || !input || !note) return;
 
-    input.addEventListener("input", () => {
-      if (note.textContent) {
-        note.textContent = "";
-        note.classList.remove("error");
-      }
-    });
-  }
+	const valid = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 
-  // Back-to-top button
-  const toTop = document.getElementById("toTop");
-  if (toTop) {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let ticking = false;
-    const update = () => {
-      const show = window.scrollY > 640;
-      toTop.hidden = !show;
-      ticking = false;
-    };
-    window.addEventListener(
-      "scroll",
-      () => {
-        if (!ticking) {
-          ticking = true;
-          requestAnimationFrame(update);
-        }
-      },
-      { passive: true },
-    );
-    toTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
-    });
-    update();
-  }
+	form.addEventListener("submit", (event) => {
+		event.preventDefault();
+		const value = input.value;
+		if (!valid(value)) {
+			note.textContent = "Please enter a valid email address.";
+			note.className = "form-note err";
+			input.focus();
+			return;
+		}
+		note.textContent = "Thanks — your Orbit invite is on its way.";
+		note.className = "form-note ok";
+		form.reset();
+	});
+
+	input.addEventListener("input", () => {
+		if (note.classList.contains("err") && valid(input.value)) {
+			note.textContent = "We only use your email to send your invite.";
+			note.className = "form-note";
+		}
+	});
 })();

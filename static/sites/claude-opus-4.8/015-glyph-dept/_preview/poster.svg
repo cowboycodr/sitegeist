@@ -1,59 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img"
-     aria-labelledby="poster-title poster-desc">
-  <title id="poster-title">Glyph Department</title>
-  <desc id="poster-desc">Poster for Glyph Department, an independent type foundry: typefaces with something to say.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-labelledby="posterTitle posterDesc">
+	<title id="posterTitle">Glyph Department</title>
+	<desc id="posterDesc">Poster for the Glyph Department type foundry: a stretched letter G over the wordmark and tagline.</desc>
+	<defs>
+		<style>
+			.sans { font-family: "Helvetica Neue", Arial, sans-serif; }
+			.serif { font-family: Georgia, "Times New Roman", serif; }
+		</style>
+		<clipPath id="frame"><rect x="0" y="0" width="1200" height="900" rx="0"/></clipPath>
+	</defs>
 
-  <defs>
-    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ece5d7"/>
-      <stop offset="1" stop-color="#f4efe6"/>
-    </linearGradient>
-  </defs>
+	<g clip-path="url(#frame)">
+		<rect width="1200" height="900" fill="#f4f0e6"/>
 
-  <rect width="1200" height="900" fill="url(#glow)"/>
-  <rect x="40" y="40" width="1120" height="820" fill="none" stroke="#d9cfbc" stroke-width="2"/>
+		<!-- faint baseline grid motif -->
+		<g stroke="#14110d" stroke-opacity="0.06" stroke-width="2">
+			<line x1="0" y1="230" x2="1200" y2="230"/>
+			<line x1="0" y1="620" x2="1200" y2="620"/>
+			<line x1="0" y1="700" x2="1200" y2="700"/>
+		</g>
 
-  <!-- top bar -->
-  <g font-family="Helvetica, Arial, sans-serif">
-    <rect x="78" y="86" width="46" height="46" rx="8" fill="#14110f"/>
-    <text x="101" y="120" text-anchor="middle" font-family="Palatino, Georgia, serif"
-          font-size="28" font-weight="700" letter-spacing="-2">
-      <tspan fill="#f4efe6">G</tspan><tspan fill="#ff3b1f">D</tspan>
-    </text>
-    <text x="140" y="106" font-size="22" font-weight="700" fill="#14110f" letter-spacing="-0.5">Glyph Department</text>
-    <text x="140" y="128" font-size="14" fill="#6a6155" letter-spacing="1.5">INDEPENDENT TYPE FOUNDRY</text>
-    <text x="1122" y="118" text-anchor="end" font-size="15" fill="#6a6155"
-          letter-spacing="4">TYPOGRAPHY</text>
-  </g>
+		<!-- eyebrow -->
+		<text x="90" y="150" class="sans" font-size="26" font-weight="700" letter-spacing="12" fill="#ec4a2a">INDEPENDENT TYPE FOUNDRY</text>
 
-  <!-- variable-width specimen: the motif -->
-  <g font-family="Helvetica, Arial, sans-serif" fill="#14110f">
-    <text x="90" y="380" font-size="230" font-weight="800" letter-spacing="-14"
-          transform="translate(90,0) scale(0.62,1) translate(-90,0)">Aa</text>
-    <text x="350" y="380" font-size="230" font-weight="600" letter-spacing="-14">Aa</text>
-    <text x="640" y="380" font-size="230" font-weight="900" letter-spacing="-10"
-          transform="translate(640,0) scale(1.45,1) translate(-640,0)" fill="#ff3b1f">Aa</text>
-  </g>
-  <text x="90" y="430" font-family="'SFMono-Regular', Menlo, monospace" font-size="20"
-        fill="#6a6155" letter-spacing="2">weight 200 &#8594; 900 &#183; width 62% &#8594; 145%</text>
+		<!-- distinctive motif: an oversized, stretched G -->
+		<g transform="translate(900 470) scale(1.65 1)">
+			<text x="0" y="0" class="sans" font-size="620" font-weight="800" fill="#14110d" text-anchor="middle" dominant-baseline="middle" letter-spacing="-30">G</text>
+		</g>
 
-  <!-- headline -->
-  <g font-family="Helvetica, Arial, sans-serif" fill="#14110f">
-    <text x="86" y="590" font-size="128" font-weight="800" letter-spacing="-6">Letters</text>
-    <text x="86" y="700" font-family="Palatino, Georgia, serif" font-style="italic"
-          font-size="128" font-weight="500" fill="#ff3b1f" letter-spacing="-4">that</text>
-    <text x="440" y="700" font-size="128" font-weight="800" letter-spacing="-6"
-          transform="translate(440,0) scale(1.08,1) translate(-440,0)">perform.</text>
-  </g>
+		<!-- wordmark, letters that stretch -->
+		<g transform="translate(90 470)">
+			<text x="0" y="0" class="sans" font-size="150" font-weight="800" fill="#14110d" letter-spacing="-6">Letters</text>
+			<text x="0" y="150" class="sans" font-size="150" font-weight="800" fill="#ec4a2a" letter-spacing="-6" transform="scale(1.28 1)">that</text>
+			<text x="0" y="300" class="serif" font-size="150" font-style="italic" fill="#14110d">perform.</text>
+		</g>
 
-  <!-- tagline / footer -->
-  <line x1="86" y1="748" x2="1114" y2="748" stroke="#d9cfbc" stroke-width="2"/>
-  <g font-family="Helvetica, Arial, sans-serif">
-    <text x="86" y="800" font-size="30" font-weight="600" fill="#14110f">Typefaces with something to say.</text>
-    <text x="86" y="834" font-size="19" fill="#6a6155">
-      Variable letters that stretch, collide, and perform across every screen.
-    </text>
-    <rect x="946" y="772" width="168" height="52" rx="26" fill="#14110f"/>
-    <text x="1030" y="806" text-anchor="middle" font-size="20" font-weight="600" fill="#f4efe6">Test the type</text>
-  </g>
+		<!-- footer wordmark + tagline -->
+		<text x="90" y="800" class="sans" font-size="40" font-weight="800" fill="#14110d">Glyph<tspan font-weight="300" dx="6">Department</tspan></text>
+		<text x="90" y="850" class="sans" font-size="27" font-weight="500" fill="#6c6555">Typefaces with something to say.</text>
+
+		<!-- accent tick marks -->
+		<g fill="#2233c7">
+			<rect x="1050" y="800" width="60" height="14"/>
+			<rect x="1050" y="826" width="36" height="14"/>
+		</g>
+	</g>
 </svg>

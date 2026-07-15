@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self'; style-src 'self'; script-src 'none'" />
-  <title>Glyph Department — gallery poster</title>
-  <link rel="stylesheet" href="wrapper.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'none'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+<title>Glyph Department — Gallery poster</title>
+<style>
+	html, body { margin: 0; height: 100%; background: #14110d; }
+	body { display: grid; place-items: center; padding: 24px; box-sizing: border-box; }
+	img { width: min(100%, 900px); height: auto; box-shadow: 0 24px 60px -20px rgba(0,0,0,0.7); }
+</style>
 </head>
 <body>
-  <figure>
-    <img src="poster.svg" alt="Glyph Department poster: Letters that perform." width="1200" height="900" />
-    <figcaption>Glyph Department · gallery poster (4:3)</figcaption>
-  </figure>
+	<img src="poster.svg" alt="Glyph Department gallery poster: the words Letters that perform beside a stretched letter G." />
 </body>
 </html>

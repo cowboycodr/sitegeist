@@ -211,8 +211,8 @@ export const siteArtifacts: SiteArtifact[] =
 		"posterUrl": "/sites/claude-opus-4.8/015-glyph-dept/_preview/poster.svg",
 		"desktopAuditUrl": null,
 		"mobileAuditUrl": null,
-		"sourceHash": "78ec9c626c8e2d686b31df58af1bb170750c6d84be7d560e114cd47402c992de",
-		"distHash": "78ec9c626c8e2d686b31df58af1bb170750c6d84be7d560e114cd47402c992de"
+		"sourceHash": "9deac070a6b0eca6057c1380aa5e7207ddc56f86c07a2c318fdaad0236fe1242",
+		"distHash": "9deac070a6b0eca6057c1380aa5e7207ddc56f86c07a2c318fdaad0236fe1242"
 	},
 	{
 		"id": 16,
@@ -505,8 +505,8 @@ export const siteArtifacts: SiteArtifact[] =
 		"posterUrl": "/sites/claude-opus-4.8/036-bloom-biotech/_preview/poster.svg",
 		"desktopAuditUrl": null,
 		"mobileAuditUrl": null,
-		"sourceHash": "cb92b93546bf1afa20dcd3c36b16a03a0f357c9421712aaba67a50c1a218e21d",
-		"distHash": "cb92b93546bf1afa20dcd3c36b16a03a0f357c9421712aaba67a50c1a218e21d"
+		"sourceHash": "0fce7cbb86b4ecc804e0001c03c525b480f940d422ee828953b6e957bbbe343a",
+		"distHash": "0fce7cbb86b4ecc804e0001c03c525b480f940d422ee828953b6e957bbbe343a"
 	},
 	{
 		"id": 37,
@@ -575,8 +575,8 @@ export const siteArtifacts: SiteArtifact[] =
 		"posterUrl": "/sites/claude-opus-4.8/041-orbit-bank/_preview/poster.svg",
 		"desktopAuditUrl": null,
 		"mobileAuditUrl": null,
-		"sourceHash": "297af8feab523805333db5b946c0544aa98c14161cc74bd394be75ed1a2fd33f",
-		"distHash": "297af8feab523805333db5b946c0544aa98c14161cc74bd394be75ed1a2fd33f"
+		"sourceHash": "b37074444b0fb30ad06ec1060001ef77e327099e47172d0bffc7e7efaa511b87",
+		"distHash": "b37074444b0fb30ad06ec1060001ef77e327099e47172d0bffc7e7efaa511b87"
 	},
 	{
 		"id": 42,
@@ -897,8 +897,8 @@ export const siteArtifacts: SiteArtifact[] =
 		"posterUrl": "/sites/claude-opus-4.8/064-deep-time/_preview/poster.svg",
 		"desktopAuditUrl": null,
 		"mobileAuditUrl": null,
-		"sourceHash": "ead3d2a185a3545d5caf9431586c16d4ce96f10ac4379f8303dbcb7cae36aff9",
-		"distHash": "ead3d2a185a3545d5caf9431586c16d4ce96f10ac4379f8303dbcb7cae36aff9"
+		"sourceHash": "45057e1bee476671f730df6ad3651b032a371c1e06ee838855af53b0d5ffab60",
+		"distHash": "45057e1bee476671f730df6ad3651b032a371c1e06ee838855af53b0d5ffab60"
 	},
 	{
 		"id": 65,
@@ -1163,8 +1163,8 @@ export const siteArtifacts: SiteArtifact[] =
 		"posterUrl": "/sites/claude-opus-4.8/083-veldt-parfums/_preview/poster.svg",
 		"desktopAuditUrl": null,
 		"mobileAuditUrl": null,
-		"sourceHash": "18744af5739686494994c9a7ce3ae83515ed4fe5882e935f4ccd50c37824d6d6",
-		"distHash": "18744af5739686494994c9a7ce3ae83515ed4fe5882e935f4ccd50c37824d6d6"
+		"sourceHash": "d545e0b4894bdf86d6a80a7bf7b5c5bf69bc36602d1f7d04eeb5579c2708893c",
+		"distHash": "d545e0b4894bdf86d6a80a7bf7b5c5bf69bc36602d1f7d04eeb5579c2708893c"
 	},
 	{
 		"id": 84,
@@ -1387,8 +1387,8 @@ export const siteArtifacts: SiteArtifact[] =
 		"posterUrl": "/sites/claude-opus-4.8/099-relay-robotics/_preview/poster.svg",
 		"desktopAuditUrl": null,
 		"mobileAuditUrl": null,
-		"sourceHash": "6ac2c892dcbfe5b5464ddcdeee3743a0bb00b00adae68e6e0dfe8e16a02c56cd",
-		"distHash": "6ac2c892dcbfe5b5464ddcdeee3743a0bb00b00adae68e6e0dfe8e16a02c56cd"
+		"sourceHash": "d8570919f4bfc85043f1852a2feb268b7ac4c3ec0d43641e21e5163fea5c1475",
+		"distHash": "d8570919f4bfc85043f1852a2feb268b7ac4c3ec0d43641e21e5163fea5c1475"
 	},
 	{
 		"id": 100,

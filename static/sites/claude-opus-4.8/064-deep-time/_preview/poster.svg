@@ -1,65 +1,81 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Deep Time — four billion years, still unfolding.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Deep Time — a museum of the Earth. Four billion years, still unfolding.">
   <defs>
-    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#221a12"/>
-      <stop offset="1" stop-color="#14100c"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="0.16" r="0.7">
-      <stop offset="0" stop-color="#d68a3c" stop-opacity="0.22"/>
-      <stop offset="1" stop-color="#d68a3c" stop-opacity="0"/>
+    <radialGradient id="sky" cx="78%" cy="12%" r="90%">
+      <stop offset="0" stop-color="#20140e"/>
+      <stop offset="42%" stop-color="#0d1018"/>
+      <stop offset="100%" stop-color="#070910"/>
     </radialGradient>
-    <linearGradient id="strataFade" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#ffffff" stop-opacity="0.05"/>
-      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    <radialGradient id="sun" cx="35%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#f7d98a"/>
+      <stop offset="45%" stop-color="#e2703a"/>
+      <stop offset="100%" stop-color="#7a2d18"/>
+    </radialGradient>
+    <linearGradient id="band" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3b2a4d"/>
+      <stop offset="30%" stop-color="#6b3d2e"/>
+      <stop offset="55%" stop-color="#7a5a2a"/>
+      <stop offset="80%" stop-color="#2f5a52"/>
+      <stop offset="100%" stop-color="#365f36"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#070910" stop-opacity="0"/>
+      <stop offset="1" stop-color="#070910" stop-opacity=".55"/>
     </linearGradient>
   </defs>
 
   <rect width="1200" height="900" fill="url(#sky)"/>
-  <rect width="1200" height="900" fill="url(#glow)"/>
 
-  <!-- Stratigraphic column, lower band -->
+  <!-- molten sun -->
+  <circle cx="940" cy="150" r="120" fill="url(#sun)"/>
+  <circle cx="940" cy="150" r="120" fill="none" stroke="#f2c14e" stroke-width="2" opacity=".4"/>
+
+  <!-- crescent moon -->
+  <circle cx="240" cy="140" r="34" fill="#5a6572"/>
+  <circle cx="228" cy="132" r="30" fill="#0d1018"/>
+
+  <!-- strata layers -->
   <g>
-    <rect x="0" y="560" width="1200" height="70" fill="#8a5a3c"/>
-    <rect x="0" y="630" width="1200" height="58" fill="#a86a30"/>
-    <rect x="0" y="688" width="1200" height="66" fill="#7f9a6a"/>
-    <rect x="0" y="754" width="1200" height="56" fill="#5a8b96"/>
-    <rect x="0" y="810" width="1200" height="50" fill="#c9743a"/>
-    <rect x="0" y="860" width="1200" height="40" fill="#e0c88a"/>
-    <rect x="0" y="560" width="1200" height="340" fill="url(#strataFade)"/>
-    <!-- sediment speckle lines -->
-    <g stroke="#000000" stroke-opacity="0.18" stroke-width="2">
-      <line x1="0" y1="596" x2="1200" y2="596"/>
-      <line x1="0" y1="659" x2="1200" y2="659"/>
-      <line x1="0" y1="721" x2="1200" y2="721"/>
-      <line x1="0" y1="782" x2="1200" y2="782"/>
-    </g>
+    <rect x="0" y="560" width="1200" height="340" fill="#0f131c"/>
+    <rect x="0" y="560" width="1200" height="70" fill="#12324a" opacity=".5"/>
+    <rect x="0" y="630" width="1200" height="60" fill="#3a1810" opacity=".6"/>
+    <rect x="0" y="690" width="1200" height="55" fill="#24301a" opacity=".7"/>
+    <rect x="0" y="745" width="1200" height="55" fill="#2a1f14" opacity=".7"/>
+    <rect x="0" y="800" width="1200" height="100" fill="#141c2a"/>
+  </g>
+  <rect x="0" y="500" width="1200" height="120" fill="url(#fade)"/>
+
+  <!-- timeline ribbon -->
+  <rect x="90" y="536" width="1020" height="16" rx="8" fill="url(#band)"/>
+  <g fill="#0d1018" stroke="#f2c14e" stroke-width="3">
+    <circle cx="150" cy="544" r="13"/>
+    <circle cx="330" cy="544" r="13"/>
+    <circle cx="530" cy="544" r="13"/>
+    <circle cx="720" cy="544" r="13"/>
+    <circle cx="900" cy="544" r="13"/>
+  </g>
+  <circle cx="1080" cy="544" r="15" fill="#f2c14e"/>
+  <circle cx="1080" cy="544" r="26" fill="none" stroke="#f2c14e" stroke-width="2" opacity=".35"/>
+
+  <!-- ammonite spiral motif -->
+  <g transform="translate(210 700)" fill="none" stroke="#e2703a" stroke-width="7" stroke-linecap="round">
+    <path d="M0 0 A10 10 0 1 1 12 -14 A26 26 0 1 1 -20 -34 A48 48 0 1 1 46 -60 A72 72 0 1 1 -84 -14"/>
+  </g>
+  <g transform="translate(210 700)" stroke="#5f9ea9" stroke-width="2.5" opacity=".55">
+    <line x1="0" y1="0" x2="70" y2="0"/><line x1="0" y1="0" x2="0" y2="-78"/>
+    <line x1="0" y1="0" x2="-64" y2="-40"/><line x1="0" y1="0" x2="52" y2="-56"/>
   </g>
 
-  <!-- Ammonite spiral motif -->
-  <g transform="translate(940 300)" fill="none" stroke="#e0c88a" stroke-width="9" stroke-linecap="round" opacity="0.92">
-    <path d="M0 0 a10 10 0 1 1 12 -12 a34 34 0 1 1 -40 22 a58 58 0 1 1 70 -34 a82 82 0 1 1 -100 46 a106 106 0 1 1 130 -58"/>
+  <!-- text -->
+  <text x="90" y="300" font-family="Georgia,'Times New Roman',serif" font-size="34" letter-spacing="14" fill="#f2c14e">AN ATLAS OF EARTH</text>
+  <text x="86" y="452" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="230" fill="#eef2f7">Deep Time</text>
+  <text x="92" y="512" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="44" fill="#f2c14e">Four billion years, still unfolding.</text>
+
+  <text x="470" y="700" font-family="Georgia,'Times New Roman',serif" font-size="30" fill="#9aa8bd">Fossils · climates · extinction</text>
+  <text x="470" y="746" font-family="Georgia,'Times New Roman',serif" font-size="30" fill="#9aa8bd">An immersive museum of the Earth</text>
+
+  <g font-family="Georgia,'Times New Roman',serif" fill="#7fa663">
+    <text x="470" y="812" font-size="26">4.54 Ga  →  today</text>
   </g>
-  <g transform="translate(940 300)" stroke="#c9743a" stroke-width="2" opacity="0.5">
-    <line x1="0" y1="0" x2="118" y2="-56"/>
-    <line x1="0" y1="0" x2="70" y2="88"/>
-    <line x1="0" y1="0" x2="-96" y2="42"/>
-  </g>
 
-  <!-- Eyebrow -->
-  <text x="90" y="180" font-family="'Avenir Next', 'Segoe UI', system-ui, sans-serif"
-        font-size="30" letter-spacing="11" fill="#d68a3c" font-weight="600">AN ATLAS OF EARTH</text>
-
-  <!-- Title -->
-  <text x="84" y="330" font-family="'Iowan Old Style', Palatino, Georgia, serif"
-        font-size="188" fill="#e8dcc2" font-weight="600" letter-spacing="-2">Deep</text>
-  <text x="84" y="500" font-family="'Iowan Old Style', Palatino, Georgia, serif"
-        font-size="188" fill="#e8dcc2" font-weight="600" letter-spacing="-2">Time</text>
-
-  <!-- Tagline -->
-  <text x="90" y="700" font-family="'Iowan Old Style', Palatino, Georgia, serif"
-        font-size="42" fill="#f2e9db" font-style="italic">Four billion years, still unfolding.</text>
-
-  <!-- Category footer -->
-  <text x="90" y="770" font-family="'Avenir Next', 'Segoe UI', system-ui, sans-serif"
-        font-size="24" letter-spacing="6" fill="#14100c" font-weight="600">NATURAL HISTORY · THE STRATIGRAPH HALL</text>
+  <rect x="1" y="1" width="1198" height="898" fill="none" stroke="#27303f" stroke-width="2"/>
 </svg>

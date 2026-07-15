@@ -1,197 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
-<title>Orbit — Money that moves with you.</title>
-<meta name="description" content="One beautifully simple account for saving, spending, investing, and living across borders." />
-<link rel="stylesheet" href="styles.css" />
-<script defer src="sitegeist-bridge.js"></script>
-<script defer src="app.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self';">
+	<title>Orbit — Money that moves with you.</title>
+	<meta name="description" content="One beautifully simple account for saving, spending, investing, and living across borders.">
+	<link rel="stylesheet" href="styles.css">
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="app.js"></script>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
+	<a class="skip" href="#main">Skip to content</a>
 
-<header class="site-head">
-  <a class="brand" href="#top" aria-label="Orbit home">
-    <span class="brand-mark" aria-hidden="true">
-      <span class="core"></span>
-      <span class="ring"></span>
-    </span>
-    <span class="brand-name">Orbit</span>
-  </a>
-  <nav class="nav" aria-label="Primary">
-    <a href="#features">Account</a>
-    <a href="#move">Global</a>
-    <a href="#invest">Invest</a>
-    <a href="#faq">FAQ</a>
-  </nav>
-  <a class="btn btn-ghost head-cta" href="#open">Open an account</a>
-</header>
+	<header class="site-header">
+		<nav class="nav" aria-label="Primary">
+			<a class="brand" href="#top" aria-label="Orbit home">
+				<span class="brand-mark" aria-hidden="true">
+					<span class="brand-core"></span>
+				</span>
+				<span class="brand-name">Orbit</span>
+			</a>
+			<ul class="nav-links">
+				<li><a href="#features">Account</a></li>
+				<li><a href="#invest">Invest</a></li>
+				<li><a href="#borders">Borders</a></li>
+				<li><a href="#plans">Plans</a></li>
+			</ul>
+			<div class="nav-cta">
+				<a class="btn btn-ghost" href="#plans">Sign in</a>
+				<a class="btn btn-solid" href="#open">Open an account</a>
+			</div>
+		</nav>
+	</header>
 
-<main id="main">
-  <section class="hero" id="top">
-    <div class="hero-copy">
-      <p class="eyebrow">Banking without gravity</p>
-      <h1>Money that moves<br />with you.</h1>
-      <p class="lede">One beautifully simple account for saving, spending, investing, and living across borders.</p>
-      <div class="hero-actions">
-        <a class="btn btn-solid" href="#open">Open an account</a>
-        <a class="btn btn-line" href="#features">See benefits</a>
-      </div>
-      <dl class="hero-stats">
-        <div><dt>Instant</dt><dd>transfers in 40+ currencies</dd></div>
-        <div><dt>0%</dt><dd>hidden fees, ever</dd></div>
-        <div><dt>4.9★</dt><dd>average member rating</dd></div>
-      </dl>
-    </div>
+	<main id="main">
+		<section class="hero" id="top">
+			<div class="orbit-field" aria-hidden="true">
+				<div class="orbit orbit-1"><span class="satellite"></span></div>
+				<div class="orbit orbit-2"><span class="satellite"></span></div>
+				<div class="orbit orbit-3"><span class="satellite"></span></div>
+				<div class="planet"></div>
+			</div>
+			<div class="hero-inner">
+				<p class="eyebrow">Banking without gravity</p>
+				<h1 class="hero-title">Money that moves<br><span class="accent">with you.</span></h1>
+				<p class="hero-lede">One beautifully simple account for saving, spending, investing, and living across borders.</p>
+				<div class="hero-actions">
+					<a class="btn btn-solid btn-lg" href="#open">Open an account</a>
+					<a class="btn btn-line btn-lg" href="#features">See benefits</a>
+				</div>
+				<dl class="hero-stats">
+					<div><dt>0</dt><dd>Hidden fees</dd></div>
+					<div><dt>150+</dt><dd>Currencies</dd></div>
+					<div><dt>1.2M</dt><dd>Orbiters</dd></div>
+				</dl>
+			</div>
+		</section>
 
-    <div class="hero-orbit" aria-hidden="true">
-      <div class="orbit-system">
-        <div class="planet">
-          <span class="balance-label">Total balance</span>
-          <span class="balance-figure">$28,410<span class="cents">.62</span></span>
-          <span class="balance-trend">▲ 3.2% this month</span>
-        </div>
-        <div class="ring ring-1"><span class="sat sat-save">Save</span></div>
-        <div class="ring ring-2"><span class="sat sat-spend">Spend</span></div>
-        <div class="ring ring-3"><span class="sat sat-invest">Invest</span></div>
-      </div>
-    </div>
-  </section>
+		<section class="section" id="features" aria-labelledby="features-title">
+			<div class="section-head">
+				<p class="kicker">The account</p>
+				<h2 id="features-title">Everything your money does, in one clean orbit.</h2>
+				<p class="section-lede">No branches, no jargon, no gravity holding you down. Just an account that keeps pace with real life.</p>
+			</div>
+			<div class="card-grid">
+				<article class="card">
+					<span class="card-glyph" aria-hidden="true">◐</span>
+					<h3>Save on autopilot</h3>
+					<p>Round-ups, goals, and smart pockets grow your balance quietly in the background.</p>
+				</article>
+				<article class="card">
+					<span class="card-glyph" aria-hidden="true">◇</span>
+					<h3>Spend anywhere</h3>
+					<p>A metal card and instant notifications. Freeze, unfreeze, and set limits in a tap.</p>
+				</article>
+				<article class="card">
+					<span class="card-glyph" aria-hidden="true">◎</span>
+					<h3>Invest in seconds</h3>
+					<p>Fractional shares and diversified baskets, starting from the cost of a coffee.</p>
+				</article>
+				<article class="card">
+					<span class="card-glyph" aria-hidden="true">⟡</span>
+					<h3>Live across borders</h3>
+					<p>Hold, send, and receive in 150+ currencies at the real exchange rate.</p>
+				</article>
+			</div>
+		</section>
 
-  <section class="features" id="features" aria-labelledby="features-h">
-    <div class="section-head">
-      <p class="kicker">One account, every orbit</p>
-      <h2 id="features-h">Everything your money does, in one place.</h2>
-    </div>
-    <ul class="card-grid" role="list">
-      <li class="card">
-        <span class="card-glyph" aria-hidden="true">◎</span>
-        <h3>Spaces that save for you</h3>
-        <p>Round-ups and rules quietly redirect spare change into goals — a trip, a rainy day, a first home.</p>
-      </li>
-      <li class="card">
-        <span class="card-glyph" aria-hidden="true">⇄</span>
-        <h3>Spend anywhere, honestly</h3>
-        <p>Real exchange rates and instant notifications. Freeze, unfreeze, and set limits from the app in a tap.</p>
-      </li>
-      <li class="card">
-        <span class="card-glyph" aria-hidden="true">↗</span>
-        <h3>Invest from $1</h3>
-        <p>Diversified portfolios and fractional shares. Start small, automate contributions, watch it compound.</p>
-      </li>
-      <li class="card">
-        <span class="card-glyph" aria-hidden="true">✦</span>
-        <h3>Insight that guides</h3>
-        <p>Clear breakdowns of where money goes, with gentle nudges — never guilt, never dark patterns.</p>
-      </li>
-    </ul>
-  </section>
+		<section class="section band" id="invest" aria-labelledby="invest-title">
+			<div class="split">
+				<div class="split-copy">
+					<p class="kicker">Grow</p>
+					<h2 id="invest-title">Investing that feels weightless.</h2>
+					<p class="section-lede">Build a portfolio in minutes. Track it live. Watch small, steady deposits pull into something larger over time.</p>
+					<ul class="check-list">
+						<li>Auto-invest a set amount every payday</li>
+						<li>Commission-free fractional shares</li>
+						<li>Curated baskets by theme and risk</li>
+					</ul>
+					<a class="btn btn-solid" href="#open">Start investing</a>
+				</div>
+				<div class="split-visual" aria-hidden="true">
+					<div class="chart">
+						<svg viewBox="0 0 320 200" role="img" aria-label="Illustrative upward portfolio trend">
+							<defs>
+								<linearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
+									<stop offset="0" stop-color="#8b7bff" stop-opacity="0.55"/>
+									<stop offset="1" stop-color="#8b7bff" stop-opacity="0"/>
+								</linearGradient>
+							</defs>
+							<path class="chart-area" d="M0 170 L40 150 L80 158 L120 120 L160 128 L200 84 L240 92 L280 46 L320 30 L320 200 L0 200 Z" fill="url(#fill)"/>
+							<path class="chart-line" d="M0 170 L40 150 L80 158 L120 120 L160 128 L200 84 L240 92 L280 46 L320 30" fill="none" stroke="#b9aeffcc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+							<circle class="chart-dot" cx="320" cy="30" r="5"/>
+						</svg>
+						<div class="chart-tag">+18.4% <span>this year</span></div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-  <section class="move" id="move" aria-labelledby="move-h">
-    <div class="move-copy">
-      <p class="kicker">Life across borders</p>
-      <h2 id="move-h">Land anywhere and your bank is already there.</h2>
-      <p>Hold and switch between 40+ currencies inside a single account. Get paid locally, pay rent globally, and never lose money to the gap in the middle.</p>
-      <ul class="check-list" role="list">
-        <li>Local account details in USD, EUR, GBP and more</li>
-        <li>Fee-free ATM withdrawals abroad on eligible plans</li>
-        <li>Split bills with anyone, in any currency, instantly</li>
-      </ul>
-    </div>
-    <div class="move-panel" role="img" aria-label="A globe of connected transfer routes between cities.">
-      <div class="globe">
-        <span class="meridian"></span>
-        <span class="meridian m2"></span>
-        <span class="equator"></span>
-        <span class="node n1"></span>
-        <span class="node n2"></span>
-        <span class="node n3"></span>
-        <span class="node n4"></span>
-        <span class="arc"></span>
-      </div>
-      <div class="fx-chip"><span>£1</span><span class="arrow">→</span><span>€1.17</span></div>
-    </div>
-  </section>
+		<section class="section" id="borders" aria-labelledby="borders-title">
+			<div class="section-head">
+				<p class="kicker">Everywhere</p>
+				<h2 id="borders-title">Your account, in any timezone.</h2>
+				<p class="section-lede">Spend like a local wherever you land. Orbit converts at the mid-market rate, so your money keeps its full value across borders.</p>
+			</div>
+			<div class="rate-strip" role="list" aria-label="Sample currencies">
+				<div role="listitem"><span class="flag">$</span>USD</div>
+				<div role="listitem"><span class="flag">€</span>EUR</div>
+				<div role="listitem"><span class="flag">£</span>GBP</div>
+				<div role="listitem"><span class="flag">¥</span>JPY</div>
+				<div role="listitem"><span class="flag">₹</span>INR</div>
+				<div role="listitem"><span class="flag">₦</span>NGN</div>
+				<div role="listitem"><span class="flag">R$</span>BRL</div>
+				<div role="listitem"><span class="flag">฿</span>THB</div>
+			</div>
+		</section>
 
-  <section class="invest" id="invest" aria-labelledby="invest-h">
-    <div class="section-head center">
-      <p class="kicker">Grow on autopilot</p>
-      <h2 id="invest-h">Put your money in a wider orbit.</h2>
-      <p class="section-sub">Automated investing that keeps its distance from drama. Set a plan, pick a risk level, and let steady contributions do the heavy lifting.</p>
-    </div>
-    <div class="plans">
-      <article class="plan">
-        <h3>Steady</h3>
-        <p class="plan-desc">Lower volatility, broad bonds and blue chips.</p>
-        <p class="plan-metric"><span>~5%</span> projected annual</p>
-      </article>
-      <article class="plan featured">
-        <span class="tag">Most chosen</span>
-        <h3>Balanced</h3>
-        <p class="plan-desc">A measured mix of global equities and income.</p>
-        <p class="plan-metric"><span>~7%</span> projected annual</p>
-      </article>
-      <article class="plan">
-        <h3>Bold</h3>
-        <p class="plan-desc">Growth-weighted for the long horizon.</p>
-        <p class="plan-metric"><span>~9%</span> projected annual</p>
-      </article>
-    </div>
-    <p class="disclaimer">Projections are illustrative. Investing involves risk, including possible loss of capital. Orbit is a design concept and not a real financial institution.</p>
-  </section>
+		<section class="section" id="plans" aria-labelledby="plans-title">
+			<div class="section-head">
+				<p class="kicker">Plans</p>
+				<h2 id="plans-title">Pick the orbit that fits.</h2>
+				<p class="section-lede">Every plan includes the core account, instant notifications, and fee-free foreign spend up to your monthly limit.</p>
+			</div>
+			<div class="plan-grid">
+				<article class="plan">
+					<h3>Low</h3>
+					<p class="plan-price"><span>Free</span></p>
+					<p class="plan-note">Everything you need to launch.</p>
+					<ul>
+						<li>Everyday spending account</li>
+						<li>Round-up savings</li>
+						<li>Fee-free spend abroad up to $1,000/mo</li>
+					</ul>
+					<a class="btn btn-line btn-block" href="#open">Choose Low</a>
+				</article>
+				<article class="plan plan-feature">
+					<span class="plan-badge">Most popular</span>
+					<h3>Mid</h3>
+					<p class="plan-price">$8<span>/mo</span></p>
+					<p class="plan-note">For life at full speed.</p>
+					<ul>
+						<li>Everything in Low</li>
+						<li>Investing with fractional shares</li>
+						<li>Unlimited fee-free foreign spend</li>
+						<li>Metal card &amp; priority support</li>
+					</ul>
+					<a class="btn btn-solid btn-block" href="#open">Choose Mid</a>
+				</article>
+				<article class="plan">
+					<h3>High</h3>
+					<p class="plan-price">$18<span>/mo</span></p>
+					<p class="plan-note">Every tool, fully unlocked.</p>
+					<ul>
+						<li>Everything in Mid</li>
+						<li>Advanced investing baskets</li>
+						<li>Higher limits &amp; travel cover</li>
+					</ul>
+					<a class="btn btn-line btn-block" href="#open">Choose High</a>
+				</article>
+			</div>
+		</section>
 
-  <section class="cta" id="open" aria-labelledby="cta-h">
-    <div class="cta-inner">
-      <p class="kicker">Ready for liftoff</p>
-      <h2 id="cta-h">Open your Orbit account in minutes.</h2>
-      <p>No paperwork, no branches, no gravity holding you down. Join the waitlist and we'll reserve your spot.</p>
-      <form class="waitlist" novalidate>
-        <label class="sr-only" for="email">Email address</label>
-        <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required />
-        <button class="btn btn-solid" type="submit">Open an account</button>
-        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
-      </form>
-    </div>
-  </section>
+		<section class="section cta" id="open" aria-labelledby="cta-title">
+			<div class="cta-inner">
+				<p class="kicker">Ready when you are</p>
+				<h2 id="cta-title">Open your Orbit account today.</h2>
+				<p class="section-lede">It takes about three minutes. No paperwork, no branch visit, no gravity.</p>
+				<form class="open-form" action="#open" novalidate>
+					<label class="visually-hidden" for="email">Email address</label>
+					<input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required>
+					<button class="btn btn-solid" type="submit">Open an account</button>
+				</form>
+				<p class="form-note" id="formNote" role="status" aria-live="polite">We only use your email to send your invite.</p>
+			</div>
+		</section>
+	</main>
 
-  <section class="faq" id="faq" aria-labelledby="faq-h">
-    <div class="section-head">
-      <p class="kicker">Good to know</p>
-      <h2 id="faq-h">Questions, answered.</h2>
-    </div>
-    <div class="faq-list">
-      <details>
-        <summary>Is my money safe with Orbit?<span class="chev" aria-hidden="true"></span></summary>
-        <p>Orbit is a demonstration website. In a real deployment, eligible deposits would be protected up to the relevant scheme limit and funds held with regulated partner banks.</p>
-      </details>
-      <details>
-        <summary>What does it cost?<span class="chev" aria-hidden="true"></span></summary>
-        <p>The core account is free. Premium plans add travel perks and higher fee-free limits for a flat monthly price — with no surprise charges.</p>
-      </details>
-      <details>
-        <summary>Which currencies are supported?<span class="chev" aria-hidden="true"></span></summary>
-        <p>Hold, receive, and exchange across 40+ currencies, with local account details available in the most-used ones.</p>
-      </details>
-      <details>
-        <summary>How long does opening take?<span class="chev" aria-hidden="true"></span></summary>
-        <p>Most people finish in under five minutes from a phone, with identity verification handled in-app.</p>
-      </details>
-    </div>
-  </section>
-</main>
-
-<footer class="site-foot">
-  <div class="foot-brand">
-    <span class="brand-mark small" aria-hidden="true"><span class="core"></span><span class="ring"></span></span>
-    <span>Orbit</span>
-  </div>
-  <p class="foot-tag">Money that moves with you.</p>
-  <p class="foot-fine">A conceptual product experience. Not a real bank. No accounts are opened and no data leaves this page.</p>
-</footer>
-
-<button class="to-top" id="toTop" type="button" aria-label="Back to top" hidden>↑</button>
+	<footer class="site-footer">
+		<div class="footer-top">
+			<a class="brand" href="#top" aria-label="Orbit home">
+				<span class="brand-mark" aria-hidden="true"><span class="brand-core"></span></span>
+				<span class="brand-name">Orbit</span>
+			</a>
+			<p class="footer-tag">Money that moves with you.</p>
+		</div>
+		<nav class="footer-nav" aria-label="Footer">
+			<a href="#features">Account</a>
+			<a href="#invest">Invest</a>
+			<a href="#borders">Borders</a>
+			<a href="#plans">Plans</a>
+			<a href="#open">Open account</a>
+		</nav>
+		<p class="footer-fine">Orbit is a design concept for demonstration. Not a real bank; no financial services are offered.</p>
+	</footer>
 </body>
 </html>

@@ -1,88 +1,87 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Relay Robotics — Robots that work the room.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Relay Robotics — Robots that work the room.">
 	<defs>
-		<radialGradient id="bg" cx="78%" cy="8%" r="90%">
-			<stop offset="0" stop-color="#17324a" />
-			<stop offset="0.55" stop-color="#0b1622" />
-			<stop offset="1" stop-color="#081019" />
-		</radialGradient>
-		<linearGradient id="shell" x1="0" y1="0" x2="0" y2="1">
-			<stop offset="0" stop-color="#eef4f3" />
-			<stop offset="1" stop-color="#c1d0ce" />
+		<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#12333d"/>
+			<stop offset="0.62" stop-color="#0c232b"/>
+			<stop offset="1" stop-color="#0a1e25"/>
 		</linearGradient>
-		<linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
-			<stop offset="0" stop-color="#22405a" />
-			<stop offset="1" stop-color="#13273a" />
+		<linearGradient id="head" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#eef7f4"/>
+			<stop offset="1" stop-color="#cfe6df"/>
 		</linearGradient>
-		<linearGradient id="route" x1="0" y1="0" x2="1" y2="0">
-			<stop offset="0" stop-color="#3ddc97" />
-			<stop offset="1" stop-color="#ff7a59" />
+		<linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#e7efec"/>
 		</linearGradient>
-		<linearGradient id="mintbtn" x1="0" y1="0" x2="1" y2="1">
-			<stop offset="0" stop-color="#3ddc97" />
-			<stop offset="1" stop-color="#2bb782" />
-		</linearGradient>
+		<style>
+			.f { font-family: "Segoe UI", system-ui, sans-serif; }
+		</style>
 	</defs>
 
-	<rect width="1200" height="900" fill="url(#bg)" />
+	<rect width="1200" height="900" fill="#f5f6f2"/>
 
-	<!-- floor grid -->
-	<g stroke="#9db3bd" stroke-opacity="0.14" stroke-width="1.5">
-		<path d="M0 690 L1200 690 M0 750 L1200 750 M0 820 L1200 820" />
-		<path d="M120 660 L40 900 M360 660 L320 900 M600 660 L600 900 M840 660 L880 900 M1080 660 L1160 900" />
+	<!-- Stage panel -->
+	<rect x="60" y="60" width="1080" height="780" rx="40" fill="url(#sky)"/>
+
+	<!-- Perspective floor grid -->
+	<g stroke="#4fd1b5" stroke-opacity="0.16" stroke-width="2">
+		<line x1="360" y1="840" x2="120" y2="600"/>
+		<line x1="520" y1="840" x2="430" y2="600"/>
+		<line x1="680" y1="840" x2="600" y2="600"/>
+		<line x1="840" y1="840" x2="770" y2="600"/>
+		<line x1="1000" y1="840" x2="1080" y2="600"/>
+		<line x1="120" y1="660" x2="1080" y2="660"/>
+		<line x1="150" y1="720" x2="1050" y2="720"/>
+		<line x1="90" y1="790" x2="1110" y2="790"/>
 	</g>
 
-	<!-- route line -->
-	<path d="M150 470 L150 610 L560 610" fill="none" stroke="url(#route)" stroke-width="8" stroke-linecap="round" stroke-dasharray="2 26" />
-	<circle cx="150" cy="470" r="12" fill="#3ddc97" />
-	<circle cx="560" cy="610" r="12" fill="#ff7a59" />
-
-	<!-- pings -->
-	<circle cx="980" cy="250" r="34" fill="none" stroke="#3ddc97" stroke-opacity="0.5" stroke-width="3" />
-	<circle cx="980" cy="250" r="58" fill="none" stroke="#3ddc97" stroke-opacity="0.22" stroke-width="3" />
-
-	<!-- header brand -->
-	<g transform="translate(80 74)">
-		<rect x="0" y="0" width="66" height="48" rx="18" fill="#16293a" stroke="#9db3bd" stroke-opacity="0.2" />
-		<circle cx="24" cy="24" r="6" fill="#3ddc97" />
-		<circle cx="42" cy="24" r="6" fill="#3ddc97" />
-		<text x="84" y="34" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#eaf2f0">Relay<tspan fill="#3ddc97">Robotics</tspan></text>
+	<!-- Ping rings -->
+	<g fill="none" stroke="#4fd1b5" stroke-opacity="0.4" stroke-width="3">
+		<circle cx="285" cy="330" r="26"/>
+		<circle cx="930" cy="430" r="20"/>
 	</g>
 
-	<!-- headline -->
-	<g font-family="Segoe UI, Helvetica, Arial, sans-serif">
-		<text x="80" y="300" font-size="34" letter-spacing="6" font-weight="700" fill="#3ddc97">AUTONOMY FOR EVERYDAY SPACES</text>
-		<text x="76" y="420" font-size="118" font-weight="800" fill="#eaf2f0" letter-spacing="-3">Robots that</text>
-		<text x="76" y="540" font-size="118" font-weight="800" fill="#eaf2f0" letter-spacing="-3">work the room.</text>
-		<text x="80" y="620" font-size="30" fill="#9db3bd">Hospitals · Hotels · Campuses</text>
-	</g>
+	<!-- Robot -->
+	<g transform="translate(600 470)">
+		<!-- shadow -->
+		<ellipse cx="0" cy="330" rx="150" ry="26" fill="#000" opacity="0.35"/>
 
-	<!-- button -->
-	<g transform="translate(80 668)">
-		<rect width="290" height="66" rx="33" fill="url(#mintbtn)" />
-		<text x="145" y="43" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#05221a">Meet Relay One</text>
-	</g>
+		<!-- signal beacon -->
+		<line x1="0" y1="-190" x2="0" y2="-150" stroke="#ff8b6b" stroke-width="8"/>
+		<circle cx="0" cy="-200" r="18" fill="#ff8b6b"/>
+		<circle cx="0" cy="-200" r="44" fill="none" stroke="#ff8b6b" stroke-opacity="0.45" stroke-width="6"/>
 
-	<!-- robot -->
-	<g transform="translate(940 470)">
-		<ellipse cx="0" cy="235" rx="150" ry="30" fill="#000" opacity="0.45" />
 		<!-- head -->
-		<rect x="-95" y="-230" width="190" height="118" rx="58" fill="url(#shell)" />
-		<line x1="0" y1="-230" x2="0" y2="-262" stroke="#9db3bd" stroke-width="6" stroke-linecap="round" />
-		<circle cx="0" cy="-272" r="13" fill="#ff7a59" />
-		<rect x="-70" y="-192" width="140" height="62" rx="31" fill="#0c1b2a" />
-		<circle cx="-28" cy="-161" r="18" fill="#3ddc97" />
-		<circle cx="28" cy="-161" r="18" fill="#3ddc97" />
+		<rect x="-118" y="-150" width="236" height="118" rx="52" fill="url(#head)"/>
+		<circle cx="-42" cy="-92" r="24" fill="#0f2a33"/>
+		<circle cx="42" cy="-92" r="24" fill="#0f2a33"/>
+		<rect x="-56" y="-100" width="28" height="9" rx="4" fill="#4fd1b5"/>
+		<rect x="28" y="-100" width="28" height="9" rx="4" fill="#4fd1b5"/>
+
 		<!-- body -->
-		<rect x="-118" y="-120" width="236" height="240" rx="42" fill="url(#body)" stroke="#9db3bd" stroke-opacity="0.18" />
-		<rect x="-78" y="-86" width="156" height="58" rx="16" fill="#3ddc97" fill-opacity="0.12" stroke="#3ddc97" stroke-opacity="0.5" />
-		<circle cx="-30" cy="-57" r="10" fill="#3ddc97" />
-		<circle cx="0" cy="-57" r="10" fill="#3ddc97" opacity="0.6" />
-		<circle cx="30" cy="-57" r="10" fill="#3ddc97" opacity="0.35" />
-		<rect x="-96" y="10" width="192" height="20" rx="10" fill="#2f5273" />
-		<rect x="-90" y="52" width="180" height="24" rx="10" fill="#2f5273" />
-		<!-- base -->
-		<rect x="-104" y="120" width="208" height="34" rx="16" fill="#0c1b2a" />
-		<rect x="-84" y="146" width="36" height="14" rx="7" fill="#37536e" />
-		<rect x="48" y="146" width="36" height="14" rx="7" fill="#37536e" />
+		<rect x="-140" y="-48" width="280" height="330" rx="46" fill="url(#body)"/>
+		<rect x="-104" y="-4" width="208" height="70" rx="18" fill="#0f2a33"/>
+		<text x="0" y="42" text-anchor="middle" class="f" font-size="34" font-weight="700" fill="#4fd1b5">Relay One</text>
+		<!-- bay -->
+		<rect x="-104" y="98" width="208" height="150" rx="18" fill="#d6e5e0" stroke="#0f2a33" stroke-opacity="0.15" stroke-width="2"/>
+		<rect x="-40" y="166" width="80" height="14" rx="7" fill="#1f8f78"/>
 	</g>
+
+	<!-- Wordmark badge -->
+	<g transform="translate(110 118)">
+		<rect x="0" y="0" width="70" height="70" rx="20" fill="#f5f6f2"/>
+		<circle cx="35" cy="42" r="16" fill="#4fd1b5"/>
+		<circle cx="35" cy="16" r="7" fill="#ff8b6b"/>
+		<rect x="31" y="22" width="8" height="12" fill="#4fd1b5"/>
+		<text x="92" y="50" class="f" font-size="40" font-weight="750" fill="#f5f6f2">Relay<tspan fill="#4fd1b5">·</tspan>Robotics</text>
+	</g>
+
+	<!-- Category chip -->
+	<g transform="translate(880 108)">
+		<rect x="0" y="0" width="200" height="46" rx="23" fill="#4fd1b5" fill-opacity="0.18"/>
+		<text x="100" y="30" text-anchor="middle" class="f" font-size="20" font-weight="700" fill="#4fd1b5" letter-spacing="2">ROBOTICS</text>
+	</g>
+
+	<!-- Tagline -->
+	<text x="600" y="808" text-anchor="middle" class="f" font-size="52" font-weight="750" fill="#f5f6f2">Robots that <tspan fill="#4fd1b5">work the room.</tspan></text>
 </svg>
