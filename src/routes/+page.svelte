@@ -670,7 +670,6 @@
 			height: rect.height,
 			moved: false
 		};
-		slot.setPointerCapture(event.pointerId);
 	}
 
 	function updateDraggedModelOrder(direction: number) {
@@ -714,6 +713,8 @@
 		if (!drag.moved && horizontalDistance < 5) return;
 		if (!drag.moved) {
 			drag.moved = true;
+			// Capturing on pointerdown retargets a nested button click to the draggable slot.
+			(event.currentTarget as HTMLElement).setPointerCapture(event.pointerId);
 			dismissModelMenus();
 		}
 		event.preventDefault();
@@ -1998,10 +1999,10 @@
 	.model-control, .comparison-model-control { cursor: pointer; }
 	.model-segment > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 	.model-slot, .add-model-slot { display: flex; flex: none; min-width: 0; align-items: center; gap: 2px; overflow: hidden; will-change: width, opacity; }
-	.model-slot.reorderable { touch-action: none; cursor: grab; }
-	.model-slot.reorderable > .model-segment { cursor: grab; }
+	.model-slot.reorderable { touch-action: none; cursor: pointer; }
+	.model-slot.reorderable > .model-segment { cursor: pointer; }
 	.model-slot.drag-placeholder { opacity: 0 !important; }
-	.model-control-wrap.reordering, .model-control-wrap.reordering * { cursor: grabbing !important; user-select: none; }
+	.model-control-wrap.reordering, .model-control-wrap.reordering * { cursor: pointer !important; user-select: none; }
 	.model-slot > .model-segment, .add-model-slot > .compare-control { flex: none; }
 	.model-separator { flex: none; margin: 0 -2px; color: rgba(255, 255, 255, 0.34); font: 600 10px/1 'Inter Variable', Inter, sans-serif; font-style: normal; }
 	.comparison-model-display { gap: 5px; padding-right: 5px; }
