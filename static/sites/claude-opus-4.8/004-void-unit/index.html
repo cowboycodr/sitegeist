@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors *" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="Void Unit — a raw, uncompromising streetwear label making limited systems for life beyond the nine-to-five. Drop 07, no restock." />
+  <title>Void Unit — Uniforms for the after-hours</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#drop">Skip to the drop</a>
+
+  <header class="site-head">
+    <div class="wrap head-row">
+      <a class="brand" href="#top" aria-label="Void Unit home">
+        <svg class="mark" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+          <rect x="1.5" y="1.5" width="21" height="21" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 3v6M12 15v6M3 12h6M15 12h6" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="3.4" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span class="brand-name">Void<span aria-hidden="true"> </span>Unit</span>
+      </a>
+      <nav class="head-nav" aria-label="Primary">
+        <a class="link" href="#drop">Drop</a>
+        <a class="link" href="#lookbook">Lookbook</a>
+        <a class="link" href="#system">System</a>
+        <button class="bag" id="bag" type="button" aria-label="Bag, 0 units">
+          Bag <span class="count">0</span>
+        </button>
+      </nav>
+    </div>
+    <p id="bag-note" class="wrap mono" role="status" hidden style="padding-bottom:8px;color:var(--acid);"></p>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow mono">Drop 07 · No restock</p>
+          <h1 id="hero-title">Uniforms<br /><span class="stroke">for the</span><br />after-hours</h1>
+          <p class="lede">A raw, uncompromising streetwear label making limited systems for life beyond the nine-to-five. Built once. Worn hard. Never re-run.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#drop">Shop the drop</a>
+            <a class="btn btn-ghost" href="#lookbook">View lookbook</a>
+          </div>
+        </div>
+        <aside class="drop-card" aria-label="Drop 07 status">
+          <h2>Drop 07 closes in</h2>
+          <p class="drop-status"><span class="pulse" aria-hidden="true"></span> Live now</p>
+          <div class="clock" id="clock" role="timer" aria-label="Time remaining until Drop 07 closes">
+            <div><span class="num" data-u="d">00</span><span class="lbl">Days</span></div>
+            <div><span class="num" data-u="h">00</span><span class="lbl">Hrs</span></div>
+            <div><span class="num" data-u="m">00</span><span class="lbl">Min</span></div>
+            <div><span class="num" data-u="s">00</span><span class="lbl">Sec</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="strip" aria-hidden="true">
+      <div class="strip-track">
+        <span>Limited system — 400 units total — no restock — sealed at close — Drop 07 — Void Unit —&nbsp;</span>
+        <span>Limited system — 400 units total — no restock — sealed at close — Drop 07 — Void Unit —&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- DROP -->
+    <section class="section wrap" id="drop" aria-labelledby="drop-title">
+      <div class="section-head">
+        <h2 id="drop-title"><span class="idx mono">01 /</span> The drop</h2>
+        <p>Seven units engineered as one wardrobe. Each cut is capped and disappears at close.</p>
+      </div>
+      <div class="units">
+        <!-- unit -->
+        <article class="unit">
+          <div class="unit-fig">
+            <svg viewBox="0 0 200 250" role="img" aria-label="Overlock hood in void black">
+              <rect width="200" height="250" fill="#121215"/>
+              <path d="M60 60 L80 44 H120 L140 60 L170 92 L156 118 L140 104 V210 H60 V104 L44 118 L30 92 Z" fill="#1c1c22" stroke="#2a2a30"/>
+              <path d="M80 44 Q100 78 120 44" fill="none" stroke="#2a2a30"/>
+              <circle cx="100" cy="88" r="7" fill="none" stroke="#d6ff2b"/>
+              <path d="M100 95 V150" stroke="#d6ff2b" stroke-dasharray="3 5"/>
+            </svg>
+          </div>
+          <p class="unit-code mono" >VU07-A1</p>
+          <h3>Overlock hood</h3>
+          <p class="desc">14oz loopback, exposed seams, dead-of-night black.</p>
+          <div class="unit-foot">
+            <span class="price">£145</span>
+            <button class="acquire" type="button" data-id="VU07-A1" aria-pressed="false">Acquire</button>
+          </div>
+        </article>
+
+        <article class="unit">
+          <div class="unit-fig">
+            <svg viewBox="0 0 200 250" role="img" aria-label="Cargo shell trouser in graphite">
+              <rect width="200" height="250" fill="#121215"/>
+              <path d="M78 40 H122 L128 120 L120 220 H108 L100 140 L92 220 H80 L72 120 Z" fill="#1c1c22" stroke="#2a2a30"/>
+              <rect x="60" y="120" width="20" height="34" fill="#17171b" stroke="#2a2a30"/>
+              <rect x="120" y="120" width="20" height="34" fill="#17171b" stroke="#2a2a30"/>
+              <path d="M78 40 H122" stroke="#d6ff2b"/>
+            </svg>
+          </div>
+          <p class="unit-code mono">VU07-B2</p>
+          <h3>Cargo shell</h3>
+          <p class="desc">Ripstop utility trouser, six pockets, taped hems.</p>
+          <div class="unit-foot">
+            <span class="price">£160</span>
+            <button class="acquire" type="button" data-id="VU07-B2" aria-pressed="false">Acquire</button>
+          </div>
+        </article>
+
+        <article class="unit sold">
+          <div class="unit-fig">
+            <svg viewBox="0 0 200 250" role="img" aria-label="Night liner jacket, sold out">
+              <rect width="200" height="250" fill="#121215"/>
+              <path d="M66 52 L86 40 H114 L134 52 V210 H66 Z" fill="#1c1c22" stroke="#2a2a30"/>
+              <path d="M100 40 V210" stroke="#2a2a30"/>
+              <path d="M86 40 L100 60 L114 40" fill="none" stroke="#2a2a30"/>
+              <rect x="150" y="70" width="16" height="60" fill="#17171b" stroke="#2a2a30"/>
+              <rect x="34" y="70" width="16" height="60" fill="#17171b" stroke="#2a2a30"/>
+            </svg>
+          </div>
+          <p class="unit-code mono">VU07-C3</p>
+          <h3>Night liner</h3>
+          <p class="desc">Quilted zip-out liner, magnetic storm placket.</p>
+          <div class="unit-foot">
+            <span class="price">£210</span>
+            <span class="sold-tag">Sold out</span>
+          </div>
+        </article>
+
+        <article class="unit">
+          <div class="unit-fig">
+            <svg viewBox="0 0 200 250" role="img" aria-label="Static tee with grid print">
+              <rect width="200" height="250" fill="#121215"/>
+              <path d="M64 62 L88 46 H112 L136 62 L154 84 L142 104 L132 96 V200 H68 V96 L58 104 L46 84 Z" fill="#1c1c22" stroke="#2a2a30"/>
+              <path d="M78 120 h44 M78 136 h44 M78 152 h30" stroke="#d6ff2b" stroke-width="1.4"/>
+            </svg>
+          </div>
+          <p class="unit-code mono">VU07-D4</p>
+          <h3>Static tee</h3>
+          <p class="desc">Boxy heavyweight jersey, glow-index chest print.</p>
+          <div class="unit-foot">
+            <span class="price">£70</span>
+            <button class="acquire" type="button" data-id="VU07-D4" aria-pressed="false">Acquire</button>
+          </div>
+        </article>
+
+        <article class="unit">
+          <div class="unit-fig">
+            <svg viewBox="0 0 200 250" role="img" aria-label="Curfew balaclava mask">
+              <rect width="200" height="250" fill="#121215"/>
+              <path d="M70 70 Q100 40 130 70 Q140 120 128 170 Q100 200 72 170 Q60 120 70 70 Z" fill="#1c1c22" stroke="#2a2a30"/>
+              <ellipse cx="86" cy="118" rx="12" ry="7" fill="#0a0a0b" stroke="#d6ff2b"/>
+              <ellipse cx="114" cy="118" rx="12" ry="7" fill="#0a0a0b" stroke="#d6ff2b"/>
+            </svg>
+          </div>
+          <p class="unit-code mono">VU07-E5</p>
+          <h3>Curfew mask</h3>
+          <p class="desc">Merino-lined balaclava, reflective eye binding.</p>
+          <div class="unit-foot">
+            <span class="price">£55</span>
+            <button class="acquire" type="button" data-id="VU07-E5" aria-pressed="false">Acquire</button>
+          </div>
+        </article>
+
+        <article class="unit">
+          <div class="unit-fig">
+            <svg viewBox="0 0 200 250" role="img" aria-label="Deadbolt boots">
+              <rect width="200" height="250" fill="#121215"/>
+              <path d="M74 70 H108 V150 L150 170 V196 H60 V150 Z" fill="#1c1c22" stroke="#2a2a30"/>
+              <path d="M74 90 h34 M74 108 h34 M74 126 h34" stroke="#2a2a30"/>
+              <rect x="60" y="196" width="90" height="8" fill="#d6ff2b"/>
+            </svg>
+          </div>
+          <p class="unit-code mono">VU07-F6</p>
+          <h3>Deadbolt boot</h3>
+          <p class="desc">Vulcanised sole, speed-hook lacing, all-terrain grip.</p>
+          <div class="unit-foot">
+            <span class="price">£190</span>
+            <button class="acquire" type="button" data-id="VU07-F6" aria-pressed="false">Acquire</button>
+          </div>
+        </article>
+
+        <article class="unit">
+          <div class="unit-fig">
+            <svg viewBox="0 0 200 250" role="img" aria-label="Signal crossbody bag">
+              <rect width="200" height="250" fill="#121215"/>
+              <path d="M62 110 H138 L128 190 H72 Z" fill="#1c1c22" stroke="#2a2a30"/>
+              <path d="M62 110 Q70 60 130 62" fill="none" stroke="#2a2a30"/>
+              <rect x="84" y="132" width="32" height="20" fill="none" stroke="#d6ff2b"/>
+            </svg>
+          </div>
+          <p class="unit-code mono">VU07-G7</p>
+          <h3>Signal sling</h3>
+          <p class="desc">Cordura crossbody, faraday pocket, magnet buckle.</p>
+          <div class="unit-foot">
+            <span class="price">£95</span>
+            <button class="acquire" type="button" data-id="VU07-G7" aria-pressed="false">Acquire</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- LOOKBOOK -->
+    <section class="section section-line" id="lookbook" aria-labelledby="look-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="look-title"><span class="idx mono">02 /</span> Lookbook</h2>
+          <p>Shot after midnight. Select a frame to open it full-height.</p>
+        </div>
+        <div class="looks">
+          <button class="look" type="button" data-title="Frame 01 — Overpass" data-meta="VU07-A1 · VU07-B2 · Deadbolt">
+            <svg viewBox="0 0 300 400" role="img" aria-label="Look one: hood and cargo under sodium light">
+              <defs>
+                <linearGradient id="lg1" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#1a1a20"/><stop offset="1" stop-color="#0c0c0f"/>
+                </linearGradient>
+              </defs>
+              <rect width="300" height="400" fill="url(#lg1)"/>
+              <circle cx="235" cy="70" r="46" fill="#d6ff2b" opacity="0.14"/>
+              <path d="M120 90 L150 66 L180 90 L200 130 L182 150 V330 H118 V150 L100 130 Z" fill="#17171b" stroke="#2a2a30"/>
+              <path d="M126 190 H174 L184 330 H116 Z" fill="#121216" stroke="#2a2a30"/>
+              <circle cx="150" cy="118" r="10" fill="none" stroke="#d6ff2b"/>
+            </svg>
+            <figcaption><b>Overpass</b><span class="mono">01</span></figcaption>
+          </button>
+
+          <button class="look" type="button" data-title="Frame 02 — Loading dock" data-meta="VU07-C3 · VU07-E5">
+            <svg viewBox="0 0 300 400" role="img" aria-label="Look two: liner jacket and mask">
+              <rect width="300" height="400" fill="#0d0d11"/>
+              <rect x="30" y="30" width="240" height="340" fill="none" stroke="#1d1d24"/>
+              <path d="M110 80 L134 62 H166 L190 80 V330 H110 Z" fill="#17171b" stroke="#2a2a30"/>
+              <path d="M150 62 V330" stroke="#2a2a30"/>
+              <path d="M126 70 Q150 44 174 70 Q180 96 172 120 Q150 138 128 120 Q120 96 126 70Z" fill="#121216" stroke="#2a2a30" transform="translate(0,-14)"/>
+              <ellipse cx="140" cy="52" rx="8" ry="5" fill="#0a0a0b" stroke="#d6ff2b"/>
+              <ellipse cx="160" cy="52" rx="8" ry="5" fill="#0a0a0b" stroke="#d6ff2b"/>
+            </svg>
+            <figcaption><b>Loading dock</b><span class="mono">02</span></figcaption>
+          </button>
+
+          <button class="look" type="button" data-title="Frame 03 — Late bus" data-meta="VU07-D4 · VU07-G7">
+            <svg viewBox="0 0 300 400" role="img" aria-label="Look three: static tee and sling">
+              <rect width="300" height="400" fill="#101014"/>
+              <path d="M110 90 L150 66 L190 90 L210 122 L196 140 L184 132 V320 H116 V132 L104 140 L90 122 Z" fill="#17171b" stroke="#2a2a30"/>
+              <path d="M128 170 h44 M128 188 h44 M128 206 h30" stroke="#d6ff2b" stroke-width="2"/>
+              <path d="M112 150 H190 L200 250 H150 Z" fill="none" stroke="#2a2a30"/>
+              <rect x="146" y="180" width="30" height="20" fill="none" stroke="#d6ff2b"/>
+            </svg>
+            <figcaption><b>Late bus</b><span class="mono">03</span></figcaption>
+          </button>
+
+          <button class="look" type="button" data-title="Frame 04 — Perimeter" data-meta="Full system · Drop 07">
+            <svg viewBox="0 0 300 400" role="img" aria-label="Look four: full system silhouette">
+              <rect width="300" height="400" fill="#0b0b0e"/>
+              <path d="M0 300 H300" stroke="#1d1d24"/>
+              <path d="M130 70 L150 54 L170 70 L184 100 L172 116 V300 H128 V116 L116 100 Z" fill="#141418" stroke="#2a2a30"/>
+              <rect x="132" y="180" width="36" height="120" fill="#101015" stroke="#2a2a30"/>
+              <circle cx="150" cy="92" r="8" fill="none" stroke="#d6ff2b"/>
+              <path d="M150 100 V180" stroke="#d6ff2b" stroke-dasharray="4 6"/>
+              <path d="M60 40 v20 M50 50 h20 M240 40 v20 M230 50 h20" stroke="#2a2a30"/>
+            </svg>
+            <figcaption><b>Perimeter</b><span class="mono">04</span></figcaption>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SYSTEM -->
+    <section class="section section-line wrap" id="system" aria-labelledby="sys-title">
+      <div class="section-head">
+        <h2 id="sys-title"><span class="idx mono">03 /</span> The system</h2>
+        <p>How Void Unit is built. No seasons, no compromise, no second run.</p>
+      </div>
+      <div class="system-grid">
+        <div class="tenet">
+          <span class="n">01</span>
+          <h3>Made in numbers</h3>
+          <p>Every drop is capped and serialised. When a unit is gone, it is gone for good.</p>
+        </div>
+        <div class="tenet">
+          <span class="n">02</span>
+          <h3>Built to abuse</h3>
+          <p>Heavyweight fabrics, reinforced seams, hardware rated for the long walk home.</p>
+        </div>
+        <div class="tenet">
+          <span class="n">03</span>
+          <h3>One wardrobe</h3>
+          <p>Units are designed to lock together. Buy a piece; you're buying into a system.</p>
+        </div>
+        <div class="tenet">
+          <span class="n">04</span>
+          <h3>No noise</h3>
+          <p>No logos shouting for you. Quiet marks, sharp cuts, meant for after dark.</p>
+        </div>
+      </div>
+      <p class="manifesto">The nine-to-five ends. The uniform begins.</p>
+    </section>
+
+    <!-- SIGNUP -->
+    <section class="section section-line wrap" aria-labelledby="signup-title">
+      <div class="signup">
+        <div>
+          <h2 id="signup-title">Get on the roster</h2>
+          <p>Drops are announced once, to the list, hours before they open. No spam, no restock warnings — there are none.</p>
+        </div>
+        <form id="signup-form" novalidate>
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@after-hours.co" />
+          </div>
+          <button class="btn btn-primary" type="submit">Request access</button>
+          <p class="note mono" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap foot-row">
+      <a class="brand" href="#top" aria-label="Void Unit home">
+        <svg class="mark" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+          <rect x="1.5" y="1.5" width="21" height="21" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 3v6M12 15v6M3 12h6M15 12h6" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="3.4" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span class="brand-name">Void Unit</span>
+      </a>
+      <ul class="foot-links mono">
+        <li><a href="#drop">Drop 07</a></li>
+        <li><a href="#lookbook">Lookbook</a></li>
+        <li><a href="#system">System</a></li>
+        <li><a href="#signup-title">Roster</a></li>
+      </ul>
+      <p class="foot-copy mono">© <span id="year">2026</span> Void Unit · No restock</p>
+    </div>
+  </footer>
+
+  <dialog class="viewer" id="viewer" aria-label="Lookbook frame">
+    <div class="viewer-body"></div>
+    <div class="viewer-foot">
+      <div>
+        <h3 data-vt>Frame</h3>
+        <p data-vm class="mono"></p>
+      </div>
+      <button class="viewer-close" type="button">Close</button>
+    </div>
+  </dialog>
+</body>
+</html>

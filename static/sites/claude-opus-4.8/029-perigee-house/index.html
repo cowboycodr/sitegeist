@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+<title>Perigee House — Earth has never looked this good.</title>
+<meta name="description" content="A speculative orbital hotel pairing aerospace precision with five-star perspective." />
+<link rel="stylesheet" href="styles.css" />
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar" id="top">
+  <div class="wrap topbar__inner">
+    <a class="brand" href="#top" aria-label="Perigee House home">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="34" height="34" role="img" focusable="false">
+          <circle cx="20" cy="20" r="12" fill="none" stroke="currentColor" stroke-width="1.4"/>
+          <ellipse cx="20" cy="20" rx="18" ry="7" fill="none" stroke="currentColor" stroke-width="1.4" transform="rotate(-28 20 20)"/>
+          <circle cx="33.2" cy="12.9" r="2.1" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="brand__type">Perigee&nbsp;House</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#station">Station</a>
+      <a href="#suites">Suites</a>
+      <a href="#timeline">Approach</a>
+      <a href="#reserve" class="nav__cta">Reserve</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__sky" aria-hidden="true">
+      <div class="hero__earth"></div>
+      <span class="star s1"></span><span class="star s2"></span><span class="star s3"></span>
+      <span class="star s4"></span><span class="star s5"></span><span class="star s6"></span>
+    </div>
+    <div class="wrap hero__content">
+      <p class="eyebrow">Low-Earth orbit · 2031</p>
+      <h1 id="hero-title">Earth has never<br />looked this good.</h1>
+      <p class="lede">Perigee House is a speculative orbital hotel pairing aerospace
+        precision with five-star perspective — a quiet ring of suites turning once
+        every ninety minutes above a planet that never stops moving.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#reserve">Reserve your orbit</a>
+        <a class="btn btn--ghost" href="#station">Tour the station</a>
+      </div>
+      <dl class="hero__stats">
+        <div><dt>Altitude</dt><dd>420&nbsp;km</dd></div>
+        <div><dt>Orbit</dt><dd>92&nbsp;min</dd></div>
+        <div><dt>Sunrises / day</dt><dd>16</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section station" id="station" aria-labelledby="station-title">
+    <div class="wrap">
+      <p class="kicker">The station</p>
+      <h2 id="station-title">A rotating ring, engineered for stillness.</h2>
+      <p class="section__lede">Three pressurized decks share a single curved
+        promenade. Structure handled by aerospace tolerances; comfort handled by
+        people who have run the world's best hotels on the ground.</p>
+      <div class="grid grid--3">
+        <article class="card">
+          <h3>The Promenade</h3>
+          <p>A 60-metre viewing gallery of curved fused-silica glass. Walk the full
+            arc of the horizon while the terminator line sweeps beneath your feet.</p>
+        </article>
+        <article class="card">
+          <h3>Gentle spin</h3>
+          <p>The habitation ring turns at a whisper to hold a comfortable one-third
+            gravity — enough to pour a coffee, light enough to feel weightless.</p>
+        </article>
+        <article class="card">
+          <h3>Closed loop</h3>
+          <p>Water, air, and warmth recirculate through the same quiet systems that
+            keep a research station alive — refined for guests who never see them.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section suites" id="suites" aria-labelledby="suites-title">
+    <div class="wrap">
+      <p class="kicker">Suites</p>
+      <h2 id="suites-title">Three ways to hold the planet in a window.</h2>
+      <div class="suites__tabs" role="tablist" aria-label="Suite options">
+        <button role="tab" id="tab-cupola" aria-controls="panel-cupola" aria-selected="true" class="tab">Cupola</button>
+        <button role="tab" id="tab-terminator" aria-controls="panel-terminator" aria-selected="false" tabindex="-1" class="tab">Terminator</button>
+        <button role="tab" id="tab-apogee" aria-controls="panel-apogee" aria-selected="false" tabindex="-1" class="tab">Apogee</button>
+      </div>
+
+      <div class="suites__panels">
+        <div role="tabpanel" id="panel-cupola" aria-labelledby="tab-cupola" class="panel" tabindex="0">
+          <div class="panel__body">
+            <h3>Cupola Suite</h3>
+            <p>A domed berth of seven overlapping windows, so the horizon curves
+              around you as you sleep. The most requested view aboard.</p>
+            <ul class="specs">
+              <li><span>Berths</span><strong>2</strong></li>
+              <li><span>View</span><strong>Full dome</strong></li>
+              <li><span>Nights</span><strong>from 3</strong></li>
+            </ul>
+          </div>
+          <p class="panel__price"><span>from</span> $480k <small>/ night</small></p>
+        </div>
+
+        <div role="tabpanel" id="panel-terminator" aria-labelledby="tab-terminator" class="panel" tabindex="0" hidden>
+          <div class="panel__body">
+            <h3>Terminator Suite</h3>
+            <p>Positioned on the twilight edge of the ring to catch the day–night
+              line on every pass — sixteen sunsets, framed and unhurried.</p>
+            <ul class="specs">
+              <li><span>Berths</span><strong>2</strong></li>
+              <li><span>View</span><strong>Horizon arc</strong></li>
+              <li><span>Nights</span><strong>from 4</strong></li>
+            </ul>
+          </div>
+          <p class="panel__price"><span>from</span> $560k <small>/ night</small></p>
+        </div>
+
+        <div role="tabpanel" id="panel-apogee" aria-labelledby="tab-apogee" class="panel" tabindex="0" hidden>
+          <div class="panel__body">
+            <h3>Apogee Residence</h3>
+            <p>The full crown of the ring — a two-deck residence with a private
+              observation lounge and a personal orbital concierge on call.</p>
+            <ul class="specs">
+              <li><span>Berths</span><strong>4</strong></li>
+              <li><span>View</span><strong>360°</strong></li>
+              <li><span>Nights</span><strong>from 7</strong></li>
+            </ul>
+          </div>
+          <p class="panel__price"><span>from</span> $1.2m <small>/ night</small></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section timeline" id="timeline" aria-labelledby="timeline-title">
+    <div class="wrap">
+      <p class="kicker">The approach</p>
+      <h2 id="timeline-title">From launch pad to lobby in four steps.</h2>
+      <ol class="steps">
+        <li>
+          <span class="steps__num">01</span>
+          <h3>Ascent</h3>
+          <p>A crewed vehicle carries you to orbit in under nine minutes, with a
+            flight director who has done it a hundred times before.</p>
+        </li>
+        <li>
+          <span class="steps__num">02</span>
+          <h3>Rendezvous</h3>
+          <p>You match the ring's orbit and glide the final metres to a soft,
+            automated dock — no jolt, just a settle.</p>
+        </li>
+        <li>
+          <span class="steps__num">03</span>
+          <h3>Arrival</h3>
+          <p>Step through the airlock into a warm, lamplit lobby and hand your
+            gravity legs off to the crew who caught them for you.</p>
+        </li>
+        <li>
+          <span class="steps__num">04</span>
+          <h3>Residency</h3>
+          <p>Settle into your suite as the promenade lights dim and the planet
+            rolls a fresh sunrise beneath the glass.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section reserve" id="reserve" aria-labelledby="reserve-title">
+    <div class="wrap reserve__inner">
+      <div class="reserve__copy">
+        <p class="kicker">Reserve</p>
+        <h2 id="reserve-title">Hold your window before the manifest closes.</h2>
+        <p class="section__lede">Reservations for the 2031 opening season are placed
+          by request. Tell us your suite and dates, and an orbital concierge will
+          confirm your seat on the manifest.</p>
+        <ul class="reserve__points">
+          <li>Full flight training included in the twelve weeks before launch.</li>
+          <li>Fully refundable until sixty days before your ascent window.</li>
+        </ul>
+      </div>
+
+      <form class="reserve__form" id="reserve-form" novalidate>
+        <p class="field">
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required />
+        </p>
+        <p class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required />
+        </p>
+        <p class="field">
+          <label for="f-suite">Suite</label>
+          <select id="f-suite" name="suite">
+            <option value="cupola">Cupola Suite</option>
+            <option value="terminator">Terminator Suite</option>
+            <option value="apogee">Apogee Residence</option>
+          </select>
+        </p>
+        <p class="field">
+          <label for="f-window">Preferred window</label>
+          <select id="f-window" name="window">
+            <option>Spring 2031</option>
+            <option>Summer 2031</option>
+            <option>Autumn 2031</option>
+            <option>Winter 2031</option>
+          </select>
+        </p>
+        <button class="btn btn--primary btn--block" type="submit">Reserve your orbit</button>
+        <p class="reserve__status" id="reserve-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p class="brand brand--foot">
+      <span class="brand__type">Perigee House</span>
+    </p>
+    <p class="footer__note">A speculative orbital hotel. Everything here is a
+      design fiction for the year 2031 — no seats are actually for sale.</p>
+    <p class="footer__meta">Low-Earth orbit · 420&nbsp;km · © 2031 Perigee House</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+<title>Frame Zero — Films that refuse the expected</title>
+<meta name="description" content="A living festival program for independent films, sharp new voices, and stories without a formula." />
+<link rel="stylesheet" href="styles.css" />
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#program">Skip to the program</a>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header class="site-head">
+  <a class="brand" href="#top" aria-label="Frame Zero home">
+    <span class="brand-mark" aria-hidden="true">
+      <span class="leader">
+        <span class="leader-ring"></span>
+        <span class="leader-cross"></span>
+        <span class="leader-num">0</span>
+      </span>
+    </span>
+    <span class="brand-word">Frame<span>Zero</span></span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    <a href="#program">Program</a>
+    <a href="#schedule">Screenings</a>
+    <a href="#voices">Voices</a>
+    <a href="#pass">Passes</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-inner">
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Independent cinema</p>
+      <h1 id="hero-title">Films that refuse<br />the expected.</h1>
+      <p class="lede">A living festival program for independent films, sharp new voices, and stories without a formula. Twelve nights, one screen, zero safe choices.</p>
+      <div class="cta">
+        <button class="btn btn-primary" type="button" data-scroll="#program">Start watching</button>
+        <button class="btn btn-ghost" type="button" data-scroll="#schedule">Browse the program</button>
+      </div>
+      <dl class="stat-row">
+        <div><dt>Feature premieres</dt><dd>18</dd></div>
+        <div><dt>Countries</dt><dd>23</dd></div>
+        <div><dt>Debut directors</dt><dd>11</dd></div>
+      </dl>
+    </div>
+    <div class="hero-marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Nightbloom</span><span aria-hidden="true">·</span>
+        <span>The Long Static</span><span aria-hidden="true">·</span>
+        <span>Salt of the Border</span><span aria-hidden="true">·</span>
+        <span>Reel Eleven</span><span aria-hidden="true">·</span>
+        <span>Held Over</span><span aria-hidden="true">·</span>
+        <span>Nightbloom</span><span aria-hidden="true">·</span>
+        <span>The Long Static</span><span aria-hidden="true">·</span>
+        <span>Salt of the Border</span><span aria-hidden="true">·</span>
+        <span>Reel Eleven</span><span aria-hidden="true">·</span>
+        <span>Held Over</span><span aria-hidden="true">·</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="program" class="program" aria-labelledby="program-title" tabindex="-1">
+    <div class="section-head">
+      <h2 id="program-title">The Program</h2>
+      <p>Curated in strands. Filter by the thread you want to follow.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter films by strand">
+      <button class="chip is-active" type="button" data-filter="all" aria-pressed="true">All films</button>
+      <button class="chip" type="button" data-filter="premiere" aria-pressed="false">Premieres</button>
+      <button class="chip" type="button" data-filter="doc" aria-pressed="false">Nonfiction</button>
+      <button class="chip" type="button" data-filter="short" aria-pressed="false">Shorts</button>
+      <button class="chip" type="button" data-filter="restored" aria-pressed="false">Restored</button>
+    </div>
+    <ul class="film-grid" id="film-grid"></ul>
+    <p class="empty" id="film-empty" hidden>No films in this strand yet — check back as the lineup grows.</p>
+  </section>
+
+  <section id="schedule" class="schedule" aria-labelledby="schedule-title">
+    <div class="section-head">
+      <h2 id="schedule-title">Screenings</h2>
+      <p>Every night at the Old Sodium Theatre. Doors thirty minutes prior.</p>
+    </div>
+    <ol class="timeline" id="timeline"></ol>
+  </section>
+
+  <section id="voices" class="voices" aria-labelledby="voices-title">
+    <div class="section-head">
+      <h2 id="voices-title">New Voices</h2>
+      <p>The directors whose first frames arrive this season.</p>
+    </div>
+    <div class="voice-grid" id="voice-grid"></div>
+  </section>
+
+  <section id="pass" class="pass" aria-labelledby="pass-title">
+    <div class="pass-card">
+      <h2 id="pass-title">Hold a seat</h2>
+      <p>The Frame Zero pass gets you into every screening, the closing conversation, and the projection-room walkthrough. No queue, no formula.</p>
+      <div class="pass-row">
+        <label class="field" for="email">Email for the program drop</label>
+        <div class="field-line">
+          <input id="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" />
+          <button class="btn btn-primary" type="button" id="notify">Notify me</button>
+        </div>
+        <p class="field-note" id="notify-note" role="status" aria-live="polite">We only write when a strand goes live.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="foot-mark" aria-hidden="true">
+    <span class="leader small"><span class="leader-ring"></span><span class="leader-cross"></span><span class="leader-num">0</span></span>
+    <span>Frame Zero</span>
+  </div>
+  <p>Twelve nights of independent cinema · Old Sodium Theatre · Program subject to the tides.</p>
+</footer>
+
+</body>
+</html>

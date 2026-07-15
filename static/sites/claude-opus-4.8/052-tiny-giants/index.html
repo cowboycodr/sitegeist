@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+	<title>Tiny Giants — Big wonder for little minds</title>
+	<meta name="description" content="A hands-on museum where children build worlds, chase questions, and make magnificent messes." />
+	<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+	<link rel="stylesheet" href="styles.css" />
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="app.js"></script>
+</head>
+<body>
+	<a class="skip" href="#main">Skip to content</a>
+
+	<header class="site-head">
+		<a class="brand" href="#top" aria-label="Tiny Giants home">
+			<span class="brand-mark" aria-hidden="true">
+				<svg viewBox="0 0 48 48" width="40" height="40" role="img" focusable="false">
+					<circle cx="24" cy="24" r="22" fill="#ffcf3f" />
+					<circle cx="17" cy="20" r="3.4" fill="#12233a" />
+					<circle cx="31" cy="20" r="3.4" fill="#12233a" />
+					<path d="M15 29 q9 9 18 0" fill="none" stroke="#12233a" stroke-width="3.4" stroke-linecap="round" />
+				</svg>
+			</span>
+			<span class="brand-name">Tiny<span>Giants</span></span>
+		</a>
+		<nav class="site-nav" aria-label="Primary">
+			<button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">
+				<span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+				Menu
+			</button>
+			<ul id="nav-list" class="nav-list">
+				<li><a href="#today">Today</a></li>
+				<li><a href="#exhibits">Exhibits</a></li>
+				<li><a href="#visit">Visit</a></li>
+				<li><a class="nav-cta" href="#visit">Plan your visit</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main id="main">
+		<section id="top" class="hero" aria-labelledby="hero-title">
+			<div class="hero-copy">
+				<p class="eyebrow"><span class="dot" aria-hidden="true"></span>Now playing</p>
+				<h1 id="hero-title">Big wonder for<br />little minds.</h1>
+				<p class="lede">A hands-on museum where children build worlds, chase questions, and make magnificent messes.</p>
+				<div class="hero-actions">
+					<a class="btn btn-primary" href="#visit">Plan your visit</a>
+					<a class="btn btn-ghost" href="#today">See today's activities</a>
+				</div>
+				<dl class="hero-stats">
+					<div><dt>Exhibit halls</dt><dd data-count="9">9</dd></div>
+					<div><dt>Daily programs</dt><dd data-count="14">14</dd></div>
+					<div><dt>Curious ages</dt><dd>0&ndash;10</dd></div>
+				</dl>
+			</div>
+			<div class="hero-art" aria-hidden="true">
+				<div class="blob blob-a"></div>
+				<div class="blob blob-b"></div>
+				<div class="blob blob-c"></div>
+				<svg class="hero-giant" viewBox="0 0 260 300" focusable="false">
+					<ellipse cx="130" cy="284" rx="86" ry="12" fill="#12233a" opacity="0.12" />
+					<rect x="70" y="150" width="120" height="118" rx="34" fill="#ff6b6b" />
+					<rect x="80" y="242" width="30" height="34" rx="12" fill="#12233a" />
+					<rect x="150" y="242" width="30" height="34" rx="12" fill="#12233a" />
+					<circle cx="130" cy="96" r="56" fill="#ffcf3f" />
+					<circle cx="112" cy="90" r="7" fill="#12233a" />
+					<circle cx="150" cy="90" r="7" fill="#12233a" />
+					<path d="M108 114 q22 20 44 0" fill="none" stroke="#12233a" stroke-width="6" stroke-linecap="round" />
+					<circle cx="94" cy="104" r="8" fill="#ff9fb2" opacity="0.8" />
+					<circle cx="168" cy="104" r="8" fill="#ff9fb2" opacity="0.8" />
+					<rect x="44" y="168" width="30" height="66" rx="14" fill="#ff6b6b" />
+					<rect x="186" y="168" width="30" height="66" rx="14" fill="#ff6b6b" />
+					<g class="hero-stars">
+						<path d="M212 44 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4z" fill="#4ecdc4" />
+						<path d="M40 60 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#a06bff" />
+						<path d="M226 176 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ffcf3f" />
+					</g>
+				</svg>
+			</div>
+		</section>
+
+		<section class="marquee" aria-hidden="true">
+			<div class="marquee-track">
+				<span>Build it</span><span aria-hidden="true">&#9733;</span>
+				<span>Splash it</span><span aria-hidden="true">&#9733;</span>
+				<span>Question it</span><span aria-hidden="true">&#9733;</span>
+				<span>Climb it</span><span aria-hidden="true">&#9733;</span>
+				<span>Wonder at it</span><span aria-hidden="true">&#9733;</span>
+				<span>Build it</span><span aria-hidden="true">&#9733;</span>
+				<span>Splash it</span><span aria-hidden="true">&#9733;</span>
+				<span>Question it</span><span aria-hidden="true">&#9733;</span>
+				<span>Climb it</span><span aria-hidden="true">&#9733;</span>
+				<span>Wonder at it</span><span aria-hidden="true">&#9733;</span>
+			</div>
+		</section>
+
+		<section id="today" class="today" aria-labelledby="today-title">
+			<div class="section-head">
+				<h2 id="today-title">Today's activities</h2>
+				<p>Drop in at any hour &mdash; every program is included with admission.</p>
+			</div>
+			<ol class="schedule">
+				<li>
+					<span class="when">10:00</span>
+					<div class="what">
+						<h3>Gravity Garden</h3>
+						<p>Roll, drop, and race marbles down a wall of tubes and ramps you rebuild yourself.</p>
+					</div>
+					<span class="where">Hall of Motion</span>
+				</li>
+				<li>
+					<span class="when">11:30</span>
+					<div class="what">
+						<h3>Squishy Science</h3>
+						<p>Mix cornstarch goo and discover why it turns solid the harder you push.</p>
+					</div>
+					<span class="where">The Mess Lab</span>
+				</li>
+				<li>
+					<span class="when">13:00</span>
+					<div class="what">
+						<h3>Tiny Town Builders</h3>
+						<p>Hoist foam bricks into a life-size city, then knock it down and start again.</p>
+					</div>
+					<span class="where">Construction Yard</span>
+				</li>
+				<li>
+					<span class="when">14:30</span>
+					<div class="what">
+						<h3>Whisper Dishes</h3>
+						<p>Stand a room apart and hear a friend's whisper travel across curved sound mirrors.</p>
+					</div>
+					<span class="where">Echo Court</span>
+				</li>
+				<li>
+					<span class="when">16:00</span>
+					<div class="what">
+						<h3>Firefly Finale</h3>
+						<p>Watch the atrium dim as hundreds of hand-cranked lights blink awake together.</p>
+					</div>
+					<span class="where">Great Atrium</span>
+				</li>
+			</ol>
+		</section>
+
+		<section id="exhibits" class="exhibits" aria-labelledby="exhibits-title">
+			<div class="section-head">
+				<h2 id="exhibits-title">Exhibits to explore</h2>
+				<p>Nine hands-on halls, each a whole world to get lost in.</p>
+			</div>
+			<div class="card-grid">
+				<article class="card" style="--card:#ff6b6b">
+					<span class="card-emoji" aria-hidden="true">&#127754;</span>
+					<h3>Water Works</h3>
+					<p>Dam a river, spin a wheel, and send rubber ducks racing through the locks.</p>
+					<span class="card-tag">Ages 2&ndash;10</span>
+				</article>
+				<article class="card" style="--card:#4ecdc4">
+					<span class="card-emoji" aria-hidden="true">&#129520;</span>
+					<h3>Take It Apart</h3>
+					<p>Real screwdrivers, real gadgets. Open a toaster and find out what makes it tick.</p>
+					<span class="card-tag">Ages 5&ndash;10</span>
+				</article>
+				<article class="card" style="--card:#a06bff">
+					<span class="card-emoji" aria-hidden="true">&#127917;</span>
+					<h3>Shadow Stage</h3>
+					<p>Freeze your shadow on a glowing wall, then invent a play with the friends you find there.</p>
+					<span class="card-tag">All ages</span>
+				</article>
+				<article class="card" style="--card:#ffcf3f">
+					<span class="card-emoji" aria-hidden="true">&#128034;</span>
+					<h3>Backyard Giants</h3>
+					<p>Crawl inside a bug's-eye burrow and meet the real critters that share our soil.</p>
+					<span class="card-tag">Ages 0&ndash;7</span>
+				</article>
+				<article class="card" style="--card:#ff9fb2">
+					<span class="card-emoji" aria-hidden="true">&#127917;</span>
+					<h3>The Mess Lab</h3>
+					<p>Paint with light, print with bubbles, and wear the messiest smock you can find.</p>
+					<span class="card-tag">Aprons on</span>
+				</article>
+				<article class="card" style="--card:#5aa9e6">
+					<span class="card-emoji" aria-hidden="true">&#128640;</span>
+					<h3>Beyond the Sky</h3>
+					<p>Buckle into a wobbly rocket seat and steer past planets you can actually touch.</p>
+					<span class="card-tag">Ages 4&ndash;10</span>
+				</article>
+			</div>
+		</section>
+
+		<section id="visit" class="visit" aria-labelledby="visit-title">
+			<div class="visit-panel">
+				<div class="section-head">
+					<h2 id="visit-title">Plan your visit</h2>
+					<p>Free for members and everyone under two. Strollers welcome everywhere.</p>
+				</div>
+				<div class="visit-grid">
+					<div class="visit-block">
+						<h3>Hours</h3>
+						<ul>
+							<li><span>Tue &ndash; Fri</span><span>9:00 &ndash; 17:00</span></li>
+							<li><span>Sat &ndash; Sun</span><span>9:00 &ndash; 18:00</span></li>
+							<li><span>Monday</span><span>Closed for play repairs</span></li>
+						</ul>
+					</div>
+					<div class="visit-block">
+						<h3>Admission</h3>
+						<ul>
+							<li><span>Little giants (2&ndash;12)</span><span>$14</span></li>
+							<li><span>Grown-ups</span><span>$16</span></li>
+							<li><span>Under 2</span><span>Always free</span></li>
+						</ul>
+					</div>
+					<div class="visit-block">
+						<h3>Find us</h3>
+						<ul>
+							<li><span>Address</span><span>18 Marble Row, Riverside</span></li>
+							<li><span>Getting here</span><span>Tram 4 &amp; 12 to Wonder Stop</span></li>
+							<li><span>Parking</span><span>Free lot behind the atrium</span></li>
+						</ul>
+					</div>
+				</div>
+				<div class="visit-tip">
+					<strong>Tip:</strong> Save the Firefly Finale for last &mdash; it is the calmest, coziest way to end a big day.
+				</div>
+			</div>
+		</section>
+
+		<section class="signup" aria-labelledby="signup-title">
+			<h2 id="signup-title">Little dispatches</h2>
+			<p>Peek at next month's programs and traveling exhibits. We send one cheerful note a month.</p>
+			<form class="signup-form" novalidate>
+				<label for="email">Email address</label>
+				<div class="signup-row">
+					<input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required />
+					<button type="submit" class="btn btn-primary">Join the list</button>
+				</div>
+				<p class="signup-note" role="status" aria-live="polite"></p>
+			</form>
+		</section>
+	</main>
+
+	<footer class="site-foot">
+		<div class="foot-top">
+			<span class="brand-name foot-brand">Tiny<span>Giants</span></span>
+			<p>Big wonder for little minds.</p>
+		</div>
+		<nav class="foot-links" aria-label="Footer">
+			<a href="#today">Today</a>
+			<a href="#exhibits">Exhibits</a>
+			<a href="#visit">Visit</a>
+			<a href="#top">Back to top</a>
+		</nav>
+		<p class="foot-fine">&copy; <span id="year">2026</span> Tiny Giants Children's Museum. Made for messy hands.</p>
+	</footer>
+</body>
+</html>

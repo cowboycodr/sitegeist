@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+	<meta name="description" content="Industrial systems capture wasted heat and return it as clean, reliable energy." />
+	<meta name="theme-color" content="#0e0b08" />
+	<title>Thermal — Heat, put to work.</title>
+	<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+	<link rel="stylesheet" href="styles.css" />
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="app.js"></script>
+</head>
+<body>
+	<a class="skip" href="#main">Skip to content</a>
+
+	<header class="topbar">
+		<a class="brand" href="#top" aria-label="Thermal home">
+			<span class="brand-mark" aria-hidden="true">
+				<span class="ember"></span>
+			</span>
+			<span class="brand-name">Thermal</span>
+		</a>
+		<nav class="nav" aria-label="Primary">
+			<a href="#problem">The problem</a>
+			<a href="#technology">Technology</a>
+			<a href="#impact">Impact</a>
+			<a class="nav-cta" href="#report">Report</a>
+		</nav>
+	</header>
+
+	<main id="main">
+		<section class="hero" id="top">
+			<div class="hero-grid">
+				<div class="hero-copy">
+					<p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Closing the energy loop</p>
+					<h1>Heat, put to work.</h1>
+					<p class="lede">Industrial systems capture wasted heat and return it as clean, reliable energy — no fuel, no flue, no waste.</p>
+					<div class="actions">
+						<a class="btn btn-primary" href="#technology">See the technology</a>
+						<a class="btn btn-ghost" href="#report">Read the impact report</a>
+					</div>
+					<dl class="hero-stats">
+						<div><dt>Waste heat recovered</dt><dd><span data-count="94" data-suffix="%">0%</span></dd></div>
+						<div><dt>Sites deployed</dt><dd><span data-count="212" data-suffix="">0</span></dd></div>
+						<div><dt>Payback period</dt><dd><span data-count="3" data-suffix=" yr">0 yr</span></dd></div>
+					</dl>
+				</div>
+				<div class="hero-art" aria-hidden="true">
+					<div class="loop">
+						<div class="loop-ring"></div>
+						<div class="loop-core"></div>
+						<div class="loop-spectrum"></div>
+						<span class="loop-label loop-hot">540°C</span>
+						<span class="loop-label loop-cold">21°C</span>
+					</div>
+				</div>
+			</div>
+			<div class="spectrum-bar" role="img" aria-label="Thermal gradient from ambient blue to recovered heat orange"></div>
+		</section>
+
+		<section class="problem" id="problem">
+			<div class="section-head">
+				<p class="kicker">The problem</p>
+				<h2>Two thirds of the world's energy escapes as heat.</h2>
+				<p class="section-sub">Furnaces, kilns, compressors and engines throw off enormous streams of thermal energy. Most of it vents to the sky. We built Thermal to catch it.</p>
+			</div>
+			<ul class="fact-cards">
+				<li>
+					<p class="fact-num">66<span>%</span></p>
+					<p class="fact-desc">of primary energy is lost as heat before it ever does useful work.</p>
+				</li>
+				<li>
+					<p class="fact-num">1.2<span>Gt</span></p>
+					<p class="fact-desc">of CO₂ could be avoided each year by reclaiming industrial waste heat.</p>
+				</li>
+				<li>
+					<p class="fact-num">24<span>/7</span></p>
+					<p class="fact-desc">recovered heat is steady and dispatchable — unlike intermittent sources.</p>
+				</li>
+			</ul>
+		</section>
+
+		<section class="technology" id="technology">
+			<div class="section-head">
+				<p class="kicker">The technology</p>
+				<h2>Capture, convert, return.</h2>
+				<p class="section-sub">A closed thermal loop bolts onto existing exhaust. Nothing changes upstream; everything downstream gets cleaner.</p>
+			</div>
+			<ol class="steps">
+				<li class="step">
+					<span class="step-index">01</span>
+					<h3>Capture</h3>
+					<p>High-efficiency exchangers draw heat from flue gas, cooling jackets and process streams without disturbing the line.</p>
+				</li>
+				<li class="step">
+					<span class="step-index">02</span>
+					<h3>Convert</h3>
+					<p>Organic Rankine turbines and thermoelectric stacks turn the temperature gap into grid-quality electricity.</p>
+				</li>
+				<li class="step">
+					<span class="step-index">03</span>
+					<h3>Return</h3>
+					<p>Clean power feeds back into the plant or the grid, while residual warmth is looped into district heat.</p>
+				</li>
+			</ol>
+
+			<figure class="explorer">
+				<figcaption>
+					<h3>Recovery at every temperature</h3>
+					<p>Drag to explore how much energy Thermal reclaims across the heat spectrum.</p>
+				</figcaption>
+				<div class="explorer-panel">
+					<label class="explorer-label" for="tempRange">Source temperature</label>
+					<input id="tempRange" class="range" type="range" min="60" max="600" step="10" value="320" />
+					<div class="readout">
+						<div><span class="readout-value" id="tempVal">320</span><span class="readout-unit">°C</span><p>source heat</p></div>
+						<div><span class="readout-value" id="powerVal">4.1</span><span class="readout-unit">MW</span><p>recovered</p></div>
+						<div><span class="readout-value" id="effVal">31</span><span class="readout-unit">%</span><p>efficiency</p></div>
+					</div>
+					<div class="gauge" aria-hidden="true"><div class="gauge-fill" id="gaugeFill"></div></div>
+				</div>
+			</figure>
+		</section>
+
+		<section class="impact" id="impact">
+			<div class="section-head">
+				<p class="kicker">Measured impact</p>
+				<h2>Every degree accounted for.</h2>
+			</div>
+			<div class="impact-grid">
+				<div class="impact-card">
+					<p class="impact-num"><span data-count="1.8" data-decimals="1" data-suffix=" TWh">0 TWh</span></p>
+					<p class="impact-label">Clean energy returned to grids in 2025</p>
+				</div>
+				<div class="impact-card">
+					<p class="impact-num"><span data-count="740" data-suffix="k t">0k t</span></p>
+					<p class="impact-label">CO₂ emissions avoided annually</p>
+				</div>
+				<div class="impact-card">
+					<p class="impact-num"><span data-count="212" data-suffix="">0</span></p>
+					<p class="impact-label">Industrial sites running Thermal loops</p>
+				</div>
+				<div class="impact-card">
+					<p class="impact-num"><span data-count="0" data-suffix="">0</span></p>
+					<p class="impact-label">Additional fuel burned to produce it</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="report" id="report">
+			<div class="report-inner">
+				<p class="kicker">2025 impact report</p>
+				<h2>The numbers behind a closed loop.</h2>
+				<p class="section-sub">A field-audited account of every site, every megawatt-hour, and every tonne of carbon we kept out of the sky.</p>
+				<div class="actions">
+					<a class="btn btn-primary" href="#technology">See the technology</a>
+					<a class="btn btn-ghost" href="#top">Read the impact report</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="footer-brand">
+			<span class="brand-mark" aria-hidden="true"><span class="ember"></span></span>
+			<span>Thermal</span>
+		</div>
+		<p class="footer-tag">Heat, put to work.</p>
+		<p class="footer-fine">Closing the energy loop, one exhaust stream at a time.</p>
+	</footer>
+</body>
+</html>

@@ -32,6 +32,7 @@ function createSites(model: BenchmarkModel): ShowcaseSite[] {
 
 export const sitesByModel: Record<BenchmarkModel, ShowcaseSite[]> = {
 	'5.6 Sol': createSites('5.6 Sol'),
+	'Opus 4.8': createSites('Opus 4.8'),
 	'Grok 4.5': createSites('Grok 4.5')
 };
 

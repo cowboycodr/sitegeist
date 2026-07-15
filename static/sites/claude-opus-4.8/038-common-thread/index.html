@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Common Thread — Clothes with a longer story</title>
+<meta name="description" content="Seasonless essentials made transparently from traceable fibers and designed to be repaired.">
+<style>
+  :root{
+    --paper:#f4efe6;
+    --paper-2:#ece4d6;
+    --ink:#241f1a;
+    --ink-soft:#5a5147;
+    --line:#cdbfa9;
+    --indigo:#2b3a55;
+    --indigo-deep:#1d2740;
+    --ochre:#b3712b;
+    --clay:#a4553a;
+    --sage:#6f7a52;
+    --radius:14px;
+    --maxw:1180px;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    --sans:"Helvetica Neue",Arial,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;margin:0}
+  a{color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,44px)}
+  .eyebrow{
+    font-family:var(--sans);
+    text-transform:uppercase;
+    letter-spacing:.26em;
+    font-size:.7rem;
+    font-weight:700;
+    color:var(--ochre);
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:.55em;
+    font-family:var(--sans);font-weight:600;font-size:.92rem;
+    text-decoration:none;cursor:pointer;border:none;
+    padding:.85em 1.5em;border-radius:100px;
+    transition:transform .18s ease, background .18s ease, color .18s ease;
+  }
+  .btn:focus-visible{outline:3px solid var(--ochre);outline-offset:3px}
+  .btn-primary{background:var(--indigo);color:#f6f2ea}
+  .btn-primary:hover{background:var(--indigo-deep);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+  @media (prefers-reduced-motion:reduce){.btn:hover{transform:none}}
+
+  /* ---- Skip link ---- */
+  .skip{position:absolute;left:-999px;top:0;z-index:100;background:var(--indigo);color:#fff;padding:.7em 1.1em;border-radius:0 0 8px 0}
+  .skip:focus{left:0}
+
+  /* ---- Header ---- */
+  header.site{
+    position:sticky;top:0;z-index:40;
+    background:color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter:saturate(1.2) blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 0}
+  .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-family:var(--serif);font-size:1.15rem;font-weight:600;letter-spacing:.01em}
+  .brand svg{flex:0 0 auto}
+  nav.main{display:flex;gap:1.6rem;align-items:center}
+  nav.main a{text-decoration:none;font-size:.9rem;font-weight:500;color:var(--ink-soft);position:relative}
+  nav.main a:hover,nav.main a:focus-visible{color:var(--ink)}
+  nav.main a:focus-visible{outline:2px solid var(--ochre);outline-offset:4px;border-radius:3px}
+  @media (max-width:760px){nav.main{display:none}}
+
+  /* ---- Hero ---- */
+  .hero{position:relative;padding:clamp(3rem,8vw,6rem) 0 clamp(2.5rem,6vw,4.5rem)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+  @media (max-width:860px){.hero-grid{grid-template-columns:1fr;gap:2.4rem}}
+  .hero h1{font-size:clamp(2.6rem,7vw,4.6rem);letter-spacing:-.01em;margin:.5rem 0 0}
+  .hero p.lead{font-size:clamp(1.05rem,2.4vw,1.3rem);color:var(--ink-soft);max-width:34ch;margin:1.2rem 0 1.8rem}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:.8rem}
+  .hero-figure{position:relative;aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;background:linear-gradient(160deg,#e7dcc8,#d8c8ac);border:1px solid var(--line)}
+  .hero-figure svg{width:100%;height:100%;display:block}
+  .stat-row{display:flex;gap:1.6rem;margin-top:2.2rem;flex-wrap:wrap}
+  .stat{min-width:96px}
+  .stat b{font-family:var(--serif);font-size:1.7rem;display:block;line-height:1}
+  .stat span{font-size:.78rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.12em}
+
+  /* ---- Section shell ---- */
+  section.block{padding:clamp(3rem,7vw,5.5rem) 0}
+  .section-head{max-width:52ch;margin-bottom:2.6rem}
+  .section-head h2{font-size:clamp(1.9rem,4.6vw,2.8rem);margin:.5rem 0 .8rem}
+  .section-head p{color:var(--ink-soft);font-size:1.05rem;margin:0}
+
+  /* ---- Collection ---- */
+  .collection{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.5vw,1.6rem)}
+  @media (max-width:820px){.cards{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:520px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s ease, box-shadow .2s ease}
+  .card:hover{transform:translateY(-4px);box-shadow:0 14px 30px -18px rgba(36,31,26,.5)}
+  @media (prefers-reduced-motion:reduce){.card:hover{transform:none}}
+  .card .swatch{aspect-ratio:4/3;position:relative}
+  .card .swatch svg{width:100%;height:100%}
+  .card .body{padding:1.1rem 1.2rem 1.3rem}
+  .card h3{font-size:1.2rem}
+  .card .meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:.3rem}
+  .card .meta .price{font-family:var(--serif);font-size:1.05rem}
+  .card p{font-size:.9rem;color:var(--ink-soft);margin:.5rem 0 0}
+  .tag{display:inline-block;font-size:.68rem;text-transform:uppercase;letter-spacing:.14em;color:var(--sage);font-weight:700;background:color-mix(in srgb,var(--sage) 14%,transparent);padding:.28em .7em;border-radius:100px}
+
+  /* ---- Traceability ---- */
+  .trace-layout{display:grid;grid-template-columns:340px 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:start}
+  @media (max-width:860px){.trace-layout{grid-template-columns:1fr}}
+  .journey{list-style:none;margin:0;padding:0;position:relative}
+  .journey::before{content:"";position:absolute;left:19px;top:22px;bottom:22px;width:2px;background:repeating-linear-gradient(var(--line) 0 6px,transparent 6px 12px)}
+  .journey li{position:relative;margin:0}
+  .stage{
+    display:flex;gap:1rem;align-items:flex-start;width:100%;text-align:left;
+    background:transparent;border:none;cursor:pointer;padding:.7rem .8rem;border-radius:10px;
+    font:inherit;color:inherit;transition:background .16s ease;
+  }
+  .stage:hover{background:var(--paper-2)}
+  .stage:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+  .stage .dot{flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:var(--paper);border:2px solid var(--line);display:grid;place-items:center;font-family:var(--serif);font-weight:600;color:var(--ink-soft);z-index:1;transition:all .18s ease}
+  .stage[aria-selected="true"] .dot{background:var(--indigo);border-color:var(--indigo);color:#f6f2ea}
+  .stage[aria-selected="true"] .st-name{color:var(--ink)}
+  .st-txt{padding-top:.15rem}
+  .st-name{font-weight:600;font-size:1rem;color:var(--ink-soft);transition:color .16s}
+  .st-place{font-size:.8rem;color:var(--ink-soft)}
+  .trace-detail{background:var(--indigo);color:#eef0f5;border-radius:var(--radius);padding:clamp(1.6rem,4vw,2.4rem);position:sticky;top:88px;min-height:280px}
+  .trace-detail .eyebrow{color:#d9a15e}
+  .trace-detail h3{color:#fff;font-size:1.7rem;margin:.5rem 0 .3rem}
+  .trace-detail .place{font-size:.9rem;color:#b6bed0;margin-bottom:1.1rem}
+  .trace-detail p{color:#d7dce7;margin:0 0 1.2rem}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:1rem;border-top:1px solid rgba(255,255,255,.16);padding-top:1.2rem}
+  .facts div b{display:block;font-family:var(--serif);font-size:1.35rem;color:#fff;line-height:1}
+  .facts div span{font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:#9fa9c0}
+  .fade{animation:fade .32s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.fade{animation:none}}
+
+  /* ---- Repair ---- */
+  .repair{background:var(--paper-2);border-top:1px solid var(--line)}
+  .repair-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,3vw,2rem)}
+  @media (max-width:820px){.repair-grid{grid-template-columns:1fr}}
+  .repair-item{padding:1.6rem;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius)}
+  .repair-item .num{font-family:var(--serif);font-size:1rem;color:var(--clay);font-weight:600}
+  .repair-item h3{font-size:1.3rem;margin:.5rem 0 .5rem}
+  .repair-item p{color:var(--ink-soft);font-size:.94rem;margin:0}
+  .pledge{margin-top:2.6rem;background:var(--indigo);color:#eef0f5;border-radius:var(--radius);padding:clamp(1.8rem,4vw,2.6rem);display:flex;gap:1.6rem;flex-wrap:wrap;align-items:center;justify-content:space-between}
+  .pledge p{margin:0;max-width:46ch}
+  .pledge h3{color:#fff;font-size:1.5rem;margin:0 0 .5rem}
+  .pledge .btn-primary{background:var(--ochre)}
+  .pledge .btn-primary:hover{background:var(--clay)}
+
+  /* ---- Footer ---- */
+  footer.site{background:var(--indigo-deep);color:#c9cfdd;padding:clamp(2.6rem,6vw,4rem) 0 2rem}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
+  @media (max-width:720px){.foot-grid{grid-template-columns:1fr;gap:1.6rem}}
+  footer.site h4{font-family:var(--sans);text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;color:#8b93a8;margin:0 0 .9rem}
+  footer.site .brand{color:#fff;margin-bottom:.7rem}
+  footer.site p{margin:.2rem 0;font-size:.9rem}
+  footer.site ul{list-style:none;margin:0;padding:0}
+  footer.site li{margin:.4rem 0}
+  footer.site a{text-decoration:none;color:#c9cfdd;font-size:.9rem}
+  footer.site a:hover{color:#fff}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:2.4rem;padding-top:1.4rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-size:.78rem;color:#8b93a8}
+  .thread-motif{color:var(--ochre)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Common Thread home">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+        <path d="M2 13 C 7 4, 11 22, 15 13 S 23 4, 24 13" fill="none" stroke="#b3712b" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="24" cy="13" r="2.4" fill="#2b3a55"/>
+      </svg>
+      Common&nbsp;Thread
+    </a>
+    <nav class="main" aria-label="Primary">
+      <a href="#collection">Collection</a>
+      <a href="#trace">Traceability</a>
+      <a href="#repair">Repair</a>
+      <a href="#pledge" class="btn btn-ghost" style="padding:.5em 1.1em">Our pledge</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- HERO -->
+<section class="hero wrap" aria-labelledby="hero-title">
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow">Edition 04</p>
+      <h1 id="hero-title">Clothes with a longer story.</h1>
+      <p class="lead">Seasonless essentials made transparently from traceable fibers and designed to be repaired.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#collection">Shop the collection</a>
+        <a class="btn btn-ghost" href="#trace">Trace our materials</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>100%</b><span>Traceable fiber</span></div>
+        <div class="stat"><b>7</b><span>Core pieces</span></div>
+        <div class="stat"><b>Free</b><span>Lifetime mending</span></div>
+      </div>
+    </div>
+    <div class="hero-figure" role="img" aria-label="Woven linen texture crossed by a single continuous ochre thread.">
+      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="cloth" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#e9dfca"/><stop offset="1" stop-color="#d3c1a1"/>
+          </linearGradient>
+        </defs>
+        <rect width="400" height="500" fill="url(#cloth)"/>
+        <g stroke="#c3b190" stroke-width="1" opacity="0.6">
+          <path d="M0 40H400M0 80H400M0 120H400M0 160H400M0 200H400M0 240H400M0 280H400M0 320H400M0 360H400M0 400H400M0 440H400M0 480H400"/>
+          <path d="M40 0V500M80 0V500M120 0V500M160 0V500M200 0V500M240 0V500M280 0V500M320 0V500M360 0V500"/>
+        </g>
+        <path d="M-10 90 C 90 30, 150 210, 220 150 S 360 60, 410 200 S 300 360, 210 320 S 40 420, 120 480"
+              fill="none" stroke="#b3712b" stroke-width="6" stroke-linecap="round"/>
+        <path d="M-10 90 C 90 30, 150 210, 220 150 S 360 60, 410 200 S 300 360, 210 320 S 40 420, 120 480"
+              fill="none" stroke="#8f5a20" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 16" opacity=".5"/>
+        <circle cx="120" cy="480" r="6" fill="#2b3a55"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTION -->
+<section class="block collection" id="collection" aria-labelledby="coll-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The collection</p>
+      <h2 id="coll-title">Seven pieces, worn every season</h2>
+      <p>No drops, no fast turnover. Each essential is cut for longevity, dyed with low-impact pigments, and stocked year-round so you can rebuild a wardrobe slowly.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <div class="swatch"><svg viewBox="0 0 120 90" aria-hidden="true"><rect width="120" height="90" fill="#c9c2b0"/><path d="M0 45h120M0 30h120M0 60h120" stroke="#b4ac97" stroke-width="1"/><path d="M-5 20c30 20 60-10 130 15" fill="none" stroke="#b3712b" stroke-width="3"/></svg></div>
+        <div class="body"><span class="tag">Undyed linen</span>
+          <div class="meta"><h3>The Field Shirt</h3><span class="price">£120</span></div>
+          <p>Boxy European flax, garment-washed for a lived-in drape from the first wear.</p></div>
+      </article>
+      <article class="card">
+        <div class="swatch"><svg viewBox="0 0 120 90" aria-hidden="true"><rect width="120" height="90" fill="#2b3a55"/><path d="M0 45h120M0 30h120M0 60h120" stroke="#3a4b6b" stroke-width="1"/><path d="M-5 65c30-20 60 10 130-15" fill="none" stroke="#d9a15e" stroke-width="3"/></svg></div>
+        <div class="body"><span class="tag">Indigo denim</span>
+          <div class="meta"><h3>Everyday Trouser</h3><span class="price">£145</span></div>
+          <p>Rope-dyed with natural indigo that fades to your body, never to landfill.</p></div>
+      </article>
+      <article class="card">
+        <div class="swatch"><svg viewBox="0 0 120 90" aria-hidden="true"><rect width="120" height="90" fill="#a99f8a"/><path d="M0 45h120M0 30h120M0 60h120" stroke="#948a75" stroke-width="1"/><path d="M-5 30c40 25 70-15 130 20" fill="none" stroke="#6f7a52" stroke-width="3"/></svg></div>
+        <div class="body"><span class="tag">Merino wool</span>
+          <div class="meta"><h3>The Daily Knit</h3><span class="price">£165</span></div>
+          <p>Non-mulesed merino from a single named flock, fully unravelable for re-spinning.</p></div>
+      </article>
+      <article class="card">
+        <div class="swatch"><svg viewBox="0 0 120 90" aria-hidden="true"><rect width="120" height="90" fill="#b3712b"/><path d="M0 45h120M0 30h120M0 60h120" stroke="#a4632222" stroke-width="1"/><path d="M-5 55c30 15 70-20 130 10" fill="none" stroke="#f4efe6" stroke-width="3"/></svg></div>
+        <div class="body"><span class="tag">Botanical dye</span>
+          <div class="meta"><h3>Ochre Overshirt</h3><span class="price">£190</span></div>
+          <p>Coloured with madder root and onion skin; every batch a slightly different sun.</p></div>
+      </article>
+      <article class="card">
+        <div class="swatch"><svg viewBox="0 0 120 90" aria-hidden="true"><rect width="120" height="90" fill="#e4dccb"/><path d="M0 45h120M0 30h120M0 60h120" stroke="#cfc6b2" stroke-width="1"/><path d="M-5 40c40-15 70 25 130-10" fill="none" stroke="#a4553a" stroke-width="3"/></svg></div>
+        <div class="body"><span class="tag">Organic cotton</span>
+          <div class="meta"><h3>Base Tee</h3><span class="price">£55</span></div>
+          <p>Heavyweight rainfed cotton, reinforced at every seam that usually gives first.</p></div>
+      </article>
+      <article class="card">
+        <div class="swatch"><svg viewBox="0 0 120 90" aria-hidden="true"><rect width="120" height="90" fill="#6f7a52"/><path d="M0 45h120M0 30h120M0 60h120" stroke="#5d6845" stroke-width="1"/><path d="M-5 60c30-20 70 15 130-20" fill="none" stroke="#d9a15e" stroke-width="3"/></svg></div>
+        <div class="body"><span class="tag">Recycled wool</span>
+          <div class="meta"><h3>The Long Coat</h3><span class="price">£320</span></div>
+          <p>Felted from post-consumer offcuts, traceable back to the garments it once was.</p></div>
+      </article>
+      <article class="card">
+        <div class="swatch"><svg viewBox="0 0 120 90" aria-hidden="true"><rect width="120" height="90" fill="#d3c1a1"/><path d="M0 45h120M0 30h120M0 60h120" stroke="#bfae8e" stroke-width="1"/><path d="M-5 35c40 20 70-20 130 15" fill="none" stroke="#2b3a55" stroke-width="3"/></svg></div>
+        <div class="body"><span class="tag">Hemp canvas</span>
+          <div class="meta"><h3>Carry Tote</h3><span class="price">£70</span></div>
+          <p>Rainfed hemp that softens for years and composts at the very end of its life.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TRACEABILITY -->
+<section class="block wrap" id="trace" aria-labelledby="trace-title">
+  <div class="section-head">
+    <p class="eyebrow">Traceability</p>
+    <h2 id="trace-title">Follow the thread, field to wardrobe</h2>
+    <p>Every Common Thread garment carries a QR that opens this journey. Select a stage to see who made it, where, and its measured footprint.</p>
+  </div>
+  <div class="trace-layout">
+    <ul class="journey" role="tablist" aria-label="Material journey stages" aria-orientation="vertical">
+      <li role="presentation"><button class="stage" role="tab" id="tab-0" aria-selected="true" aria-controls="trace-panel" data-i="0"><span class="dot">1</span><span class="st-txt"><span class="st-name">Farm &amp; fiber</span><br><span class="st-place">Normandy, France</span></span></button></li>
+      <li role="presentation"><button class="stage" role="tab" id="tab-1" aria-selected="false" tabindex="-1" aria-controls="trace-panel" data-i="1"><span class="dot">2</span><span class="st-txt"><span class="st-name">Spinning</span><br><span class="st-place">Kortrijk, Belgium</span></span></button></li>
+      <li role="presentation"><button class="stage" role="tab" id="tab-2" aria-selected="false" tabindex="-1" aria-controls="trace-panel" data-i="2"><span class="dot">3</span><span class="st-txt"><span class="st-name">Weaving &amp; dye</span><br><span class="st-place">Biella, Italy</span></span></button></li>
+      <li role="presentation"><button class="stage" role="tab" id="tab-3" aria-selected="false" tabindex="-1" aria-controls="trace-panel" data-i="3"><span class="dot">4</span><span class="st-txt"><span class="st-name">Cut &amp; sew</span><br><span class="st-place">Porto, Portugal</span></span></button></li>
+      <li role="presentation"><button class="stage" role="tab" id="tab-4" aria-selected="false" tabindex="-1" aria-controls="trace-panel" data-i="4"><span class="dot">5</span><span class="st-txt"><span class="st-name">You &amp; repair</span><br><span class="st-place">Wherever you are</span></span></button></li>
+    </ul>
+    <div class="trace-detail" id="trace-panel" role="tabpanel" aria-labelledby="tab-0" tabindex="0">
+      <!-- populated by script; static fallback below -->
+      <p class="eyebrow" data-slot="eyebrow">Stage 01</p>
+      <h3 data-slot="title">Farm &amp; fiber</h3>
+      <p class="place" data-slot="place">Ferme du Lin · Normandy, France</p>
+      <p data-slot="body">Our flax is rainfed and rotated on named plots. No irrigation, no defoliants — the crop is pulled, not cut, so the whole fiber length stays intact for a stronger yarn.</p>
+      <div class="facts">
+        <div data-slot="f1"><b>0 L</b><span>Irrigation water</span></div>
+        <div data-slot="f2"><b>1 farm</b><span>Single origin</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REPAIR -->
+<section class="block repair" id="repair" aria-labelledby="repair-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Built to be mended</p>
+      <h2 id="repair-title">Designed to be repaired, not replaced</h2>
+      <p>A garment's biggest footprint is the one that replaces it too soon. We build every piece to be opened up, patched, and kept in use for decades.</p>
+    </div>
+    <div class="repair-grid">
+      <div class="repair-item"><span class="num">01</span><h3>Open seams</h3><p>Flat-felled and generously allowed, so a tailor can let out, take in, or fully rebuild a panel without unpicking the whole garment.</p></div>
+      <div class="repair-item"><span class="num">02</span><h3>Matched spares</h3><p>Each order ships with a thread card and fabric offcut from your exact dye batch, ready for the mend you'll need in year three.</p></div>
+      <div class="repair-item"><span class="num">03</span><h3>Free lifetime mending</h3><p>Send any Common Thread piece back and our menders return it repaired. When it's truly done, we take the fiber back for re-spinning.</p></div>
+    </div>
+    <div class="pledge" id="pledge">
+      <div>
+        <h3>The longer-story pledge</h3>
+        <p>Buy less, keep it longer. If a seam fails within ten years we mend it for free — and we'll always tell you exactly what your clothes are made of.</p>
+      </div>
+      <a class="btn btn-primary" href="#trace">Trace our materials</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" aria-label="Common Thread home">
+          <svg width="24" height="24" viewBox="0 0 26 26" aria-hidden="true"><path d="M2 13 C 7 4, 11 22, 15 13 S 23 4, 24 13" fill="none" stroke="#d9a15e" stroke-width="2.2" stroke-linecap="round"/><circle cx="24" cy="13" r="2.4" fill="#d9a15e"/></svg>
+          Common&nbsp;Thread
+        </a>
+        <p>Seasonless essentials made transparently from traceable fibers and designed to be repaired.</p>
+        <p class="thread-motif">Edition 04</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#collection">The collection</a></li>
+          <li><a href="#trace">Traceability</a></li>
+          <li><a href="#repair">Repair &amp; mending</a></li>
+          <li><a href="#pledge">Our pledge</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Care</h4>
+        <ul>
+          <li><a href="#repair">Book a mend</a></li>
+          <li><a href="#trace">Read a garment QR</a></li>
+          <li><a href="#collection">Size &amp; fit</a></li>
+          <li><a href="#top">Fiber take-back</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Common Thread. Made to last.</span>
+      <span>Carbon-measured · Traceable · Repairable</span>
+    </div>
+  </div>
+</footer>
+
+<script defer src="sitegeist-bridge.js"></script>
+<script>
+(function(){
+  "use strict";
+  var stages = [
+    {eyebrow:"Stage 01",title:"Farm & fiber",place:"Ferme du Lin · Normandy, France",
+     body:"Our flax is rainfed and rotated on named plots. No irrigation, no defoliants — the crop is pulled, not cut, so the whole fiber length stays intact for a stronger yarn.",
+     f1:["0 L","Irrigation water"],f2:["1 farm","Single origin"]},
+    {eyebrow:"Stage 02",title:"Spinning",place:"Vlas Spinnerij · Kortrijk, Belgium",
+     body:"The retted flax is combed and wet-spun into a fine, even yarn by a family mill running on certified renewable electricity, with combing waste returned to insulation makers.",
+     f1:["100%","Renewable power"],f2:["0 kg","Yarn to waste"]},
+    {eyebrow:"Stage 03",title:"Weaving & dye",place:"Casa Tessile · Biella, Italy",
+     body:"Cloth is woven on slow looms, then coloured with botanical and low-impact pigments in a closed-loop bath. Water is filtered and reused rather than discharged to the river.",
+     f1:["92%","Water reused"],f2:["GOTS","Certified dye house"]},
+    {eyebrow:"Stage 04",title:"Cut & sew",place:"Atelier do Porto · Porto, Portugal",
+     body:"A living-wage workshop marks and cuts with a 9% offcut rate, saving remnants for spare-fabric cards. Seams are flat-felled so any panel can be replaced years later.",
+     f1:["Living","Wage certified"],f2:["9%","Offcut rate"]},
+    {eyebrow:"Stage 05",title:"You & repair",place:"Wherever you are",
+     body:"The garment reaches you with its full journey and a matched thread card. Wear it, mend it, send it back for free repairs — and, one day, for fiber take-back and re-spinning.",
+     f1:["10 yr","Mending promise"],f2:["100%","Fiber taken back"]}
+  ];
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.stage'));
+  var panel = document.getElementById('trace-panel');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function render(i){
+    var s = stages[i];
+    panel.querySelector('[data-slot="eyebrow"]').textContent = s.eyebrow;
+    panel.querySelector('[data-slot="title"]').innerHTML = s.title.replace('&','&amp;');
+    panel.querySelector('[data-slot="place"]').textContent = s.place;
+    panel.querySelector('[data-slot="body"]').textContent = s.body;
+    var f1 = panel.querySelector('[data-slot="f1"]'), f2 = panel.querySelector('[data-slot="f2"]');
+    f1.querySelector('b').textContent = s.f1[0]; f1.querySelector('span').textContent = s.f1[1];
+    f2.querySelector('b').textContent = s.f2[0]; f2.querySelector('span').textContent = s.f2[1];
+    panel.setAttribute('aria-labelledby','tab-'+i);
+    if(!reduce){ panel.classList.remove('fade'); void panel.offsetWidth; panel.classList.add('fade'); }
+  }
+  function select(i, focus){
+    tabs.forEach(function(t,j){
+      var on = j===i;
+      t.setAttribute('aria-selected', on ? 'true':'false');
+      t.tabIndex = on ? 0 : -1;
+      if(on && focus) t.focus();
+    });
+    render(i);
+  }
+  tabs.forEach(function(tab,i){
+    tab.addEventListener('click', function(){ select(i,false); });
+    tab.addEventListener('keydown', function(e){
+      var n = null;
+      if(e.key==='ArrowDown'||e.key==='ArrowRight') n = (i+1)%tabs.length;
+      else if(e.key==='ArrowUp'||e.key==='ArrowLeft') n = (i-1+tabs.length)%tabs.length;
+      else if(e.key==='Home') n = 0;
+      else if(e.key==='End') n = tabs.length-1;
+      if(n!==null){ e.preventDefault(); select(n,true); }
+    });
+  });
+  render(0);
+})();
+</script>
+</body>
+</html>

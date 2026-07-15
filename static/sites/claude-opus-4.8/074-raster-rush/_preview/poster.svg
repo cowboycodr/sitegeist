@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Raster Rush — Tiny pixels. Huge worlds.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#170b3d"/>
+      <stop offset="1" stop-color="#0b0720"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff2e63"/>
+      <stop offset="1" stop-color="#ffb800"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.8" cy="0.15" r="0.9">
+      <stop offset="0" stop-color="#7c4dff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#7c4dff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#7c4dff" stroke-opacity="0.16" stroke-width="2"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#grid)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- pixel logo mark -->
+  <g transform="translate(96 96)">
+    <rect x="0"  y="0"  width="34" height="34" fill="#ff2e63"/>
+    <rect x="40" y="0"  width="34" height="34" fill="#ffb800"/>
+    <rect x="80" y="0"  width="34" height="34" fill="#00e5ff"/>
+    <rect x="0"  y="40" width="34" height="34" fill="#ffb800"/>
+    <rect x="40" y="40" width="34" height="34" fill="#39ff14"/>
+    <rect x="80" y="40" width="34" height="34" fill="#ff2e63"/>
+    <rect x="0"  y="80" width="34" height="34" fill="#00e5ff"/>
+    <rect x="40" y="80" width="34" height="34" fill="#7c4dff"/>
+    <rect x="80" y="80" width="34" height="34" fill="#ffb800"/>
+  </g>
+  <text x="230" y="180" font-family="'Courier New', monospace" font-size="42" font-weight="bold" letter-spacing="4" fill="#f5f1ff">RASTER<tspan fill="#ff2e63">RUSH</tspan></text>
+
+  <!-- eyebrow -->
+  <text x="96" y="330" font-family="'Courier New', monospace" font-size="30" letter-spacing="8" fill="#00e5ff">INSERT IMAGINATION</text>
+
+  <!-- title -->
+  <text x="90" y="470" font-family="'Courier New', monospace" font-size="150" font-weight="bold" fill="#f5f1ff">Tiny pixels.</text>
+  <text x="90" y="620" font-family="'Courier New', monospace" font-size="150" font-weight="bold" fill="url(#accent)" stroke="#ff2e63" stroke-width="2">Huge worlds.</text>
+
+  <!-- tagline strip -->
+  <rect x="96" y="690" width="640" height="70" rx="8" fill="#140a33" stroke="#00e5ff" stroke-width="3"/>
+  <text x="126" y="736" font-family="'Trebuchet MS', sans-serif" font-size="30" fill="#b3a7d9">An indie arcade game studio</text>
+
+  <!-- motif: gems, bomb, collector sprite -->
+  <g transform="translate(915 470)">
+    <!-- collector -->
+    <path d="M-90 150 L-70 90 L70 90 L90 150 Z" fill="#39ff14" stroke="#000" stroke-width="6"/>
+    <rect x="-40" y="104" width="14" height="14" fill="#000"/>
+    <rect x="26" y="104" width="14" height="14" fill="#000"/>
+    <!-- gems -->
+    <g stroke="#000" stroke-width="6">
+      <path d="M-40 -170 L-8 -138 L-40 -106 L-72 -138 Z" fill="#00e5ff"/>
+      <path d="M60 -90 L92 -58 L60 -26 L28 -58 Z" fill="#00e5ff"/>
+      <path d="M-120 -30 L-88 2 L-120 34 L-152 2 Z" fill="#00e5ff"/>
+    </g>
+    <!-- bomb -->
+    <circle cx="70" cy="-160" r="30" fill="#ff2e63" stroke="#000" stroke-width="6"/>
+    <rect x="66" y="-198" width="8" height="12" fill="#ffb800"/>
+  </g>
+
+  <!-- bottom bar -->
+  <rect x="0" y="840" width="1200" height="60" fill="#ff2e63"/>
+  <text x="96" y="879" font-family="'Courier New', monospace" font-size="26" font-weight="bold" letter-spacing="3" fill="#0b0720">PLAY THE DEMO  ·  MEET THE CREW  ·  60 FPS</text>
+</svg>

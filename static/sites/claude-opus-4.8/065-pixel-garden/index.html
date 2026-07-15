@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Pixel Garden — Small worlds. Strange rules.</title>
+<meta name="description" content="A tiny studio growing playful, atmospheric worlds for curious players of every age.">
+<link rel="preload" href="styles.css" as="style">
+<link rel="stylesheet" href="styles.css">
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <a class="brand" href="#top" aria-label="Pixel Garden, home">
+    <span class="brand-mark" aria-hidden="true">
+      <span class="seed s1"></span><span class="seed s2"></span>
+      <span class="seed s3"></span><span class="seed s4"></span>
+    </span>
+    <span class="brand-name">Pixel<span class="brand-name-b">Garden</span></span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#worlds">Worlds</a>
+    <a href="#studio">Studio</a>
+    <a href="#news">Field notes</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">Independent game studio</p>
+      <h1 id="hero-title">Small worlds.<br><em>Strange rules.</em></h1>
+      <p class="lede">A tiny studio growing playful, atmospheric worlds for curious
+        players of every age. Plant a seed below and watch it sprout.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#worlds">Play our worlds</a>
+        <a class="btn btn-ghost" href="#studio">Meet the studio</a>
+      </div>
+    </div>
+    <div class="hero-garden">
+      <canvas id="garden" width="360" height="270"
+        aria-label="An interactive pixel garden. Select it and press space or click to plant seeds."
+        role="img" tabindex="0"></canvas>
+      <div class="garden-tools" role="group" aria-label="Garden controls">
+        <button type="button" class="tool" id="plant">Plant a seed</button>
+        <button type="button" class="tool tool-ghost" id="clear">Clear plot</button>
+      </div>
+      <p class="garden-hint" id="garden-hint">Tip: click the plot to plant where you point.</p>
+    </div>
+  </section>
+
+  <section class="worlds" id="worlds" aria-labelledby="worlds-title">
+    <div class="section-head">
+      <h2 id="worlds-title">Worlds we grew</h2>
+      <p>Three small games, each with one strange rule at its heart.</p>
+    </div>
+    <ul class="world-grid">
+      <li class="world-card">
+        <span class="world-tag">Cozy puzzler</span>
+        <h3>Lantern Moth</h3>
+        <p>Guide a paper moth home by rearranging the light. Everything you touch
+          keeps glowing until dawn.</p>
+        <p class="world-meta">Rule: light never turns off.</p>
+      </li>
+      <li class="world-card">
+        <span class="world-tag">Exploration</span>
+        <h3>Tide Cartographer</h3>
+        <p>Map an island that rewrites its own coastline every time the tide turns.
+          Your notes are the only thing that stays.</p>
+        <p class="world-meta">Rule: the map is never finished.</p>
+      </li>
+      <li class="world-card">
+        <span class="world-tag">Sandbox</span>
+        <h3>Root &amp; Rumor</h3>
+        <p>Whisper to plants and they whisper back — and to each other. Rumors travel
+          root to root across the whole valley.</p>
+        <p class="world-meta">Rule: secrets spread while you sleep.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="studio" id="studio" aria-labelledby="studio-title">
+    <div class="studio-copy">
+      <h2 id="studio-title">A four-person greenhouse</h2>
+      <p>We are two designers, an artist, and a composer working out of a converted
+        greenhouse. We make games slowly, on purpose, and we finish every one we
+        plant.</p>
+      <p>Our worlds are hand-tended: pixel by pixel, note by note. We build for the
+        moment a player leans in and says <em>“wait, what happens if…”</em></p>
+      <dl class="studio-stats">
+        <div><dt>Founded</dt><dd>2019</dd></div>
+        <div><dt>Worlds shipped</dt><dd>3</dd></div>
+        <div><dt>Coffee per world</dt><dd>∞</dd></div>
+      </dl>
+    </div>
+    <ul class="crew" aria-label="The studio crew">
+      <li><span class="crew-face f1" aria-hidden="true"></span>Wren · design</li>
+      <li><span class="crew-face f2" aria-hidden="true"></span>Juno · design</li>
+      <li><span class="crew-face f3" aria-hidden="true"></span>Bo · pixels</li>
+      <li><span class="crew-face f4" aria-hidden="true"></span>Mira · sound</li>
+    </ul>
+  </section>
+
+  <section class="news" id="news" aria-labelledby="news-title">
+    <div class="section-head">
+      <h2 id="news-title">Field notes</h2>
+      <p>Short dispatches from the greenhouse bench.</p>
+    </div>
+    <ol class="note-list">
+      <li>
+        <time datetime="2026-06">June 2026</time>
+        <p>Root &amp; Rumor grew a weather system by accident. We kept it.</p>
+      </li>
+      <li>
+        <time datetime="2026-04">April 2026</time>
+        <p>Prototyping a fourth world where the color palette is the enemy.</p>
+      </li>
+      <li>
+        <time datetime="2026-02">February 2026</time>
+        <p>Tide Cartographer reached 1,000 hand-drawn player maps shared.</p>
+      </li>
+    </ol>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <p class="foot-name">Pixel Garden</p>
+  <p class="foot-line">Small worlds. Strange rules. Grown by hand since 2019.</p>
+</footer>
+
+</body>
+</html>

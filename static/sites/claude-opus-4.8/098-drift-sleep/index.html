@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+	<meta name="description" content="An adaptive sleep companion combining sound, breath, and gentle screen-free routines.">
+	<meta name="color-scheme" content="dark">
+	<title>Drift — A softer landing for your day.</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="stars" aria-hidden="true"></div>
+	<div class="glow" aria-hidden="true"></div>
+
+	<header class="topbar">
+		<a class="brand" href="#top">
+			<span class="brand-mark" aria-hidden="true">
+				<svg viewBox="0 0 32 32" width="26" height="26" role="img" aria-label="">
+					<path d="M22 5a11 11 0 1 0 5 15 8.5 8.5 0 0 1-5-15z" fill="currentColor"/>
+				</svg>
+			</span>
+			<span class="brand-name">Drift</span>
+		</a>
+		<nav class="topnav" aria-label="Primary">
+			<a href="#breathe">Breathe</a>
+			<a href="#sound">Sound</a>
+			<a href="#ritual">Ritual</a>
+		</nav>
+	</header>
+
+	<main id="top">
+		<section class="hero">
+			<p class="eyebrow">Tonight begins here</p>
+			<h1>A softer landing<br>for your day.</h1>
+			<p class="lede">Drift is an adaptive sleep companion that weaves together
+				sound, breath, and gentle screen-free routines — easing you down from
+				the noise of the day into real rest.</p>
+			<div class="actions">
+				<a class="btn btn-primary" href="#breathe">Start winding down</a>
+				<button class="btn btn-ghost" type="button" id="soundJump">Hear a soundscape</button>
+			</div>
+			<dl class="stats">
+				<div><dt>Adaptive</dt><dd>tunes to your evening rhythm</dd></div>
+				<div><dt>Screen-free</dt><dd>dimming ritual, not a feed</dd></div>
+				<div><dt>Offline</dt><dd>everything runs on your device</dd></div>
+			</dl>
+		</section>
+
+		<section id="breathe" class="panel breathe" aria-labelledby="breathe-h">
+			<div class="panel-head">
+				<h2 id="breathe-h">Breathe down slowly</h2>
+				<p>A guided 4·7·8 breath to settle your nervous system. Follow the ring —
+					or just watch it move.</p>
+			</div>
+			<div class="breather">
+				<div class="ring-wrap">
+					<div class="ring" id="ring" aria-hidden="true">
+						<div class="ring-core"></div>
+					</div>
+					<p class="ring-cue" id="cue" role="status" aria-live="polite">Ready</p>
+				</div>
+				<div class="breath-controls">
+					<button class="btn btn-primary" id="breathToggle" type="button" aria-pressed="false">Begin breathing</button>
+					<p class="breath-count"><span id="cycleCount">0</span> cycles complete</p>
+					<p class="hint">Inhale for 4, hold for 7, exhale for 8.</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="sound" class="panel sound" aria-labelledby="sound-h">
+			<div class="panel-head">
+				<h2 id="sound-h">Choose a soundscape</h2>
+				<p>Layered, generative tones — no loops, no ads. Pick a texture and set
+					how long it should carry you.</p>
+			</div>
+			<div class="scapes" id="scapes" role="group" aria-label="Soundscapes">
+				<button class="scape" type="button" data-scape="rain">
+					<span class="scape-icon" aria-hidden="true">🌧️</span>
+					<span class="scape-name">Night Rain</span>
+					<span class="scape-desc">Soft rainfall on a still window</span>
+				</button>
+				<button class="scape" type="button" data-scape="tide">
+					<span class="scape-icon" aria-hidden="true">🌊</span>
+					<span class="scape-name">Slow Tide</span>
+					<span class="scape-desc">Distant waves folding over sand</span>
+				</button>
+				<button class="scape" type="button" data-scape="ember">
+					<span class="scape-icon" aria-hidden="true">🔥</span>
+					<span class="scape-name">Low Ember</span>
+					<span class="scape-desc">A crackling hearth at midnight</span>
+				</button>
+				<button class="scape" type="button" data-scape="drone">
+					<span class="scape-icon" aria-hidden="true">🌙</span>
+					<span class="scape-name">Moon Drone</span>
+					<span class="scape-desc">Warm, weightless ambient pad</span>
+				</button>
+			</div>
+			<div class="player" aria-live="polite">
+				<p class="now-playing">Playing: <strong id="nowPlaying">nothing yet</strong></p>
+				<div class="timer-row">
+					<label for="timer">Fade out after</label>
+					<select id="timer">
+						<option value="15">15 minutes</option>
+						<option value="30" selected>30 minutes</option>
+						<option value="45">45 minutes</option>
+						<option value="60">60 minutes</option>
+					</select>
+					<button class="btn btn-ghost" id="stopSound" type="button" disabled>Stop</button>
+				</div>
+			</div>
+		</section>
+
+		<section id="ritual" class="panel ritual" aria-labelledby="ritual-h">
+			<div class="panel-head">
+				<h2 id="ritual-h">Tonight's wind-down ritual</h2>
+				<p>Small, screen-free steps. Check each one off as the lights come down.</p>
+			</div>
+			<ul class="steps" id="steps">
+				<li><label><input type="checkbox"> Dim every screen to its lowest warmth</label></li>
+				<li><label><input type="checkbox"> Set out tomorrow's first small task</label></li>
+				<li><label><input type="checkbox"> Stretch your shoulders and jaw loose</label></li>
+				<li><label><input type="checkbox"> Sip something warm, no caffeine</label></li>
+				<li><label><input type="checkbox"> Let the soundscape carry the rest</label></li>
+			</ul>
+			<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+			<p class="ritual-done" id="ritualDone" hidden>That's the whole ritual. Sleep well. 🌙</p>
+		</section>
+	</main>
+
+	<footer class="site-foot">
+		<p>Drift · Sleep Technology</p>
+		<p class="fine">Runs entirely offline. Nothing you do here leaves this device.</p>
+	</footer>
+
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Mosslight — Disappear into the green. Cabins in the Cascades.">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f1a12"/>
+      <stop offset="0.55" stop-color="#16281b"/>
+      <stop offset="1" stop-color="#24402a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.55">
+      <stop offset="0" stop-color="#e6a94d" stop-opacity="0.5"/>
+      <stop offset="0.55" stop-color="#e6a94d" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#e6a94d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="frond" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8fb37a"/>
+      <stop offset="1" stop-color="#4b7048"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#sky)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- distant ridge -->
+  <path d="M0 470 L150 380 L300 450 L470 340 L640 440 L820 330 L1010 430 L1200 360 L1200 900 L0 900 Z" fill="#1c3421"/>
+  <path d="M0 540 L200 450 L400 520 L620 430 L840 520 L1060 440 L1200 500 L1200 900 L0 900 Z" fill="#24402a"/>
+
+  <!-- mist band -->
+  <ellipse cx="600" cy="520" rx="720" ry="70" fill="#dfe8dd" opacity="0.16"/>
+
+  <!-- silhouetted conifers -->
+  <g fill="#16281b">
+    <path d="M120 720 L150 500 L180 720 Z"/>
+    <path d="M250 740 L285 470 L320 740 Z"/>
+    <path d="M980 730 L1015 490 L1050 730 Z"/>
+    <path d="M1080 745 L1112 520 L1144 745 Z"/>
+  </g>
+
+  <!-- central fern / moss frond motif -->
+  <g transform="translate(600 640)" stroke-linecap="round">
+    <path d="M0 200 C0 90 0 20 -70 -80" fill="none" stroke="#4b7048" stroke-width="8"/>
+    <path d="M0 200 C0 90 0 20 70 -80" fill="none" stroke="#4b7048" stroke-width="8"/>
+    <g fill="url(#frond)">
+      <ellipse cx="-20" cy="150" rx="26" ry="12" transform="rotate(-32 -20 150)"/>
+      <ellipse cx="20" cy="150" rx="26" ry="12" transform="rotate(32 20 150)"/>
+      <ellipse cx="-30" cy="95" rx="30" ry="13" transform="rotate(-38 -30 95)"/>
+      <ellipse cx="30" cy="95" rx="30" ry="13" transform="rotate(38 30 95)"/>
+      <ellipse cx="-40" cy="35" rx="30" ry="13" transform="rotate(-44 -40 35)"/>
+      <ellipse cx="40" cy="35" rx="30" ry="13" transform="rotate(44 40 35)"/>
+      <ellipse cx="-46" cy="-25" rx="26" ry="11" transform="rotate(-50 -46 -25)"/>
+      <ellipse cx="46" cy="-25" rx="26" ry="11" transform="rotate(50 46 -25)"/>
+      <ellipse cx="-46" cy="-78" rx="20" ry="9" transform="rotate(-56 -46 -78)"/>
+      <ellipse cx="46" cy="-78" rx="20" ry="9" transform="rotate(56 46 -78)"/>
+    </g>
+    <circle cx="0" cy="-96" r="7" fill="#e6a94d"/>
+  </g>
+
+  <!-- warm lit-window dot -->
+  <circle cx="285" cy="600" r="10" fill="#e6a94d" opacity="0.9"/>
+
+  <!-- text -->
+  <text x="600" y="230" text-anchor="middle" fill="#e6a94d" font-family="'Segoe UI',system-ui,sans-serif" font-size="30" letter-spacing="10" font-weight="600">CABINS IN THE CASCADES</text>
+  <text x="600" y="360" text-anchor="middle" fill="#faf8f1" font-family="'Iowan Old Style',Palatino,Georgia,serif" font-size="150" font-weight="600" letter-spacing="-2">Mosslight</text>
+  <text x="600" y="435" text-anchor="middle" fill="#dfe8dd" font-family="'Iowan Old Style',Palatino,Georgia,serif" font-size="46" font-style="italic">Disappear into the green.</text>
+
+  <text x="600" y="855" text-anchor="middle" fill="#8fb37a" font-family="'Segoe UI',system-ui,sans-serif" font-size="24" letter-spacing="3">Restorative forest cabins · Seasonal field notes · Unhurried itineraries</text>
+</svg>

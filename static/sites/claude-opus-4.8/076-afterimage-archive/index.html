@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <title>Afterimage Archive — What remains after looking.</title>
+  <meta name="description" content="A digital archive preserving overlooked experimental photography from 1968 to 1999." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="archive.js"></script>
+</head>
+<body>
+  <a class="skip" href="#archive">Skip to the archive</a>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <a class="wordmark" href="#top" id="top">
+        <span class="wordmark-mark" aria-hidden="true">
+          <span class="disc disc-a"></span><span class="disc disc-b"></span>
+        </span>
+        <span class="wordmark-text">
+          <span class="wordmark-name">Afterimage Archive</span>
+          <span class="wordmark-sub">Archive 001—947</span>
+        </span>
+      </a>
+      <nav class="mast-nav" aria-label="Sections">
+        <a href="#archive">Plates</a>
+        <a href="#note">Note</a>
+        <a href="#preserve">Preservation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <p class="eyebrow">Archive 001—947 · Experimental photography, 1968–1999</p>
+      <h1 id="hero-title">What remains<br /><span class="ghosted" data-ghost="after looking.">after looking.</span></h1>
+      <p class="lede">
+        A digital archive preserving overlooked experimental photography — the chemograms,
+        cliché-verre, flatbed captures and expired-film exposures that slipped past the
+        institutions. We catalogue the residue: the picture the eye keeps once the light is gone.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#archive">Browse the archive</a>
+        <a class="btn btn-ghost" href="#note">Read curatorial note</a>
+      </div>
+      <dl class="figures" aria-label="Archive at a glance">
+        <div><dt>947</dt><dd>catalogued plates</dd></div>
+        <div><dt>31</dt><dd>years surveyed</dd></div>
+        <div><dt>12</dt><dd>lost processes</dd></div>
+      </dl>
+    </section>
+
+    <section id="archive" class="archive wrap" aria-labelledby="archive-title" tabindex="-1">
+      <div class="section-head">
+        <h2 id="archive-title">The plates</h2>
+        <p>Hover, tap, or focus a plate to hold its afterimage. Select one to open its record.</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter plates by decade">
+        <button type="button" class="chip is-on" data-decade="all" aria-pressed="true">All</button>
+        <button type="button" class="chip" data-decade="1960s" aria-pressed="false">1960s</button>
+        <button type="button" class="chip" data-decade="1970s" aria-pressed="false">1970s</button>
+        <button type="button" class="chip" data-decade="1980s" aria-pressed="false">1980s</button>
+        <button type="button" class="chip" data-decade="1990s" aria-pressed="false">1990s</button>
+      </div>
+
+      <ul class="plates" id="plate-grid"></ul>
+      <p class="empty" id="empty-note" hidden>No plates catalogued for that decade.</p>
+    </section>
+
+    <section id="note" class="note" aria-labelledby="note-title">
+      <div class="wrap note-inner">
+        <div class="section-head">
+          <p class="kicker">Curatorial note</p>
+          <h2 id="note-title">On keeping what was meant to fade</h2>
+        </div>
+        <div class="note-body">
+          <p>
+            An afterimage is not a photograph. It is what the retina invents in the dark
+            immediately after — a stubborn ghost, complementary in colour, already dissolving.
+            Every work gathered here was made by someone who trusted that residue more than
+            the negative.
+          </p>
+          <p>
+            Between 1968 and 1999 a loose international company of photographers abandoned the
+            faithful print. They exposed paper to the sun without a camera, dragged images
+            across photocopiers until they decayed, and scanned their own hands on office
+            flatbeds. Galleries had no vitrine for such things, and most of the work was
+            discarded, over-fixed, or simply forgotten in damp boxes.
+          </p>
+          <p>
+            The Afterimage Archive does not restore these pictures to some imagined original.
+            We preserve them as they survive — burnt, streaked, half-erased — and hold each
+            one long enough for a viewer to carry its shape away.
+          </p>
+          <p class="sign">— Editorial desk, Archive 001—947</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="preserve" class="preserve wrap" aria-labelledby="preserve-title">
+      <div class="section-head">
+        <h2 id="preserve-title">How the archive keeps them</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="step-no">01</span>
+          <h3>Locate</h3>
+          <p>Prints surface in estate sales, darkroom clear-outs, and the back drawers of
+            regional camera clubs. Each is logged with whatever provenance survives it.</p>
+        </li>
+        <li>
+          <span class="step-no">02</span>
+          <h3>Capture, not correct</h3>
+          <p>Every plate is imaged at its current state. We record the damage; we do not iron
+            it out. The decay is part of the document now.</p>
+        </li>
+        <li>
+          <span class="step-no">03</span>
+          <h3>Describe</h3>
+          <p>Process, chemistry, and condition are catalogued so a lost technique can be read
+            even when no maker's name remains attached to it.</p>
+        </li>
+        <li>
+          <span class="step-no">04</span>
+          <h3>Hold open</h3>
+          <p>Nothing is deaccessioned. A plate too faint to reproduce still keeps its number
+            and its place in the sequence.</p>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap foot-inner">
+      <p class="foot-mark">Afterimage Archive</p>
+      <p class="foot-line">What remains after looking. · An independent preservation project · 1968–1999</p>
+      <p class="foot-fine">All plates catalogued for study. No photograph reproduced here is a faithful print; each is the residue as it survives.</p>
+    </div>
+  </footer>
+
+  <!-- In-page record viewer; no popups, no navigation -->
+  <div class="viewer" id="viewer" hidden>
+    <div class="viewer-scrim" data-close></div>
+    <div class="viewer-card" role="dialog" aria-modal="true" aria-labelledby="viewer-title" tabindex="-1">
+      <button type="button" class="viewer-close" data-close aria-label="Close record">×</button>
+      <div class="viewer-plate" id="viewer-plate" aria-hidden="true"><span class="viewer-after"></span></div>
+      <div class="viewer-meta">
+        <p class="viewer-cat" id="viewer-cat"></p>
+        <h3 id="viewer-title"></h3>
+        <dl class="viewer-facts">
+          <div><dt>Year</dt><dd id="viewer-year"></dd></div>
+          <div><dt>Process</dt><dd id="viewer-process"></dd></div>
+          <div><dt>Condition</dt><dd id="viewer-condition"></dd></div>
+        </dl>
+        <p class="viewer-desc" id="viewer-desc"></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

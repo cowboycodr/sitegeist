@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Carbon Zero — Make every tonne visible">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="42%" r="60%">
+      <stop offset="0%" stop-color="#59f0a3" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#59f0a3" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="signal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#74ffbc"/>
+      <stop offset="100%" stop-color="#2fbd7c"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a1811"/>
+      <stop offset="100%" stop-color="#06110b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- brand row -->
+  <g transform="translate(96,96)">
+    <circle cx="22" cy="22" r="21" fill="none" stroke="#2fbd7c" stroke-width="3"/>
+    <circle cx="22" cy="22" r="12" fill="none" stroke="#59f0a3" stroke-width="3"/>
+    <circle cx="22" cy="22" r="4" fill="#59f0a3"/>
+    <text x="62" y="34" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#f3fbf6" letter-spacing="0.5">Carbon Zero</text>
+  </g>
+
+  <text x="96" y="230" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="6" fill="#59f0a3">OPERATIONAL CARBON INTELLIGENCE</text>
+
+  <text font-family="Segoe UI, Helvetica, Arial, sans-serif" fill="#f3fbf6" font-weight="800" letter-spacing="-2">
+    <tspan x="92" y="360" font-size="118">Make every</tspan>
+    <tspan x="92" y="480" font-size="118">tonne visible.</tspan>
+  </text>
+
+  <text x="96" y="560" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="30" fill="#8fae9d">Emissions intelligence for teams turning climate</text>
+  <text x="96" y="602" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="30" fill="#8fae9d">promises into measurable progress.</text>
+
+  <!-- pill -->
+  <g transform="translate(96,680)">
+    <rect width="360" height="72" rx="36" fill="#59f0a3"/>
+    <text x="180" y="47" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#06110b">Measure your footprint</text>
+  </g>
+
+  <!-- gauge motif -->
+  <g transform="translate(890,470)">
+    <circle r="290" fill="none" stroke="#59f0a3" stroke-width="1.5" opacity="0.14"/>
+    <circle r="216" fill="none" stroke="#59f0a3" stroke-width="1.5" opacity="0.24"/>
+    <circle r="142" fill="none" stroke="#59f0a3" stroke-width="2" opacity="0.4"/>
+    <circle r="70" fill="none" stroke="url(#signal)" stroke-width="6"/>
+    <text x="0" y="6" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="150" font-weight="800" fill="#f3fbf6">0</text>
+    <text x="0" y="118" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="2" fill="#59f0a3">tCO₂e TARGET</text>
+
+    <!-- declining path to zero -->
+    <polyline points="-250,150 -170,60 -80,10 20,-30 130,-55 250,-64"
+              fill="none" stroke="url(#signal)" stroke-width="4" stroke-linecap="round"
+              stroke-dasharray="0" opacity="0.9"/>
+  </g>
+
+  <!-- scope legend -->
+  <g transform="translate(96,798)" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="24" font-weight="700">
+    <circle cx="8" cy="-8" r="8" fill="#f0c65b"/><text x="28" y="0" fill="#cfe6d8">Scope 1</text>
+    <circle cx="188" cy="-8" r="8" fill="#59f0a3"/><text x="208" y="0" fill="#cfe6d8">Scope 2</text>
+    <circle cx="368" cy="-8" r="8" fill="#8fd0ff"/><text x="388" y="0" fill="#cfe6d8">Scope 3</text>
+  </g>
+</svg>

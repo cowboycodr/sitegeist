@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Deep Time — a museum of the Earth. Four billion years, still unfolding.">
+  <defs>
+    <radialGradient id="sky" cx="78%" cy="12%" r="90%">
+      <stop offset="0" stop-color="#20140e"/>
+      <stop offset="42%" stop-color="#0d1018"/>
+      <stop offset="100%" stop-color="#070910"/>
+    </radialGradient>
+    <radialGradient id="sun" cx="35%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#f7d98a"/>
+      <stop offset="45%" stop-color="#e2703a"/>
+      <stop offset="100%" stop-color="#7a2d18"/>
+    </radialGradient>
+    <linearGradient id="band" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3b2a4d"/>
+      <stop offset="30%" stop-color="#6b3d2e"/>
+      <stop offset="55%" stop-color="#7a5a2a"/>
+      <stop offset="80%" stop-color="#2f5a52"/>
+      <stop offset="100%" stop-color="#365f36"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#070910" stop-opacity="0"/>
+      <stop offset="1" stop-color="#070910" stop-opacity=".55"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#sky)"/>
+
+  <!-- molten sun -->
+  <circle cx="940" cy="150" r="120" fill="url(#sun)"/>
+  <circle cx="940" cy="150" r="120" fill="none" stroke="#f2c14e" stroke-width="2" opacity=".4"/>
+
+  <!-- crescent moon -->
+  <circle cx="240" cy="140" r="34" fill="#5a6572"/>
+  <circle cx="228" cy="132" r="30" fill="#0d1018"/>
+
+  <!-- strata layers -->
+  <g>
+    <rect x="0" y="560" width="1200" height="340" fill="#0f131c"/>
+    <rect x="0" y="560" width="1200" height="70" fill="#12324a" opacity=".5"/>
+    <rect x="0" y="630" width="1200" height="60" fill="#3a1810" opacity=".6"/>
+    <rect x="0" y="690" width="1200" height="55" fill="#24301a" opacity=".7"/>
+    <rect x="0" y="745" width="1200" height="55" fill="#2a1f14" opacity=".7"/>
+    <rect x="0" y="800" width="1200" height="100" fill="#141c2a"/>
+  </g>
+  <rect x="0" y="500" width="1200" height="120" fill="url(#fade)"/>
+
+  <!-- timeline ribbon -->
+  <rect x="90" y="536" width="1020" height="16" rx="8" fill="url(#band)"/>
+  <g fill="#0d1018" stroke="#f2c14e" stroke-width="3">
+    <circle cx="150" cy="544" r="13"/>
+    <circle cx="330" cy="544" r="13"/>
+    <circle cx="530" cy="544" r="13"/>
+    <circle cx="720" cy="544" r="13"/>
+    <circle cx="900" cy="544" r="13"/>
+  </g>
+  <circle cx="1080" cy="544" r="15" fill="#f2c14e"/>
+  <circle cx="1080" cy="544" r="26" fill="none" stroke="#f2c14e" stroke-width="2" opacity=".35"/>
+
+  <!-- ammonite spiral motif -->
+  <g transform="translate(210 700)" fill="none" stroke="#e2703a" stroke-width="7" stroke-linecap="round">
+    <path d="M0 0 A10 10 0 1 1 12 -14 A26 26 0 1 1 -20 -34 A48 48 0 1 1 46 -60 A72 72 0 1 1 -84 -14"/>
+  </g>
+  <g transform="translate(210 700)" stroke="#5f9ea9" stroke-width="2.5" opacity=".55">
+    <line x1="0" y1="0" x2="70" y2="0"/><line x1="0" y1="0" x2="0" y2="-78"/>
+    <line x1="0" y1="0" x2="-64" y2="-40"/><line x1="0" y1="0" x2="52" y2="-56"/>
+  </g>
+
+  <!-- text -->
+  <text x="90" y="300" font-family="Georgia,'Times New Roman',serif" font-size="34" letter-spacing="14" fill="#f2c14e">AN ATLAS OF EARTH</text>
+  <text x="86" y="452" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="230" fill="#eef2f7">Deep Time</text>
+  <text x="92" y="512" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="44" fill="#f2c14e">Four billion years, still unfolding.</text>
+
+  <text x="470" y="700" font-family="Georgia,'Times New Roman',serif" font-size="30" fill="#9aa8bd">Fossils · climates · extinction</text>
+  <text x="470" y="746" font-family="Georgia,'Times New Roman',serif" font-size="30" fill="#9aa8bd">An immersive museum of the Earth</text>
+
+  <g font-family="Georgia,'Times New Roman',serif" fill="#7fa663">
+    <text x="470" y="812" font-size="26">4.54 Ga  →  today</text>
+  </g>
+
+  <rect x="1" y="1" width="1198" height="898" fill="none" stroke="#27303f" stroke-width="2"/>
+</svg>

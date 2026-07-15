@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+	<title>NULL Laboratory — Prototypes for uncertain futures</title>
+	<meta name="description" content="Research into spatial computing, machine perception, and delightfully strange interfaces." />
+	<link rel="stylesheet" href="styles.css" />
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="app.js"></script>
+</head>
+<body>
+	<a class="skip" href="#experiments">Skip to experiments</a>
+
+	<div class="grain" aria-hidden="true"></div>
+
+	<header class="topbar">
+		<a class="brand" href="#top" aria-label="NULL Laboratory home">
+			<span class="brand-mark" aria-hidden="true">&#8709;</span>
+			<span class="brand-text">NULL<span class="brand-sub">Laboratory</span></span>
+		</a>
+		<nav class="topnav" aria-label="Primary">
+			<a href="#experiments">Experiments</a>
+			<a href="#manifesto">Manifesto</a>
+			<a href="#log">Log</a>
+		</nav>
+		<span class="status" role="status" aria-live="polite">
+			<span class="status-dot" aria-hidden="true"></span>
+			<span id="status-text">systems nominal</span>
+		</span>
+	</header>
+
+	<main id="top">
+		<section class="hero" aria-labelledby="hero-title">
+			<p class="eyebrow">Research index / 0090</p>
+			<h1 id="hero-title">
+				Prototypes for<br />
+				<span class="hero-accent">uncertain futures.</span>
+			</h1>
+			<p class="lede">
+				NULL Laboratory builds instruments for problems that do not have
+				answers yet — spatial computing, machine perception, and
+				delightfully strange interfaces. Everything here is a working draft.
+			</p>
+			<div class="hero-actions">
+				<a class="btn btn-primary" href="#experiments">
+					Open experiments
+					<span class="btn-arrow" aria-hidden="true">&#8594;</span>
+				</a>
+				<a class="btn btn-ghost" href="#manifesto">Read the manifesto</a>
+			</div>
+
+			<dl class="stats" aria-label="Laboratory statistics">
+				<div class="stat">
+					<dt>Active builds</dt>
+					<dd data-count="12">12</dd>
+				</div>
+				<div class="stat">
+					<dt>Null hypotheses</dt>
+					<dd data-count="47">47</dd>
+				</div>
+				<div class="stat">
+					<dt>Years drifting</dt>
+					<dd data-count="6">6</dd>
+				</div>
+			</dl>
+		</section>
+
+		<section id="experiments" class="experiments" aria-labelledby="exp-title" tabindex="-1">
+			<div class="section-head">
+				<h2 id="exp-title"><span class="section-index">01</span> Experiments</h2>
+				<div class="filters" role="group" aria-label="Filter experiments by field">
+					<button type="button" class="chip is-active" data-filter="all" aria-pressed="true">All</button>
+					<button type="button" class="chip" data-filter="spatial" aria-pressed="false">Spatial</button>
+					<button type="button" class="chip" data-filter="perception" aria-pressed="false">Perception</button>
+					<button type="button" class="chip" data-filter="interface" aria-pressed="false">Interface</button>
+				</div>
+			</div>
+
+			<ul class="grid" id="exp-grid"></ul>
+			<p class="empty" id="exp-empty" hidden>No experiments in that field yet. The null set is also a result.</p>
+		</section>
+
+		<section id="manifesto" class="manifesto" aria-labelledby="man-title">
+			<h2 id="man-title"><span class="section-index">02</span> Manifesto</h2>
+			<div class="manifesto-body">
+				<p class="pull">
+					We treat the empty result &#8709; as a first-class outcome.
+					A prototype that fails clearly is worth more than a demo that
+					succeeds by hiding its seams.
+				</p>
+				<ol class="tenets">
+					<li><span>001</span> Build the smallest thing that could possibly be wrong.</li>
+					<li><span>002</span> Instrument everything; trust nothing you cannot replay.</li>
+					<li><span>003</span> A strange interface is a hypothesis about attention.</li>
+					<li><span>004</span> Publish the dead ends alongside the discoveries.</li>
+				</ol>
+			</div>
+		</section>
+
+		<section id="log" class="log" aria-labelledby="log-title">
+			<h2 id="log-title"><span class="section-index">03</span> Field log</h2>
+			<ol class="timeline"></ol>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<span class="brand-mark small" aria-hidden="true">&#8709;</span>
+		<p>NULL Laboratory — an independent research index. No trackers, no cloud, no promises.</p>
+		<p class="coords" aria-hidden="true">lat 0.000 / lon 0.000</p>
+	</footer>
+</body>
+</html>

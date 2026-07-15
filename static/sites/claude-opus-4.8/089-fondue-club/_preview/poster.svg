@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Fondue Club — Dip irresponsibly.">
+  <defs>
+    <radialGradient id="glow" cx="78%" cy="8%" r="70%">
+      <stop offset="0%" stop-color="#f2c14e" stop-opacity="0.45"/>
+      <stop offset="60%" stop-color="#f2c14e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cheese" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f7d074"/>
+      <stop offset="100%" stop-color="#e0a72c"/>
+    </linearGradient>
+    <linearGradient id="pot" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a302b"/>
+      <stop offset="100%" stop-color="#211a17"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="#fbf3df"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- steam -->
+  <g fill="#ffffff" opacity="0.5">
+    <circle cx="560" cy="470" r="34"/>
+    <circle cx="600" cy="410" r="26"/>
+    <circle cx="648" cy="460" r="30"/>
+    <circle cx="620" cy="360" r="20"/>
+  </g>
+
+  <!-- fondue pot -->
+  <g transform="translate(600 620)">
+    <ellipse cx="0" cy="150" rx="230" ry="30" fill="#6d1f30" opacity="0.25"/>
+    <path d="M -210 -10 Q -210 150 0 150 Q 210 150 210 -10 Z" fill="url(#pot)"/>
+    <rect x="-236" y="-30" width="472" height="44" rx="22" fill="#4a1220"/>
+    <!-- molten cheese -->
+    <path d="M -210 -8 Q 0 60 210 -8 Q 210 40 150 70 Q 80 96 0 96 Q -80 96 -150 70 Q -210 40 -210 -8 Z" fill="url(#cheese)"/>
+    <!-- fork -->
+    <g stroke="#8a4b1e" stroke-width="9" stroke-linecap="round" fill="none">
+      <line x1="120" y1="40" x2="320" y2="-150"/>
+    </g>
+    <circle cx="118" cy="42" r="18" fill="#f7e9c9" stroke="#c99a54" stroke-width="6"/>
+  </g>
+
+  <!-- eyebrow chip -->
+  <g transform="translate(110 150)">
+    <rect x="0" y="0" width="360" height="52" rx="26" fill="#6d1f30"/>
+    <text x="180" y="34" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="21" letter-spacing="4" fill="#fbf3df">NEXT MELT / FRIDAY 8 PM</text>
+  </g>
+
+  <!-- wordmark -->
+  <text x="104" y="330" font-family="Iowan Old Style, Palatino, Georgia, serif" font-weight="700" font-size="150" letter-spacing="-3" fill="#4a1220">Dip</text>
+  <text x="104" y="470" font-family="Iowan Old Style, Palatino, Georgia, serif" font-weight="700" font-size="150" letter-spacing="-3" fill="#4a1220">irresponsibly.</text>
+
+  <!-- brand tag -->
+  <g transform="translate(104 560)">
+    <text font-family="Iowan Old Style, Palatino, Georgia, serif" font-weight="700" font-size="42" fill="#6d1f30">🫕 Fondue Club</text>
+    <text y="46" font-family="Helvetica Neue, Arial, sans-serif" font-size="26" fill="#8a4b1e">Bubbling cheese · cold wine · unserious evenings</text>
+  </g>
+
+  <rect x="0" y="0" width="1200" height="900" fill="none" stroke="#e0a72c" stroke-width="16"/>
+</svg>

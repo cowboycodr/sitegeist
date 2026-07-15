@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-labelledby="posterTitle posterDesc">
+  <title id="posterTitle">Paper Plane — slow-travel journal poster</title>
+  <desc id="posterDesc">A cream airmail postcard with the words Paper Plane, a dashed flight path, and a folded paper plane.</desc>
+
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6efe3"/>
+      <stop offset="1" stop-color="#eee2d0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.32" cy="0.4" r="0.7">
+      <stop offset="0" stop-color="#b07a2b" stop-opacity="0.09"/>
+      <stop offset="1" stop-color="#b07a2b" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="airmail" width="56" height="56" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="56" height="56" fill="#f4ece0"/>
+      <rect width="14" height="56" x="0" fill="#bb3a2e"/>
+      <rect width="14" height="56" x="28" fill="#2c5c7a"/>
+    </pattern>
+  </defs>
+
+  <!-- Base -->
+  <rect width="1200" height="900" fill="url(#sky)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- Airmail frame -->
+  <rect x="0" y="0" width="1200" height="26" fill="url(#airmail)"/>
+  <rect x="0" y="874" width="1200" height="26" fill="url(#airmail)"/>
+
+  <!-- Inner card -->
+  <rect x="72" y="74" width="1056" height="752" rx="14" fill="#fbf6ec" stroke="#d8c9b3" stroke-width="2"/>
+
+  <!-- Eyebrow -->
+  <g font-family="Georgia, 'Times New Roman', serif">
+    <circle cx="130" cy="168" r="7" fill="#bb3a2e"/>
+    <text x="150" y="174" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" letter-spacing="6" fill="#bb3a2e">DISPATCH No. 28  /  TBILISI</text>
+
+    <!-- Title -->
+    <text x="128" y="360" font-size="176" font-weight="700" fill="#22303f" letter-spacing="-2">Paper</text>
+    <text x="128" y="520" font-size="176" font-weight="700" fill="#22303f" letter-spacing="-2">Plane</text>
+
+    <!-- Tagline -->
+    <text x="132" y="600" font-size="40" font-style="italic" fill="#4a5a6a">Go somewhere worth writing down.</text>
+
+    <!-- Sub -->
+    <text x="132" y="666" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" letter-spacing="4" fill="#4a5a6a">A SLOW-TRAVEL JOURNAL · CITY GUIDES · TRAIN ROUTES</text>
+  </g>
+
+  <!-- Flight path + plane -->
+  <path d="M150 740 Q420 690 560 610 T900 380 Q1000 300 1080 210"
+        fill="none" stroke="#2c5c7a" stroke-width="4" stroke-dasharray="3 14" stroke-linecap="round" opacity="0.8"/>
+
+  <!-- Path stop dots -->
+  <g fill="#fbf6ec" stroke="#2c5c7a" stroke-width="4">
+    <circle cx="150" cy="740" r="10"/>
+    <circle cx="560" cy="610" r="10"/>
+    <circle cx="900" cy="380" r="10"/>
+  </g>
+
+  <!-- Paper plane -->
+  <g transform="translate(1010 250) rotate(-34)">
+    <path d="M-70 0 L70 -46 L16 70 L-8 16 Z" fill="#bb3a2e"/>
+    <path d="M-8 16 L70 -46" fill="none" stroke="#8f2b22" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M-70 0 L-8 16 L16 70" fill="none" stroke="#8f2b22" stroke-width="3" opacity="0.5"/>
+  </g>
+
+  <!-- Postmark -->
+  <g transform="translate(980 700) rotate(-9)" fill="none" stroke="#2c5c7a" opacity="0.7">
+    <circle r="78" stroke-width="3"/>
+    <circle r="60" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(980 700) rotate(-9)" font-family="'Segoe UI', Helvetica, Arial, sans-serif" fill="#2c5c7a" text-anchor="middle">
+    <text y="-32" font-size="16" letter-spacing="3" opacity="0.85">PAPER PLANE</text>
+    <text y="6" font-size="34" font-weight="700">No. 28</text>
+    <text y="38" font-size="15" letter-spacing="2" opacity="0.85">BY RAIL</text>
+  </g>
+
+  <!-- Stamp -->
+  <g transform="translate(1000 168) rotate(4)">
+    <rect x="-52" y="-52" width="104" height="104" rx="4" fill="#f4ece0" stroke="#bb3a2e" stroke-width="2" stroke-dasharray="6 4"/>
+    <path d="M-30 22 L30 -18 L6 34 L-4 8 Z" fill="none" stroke="#bb3a2e" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M-4 8 L30 -18" fill="none" stroke="#bb3a2e" stroke-width="4"/>
+  </g>
+</svg>

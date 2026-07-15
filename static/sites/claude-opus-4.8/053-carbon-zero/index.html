@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self';" />
+  <title>Carbon Zero — Make every tonne visible</title>
+  <meta name="description" content="Emissions intelligence for teams ready to turn climate promises into measurable progress." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a1811'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%2359f0a3' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%2359f0a3'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#calculator">Skip to the footprint calculator</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Carbon Zero home">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="ring"></span>
+          <span class="ring ring-2"></span>
+          <span class="dot"></span>
+        </span>
+        <span class="brand-name">Carbon&nbsp;Zero</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#calculator">Calculator</a>
+        <a href="#scopes">Scopes</a>
+        <a href="#methodology">Methodology</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Operational carbon intelligence</p>
+        <h1 id="hero-title">Make every tonne visible.</h1>
+        <p class="lede">Emissions intelligence for teams ready to turn climate promises
+          into measurable progress. Carbon Zero maps your footprint across every scope,
+          then charts the fastest credible path down to net zero.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#calculator">Measure your footprint</a>
+          <a class="btn btn-ghost" href="#methodology">View methodology</a>
+        </div>
+        <dl class="hero-stats">
+          <div><dt>Scopes tracked</dt><dd>1 &middot; 2 &middot; 3</dd></div>
+          <div><dt>Update cadence</dt><dd>Live</dd></div>
+          <div><dt>Audit trail</dt><dd>Every&nbsp;tonne</dd></div>
+        </dl>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="gauge">
+          <div class="gauge-rings">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="gauge-center">
+            <span class="gauge-num">0</span>
+            <span class="gauge-unit">tCO₂e target</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="calculator" class="calculator wrap" aria-labelledby="calc-title">
+      <div class="section-head">
+        <h2 id="calc-title">Footprint calculator</h2>
+        <p>Adjust each driver to model an annual footprint. Every change recalculates
+          your total emissions and the gap to a net-zero glide path.</p>
+      </div>
+
+      <div class="calc-grid">
+        <div class="controls" role="group" aria-label="Emissions drivers">
+          <div class="control">
+            <label for="energy">Facility energy use</label>
+            <div class="control-row">
+              <input type="range" id="energy" min="0" max="4000" step="50" value="1200"
+                     aria-describedby="energy-out" />
+              <output id="energy-out" for="energy">1,200 MWh</output>
+            </div>
+          </div>
+          <div class="control">
+            <label for="fleet">Fleet &amp; logistics</label>
+            <div class="control-row">
+              <input type="range" id="fleet" min="0" max="1500" step="25" value="450"
+                     aria-describedby="fleet-out" />
+              <output id="fleet-out" for="fleet">450 k·km</output>
+            </div>
+          </div>
+          <div class="control">
+            <label for="supply">Purchased goods &amp; services</label>
+            <div class="control-row">
+              <input type="range" id="supply" min="0" max="20000" step="100" value="6500"
+                     aria-describedby="supply-out" />
+              <output id="supply-out" for="supply">$6.5M spend</output>
+            </div>
+          </div>
+          <div class="control">
+            <label for="renewable">Renewable electricity share</label>
+            <div class="control-row">
+              <input type="range" id="renewable" min="0" max="100" step="5" value="35"
+                     aria-describedby="renewable-out" />
+              <output id="renewable-out" for="renewable">35%</output>
+            </div>
+          </div>
+        </div>
+
+        <div class="readout" aria-live="polite">
+          <div class="total-card">
+            <p class="total-label">Modelled annual footprint</p>
+            <p class="total-value"><span id="total-num">0</span> <span class="total-unit">tCO₂e</span></p>
+            <p class="total-sub" id="total-sub">Drag a slider to begin.</p>
+          </div>
+
+          <ul class="scope-bars" id="scope-bars">
+            <li data-scope="s1">
+              <div class="bar-head"><span>Scope 1 — Direct</span><span class="bar-val" id="s1-val">0</span></div>
+              <div class="bar-track"><span class="bar-fill" id="s1-bar"></span></div>
+            </li>
+            <li data-scope="s2">
+              <div class="bar-head"><span>Scope 2 — Energy</span><span class="bar-val" id="s2-val">0</span></div>
+              <div class="bar-track"><span class="bar-fill" id="s2-bar"></span></div>
+            </li>
+            <li data-scope="s3">
+              <div class="bar-head"><span>Scope 3 — Value chain</span><span class="bar-val" id="s3-val">0</span></div>
+              <div class="bar-track"><span class="bar-fill" id="s3-bar"></span></div>
+            </li>
+          </ul>
+
+          <div class="glide">
+            <div class="glide-head">
+              <span>Path to zero</span>
+              <span id="glide-year">2030 target</span>
+            </div>
+            <svg class="glide-chart" viewBox="0 0 320 120" role="img"
+                 aria-labelledby="glide-desc" preserveAspectRatio="none">
+              <title id="glide-desc">Projected decline of emissions from today to the net-zero target year.</title>
+              <line x1="0" y1="119" x2="320" y2="119" class="glide-axis" />
+              <polyline id="glide-line" class="glide-line" points="" />
+              <circle id="glide-start" class="glide-node" r="4" />
+              <circle id="glide-end" class="glide-node glide-node-end" r="4" />
+            </svg>
+            <p class="glide-note" id="glide-note">A 12% annual reduction reaches net zero on schedule.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scopes" class="scopes wrap" aria-labelledby="scopes-title">
+      <div class="section-head">
+        <h2 id="scopes-title">Every scope, one ledger</h2>
+        <p>Carbon Zero reconciles direct combustion, purchased energy, and the sprawling
+          value chain into a single audited number you can defend.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span class="card-tag">Scope 1</span>
+          <h3>Direct emissions</h3>
+          <p>On-site fuel, company vehicles, and fugitive gases metered at the source and
+            reconciled against invoices.</p>
+        </article>
+        <article class="card">
+          <span class="card-tag">Scope 2</span>
+          <h3>Purchased energy</h3>
+          <p>Electricity, steam, and cooling tracked with location- and market-based
+            factors, credited for verified renewables.</p>
+        </article>
+        <article class="card">
+          <span class="card-tag">Scope 3</span>
+          <h3>Value chain</h3>
+          <p>Spend-based and supplier-specific data across fifteen categories, prioritised
+            by materiality and confidence.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="methodology" class="methodology wrap" aria-labelledby="method-title">
+      <div class="section-head">
+        <h2 id="method-title">Methodology</h2>
+        <p>Numbers you can stand behind in an audit, a board meeting, or a disclosure.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="step-no">01</span>
+          <h3>Collect</h3>
+          <p>Activity data flows in from meters, ERP spend, and fleet telematics into a
+            single normalized model.</p>
+        </li>
+        <li>
+          <span class="step-no">02</span>
+          <h3>Convert</h3>
+          <p>Emission factors from recognized datasets translate every activity into
+            tonnes of CO₂ equivalent, with uncertainty tracked.</p>
+        </li>
+        <li>
+          <span class="step-no">03</span>
+          <h3>Reduce</h3>
+          <p>Marginal abatement curves rank interventions so the cheapest tonnes fall
+            first and targets stay credible.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="closing wrap">
+      <div class="closing-inner">
+        <h2>Turn a promise into a number.</h2>
+        <p>Start with the calculator above — no sign-up, no data leaves your browser.</p>
+        <a class="btn btn-primary" href="#calculator">Measure your footprint</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span class="brand-name">Carbon Zero</span>
+      <p>Make every tonne visible.</p>
+      <p class="fine">Illustrative model for planning. Figures are estimates, not a certified disclosure.</p>
+    </div>
+  </footer>
+</body>
+</html>

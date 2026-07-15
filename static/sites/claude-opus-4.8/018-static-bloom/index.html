@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Static Bloom — Beautiful noise, carefully released.</title>
+<meta name="description" content="A fiercely independent label releasing chromatic records, artist stories, and limited vinyl editions.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0710'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23f2b8ff' stroke-width='1.4'/%3E%3Ccircle cx='16' cy='16' r='2.4' fill='%2354e6c8'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header class="topbar">
+	<a class="brand" href="#top" aria-label="Static Bloom home">
+		<span class="brand__mark" aria-hidden="true">
+			<span class="brand__ring"></span>
+			<span class="brand__dot"></span>
+		</span>
+		<span class="brand__name">Static<span>Bloom</span></span>
+	</a>
+	<nav class="nav" aria-label="Primary">
+		<a href="#releases">Releases</a>
+		<a href="#stories">Stories</a>
+		<a href="#editions">Editions</a>
+		<a href="#archive">Archive</a>
+	</nav>
+	<a class="chip" href="#releases">Hear the latest</a>
+</header>
+
+<main id="main">
+	<section class="hero" id="top">
+		<div class="hero__spectrum" aria-hidden="true"></div>
+		<div class="hero__copy">
+			<p class="eyebrow">Records · Editions · Noise</p>
+			<h1>Beautiful noise,<br><em>carefully released.</em></h1>
+			<p class="lede">A fiercely independent label pressing chromatic records, telling
+				artist stories, and cutting limited vinyl editions from a small room that
+				always smells faintly of solder and coffee.</p>
+			<div class="hero__actions">
+				<a class="btn btn--solid" href="#releases">Hear the latest</a>
+				<a class="btn btn--ghost" href="#archive">Visit the archive</a>
+			</div>
+			<dl class="stat-row">
+				<div><dt>Since</dt><dd>2016</dd></div>
+				<div><dt>Records</dt><dd>72</dd></div>
+				<div><dt>Pressings</dt><dd>Small</dd></div>
+			</dl>
+		</div>
+		<div class="hero__art" aria-hidden="true">
+			<div class="turntable">
+				<div class="record" id="record">
+					<div class="record__grooves"></div>
+					<div class="record__label"><span>SB</span></div>
+					<div class="record__glint"></div>
+				</div>
+				<div class="tonearm"></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section" id="releases" aria-labelledby="releases-h">
+		<div class="section__head">
+			<h2 id="releases-h">Latest releases</h2>
+			<p>Six weeks of new signal. Tap play for a taste of each pressing.</p>
+		</div>
+		<div class="releases" id="release-grid"></div>
+		<div class="player" id="player" hidden>
+			<button class="player__btn" id="player-toggle" aria-label="Pause preview" aria-pressed="true">
+				<span class="player__icon"></span>
+			</button>
+			<div class="player__meta">
+				<strong id="player-title">—</strong>
+				<span id="player-artist">—</span>
+			</div>
+			<div class="player__viz" id="player-viz" aria-hidden="true"></div>
+		</div>
+	</section>
+
+	<section class="section section--tint" id="stories" aria-labelledby="stories-h">
+		<div class="section__head">
+			<h2 id="stories-h">Artist stories</h2>
+			<p>Where the noise came from, in the maker's own words.</p>
+		</div>
+		<div class="stories" id="story-list"></div>
+	</section>
+
+	<section class="section" id="editions" aria-labelledby="editions-h">
+		<div class="section__head">
+			<h2 id="editions-h">Limited editions</h2>
+			<p>Cut once, numbered by hand. When they are gone, they are gone.</p>
+		</div>
+		<div class="editions" id="edition-grid"></div>
+	</section>
+
+	<section class="section section--tint" id="archive" aria-labelledby="archive-h">
+		<div class="section__head">
+			<h2 id="archive-h">The archive</h2>
+			<p>Every catalogue number we have ever pressed. Filter by texture.</p>
+		</div>
+		<div class="filters" id="filters" role="group" aria-label="Filter archive by texture"></div>
+		<ul class="archive" id="archive-list"></ul>
+	</section>
+</main>
+
+<footer class="footer">
+	<div class="footer__brand">
+		<span class="brand__name">Static<span>Bloom</span></span>
+		<p>Beautiful noise, carefully released.</p>
+	</div>
+	<p class="footer__note">Pressed on a small planet. No trackers, no cookies, no
+		remote requests — just this page and the hum of it.</p>
+	<p class="footer__legal">© 2016–2026 Static Bloom Recordings</p>
+</footer>
+
+</body>
+</html>

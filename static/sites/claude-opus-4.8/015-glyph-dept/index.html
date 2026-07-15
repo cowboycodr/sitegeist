@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+<title>Glyph Department — Typefaces with something to say.</title>
+<meta name="description" content="An independent foundry where variable letters stretch, collide, and perform across every screen." />
+<link rel="stylesheet" href="styles.css" />
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#tester">Skip to the type tester</a>
+
+<header class="top">
+	<div class="wrap top-row">
+		<a class="brand" href="#top" aria-label="Glyph Department home">
+			<span class="brand-mark" aria-hidden="true">G</span>
+			<span class="brand-name">Glyph<span class="brand-thin">Department</span></span>
+		</a>
+		<nav class="nav" aria-label="Primary">
+			<a href="#tester">Tester</a>
+			<a href="#families">Families</a>
+			<a href="#studio">Studio</a>
+		</nav>
+	</div>
+</header>
+
+<main id="top">
+	<section class="hero" aria-labelledby="hero-title">
+		<div class="wrap">
+			<p class="eyebrow">Independent type foundry</p>
+			<h1 id="hero-title" class="hero-title">
+				<span class="line" data-stretch>Letters</span>
+				<span class="line accent" data-stretch>that</span>
+				<span class="line" data-stretch>perform.</span>
+			</h1>
+			<p class="hero-lede">
+				Glyph Department draws variable typefaces built to move — widths that
+				breathe, weights that shout, and shapes that keep talking long after
+				the headline ends.
+			</p>
+			<div class="hero-actions">
+				<a class="btn btn-solid" href="#tester">Test the type</a>
+				<a class="btn btn-ghost" href="#families">Browse families</a>
+			</div>
+			<dl class="hero-stats">
+				<div><dt>Families</dt><dd>12</dd></div>
+				<div><dt>Axes drawn</dt><dd>38</dd></div>
+				<div><dt>Since</dt><dd>2016</dd></div>
+			</dl>
+		</div>
+	</section>
+
+	<section class="tester" id="tester" aria-labelledby="tester-title">
+		<div class="wrap">
+			<div class="section-head">
+				<h2 id="tester-title">Type tester</h2>
+				<p>Push the axes. Every control below reshapes the specimen live.</p>
+			</div>
+
+			<div class="stage" role="img" aria-label="Live specimen preview">
+				<div class="specimen" id="specimen" aria-hidden="true">Handgloves</div>
+			</div>
+
+			<form class="controls" id="controls" aria-label="Type tester controls">
+				<label class="field field-wide">
+					<span class="field-label">Your text</span>
+					<input type="text" id="sampleText" value="Handgloves" maxlength="24" autocomplete="off" spellcheck="false" />
+				</label>
+
+				<label class="field">
+					<span class="field-label">Weight <output id="outWeight">600</output></span>
+					<input type="range" id="ctlWeight" min="100" max="900" step="10" value="600" />
+				</label>
+
+				<label class="field">
+					<span class="field-label">Width <output id="outWidth">100</output>%</span>
+					<input type="range" id="ctlWidth" min="55" max="185" step="1" value="100" />
+				</label>
+
+				<label class="field">
+					<span class="field-label">Size <output id="outSize">88</output>px</span>
+					<input type="range" id="ctlSize" min="36" max="160" step="1" value="88" />
+				</label>
+
+				<label class="field">
+					<span class="field-label">Tracking <output id="outTrack">0</output></span>
+					<input type="range" id="ctlTrack" min="-8" max="30" step="1" value="0" />
+				</label>
+
+				<label class="field">
+					<span class="field-label">Slant <output id="outSlant">0</output>°</span>
+					<input type="range" id="ctlSlant" min="-14" max="14" step="1" value="0" />
+				</label>
+
+				<div class="field field-actions">
+					<span class="field-label">Presets</span>
+					<div class="preset-row" role="group" aria-label="Style presets">
+						<button type="button" class="chip" data-preset="poster">Poster</button>
+						<button type="button" class="chip" data-preset="editorial">Editorial</button>
+						<button type="button" class="chip" data-preset="condensed">Condensed</button>
+						<button type="button" class="chip" data-preset="reset">Reset</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+
+	<section class="families" id="families" aria-labelledby="families-title">
+		<div class="wrap">
+			<div class="section-head">
+				<h2 id="families-title">The families</h2>
+				<p>Twelve in the catalogue. Three currently on the wall.</p>
+			</div>
+			<ul class="family-grid">
+				<li class="family">
+					<div class="family-specimen fam-display">Aa</div>
+					<div class="family-meta">
+						<h3>Marquee Grotesk</h3>
+						<p>A width-variable display face that stretches from whisper to billboard.</p>
+						<span class="family-axes">Weight · Width · Optical</span>
+					</div>
+				</li>
+				<li class="family">
+					<div class="family-specimen fam-serif">Rg</div>
+					<div class="family-meta">
+						<h3>Foundry Text</h3>
+						<p>A quiet reading serif with just enough contrast to hold a long column.</p>
+						<span class="family-axes">Weight · Contrast</span>
+					</div>
+				</li>
+				<li class="family">
+					<div class="family-specimen fam-mono">{ }</div>
+					<div class="family-meta">
+						<h3>Ledger Mono</h3>
+						<p>A monospace drawn for interfaces, invoices, and the occasional poem.</p>
+						<span class="family-axes">Weight · Slant</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="studio" id="studio" aria-labelledby="studio-title">
+		<div class="wrap studio-grid">
+			<div>
+				<h2 id="studio-title">The department</h2>
+				<p class="studio-lede">
+					We are a small crew of designers, engineers, and one very opinionated
+					mastering room. Every release ships with its full variable range, real
+					kerning, and documentation you might actually enjoy reading.
+				</p>
+				<ul class="studio-list">
+					<li>Retail &amp; custom variable families</li>
+					<li>Logotype and lettering commissions</li>
+					<li>Type systems for product teams</li>
+				</ul>
+			</div>
+			<blockquote class="pull">
+				<p>&ldquo;A typeface is an argument set in motion. Ours just refuse to sit still.&rdquo;</p>
+				<cite>— The Glyph Department</cite>
+			</blockquote>
+		</div>
+	</section>
+</main>
+
+<footer class="foot">
+	<div class="wrap foot-row">
+		<span class="brand-name small">Glyph<span class="brand-thin">Department</span></span>
+		<p>Typefaces with something to say. · Studio artefact, no external requests.</p>
+	</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Thermal — Heat, put to work. Climate technology poster.">
+	<defs>
+		<radialGradient id="bg" cx="80%" cy="4%" r="90%">
+			<stop offset="0" stop-color="#2a150c"/>
+			<stop offset="45%" stop-color="#150f0a"/>
+			<stop offset="100%" stop-color="#0e0b08"/>
+		</radialGradient>
+		<linearGradient id="spectrum" x1="0" y1="0" x2="1" y2="0">
+			<stop offset="0" stop-color="#3a6ea5"/>
+			<stop offset="0.3" stop-color="#8090b0"/>
+			<stop offset="0.62" stop-color="#f2a13b"/>
+			<stop offset="0.85" stop-color="#e8552d"/>
+			<stop offset="1" stop-color="#ffe9c7"/>
+		</linearGradient>
+		<linearGradient id="title" x1="0" y1="0" x2="1" y2="0.3">
+			<stop offset="0" stop-color="#ffe9c7"/>
+			<stop offset="0.5" stop-color="#f2a13b"/>
+			<stop offset="1" stop-color="#e8552d"/>
+		</linearGradient>
+		<radialGradient id="core" cx="40%" cy="32%" r="72%">
+			<stop offset="0" stop-color="#ffe9c7"/>
+			<stop offset="42%" stop-color="#e8552d"/>
+			<stop offset="100%" stop-color="#7a230f"/>
+		</radialGradient>
+		<linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#3a6ea5"/>
+			<stop offset="0.4" stop-color="#8090b0"/>
+			<stop offset="0.68" stop-color="#f2a13b"/>
+			<stop offset="0.9" stop-color="#e8552d"/>
+			<stop offset="1" stop-color="#ffe9c7"/>
+		</linearGradient>
+		<filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+			<feGaussianBlur stdDeviation="18" result="b"/>
+			<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+		</filter>
+	</defs>
+
+	<rect width="1200" height="900" fill="url(#bg)"/>
+	<rect x="34" y="34" width="1132" height="832" rx="30" fill="none" stroke="rgba(242,161,59,0.22)" stroke-width="2"/>
+
+	<!-- Eyebrow -->
+	<g font-family="'Segoe UI', system-ui, sans-serif">
+		<circle cx="104" cy="150" r="8" fill="#e8552d"/>
+		<text x="124" y="157" fill="#f2a13b" font-size="26" font-weight="700" letter-spacing="3">CLOSING THE ENERGY LOOP</text>
+
+		<!-- Title -->
+		<text x="98" y="330" fill="url(#title)" font-size="200" font-weight="900" letter-spacing="-6">Thermal</text>
+
+		<!-- Tagline -->
+		<text x="104" y="420" fill="#f6ead9" font-size="52" font-weight="800" letter-spacing="-1">Heat, put to work.</text>
+
+		<!-- Description -->
+		<text x="104" y="486" fill="#b7a48d" font-size="30" font-weight="500">Industrial systems capture wasted heat and return it</text>
+		<text x="104" y="528" fill="#b7a48d" font-size="30" font-weight="500">as clean, reliable energy.</text>
+	</g>
+
+	<!-- Thermal loop motif -->
+	<g transform="translate(898 300)" filter="url(#glow)">
+		<circle r="176" fill="none" stroke="url(#ring)" stroke-width="30" stroke-linecap="round"/>
+		<circle r="4" fill="none" stroke="rgba(255,233,199,0.25)" stroke-width="176" stroke-dasharray="2 14"/>
+		<circle r="92" fill="url(#core)"/>
+	</g>
+	<g font-family="'Segoe UI', system-ui, sans-serif" font-size="24" font-weight="700">
+		<rect x="1000" y="150" width="112" height="40" rx="20" fill="rgba(14,11,8,0.8)" stroke="rgba(242,161,59,0.3)"/>
+		<text x="1056" y="177" fill="#e8552d" text-anchor="middle">540°C</text>
+		<rect x="694" y="410" width="104" height="40" rx="20" fill="rgba(14,11,8,0.8)" stroke="rgba(242,161,59,0.3)"/>
+		<text x="746" y="437" fill="#7fb0e0" text-anchor="middle">21°C</text>
+	</g>
+
+	<!-- Spectrum bar -->
+	<rect x="104" y="612" width="992" height="16" rx="8" fill="url(#spectrum)"/>
+
+	<!-- Stats row -->
+	<g font-family="'Segoe UI', system-ui, sans-serif">
+		<g transform="translate(104 690)">
+			<text y="46" fill="#ffe9c7" font-size="80" font-weight="900" letter-spacing="-3">94%</text>
+			<text y="92" fill="#b7a48d" font-size="24">Waste heat recovered</text>
+		</g>
+		<g transform="translate(470 690)">
+			<text y="46" fill="#ffe9c7" font-size="80" font-weight="900" letter-spacing="-3">212</text>
+			<text y="92" fill="#b7a48d" font-size="24">Sites deployed</text>
+		</g>
+		<g transform="translate(792 690)">
+			<text y="46" fill="#ffe9c7" font-size="80" font-weight="900" letter-spacing="-3">1.8 TWh</text>
+			<text y="92" fill="#b7a48d" font-size="24">Clean energy returned</text>
+		</g>
+	</g>
+
+	<!-- Corner brand -->
+	<g transform="translate(104 100)">
+		<circle cx="16" cy="0" r="16" fill="url(#ring)"/>
+		<circle cx="16" cy="0" r="6" fill="#0e0b08"/>
+		<text x="46" y="8" fill="#f6ead9" font-family="'Segoe UI', system-ui, sans-serif" font-size="30" font-weight="800">Thermal</text>
+	</g>
+</svg>

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+<title>Solar Flare — Three nights. No small feelings.</title>
+<meta name="description" content="A kinetic desert gathering of future-facing music, radiant art, and nights without edges. Joshua Tree, Sep 18–20." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='7' fill='%23ff7a1a'/%3E%3C/svg%3E" />
+<style>
+  :root {
+    --bg: #120616;
+    --bg-2: #1c0820;
+    --ink: #fff2e6;
+    --muted: #d6a58f;
+    --flare: #ff7a1a;
+    --flare-2: #ffcf4d;
+    --plasma: #ff2e78;
+    --violet: #7a2ff2;
+    --edge: rgba(255, 122, 26, 0.28);
+    --pass-bg: rgba(255, 244, 230, 0.04);
+    --maxw: 1120px;
+    --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    line-height: 1.02;
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    width: 100%;
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding-inline: clamp(18px, 5vw, 48px);
+  }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: clamp(0.66rem, 2.4vw, 0.78rem);
+    font-weight: 700;
+    color: var(--flare-2);
+    margin: 0;
+  }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.85em 1.5em;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s var(--ease);
+  }
+  .btn:focus-visible { outline: 3px solid var(--flare-2); outline-offset: 3px; }
+  .btn-primary {
+    background: linear-gradient(100deg, var(--flare), var(--plasma));
+    color: #1a0410;
+    box-shadow: 0 12px 40px -12px rgba(255, 46, 120, 0.7);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 48px -12px rgba(255, 122, 26, 0.75); }
+  .btn-ghost {
+    border-color: var(--edge);
+    color: var(--ink);
+    background: rgba(255, 244, 230, 0.02);
+  }
+  .btn-ghost:hover { transform: translateY(-2px); border-color: var(--flare-2); }
+
+  /* ---------- header ---------- */
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(10px);
+    background: linear-gradient(180deg, rgba(18, 6, 22, 0.85), rgba(18, 6, 22, 0.4));
+    border-bottom: 1px solid rgba(255, 122, 26, 0.14);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-block: 14px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    font-size: 1.05rem;
+    text-decoration: none;
+  }
+  .brand .orb {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, var(--flare-2), var(--flare) 55%, var(--plasma));
+    box-shadow: 0 0 18px 2px rgba(255, 122, 26, 0.6);
+    flex: none;
+  }
+  .nav-links { display: flex; gap: 22px; align-items: center; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.92rem;
+    color: var(--muted);
+    padding: 6px 2px;
+    transition: color 0.2s var(--ease);
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a:focus-visible { outline: 2px solid var(--flare-2); outline-offset: 3px; border-radius: 4px; }
+  .nav .btn { padding: 0.6em 1.1em; font-size: 0.9rem; }
+  @media (max-width: 760px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+  }
+
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    padding-block: clamp(56px, 12vw, 128px) clamp(48px, 9vw, 96px);
+    background: radial-gradient(120% 90% at 78% 8%, #2a0a2e 0%, var(--bg) 62%);
+  }
+  .sun {
+    position: absolute;
+    z-index: -1;
+    top: -14vw;
+    right: -8vw;
+    width: min(62vw, 620px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--flare-2) 0%, var(--flare) 38%, var(--plasma) 66%, transparent 72%);
+    filter: blur(2px);
+    animation: pulse 7s var(--ease) infinite;
+  }
+  .sun::before {
+    content: "";
+    position: absolute;
+    inset: -32%;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, transparent 0deg, rgba(255, 207, 77, 0.35) 12deg, transparent 24deg, rgba(255, 122, 26, 0.3) 40deg, transparent 60deg, rgba(255, 46, 120, 0.3) 80deg, transparent 100deg, rgba(255, 207, 77, 0.3) 130deg, transparent 160deg, rgba(255, 122, 26, 0.28) 200deg, transparent 240deg, rgba(255, 46, 120, 0.3) 300deg, transparent 340deg);
+    animation: spin 40s linear infinite;
+    -webkit-mask: radial-gradient(circle, transparent 45%, #000 47%, #000 60%, transparent 66%);
+    mask: radial-gradient(circle, transparent 45%, #000 47%, #000 60%, transparent 66%);
+  }
+  .glow-blob {
+    position: absolute;
+    z-index: -1;
+    width: 40vw;
+    max-width: 380px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.55;
+  }
+  .glow-blob.a { bottom: -10%; left: -6%; background: var(--violet); animation: drift 12s var(--ease) infinite; }
+  .glow-blob.b { top: 40%; left: 30%; background: var(--plasma); opacity: 0.3; animation: drift 15s var(--ease) infinite reverse; }
+
+  .hero-inner { position: relative; max-width: 720px; }
+  .hero h1 {
+    font-size: clamp(2.9rem, 12vw, 6.6rem);
+    margin-top: 18px;
+    background: linear-gradient(96deg, var(--flare-2), var(--flare) 45%, var(--plasma));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 60px rgba(255, 122, 26, 0.18);
+  }
+  .hero .sub {
+    font-size: clamp(1.05rem, 3.6vw, 1.4rem);
+    color: var(--muted);
+    max-width: 34ch;
+    margin: 22px 0 34px;
+  }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; }
+  .stat-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(20px, 5vw, 46px);
+    margin-top: clamp(40px, 8vw, 72px);
+  }
+  .stat b {
+    display: block;
+    font-size: clamp(1.5rem, 5vw, 2.1rem);
+    font-weight: 800;
+    color: var(--flare-2);
+    letter-spacing: -0.02em;
+  }
+  .stat span { color: var(--muted); font-size: 0.86rem; letter-spacing: 0.04em; }
+
+  /* ---------- sections ---------- */
+  section { padding-block: clamp(56px, 10vw, 104px); position: relative; }
+  .section-head { max-width: 620px; margin-bottom: clamp(30px, 6vw, 56px); }
+  .section-head h2 {
+    font-size: clamp(1.9rem, 6.5vw, 3.1rem);
+    margin-top: 12px;
+  }
+  .section-head p { color: var(--muted); margin: 16px 0 0; font-size: 1.05rem; }
+
+  /* ---------- nights ---------- */
+  .nights { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+  .night {
+    border: 1px solid rgba(255, 122, 26, 0.16);
+    border-radius: 20px;
+    padding: 26px 22px 30px;
+    background:
+      linear-gradient(180deg, rgba(255, 122, 26, 0.06), transparent 60%),
+      var(--bg-2);
+    transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+    position: relative;
+    overflow: hidden;
+  }
+  .night::after {
+    content: "";
+    position: absolute; inset: auto -30% -50% -30%; height: 60%;
+    background: radial-gradient(circle at 50% 0, var(--nc, var(--flare)) 0, transparent 70%);
+    opacity: 0.25;
+    transition: opacity 0.3s var(--ease);
+  }
+  .night:hover, .night:focus-within { transform: translateY(-4px); border-color: var(--nc, var(--flare)); }
+  .night:hover::after { opacity: 0.4; }
+  .night .no {
+    font-size: 0.78rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--nc, var(--flare)); font-weight: 700;
+  }
+  .night h3 { font-size: 1.45rem; margin: 10px 0 6px; }
+  .night .date { color: var(--muted); font-size: 0.9rem; }
+  .night ul { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 8px; }
+  .night li { font-size: 0.95rem; padding-left: 18px; position: relative; }
+  .night li::before {
+    content: ""; position: absolute; left: 0; top: 0.55em;
+    width: 7px; height: 7px; border-radius: 50%; background: var(--nc, var(--flare));
+  }
+
+  /* ---------- lineup ---------- */
+  .lineup { position: relative; }
+  .lineup-grid { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: baseline; }
+  .lineup-grid a {
+    text-decoration: none;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    transition: color 0.2s var(--ease), text-shadow 0.2s var(--ease);
+    border-radius: 6px;
+  }
+  .lineup-grid a:hover, .lineup-grid a:focus-visible {
+    color: var(--flare-2);
+    text-shadow: 0 0 24px rgba(255, 207, 77, 0.5);
+  }
+  .lineup-grid a:focus-visible { outline: 2px solid var(--flare-2); outline-offset: 4px; }
+  .tier-1 { font-size: clamp(1.7rem, 6.5vw, 3.4rem); }
+  .tier-2 { font-size: clamp(1.2rem, 4.4vw, 2rem); color: var(--muted); }
+  .tier-3 { font-size: clamp(1rem, 3.4vw, 1.35rem); color: var(--muted); }
+  .lineup .dot { color: var(--flare); font-weight: 400; }
+
+  /* ---------- art / experiences ---------- */
+  .art { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+  .art-card {
+    border-radius: 20px;
+    padding: 28px 24px;
+    background: var(--pass-bg);
+    border: 1px solid rgba(255, 244, 230, 0.08);
+    display: flex; flex-direction: column; gap: 12px;
+    transition: transform 0.3s var(--ease), background 0.3s var(--ease);
+  }
+  .art-card:hover { transform: translateY(-4px); background: rgba(255, 122, 26, 0.06); }
+  .art-card .ico {
+    width: 46px; height: 46px; border-radius: 14px;
+    display: grid; place-items: center;
+    background: linear-gradient(135deg, var(--flare), var(--plasma));
+    color: #1a0410;
+  }
+  .art-card h3 { font-size: 1.25rem; }
+  .art-card p { color: var(--muted); margin: 0; font-size: 0.96rem; }
+
+  /* ---------- passes ---------- */
+  .passes { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+  .pass {
+    border-radius: 22px;
+    padding: 30px 26px;
+    background: var(--bg-2);
+    border: 1px solid rgba(255, 244, 230, 0.09);
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .pass.feature {
+    border-color: var(--flare);
+    background: linear-gradient(180deg, rgba(255, 122, 26, 0.12), var(--bg-2) 55%);
+    box-shadow: 0 24px 70px -30px rgba(255, 122, 26, 0.6);
+  }
+  .pass .tag {
+    position: absolute; top: 18px; right: 18px;
+    font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 700; color: #1a0410;
+    background: var(--flare-2); padding: 4px 10px; border-radius: 999px;
+  }
+  .pass h3 { font-size: 1.3rem; }
+  .pass .price { font-size: 2.3rem; font-weight: 800; margin: 12px 0 2px; color: var(--flare-2); letter-spacing: -0.03em; }
+  .pass .price small { font-size: 0.85rem; font-weight: 600; color: var(--muted); }
+  .pass ul { list-style: none; padding: 0; margin: 20px 0 26px; display: grid; gap: 10px; }
+  .pass li { font-size: 0.94rem; padding-left: 26px; position: relative; color: var(--ink); }
+  .pass li::before {
+    content: "✦"; position: absolute; left: 0; top: 0; color: var(--flare); font-size: 0.85rem;
+  }
+  .pass .btn { margin-top: auto; justify-content: center; width: 100%; }
+
+  /* ---------- final ---------- */
+  .finale {
+    text-align: center;
+    border-radius: 28px;
+    padding: clamp(44px, 8vw, 80px) clamp(20px, 5vw, 56px);
+    background:
+      radial-gradient(90% 120% at 50% -10%, rgba(255, 122, 26, 0.28), transparent 60%),
+      linear-gradient(180deg, #260a2a, var(--bg-2));
+    border: 1px solid rgba(255, 122, 26, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+  .finale h2 { font-size: clamp(2rem, 8vw, 4rem); margin-bottom: 14px; }
+  .finale p { color: var(--muted); max-width: 40ch; margin: 0 auto 30px; font-size: 1.05rem; }
+  .finale .cta-row { justify-content: center; }
+
+  /* ---------- footer ---------- */
+  footer.site {
+    padding-block: 44px 40px;
+    border-top: 1px solid rgba(255, 122, 26, 0.14);
+    margin-top: clamp(56px, 10vw, 100px);
+  }
+  .foot-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; align-items: flex-start; }
+  .foot-grid p { color: var(--muted); font-size: 0.88rem; margin: 8px 0 0; max-width: 30ch; }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 18px; }
+  .foot-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+  .foot-links a:hover { color: var(--ink); }
+  .foot-note { color: var(--muted); font-size: 0.78rem; margin-top: 28px; opacity: 0.7; }
+
+  /* reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes pulse { 0%, 100% { transform: scale(1); filter: blur(2px); } 50% { transform: scale(1.05); filter: blur(0.5px); } }
+  @keyframes drift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(6%, -8%); } }
+
+  @media (max-width: 720px) {
+    .nights, .art, .passes { grid-template-columns: 1fr; }
+  }
+
+  a.skip {
+    position: absolute; left: 12px; top: -60px;
+    background: var(--flare-2); color: #1a0410; padding: 10px 16px;
+    border-radius: 8px; font-weight: 700; text-decoration: none; z-index: 50;
+    transition: top 0.2s var(--ease);
+  }
+  a.skip:focus { top: 12px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#lineup">Skip to lineup</a>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="#top"><span class="orb" aria-hidden="true"></span>Solar Flare</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#nights">Nights</a>
+      <a href="#lineup">Lineup</a>
+      <a href="#experiences">Experiences</a>
+      <a href="#passes">Passes</a>
+      <a class="btn btn-primary nav-cta" href="#passes">Passes</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="sun" aria-hidden="true"></div>
+    <div class="glow-blob a" aria-hidden="true"></div>
+    <div class="glow-blob b" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <p class="eyebrow">Joshua Tree · Sep 18–20</p>
+      <h1 id="hero-title">Solar Flare</h1>
+      <p class="sub">Three nights. No small feelings. A kinetic desert gathering of future-facing music, radiant art, and nights without edges.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#passes">Get festival passes</a>
+        <a class="btn btn-ghost" href="#lineup">Explore the lineup</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>3</b><span>DESERT NIGHTS</span></div>
+        <div class="stat"><b>40+</b><span>ARTISTS</span></div>
+        <div class="stat"><b>6</b><span>STAGES &amp; DOMES</span></div>
+        <div class="stat"><b>∞</b><span>HORIZON</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="nights" class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The arc of the weekend</p>
+      <h2>Three nights, three moods</h2>
+      <p>Each sundown resets the desert. Follow the flare from first spark to full corona.</p>
+    </div>
+    <div class="nights">
+      <article class="night reveal" style="--nc: var(--flare-2)" tabindex="0">
+        <span class="no">Night 01</span>
+        <h3>First Light</h3>
+        <p class="date">Fri · Sep 18</p>
+        <ul>
+          <li>Gates &amp; golden-hour set</li>
+          <li>Solar Stage opening ceremony</li>
+          <li>Warm synth &amp; live percussion</li>
+        </ul>
+      </article>
+      <article class="night reveal" style="--nc: var(--plasma)" tabindex="0">
+        <span class="no">Night 02</span>
+        <h3>Corona</h3>
+        <p class="date">Sat · Sep 19</p>
+        <ul>
+          <li>Peak headliners across 6 stages</li>
+          <li>Kinetic light sculptures ignite</li>
+          <li>The midnight bass canyon</li>
+        </ul>
+      </article>
+      <article class="night reveal" style="--nc: var(--violet)" tabindex="0">
+        <span class="no">Night 03</span>
+        <h3>Afterglow</h3>
+        <p class="date">Sun · Sep 20</p>
+        <ul>
+          <li>Ambient sunrise sessions</li>
+          <li>Communal fire &amp; last dance</li>
+          <li>Slow farewell to the horizon</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="lineup" class="lineup wrap" aria-labelledby="lineup-title">
+    <div class="section-head reveal">
+      <p class="eyebrow">2026 lineup</p>
+      <h2 id="lineup-title">Who lights it up</h2>
+      <p>A cross-current of headliners, rising signals, and desert-only collaborations.</p>
+    </div>
+    <div class="lineup-grid reveal">
+      <a href="#passes" class="tier-1">Neon Meridian</a><span class="dot tier-1" aria-hidden="true">·</span>
+      <a href="#passes" class="tier-1">SOLARA</a><span class="dot tier-1" aria-hidden="true">·</span>
+      <a href="#passes" class="tier-1">Kite of Ash</a>
+    </div>
+    <div class="lineup-grid reveal" style="margin-top:16px">
+      <a href="#passes" class="tier-2">Dune Choir</a><span class="dot tier-2" aria-hidden="true">·</span>
+      <a href="#passes" class="tier-2">Violet Static</a><span class="dot tier-2" aria-hidden="true">·</span>
+      <a href="#passes" class="tier-2">HALO/HALO</a><span class="dot tier-2" aria-hidden="true">·</span>
+      <a href="#passes" class="tier-2">Mirage Field</a><span class="dot tier-2" aria-hidden="true">·</span>
+      <a href="#passes" class="tier-2">Cassette Sun</a>
+    </div>
+    <div class="lineup-grid reveal" style="margin-top:16px">
+      <a href="#passes" class="tier-3">Pale Comet</a><span class="dot tier-3" aria-hidden="true">·</span>
+      <a href="#passes" class="tier-3">Low Orbit Trio</a><span class="dot tier-3" aria-hidden="true">·</span>
+      <a href="#passes" class="tier-3">Sable</a><span class="dot tier-3" aria-hidden="true">·</span>
+      <a href="#passes" class="tier-3">Ember Language</a><span class="dot tier-3" aria-hidden="true">·</span>
+      <a href="#passes" class="tier-3">Nocturne Sands</a><span class="dot tier-3" aria-hidden="true">·</span>
+      <a href="#passes" class="tier-3">Fever Coast</a><span class="dot tier-3" aria-hidden="true">·</span>
+      <a href="#passes" class="tier-3">The Long Now</a><span class="dot tier-3" aria-hidden="true">·</span>
+      <a href="#passes" class="tier-3">Glass Antenna</a>
+    </div>
+  </section>
+
+  <section id="experiences" class="wrap" aria-labelledby="exp-title">
+    <div class="section-head reveal">
+      <p class="eyebrow">Beyond the stages</p>
+      <h2 id="exp-title">Radiant by design</h2>
+      <p>The desert becomes the exhibit. Wander between sound, light, and heat.</p>
+    </div>
+    <div class="art">
+      <article class="art-card reveal">
+        <span class="ico" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+        </span>
+        <h3>Kinetic Light Field</h3>
+        <p>A half-mile of solar-charged sculptures that answer the crowd's motion after dark.</p>
+      </article>
+      <article class="art-card reveal">
+        <span class="ico" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </span>
+        <h3>The Bass Canyon</h3>
+        <p>A natural amphitheater tuned for low end, open until the sky turns violet.</p>
+      </article>
+      <article class="art-card reveal">
+        <span class="ico" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 6H21l-5 4 2 7-6-4-6 4 2-7-5-4h6.5z"/></svg>
+        </span>
+        <h3>Sunrise Domes</h3>
+        <p>Geodesic listening rooms with ambient sets and warm tea from 5am till first light.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="passes" class="wrap" aria-labelledby="passes-title">
+    <div class="section-head reveal">
+      <p class="eyebrow">Choose your orbit</p>
+      <h2 id="passes-title">Festival passes</h2>
+      <p>Every pass includes all three nights. Camping and shuttle add-ons at checkout.</p>
+    </div>
+    <div class="passes">
+      <article class="pass reveal">
+        <h3>Horizon</h3>
+        <div class="price">$249<small> / weekend</small></div>
+        <ul>
+          <li>All three nights, all main stages</li>
+          <li>Access to the Kinetic Light Field</li>
+          <li>General entry gates</li>
+        </ul>
+        <a class="btn btn-ghost" href="#finale">Get Horizon</a>
+      </article>
+      <article class="pass feature reveal">
+        <span class="tag">Most chosen</span>
+        <h3>Corona</h3>
+        <div class="price">$429<small> / weekend</small></div>
+        <ul>
+          <li>Everything in Horizon</li>
+          <li>Priority lanes &amp; shaded lounges</li>
+          <li>Sunrise Dome reservations</li>
+          <li>Commemorative flare kit</li>
+        </ul>
+        <a class="btn btn-primary" href="#finale">Get Corona</a>
+      </article>
+      <article class="pass reveal">
+        <h3>Solar Eclipse</h3>
+        <div class="price">$899<small> / weekend</small></div>
+        <ul>
+          <li>Everything in Corona</li>
+          <li>Backstage &amp; artist canyon access</li>
+          <li>Private desert camp &amp; chef service</li>
+          <li>Guided sunrise ceremony</li>
+        </ul>
+        <a class="btn btn-ghost" href="#finale">Get Eclipse</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="finale reveal" id="finale">
+      <p class="eyebrow">Sep 18–20 · Joshua Tree</p>
+      <h2>Meet us at the horizon</h2>
+      <p>Three nights. No small feelings. When the desert goes dark, everything else gets brighter.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#passes">Get festival passes</a>
+        <a class="btn btn-ghost" href="#lineup">Explore the lineup</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top"><span class="orb" aria-hidden="true"></span>Solar Flare</a>
+        <p>A kinetic desert gathering of future-facing music, radiant art, and nights without edges.</p>
+      </div>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="#nights">Nights</a>
+        <a href="#lineup">Lineup</a>
+        <a href="#experiences">Experiences</a>
+        <a href="#passes">Passes</a>
+      </nav>
+    </div>
+    <p class="foot-note">Solar Flare Festival · Joshua Tree, California · September 18–20, 2026. Leave no trace; carry the light.</p>
+  </div>
+</footer>
+
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>

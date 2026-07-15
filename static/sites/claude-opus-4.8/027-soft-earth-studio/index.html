@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Soft Earth Studio — Hand-thrown ceramics</title>
+<meta name="description" content="Imperfect vessels, studio rituals, and the landscapes held inside every glaze.">
+<link rel="stylesheet" href="styles.css">
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="studio.js"></script>
+</head>
+<body>
+<a class="skip" href="#work">Skip to available work</a>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="#top" aria-label="Soft Earth Studio home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img" aria-hidden="true">
+          <path d="M24 6c-4 0-6 3-6 7 0 2 1 3 1 4-5 2-9 7-9 14 0 6 6 11 14 11s14-5 14-11c0-7-4-12-9-14 0-1 1-2 1-4 0-4-2-7-6-7z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+          <path d="M14 26c6 3 14 3 20 0" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="brand-name">Soft Earth<span class="brand-sub">Studio</span></span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+      <ul id="nav-list" class="nav-list">
+        <li><a href="#work">Available work</a></li>
+        <li><a href="#rituals">Studio rituals</a></li>
+        <li><a href="#glaze">Glaze &amp; land</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Hand-thrown ceramics</p>
+        <h1 id="hero-title">Made slowly enough to keep the fingerprints.</h1>
+        <p class="lede">Imperfect vessels, studio rituals, and the landscapes held inside
+          every glaze — thrown one at a time on a wheel that has never once been in a hurry.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#work">View available work</a>
+          <a class="btn btn-ghost" href="#visit">Visit the studio</a>
+        </div>
+        <dl class="hero-facts">
+          <div><dt>Firing</dt><dd>Reduction, cone 10</dd></div>
+          <div><dt>Wait list</dt><dd>Opens each season</dd></div>
+          <div><dt>Studio</dt><dd>North Vale, by hand</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 320 360" class="vessel-scene" role="img">
+          <defs>
+            <linearGradient id="glazeA" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#c68a63"/>
+              <stop offset="0.55" stop-color="#a76a4a"/>
+              <stop offset="1" stop-color="#7c4a32"/>
+            </linearGradient>
+            <linearGradient id="glazeB" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#9fae90"/>
+              <stop offset="1" stop-color="#6f7f63"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="160" cy="332" rx="120" ry="18" fill="#00000018"/>
+          <g class="v v-back">
+            <path d="M118 150c-16 8-24 26-24 58 0 46 20 78 46 78s46-32 46-78c0-32-8-50-24-58 4-8 4-18-2-24-6 8-6 16-2 24-8-4-30-4-40 0z" fill="url(#glazeB)"/>
+            <path d="M104 214c26 12 66 12 92 0" fill="none" stroke="#ffffff33" stroke-width="4" stroke-linecap="round"/>
+          </g>
+          <g class="v v-front">
+            <path d="M150 92c-6 0-9 5-9 11 0 3 1 5 2 7-14 5-23 20-23 46 0 40 18 68 40 68s40-28 40-68c0-26-9-41-23-46 1-2 2-4 2-7 0-6-3-11-9-11-4 0-8 3-9 7-1-4-5-7-11-7z" fill="url(#glazeA)"/>
+            <path d="M122 170c24 14 54 14 78 0" fill="none" stroke="#3a2013aa" stroke-width="3" stroke-linecap="round"/>
+            <path d="M132 200c18 10 38 10 56 0" fill="none" stroke="#ffffff30" stroke-width="5" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="section" aria-labelledby="work-title">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="kicker">The shelf</p>
+        <h2 id="work-title">Available work</h2>
+        <p class="section-lede">A small run at a time. When a piece is gone it is gone — the
+          next will lean a little differently.</p>
+      </header>
+
+      <ul class="work-grid" id="work-grid"></ul>
+
+      <p class="work-note">Every vessel is food-safe, dishwasher-friendly, and signed
+        underneath with a thumbprint pressed into the wet clay.</p>
+    </div>
+  </section>
+
+  <section id="rituals" class="section section-alt" aria-labelledby="rituals-title">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="kicker">A day at the wheel</p>
+        <h2 id="rituals-title">Studio rituals</h2>
+        <p class="section-lede">Nothing here is rushed. The work is mostly waiting, done
+          in the right order.</p>
+      </header>
+
+      <ol class="ritual-list">
+        <li>
+          <span class="ritual-step" aria-hidden="true">01</span>
+          <h3>Wedge at dawn</h3>
+          <p>Fifty turns to press the air out of the clay while the kettle warms. Cold
+            hands, warm bench, the same rhythm every morning.</p>
+        </li>
+        <li>
+          <span class="ritual-step" aria-hidden="true">02</span>
+          <h3>Centre &amp; open</h3>
+          <p>The wheel finds true, then a thumb opens the floor. Walls rise no faster than
+            the clay allows — push and it tears, coax and it climbs.</p>
+        </li>
+        <li>
+          <span class="ritual-step" aria-hidden="true">03</span>
+          <h3>Trim leather-hard</h3>
+          <p>A day later the foot is carved and the maker's mark is set. Curls of clay
+            fall away until the weight feels right in the palm.</p>
+        </li>
+        <li>
+          <span class="ritual-step" aria-hidden="true">04</span>
+          <h3>Glaze &amp; fire</h3>
+          <p>Dipped, wiped, stacked in the kiln for two long nights. The fire decides the
+            last ten percent, and we let it.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="glaze" class="section" aria-labelledby="glaze-title">
+    <div class="wrap glaze-grid">
+      <div class="glaze-copy">
+        <p class="kicker">Colour from the ground</p>
+        <h2 id="glaze-title">The landscapes held inside every glaze</h2>
+        <p>Each glaze is mixed from ash, iron, and stone gathered on walks near the studio.
+          A hillside after rain, a dry riverbed, the grey-green of lichen on a north wall —
+          they all end up in a bucket, then on a pot.</p>
+        <p>Tap a swatch to read where its colour comes from.</p>
+        <div class="swatches" id="swatches" role="list"></div>
+        <p class="swatch-read" id="swatch-read" aria-live="polite">
+          <strong>Riverbed Ash</strong> — pale oatmeal broken by iron speckle, mixed from
+          wood ash and creek silt.
+        </p>
+      </div>
+      <div class="glaze-art" aria-hidden="true">
+        <svg viewBox="0 0 300 300" role="img">
+          <defs>
+            <clipPath id="tile"><rect x="20" y="20" width="260" height="260" rx="18"/></clipPath>
+          </defs>
+          <g clip-path="url(#tile)">
+            <rect x="20" y="20" width="260" height="90" fill="#d8c3a3"/>
+            <rect x="20" y="110" width="260" height="70" fill="#b98b64"/>
+            <rect x="20" y="180" width="260" height="60" fill="#7f6a4c"/>
+            <rect x="20" y="240" width="260" height="40" fill="#4c4433"/>
+            <path d="M20 112c40 14 80-10 130 2s70 8 130-6v24c-60 16-90 2-140-8s-80 12-120-2z" fill="#a76a4a" opacity="0.6"/>
+            <circle cx="90" cy="60" r="3" fill="#7c4a32" opacity="0.5"/>
+            <circle cx="150" cy="80" r="2.5" fill="#7c4a32" opacity="0.5"/>
+            <circle cx="210" cy="55" r="3.5" fill="#7c4a32" opacity="0.5"/>
+          </g>
+          <rect x="20" y="20" width="260" height="260" rx="18" fill="none" stroke="#3a2013" stroke-opacity="0.25" stroke-width="2"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit" class="section section-alt visit" aria-labelledby="visit-title">
+    <div class="wrap visit-grid">
+      <div>
+        <p class="kicker">You're welcome here</p>
+        <h2 id="visit-title">Visit the studio</h2>
+        <p>Open studio the first Saturday of each month, and by appointment when the kiln
+          is cool. Come see the shelves, feel the weight of a mug, and take a warm one home.</p>
+        <ul class="visit-facts">
+          <li><span>Where</span> 14 Kiln Lane, North Vale</li>
+          <li><span>Open studio</span> First Saturday, 10–4</li>
+          <li><span>Wait list</span> Reopens each season</li>
+        </ul>
+        <a class="btn btn-primary" href="#work">See what's on the shelf</a>
+      </div>
+      <div class="visit-hours" aria-label="Weekly studio hours">
+        <h3>This week at the wheel</h3>
+        <dl>
+          <div><dt>Mon–Wed</dt><dd>Throwing days · closed to visitors</dd></div>
+          <div><dt>Thursday</dt><dd>Trimming &amp; glazing · knock if lit</dd></div>
+          <div><dt>Friday</dt><dd>Kiln loads · by appointment</dd></div>
+          <div><dt>Saturday</dt><dd>Open studio 10–4</dd></div>
+          <div><dt>Sunday</dt><dd>Resting the hands</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <p class="foot-brand">Soft Earth Studio</p>
+    <p class="foot-line">Made slowly enough to keep the fingerprints.</p>
+    <p class="foot-fine">Hand-thrown in North Vale · No two alike · Fired with patience</p>
+  </div>
+</footer>
+
+</body>
+</html>

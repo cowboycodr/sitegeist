@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+<title>Meridian Works — Time, engineered into character.</title>
+<meta name="description" content="Independent watches built around precise movements, enduring materials, and patient assembly." />
+<link rel="stylesheet" href="styles.css" />
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#collection">Skip to the collection</a>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="#top" aria-label="Meridian Works, home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="34" height="34" focusable="false">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5" />
+          <circle cx="20" cy="20" r="1.8" fill="currentColor" />
+          <line x1="20" y1="20" x2="20" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          <line x1="20" y1="20" x2="28" y2="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+      </span>
+      <span class="brand-words"><b>Meridian</b> Works</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#collection">Collection</a>
+      <a href="#movement">Movement</a>
+      <a href="#craft">Craft</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Independent watchmaking</p>
+        <h1 id="hero-title">Time, engineered into character.</h1>
+        <p class="lede">Independent watches built around precise movements, enduring materials, and patient assembly — each one finished by hand and meant to outlast us.</p>
+        <div class="cta-row">
+          <a class="btn btn-solid" href="#collection">Explore the collection</a>
+          <a class="btn btn-ghost" href="#movement">See the movement</a>
+        </div>
+        <dl class="stat-row">
+          <div><dt>Beat rate</dt><dd>28,800 vph</dd></div>
+          <div><dt>Reserve</dt><dd>72 hours</dd></div>
+          <div><dt>Assembled</dt><dd>One at a time</dd></div>
+        </dl>
+      </div>
+      <div class="hero-dial" aria-hidden="true">
+        <div class="dial" id="dial">
+          <svg viewBox="0 0 240 240" width="240" height="240" class="dial-svg" focusable="false">
+            <defs>
+              <radialGradient id="face" cx="42%" cy="38%" r="75%">
+                <stop offset="0%" stop-color="#20242b" />
+                <stop offset="70%" stop-color="#14171c" />
+                <stop offset="100%" stop-color="#0c0e12" />
+              </radialGradient>
+            </defs>
+            <circle cx="120" cy="120" r="116" fill="none" stroke="#3a3f49" stroke-width="3" />
+            <circle cx="120" cy="120" r="108" fill="url(#face)" stroke="#c8a24a" stroke-width="1" />
+            <g id="ticks" stroke="#8b909b" stroke-linecap="round"></g>
+            <g id="numerals" fill="#e9e4d8" font-family="Georgia, 'Times New Roman', serif" font-size="13" text-anchor="middle"></g>
+            <line id="hand-hour" x1="120" y1="120" x2="120" y2="72" stroke="#e9e4d8" stroke-width="5" stroke-linecap="round" />
+            <line id="hand-minute" x1="120" y1="120" x2="120" y2="44" stroke="#e9e4d8" stroke-width="3.4" stroke-linecap="round" />
+            <line id="hand-second" x1="120" y1="132" x2="120" y2="40" stroke="#c8a24a" stroke-width="1.6" stroke-linecap="round" />
+            <circle cx="120" cy="120" r="4.5" fill="#c8a24a" />
+            <circle cx="120" cy="120" r="1.8" fill="#0c0e12" />
+          </svg>
+          <p class="dial-caption">Caliber MW-01 · <span id="live-time">—</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="collection" class="section" aria-labelledby="collection-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">The collection</p>
+        <h2 id="collection-title">Three references, one obsession</h2>
+        <p class="section-lede">A small catalogue, kept deliberately narrow so every reference earns its place on the bench.</p>
+      </div>
+      <ul class="grid cards" role="list">
+        <li class="card">
+          <span class="card-tag">Field</span>
+          <h3>Meridian Terra</h3>
+          <p>A legible tool watch with a matte anthracite dial, luminous indices, and a 40&nbsp;mm brushed steel case built for daily wear.</p>
+          <p class="card-spec">40 mm · 100 m · MW-01</p>
+        </li>
+        <li class="card card-featured">
+          <span class="card-tag">Dress</span>
+          <h3>Meridian Solstice</h3>
+          <p>Our flagship. A guilloché silver dial, blued hands, and a slim 38.5&nbsp;mm case that disappears under a cuff.</p>
+          <p class="card-spec">38.5 mm · 50 m · MW-01</p>
+        </li>
+        <li class="card">
+          <span class="card-tag">Sport</span>
+          <h3>Meridian Marine</h3>
+          <p>A 300&nbsp;m diver with a ceramic bezel, deep teal dial, and oversized lume for zero-light legibility.</p>
+          <p class="card-spec">42 mm · 300 m · MW-01</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="movement" class="section section-dark" aria-labelledby="movement-title">
+    <div class="wrap movement-grid">
+      <div>
+        <p class="eyebrow">The movement</p>
+        <h2 id="movement-title">Caliber MW-01, in the open</h2>
+        <p class="section-lede">A hand-wound movement we finished ourselves — anglage on every bridge, a swan-neck regulator, and a free-sprung balance you can see through the caseback.</p>
+        <ul class="spec-list" role="list">
+          <li><b>Frequency</b><span>28,800 vph (4 Hz)</span></li>
+          <li><b>Power reserve</b><span>72 hours, single barrel</span></li>
+          <li><b>Jewels</b><span>27, gold chatons at the wheels</span></li>
+          <li><b>Finishing</b><span>Côtes de Genève, black polish</span></li>
+        </ul>
+      </div>
+      <figure class="movement-art" aria-hidden="true">
+        <svg viewBox="0 0 200 200" width="100%" focusable="false">
+          <circle cx="100" cy="100" r="94" fill="none" stroke="#c8a24a" stroke-width="1" />
+          <circle cx="100" cy="100" r="86" fill="none" stroke="#2a2f38" stroke-width="10" />
+          <g stroke="#c8a24a" stroke-width="1.4" fill="none">
+            <circle cx="72" cy="82" r="26" />
+            <circle cx="128" cy="118" r="20" />
+            <circle cx="118" cy="66" r="12" />
+          </g>
+          <g stroke="#6e7480" stroke-width="0.8" fill="none" opacity="0.8">
+            <circle cx="72" cy="82" r="26" stroke-dasharray="2 4" />
+            <circle cx="128" cy="118" r="20" stroke-dasharray="2 4" />
+          </g>
+          <circle cx="72" cy="82" r="3" fill="#c8a24a" />
+          <circle cx="128" cy="118" r="3" fill="#c8a24a" />
+          <path d="M100 14 A86 86 0 0 1 186 100" fill="none" stroke="#e9e4d8" stroke-width="1" opacity="0.5" />
+        </svg>
+        <figcaption>Exhibition caseback, MW-01</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="craft" class="section" aria-labelledby="craft-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">The bench</p>
+        <h2 id="craft-title">Patient assembly, start to finish</h2>
+      </div>
+      <ol class="grid steps" role="list">
+        <li class="step">
+          <span class="step-num">01</span>
+          <h3>Design</h3>
+          <p>Every reference begins as a full-scale drawing, then a machined prototype we live with for months before it earns a name.</p>
+        </li>
+        <li class="step">
+          <span class="step-num">02</span>
+          <h3>Finish</h3>
+          <p>Bridges are chamfered by hand, screw heads polished, and steel heat-blued over an open flame until the color is exactly right.</p>
+        </li>
+        <li class="step">
+          <span class="step-num">03</span>
+          <h3>Assemble</h3>
+          <p>One watchmaker builds each watch from movement to bracelet, then regulates it in six positions over two weeks.</p>
+        </li>
+        <li class="step">
+          <span class="step-num">04</span>
+          <h3>Deliver</h3>
+          <p>It ships with its own timing certificate, a service pledge, and a note from the person who assembled it.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="contact" class="section section-dark contact" aria-labelledby="contact-title">
+    <div class="wrap contact-inner">
+      <p class="eyebrow">Enquiries</p>
+      <h2 id="contact-title">Start a conversation</h2>
+      <p class="section-lede">We build to order in small batches. Tell us which reference speaks to you and we will walk you through availability and fitting.</p>
+      <p class="contact-line"><a class="btn btn-solid" href="#collection">Explore the collection</a></p>
+      <p class="contact-meta">Atelier by appointment · Correspondence answered within two working days</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <p class="foot-brand"><b>Meridian</b> Works</p>
+    <p class="foot-tag">Time, engineered into character.</p>
+    <p class="foot-fine">Independent since the first movement. Every watch numbered and signed.</p>
+  </div>
+</footer>
+</body>
+</html>

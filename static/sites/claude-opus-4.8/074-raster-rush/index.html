@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none';" />
+  <title>Raster Rush — Tiny pixels. Huge worlds.</title>
+  <meta name="description" content="An indie studio building kinetic arcade worlds with tactile mechanics and loud color." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Raster Rush home">
+      <span class="brand__mark" aria-hidden="true">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </span>
+      <span class="brand__name">RASTER<em>RUSH</em></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#demo">Demo</a>
+      <a href="#worlds">Worlds</a>
+      <a href="#crew">Crew</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__inner">
+        <p class="eyebrow"><span class="blink" aria-hidden="true">▮</span> Insert imagination</p>
+        <h1 class="hero__title">Tiny&nbsp;pixels.<br /><span class="hero__accent">Huge worlds.</span></h1>
+        <p class="hero__lede">Raster Rush is an indie studio building kinetic arcade worlds with tactile mechanics and loud, unapologetic color.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#demo">Play the demo</a>
+          <a class="btn btn--ghost" href="#crew">Meet the crew</a>
+        </div>
+        <dl class="stats" aria-label="Studio at a glance">
+          <div><dt>Shipped titles</dt><dd data-count="7">7</dd></div>
+          <div><dt>Frames per second</dt><dd data-count="60">60</dd></div>
+          <div><dt>Crew of misfits</dt><dd data-count="9">9</dd></div>
+        </dl>
+      </div>
+      <div class="hero__sprite" aria-hidden="true">
+        <div class="sprite sprite--hop"></div>
+      </div>
+    </section>
+
+    <section class="demo" id="demo" aria-labelledby="demo-title">
+      <div class="section-head">
+        <p class="kicker">01 / Playable</p>
+        <h2 id="demo-title">Play the demo</h2>
+        <p class="section-sub">A pocket-sized slice of our engine. Catch the falling gems, dodge the bombs, chase a new high score. Runs entirely in your browser — no download, no network.</p>
+      </div>
+      <div class="game">
+        <div class="game__stage">
+          <canvas id="stage" width="320" height="400" aria-label="Raster Rush mini game. Move the collector left and right to catch gems and avoid bombs."></canvas>
+          <div class="game__overlay" id="overlay" data-state="idle">
+            <div class="game__panel">
+              <p class="game__flag" id="overlayTitle">READY?</p>
+              <p class="game__hint" id="overlayHint">Catch the gems. Dodge the bombs.</p>
+              <button class="btn btn--primary" id="startBtn" type="button">Start</button>
+            </div>
+          </div>
+        </div>
+        <div class="game__side">
+          <div class="scoreboard">
+            <div class="score"><span class="score__label">Score</span><span class="score__value" id="score">0</span></div>
+            <div class="score"><span class="score__label">Best</span><span class="score__value" id="best">0</span></div>
+            <div class="score score--lives"><span class="score__label">Lives</span><span class="score__value" id="lives" aria-live="polite">♥♥♥</span></div>
+          </div>
+          <div class="pad" aria-hidden="false">
+            <button class="pad__btn" id="leftBtn" type="button" aria-label="Move left">◄</button>
+            <button class="pad__btn" id="rightBtn" type="button" aria-label="Move right">►</button>
+          </div>
+          <p class="game__controls">Controls: <kbd>◄</kbd> <kbd>►</kbd> arrow keys, on-screen pads, or touch-drag on the stage.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="worlds" id="worlds" aria-labelledby="worlds-title">
+      <div class="section-head">
+        <p class="kicker">02 / Catalog</p>
+        <h2 id="worlds-title">Worlds we've built</h2>
+        <p class="section-sub">Seven released titles, each a hand-tuned arcade universe with its own rules, its own soundtrack, its own reason to keep playing.</p>
+      </div>
+      <ul class="cards" role="list">
+        <li class="card" style="--c1:#ff2e63;--c2:#ffb800;">
+          <span class="card__badge">Arcade</span>
+          <h3>Neon Nectar</h3>
+          <p>A bullet-garden where you paint the screen with pollen and outrun your own light trail.</p>
+          <p class="card__meta">2024 · Score attack</p>
+        </li>
+        <li class="card" style="--c1:#00e5ff;--c2:#7c4dff;">
+          <span class="card__badge">Platformer</span>
+          <h3>Grapple Gulch</h3>
+          <p>Momentum platforming across crumbling mesas. Swing, boost, land, repeat.</p>
+          <p class="card__meta">2023 · Single player</p>
+        </li>
+        <li class="card" style="--c1:#39ff14;--c2:#00b3ff;">
+          <span class="card__badge">Puzzle</span>
+          <h3>Tile Tempest</h3>
+          <p>Rotating gravity puzzler. Every move re-flows the whole board.</p>
+          <p class="card__meta">2023 · Endless</p>
+        </li>
+        <li class="card" style="--c1:#ff8a00;--c2:#ff2e63;">
+          <span class="card__badge">Runner</span>
+          <h3>Volt Sprint</h3>
+          <p>A synthwave endless runner tuned to the beat of its own bassline.</p>
+          <p class="card__meta">2022 · Rhythm</p>
+        </li>
+        <li class="card" style="--c1:#b6ff00;--c2:#00e5ff;">
+          <span class="card__badge">Co-op</span>
+          <h3>Byte Brawlers</h3>
+          <p>Couch co-op mayhem. Two collectors, one shrinking arena.</p>
+          <p class="card__meta">2021 · Local 2P</p>
+        </li>
+        <li class="card" style="--c1:#ff4dd8;--c2:#ffb800;">
+          <span class="card__badge">Roguelite</span>
+          <h3>Pixel Pilgrim</h3>
+          <p>Procedurally-stitched dungeons that remix every run into something new.</p>
+          <p class="card__meta">2020 · Roguelite</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="crew" id="crew" aria-labelledby="crew-title">
+      <div class="section-head">
+        <p class="kicker">03 / People</p>
+        <h2 id="crew-title">Meet the crew</h2>
+        <p class="section-sub">Nine humans who care too much about coyote-time and screen shake. We prototype loud and iterate fast.</p>
+      </div>
+      <ul class="crew__list" role="list">
+        <li class="member"><span class="member__avatar" style="--a:#ff2e63" aria-hidden="true">MG</span><h3>Mira Gale</h3><p>Creative director</p></li>
+        <li class="member"><span class="member__avatar" style="--a:#00e5ff" aria-hidden="true">DK</span><h3>Deo Kanto</h3><p>Engine &amp; tools</p></li>
+        <li class="member"><span class="member__avatar" style="--a:#39ff14" aria-hidden="true">SV</span><h3>Suki Vale</h3><p>Pixel art lead</p></li>
+        <li class="member"><span class="member__avatar" style="--a:#ffb800" aria-hidden="true">RP</span><h3>Roan Pike</h3><p>Sound &amp; music</p></li>
+        <li class="member"><span class="member__avatar" style="--a:#b6ff00" aria-hidden="true">TN</span><h3>Tavi Nox</h3><p>Level design</p></li>
+        <li class="member"><span class="member__avatar" style="--a:#ff4dd8" aria-hidden="true">EL</span><h3>Enzo Lark</h3><p>Gameplay eng.</p></li>
+      </ul>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="cta__inner">
+        <h2 id="cta-title">Ready player one?</h2>
+        <p>Drop into the demo above, or wander the worlds we've already shipped. Either way — press start.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#demo">Play the demo</a>
+          <a class="btn btn--ghost" href="#worlds">Browse worlds</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p class="foot__brand">RASTER<em>RUSH</em></p>
+    <p>Tiny pixels. Huge worlds. · An independent game studio.</p>
+    <p class="foot__fine">Built with hand-rolled HTML, CSS &amp; JavaScript. No trackers, no network.</p>
+  </footer>
+</body>
+</html>

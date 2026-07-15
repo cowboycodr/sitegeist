@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+<title>Slow Form — gallery poster</title>
+<style>
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: #2a2118;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  img {
+    width: min(1000px, 100%);
+    aspect-ratio: 4 / 3;
+    height: auto;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, .5);
+    border-radius: 6px;
+  }
+</style>
+</head>
+<body>
+  <img src="poster.svg" alt="Slow Form gallery poster: numbered furniture from local timber." />
+</body>
+</html>

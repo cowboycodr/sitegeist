@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Milkweed School — Let curiosity get muddy.</title>
+<meta name="description" content="A forest learning community where children explore ecology, craft, movement, and seasonal change.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Milkweed School home">
+    <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+      <path d="M24 6c-6 8-6 18 0 30 6-12 6-22 0-30Z" fill="var(--leaf)"/>
+      <path d="M24 10v22" stroke="var(--bark)" stroke-width="1.4" fill="none"/>
+      <g fill="var(--seed)"><circle cx="24" cy="38" r="3.4"/><circle cx="16" cy="42" r="2.4"/><circle cx="33" cy="41" r="2.4"/><circle cx="24" cy="44" r="2"/></g>
+    </svg>
+    <span class="brand-name">Milkweed<span>School</span></span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">
+      <span class="nav-toggle-bar"></span><span class="visually-hidden">Menu</span>
+    </button>
+    <ul class="nav-list" id="nav-list">
+      <li><a href="#seasons">Seasons</a></li>
+      <li><a href="#day">A day</a></li>
+      <li><a href="#groups">Groups</a></li>
+      <li><a href="#roots">Our roots</a></li>
+      <li><a href="#visit" class="nav-cta">Open day</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="hero-art" aria-hidden="true">
+      <div class="drift drift-1"></div>
+      <div class="drift drift-2"></div>
+      <div class="drift drift-3"></div>
+      <svg class="hero-monarch" viewBox="0 0 120 100" aria-hidden="true">
+        <g fill="var(--monarch)" stroke="var(--bark)" stroke-width="1.5">
+          <path d="M60 50C46 22 20 18 14 34c-5 14 12 30 46 22Z"/>
+          <path d="M60 50C74 22 100 18 106 34c5 14-12 30-46 22Z"/>
+          <path d="M60 52C50 66 30 78 24 74c-6-5 6-22 36-24Z"/>
+          <path d="M60 52C70 66 90 78 96 74c6-5-6-22-36-24Z"/>
+        </g>
+        <g fill="var(--cream)"><circle cx="30" cy="30" r="3"/><circle cx="90" cy="30" r="3"/><circle cx="34" cy="66" r="2.4"/><circle cx="86" cy="66" r="2.4"/></g>
+        <line x1="60" y1="30" x2="60" y2="72" stroke="var(--bark)" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="hero-text">
+      <p class="eyebrow">Learning outside / Ages 4–11</p>
+      <h1>Let curiosity get muddy.</h1>
+      <p class="lede">A forest learning community where children explore ecology, craft, movement, and seasonal change — one puddle, pod, and question at a time.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#groups">Explore the school</a>
+        <a class="btn btn-ghost" href="#visit">Book an open day</a>
+      </div>
+      <dl class="stat-row">
+        <div><dt>Acres of woodland</dt><dd>18</dd></div>
+        <div><dt>Children per fire circle</dt><dd>10</dd></div>
+        <div><dt>Days spent outdoors</dt><dd>100%</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="band seasons" id="seasons" aria-labelledby="seasons-h">
+    <div class="section-head">
+      <p class="kicker">The turning year</p>
+      <h2 id="seasons-h">We follow the seasons, not a bell</h2>
+      <p class="section-lede">Every term the woodland changes, and so does what we learn. Choose a season to see what fills our days.</p>
+    </div>
+    <div class="season-tabs" role="tablist" aria-label="Seasons">
+      <button role="tab" id="tab-spring" aria-controls="panel-spring" aria-selected="true" class="season-tab">Spring</button>
+      <button role="tab" id="tab-summer" aria-controls="panel-summer" aria-selected="false" tabindex="-1" class="season-tab">Summer</button>
+      <button role="tab" id="tab-autumn" aria-controls="panel-autumn" aria-selected="false" tabindex="-1" class="season-tab">Autumn</button>
+      <button role="tab" id="tab-winter" aria-controls="panel-winter" aria-selected="false" tabindex="-1" class="season-tab">Winter</button>
+    </div>
+    <div class="season-panels">
+      <div role="tabpanel" id="panel-spring" aria-labelledby="tab-spring" class="season-panel" tabindex="0">
+        <h3>Spring — the waking wood</h3>
+        <p>We sow milkweed and broad beans, count tadpoles in the pond dip, and learn to whittle the season's first green sticks. Frog song is our morning register.</p>
+        <ul><li>Seed to seedling journals</li><li>Nest and burrow surveys</li><li>Willow weaving &amp; mud kitchens</li></ul>
+      </div>
+      <div role="tabpanel" id="panel-summer" aria-labelledby="tab-summer" class="season-panel" tabindex="0" hidden>
+        <h3>Summer — the humming meadow</h3>
+        <p>Monarch caterpillars fatten on our milkweed while children map pollinators, build shade shelters, and cook flatbread over the fire on long golden afternoons.</p>
+        <ul><li>Butterfly life-cycle watch</li><li>Barefoot balance &amp; river play</li><li>Natural dye &amp; charcoal drawing</li></ul>
+      </div>
+      <div role="tabpanel" id="panel-autumn" aria-labelledby="tab-autumn" class="season-panel" tabindex="0" hidden>
+        <h3>Autumn — the busy harvest</h3>
+        <p>Milkweed pods split and spill silk into the wind. We gather seed, press apples, catalogue fungi with careful eyes, and build dens against the coming cold.</p>
+        <ul><li>Seed-saving &amp; pod dissection</li><li>Fungi &amp; leaf identification</li><li>Fire-lighting &amp; shelter craft</li></ul>
+      </div>
+      <div role="tabpanel" id="panel-winter" aria-labelledby="tab-winter" class="season-panel" tabindex="0" hidden>
+        <h3>Winter — the quiet bones</h3>
+        <p>Bare branches make the wood's structure legible. We track animals in frost, read the sky, tell stories in the roundhouse, and warm cold hands on cocoa and coals.</p>
+        <ul><li>Animal tracking &amp; birdwatch</li><li>Star, cloud &amp; weather lore</li><li>Woodwork by the fire</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band day" id="day" aria-labelledby="day-h">
+    <div class="section-head">
+      <p class="kicker">Rhythm of the day</p>
+      <h2 id="day-h">A day at Milkweed</h2>
+    </div>
+    <ol class="timeline">
+      <li><span class="tl-time">8:45</span><div><h3>Gathering circle</h3><p>Boots laced, hoods up. We name the weather, share the plan, and sing the wood awake.</p></div></li>
+      <li><span class="tl-time">9:30</span><div><h3>Deep exploration</h3><p>Small groups follow a question — a stream, a tree, a track — with a mentor close by.</p></div></li>
+      <li><span class="tl-time">12:00</span><div><h3>Fire &amp; food</h3><p>We cook together, then rest, whittle, or listen to a story around the flames.</p></div></li>
+      <li><span class="tl-time">1:30</span><div><h3>Making &amp; movement</h3><p>Craft, climbing, den-building, or tending the garden beds and the milkweed patch.</p></div></li>
+      <li><span class="tl-time">3:15</span><div><h3>Closing circle</h3><p>Muddy, tired, full. We share one thing we noticed and thank the ground we stood on.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="band groups" id="groups" aria-labelledby="groups-h">
+    <div class="section-head">
+      <p class="kicker">Find the right nest</p>
+      <h2 id="groups-h">Groups grow with the child</h2>
+      <p class="section-lede">Mixed-age bands keep siblings close and let confidence lead. Explore the school by choosing where your child belongs.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="card-badge">Ages 4–6</span>
+        <h3>Seedlings</h3>
+        <p>Wonder-led days of sensory play, songs, and the first brave puddle jumps. Everything is invitation, nothing is rushed.</p>
+        <ul class="card-list"><li>Two or three days a week</li><li>1 mentor to 5 children</li><li>Nap nook &amp; snack fires</li></ul>
+      </article>
+      <article class="card">
+        <span class="card-badge">Ages 7–9</span>
+        <h3>Saplings</h3>
+        <p>Bigger questions, real tools, and long projects: a bridge, a dye garden, a mapped meadow census that lasts a whole term.</p>
+        <ul class="card-list"><li>Full week outdoors</li><li>Knife &amp; fire licences</li><li>Field-notebook literacy</li></ul>
+      </article>
+      <article class="card">
+        <span class="card-badge">Ages 10–11</span>
+        <h3>Heartwood</h3>
+        <p>Stewardship and self-direction. Older children lead expeditions, mentor Seedlings, and shape the wood they'll one day leave behind.</p>
+        <ul class="card-list"><li>Overnight expeditions</li><li>Woodland enterprise projects</li><li>Transition-to-secondary support</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="band roots" id="roots" aria-labelledby="roots-h">
+    <div class="section-head">
+      <p class="kicker">Why milkweed</p>
+      <h2 id="roots-h">Our roots</h2>
+    </div>
+    <div class="roots-grid">
+      <p class="roots-lede">Milkweed is unglamorous, tough, and quietly vital — the one plant a monarch cannot do without. It thrives in edges and overlooked ground. We named the school for it because that is how we see children: resilient, essential, and capable of astonishing transformation when given room to grow wild.</p>
+      <ul class="values">
+        <li><h3>Risk that teaches</h3><p>We help children meet real challenge — height, fire, sharp tools — with judgement, not fear.</p></li>
+        <li><h3>Slow attention</h3><p>Boredom is fertile. We protect long, unhurried stretches so deep noticing can happen.</p></li>
+        <li><h3>Kinship with place</h3><p>Children who love a patch of ground grow up to defend the wider living world.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band visit" id="visit" aria-labelledby="visit-h">
+    <div class="visit-inner">
+      <div class="section-head">
+        <p class="kicker">Come and see</p>
+        <h2 id="visit-h">Book an open day</h2>
+        <p class="section-lede">Open days run on the first Saturday of each month, rain or shine. Bring wellies. Leave with mud on your knees and a decision half made.</p>
+      </div>
+      <form class="visit-form" id="visit-form" novalidate>
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="f-age">Child's age band</label>
+          <select id="f-age" name="age">
+            <option value="seedlings">Seedlings (4–6)</option>
+            <option value="saplings">Saplings (7–9)</option>
+            <option value="heartwood">Heartwood (10–11)</option>
+            <option value="unsure">Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-month">Preferred open day</label>
+          <select id="f-month" name="month">
+            <option>First Saturday — this month</option>
+            <option>First Saturday — next month</option>
+            <option>A future season</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Reserve a place</button>
+        <p class="form-note" id="form-note" role="status" aria-live="polite">We hold ten places per open day. No account, no spam — just a wood to walk.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand-name"><span class="visually-hidden">Milkweed School</span>Milkweed<span>School</span></span>
+      <p>Let curiosity get muddy.</p>
+    </div>
+    <ul class="footer-links" aria-label="Footer">
+      <li><a href="#seasons">Seasons</a></li>
+      <li><a href="#day">A day</a></li>
+      <li><a href="#groups">Groups</a></li>
+      <li><a href="#visit">Open day</a></li>
+    </ul>
+    <p class="footer-note">Ferny Hollow, in the old coppice beyond the mill. A forest school for ages 4–11.</p>
+  </div>
+</footer>
+</body>
+</html>

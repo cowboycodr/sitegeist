@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+	<title>Lumen Ark — Buildings shaped by light</title>
+	<meta name="description" content="A Copenhagen studio creating quiet, daylight-led spaces for culture and living." />
+	<link rel="stylesheet" href="styles.css" />
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="main.js"></script>
+</head>
+<body>
+	<a class="skip" href="#projects">Skip to projects</a>
+
+	<header class="site-header" id="top">
+		<div class="wrap header-inner">
+			<a class="brand" href="#top" aria-label="Lumen Ark home">
+				<span class="brand-mark" aria-hidden="true">
+					<span class="brand-slit"></span>
+				</span>
+				<span class="brand-word">Lumen<span class="brand-thin">Ark</span></span>
+			</a>
+			<nav class="nav" aria-label="Primary">
+				<a href="#projects">Projects</a>
+				<a href="#approach">Approach</a>
+				<a href="#notes">Studio notes</a>
+				<a href="#contact">Contact</a>
+			</nav>
+			<button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+				<span></span><span></span><span></span>
+			</button>
+		</div>
+		<nav class="mobile-nav" id="mobileNav" aria-label="Primary mobile" hidden>
+			<a href="#projects">Projects</a>
+			<a href="#approach">Approach</a>
+			<a href="#notes">Studio notes</a>
+			<a href="#contact">Contact</a>
+		</nav>
+	</header>
+
+	<main>
+		<section class="hero" aria-labelledby="hero-title">
+			<div class="hero-light" id="heroLight" aria-hidden="true">
+				<div class="beam"></div>
+				<div class="floor-glow"></div>
+			</div>
+			<div class="wrap hero-inner">
+				<p class="eyebrow">Architecture / Copenhagen</p>
+				<h1 id="hero-title">Buildings shaped by light.</h1>
+				<p class="lede">Lumen Ark is a Copenhagen studio creating quiet, daylight-led spaces for culture and living — where the day's changing light becomes the primary material.</p>
+				<div class="actions">
+					<a class="btn btn-solid" href="#projects">Explore projects</a>
+					<a class="btn btn-ghost" href="#notes">Studio notes</a>
+				</div>
+				<div class="hero-meta" role="group" aria-label="Studio at a glance">
+					<div><span class="num" data-count="2011">2011</span><span class="lbl">Founded</span></div>
+					<div><span class="num" data-count="34">34</span><span class="lbl">Projects realised</span></div>
+					<div><span class="num" data-count="6">6</span><span class="lbl">Awards</span></div>
+				</div>
+			</div>
+			<div class="light-control wrap" role="group" aria-label="Adjust daylight">
+				<label for="lightSlider">Daylight</label>
+				<span class="tick" aria-hidden="true">Dawn</span>
+				<input type="range" id="lightSlider" min="0" max="100" value="50" aria-describedby="lightHint" />
+				<span class="tick" aria-hidden="true">Dusk</span>
+				<span id="lightHint" class="sr-only">Drag to move the sun across the building facades.</span>
+			</div>
+		</section>
+
+		<section class="projects" id="projects" aria-labelledby="projects-title">
+			<div class="wrap">
+				<header class="section-head">
+					<p class="kicker">Selected work</p>
+					<h2 id="projects-title">Projects</h2>
+					<p class="section-sub">Cultural and residential commissions where daylight leads the plan.</p>
+				</header>
+				<ul class="project-grid" id="projectGrid"></ul>
+			</div>
+		</section>
+
+		<section class="approach" id="approach" aria-labelledby="approach-title">
+			<div class="wrap approach-inner">
+				<div class="approach-copy">
+					<p class="kicker">How we work</p>
+					<h2 id="approach-title">Light first, then form.</h2>
+					<p>We begin every project by tracing the sun across the site through a full year. The plan follows the light — rooms find their orientation, apertures find their scale, and material finds its warmth.</p>
+					<ul class="principles">
+						<li>
+							<span class="p-index">01</span>
+							<div><h3>Daylight modelling</h3><p>Physical and analytic studies map every hour of usable light before a single wall is drawn.</p></div>
+						</li>
+						<li>
+							<span class="p-index">02</span>
+							<div><h3>Quiet materials</h3><p>Lime plaster, oak and brushed concrete hold the light softly and age with grace.</p></div>
+						</li>
+						<li>
+							<span class="p-index">03</span>
+							<div><h3>Low-energy fabric</h3><p>Thermal mass and generous glazing balance comfort with a modest carbon footprint.</p></div>
+						</li>
+					</ul>
+				</div>
+				<figure class="approach-figure" aria-hidden="true">
+					<div class="section-model">
+						<div class="sun"></div>
+						<div class="roof"></div>
+						<div class="ray r1"></div>
+						<div class="ray r2"></div>
+						<div class="ray r3"></div>
+						<div class="room"></div>
+						<div class="pool"></div>
+					</div>
+					<figcaption>Daylight section — a clerestory washing an interior wall.</figcaption>
+				</figure>
+			</div>
+		</section>
+
+		<section class="notes" id="notes" aria-labelledby="notes-title">
+			<div class="wrap">
+				<header class="section-head">
+					<p class="kicker">From the studio</p>
+					<h2 id="notes-title">Studio notes</h2>
+					<p class="section-sub">Short field notes on light, place and craft.</p>
+				</header>
+				<div class="note-grid">
+					<article class="note">
+						<p class="note-date">June 2026 · Nordhavn</p>
+						<h3>The north light that never leaves</h3>
+						<p>Why a cool, constant northern sky is the most generous studio light of all — and how we frame it.</p>
+					</article>
+					<article class="note">
+						<p class="note-date">April 2026 · Craft</p>
+						<h3>Lime plaster and the slow wall</h3>
+						<p>Notes from three weeks with the plasterers at the Harbour Reading Room.</p>
+					</article>
+					<article class="note">
+						<p class="note-date">February 2026 · Method</p>
+						<h3>Modelling a year of afternoons</h3>
+						<p>Our process for testing every season before we commit a plan to paper.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="contact" id="contact" aria-labelledby="contact-title">
+			<div class="wrap contact-inner">
+				<div>
+					<p class="kicker">Start a conversation</p>
+					<h2 id="contact-title">Tell us about your light.</h2>
+					<p class="section-sub">We take on a small number of cultural and residential projects each year.</p>
+				</div>
+				<address class="contact-details">
+					<p><span class="c-lbl">Studio</span> Refshalevej 163A, 1432 København K</p>
+					<p><span class="c-lbl">Email</span> studio@lumenark.example</p>
+					<p><span class="c-lbl">Phone</span> +45 33 12 40 68</p>
+				</address>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap footer-inner">
+			<span class="brand-word small">Lumen<span class="brand-thin">Ark</span></span>
+			<p>Buildings shaped by light. © 2026 Lumen Ark ApS, Copenhagen.</p>
+			<a href="#top" class="to-top">Back to top ↑</a>
+		</div>
+	</footer>
+</body>
+</html>

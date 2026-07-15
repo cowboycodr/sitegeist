@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <title>Fondue Club — Dip irresponsibly.</title>
+  <meta name="description" content="A roving supper club serving bubbling cheese, cold wine, and very unserious evenings." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="steam-field" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="#top">
+      <span class="brand-pot" aria-hidden="true">🫕</span>
+      <span class="brand-name">Fondue&nbsp;Club</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#menu">Menu</a>
+      <a href="#nights">Nights</a>
+      <a href="#rules">House rules</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">Next melt / Friday 8 PM</p>
+      <h1 id="hero-title">Dip<br />irresponsibly.</h1>
+      <p class="lede">A roving supper club serving bubbling cheese, cold wine, and very
+        unserious evenings. Bring a fork. Bring a friend. Lose the fork's bread in the pot
+        and pay the forfeit.</p>
+      <div class="cta-row">
+        <button class="btn btn-primary" type="button" data-seat>Grab a seat</button>
+        <a class="btn btn-ghost" href="#menu">Inspect the menu</a>
+      </div>
+      <dl class="stat-row">
+        <div><dt>Pots on the boil</dt><dd data-count="6">6</dd></div>
+        <div><dt>Seats left</dt><dd data-count="9">9</dd></div>
+        <div><dt>Forfeits paid</dt><dd data-count="41">41</dd></div>
+      </dl>
+    </section>
+
+    <section id="menu" class="menu" aria-labelledby="menu-title">
+      <h2 id="menu-title">Tonight's molten agenda</h2>
+      <p class="section-note">One pot per pairing. Swirl in a figure eight; the club is watching.</p>
+      <ul class="dish-grid">
+        <li class="dish">
+          <span class="dish-mark">01</span>
+          <h3>The Classic Puddle</h3>
+          <p>Gruyère, Emmental, a bold splash of white, and just enough garlic to start an argument.</p>
+        </li>
+        <li class="dish">
+          <span class="dish-mark">02</span>
+          <h3>Smoked Rebellion</h3>
+          <p>Smoked scamorza melted into cider with charred shallots and a crack of black pepper.</p>
+        </li>
+        <li class="dish">
+          <span class="dish-mark">03</span>
+          <h3>Blue Monday</h3>
+          <p>Gorgonzola dolce, mascarpone, and pear — divisive, and proudly so.</p>
+        </li>
+        <li class="dish">
+          <span class="dish-mark">04</span>
+          <h3>The Sweet Finale</h3>
+          <p>Dark chocolate and salted caramel with strawberries, marshmallow, and stubborn bananas.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="nights" class="nights" aria-labelledby="nights-title">
+      <h2 id="nights-title">Where the pot lands next</h2>
+      <ol class="night-list">
+        <li>
+          <span class="night-day">Fri</span>
+          <div>
+            <h3>The Warehouse Melt</h3>
+            <p>A cold loft, long tables, and six pots down the middle. Coats stay on until the cheese wins.</p>
+          </div>
+          <span class="night-tag">Filling fast</span>
+        </li>
+        <li>
+          <span class="night-day">Sat</span>
+          <div>
+            <h3>Rooftop &amp; Rosé</h3>
+            <p>Sunset dipping with a wine list that gets braver as the light drops.</p>
+          </div>
+          <span class="night-tag">A few seats</span>
+        </li>
+        <li>
+          <span class="night-day">Sun</span>
+          <div>
+            <h3>The Slow Sunday</h3>
+            <p>No agenda, endless bread, and one very long simmer. Naps optional but encouraged.</p>
+          </div>
+          <span class="night-tag">Waitlist</span>
+        </li>
+      </ol>
+    </section>
+
+    <section id="rules" class="rules" aria-labelledby="rules-title">
+      <h2 id="rules-title">House rules</h2>
+      <div class="rule-cards">
+        <article class="rule-card">
+          <h3>Lose the bread, pay the forfeit</h3>
+          <p>Drop your bread in the pot and you owe the table a story, a song, or the next bottle.</p>
+        </article>
+        <article class="rule-card">
+          <h3>No double dipping</h3>
+          <p>We are unserious, not uncivilised. One dip, one bite, no exceptions.</p>
+        </article>
+        <article class="rule-card">
+          <h3>Everyone stirs</h3>
+          <p>The pot belongs to the table. Keep it moving or it grabs the bottom.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p class="foot-mark">🫕 Fondue Club</p>
+    <p>Dip irresponsibly. Melt responsibly enough.</p>
+  </footer>
+
+  <div class="seat-toast" id="seatToast" role="status" aria-live="polite" hidden>
+    Seat held — check the pot at 8.
+  </div>
+</body>
+</html>

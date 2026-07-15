@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+	<title>Common Blue — The ocean belongs to everyone.</title>
+	<meta name="description" content="A coastal action network connecting restoration projects, field data, and local volunteers." />
+	<link rel="stylesheet" href="styles.css" />
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%230a6fb0'/%3E%3Cpath d='M2 20c4 0 4-4 8-4s4 4 8 4 4-4 8-4' fill='none' stroke='%23e9f6fb' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E" />
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="app.js"></script>
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<header class="site-header">
+		<div class="wrap header-inner">
+			<a class="brand" href="#top" aria-label="Common Blue home">
+				<span class="brand-mark" aria-hidden="true">
+					<svg viewBox="0 0 40 40" width="40" height="40" role="img" aria-hidden="true">
+						<circle cx="20" cy="20" r="19" fill="var(--deep)" />
+						<path d="M3 25c5 0 5-5 10-5s5 5 10 5 5-5 10-5" fill="none" stroke="var(--foam)" stroke-width="3" stroke-linecap="round" />
+						<path d="M3 15c5 0 5-5 10-5s5 5 10 5 5-5 10-5" fill="none" stroke="var(--sky)" stroke-width="3" stroke-linecap="round" opacity="0.7" />
+					</svg>
+				</span>
+				<span class="brand-word">Common&nbsp;Blue</span>
+			</a>
+
+			<nav class="site-nav" aria-label="Primary">
+				<button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">
+					<span class="nav-toggle-bar" aria-hidden="true"></span>
+					<span class="nav-toggle-label">Menu</span>
+				</button>
+				<ul id="nav-list" class="nav-list">
+					<li><a href="#projects">Projects</a></li>
+					<li><a href="#data">Field data</a></li>
+					<li><a href="#volunteer">Volunteer</a></li>
+					<li><a href="#impact">Impact</a></li>
+					<li><a class="nav-cta" href="#volunteer">Join</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main">
+		<section class="hero" id="top">
+			<div class="wrap hero-inner">
+				<div class="hero-copy">
+					<p class="eyebrow">Coastal action network</p>
+					<h1 class="hero-title">The ocean belongs to everyone.</h1>
+					<p class="hero-lead">Common Blue connects local restoration projects, open field data, and the volunteers who make our coastlines resilient — one tide line at a time.</p>
+					<div class="hero-actions">
+						<a class="btn btn-primary" href="#volunteer">Join a local project</a>
+						<a class="btn btn-ghost" href="#impact">See our impact</a>
+					</div>
+					<dl class="hero-stats">
+						<div><dt>Coastlines</dt><dd>34 regions</dd></div>
+						<div><dt>Active projects</dt><dd>128</dd></div>
+						<div><dt>Volunteers</dt><dd>9,400+</dd></div>
+					</dl>
+				</div>
+				<div class="hero-art" aria-hidden="true">
+					<svg viewBox="0 0 420 420" class="tide-orb" role="presentation">
+						<defs>
+							<clipPath id="orb"><circle cx="210" cy="210" r="200" /></clipPath>
+							<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+								<stop offset="0" stop-color="var(--sky)" />
+								<stop offset="1" stop-color="var(--deep)" />
+							</linearGradient>
+						</defs>
+						<circle cx="210" cy="210" r="200" fill="url(#sea)" />
+						<g clip-path="url(#orb)">
+							<path class="wave wave-a" d="M-40 240 q60 -34 120 0 t120 0 t120 0 t120 0 V440 H-40 Z" fill="var(--tide)" opacity="0.55" />
+							<path class="wave wave-b" d="M-40 280 q60 -30 120 0 t120 0 t120 0 t120 0 V440 H-40 Z" fill="var(--tide-2)" opacity="0.7" />
+							<path class="wave wave-c" d="M-40 320 q60 -26 120 0 t120 0 t120 0 t120 0 V440 H-40 Z" fill="var(--foam)" opacity="0.9" />
+						</g>
+						<circle cx="210" cy="210" r="199" fill="none" stroke="var(--foam)" stroke-width="2" opacity="0.5" />
+					</svg>
+				</div>
+			</div>
+			<div class="wave-divider" aria-hidden="true">
+				<svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 40 q180 -50 360 0 t360 0 t360 0 t360 0 V80 H0 Z" fill="var(--surface)" /></svg>
+			</div>
+		</section>
+
+		<section class="section projects" id="projects" aria-labelledby="projects-title">
+			<div class="wrap">
+				<header class="section-head">
+					<p class="kicker">On the water now</p>
+					<h2 id="projects-title">Restoration projects near you</h2>
+					<p class="section-sub">Filter by the kind of work that pulls you in. Every project is led by local coordinators and reports openly.</p>
+				</header>
+
+				<div class="filter-bar" role="group" aria-label="Filter projects by focus">
+					<button class="chip is-active" data-filter="all" aria-pressed="true">All</button>
+					<button class="chip" data-filter="seagrass" aria-pressed="false">Seagrass</button>
+					<button class="chip" data-filter="reef" aria-pressed="false">Reef &amp; shellfish</button>
+					<button class="chip" data-filter="cleanup" aria-pressed="false">Cleanups</button>
+					<button class="chip" data-filter="monitoring" aria-pressed="false">Monitoring</button>
+				</div>
+
+				<ul class="project-grid" id="project-grid">
+					<li class="card" data-focus="seagrass">
+						<span class="tag">Seagrass</span>
+						<h3>Eelgrass Meadows, Harbor Reach</h3>
+						<p>Replanting eelgrass beds to store carbon and shelter juvenile fish along four sheltered inlets.</p>
+						<p class="card-meta"><span>62 volunteers</span><span>Every Saturday</span></p>
+					</li>
+					<li class="card" data-focus="reef">
+						<span class="tag">Reef &amp; shellfish</span>
+						<h3>Living Oyster Wall</h3>
+						<p>Building oyster reefs that filter water and soften storm surge for the low-lying east shore.</p>
+						<p class="card-meta"><span>88 volunteers</span><span>Tidal windows</span></p>
+					</li>
+					<li class="card" data-focus="cleanup">
+						<span class="tag">Cleanups</span>
+						<h3>Driftline Sweep</h3>
+						<p>Sorting and logging shoreline debris so removal turns into data that changes upstream policy.</p>
+						<p class="card-meta"><span>210 volunteers</span><span>Monthly</span></p>
+					</li>
+					<li class="card" data-focus="monitoring">
+						<span class="tag">Monitoring</span>
+						<h3>Blue Carbon Watch</h3>
+						<p>Citizen scientists tracking water temperature, salinity, and marsh edge across the estuary.</p>
+						<p class="card-meta"><span>44 volunteers</span><span>Weekly logs</span></p>
+					</li>
+					<li class="card" data-focus="seagrass">
+						<span class="tag">Seagrass</span>
+						<h3>Nursery Tanks Collective</h3>
+						<p>Community-run seed nurseries that raise resilient shoots before they head out to open beds.</p>
+						<p class="card-meta"><span>37 volunteers</span><span>Indoor + shore</span></p>
+					</li>
+					<li class="card" data-focus="reef">
+						<span class="tag">Reef &amp; shellfish</span>
+						<h3>Mussel Line Restore</h3>
+						<p>Restoring native mussel lines on rocky headlands to rebuild the base of the coastal food web.</p>
+						<p class="card-meta"><span>29 volunteers</span><span>Spring–Fall</span></p>
+					</li>
+				</ul>
+				<p class="filter-empty" id="filter-empty" hidden>No projects in this focus yet — new sites launch every season.</p>
+			</div>
+		</section>
+
+		<section class="section data" id="data" aria-labelledby="data-title">
+			<div class="wrap data-inner">
+				<div class="data-copy">
+					<p class="kicker">Open by default</p>
+					<h2 id="data-title">Field data anyone can read</h2>
+					<p>Every measurement volunteers gather is published in plain, downloadable form. No paywalls, no lock-in — because coastlines are a commons, and so is the evidence for protecting them.</p>
+					<ul class="data-points">
+						<li>Standardized shoreline surveys across all 34 regions.</li>
+						<li>Water quality readings timestamped and geotagged.</li>
+						<li>Species counts reviewed by regional coordinators.</li>
+					</ul>
+				</div>
+				<figure class="data-chart" aria-labelledby="chart-cap">
+					<div class="chart" role="img" aria-label="Monthly restored coastline in hectares rising from 12 in January to 96 in December.">
+						<div class="bars" id="bars">
+							<div class="bar" style="--h:14%"><span>Jan</span></div>
+							<div class="bar" style="--h:22%"><span>Feb</span></div>
+							<div class="bar" style="--h:30%"><span>Mar</span></div>
+							<div class="bar" style="--h:41%"><span>Apr</span></div>
+							<div class="bar" style="--h:48%"><span>May</span></div>
+							<div class="bar" style="--h:57%"><span>Jun</span></div>
+							<div class="bar" style="--h:63%"><span>Jul</span></div>
+							<div class="bar" style="--h:71%"><span>Aug</span></div>
+							<div class="bar" style="--h:78%"><span>Sep</span></div>
+							<div class="bar" style="--h:86%"><span>Oct</span></div>
+							<div class="bar" style="--h:92%"><span>Nov</span></div>
+							<div class="bar" style="--h:100%"><span>Dec</span></div>
+						</div>
+					</div>
+					<figcaption id="chart-cap">Hectares of coastline restored per month, this year.</figcaption>
+				</figure>
+			</div>
+		</section>
+
+		<section class="section impact" id="impact" aria-labelledby="impact-title">
+			<div class="wrap">
+				<header class="section-head">
+					<p class="kicker">Since 2016</p>
+					<h2 id="impact-title">See our impact</h2>
+					<p class="section-sub">Small, steady, local work — added up across the whole network.</p>
+				</header>
+				<ul class="impact-grid" id="impact-grid">
+					<li class="impact-item"><span class="num" data-to="742" data-suffix=" ha">0</span><span class="lbl">Coastline restored</span></li>
+					<li class="impact-item"><span class="num" data-to="1.9" data-suffix="M kg" data-decimals="1">0</span><span class="lbl">Debris removed</span></li>
+					<li class="impact-item"><span class="num" data-to="128">0</span><span class="lbl">Active projects</span></li>
+					<li class="impact-item"><span class="num" data-to="9400" data-suffix="+">0</span><span class="lbl">Volunteers</span></li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="section volunteer" id="volunteer" aria-labelledby="volunteer-title">
+			<div class="wrap volunteer-inner">
+				<div class="volunteer-copy">
+					<p class="kicker">Two hours, one shoreline</p>
+					<h2 id="volunteer-title">Join a local project</h2>
+					<p>Tell us where you are and how you like to help. A regional coordinator matches you with a nearby project and the next shift — no experience needed, gear provided.</p>
+					<ul class="assurance">
+						<li>Family- and beginner-friendly shifts</li>
+						<li>All ages, all abilities welcome</li>
+						<li>You choose how often you show up</li>
+					</ul>
+				</div>
+				<form class="join-form" id="join-form" novalidate>
+					<p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+					<div class="field">
+						<label for="name">Name</label>
+						<input id="name" name="name" type="text" autocomplete="name" required />
+						<span class="field-error" data-for="name"></span>
+					</div>
+					<div class="field">
+						<label for="email">Email</label>
+						<input id="email" name="email" type="email" autocomplete="email" required />
+						<span class="field-error" data-for="email"></span>
+					</div>
+					<div class="field">
+						<label for="region">Nearest coastline</label>
+						<select id="region" name="region" required>
+							<option value="">Choose a region…</option>
+							<option>Harbor Reach</option>
+							<option>East Shore</option>
+							<option>North Estuary</option>
+							<option>Rocky Headlands</option>
+							<option>Somewhere else</option>
+						</select>
+						<span class="field-error" data-for="region"></span>
+					</div>
+					<fieldset class="field field-set">
+						<legend>What draws you in?</legend>
+						<div class="focus-options">
+							<label><input type="checkbox" name="focus" value="seagrass" /> Seagrass</label>
+							<label><input type="checkbox" name="focus" value="reef" /> Reef &amp; shellfish</label>
+							<label><input type="checkbox" name="focus" value="cleanup" /> Cleanups</label>
+							<label><input type="checkbox" name="focus" value="monitoring" /> Monitoring</label>
+						</div>
+					</fieldset>
+					<button class="btn btn-primary btn-block" type="submit">Match me with a project</button>
+					<p class="form-note">We only use your details to connect you with a local coordinator. Nothing leaves this page.</p>
+				</form>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap footer-inner">
+			<div class="footer-brand">
+				<span class="brand-word">Common Blue</span>
+				<p>The ocean belongs to everyone.</p>
+			</div>
+			<nav class="footer-nav" aria-label="Footer">
+				<a href="#projects">Projects</a>
+				<a href="#data">Field data</a>
+				<a href="#volunteer">Volunteer</a>
+				<a href="#impact">Impact</a>
+			</nav>
+			<p class="footer-fine">A coastal action network. Community-run, open data, non-profit.</p>
+		</div>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+	<title>Narra — Turn research into a living story</title>
+	<meta name="description" content="A collaborative workspace connecting sources, notes, and ideas into clear narrative maps." />
+	<link rel="stylesheet" href="styles.css" />
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="app.js"></script>
+</head>
+<body>
+	<a class="skip" href="#main">Skip to content</a>
+
+	<header class="topbar">
+		<div class="wrap topbar__inner">
+			<a class="brand" href="#top" aria-label="Narra home">
+				<span class="brand__mark" aria-hidden="true">
+					<svg viewBox="0 0 32 32" width="28" height="28" focusable="false">
+						<circle cx="7" cy="9" r="3.2" />
+						<circle cx="24" cy="7" r="2.6" />
+						<circle cx="9" cy="24" r="2.6" />
+						<circle cx="25" cy="23" r="3.2" />
+						<path d="M7 9 L24 7 M7 9 L9 24 M24 7 L25 23 M9 24 L25 23 M7 9 L25 23" />
+					</svg>
+				</span>
+				<span class="brand__word">Narra</span>
+			</a>
+			<nav class="topnav" aria-label="Primary">
+				<a href="#map">The map</a>
+				<a href="#threads">Threads</a>
+				<a href="#practice">Practice</a>
+			</nav>
+			<a class="btn btn--ghost topbar__cta" href="#map">Build a narrative</a>
+		</div>
+	</header>
+
+	<main id="main">
+		<section class="hero" id="top">
+			<div class="wrap hero__grid">
+				<div class="hero__copy">
+					<p class="eyebrow">Context, connected</p>
+					<h1 class="hero__title">Turn research into a<br /><em>living story.</em></h1>
+					<p class="hero__lead">Narra is a collaborative workspace that links your sources, notes, and
+						ideas into clear narrative maps — so the thread of an argument is always visible,
+						not buried in a hundred open tabs.</p>
+					<div class="hero__actions">
+						<a class="btn btn--solid" href="#map">Build a narrative</a>
+						<a class="btn btn--ghost" href="#overview">Watch overview</a>
+					</div>
+					<dl class="hero__stats">
+						<div><dt>Sources woven</dt><dd data-count="8400">8,400+</dd></div>
+						<div><dt>Live threads</dt><dd data-count="120">120</dd></div>
+						<div><dt>Loose ends</dt><dd>None</dd></div>
+					</dl>
+				</div>
+				<div class="hero__art" aria-hidden="true">
+					<div class="constellation">
+						<span class="star star--a"></span>
+						<span class="star star--b"></span>
+						<span class="star star--c"></span>
+						<span class="star star--d"></span>
+						<span class="star star--e"></span>
+						<svg class="constellation__web" viewBox="0 0 100 100" preserveAspectRatio="none">
+							<path d="M18 22 L70 14 L82 58 L34 82 L18 22 M70 14 L34 82" />
+						</svg>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="mapper" id="map" aria-labelledby="map-title">
+			<div class="wrap">
+				<div class="section-head">
+					<p class="eyebrow">The map</p>
+					<h2 id="map-title">Give a fragment a place in the story</h2>
+					<p class="section-head__lead">Pick the pieces you have. Narra threads them into a
+						narrative spine and shows what each one is doing for the argument.</p>
+				</div>
+
+				<div class="mapper__board">
+					<div class="mapper__palette" role="group" aria-label="Story fragments">
+						<p class="mapper__palette-title">Fragments</p>
+						<ul class="chips" id="chip-list"></ul>
+						<button class="btn btn--quiet" id="reset-map" type="button">Clear the board</button>
+					</div>
+
+					<div class="mapper__stage">
+						<svg class="mapper__wires" id="wires" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+						<ol class="spine" id="spine" aria-live="polite" aria-label="Narrative spine">
+							<li class="spine__empty" id="spine-empty">
+								<span class="spine__empty-icon" aria-hidden="true">✦</span>
+								Add fragments from the left. Narra keeps them in narrative order and names the
+								role each one plays.
+							</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="threads" id="threads" aria-labelledby="threads-title">
+			<div class="wrap">
+				<div class="section-head">
+					<p class="eyebrow">Threads</p>
+					<h2 id="threads-title">Three moves, one continuous line</h2>
+				</div>
+				<div class="cards">
+					<article class="card">
+						<span class="card__num">01</span>
+						<h3>Gather without losing the plot</h3>
+						<p>Drop in a PDF, a quote, or a stray thought. Narra captures the source alongside your
+							framing so the reason you saved it never disappears.</p>
+					</article>
+					<article class="card">
+						<span class="card__num">02</span>
+						<h3>Link into meaning</h3>
+						<p>Draw a thread between two notes and Narra remembers the relationship — supports,
+							complicates, answers — building a map you can actually read.</p>
+					</article>
+					<article class="card">
+						<span class="card__num">03</span>
+						<h3>Narrate the whole</h3>
+						<p>When the map is ready, walk the spine end to end. Every claim carries its evidence,
+							and the story reads like it was always meant to.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="overview" id="overview" aria-labelledby="overview-title">
+			<div class="wrap overview__grid">
+				<div class="overview__player">
+					<button class="overview__play" id="overview-play" type="button" aria-pressed="false">
+						<span class="overview__play-icon" aria-hidden="true"></span>
+						<span class="overview__play-label">Watch overview</span>
+					</button>
+					<ul class="overview__ticks" id="overview-ticks" aria-hidden="true">
+						<li></li><li></li><li></li><li></li>
+					</ul>
+				</div>
+				<div class="overview__copy">
+					<p class="eyebrow">Overview</p>
+					<h2 id="overview-title">A two-minute tour of a living map</h2>
+					<p id="overview-caption" class="overview__caption">Press play to step through how a
+						scattered reading list becomes a narrative you can defend.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="practice" id="practice" aria-labelledby="practice-title">
+			<div class="wrap">
+				<div class="section-head">
+					<p class="eyebrow">Practice</p>
+					<h2 id="practice-title">Built for people who work in evidence</h2>
+				</div>
+				<ul class="practice__list">
+					<li>
+						<h3>Researchers</h3>
+						<p>Keep a literature review honest — every synthesis links back to the passage it came from.</p>
+					</li>
+					<li>
+						<h3>Newsrooms</h3>
+						<p>Map a developing story so a whole desk shares one timeline of what is known and sourced.</p>
+					</li>
+					<li>
+						<h3>Analysts</h3>
+						<p>Turn a folder of interviews into a briefing where the argument and its backing travel together.</p>
+					</li>
+					<li>
+						<h3>Students</h3>
+						<p>Grow an essay from a map of ideas instead of a blank page and a blinking cursor.</p>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="closer" aria-labelledby="closer-title">
+			<div class="wrap closer__inner">
+				<h2 id="closer-title">Your notes already hold a story. Narra finds the line through it.</h2>
+				<a class="btn btn--solid" href="#map">Build a narrative</a>
+			</div>
+		</section>
+	</main>
+
+	<footer class="foot">
+		<div class="wrap foot__inner">
+			<span class="brand brand--foot">
+				<span class="brand__mark" aria-hidden="true">
+					<svg viewBox="0 0 32 32" width="22" height="22" focusable="false">
+						<circle cx="7" cy="9" r="3.2" />
+						<circle cx="24" cy="7" r="2.6" />
+						<circle cx="9" cy="24" r="2.6" />
+						<circle cx="25" cy="23" r="3.2" />
+						<path d="M7 9 L24 7 M7 9 L9 24 M24 7 L25 23 M9 24 L25 23 M7 9 L25 23" />
+					</svg>
+				</span>
+				<span class="brand__word">Narra</span>
+			</span>
+			<p class="foot__line">Context, connected. — A demo experience, no account required.</p>
+		</div>
+	</footer>
+</body>
+</html>

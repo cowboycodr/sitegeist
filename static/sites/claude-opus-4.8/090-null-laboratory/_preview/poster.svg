@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="NULL Laboratory — Prototypes for uncertain futures">
+	<defs>
+		<linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#b6ff3a"/>
+			<stop offset="1" stop-color="#9b7bff"/>
+		</linearGradient>
+		<radialGradient id="halo" cx="0.5" cy="0.42" r="0.6">
+			<stop offset="0" stop-color="#141a1e"/>
+			<stop offset="1" stop-color="#07090b"/>
+		</radialGradient>
+		<pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+			<path d="M60 0H0V60" fill="none" stroke="#1c2329" stroke-width="1"/>
+		</pattern>
+	</defs>
+
+	<rect width="1200" height="900" fill="url(#halo)"/>
+	<rect width="1200" height="900" fill="url(#grid)" opacity="0.6"/>
+
+	<!-- corner ticks -->
+	<g stroke="#2a333a" stroke-width="2">
+		<path d="M60 60h40 M60 60v40" fill="none"/>
+		<path d="M1140 60h-40 M1140 60v40" fill="none"/>
+		<path d="M60 840h40 M60 840v-40" fill="none"/>
+		<path d="M1140 840h-40 M1140 840v-40" fill="none"/>
+	</g>
+
+	<!-- eyebrow -->
+	<text x="90" y="150" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="26" letter-spacing="8" fill="#b6ff3a">RESEARCH INDEX / 0090</text>
+
+	<!-- giant null motif -->
+	<g transform="translate(880 470)">
+		<circle r="230" fill="none" stroke="url(#glow)" stroke-width="10" opacity="0.9"/>
+		<circle r="230" fill="none" stroke="#b6ff3a" stroke-width="2" opacity="0.35" transform="scale(1.12)"/>
+		<line x1="-175" y1="175" x2="175" y2="-175" stroke="url(#glow)" stroke-width="10"/>
+		<circle cx="162" cy="-162" r="9" fill="#9b7bff"/>
+		<circle cx="-162" cy="162" r="9" fill="#b6ff3a"/>
+	</g>
+
+	<!-- title -->
+	<text x="90" y="420" font-family="Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="118" letter-spacing="-3" fill="#e8ede8">Prototypes</text>
+	<text x="90" y="540" font-family="Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="118" letter-spacing="-3" fill="#e8ede8">for</text>
+	<text x="300" y="540" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="118" fill="#b6ff3a">uncertain</text>
+	<text x="90" y="660" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="118" fill="#b6ff3a">futures.</text>
+
+	<!-- brand lockup -->
+	<g transform="translate(90 745)">
+		<text font-family="ui-monospace, Menlo, Consolas, monospace" font-size="46" fill="#b6ff3a">&#8709;</text>
+		<text x="52" y="0" font-family="ui-monospace, Menlo, Consolas, monospace" font-weight="800" font-size="40" letter-spacing="2" fill="#e8ede8">NULL</text>
+		<text x="52" y="34" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="20" letter-spacing="10" fill="#8a948d">LABORATORY</text>
+	</g>
+
+	<!-- footer strip -->
+	<line x1="90" y1="800" x2="1110" y2="800" stroke="#22292e" stroke-width="1"/>
+	<text x="620" y="835" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="22" letter-spacing="3" fill="#8a948d">SPATIAL COMPUTING &#183; MACHINE PERCEPTION &#183; STRANGE INTERFACES</text>
+</svg>

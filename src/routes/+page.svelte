@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { ArrowUp, ChevronLeft, ChevronRight, X } from '@lucide/svelte';
+	import { ArrowUp, ChevronDown, ChevronLeft, ChevronRight, Plus, Share2, X } from '@lucide/svelte';
+	import { flip } from 'svelte/animate';
+	import { quintOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
 	import SiteExperience from '$lib/components/SiteExperience.svelte';
 	import SitePreview from '$lib/components/SitePreview.svelte';
@@ -14,14 +16,16 @@
 
 	let { data }: { data: PageData } = $props();
 
-	type BenchmarkFilter = BenchmarkModel | 'Fable 5';
+	type BenchmarkFilter = BenchmarkModel;
 	const filters: Array<{ name: BenchmarkFilter; available: boolean }> = [
 		{ name: '5.6 Sol', available: true },
-		{ name: 'Fable 5', available: false },
+		{ name: 'Opus 4.8', available: true },
 		{ name: 'Grok 4.5', available: true }
 	];
 	const PAGE_THEME_COLOR = 'rgb(242, 240, 233)';
 	const SHELL_THEME_COLOR = 'rgb(17, 18, 16)';
+	const TRIPLE_COMPARE_MIN_WIDTH = 1260;
+	const TRIPLE_COMPARE_LIMIT_MESSAGE = 'This screen is not large enough to reliably show three websites side by side.';
 
 	type PreviewPointerGesture = {
 		pointerId: number;
@@ -70,6 +74,20 @@
 		samples: Array<{ y: number; time: number }>;
 		frame: number;
 	};
+	type ModelTabDrag = {
+		model: BenchmarkModel;
+		pointerId: number;
+		startX: number;
+		startTop: number;
+		pointerOffsetX: number;
+		minimumX: number;
+		maximumX: number;
+		x: number;
+		y: number;
+		width: number;
+		height: number;
+		moved: boolean;
+	};
 
 	let selected = $state<ShowcaseSite | null>(null);
 	let filter = $state<BenchmarkFilter>('5.6 Sol');
@@ -87,6 +105,9 @@
 	let viewerFrameElement = $state<HTMLIFrameElement>();
 	let viewerBackdropElement = $state<HTMLDivElement>();
 	let viewerControlsElement = $state<HTMLDivElement>();
+	let compareControlElement = $state<HTMLDivElement>();
+	let galleryFooterTextElement: HTMLParagraphElement;
+	let returnToTopElement: HTMLAnchorElement;
 	let showReturnToTop = $state(false);
 	let filtersPinned = $state(false);
 	let shellThemeActive = $state(false);
@@ -94,6 +115,18 @@
 	let viewerDragActive = $state(false);
 	let viewerSettling = $state(false);
 	let viewerArtifactReady = $state(false);
+	let comparisonArtifactReady = $state(false);
+	let thirdArtifactReady = $state(false);
+	let desktopCompareAvailable = $state(false);
+	let tripleCompareAvailable = $state(false);
+	let modelMenuOpen = $state(false);
+	let addMenuOpen = $state(false);
+	let comparisonMenu = $state<'second' | 'third' | null>(null);
+	let compareModel = $state<BenchmarkModel | null>(null);
+	let thirdModel = $state<BenchmarkModel | null>(null);
+	let draggedModelOrder = $state<BenchmarkModel[] | null>(null);
+	let modelTabDrag = $state<ModelTabDrag | null>(null);
+	let viewerToast = $state<string | null>(null);
 	let artifactChannel = $state('');
 	let previewPointerGesture: PreviewPointerGesture | null = null;
 	let blockedPreviewTrigger: HTMLElement | null = null;
@@ -104,8 +137,10 @@
 	let pendingArtifactPull: PendingArtifactPull | null = null;
 	let viewerAnimations: Animation[] = [];
 	let viewerGestureSequence = 0;
+	let viewerToastTimeout: ReturnType<typeof setTimeout> | null = null;
+	let suppressModelTabClickUntil = 0;
 
-	let activeModel = $derived<BenchmarkModel>(filter === 'Grok 4.5' ? 'Grok 4.5' : '5.6 Sol');
+	let activeModel = $derived<BenchmarkModel>(filter);
 	let visibleSites = $derived(sitesByModel[activeModel]);
 	let activeArtifactBySlug = $derived(siteArtifactByModel[activeModel]);
 	let selectedArtifact = $derived(selected ? activeArtifactBySlug.get(selected.slug) ?? null : null);
@@ -114,12 +149,55 @@
 			? `${selectedArtifact.artifactUrl}?sitegeistSlug=${encodeURIComponent(selectedArtifact.slug)}&sitegeistChannel=${encodeURIComponent(artifactChannel)}`
 			: ''
 	);
+	let viewerModels = $derived(
+		filters
+			.filter((item) => item.available && (!selected || siteArtifactByModel[item.name].has(selected.slug)))
+			.map((item) => item.name)
+	);
+	let roleOrderedModels = $derived(
+		[activeModel, compareModel, thirdModel].filter((model): model is BenchmarkModel => Boolean(model))
+	);
+	let displayedModels = $derived(draggedModelOrder ?? roleOrderedModels);
+	let availableComparisonModels = $derived(
+		viewerModels.filter(
+			(model) => model !== activeModel && model !== compareModel && model !== thirdModel
+		)
+	);
+	let secondComparisonChoices = $derived(
+		viewerModels.filter((model) => model !== activeModel && model !== thirdModel)
+	);
+	let thirdComparisonChoices = $derived(
+		viewerModels.filter((model) => model !== activeModel && model !== compareModel)
+	);
+	let comparisonArtifact = $derived(
+		compareModel && selected
+			? siteArtifactByModel[compareModel].get(selected.slug) ?? null
+			: null
+	);
+	let thirdArtifact = $derived(
+		thirdModel && selected
+			? siteArtifactByModel[thirdModel].get(selected.slug) ?? null
+			: null
+	);
 	let themeColor = $derived(Boolean(selected) || shellThemeActive ? SHELL_THEME_COLOR : PAGE_THEME_COLOR);
 
 	const clamp = (minimum: number, value: number, maximum: number) =>
 		Math.min(maximum, Math.max(minimum, value));
 	const lerp = (start: number, end: number, progress: number) =>
 		start + (end - start) * progress;
+
+	function pillSegment(node: HTMLElement) {
+		const width = node.getBoundingClientRect().width;
+		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		return {
+			duration: reducedMotion ? 0 : 380,
+			easing: quintOut,
+			css: (progress: number) => {
+				const opacity = clamp(0, progress * 1.5, 1);
+				return `width: ${width * progress}px; opacity: ${opacity};`;
+			}
+		};
+	}
 
 	function createPreviewReturnKeyframes(
 		gesture: PullGesture,
@@ -262,6 +340,8 @@
 		returnPreviewOrigin = null;
 		expandOrigin = null;
 		viewerArtifactReady = false;
+		comparisonArtifactReady = false;
+		thirdArtifactReady = false;
 		artifactChannel = createArtifactChannel(nextSite);
 		selected = nextSite;
 	}
@@ -284,6 +364,8 @@
 		returnPreviewElement = trigger;
 		returnPreviewOrigin = { x: rect.left, y: rect.top, width: rect.width, height: rect.height };
 		viewerArtifactReady = false;
+		comparisonArtifactReady = false;
+		thirdArtifactReady = false;
 		artifactChannel = createArtifactChannel(site);
 		expandOrigin = {
 			x: rect.left,
@@ -341,10 +423,21 @@
 
 	function completeCloseSite() {
 		clearPullGesture();
+		resetModelTabDrag();
 		viewerDragActive = false;
 		viewerSettling = false;
 		selected = null;
 		viewerArtifactReady = false;
+		comparisonArtifactReady = false;
+		thirdArtifactReady = false;
+		modelMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
+		compareModel = null;
+		thirdModel = null;
+		viewerToast = null;
+		if (viewerToastTimeout) clearTimeout(viewerToastTimeout);
+		viewerToastTimeout = null;
 		artifactChannel = '';
 		expandOrigin = null;
 		returnPreviewElement = null;
@@ -355,6 +448,312 @@
 	function closeSite() {
 		resetViewerGesture();
 		completeCloseSite();
+	}
+
+	function showViewerToast(message: string) {
+		viewerToast = message;
+		if (viewerToastTimeout) clearTimeout(viewerToastTimeout);
+		viewerToastTimeout = setTimeout(() => {
+			viewerToast = null;
+			viewerToastTimeout = null;
+		}, 3200);
+	}
+
+	async function shareSelectedSite() {
+		if (!browser || !selected) return;
+		const url = window.location.href;
+		const title = `${selected.name} — Sitegeist`;
+		if (typeof navigator.share === 'function') {
+			try {
+				await navigator.share({ title, url });
+				return;
+			} catch (error) {
+				if (error instanceof DOMException && error.name === 'AbortError') return;
+			}
+		}
+
+		try {
+			if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable');
+			await navigator.clipboard.writeText(url);
+			showViewerToast('Link copied to clipboard.');
+		} catch {
+			showViewerToast('Unable to share this link.');
+		}
+	}
+
+	function selectComparisonModel(model: BenchmarkModel) {
+		if (model === compareModel) return;
+		comparisonArtifactReady = false;
+		compareModel = model;
+		modelMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
+	}
+
+	function selectThirdComparisonModel(model: BenchmarkModel) {
+		if (model === thirdModel) return;
+		thirdArtifactReady = false;
+		thirdModel = model;
+		modelMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
+	}
+
+	function selectPrimaryModel(model: BenchmarkModel) {
+		if (model === activeModel) {
+			modelMenuOpen = false;
+			return;
+		}
+		const previousModel = activeModel;
+		filter = model;
+		if (compareModel === model) compareModel = previousModel;
+		else if (thirdModel === model) thirdModel = previousModel;
+		viewerArtifactReady = false;
+		comparisonArtifactReady = false;
+		thirdArtifactReady = false;
+		modelMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
+		artifactChannel = createArtifactChannel(selected);
+	}
+
+	function toggleModelMenu() {
+		modelMenuOpen = !modelMenuOpen;
+		addMenuOpen = false;
+		comparisonMenu = null;
+	}
+
+	function toggleComparisonMenu(slot: 'second' | 'third') {
+		comparisonMenu = comparisonMenu === slot ? null : slot;
+		modelMenuOpen = false;
+		addMenuOpen = false;
+	}
+
+	function handleCompareControl() {
+		if (!availableComparisonModels.length) return;
+		modelMenuOpen = false;
+		comparisonMenu = null;
+		if (availableComparisonModels.length > 1) {
+			addMenuOpen = !addMenuOpen;
+			return;
+		}
+		addComparisonModel(availableComparisonModels[0]);
+	}
+
+	function addComparisonModel(model: BenchmarkModel) {
+		modelMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
+		if (!compareModel) {
+			selectComparisonModel(model);
+			return;
+		}
+		if (!tripleCompareAvailable) {
+			showViewerToast(TRIPLE_COMPARE_LIMIT_MESSAGE);
+			return;
+		}
+		selectThirdComparisonModel(model);
+	}
+
+	function stopComparison() {
+		modelMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
+		compareModel = thirdModel;
+		thirdModel = null;
+		comparisonArtifactReady = false;
+		thirdArtifactReady = false;
+	}
+
+	function stopPrimaryComparison() {
+		if (!compareModel) return;
+		modelMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
+		filter = compareModel;
+		compareModel = thirdModel;
+		thirdModel = null;
+		viewerArtifactReady = false;
+		comparisonArtifactReady = false;
+		thirdArtifactReady = false;
+		artifactChannel = createArtifactChannel(selected);
+	}
+
+	function stopThirdComparison() {
+		modelMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
+		thirdModel = null;
+		thirdArtifactReady = false;
+	}
+
+	function clearComparisons() {
+		resetModelTabDrag();
+		modelMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
+		compareModel = null;
+		thirdModel = null;
+		comparisonArtifactReady = false;
+		thirdArtifactReady = false;
+	}
+
+	function dismissModelMenus() {
+		modelMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
+	}
+
+	function modelTabClickWasDragged(event: MouseEvent) {
+		if (performance.now() > suppressModelTabClickUntil) return false;
+		event.preventDefault();
+		event.stopPropagation();
+		return true;
+	}
+
+	function handlePrimaryModelClick(event: MouseEvent) {
+		if (modelTabClickWasDragged(event)) return;
+		toggleModelMenu();
+	}
+
+	function handleComparisonModelClick(event: MouseEvent, slot: 'second' | 'third') {
+		if (modelTabClickWasDragged(event)) return;
+		toggleComparisonMenu(slot);
+	}
+
+	function handleRemoveModelClick(event: MouseEvent, modelIndex: number) {
+		if (modelTabClickWasDragged(event)) return;
+		if (modelIndex === 0) stopPrimaryComparison();
+		else if (modelIndex === 1) stopComparison();
+		else stopThirdComparison();
+	}
+
+	function handleAddModelClick(event: MouseEvent) {
+		if (modelTabClickWasDragged(event)) return;
+		handleCompareControl();
+	}
+
+	function resetModelTabDrag() {
+		modelTabDrag = null;
+		draggedModelOrder = null;
+	}
+
+	function beginModelTabDrag(event: PointerEvent, model: BenchmarkModel) {
+		if (
+			!desktopCompareAvailable ||
+			displayedModels.length < 2 ||
+			!event.isPrimary ||
+			event.button !== 0 ||
+			!(event.target instanceof Element) ||
+			event.target.closest('.remove-model-control')
+		) return;
+
+		const slot = event.currentTarget as HTMLElement;
+		const rect = slot.getBoundingClientRect();
+		const slots = Array.from(
+			compareControlElement?.querySelectorAll<HTMLElement>('.model-slot') ?? []
+		);
+		const firstRect = slots[0]?.getBoundingClientRect() ?? rect;
+		const lastRect = slots[slots.length - 1]?.getBoundingClientRect() ?? rect;
+		draggedModelOrder = [...displayedModels];
+		modelTabDrag = {
+			model,
+			pointerId: event.pointerId,
+			startX: event.clientX,
+			startTop: rect.top,
+			pointerOffsetX: event.clientX - rect.left,
+			minimumX: firstRect.left,
+			maximumX: Math.max(firstRect.left, lastRect.right - rect.width),
+			x: rect.left,
+			y: rect.top,
+			width: rect.width,
+			height: rect.height,
+			moved: false
+		};
+	}
+
+	function updateDraggedModelOrder(direction: number) {
+		const drag = modelTabDrag;
+		const order = draggedModelOrder;
+		if (!drag || !order || !compareControlElement) return;
+
+		const slots = Array.from(
+			compareControlElement.querySelectorAll<HTMLElement>('.model-slot')
+		);
+		const currentIndex = order.indexOf(drag.model);
+		let targetIndex = currentIndex;
+		const snapOverlap = 0.22;
+		if (direction < 0) {
+			for (let index = currentIndex - 1; index >= 0; index -= 1) {
+				const slot = slots.find((candidate) => candidate.dataset.model === order[index]);
+				if (!slot) continue;
+				const rect = slot.getBoundingClientRect();
+				if (drag.x < rect.right - rect.width * snapOverlap) targetIndex = index;
+			}
+		} else if (direction > 0) {
+			const dragRight = drag.x + drag.width;
+			for (let index = currentIndex + 1; index < order.length; index += 1) {
+				const slot = slots.find((candidate) => candidate.dataset.model === order[index]);
+				if (!slot) continue;
+				const rect = slot.getBoundingClientRect();
+				if (dragRight > rect.left + rect.width * snapOverlap) targetIndex = index;
+			}
+		}
+
+		if (currentIndex === -1 || currentIndex === targetIndex) return;
+		const nextOrder = order.filter((model) => model !== drag.model);
+		nextOrder.splice(targetIndex, 0, drag.model);
+		draggedModelOrder = nextOrder;
+	}
+
+	function moveModelTabDrag(event: PointerEvent) {
+		const drag = modelTabDrag;
+		if (!drag || drag.pointerId !== event.pointerId) return;
+		const horizontalDistance = Math.abs(event.clientX - drag.startX);
+		if (!drag.moved && horizontalDistance < 5) return;
+		if (!drag.moved) {
+			drag.moved = true;
+			// Capturing on pointerdown retargets a nested button click to the draggable slot.
+			(event.currentTarget as HTMLElement).setPointerCapture(event.pointerId);
+			dismissModelMenus();
+		}
+		event.preventDefault();
+		const nextX = clamp(drag.minimumX, event.clientX - drag.pointerOffsetX, drag.maximumX);
+		const direction = Math.sign(nextX - drag.x);
+		drag.x = nextX;
+		drag.y = drag.startTop;
+		updateDraggedModelOrder(direction);
+	}
+
+	function commitDraggedModelOrder(order: BenchmarkModel[]) {
+		if (
+			order.length !== roleOrderedModels.length ||
+			order.every((model, index) => model === roleOrderedModels[index])
+		) return;
+
+		const nextArtifactChannel = createArtifactChannel(selected);
+		filter = order[0];
+		compareModel = order[1] ?? null;
+		thirdModel = order[2] ?? null;
+		viewerArtifactReady = false;
+		comparisonArtifactReady = false;
+		thirdArtifactReady = false;
+		artifactChannel = nextArtifactChannel;
+	}
+
+	function finishModelTabDrag(event: PointerEvent, cancelled = false) {
+		const drag = modelTabDrag;
+		if (!drag || drag.pointerId !== event.pointerId) return;
+		if (drag.moved && !cancelled && draggedModelOrder) {
+			suppressModelTabClickUntil = performance.now() + 300;
+			commitDraggedModelOrder([...draggedModelOrder]);
+		}
+		resetModelTabDrag();
+	}
+
+	function handleWindowPointerDown(event: PointerEvent) {
+		if ((!modelMenuOpen && !addMenuOpen && !comparisonMenu) || !(event.target instanceof Node)) return;
+		if (!compareControlElement?.contains(event.target)) dismissModelMenus();
 	}
 
 	function activatePullGesture(gesture: PullGesture) {
@@ -762,13 +1161,20 @@
 
 	function step(direction: number) {
 		if (!selected || viewerSettling) return;
+		modelMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
 		resetViewerGesture();
 		expandOrigin = null;
 		returnPreviewElement = null;
 		returnPreviewOrigin = null;
 		viewerArtifactReady = false;
+		comparisonArtifactReady = false;
+		thirdArtifactReady = false;
 		const current = visibleSites.findIndex((site) => site.id === selected?.id);
 		const next = visibleSites[(current + direction + visibleSites.length) % visibleSites.length];
+		if (compareModel && !siteArtifactByModel[compareModel].has(next.slug)) stopComparison();
+		if (thirdModel && !siteArtifactByModel[thirdModel].has(next.slug)) stopThirdComparison();
 		artifactChannel = createArtifactChannel(next);
 		selected = next;
 		if (browser) history.replaceState(null, '', `#site/${next.slug}`);
@@ -776,6 +1182,12 @@
 
 	function handleViewerShortcut(key: string) {
 		if (!selected || viewerSettling) return;
+		if (key === 'Escape' && (modelMenuOpen || addMenuOpen || comparisonMenu)) {
+			modelMenuOpen = false;
+			addMenuOpen = false;
+			comparisonMenu = null;
+			return;
+		}
 		if (key === 'Escape') closeSite();
 		if (key === 'ArrowLeft') step(-1);
 		if (key === 'ArrowRight') step(1);
@@ -784,6 +1196,27 @@
 	function handleKeydown(event: KeyboardEvent) {
 		handleViewerShortcut(event.key);
 	}
+
+	onMount(() => {
+		const desktopCompareMedia = window.matchMedia('(min-width: 721px) and (hover: hover) and (pointer: fine)');
+		const tripleCompareMedia = window.matchMedia(`(min-width: ${TRIPLE_COMPARE_MIN_WIDTH}px)`);
+		const syncDesktopCompare = () => {
+			desktopCompareAvailable = desktopCompareMedia.matches;
+			tripleCompareAvailable = desktopCompareAvailable && tripleCompareMedia.matches;
+			if (!desktopCompareAvailable) clearComparisons();
+			else if (!tripleCompareAvailable && thirdModel) {
+				stopThirdComparison();
+				showViewerToast(TRIPLE_COMPARE_LIMIT_MESSAGE);
+			}
+		};
+		syncDesktopCompare();
+		desktopCompareMedia.addEventListener('change', syncDesktopCompare);
+		tripleCompareMedia.addEventListener('change', syncDesktopCompare);
+		return () => {
+			desktopCompareMedia.removeEventListener('change', syncDesktopCompare);
+			tripleCompareMedia.removeEventListener('change', syncDesktopCompare);
+		};
+	});
 
 	onMount(() => {
 		const syncNavigation = () => {
@@ -801,6 +1234,61 @@
 			window.removeEventListener('hashchange', syncNavigation);
 			window.removeEventListener('popstate', syncNavigation);
 			window.removeEventListener('pageshow', syncNavigation);
+		};
+	});
+
+	onMount(() => {
+		let alignmentFrame = 0;
+		let footerTextCenter = 0;
+		let alignmentStart = Number.POSITIVE_INFINITY;
+		let mounted = true;
+		const getBaseBottom = () => Math.min(28, Math.max(16, window.innerWidth * 0.02));
+
+		const syncReturnToTopAlignment = () => {
+			alignmentFrame = 0;
+			const baseBottom = getBaseBottom();
+			const alignedBottom = Math.max(
+				baseBottom,
+				window.scrollY + window.innerHeight - footerTextCenter - 24
+			);
+			if (alignedBottom > baseBottom + 0.5) {
+				returnToTopElement.style.setProperty('--footer-aligned-bottom', `${alignedBottom}px`);
+			} else {
+				returnToTopElement.style.removeProperty('--footer-aligned-bottom');
+			}
+		};
+
+		const requestReturnToTopAlignment = () => {
+			if (alignmentFrame) return;
+			if (
+				window.scrollY < alignmentStart &&
+				!returnToTopElement.style.getPropertyValue('--footer-aligned-bottom')
+			) return;
+			alignmentFrame = requestAnimationFrame(syncReturnToTopAlignment);
+		};
+
+		const measureReturnToTopAlignment = () => {
+			const footerTextRect = galleryFooterTextElement.getBoundingClientRect();
+			footerTextCenter = footerTextRect.top + window.scrollY + footerTextRect.height / 2;
+			alignmentStart = footerTextCenter - window.innerHeight + 24 + getBaseBottom();
+			requestReturnToTopAlignment();
+		};
+
+		const collectionResizeObserver = new ResizeObserver(measureReturnToTopAlignment);
+		collectionResizeObserver.observe(collectionElement);
+		measureReturnToTopAlignment();
+		window.addEventListener('scroll', requestReturnToTopAlignment, { passive: true });
+		window.addEventListener('resize', measureReturnToTopAlignment);
+		void document.fonts?.ready.then(() => {
+			if (mounted) measureReturnToTopAlignment();
+		});
+
+		return () => {
+			mounted = false;
+			cancelAnimationFrame(alignmentFrame);
+			collectionResizeObserver.disconnect();
+			window.removeEventListener('scroll', requestReturnToTopAlignment);
+			window.removeEventListener('resize', measureReturnToTopAlignment);
 		};
 	});
 
@@ -973,7 +1461,7 @@
 	<meta name="twitter:image" content={`${data.origin}/og.png`} />
 </svelte:head>
 
-<svelte:window onkeydown={handleKeydown} onmessage={handleArtifactMessage} />
+<svelte:window onkeydown={handleKeydown} onmessage={handleArtifactMessage} onpointerdown={handleWindowPointerDown} />
 
 <main class="gallery-shell">
 	<section class="intro" id="top">
@@ -984,10 +1472,10 @@
 			<aside class="intro-aside">
 				<p>One hundred generated websites testing how well leading models maintain visual quality, consistency, and originality.</p>
 				<div class="profile-links" aria-label="Creator links">
-					<a class="profile-pill x-profile" href="https://x.com/kianmckenn" target="_blank" rel="noreferrer" aria-label="Follow @kianmckenn on X">
-						<span class="profile-icon"><svg class="x-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2h3.7l-8.1 9.2L24 22h-7.4l-5.8-7.6L4.2 22H.5l8.6-9.8L0 2h7.6l5.2 6.9L18.9 2Zm-1.3 18.1h2L6.5 3.8H4.4l13.2 16.3Z" /></svg></span>
+					<a class="profile-pill github-profile" href="https://github.com/cowboycodr/sitegeist" target="_blank" rel="noopener noreferrer" aria-label="View Sitegeist on GitHub">
+						<span class="profile-icon"><svg class="github-mark" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.51-.01-.52.63-.01 1.08.58 1.23.81.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.5 7.5 0 0 1 8 4.58c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" /></svg></span>
 						<span class="profile-divider" aria-hidden="true">/</span>
-						<span>kianmckenn</span>
+						<span>sitegeist</span>
 					</a>
 					<a class="profile-pill site-profile" href="https://kian.im" target="_blank" rel="noreferrer" aria-label="Visit Kian McKenna's personal website">
 						<span class="profile-icon avatar-icon"><img src="/kian-avatar.png" alt="" /></span>
@@ -1072,11 +1560,12 @@
 		</div>
 
 		<footer class="gallery-footer">
-			<p>A study in style, repetition, and surprise.</p>
+			<p bind:this={galleryFooterTextElement}>A study in style, repetition, and surprise.</p>
 		</footer>
 	</section>
 
 	<a
+		bind:this={returnToTopElement}
 		class="return-to-top"
 		class:visible={showReturnToTop}
 		href="#top"
@@ -1102,46 +1591,259 @@
 		<div class="viewer-backdrop" bind:this={viewerBackdropElement} aria-hidden="true"></div>
 		<div class="viewer-entry" bind:this={viewerEntryElement}>
 			<div class="viewer-surface" bind:this={viewerSurfaceElement}>
-				<div class="viewer-content" bind:this={viewerContentElement}>
-					{#if selectedArtifact}
-						<div class="viewer-site artifact-shell" class:ready={viewerArtifactReady} role="document">
-							<img
-								class="artifact-viewer-poster"
-								src={selectedArtifact.posterUrl}
-								alt=""
-								aria-hidden="true"
-							/>
-							<iframe
-								class="artifact-frame"
-								bind:this={viewerFrameElement}
-								src={selectedArtifactUrl}
-								title={`${selected.name} standalone website`}
-								sandbox="allow-scripts"
-								referrerpolicy="no-referrer"
-								allow="camera 'none'; geolocation 'none'; microphone 'none'; payment 'none'"
-								loading="eager"
-								onload={() => (viewerArtifactReady = true)}
-							></iframe>
+				<div
+					class="viewer-content"
+					class:comparing={Boolean(comparisonArtifact)}
+					class:triple={Boolean(comparisonArtifact && thirdArtifact)}
+					bind:this={viewerContentElement}
+				>
+					<div class="viewer-pane primary-pane">
+						{#if selectedArtifact}
+							<div class="viewer-site artifact-shell" class:ready={viewerArtifactReady} role="document">
+								<img
+									class="artifact-viewer-poster"
+									src={selectedArtifact.posterUrl}
+									alt=""
+									aria-hidden="true"
+								/>
+								<iframe
+									class="artifact-frame"
+									bind:this={viewerFrameElement}
+									src={selectedArtifactUrl}
+									title={`${selected.name} ${activeModel} website`}
+									sandbox="allow-scripts"
+									referrerpolicy="no-referrer"
+									allow="camera 'none'; geolocation 'none'; microphone 'none'; payment 'none'"
+									loading="eager"
+									onload={() => (viewerArtifactReady = true)}
+								></iframe>
+							</div>
+						{:else}
+							<div
+								class="viewer-site"
+								bind:this={viewerSiteElement}
+								use:pullToDismiss
+								role="document"
+							>
+								<SiteExperience site={selected} />
+							</div>
+						{/if}
+					</div>
+					{#if desktopCompareAvailable}
+						<div class="viewer-pane comparison-pane" aria-hidden={!comparisonArtifact}>
+							{#if comparisonArtifact && compareModel}
+								<div class="viewer-site artifact-shell" class:ready={comparisonArtifactReady} role="document">
+									<img
+										class="artifact-viewer-poster"
+										src={comparisonArtifact.posterUrl}
+										alt=""
+										aria-hidden="true"
+									/>
+									<iframe
+										class="artifact-frame"
+										src={comparisonArtifact.artifactUrl}
+										title={`${selected.name} ${compareModel} comparison website`}
+										sandbox="allow-scripts"
+										referrerpolicy="no-referrer"
+										allow="camera 'none'; geolocation 'none'; microphone 'none'; payment 'none'"
+										loading="eager"
+										onload={() => (comparisonArtifactReady = true)}
+									></iframe>
+								</div>
+							{/if}
 						</div>
-					{:else}
-						<div
-							class="viewer-site"
-							bind:this={viewerSiteElement}
-							use:pullToDismiss
-							role="document"
-						>
-							<SiteExperience site={selected} />
+						<div class="viewer-pane third-pane" aria-hidden={!thirdArtifact}>
+							{#if thirdArtifact && thirdModel}
+								<div class="viewer-site artifact-shell" class:ready={thirdArtifactReady} role="document">
+									<img
+										class="artifact-viewer-poster"
+										src={thirdArtifact.posterUrl}
+										alt=""
+										aria-hidden="true"
+									/>
+									<iframe
+										class="artifact-frame"
+										src={thirdArtifact.artifactUrl}
+										title={`${selected.name} ${thirdModel} third comparison website`}
+										sandbox="allow-scripts"
+										referrerpolicy="no-referrer"
+										allow="camera 'none'; geolocation 'none'; microphone 'none'; payment 'none'"
+										loading="eager"
+										onload={() => (thirdArtifactReady = true)}
+									></iframe>
+								</div>
+							{/if}
 						</div>
 					{/if}
 				</div>
 			</div>
 		</div>
+		{#if viewerToast}
+			<div class="viewer-toast" role="status">{viewerToast}</div>
+		{/if}
+		{#if modelTabDrag?.moved}
+			<div
+				class="model-tab-drag-ghost"
+				style={`left:${modelTabDrag.x}px;top:${modelTabDrag.y}px;width:${modelTabDrag.width}px;height:${modelTabDrag.height}px;`}
+				aria-hidden="true"
+			>
+				<span>{modelTabDrag.model}</span>
+			</div>
+		{/if}
+		{#if modelMenuOpen || addMenuOpen || comparisonMenu}
+			<button class="menu-dismiss-layer" onclick={dismissModelMenus} aria-label="Close model menu"></button>
+		{/if}
 		<div class="viewer-controls" bind:this={viewerControlsElement}>
-			<button class="close-control" onclick={closeSite} aria-label="Close site and return to gallery" title="Close"><X size={16} strokeWidth={2.2} /></button>
-			<div class="viewer-id"><span>{String(selected.id).padStart(3, '0')}</span></div>
-			<div class="right-controls">
-				<button class="step-control" onclick={() => step(-1)} aria-label="Previous website" title="Previous site"><ChevronLeft size={19} strokeWidth={2.3} /></button>
-				<button class="step-control" onclick={() => step(1)} aria-label="Next website" title="Next site"><ChevronRight size={19} strokeWidth={2.3} /></button>
+			<div class="viewer-controls-cluster" bind:this={compareControlElement}>
+				<div class="close-control-pill">
+					<button class="close-control" onclick={closeSite} aria-label="Close site and return to gallery" title="Close"><X size={16} strokeWidth={2.2} /></button>
+					<button class="share-control" onclick={shareSelectedSite} aria-label="Share this website" title="Share"><Share2 size={15} strokeWidth={2.1} /></button>
+				</div>
+				<div class="model-control-wrap" class:mobile-model-only={!desktopCompareAvailable} class:reordering={Boolean(modelTabDrag?.moved)}>
+						{#each displayedModels as model, modelIndex (model)}
+							<div
+								class="model-slot"
+								class:first-model-slot={modelIndex === 0}
+								class:reorderable={desktopCompareAvailable && displayedModels.length > 1}
+								class:drag-placeholder={Boolean(modelTabDrag?.moved && modelTabDrag.model === model)}
+								data-model={model}
+								role="group"
+								aria-label={desktopCompareAvailable && displayedModels.length > 1 ? `${model} model tab. Drag to reorder.` : undefined}
+								onpointerdown={(event) => beginModelTabDrag(event, model)}
+								onpointermove={moveModelTabDrag}
+								onpointerup={finishModelTabDrag}
+								onpointercancel={(event) => finishModelTabDrag(event, true)}
+								transition:pillSegment
+								animate:flip={{ duration: 190, easing: quintOut }}
+							>
+								{#if modelIndex > 0}<i class="model-separator" aria-hidden="true">|</i>{/if}
+								{#if availableComparisonModels.length > 0}
+									{#if modelIndex === 0}
+										<button
+											class="model-control model-segment"
+											class:open={modelMenuOpen}
+											onclick={handlePrimaryModelClick}
+											aria-label={`${model} is visible. Choose visible model`}
+											aria-haspopup="menu"
+											aria-expanded={modelMenuOpen}
+											title="Choose visible model"
+										>
+											<span>{model}</span>
+											<ChevronDown class="model-control-chevron" size={14} strokeWidth={2.2} />
+										</button>
+									{:else}
+										<button
+											class="comparison-model-control model-segment"
+											class:open={comparisonMenu === (modelIndex === 1 ? 'second' : 'third')}
+											onclick={(event) => handleComparisonModelClick(event, modelIndex === 1 ? 'second' : 'third')}
+											aria-label={`${model} is ${modelIndex === 1 ? 'the comparison model' : 'the third comparison model'}. Choose comparison model`}
+											aria-haspopup="menu"
+											aria-expanded={comparisonMenu === (modelIndex === 1 ? 'second' : 'third')}
+											title="Choose comparison model"
+										>
+											<span>{model}</span>
+											<ChevronDown class="model-control-chevron" size={14} strokeWidth={2.2} />
+										</button>
+									{/if}
+								{:else if displayedModels.length > 1}
+									<div class="comparison-model-display model-segment">
+										<span>{model}</span>
+										<button
+											class="remove-model-control"
+											onclick={(event) => handleRemoveModelClick(event, modelIndex)}
+											aria-label={`Remove ${model} from comparison`}
+											title={`Remove ${model}`}
+										><X size={12} strokeWidth={2.4} /></button>
+									</div>
+								{:else}
+									<div class="primary-model-display model-segment"><span>{model}</span></div>
+								{/if}
+							</div>
+						{/each}
+						{#if desktopCompareAvailable && !thirdModel && availableComparisonModels.length > 0}
+							<div class="add-model-slot" transition:pillSegment>
+								<button
+									class="compare-control"
+									onclick={handleAddModelClick}
+									aria-label={compareModel ? 'Add third comparison model' : 'Add comparison model'}
+									aria-haspopup={availableComparisonModels.length > 1 ? 'menu' : undefined}
+									aria-expanded={availableComparisonModels.length > 1 ? addMenuOpen : undefined}
+									title={compareModel ? 'Add third model' : 'Add comparison model'}
+								><Plus size={17} strokeWidth={2.2} /></button>
+							</div>
+						{/if}
+						{#if modelMenuOpen}
+							<div class="compare-picker" role="menu" aria-label="Choose the visible model">
+								<div class="compare-picker-label">View model</div>
+								{#each viewerModels as model}
+									<button
+										class="compare-option"
+										class:selected={activeModel === model}
+										role="menuitemradio"
+										aria-checked={activeModel === model}
+										onclick={() => selectPrimaryModel(model)}
+									>
+										<span>{model}</span>
+									</button>
+								{/each}
+							</div>
+						{/if}
+						{#if comparisonMenu === 'second' && compareModel}
+							<div class="compare-picker" role="menu" aria-label="Choose the comparison model">
+								<div class="compare-picker-label">Compare with</div>
+								{#each secondComparisonChoices as model}
+									<button
+										class="compare-option"
+										class:selected={compareModel === model}
+										role="menuitemradio"
+										aria-checked={compareModel === model}
+										onclick={() => selectComparisonModel(model)}
+									>
+										<span>{model}</span>
+									</button>
+								{/each}
+								<button class="compare-option" role="menuitem" onclick={stopComparison}>
+									<span>Remove model</span>
+								</button>
+							</div>
+						{/if}
+						{#if comparisonMenu === 'third' && thirdModel}
+							<div class="compare-picker" role="menu" aria-label="Choose the third comparison model">
+								<div class="compare-picker-label">Compare with</div>
+								{#each thirdComparisonChoices as model}
+									<button
+										class="compare-option"
+										class:selected={thirdModel === model}
+										role="menuitemradio"
+										aria-checked={thirdModel === model}
+										onclick={() => selectThirdComparisonModel(model)}
+									>
+										<span>{model}</span>
+									</button>
+								{/each}
+								<button class="compare-option" role="menuitem" onclick={stopThirdComparison}>
+									<span>Remove model</span>
+								</button>
+							</div>
+						{/if}
+						{#if addMenuOpen}
+							<div class="compare-picker" role="menu" aria-label="Choose a model to add">
+								<div class="compare-picker-label">Add model</div>
+								{#each availableComparisonModels as model}
+									<button class="compare-option" role="menuitem" onclick={() => addComparisonModel(model)}>
+										<span>{model}</span>
+									</button>
+								{/each}
+							</div>
+						{/if}
+				</div>
+				<div class="navigation-control-pill">
+					<div class="right-controls">
+						<button class="step-control" onclick={() => step(-1)} aria-label="Previous website" title="Previous site"><ChevronLeft size={19} strokeWidth={2.3} /></button>
+						<div class="viewer-id"><span>{String(selected.id).padStart(3, '0')}</span></div>
+						<button class="step-control" onclick={() => step(1)} aria-label="Next website" title="Next site"><ChevronRight size={19} strokeWidth={2.3} /></button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -1162,13 +1864,13 @@
 	.intro-aside { display: flex; max-width: 820px; flex-direction: column; align-items: center; gap: 20px; }
 	.intro-aside p { margin: 0; font-size: clamp(15px, 1.12vw, 18px); line-height: 1.55; letter-spacing: -0.018em; text-wrap: balance; }
 	.profile-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }
-	.profile-pill { display: inline-flex; height: 38px; align-items: center; gap: 8px; padding: 0 15px; border: 0; border-radius: 999px; color: #fff; font-size: 11px; font-weight: 650; text-decoration: none; transform-origin: center; transition: filter 160ms ease, transform 180ms cubic-bezier(.2,.8,.2,1); }
+	.profile-pill { display: inline-flex; height: 38px; align-items: center; gap: 8px; padding: 0 15px; border: 0; border-radius: 999px; color: #fff; font-size: 11px; font-weight: 650; text-decoration: none; transform-origin: center; transition: filter 160ms ease, transform 180ms cubic-bezier(.2,.8,.2,1); -webkit-user-select: none; user-select: none; }
 	.profile-pill:hover { filter: brightness(1.1); transform: scale(1.035); }
 	.profile-pill:focus-visible { outline: 2px solid var(--gallery-accent); outline-offset: 2px; }
-	.x-profile { background: #1b1c19; }
+	.github-profile { background: #1b1c19; }
 	.site-profile { background: var(--gallery-accent); }
 	.profile-icon { display: grid; width: 16px; flex: none; place-items: center; }
-	.profile-icon .x-mark { width: 14px; height: 14px; fill: currentColor; }
+	.profile-icon .github-mark { width: 15px; height: 15px; fill: currentColor; }
 	.avatar-icon { width: 20px; height: 20px; overflow: hidden; border-radius: 50%; background: #fff; }
 	.avatar-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
 	.profile-divider { opacity: 0.32; font-weight: 500; }
@@ -1234,7 +1936,7 @@
 	.gallery-footer > p { margin: 0; font-size: clamp(42px, 6vw, 90px); font-weight: 600; line-height: 0.88; letter-spacing: -0.07em; }
 	.preview-disclaimer { display: flex; width: min(100%, 420px); justify-content: flex-start; gap: 7px; margin: 14px 0 0; color: #85877f; font: 600 clamp(10px, 0.8vw, 12px)/1.45 'Inter Variable', Inter, sans-serif; letter-spacing: -0.01em; text-align: left; }
 	.preview-disclaimer span:first-child { flex: none; }
-	.return-to-top { position: fixed; z-index: 80; right: clamp(16px, 2vw, 28px); bottom: clamp(16px, 2vw, 28px); display: inline-flex; width: 48px; height: 48px; align-items: center; justify-content: center; border-radius: 50%; background: #f3f1e9; color: #111210; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); text-decoration: none; opacity: 0; visibility: hidden; transform: translateY(10px) scale(0.92); pointer-events: none; transition: opacity 240ms ease, visibility 0s linear 240ms, transform 320ms cubic-bezier(.2,.8,.2,1), background 180ms ease; }
+	.return-to-top { position: fixed; z-index: 80; right: clamp(16px, 2vw, 28px); bottom: var(--footer-aligned-bottom, clamp(16px, 2vw, 28px)); display: inline-flex; width: 48px; height: 48px; align-items: center; justify-content: center; border-radius: 50%; background: #f3f1e9; color: #111210; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); text-decoration: none; opacity: 0; visibility: hidden; transform: translateY(10px) scale(0.92); pointer-events: none; transition: opacity 240ms ease, visibility 0s linear 240ms, transform 320ms cubic-bezier(.2,.8,.2,1), background 180ms ease; }
 	.return-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0) scale(1); pointer-events: auto; transition-delay: 0s; }
 	.return-to-top:hover { background: #fff; transform: translateY(-3px) scale(1); }
 	.return-to-top:focus-visible { outline: 2px solid var(--gallery-accent); outline-offset: 3px; }
@@ -1244,7 +1946,12 @@
 	.viewer-entry, .viewer-surface, .viewer-content { position: absolute; inset: 0; }
 	.viewer-entry { z-index: 1; overflow: hidden; }
 	.viewer-surface { overflow: hidden; background: #0c0c0b; transform-origin: top left; backface-visibility: hidden; }
-	.viewer-content { transform-origin: top left; backface-visibility: hidden; }
+	.viewer-content { display: flex; transform-origin: top left; backface-visibility: hidden; }
+	.viewer-pane { position: relative; height: 100%; min-width: 0; overflow: hidden; }
+	.primary-pane { flex: 1 1 auto; }
+	.comparison-pane, .third-pane { flex: 0 0 0; opacity: 0; transform: translate3d(18px, 0, 0); box-shadow: inset 1px 0 rgba(255, 255, 255, 0); pointer-events: none; transition: flex-basis 520ms cubic-bezier(.22,1,.36,1), box-shadow 220ms ease, opacity 240ms ease, transform 520ms cubic-bezier(.22,1,.36,1); }
+	.viewer-content.comparing .comparison-pane { flex-basis: 50%; opacity: 1; transform: translate3d(0, 0, 0); box-shadow: inset 1px 0 rgba(255, 255, 255, 0.18); pointer-events: auto; }
+	.viewer-content.triple .comparison-pane, .viewer-content.triple .third-pane { flex-basis: 33.3333%; opacity: 1; transform: translate3d(0, 0, 0); box-shadow: inset 1px 0 rgba(255, 255, 255, 0.18); pointer-events: auto; }
 	.viewer-site { height: 100%; overflow: auto; overscroll-behavior: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; }
 	.artifact-shell { position: relative; overflow: hidden; background: #07090d; }
 	.artifact-viewer-poster, .artifact-frame { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
@@ -1260,7 +1967,8 @@
 		.viewer-backdrop { will-change: opacity; }
 	}
 	.viewer.dragging .viewer-surface, .viewer.settling .viewer-surface { border-radius: clamp(14px, 4vw, 22px); box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42); }
-	.viewer.dragging .viewer-controls, .viewer.settling .viewer-controls { background: rgba(20, 20, 19, 0.985); -webkit-backdrop-filter: none; backdrop-filter: none; will-change: transform, opacity; }
+	.viewer.dragging .viewer-controls, .viewer.settling .viewer-controls { will-change: transform, opacity; }
+	.viewer.dragging .close-control-pill, .viewer.dragging .model-control-wrap, .viewer.dragging .navigation-control-pill, .viewer.settling .close-control-pill, .viewer.settling .model-control-wrap, .viewer.settling .navigation-control-pill { background: #141413; -webkit-backdrop-filter: none; backdrop-filter: none; }
 	.viewer.settling { pointer-events: none; }
 	.viewer.from-card .viewer-entry { transform-origin: top left; animation: site-expand 640ms cubic-bezier(0.22, 1, 0.36, 1) both; will-change: transform, border-radius, box-shadow; }
 	.viewer.from-card .viewer-controls { animation: toolbar-enter 220ms ease 430ms both; }
@@ -1273,16 +1981,45 @@
 		from { opacity: 0; transform: translate(-50%, 10px) scale(0.96); }
 		to { opacity: 1; transform: translate(-50%, 0) scale(1); }
 	}
-	.viewer-controls { position: fixed; z-index: 1100; left: 50%; bottom: 14px; display: flex; width: max-content; max-width: calc(100vw - 24px); align-items: center; justify-content: center; gap: 2px; padding: 4px; border: 1px solid rgba(255, 255, 255, 0.13); border-radius: 999px; background: rgba(20, 20, 19, 0.94); color: #fff; box-shadow: 0 14px 44px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08); backdrop-filter: blur(18px) saturate(140%); transform: translateX(-50%); pointer-events: auto; }
+	.viewer-controls { position: fixed; z-index: 1100; left: 50%; bottom: 14px; width: max-content; max-width: calc(100vw - 24px); color: #fff; transform: translateX(-50%); pointer-events: none; -webkit-user-select: none; user-select: none; }
+	.menu-dismiss-layer { position: fixed; z-index: 1095; inset: 0; margin: 0; padding: 0; border: 0; background: transparent; cursor: default; }
+	.model-tab-drag-ghost { position: fixed; z-index: 1200; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 0; border-radius: 999px; background: #2b2b29; color: #fff; box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 2px 8px rgba(0, 0, 0, 0.24); font: 700 10px/1 'Inter Variable', Inter, sans-serif; letter-spacing: -0.01em; white-space: nowrap; transform: translateZ(0); pointer-events: none; -webkit-user-select: none; user-select: none; }
+	.model-tab-drag-ghost span { overflow: hidden; padding-inline: 10px; text-overflow: ellipsis; }
+	.viewer-toast { position: fixed; z-index: 1090; left: 50%; bottom: 74px; width: max-content; max-width: min(440px, calc(100vw - 32px)); padding: 11px 15px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 999px; background: #141413; color: rgba(255, 255, 255, 0.9); box-shadow: 0 14px 44px rgba(0, 0, 0, 0.34); font: 650 11px/1.35 'Inter Variable', Inter, sans-serif; text-align: center; transform: translateX(-50%); animation: viewer-toast-enter 220ms cubic-bezier(.22,1,.36,1) both; pointer-events: none; -webkit-user-select: none; user-select: none; }
+	@keyframes viewer-toast-enter { from { opacity: 0; transform: translate(-50%, 8px) scale(.97); } to { opacity: 1; transform: translate(-50%, 0) scale(1); } }
+	.viewer-controls-cluster { display: flex; max-width: 100%; align-items: center; justify-content: center; gap: 8px; pointer-events: auto; }
+	.close-control-pill, .model-control-wrap, .navigation-control-pill { position: relative; display: flex; align-items: center; gap: 2px; padding: 4px; border: 1px solid rgba(255, 255, 255, 0.13); border-radius: 999px; background: rgba(20, 20, 19, 0.96); box-shadow: 0 14px 44px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%); }
 	.viewer-controls button, .viewer-id { height: 34px; border: 0; border-radius: 999px; background: transparent; color: #fff; box-shadow: none; pointer-events: auto; }
 	.viewer-controls button { transition: background 160ms ease, color 160ms ease; }
 	.viewer-controls button:hover, .viewer-controls button:focus-visible { background: rgba(255, 255, 255, 0.1); }
 	.viewer-controls button:focus-visible { outline: 1px solid rgba(255, 255, 255, 0.7); outline-offset: -1px; }
-	.close-control { display: grid; width: 34px; place-items: center; margin-right: 4px; padding: 0; background: #fff !important; color: #111 !important; box-shadow: 5px 0 0 -4px rgba(255, 255, 255, 0.18) !important; cursor: pointer; }
-	.viewer-id { display: flex; align-items: center; margin-right: 2px; padding: 0 13px 0 10px; border-radius: 0; box-shadow: 1px 0 0 rgba(255, 255, 255, 0.14); font: 750 11px/1 ui-monospace, monospace; pointer-events: none; }
-	.right-controls { display: flex; gap: 2px; pointer-events: auto; }
+	.close-control { display: grid; width: 34px; min-width: 34px; place-items: center; padding: 0; background: #fff !important; color: #111 !important; cursor: pointer; }
+	.share-control { display: grid; width: 34px; min-width: 34px; place-items: center; padding: 0; color: rgba(255, 255, 255, 0.78); cursor: pointer; }
+	.model-segment { display: flex; height: 34px; max-width: min(145px, calc(50vw - 135px)); align-items: center; gap: 7px; padding: 0 8px 0 11px; font: 700 10px/1 'Inter Variable', Inter, sans-serif; letter-spacing: -0.01em; white-space: nowrap; }
+	.model-control, .comparison-model-control { cursor: pointer; }
+	.model-segment > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+	.model-slot, .add-model-slot { display: flex; flex: none; min-width: 0; align-items: center; gap: 2px; overflow: hidden; will-change: width, opacity; }
+	.model-slot.reorderable { touch-action: none; cursor: pointer; }
+	.model-slot.reorderable > .model-segment { cursor: pointer; }
+	.model-slot.drag-placeholder { opacity: 0 !important; }
+	.model-control-wrap.reordering, .model-control-wrap.reordering * { cursor: pointer !important; user-select: none; }
+	.model-slot > .model-segment, .add-model-slot > .compare-control { flex: none; }
+	.model-separator { flex: none; margin: 0 -2px; color: rgba(255, 255, 255, 0.34); font: 600 10px/1 'Inter Variable', Inter, sans-serif; font-style: normal; }
+	.comparison-model-display { gap: 5px; padding-right: 5px; }
+	.viewer-controls .remove-model-control { display: grid; width: 22px; min-width: 22px; height: 22px; padding: 0; place-items: center; color: rgba(255, 255, 255, 0.58); cursor: pointer; }
+	.viewer-controls .remove-model-control:hover, .viewer-controls .remove-model-control:focus-visible { background: rgba(255, 255, 255, 0.12); color: #fff; }
+	.add-model-slot > .compare-control { display: grid; width: 34px; min-width: 34px; padding: 0; place-items: center; cursor: pointer; }
+	.model-segment :global(.model-control-chevron) { flex: none; color: rgba(255, 255, 255, 0.62); transition: transform 180ms cubic-bezier(.22,1,.36,1); }
+	.model-segment.open :global(.model-control-chevron) { transform: rotate(180deg); }
+	.compare-picker { position: absolute; z-index: 2; bottom: calc(100% + 12px); left: 50%; display: grid; width: 184px; gap: 3px; padding: 7px; border: 1px solid rgba(255, 255, 255, 0.13); border-radius: 22px; background: rgba(20, 20, 19, 0.96); box-shadow: 0 18px 48px rgba(0, 0, 0, 0.46), inset 0 1px 0 rgba(255, 255, 255, 0.08); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%); transform: translateX(-50%); transform-origin: 50% 100%; animation: compare-picker-enter 180ms cubic-bezier(.22,1,.36,1) both; }
+	@keyframes compare-picker-enter { from { opacity: 0; transform: translate(-50%, 7px) scale(.96); } to { opacity: 1; transform: translate(-50%, 0) scale(1); } }
+	.compare-picker-label { padding: 6px 8px 5px; color: rgba(255, 255, 255, 0.48); font: 700 9px/1 'Inter Variable', Inter, sans-serif; letter-spacing: 0.07em; text-transform: uppercase; }
+	.viewer-controls .compare-picker button { display: flex; width: 100%; height: 36px; align-items: center; justify-content: space-between; padding: 0 10px; border-radius: 999px; color: rgba(255, 255, 255, 0.78); font: 650 11px/1 'Inter Variable', Inter, sans-serif; text-align: left; cursor: pointer; }
+	.viewer-controls .compare-picker button:hover, .viewer-controls .compare-picker button:focus-visible, .viewer-controls .compare-picker button.selected { background: rgba(255, 255, 255, 0.1); color: #fff; }
+	.right-controls { display: flex; align-items: center; gap: 2px; pointer-events: auto; }
 	.right-controls button { display: grid; min-width: 32px; padding: 0; place-items: center; cursor: pointer; }
 	.right-controls .step-control { min-width: 35px; }
+	.viewer-id { display: flex; min-width: 35px; align-items: center; justify-content: center; padding: 0 5px; font: 750 11px/1 ui-monospace, monospace; pointer-events: none; }
 
 	@media (max-width: 1500px) {
 		.intro h1 { font-size: clamp(64px, 6.8vw, 102px); }
@@ -1305,12 +2042,13 @@
 		.site-grid { grid-template-columns: 1fr; row-gap: 55px; }
 		.site-card { contain-intrinsic-size: auto calc(clamp(280px, 71vw, 460px) + 58px); }
 		.card-caption h3 { font-size: 18px; }
+		.model-control-wrap.mobile-model-only .model-segment { max-width: min(112px, calc(100vw - 234px)); }
 	}
 
 	@media (max-width: 430px) {
 		.card-caption p { display: none; }
 		.viewer-controls { bottom: 8px; max-width: calc(100vw - 12px); }
-		.viewer-id { padding-inline: 9px 11px; }
+		.viewer-id { min-width: 31px; padding-inline: 3px; }
 		.right-controls button { min-width: 30px; }
 		.right-controls .step-control { min-width: 33px; }
 	}
@@ -1321,6 +2059,6 @@
 		.preview-button-wrap:hover .preview-window, .preview-button-wrap:focus-visible .preview-window { transform: none; }
 		.collection-shell-side { animation: none !important; transform: scaleX(0) !important; }
 		.collection-shell-corner { animation: none !important; transform: scale(0) !important; }
-		.viewer.from-card .viewer-entry, .viewer.from-card .viewer-controls { animation: none; }
+		.viewer.from-card .viewer-entry, .viewer.from-card .viewer-controls, .viewer-toast { animation: none; }
 	}
 </style>

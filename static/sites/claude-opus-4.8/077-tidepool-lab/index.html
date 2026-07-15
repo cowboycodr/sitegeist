@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+	<meta name="description" content="Tidepool Lab — a field station mapping biodiversity, temperature shifts, and resilient marine habitats.">
+	<meta name="theme-color" content="#04252b">
+	<title>Tidepool Lab — Reading the edge of the sea</title>
+	<link rel="stylesheet" href="styles.css">
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="main.js"></script>
+</head>
+<body>
+	<a class="skip" href="#main">Skip to content</a>
+
+	<header class="site-head">
+		<a class="brand" href="#top" aria-label="Tidepool Lab home">
+			<span class="brand-mark" aria-hidden="true">
+				<svg viewBox="0 0 40 40" width="40" height="40" role="img" aria-hidden="true">
+					<circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.5"/>
+					<circle cx="20" cy="20" r="11" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.75"/>
+					<circle cx="20" cy="20" r="4.5" fill="currentColor"/>
+				</svg>
+			</span>
+			<span class="brand-text">
+				<strong>Tidepool Lab</strong>
+				<em>Ocean Research</em>
+			</span>
+		</a>
+		<nav class="site-nav" aria-label="Primary">
+			<a href="#data">Data</a>
+			<a href="#zones">Zones</a>
+			<a href="#team">Researchers</a>
+			<a href="#field">Field log</a>
+		</nav>
+	</header>
+
+	<main id="main">
+		<section class="hero" id="top" aria-labelledby="hero-title">
+			<div class="hero-tide" aria-hidden="true">
+				<svg class="tide-svg" viewBox="0 0 1440 240" preserveAspectRatio="none">
+					<path class="wave wave-back" d="M0,120 C240,60 480,180 720,120 C960,60 1200,180 1440,120 L1440,240 L0,240 Z"/>
+					<path class="wave wave-mid" d="M0,150 C240,100 480,200 720,150 C960,100 1200,200 1440,150 L1440,240 L0,240 Z"/>
+					<path class="wave wave-front" d="M0,180 C240,140 480,220 720,180 C960,140 1200,220 1440,180 L1440,240 L0,240 Z"/>
+				</svg>
+			</div>
+			<div class="hero-inner">
+				<p class="eyebrow">Field note / 37.7749° N</p>
+				<h1 id="hero-title">Reading the edge of the sea.</h1>
+				<p class="lede">Tidepool Lab is a coastal field station mapping biodiversity, temperature shifts, and the resilient marine habitats living between the tides.</p>
+				<div class="actions">
+					<a class="btn btn-primary" href="#data">Dive into the data</a>
+					<a class="btn btn-ghost" href="#team">Meet the researchers</a>
+				</div>
+				<dl class="hero-stats">
+					<div><dt>Surveys logged</dt><dd>1,284</dd></div>
+					<div><dt>Species tracked</dt><dd>212</dd></div>
+					<div><dt>Seasons on the rocks</dt><dd>9</dd></div>
+				</dl>
+			</div>
+		</section>
+
+		<section class="panel data" id="data" aria-labelledby="data-title">
+			<div class="section-head">
+				<p class="kicker">Live readings, offline copy</p>
+				<h2 id="data-title">Nine years at one tidepool</h2>
+				<p class="section-lede">Every reading below is drawn from our archived transect. Toggle a metric to trace how the pool has shifted across recent survey seasons.</p>
+			</div>
+
+			<div class="chart-card">
+				<div class="chart-tabs" role="tablist" aria-label="Choose a metric">
+					<button role="tab" id="tab-temp" aria-selected="true" aria-controls="chart-region" class="chart-tab is-active" data-metric="temp">Water temp</button>
+					<button role="tab" id="tab-div" aria-selected="false" aria-controls="chart-region" class="chart-tab" data-metric="diversity">Diversity index</button>
+					<button role="tab" id="tab-cov" aria-selected="false" aria-controls="chart-region" class="chart-tab" data-metric="coverage">Kelp cover</button>
+				</div>
+				<div id="chart-region" role="tabpanel" aria-labelledby="tab-temp" tabindex="0">
+					<div class="chart-meta">
+						<span class="chart-metric" id="chart-metric-label">Water temp</span>
+						<span class="chart-value" id="chart-latest"></span>
+					</div>
+					<svg class="chart" id="chart-svg" viewBox="0 0 600 260" role="img" aria-labelledby="chart-desc">
+						<title id="chart-desc">Line chart of the selected metric across nine survey seasons</title>
+						<g class="grid" id="chart-grid"></g>
+						<polyline class="chart-line" id="chart-line" points=""/>
+						<g id="chart-dots"></g>
+						<g class="chart-labels" id="chart-xlabels"></g>
+					</svg>
+					<p class="chart-note" id="chart-note"></p>
+				</div>
+			</div>
+		</section>
+
+		<section class="panel zones" id="zones" aria-labelledby="zones-title">
+			<div class="section-head">
+				<p class="kicker">Explore by depth</p>
+				<h2 id="zones-title">Drop through the tidal zones</h2>
+				<p class="section-lede">Slide from the dry splash zone down into the low-tide shelf. Each band holds the life that survives its own slice of exposure and submersion.</p>
+			</div>
+
+			<div class="zone-explorer">
+				<div class="zone-control">
+					<label for="zone-slider">Tide level</label>
+					<input type="range" id="zone-slider" min="0" max="3" step="1" value="0" aria-describedby="zone-name">
+					<div class="zone-ticks" aria-hidden="true">
+						<span>Splash</span><span>High</span><span>Mid</span><span>Low</span>
+					</div>
+				</div>
+				<div class="zone-readout" aria-live="polite">
+					<h3 id="zone-name">Splash zone</h3>
+					<p class="zone-depth" id="zone-depth">Above the waterline · rarely submerged</p>
+					<p class="zone-desc" id="zone-desc"></p>
+					<ul class="zone-species" id="zone-species"></ul>
+				</div>
+			</div>
+		</section>
+
+		<section class="panel team" id="team" aria-labelledby="team-title">
+			<div class="section-head">
+				<p class="kicker">On the rocks with us</p>
+				<h2 id="team-title">Meet the researchers</h2>
+			</div>
+			<ul class="team-grid">
+				<li class="team-card">
+					<span class="avatar" aria-hidden="true" data-initials="MO"></span>
+					<h3>Dr. Mira Okonkwo</h3>
+					<p class="role">Lead ecologist</p>
+					<p>Runs the long-term transect and reads temperature drift like a tide table.</p>
+				</li>
+				<li class="team-card">
+					<span class="avatar" aria-hidden="true" data-initials="TL"></span>
+					<h3>Theo Lindqvist</h3>
+					<p class="role">Invertebrate specialist</p>
+					<p>Counts anemones, chitons, and every reluctant crab that hides in the low shelf.</p>
+				</li>
+				<li class="team-card">
+					<span class="avatar" aria-hidden="true" data-initials="SA"></span>
+					<h3>Dr. Sana Arroyo</h3>
+					<p class="role">Data & modelling</p>
+					<p>Turns nine seasons of field cards into the curves you just scrolled through.</p>
+				</li>
+			</ul>
+		</section>
+
+		<section class="panel field" id="field" aria-labelledby="field-title">
+			<div class="section-head">
+				<p class="kicker">Straight from the notebook</p>
+				<h2 id="field-title">Recent field log</h2>
+			</div>
+			<ol class="log">
+				<li>
+					<time datetime="2026-07-11">11 Jul</time>
+					<p>Dawn survey. Ochre sea stars rebounding in the mid zone — twelve counted where we saw three last summer.</p>
+				</li>
+				<li>
+					<time datetime="2026-06-28">28 Jun</time>
+					<p>Pool 4 held 15.9°C at slack low, a full degree cooler than the June mean. Upwelling holding steady.</p>
+				</li>
+				<li>
+					<time datetime="2026-06-15">15 Jun</time>
+					<p>New settlement of giant green anemones along the low shelf. Tagged and photographed for the archive.</p>
+				</li>
+			</ol>
+		</section>
+	</main>
+
+	<footer class="site-foot">
+		<p class="foot-brand">Tidepool Lab</p>
+		<p class="foot-line">Reading the edge of the sea — one low tide at a time.</p>
+		<p class="foot-meta">Coastal field station · 37.7749° N · Data archived locally, no network required.</p>
+	</footer>
+</body>
+</html>

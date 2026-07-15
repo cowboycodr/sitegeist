@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Kinetic Type — Letters made to move</title>
+<meta name="description" content="Experimental typefaces for screens, identities, motion systems, and formats still to come.">
+<link rel="preload" href="styles.css" as="style">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230d0d0f'/%3E%3Ctext x='16' y='24' font-family='Georgia,serif' font-size='24' font-style='italic' fill='%23d8ff3a' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Kinetic Type home">
+    <span class="brand-mark" aria-hidden="true">
+      <span class="brand-k">K</span><span class="brand-t">t</span>
+    </span>
+    <span class="brand-name">Kinetic&nbsp;Type</span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    <a href="#specimens">Typefaces</a>
+    <a href="#lab">Variable Lab</a>
+    <a href="#studio">Studio</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <p class="eyebrow">Independent type foundry</p>
+    <h1 id="hero-title" class="hero-title">
+      <span class="line" data-kin><span class="w">Letters</span></span>
+      <span class="line" data-kin><span class="w accent">made</span></span>
+      <span class="line" data-kin><span class="w">to</span> <span class="w move">move.</span></span>
+    </h1>
+    <p class="hero-lede">
+      Experimental typefaces for screens, identities, motion systems,
+      and formats still to come. Drawn to perform in the places letters
+      never used to live.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#specimens">Browse typefaces</a>
+      <a class="btn btn-ghost" href="#lab">Try the variable lab</a>
+    </div>
+    <dl class="stats" aria-label="Foundry at a glance">
+      <div><dt>Families</dt><dd>14</dd></div>
+      <div><dt>Axes drawn</dt><dd>38</dd></div>
+      <div><dt>Scripts</dt><dd>6</dd></div>
+      <div><dt>Since</dt><dd>2019</dd></div>
+    </dl>
+  </section>
+
+  <section class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Display</span><span>·</span><span>Grotesk</span><span>·</span><span>Serif</span><span>·</span><span>Mono</span><span>·</span><span>Kinetic</span><span>·</span><span>Variable</span><span>·</span>
+      <span>Display</span><span>·</span><span>Grotesk</span><span>·</span><span>Serif</span><span>·</span><span>Mono</span><span>·</span><span>Kinetic</span><span>·</span><span>Variable</span><span>·</span>
+    </div>
+  </section>
+
+  <section class="specimens" id="specimens" aria-labelledby="spec-title">
+    <div class="section-head">
+      <h2 id="spec-title">Typeface library</h2>
+      <p>Six retail families, each built to hold its shape from a caption to a
+      billboard — and to bend when the design asks it to.</p>
+    </div>
+    <ul class="spec-grid" id="spec-grid"></ul>
+  </section>
+
+  <section class="lab" id="lab" aria-labelledby="lab-title">
+    <div class="section-head">
+      <h2 id="lab-title">Variable lab</h2>
+      <p>Drive a specimen through its axes in real time. Type your own words,
+      pull the sliders, and watch the letterforms respond.</p>
+    </div>
+
+    <div class="lab-stage">
+      <div class="lab-preview" aria-live="off">
+        <div class="lab-canvas" id="labCanvas" role="img" aria-label="Live type specimen">Kinetic</div>
+      </div>
+
+      <form class="lab-controls" id="labControls" aria-label="Specimen controls">
+        <div class="field field-wide">
+          <label for="labText">Specimen text</label>
+          <input id="labText" name="labText" type="text" value="Kinetic" maxlength="24"
+                 autocomplete="off" spellcheck="false" inputmode="text">
+        </div>
+
+        <div class="field">
+          <label for="labWeight">Weight <output id="outWeight">700</output></label>
+          <input id="labWeight" type="range" min="100" max="900" step="10" value="700">
+        </div>
+
+        <div class="field">
+          <label for="labSize">Size <output id="outSize">120</output>px</label>
+          <input id="labSize" type="range" min="40" max="200" step="1" value="120">
+        </div>
+
+        <div class="field">
+          <label for="labTrack">Tracking <output id="outTrack">-2</output></label>
+          <input id="labTrack" type="range" min="-8" max="24" step="1" value="-2">
+        </div>
+
+        <div class="field">
+          <label for="labSlant">Slant <output id="outSlant">0</output>°</label>
+          <input id="labSlant" type="range" min="-14" max="14" step="1" value="0">
+        </div>
+
+        <fieldset class="field field-wide toggles">
+          <legend>Style</legend>
+          <label class="chip"><input type="radio" name="labStyle" value="grotesk" checked> Grotesk</label>
+          <label class="chip"><input type="radio" name="labStyle" value="serif"> Serif</label>
+          <label class="chip"><input type="radio" name="labStyle" value="mono"> Mono</label>
+          <label class="chip pushbtn"><input type="checkbox" id="labCaps"> UPPERCASE</label>
+        </fieldset>
+
+        <div class="field field-wide lab-buttons">
+          <button type="button" class="btn btn-ghost sm" id="labAnimate" aria-pressed="false">Animate axes</button>
+          <button type="reset" class="btn btn-ghost sm" id="labReset">Reset</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="studio" id="studio" aria-labelledby="studio-title">
+    <div class="studio-inner">
+      <h2 id="studio-title">A small studio, drawing at full scale</h2>
+      <p>Kinetic Type is an independent foundry working between lettering,
+      motion design, and software. We license retail families, draw bespoke
+      identities, and build the tools that keep type alive on the screen.</p>
+      <ul class="studio-list">
+        <li><span>Retail licensing</span> Desktop, web, and app licences with clear terms.</li>
+        <li><span>Custom commissions</span> Bespoke families and logotypes for brands.</li>
+        <li><span>Motion systems</span> Variable specimens tuned for animation and UI.</li>
+      </ul>
+      <p class="studio-cta"><a class="btn btn-primary" href="#specimens">See what's available</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-brand">
+    <span class="brand-mark" aria-hidden="true"><span class="brand-k">K</span><span class="brand-t">t</span></span>
+    <p>Kinetic Type — letters made to move. Drawn independently, everywhere.</p>
+  </div>
+  <p class="footer-fine">© 2019–2026 Kinetic Type Foundry. A demonstration foundry site.</p>
+</footer>
+</body>
+</html>

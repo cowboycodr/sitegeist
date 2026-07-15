@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Northstar — A clearer way to grow wealth.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1020" />
+      <stop offset="1" stop-color="#0e1830" />
+    </linearGradient>
+    <linearGradient id="grow" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#3fd0b6" />
+      <stop offset="1" stop-color="#7bd0ff" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6cd63" />
+      <stop offset="1" stop-color="#f4b942" />
+    </linearGradient>
+    <radialGradient id="glowA" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f6cd63" stop-opacity="0.85" />
+      <stop offset="1" stop-color="#f6cd63" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glowB" cx="0.3" cy="0.2" r="0.9">
+      <stop offset="0" stop-color="#3fd0b6" stop-opacity="0.22" />
+      <stop offset="1" stop-color="#3fd0b6" stop-opacity="0" />
+    </radialGradient>
+    <style>
+      text { font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)" />
+  <rect width="1200" height="900" fill="url(#glowB)" />
+
+  <!-- faint grid -->
+  <g stroke="#26324c" stroke-width="1" opacity="0.4">
+    <line x1="80" y1="760" x2="1120" y2="760" />
+    <line x1="80" y1="640" x2="1120" y2="640" />
+    <line x1="80" y1="520" x2="1120" y2="520" />
+  </g>
+
+  <!-- growth trajectory -->
+  <path d="M120 760 C360 730 470 600 620 500 S900 300 1020 210"
+        fill="none" stroke="url(#grow)" stroke-width="10" stroke-linecap="round" />
+  <path d="M120 760 C360 730 470 600 620 500 S900 300 1020 210 L1020 760 Z"
+        fill="url(#grow)" opacity="0.12" />
+
+  <!-- sparks -->
+  <g fill="#cdd8f0" opacity="0.7">
+    <circle cx="300" cy="250" r="4" />
+    <circle cx="470" cy="180" r="3" />
+    <circle cx="200" cy="430" r="3.5" />
+    <circle cx="720" cy="250" r="3" />
+    <circle cx="560" cy="330" r="2.6" />
+  </g>
+
+  <!-- north star -->
+  <circle cx="1020" cy="210" r="120" fill="url(#glowA)" />
+  <path d="M1020 120 l22 68 68 22 -68 22 -22 68 -22 -68 -68 -22 68 -22z" fill="url(#gold)" />
+
+  <!-- brand mark + name -->
+  <g transform="translate(96 120)">
+    <path d="M0 -18 l6 20 20 6 -20 6 -6 20 -6 -20 -20 -6 20 -6z" transform="translate(20 20)" fill="url(#gold)" />
+    <text x="52" y="30" font-size="40" font-weight="700" fill="#eaf0fb" letter-spacing="-1">Northstar</text>
+  </g>
+
+  <!-- headline -->
+  <text x="96" y="470" font-size="92" font-weight="700" fill="#ffffff" letter-spacing="-3">A clearer way</text>
+  <text x="96" y="566" font-size="92" font-weight="700" fill="#ffffff" letter-spacing="-3">to grow <tspan fill="url(#gold)">wealth.</tspan></text>
+
+  <text x="96" y="640" font-size="34" fill="#9aa9c6">Confident long-term planning, precise useful data.</text>
+
+  <!-- eyebrow / category -->
+  <g transform="translate(96 690)">
+    <rect x="0" y="0" width="330" height="52" rx="26" fill="rgba(246,205,99,0.12)" stroke="#f6cd63" stroke-opacity="0.4" />
+    <circle cx="30" cy="26" r="6" fill="#f6cd63" />
+    <text x="52" y="34" font-size="24" font-weight="600" fill="#f6cd63" letter-spacing="2">INVESTING, SIMPLIFIED</text>
+  </g>
+
+  <text x="96" y="820" font-size="24" fill="#6b7a99">Fintech · northstar.money</text>
+</svg>

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Monolith Shield — Know what touches your systems.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#050810"/>
+    </linearGradient>
+    <linearGradient id="mono" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#142138"/>
+      <stop offset="1" stop-color="#0a1322"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.32" r="0.7">
+      <stop offset="0" stop-color="#54e0c7" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#54e0c7" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="scan" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#54e0c7" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#54e0c7" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#54e0c7" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="faceClip">
+      <path d="M660 232 L740 232 L790 700 L610 700 Z"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- subtle grid backdrop -->
+  <g stroke="#1f2f4a" stroke-width="1" opacity="0.35">
+    <path d="M0 150 H1200 M0 300 H1200 M0 450 H1200 M0 600 H1200 M0 750 H1200"/>
+    <path d="M150 0 V900 M300 0 V900 M450 0 V900 M600 0 V900 M750 0 V900 M900 0 V900 M1050 0 V900"/>
+  </g>
+
+  <!-- monolith / obelisk -->
+  <g>
+    <path d="M660 232 L740 232 L790 700 L610 700 Z" fill="url(#mono)" stroke="#54e0c7" stroke-width="3"/>
+    <g clip-path="url(#faceClip)">
+      <g stroke="#1f2f4a" stroke-width="1.4" opacity="0.55">
+        <path d="M580 300 H820 M575 380 H825 M570 460 H830 M565 540 H835 M560 620 H840"/>
+        <path d="M640 232 V700 M700 232 V700 M760 232 V700"/>
+      </g>
+      <rect x="560" y="336" width="300" height="70" fill="url(#scan)"/>
+      <!-- status dots -->
+      <g>
+        <circle cx="668" cy="330" r="6" fill="#54e0c7"/><rect x="686" y="326" width="60" height="8" rx="4" fill="#9fb0c8" opacity="0.55"/>
+        <circle cx="672" cy="410" r="6" fill="#54e0c7"/><rect x="690" y="406" width="52" height="8" rx="4" fill="#9fb0c8" opacity="0.5"/>
+        <circle cx="676" cy="490" r="6" fill="#ffb454"/><rect x="694" y="486" width="46" height="8" rx="4" fill="#9fb0c8" opacity="0.5"/>
+        <circle cx="680" cy="570" r="6" fill="#54e0c7"/><rect x="698" y="566" width="40" height="8" rx="4" fill="#9fb0c8" opacity="0.45"/>
+      </g>
+    </g>
+    <rect x="586" y="700" width="228" height="16" rx="4" fill="#0a1322" stroke="#1f2f4a"/>
+  </g>
+
+  <!-- shield emblem badge -->
+  <g transform="translate(700 470)">
+    <circle r="86" fill="#070b14" stroke="#1f2f4a" stroke-width="2"/>
+    <path d="M0 -58 L46 -42 V6 C46 44 24 62 0 76 C-24 62 -46 44 -46 6 V-42 Z" fill="none" stroke="#54e0c7" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M0 -18 V26 M-22 4 H22" stroke="#54e0c7" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- text block -->
+  <g font-family="ui-monospace, Menlo, Consolas, monospace">
+    <rect x="96" y="150" width="360" height="42" rx="21" fill="#101a2c" stroke="#1f2f4a"/>
+    <circle cx="122" cy="171" r="6" fill="#54e0c7"/>
+    <text x="140" y="177" fill="#54e0c7" font-size="20" letter-spacing="3">SECURITY POSTURE / LIVE</text>
+  </g>
+
+  <g font-family="system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+    <text x="94" y="300" fill="#e8eef8" font-size="88" font-weight="800" letter-spacing="-3">Monolith</text>
+    <text x="94" y="392" fill="#54e0c7" font-size="88" font-weight="800" letter-spacing="-3">Shield</text>
+
+    <text x="98" y="470" fill="#e8eef8" font-size="40" font-weight="700" letter-spacing="-1">Know what touches</text>
+    <text x="98" y="518" fill="#e8eef8" font-size="40" font-weight="700" letter-spacing="-1">your systems.</text>
+
+    <text x="98" y="586" fill="#9fb0c8" font-size="25">Continuous security maps exposure, verifies</text>
+    <text x="98" y="620" fill="#9fb0c8" font-size="25">controls, and responds at machine speed.</text>
+  </g>
+
+  <!-- stat chips -->
+  <g font-family="ui-monospace, Menlo, Consolas, monospace">
+    <g transform="translate(98 686)">
+      <rect width="200" height="96" rx="14" fill="#101a2c" stroke="#1f2f4a"/>
+      <text x="24" y="46" fill="#e8eef8" font-size="34" font-weight="800">38s</text>
+      <text x="24" y="74" fill="#6c7f9c" font-size="17">time to isolate</text>
+    </g>
+    <g transform="translate(316 686)">
+      <rect width="200" height="96" rx="14" fill="#101a2c" stroke="#1f2f4a"/>
+      <text x="24" y="46" fill="#54e0c7" font-size="34" font-weight="800">1,204</text>
+      <text x="24" y="74" fill="#6c7f9c" font-size="17">controls verified</text>
+    </g>
+  </g>
+
+  <rect x="0.5" y="0.5" width="1199" height="899" fill="none" stroke="#1f2f4a"/>
+</svg>

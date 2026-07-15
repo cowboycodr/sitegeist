@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="description" content="An immersive museum tracing the improbable story of Earth through fossils, climates, and extinction.">
+<meta name="color-scheme" content="dark">
+<title>Deep Time — Four billion years, still unfolding.</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%230b0e14'/%3E%3Cpath d='M2 20 Q16 10 30 22' stroke='%23e2703a' stroke-width='2.4' fill='none'/%3E%3Cpath d='M2 24 Q16 15 30 26' stroke='%236f8fa6' stroke-width='1.6' fill='none' opacity='.6'/%3E%3Ccircle cx='16' cy='16' r='2.4' fill='%23f2c14e'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --void:#080a10;
+    --rock:#0f131c;
+    --strata:#161d2a;
+    --line:#27303f;
+    --ink:#eef2f7;
+    --mute:#9aa8bd;
+    --ember:#e2703a;
+    --gold:#f2c14e;
+    --sea:#5f9ea9;
+    --moss:#7fa663;
+    --edge:rgba(255,255,255,.09);
+    --shell:min(1180px,92vw);
+    --sans:"Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;color:var(--ink);background:var(--void);
+    font-family:var(--sans);line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(1200px 640px at 78% -8%,rgba(226,112,58,.18),transparent 60%),
+      radial-gradient(900px 620px at 8% 108%,rgba(95,158,169,.14),transparent 62%),
+      linear-gradient(180deg,#080a10 0%,#0b0f18 40%,#080a10 100%);
+  }
+  main,header,footer{position:relative;z-index:1}
+  a{color:inherit}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacing:.2px;margin:0}
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;margin:0 0 1.1rem;
+  }
+  .wrap{width:var(--shell);margin-inline:auto}
+  .btn{
+    display:inline-flex;align-items:center;gap:.55em;cursor:pointer;
+    font:inherit;font-weight:600;font-size:.95rem;letter-spacing:.02em;
+    padding:.82em 1.4em;border-radius:999px;border:1px solid transparent;
+    text-decoration:none;transition:transform .18s ease,background .18s ease,border-color .18s ease;
+  }
+  .btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .btn--solid{background:var(--ember);color:#160a04;border-color:#f08a54}
+  .btn--solid:hover{transform:translateY(-2px);background:#ef7f48}
+  .btn--ghost{background:rgba(255,255,255,.04);border-color:var(--edge);color:var(--ink)}
+  .btn--ghost:hover{transform:translateY(-2px);border-color:var(--sea)}
+  @media (prefers-reduced-motion:reduce){.btn:hover{transform:none}}
+
+  /* ---- top bar ---- */
+  .top{position:sticky;top:0;z-index:20;backdrop-filter:blur(9px);
+    background:rgba(8,10,16,.72);border-bottom:1px solid var(--edge)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 0}
+  .brand{display:flex;align-items:center;gap:.6rem;font-family:var(--serif);font-size:1.12rem;font-weight:600;text-decoration:none}
+  .brand svg{flex:none}
+  .nav{display:flex;gap:.4rem}
+  .nav a{font-size:.82rem;letter-spacing:.04em;color:var(--mute);text-decoration:none;padding:.4rem .7rem;border-radius:8px}
+  .nav a:hover,.nav a:focus-visible{color:var(--ink);background:rgba(255,255,255,.05);outline:none}
+  @media (max-width:720px){.nav{display:none}}
+
+  /* ---- hero ---- */
+  .hero{padding:clamp(3.4rem,9vw,6.6rem) 0 clamp(2.6rem,6vw,4rem)}
+  .hero h1{font-size:clamp(3rem,12vw,7.4rem);margin:.2rem 0 .1rem}
+  .hero .sub{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:clamp(1.2rem,3.4vw,1.7rem);margin:.4rem 0 1.3rem}
+  .hero p.lede{max-width:44ch;color:var(--mute);font-size:1.06rem;margin:0 0 1.9rem}
+  .cta{display:flex;flex-wrap:wrap;gap:.8rem}
+  .scale-hint{display:flex;flex-wrap:wrap;gap:1.4rem;margin-top:2.6rem;color:var(--mute);font-size:.86rem}
+  .scale-hint b{display:block;font-family:var(--serif);color:var(--ink);font-size:1.5rem;font-weight:600}
+
+  .section{padding:clamp(3rem,7vw,5rem) 0}
+  .section-head{max-width:60ch;margin-bottom:2.2rem}
+  .section-head h2{font-size:clamp(1.8rem,5vw,2.8rem)}
+  .section-head p{color:var(--mute);margin:.7rem 0 0}
+
+  /* ---- timeline ---- */
+  .tl-stage{
+    border:1px solid var(--edge);border-radius:20px;overflow:hidden;
+    background:linear-gradient(180deg,rgba(22,29,42,.85),rgba(11,15,24,.9));
+  }
+  .tl-view{padding:clamp(1.4rem,3.5vw,2.4rem)}
+  .tl-era-tag{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .tl-view h3{font-size:clamp(1.7rem,5vw,2.6rem);margin:.5rem 0 .1rem}
+  .tl-span{color:var(--sea);font-weight:600;letter-spacing:.02em;margin:.1rem 0 1rem}
+  .tl-body{color:var(--mute);max-width:56ch;margin:0 0 1.3rem}
+  .tl-facts{display:flex;flex-wrap:wrap;gap:.55rem;list-style:none;padding:0;margin:0}
+  .tl-facts li{font-size:.8rem;padding:.35rem .75rem;border:1px solid var(--edge);border-radius:999px;background:rgba(255,255,255,.03);color:var(--ink)}
+  .tl-figure{
+    margin-top:1.4rem;height:170px;border-radius:14px;border:1px solid var(--edge);
+    background:var(--void);position:relative;overflow:hidden;
+  }
+  .tl-figure svg{position:absolute;inset:0;width:100%;height:100%}
+
+  .tl-track-wrap{border-top:1px solid var(--edge);padding:1.1rem clamp(1rem,3vw,2rem) 1.4rem;background:rgba(8,10,16,.55)}
+  .tl-scale{display:flex;justify-content:space-between;font-size:.72rem;color:var(--mute);margin-bottom:.5rem}
+  .tl-track{position:relative;height:56px}
+  .tl-bar{position:absolute;top:22px;left:0;right:0;height:12px;border-radius:6px;
+    background:linear-gradient(90deg,#3b2a4d,#6b3d2e,#7a5a2a,#2f5a52,#365f36);overflow:hidden}
+  .tl-progress{position:absolute;top:22px;left:0;height:12px;border-radius:6px 0 0 6px;background:rgba(242,193,78,.25);pointer-events:none}
+  .tl-marks{position:absolute;inset:0;list-style:none;margin:0;padding:0}
+  .tl-marks button{
+    position:absolute;top:14px;transform:translateX(-50%);
+    width:28px;height:28px;border-radius:50%;border:2px solid var(--edge);
+    background:var(--strata);cursor:pointer;padding:0;transition:transform .15s ease,border-color .15s ease;
+  }
+  .tl-marks button span{position:absolute;left:50%;top:50%;width:8px;height:8px;border-radius:50%;transform:translate(-50%,-50%);background:var(--mute)}
+  .tl-marks button:hover{transform:translateX(-50%) scale(1.12)}
+  .tl-marks button[aria-current="true"]{border-color:var(--gold);box-shadow:0 0 0 4px rgba(242,193,78,.18)}
+  .tl-marks button[aria-current="true"] span{background:var(--gold)}
+  .tl-marks button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .tl-nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1rem}
+  .tl-step{background:rgba(255,255,255,.04);border:1px solid var(--edge);color:var(--ink);
+    width:44px;height:44px;border-radius:50%;font-size:1.1rem;cursor:pointer;flex:none}
+  .tl-step:hover{border-color:var(--sea)}
+  .tl-step:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .tl-step[disabled]{opacity:.3;cursor:not-allowed}
+  .tl-counter{font-size:.82rem;color:var(--mute);letter-spacing:.06em}
+
+  /* ---- collection ---- */
+  .grid{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+  .card{
+    border:1px solid var(--edge);border-radius:16px;padding:1.3rem;
+    background:linear-gradient(180deg,rgba(22,29,42,.7),rgba(11,15,24,.7));
+    display:flex;flex-direction:column;gap:.5rem;transition:transform .18s ease,border-color .18s ease;
+  }
+  .card:hover{transform:translateY(-4px);border-color:var(--ember)}
+  @media (prefers-reduced-motion:reduce){.card:hover{transform:none}}
+  .card .spec{width:100%;height:120px;border-radius:11px;background:var(--void);border:1px solid var(--edge);overflow:hidden}
+  .card .spec svg{width:100%;height:100%;display:block}
+  .card h3{font-size:1.2rem;margin-top:.4rem}
+  .card .meta{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sea)}
+  .card p{color:var(--mute);font-size:.92rem;margin:0}
+
+  /* ---- extinctions ---- */
+  .ext-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.7rem}
+  .ext{
+    display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;
+    border:1px solid var(--edge);border-radius:14px;padding:1rem 1.2rem;
+    background:rgba(15,19,28,.6);
+  }
+  .ext .when{font-family:var(--serif);font-size:1.3rem;color:var(--ember);white-space:nowrap}
+  .ext .name{font-weight:600}
+  .ext .name small{display:block;font-weight:400;color:var(--mute);font-size:.86rem;letter-spacing:0;text-transform:none}
+  .ext .loss{font-family:var(--serif);font-size:1.5rem;color:var(--gold);text-align:right;white-space:nowrap}
+  .ext .loss small{display:block;font-size:.66rem;color:var(--mute);letter-spacing:.14em;text-transform:uppercase;font-family:var(--sans)}
+  @media (max-width:560px){
+    .ext{grid-template-columns:1fr auto;gap:.5rem .8rem}
+    .ext .when{grid-column:1/-1;font-size:1.1rem}
+  }
+
+  /* ---- closing ---- */
+  .closing{text-align:center;padding:clamp(3.4rem,8vw,6rem) 0}
+  .closing h2{font-size:clamp(2rem,6vw,3.4rem);max-width:20ch;margin-inline:auto}
+  .closing p{color:var(--mute);max-width:50ch;margin:1.1rem auto 2rem}
+
+  footer{border-top:1px solid var(--edge);padding:2.4rem 0;color:var(--mute);font-size:.86rem}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:center}
+  .now-marker{display:inline-flex;align-items:center;gap:.5rem}
+  .now-dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(242,193,78,.2)}
+
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  :focus-visible{outline-offset:2px}
+</style>
+</head>
+<body>
+<a class="sr-only" href="#timeline">Skip to the timeline</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Deep Time, home">
+      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="14" fill="#0f131c" stroke="#27303f"/>
+        <path d="M3 19 Q16 9 29 21" stroke="#e2703a" stroke-width="2.2" fill="none"/>
+        <path d="M3 23 Q16 14 29 25" stroke="#5f9ea9" stroke-width="1.5" fill="none" opacity=".7"/>
+        <circle cx="16" cy="16" r="2.3" fill="#f2c14e"/>
+      </svg>
+      Deep Time
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#timeline">Timeline</a>
+      <a href="#collection">Collection</a>
+      <a href="#extinctions">Extinctions</a>
+      <a href="#visit">Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <p class="eyebrow">An atlas of Earth</p>
+    <h1 id="hero-title">Deep&nbsp;Time</h1>
+    <p class="sub">Four billion years, still unfolding.</p>
+    <p class="lede">An immersive museum tracing the improbable story of Earth through fossils, climates, and extinction — from a molten beginning to the thin, breathing present.</p>
+    <div class="cta">
+      <a class="btn btn--solid" href="#timeline">Begin the timeline
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn btn--ghost" href="#collection">Explore the collection</a>
+    </div>
+    <div class="scale-hint">
+      <div><b>4.54 Ga</b>Earth forms from dust</div>
+      <div><b>3.7 Ga</b>First traces of life</div>
+      <div><b>5</b>Great extinctions survived</div>
+      <div><b>300 ka</b>Our species arrives</div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="timeline" aria-labelledby="tl-h">
+    <div class="section-head">
+      <p class="eyebrow">The great calendar</p>
+      <h2 id="tl-h">Scrub across the eons</h2>
+      <p>If all of Earth's history were a single day, complex animals appear after dinner and humans in the last two seconds before midnight. Move through the chapters below.</p>
+    </div>
+
+    <div class="tl-stage">
+      <div class="tl-view" aria-live="polite">
+        <p class="tl-era-tag" id="era-tag">Hadean Eon</p>
+        <h3 id="era-name">The Molten World</h3>
+        <p class="tl-span" id="era-span">4,540 – 4,000 million years ago</p>
+        <p class="tl-body" id="era-body">A newborn planet glows under relentless bombardment. Oceans of magma churn beneath a black sky, and a Mars-sized impactor casts off the debris that becomes the Moon.</p>
+        <ul class="tl-facts" id="era-facts"></ul>
+        <div class="tl-figure" id="era-figure" aria-hidden="true"></div>
+      </div>
+
+      <div class="tl-track-wrap">
+        <div class="tl-scale">
+          <span>4,540 Ma — formation</span>
+          <span>today</span>
+        </div>
+        <div class="tl-track">
+          <div class="tl-bar" aria-hidden="true"></div>
+          <div class="tl-progress" id="tl-progress" aria-hidden="true"></div>
+          <ul class="tl-marks" id="tl-marks" role="group" aria-label="Geologic chapters"></ul>
+        </div>
+        <div class="tl-nav">
+          <button class="tl-step" id="prev" type="button" aria-label="Previous chapter">‹</button>
+          <span class="tl-counter" id="counter">Chapter 1 of 8</span>
+          <button class="tl-step" id="next" type="button" aria-label="Next chapter">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="collection" aria-labelledby="col-h">
+    <div class="section-head">
+      <p class="eyebrow">From the vaults</p>
+      <h2 id="col-h">Specimens in the collection</h2>
+      <p>Each object is a witness. Pressed into stone, they carry the only testimony we have of worlds that vanished long before any eye could record them.</p>
+    </div>
+    <div class="grid" id="collection-grid"></div>
+  </section>
+
+  <section class="section wrap" id="extinctions" aria-labelledby="ext-h">
+    <div class="section-head">
+      <p class="eyebrow">The narrow gates</p>
+      <h2 id="ext-h">Five times life nearly ended</h2>
+      <p>Extinction is the ordinary fate of species — but on five occasions the ordinary became catastrophic, resetting the whole biosphere.</p>
+    </div>
+    <ul class="ext-list" id="ext-list"></ul>
+  </section>
+
+  <section class="closing wrap" id="visit" aria-labelledby="close-h">
+    <p class="eyebrow" style="text-align:center">Still unfolding</p>
+    <h2 id="close-h">You are the newest layer of rock.</h2>
+    <p>The story did not stop. Every choice we make is being pressed, right now, into the record that some future geologist will read. Walk the halls, then step back into deep time.</p>
+    <div class="cta" style="justify-content:center">
+      <a class="btn btn--solid" href="#timeline">Return to the timeline</a>
+      <a class="btn btn--ghost" href="#top">Back to the entrance</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="now-marker"><span class="now-dot"></span>Deep Time — a museum of the Earth</span>
+    <span>Every date approximate. The rock keeps better records than we do.</span>
+  </div>
+</footer>
+
+<script defer src="sitegeist-bridge.js"></script>
+<script src="app.js" defer></script>
+</body>
+</html>

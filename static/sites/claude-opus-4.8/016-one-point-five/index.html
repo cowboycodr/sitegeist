@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="A climate observatory turning dense planetary signals into urgent, legible, collective action." />
+  <title>One Point Five — Climate data observatory</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#signals">Skip to the signals</a>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">1.5</span>
+        <span class="brand-text">
+          <strong>One Point Five</strong>
+          <small>Climate data observatory</small>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#signals">Signals</a>
+        <a href="#trajectory">Trajectory</a>
+        <a href="#outlook">Outlook</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <p class="eyebrow">Climate data observatory</p>
+      <h1 id="hero-title">Make the future<br /><span class="accent">measurable.</span></h1>
+      <p class="lede">Dense planetary signals, translated into a single legible number.
+        We track how close the world sits to <strong>1.5&nbsp;°C</strong> of warming above
+        the pre-industrial baseline — the line the Paris Agreement asked us not to cross.</p>
+
+      <div class="hero-gauge" role="img" aria-label="Global mean warming above the pre-industrial baseline: 1.36 degrees Celsius, approaching the 1.5 degree threshold.">
+        <svg viewBox="0 0 400 210" class="gauge-svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="arc-grad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#3fd0c9" />
+              <stop offset="0.55" stop-color="#f2c14e" />
+              <stop offset="1" stop-color="#ff5d4b" />
+            </linearGradient>
+          </defs>
+          <path class="gauge-track" d="M40 190 A160 160 0 0 1 360 190" />
+          <path id="gauge-fill" class="gauge-fill" d="M40 190 A160 160 0 0 1 360 190" />
+          <g id="gauge-tick"></g>
+        </svg>
+        <div class="gauge-readout">
+          <span class="gauge-value" id="gauge-value" data-target="1.36">0.00</span>
+          <span class="gauge-unit">°C above baseline</span>
+          <span class="gauge-note">threshold 1.5&nbsp;°C</span>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#signals">Explore the signals</a>
+        <a class="btn btn-ghost" href="#outlook">Read the outlook</a>
+      </div>
+    </section>
+
+    <section id="signals" class="section wrap" aria-labelledby="signals-title">
+      <div class="section-head">
+        <h2 id="signals-title">Four signals, read together</h2>
+        <p>No single instrument tells the story. Together, these lines describe a planet
+          holding heat it cannot release fast enough.</p>
+      </div>
+      <ul class="signal-grid" id="signal-grid"></ul>
+    </section>
+
+    <section id="trajectory" class="section wrap" aria-labelledby="traj-title">
+      <div class="section-head">
+        <h2 id="traj-title">Which future do we choose?</h2>
+        <p>The number ahead is not fixed. Move the dial to set how fast the world cuts
+          emissions, and watch the projected warming for 2100 respond.</p>
+      </div>
+
+      <div class="scenario">
+        <div class="scenario-chart">
+          <svg viewBox="0 0 640 340" class="traj-svg" id="traj-svg" role="img" aria-labelledby="traj-desc">
+            <title>Projected global warming pathways</title>
+            <desc id="traj-desc">A chart of warming above the pre-industrial baseline from 1980 to 2100, with a movable projection that changes with the chosen rate of emissions cuts.</desc>
+            <g id="traj-grid" class="traj-gridlines"></g>
+            <line id="threshold-line" class="threshold-line" x1="60" y1="0" x2="620" y2="0" />
+            <text id="threshold-label" class="threshold-label" x="616" y="0">1.5 °C</text>
+            <path id="hist-path" class="hist-path" d="" />
+            <path id="proj-area" class="proj-area" d="" />
+            <path id="proj-path" class="proj-path" d="" />
+            <g id="traj-xaxis" class="traj-axis"></g>
+            <g id="traj-yaxis" class="traj-axis"></g>
+          </svg>
+        </div>
+
+        <div class="scenario-panel">
+          <label class="control" for="cut-rate">
+            <span class="control-label">Annual emissions change from today</span>
+            <input type="range" id="cut-rate" min="-8" max="4" step="1" value="-4" />
+            <output id="cut-out" for="cut-rate">−4% per year</output>
+          </label>
+
+          <div class="projection">
+            <p class="projection-label">Projected warming by 2100</p>
+            <p class="projection-value"><span id="proj-value">1.6</span><span class="deg">°C</span></p>
+            <p class="projection-cross" id="proj-cross">1.5 °C reached around 2032</p>
+          </div>
+
+          <div class="verdict" id="verdict" data-band="mid">
+            <span class="verdict-dot" aria-hidden="true"></span>
+            <p id="verdict-text">On this path, warming overshoots the line, then edges back within reach.</p>
+          </div>
+
+          <div class="chips" role="group" aria-label="Preset pathways">
+            <button type="button" class="chip" data-rate="-8">Rapid decarbonisation</button>
+            <button type="button" class="chip" data-rate="-4">Paris-aligned</button>
+            <button type="button" class="chip" data-rate="0">Flatline</button>
+            <button type="button" class="chip" data-rate="4">Business as usual</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="outlook" class="section wrap" aria-labelledby="outlook-title">
+      <div class="section-head">
+        <h2 id="outlook-title">The outlook</h2>
+        <p>What the observatory sees, stated plainly.</p>
+      </div>
+      <div class="outlook-grid">
+        <article class="outlook-card">
+          <h3>The line still matters</h3>
+          <p>Every tenth of a degree is a measurable change in heatwaves, harvests, and
+            coastlines. 1.5&nbsp;°C is not a cliff edge — it is a threshold past which the
+            costs of adaptation climb steeply and unevenly.</p>
+        </article>
+        <article class="outlook-card">
+          <h3>The trend is legible</h3>
+          <p>The signals move together and they move in one direction. Reading them as a
+            group removes the noise that lets any single year be dismissed.</p>
+        </article>
+        <article class="outlook-card">
+          <h3>The response is collective</h3>
+          <p>The trajectory chart has no single lever because the future has no single
+            author. The steep pathways are only reachable together — and they remain
+            reachable.</p>
+        </article>
+      </div>
+      <blockquote class="pledge">
+        <p>“Make the future measurable, and it stops being abstract. What we can measure,
+          we can decide to change.”</p>
+      </blockquote>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap foot-inner">
+      <p class="foot-brand"><span aria-hidden="true">1.5</span> One Point Five</p>
+      <p class="foot-note">An illustrative observatory. Figures are representative of
+        published climate indicators, rounded for legibility.</p>
+    </div>
+  </footer>
+</body>
+</html>

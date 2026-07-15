@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+	<meta name="description" content="Friendly autonomous robots handling indoor logistics across hospitals, hotels, and campuses.">
+	<title>Relay Robotics — Robots that work the room.</title>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f2a33'/%3E%3Ccircle cx='16' cy='18' r='6' fill='%234fd1b5'/%3E%3Ccircle cx='16' cy='7' r='2.5' fill='%23ff8b6b'/%3E%3Crect x='15' y='9' width='2' height='4' fill='%234fd1b5'/%3E%3C/svg%3E">
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="app.js"></script>
+</head>
+<body>
+	<a class="skip" href="#main">Skip to content</a>
+
+	<header class="site-head">
+		<div class="wrap head-inner">
+			<a class="brand" href="#top" aria-label="Relay Robotics home">
+				<span class="brand-mark" aria-hidden="true">
+					<span class="brand-beacon"></span>
+				</span>
+				<span class="brand-name">Relay<span class="brand-dot">·</span>Robotics</span>
+			</a>
+			<nav class="nav" aria-label="Primary">
+				<a href="#fleet">Fleet</a>
+				<a href="#places">Where it works</a>
+				<a href="#how">How it works</a>
+				<a href="#specs">Specs</a>
+			</nav>
+			<a class="btn btn-ghost head-cta" href="#fleet">Meet Relay One</a>
+		</div>
+	</header>
+
+	<main id="main">
+		<section class="hero" id="top">
+			<div class="wrap hero-grid">
+				<div class="hero-copy">
+					<p class="eyebrow">Autonomy for everyday spaces</p>
+					<h1>Robots that <span class="hl">work the room.</span></h1>
+					<p class="lede">Friendly autonomous robots handling indoor logistics across hospitals, hotels, and campuses — delivering the small, constant errands so your people can do the human work.</p>
+					<div class="hero-actions">
+						<a class="btn btn-solid" href="#fleet">Meet Relay One</a>
+						<a class="btn btn-ghost" href="#how" data-scroll>
+							<span class="play" aria-hidden="true"></span>
+							Watch it work
+						</a>
+					</div>
+					<dl class="hero-stats">
+						<div><dt>1.2M</dt><dd>deliveries relayed</dd></div>
+						<div><dt>18 hrs</dt><dd>runtime per charge</dd></div>
+						<div><dt>0 cm</dt><dd>collisions this quarter</dd></div>
+					</dl>
+				</div>
+
+				<div class="hero-stage" aria-hidden="true">
+					<div class="floor"></div>
+					<div class="bot" id="bot">
+						<div class="bot-signal"></div>
+						<div class="bot-head">
+							<div class="bot-eye"></div>
+							<div class="bot-eye"></div>
+						</div>
+						<div class="bot-body">
+							<div class="bot-screen">Relay One</div>
+							<div class="bot-bay"></div>
+						</div>
+						<div class="bot-shadow"></div>
+					</div>
+					<span class="ping ping-a"></span>
+					<span class="ping ping-b"></span>
+				</div>
+			</div>
+		</section>
+
+		<section class="strip" aria-label="Trusted across sectors">
+			<div class="wrap strip-inner">
+				<span>Deployed with</span>
+				<ul>
+					<li>Meridian Health</li>
+					<li>Northshore Hotels</li>
+					<li>Fairlake University</li>
+					<li>Vantage Labs</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="section" id="fleet">
+			<div class="wrap">
+				<header class="section-head">
+					<p class="kicker">The fleet</p>
+					<h2>One platform, purpose-built payloads</h2>
+					<p class="section-sub">Every Relay shares the same navigation brain and safety stack. Swap the top module to change the job.</p>
+				</header>
+				<div class="cards">
+					<article class="card">
+						<span class="card-tag">Flagship</span>
+						<h3>Relay One</h3>
+						<p>The all-rounder. A secure, compartmentized carrier for meals, meds, linens, and parcels — with a friendly screen for handoffs.</p>
+						<ul class="card-list">
+							<li>40 L lockable bay</li>
+							<li>PIN &amp; badge handoff</li>
+							<li>Calls its own elevator</li>
+						</ul>
+					</article>
+					<article class="card card-feature">
+						<span class="card-tag">New</span>
+						<h3>Relay Cart</h3>
+						<p>A towable follower that shadows staff on rounds, carrying up to 90 kg without a single push.</p>
+						<ul class="card-list">
+							<li>Follow-me mode</li>
+							<li>Modular shelving</li>
+							<li>Hands-free braking</li>
+						</ul>
+					</article>
+					<article class="card">
+						<span class="card-tag">Utility</span>
+						<h3>Relay Sweep</h3>
+						<p>Quiet overnight floor care that maps foot-traffic and cleans the routes that need it most, then docks itself.</p>
+						<ul class="card-list">
+							<li>Under-55 dB motors</li>
+							<li>Traffic-aware routing</li>
+							<li>Self-emptying dock</li>
+						</ul>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section-alt" id="places">
+			<div class="wrap">
+				<header class="section-head">
+					<p class="kicker">Where it works</p>
+					<h2>Built for the buildings people live in</h2>
+				</header>
+				<div class="tabs">
+					<div class="tablist" role="tablist" aria-label="Environments">
+						<button role="tab" id="tab-hosp" aria-controls="panel-hosp" aria-selected="true" class="tab is-active">Hospitals</button>
+						<button role="tab" id="tab-hotel" aria-controls="panel-hotel" aria-selected="false" class="tab" tabindex="-1">Hotels</button>
+						<button role="tab" id="tab-campus" aria-controls="panel-campus" aria-selected="false" class="tab" tabindex="-1">Campuses</button>
+					</div>
+
+					<div class="panels">
+						<div role="tabpanel" id="panel-hosp" aria-labelledby="tab-hosp" class="panel is-active">
+							<div class="panel-icon" aria-hidden="true">✚</div>
+							<div class="panel-body">
+								<h3>Hospitals</h3>
+								<p>Relay runs specimens to the lab, pharmacy meds to the floor, and meal trays room-to-room — so nurses stay at the bedside instead of the supply closet.</p>
+								<ul class="pill-list">
+									<li>Chain-of-custody logs</li>
+									<li>Isolation-ward routes</li>
+									<li>Elevator hand-off</li>
+								</ul>
+							</div>
+						</div>
+						<div role="tabpanel" id="panel-hotel" aria-labelledby="tab-hotel" class="panel" hidden>
+							<div class="panel-icon" aria-hidden="true">☾</div>
+							<div class="panel-body">
+								<h3>Hotels</h3>
+								<p>Late-night towels, room-service trays, and forgotten chargers arrive at the door in minutes. Guests get a friendly knock; staff keep the front desk covered.</p>
+								<ul class="pill-list">
+									<li>Contactless delivery</li>
+									<li>Guest-name greeting</li>
+									<li>Quiet after-hours mode</li>
+								</ul>
+							</div>
+						</div>
+						<div role="tabpanel" id="panel-campus" aria-labelledby="tab-campus" class="panel" hidden>
+							<div class="panel-icon" aria-hidden="true">◎</div>
+							<div class="panel-body">
+								<h3>Campuses</h3>
+								<p>Interdepartmental mail, lab samples, and equipment move between buildings on scheduled loops — rain or shine, floor to floor, all day.</p>
+								<ul class="pill-list">
+									<li>Multi-building loops</li>
+									<li>Weatherproof transit</li>
+									<li>Scheduled dispatch</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="how">
+			<div class="wrap">
+				<header class="section-head">
+					<p class="kicker">How it works</p>
+					<h2>From request to doorway in four steps</h2>
+				</header>
+				<ol class="steps">
+					<li class="step">
+						<span class="step-num">1</span>
+						<h3>Request</h3>
+						<p>Staff tap a destination on the robot's screen, the wall panel, or your existing dispatch system.</p>
+					</li>
+					<li class="step">
+						<span class="step-num">2</span>
+						<h3>Plan</h3>
+						<p>Relay picks the fastest safe route, reserves the elevator, and steers gently around people.</p>
+					</li>
+					<li class="step">
+						<span class="step-num">3</span>
+						<h3>Deliver</h3>
+						<p>It arrives, announces itself by name, and unlocks the bay to a PIN or badge tap.</p>
+					</li>
+					<li class="step">
+						<span class="step-num">4</span>
+						<h3>Return</h3>
+						<p>The trip is logged, and Relay heads to its next job or docks to top up its charge.</p>
+					</li>
+				</ol>
+			</div>
+		</section>
+
+		<section class="section section-alt" id="specs">
+			<div class="wrap specs-grid">
+				<div class="specs-copy">
+					<p class="kicker">Under the shell</p>
+					<h2>Serious autonomy, gentle by design</h2>
+					<p class="section-sub">A 360° sensor suite, redundant braking, and human-first motion make Relay safe to share a hallway with — no floor tags or beacons required.</p>
+					<a class="btn btn-solid" href="#top">Meet Relay One</a>
+				</div>
+				<dl class="specs">
+					<div><dt>Navigation</dt><dd>3D LiDAR + depth cameras, map-free localization</dd></div>
+					<div><dt>Safety</dt><dd>360° awareness, e-stop, 5 cm obstacle detection</dd></div>
+					<div><dt>Runtime</dt><dd>Up to 18 hrs, auto-docking charge</dd></div>
+					<div><dt>Payload</dt><dd>40 L bay, up to 90 kg on Relay Cart</dd></div>
+					<div><dt>Connectivity</dt><dd>On-prem fleet controller, no cloud dependency</dd></div>
+					<div><dt>Access</dt><dd>Elevator &amp; door integration, PIN + badge</dd></div>
+				</dl>
+			</div>
+		</section>
+
+		<section class="cta">
+			<div class="wrap cta-inner">
+				<h2>Give your team back its footsteps.</h2>
+				<p>See a Relay run your own hallways. Book a walkthrough and we'll map a pilot route in your building.</p>
+				<div class="hero-actions">
+					<a class="btn btn-solid" href="#fleet">Meet Relay One</a>
+					<a class="btn btn-ghost btn-on-dark" href="#how">Watch it work</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-foot">
+		<div class="wrap foot-inner">
+			<a class="brand" href="#top" aria-label="Relay Robotics home">
+				<span class="brand-mark" aria-hidden="true"><span class="brand-beacon"></span></span>
+				<span class="brand-name">Relay<span class="brand-dot">·</span>Robotics</span>
+			</a>
+			<p class="foot-tag">Robots that work the room.</p>
+			<p class="foot-fine">© 2026 Relay Robotics. Autonomy for everyday spaces.</p>
+		</div>
+	</footer>
+</body>
+</html>

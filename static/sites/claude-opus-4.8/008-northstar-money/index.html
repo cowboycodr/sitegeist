@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <title>Northstar — A clearer way to grow wealth.</title>
+  <meta name="description" content="Personal finance guidance that balances confident long-term planning with precise, useful data." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#plan">Skip to plan builder</a>
+
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="#top" aria-label="Northstar home">
+        <svg class="brand-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 1.5l2 7.6 7.6 2-7.6 2-2 7.6-2-7.6-7.6-2 7.6-2z" />
+        </svg>
+        <span>Northstar</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#principles">Principles</a>
+        <a href="#plan">Plan builder</a>
+      </nav>
+      <a class="btn btn-ghost head-cta" href="#plan">Build your plan</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Investing, simplified</p>
+        <h1 id="hero-title">A clearer way to<br /> grow wealth.</h1>
+        <p class="lede">Personal finance guidance that balances confident long-term planning with precise, useful data — so every decision points the same direction.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#plan">Build your plan</a>
+          <a class="btn btn-line" href="#how">See how it works</a>
+        </div>
+        <dl class="stat-row">
+          <div><dt>Avg. plan horizon</dt><dd>24 yrs</dd></div>
+          <div><dt>Guidance fee</dt><dd>0.15%</dd></div>
+          <div><dt>Members guided</dt><dd>310k</dd></div>
+        </dl>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 320 320" class="constellation" role="img" aria-label="A north star charting an upward growth path">
+          <defs>
+            <linearGradient id="growth" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#3fd0b6" />
+              <stop offset="1" stop-color="#7bd0ff" />
+            </linearGradient>
+            <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0" stop-color="#f6cd63" stop-opacity="0.9" />
+              <stop offset="1" stop-color="#f6cd63" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+          <path class="grid" d="M24 296 H296 M24 232 H296 M24 168 H296 M24 104 H296" />
+          <path class="trail" d="M28 288 C90 280 120 220 168 172 S250 70 292 40" />
+          <path class="area" d="M28 288 C90 280 120 220 168 172 S250 70 292 40 L292 296 L28 296 Z" />
+          <circle cx="292" cy="40" r="40" fill="url(#glow)" />
+          <path class="north-star" d="M292 8l6 24 24 6-24 6-6 24-6-24-24-6 24-6z" />
+          <g class="spark">
+            <circle cx="80" cy="90" r="1.6" /><circle cx="150" cy="56" r="1.2" />
+            <circle cx="60" cy="180" r="1.3" /><circle cx="210" cy="120" r="1.5" />
+            <circle cx="120" cy="130" r="1.1" />
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section id="how" class="band wrap" aria-labelledby="how-title">
+      <p class="section-tag">How it works</p>
+      <h2 id="how-title">Three steps to a plan you can hold.</h2>
+      <ol class="steps">
+        <li>
+          <span class="step-num">01</span>
+          <h3>Set your north star</h3>
+          <p>Name the goal and the year. Northstar translates it into a target you can actually track against — not a vague hope.</p>
+        </li>
+        <li>
+          <span class="step-num">02</span>
+          <h3>Tune the inputs</h3>
+          <p>Adjust contributions, horizon, and risk. Every projection is recalculated instantly with transparent assumptions you can inspect.</p>
+        </li>
+        <li>
+          <span class="step-num">03</span>
+          <h3>Stay on course</h3>
+          <p>Gentle checkpoints keep long-term confidence and short-term precision aligned as markets and life move.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="plan" class="band wrap plan" aria-labelledby="plan-title">
+      <div class="plan-head">
+        <p class="section-tag">Plan builder</p>
+        <h2 id="plan-title">See where a steady plan can take you.</h2>
+        <p class="plan-sub">Estimates use a fixed annual return and compound monthly. Illustrative only — not financial advice.</p>
+      </div>
+
+      <div class="plan-grid">
+        <form class="controls" aria-label="Plan inputs">
+          <div class="field">
+            <div class="field-top">
+              <label for="monthly">Monthly contribution</label>
+              <output id="monthly-out" for="monthly">$500</output>
+            </div>
+            <input type="range" id="monthly" min="50" max="2500" step="50" value="500" />
+          </div>
+          <div class="field">
+            <div class="field-top">
+              <label for="years">Time horizon</label>
+              <output id="years-out" for="years">25 years</output>
+            </div>
+            <input type="range" id="years" min="3" max="40" step="1" value="25" />
+          </div>
+          <div class="field">
+            <div class="field-top">
+              <label for="start">Starting balance</label>
+              <output id="start-out" for="start">$5,000</output>
+            </div>
+            <input type="range" id="start" min="0" max="100000" step="1000" value="5000" />
+          </div>
+          <fieldset class="risk">
+            <legend>Risk profile</legend>
+            <div class="risk-opts" role="radiogroup" aria-label="Risk profile">
+              <label><input type="radio" name="risk" value="4" /><span>Steady<small>~4%</small></span></label>
+              <label><input type="radio" name="risk" value="6" checked /><span>Balanced<small>~6%</small></span></label>
+              <label><input type="radio" name="risk" value="8" /><span>Growth<small>~8%</small></span></label>
+            </div>
+          </fieldset>
+        </form>
+
+        <div class="result" aria-live="polite">
+          <div class="result-figure">
+            <p class="result-label">Projected balance</p>
+            <p class="result-value" id="total">$0</p>
+            <p class="result-meta"><span id="contributed">$0</span> contributed · <span id="growthamt">$0</span> growth</p>
+          </div>
+          <svg class="chart" viewBox="0 0 480 220" preserveAspectRatio="none" role="img" aria-label="Projected balance over time">
+            <defs>
+              <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#3fd0b6" stop-opacity="0.35" />
+                <stop offset="1" stop-color="#3fd0b6" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+            <path id="base-line" class="c-base" d="" />
+            <path id="area-line" class="c-area" d="" fill="url(#fill)" />
+            <path id="total-line" class="c-total" d="" />
+          </svg>
+          <p class="chart-legend">
+            <span class="key key-total">Total balance</span>
+            <span class="key key-base">Contributions only</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="principles" class="band wrap" aria-labelledby="pr-title">
+      <p class="section-tag">Principles</p>
+      <h2 id="pr-title">Confident direction, precise footing.</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Transparent math</h3>
+          <p>No black boxes. Every projection shows what it assumes and what changed when you move a slider.</p>
+        </article>
+        <article class="card">
+          <h3>Long-term first</h3>
+          <p>We optimise for the decade, not the day. The north star stays fixed while the path adapts.</p>
+        </article>
+        <article class="card">
+          <h3>Your data stays yours</h3>
+          <p>Everything here runs on your device. Nothing is sent, tracked, or sold.</p>
+        </article>
+        <article class="card">
+          <h3>Fees you can see</h3>
+          <p>One low guidance fee, stated up front, with no performance surprises hidden in the fine print.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap cta-inner">
+        <h2>Point your money in one direction.</h2>
+        <p>Start with the plan builder — no signup, no data leaves your device.</p>
+        <a class="btn btn-primary" href="#plan">Build your plan</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap foot-inner">
+      <a class="brand" href="#top" aria-label="Northstar home">
+        <svg class="brand-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 1.5l2 7.6 7.6 2-7.6 2-2 7.6-2-7.6-7.6-2 7.6-2z" />
+        </svg>
+        <span>Northstar</span>
+      </a>
+      <p class="foot-note">Projections are illustrative and not financial advice. Investing involves risk, including possible loss of principal.</p>
+      <p class="foot-copy">© 2026 Northstar</p>
+    </div>
+  </footer>
+</body>
+</html>

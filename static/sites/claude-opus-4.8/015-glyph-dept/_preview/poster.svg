@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-labelledby="posterTitle posterDesc">
+	<title id="posterTitle">Glyph Department</title>
+	<desc id="posterDesc">Poster for the Glyph Department type foundry: a stretched letter G over the wordmark and tagline.</desc>
+	<defs>
+		<style>
+			.sans { font-family: "Helvetica Neue", Arial, sans-serif; }
+			.serif { font-family: Georgia, "Times New Roman", serif; }
+		</style>
+		<clipPath id="frame"><rect x="0" y="0" width="1200" height="900" rx="0"/></clipPath>
+	</defs>
+
+	<g clip-path="url(#frame)">
+		<rect width="1200" height="900" fill="#f4f0e6"/>
+
+		<!-- faint baseline grid motif -->
+		<g stroke="#14110d" stroke-opacity="0.06" stroke-width="2">
+			<line x1="0" y1="230" x2="1200" y2="230"/>
+			<line x1="0" y1="620" x2="1200" y2="620"/>
+			<line x1="0" y1="700" x2="1200" y2="700"/>
+		</g>
+
+		<!-- eyebrow -->
+		<text x="90" y="150" class="sans" font-size="26" font-weight="700" letter-spacing="12" fill="#ec4a2a">INDEPENDENT TYPE FOUNDRY</text>
+
+		<!-- distinctive motif: an oversized, stretched G -->
+		<g transform="translate(900 470) scale(1.65 1)">
+			<text x="0" y="0" class="sans" font-size="620" font-weight="800" fill="#14110d" text-anchor="middle" dominant-baseline="middle" letter-spacing="-30">G</text>
+		</g>
+
+		<!-- wordmark, letters that stretch -->
+		<g transform="translate(90 470)">
+			<text x="0" y="0" class="sans" font-size="150" font-weight="800" fill="#14110d" letter-spacing="-6">Letters</text>
+			<text x="0" y="150" class="sans" font-size="150" font-weight="800" fill="#ec4a2a" letter-spacing="-6" transform="scale(1.28 1)">that</text>
+			<text x="0" y="300" class="serif" font-size="150" font-style="italic" fill="#14110d">perform.</text>
+		</g>
+
+		<!-- footer wordmark + tagline -->
+		<text x="90" y="800" class="sans" font-size="40" font-weight="800" fill="#14110d">Glyph<tspan font-weight="300" dx="6">Department</tspan></text>
+		<text x="90" y="850" class="sans" font-size="27" font-weight="500" fill="#6c6555">Typefaces with something to say.</text>
+
+		<!-- accent tick marks -->
+		<g fill="#2233c7">
+			<rect x="1050" y="800" width="60" height="14"/>
+			<rect x="1050" y="826" width="36" height="14"/>
+		</g>
+	</g>
+</svg>

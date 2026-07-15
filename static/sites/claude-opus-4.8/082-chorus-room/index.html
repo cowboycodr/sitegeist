@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Live album rooms where friends trade discoveries and talk between tracks.">
+<title>Chorus Room — Listening is better together</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#rooms">Skip to rooms</a>
+
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Chorus Room home">
+    <span class="brand-mark" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </span>
+    <span class="brand-name">Chorus&nbsp;Room</span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    <a href="#rooms">Rooms</a>
+    <a href="#booth">Now Playing</a>
+    <a href="#how">How it works</a>
+  </nav>
+  <p class="presence" aria-live="polite">
+    <span class="dot" aria-hidden="true"></span>
+    <span id="presenceCount">12,408</span> listeners online
+  </p>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span> 12,408 listeners online</p>
+      <h1 id="hero-title">Listening is<br>better <em>together</em>.</h1>
+      <p class="lede">Chorus Room turns an album into a place. Drop into a live room, hear
+        the record in sync with friends, and swap reactions in the space between tracks.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#rooms">Join a room</a>
+        <button class="btn btn-ghost" type="button" data-start-session>Start a session</button>
+      </div>
+      <dl class="hero-stats">
+        <div><dt>Live rooms</dt><dd id="statRooms">6</dd></div>
+        <div><dt>In sync</dt><dd>±40&nbsp;ms</dd></div>
+        <div><dt>Records tonight</dt><dd>214</dd></div>
+      </dl>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="orbit">
+        <span class="ring r1"></span>
+        <span class="ring r2"></span>
+        <span class="ring r3"></span>
+        <span class="core"></span>
+        <span class="voice v1"></span>
+        <span class="voice v2"></span>
+        <span class="voice v3"></span>
+        <span class="voice v4"></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="rooms" class="rooms" aria-labelledby="rooms-title" tabindex="-1">
+    <div class="section-head">
+      <h2 id="rooms-title">Live album rooms</h2>
+      <p>Tap a room to bring it into the booth. Each one is playing a whole record, start to finish.</p>
+    </div>
+    <ul class="room-grid" id="roomGrid"></ul>
+  </section>
+
+  <section id="booth" class="booth" aria-labelledby="booth-title">
+    <div class="section-head">
+      <h2 id="booth-title">The booth</h2>
+      <p>Your synced player and the between-tracks chatter, side by side.</p>
+    </div>
+    <div class="booth-grid">
+      <article class="player" aria-label="Now playing">
+        <div class="cover" id="boothCover" aria-hidden="true"></div>
+        <div class="player-body">
+          <p class="player-room" id="boothRoom">—</p>
+          <h3 class="player-track" id="boothTrack">—</h3>
+          <p class="player-artist" id="boothArtist">—</p>
+
+          <div class="viz" id="viz" aria-hidden="true"></div>
+
+          <div class="scrubber">
+            <span id="boothElapsed">0:00</span>
+            <input id="boothSeek" class="seek" type="range" min="0" max="100" value="0"
+                   step="1" aria-label="Track position">
+            <span id="boothDuration">0:00</span>
+          </div>
+
+          <div class="controls">
+            <button class="ctl" type="button" data-prev aria-label="Previous track">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 6v12M18 6l-9 6 9 6z"/></svg>
+            </button>
+            <button class="ctl ctl-main" type="button" id="playBtn" aria-pressed="true" aria-label="Pause">
+              <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z"/></svg>
+              <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>
+            </button>
+            <button class="ctl" type="button" data-next aria-label="Next track">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 6v12M6 6l9 6-9 6z"/></svg>
+            </button>
+            <label class="vol">
+              <span class="vis-hidden">Volume</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9zM16 8a5 5 0 0 1 0 8"/></svg>
+              <input id="vol" type="range" min="0" max="100" value="72" aria-label="Volume">
+            </label>
+          </div>
+
+          <ol class="tracklist" id="tracklist" aria-label="Tracklist"></ol>
+        </div>
+      </article>
+
+      <aside class="chat" aria-labelledby="chat-title">
+        <div class="chat-head">
+          <h3 id="chat-title">Between tracks</h3>
+          <span class="chat-count" id="chatHere">—</span>
+        </div>
+        <ol class="chat-log" id="chatLog" aria-live="polite" aria-relevant="additions"></ol>
+        <form class="chat-form" id="chatForm" autocomplete="off">
+          <label class="vis-hidden" for="chatInput">Say something to the room</label>
+          <input id="chatInput" type="text" maxlength="140"
+                 placeholder="Say something between tracks…" required>
+          <button class="btn btn-primary" type="submit">Send</button>
+        </form>
+        <div class="reactions" role="group" aria-label="Quick reactions">
+          <button type="button" data-react="🔥">🔥</button>
+          <button type="button" data-react="🎧">🎧</button>
+          <button type="button" data-react="😭">😭</button>
+          <button type="button" data-react="🕺">🕺</button>
+          <button type="button" data-react="👏">👏</button>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="how" class="how" aria-labelledby="how-title">
+    <div class="section-head">
+      <h2 id="how-title">How a room works</h2>
+      <p>No downloads, no lobby small talk. Just press play at the same second.</p>
+    </div>
+    <ol class="steps">
+      <li>
+        <span class="step-n">1</span>
+        <h3>Pick a record</h3>
+        <p>Open a room that's mid-album or start your own from any release in your shelf.</p>
+      </li>
+      <li>
+        <span class="step-n">2</span>
+        <h3>Lock the clock</h3>
+        <p>Everyone hears the same bar within forty milliseconds, so reactions actually line up.</p>
+      </li>
+      <li>
+        <span class="step-n">3</span>
+        <h3>Talk in the gaps</h3>
+        <p>Chat opens up between tracks and quiets during them, so nobody talks over the bridge.</p>
+      </li>
+      <li>
+        <span class="step-n">4</span>
+        <h3>Keep the thread</h3>
+        <p>Save the room's reactions and the setlist to your feed and pass the record along.</p>
+      </li>
+    </ol>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot-brand">
+    <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
+    Chorus Room
+  </div>
+  <p>Listening is better together. Built for headphones and good company.</p>
+  <p class="fine">A demonstration listening room. No accounts, no tracking, all local.</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

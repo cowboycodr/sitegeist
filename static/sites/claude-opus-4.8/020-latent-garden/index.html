@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+	<title>Latent Garden — Intelligence should feel alive.</title>
+	<meta name="description" content="An optimistic research studio exploring creative models through organic simulations and open essays.">
+	<link rel="stylesheet" href="styles.css">
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="garden.js"></script>
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<header class="site-head">
+		<nav class="nav" aria-label="Primary">
+			<a class="brand" href="#top" aria-label="Latent Garden home">
+				<span class="brand-mark" aria-hidden="true">
+					<svg viewBox="0 0 32 32" width="28" height="28" role="img" aria-label="">
+						<path d="M16 30 C16 20 16 14 16 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+						<path d="M16 18 C10 16 7 12 8 6 C14 7 17 11 16 18 Z" fill="currentColor" opacity="0.85"/>
+						<path d="M16 14 C22 12 25 8 24 3 C18 4 15 8 16 14 Z" fill="currentColor" opacity="0.55"/>
+						<circle cx="16" cy="7" r="3" fill="currentColor"/>
+					</svg>
+				</span>
+				<span class="brand-text">Latent&nbsp;Garden</span>
+			</a>
+			<button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+				<span class="nav-toggle-bar" aria-hidden="true"></span>
+				<span class="sr-only">Menu</span>
+			</button>
+			<ul class="nav-links" id="nav-links">
+				<li><a href="#experiments">Experiments</a></li>
+				<li><a href="#garden">Garden</a></li>
+				<li><a href="#papers">Papers</a></li>
+				<li><a href="#studio">Studio</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main id="main">
+		<section class="hero" id="top" aria-labelledby="hero-title">
+			<canvas class="hero-canvas" id="garden-canvas" aria-hidden="true"></canvas>
+			<div class="hero-inner">
+				<p class="eyebrow">Creative intelligence</p>
+				<h1 id="hero-title">Intelligence should<br>feel <em>alive.</em></h1>
+				<p class="lede">Latent Garden is an optimistic research studio. We grow creative models
+					as living systems — simulations that bloom, drift, and reach toward light — and we
+					publish everything we learn in the open.</p>
+				<div class="cta-row">
+					<a class="btn btn-primary" href="#experiments">Explore experiments</a>
+					<a class="btn btn-ghost" href="#papers">Read our papers</a>
+				</div>
+				<button class="seed-btn" id="seed-btn" type="button">
+					<span aria-hidden="true">✦</span> Scatter new seeds
+				</button>
+			</div>
+			<div class="hero-scroll" aria-hidden="true">
+				<span>scroll</span>
+				<span class="hero-scroll-line"></span>
+			</div>
+		</section>
+
+		<section class="marquee" aria-hidden="true">
+			<div class="marquee-track">
+				<span>growth&nbsp;·&nbsp;emergence&nbsp;·&nbsp;play&nbsp;·&nbsp;curiosity&nbsp;·&nbsp;openness&nbsp;·&nbsp;</span>
+				<span>growth&nbsp;·&nbsp;emergence&nbsp;·&nbsp;play&nbsp;·&nbsp;curiosity&nbsp;·&nbsp;openness&nbsp;·&nbsp;</span>
+			</div>
+		</section>
+
+		<section class="experiments" id="experiments" aria-labelledby="experiments-title">
+			<div class="section-head">
+				<p class="section-tag">01 — Living work</p>
+				<h2 id="experiments-title">Experiments in bloom</h2>
+				<p class="section-sub">Each project is a small ecosystem: a model, a substrate, and a
+					question about how creativity organizes itself.</p>
+			</div>
+			<ul class="card-grid">
+				<li class="card">
+					<span class="card-index">E-01</span>
+					<h3>Mycelia</h3>
+					<p>A diffusion model that composes by branching — proposing motifs the way roots
+						search soil, keeping only the paths that carry nutrients.</p>
+					<span class="card-tag">generative · active</span>
+				</li>
+				<li class="card">
+					<span class="card-index">E-02</span>
+					<h3>Pollination</h3>
+					<p>Two agents trade half-finished ideas across a shared latent field, cross-breeding
+						sketches until a surprising hybrid takes hold.</p>
+					<span class="card-tag">multi-agent · active</span>
+				</li>
+				<li class="card">
+					<span class="card-index">E-03</span>
+					<h3>Phototropism</h3>
+					<p>A reward-free system that simply grows toward the most novel signal, mapping the
+						shape of a model's own curiosity.</p>
+					<span class="card-tag">interpretability · seeding</span>
+				</li>
+				<li class="card">
+					<span class="card-index">E-04</span>
+					<h3>Compost</h3>
+					<p>Failed generations are never discarded — they decay into priors that fertilize the
+						next season of training runs.</p>
+					<span class="card-tag">data · ongoing</span>
+				</li>
+			</ul>
+		</section>
+
+		<section class="garden" id="garden" aria-labelledby="garden-title">
+			<div class="garden-copy">
+				<p class="section-tag">02 — Simulation</p>
+				<h2 id="garden-title">Tend the latent garden</h2>
+				<p>Everything above the fold is a real simulation, not a video. Thousands of tiny
+					agents follow a flow field learned from noise, leaning toward light and one another.
+					Nudge it with your cursor, or scatter seeds to reset the season.</p>
+				<dl class="garden-stats">
+					<div><dt>Agents</dt><dd id="stat-agents">—</dd></div>
+					<div><dt>Season</dt><dd id="stat-season">1</dd></div>
+					<div><dt>Field</dt><dd>Perlin flow</dd></div>
+				</dl>
+				<p class="garden-note">Prefers-reduced-motion is honored: the garden settles into a
+					still bloom when you ask it to.</p>
+			</div>
+			<figure class="garden-frame">
+				<canvas id="mini-canvas" aria-hidden="true"></canvas>
+				<figcaption>Flow-field bloom — hover or drag to disturb the field.</figcaption>
+			</figure>
+		</section>
+
+		<section class="papers" id="papers" aria-labelledby="papers-title">
+			<div class="section-head">
+				<p class="section-tag">03 — Open essays</p>
+				<h2 id="papers-title">Papers &amp; field notes</h2>
+				<p class="section-sub">We write in public. Every result — hopeful or humbling — is
+					released under an open license.</p>
+			</div>
+			<ol class="paper-list">
+				<li class="paper">
+					<span class="paper-date">2026 · Spring</span>
+					<a class="paper-link" href="#papers">
+						<h3>Gardens, not factories: a stance on creative models</h3>
+						<p>Why we design for cultivation instead of control, and what that changes about
+							evaluation.</p>
+					</a>
+				</li>
+				<li class="paper">
+					<span class="paper-date">2026 · Spring</span>
+					<a class="paper-link" href="#papers">
+						<h3>Phototropic search in reward-free generation</h3>
+						<p>Measuring novelty as light and letting models grow toward it without a scalar
+							objective.</p>
+					</a>
+				</li>
+				<li class="paper">
+					<span class="paper-date">2025 · Winter</span>
+					<a class="paper-link" href="#papers">
+						<h3>Composting failure: recycling collapsed runs into priors</h3>
+						<p>A pipeline that turns training dead-ends into structured nourishment for later
+							seasons.</p>
+					</a>
+				</li>
+			</ol>
+		</section>
+
+		<section class="studio" id="studio" aria-labelledby="studio-title">
+			<div class="studio-inner">
+				<p class="section-tag light">04 — The studio</p>
+				<h2 id="studio-title">A small studio, tending big questions.</h2>
+				<p>We are researchers, artists, and gardeners working across generative modeling,
+					interpretability, and interaction design. We believe intelligence is most trustworthy
+					when it is legible, playful, and alive.</p>
+				<div class="studio-values">
+					<div><h3>Open by default</h3><p>Code, weights, and mistakes, in the light.</p></div>
+					<div><h3>Slow &amp; organic</h3><p>Systems allowed to grow into their form.</p></div>
+					<div><h3>Human-adjacent</h3><p>Tools that keep a person in the loop.</p></div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-foot">
+		<div class="foot-brand">
+			<span class="brand-mark" aria-hidden="true">
+				<svg viewBox="0 0 32 32" width="24" height="24" role="img" aria-label="">
+					<path d="M16 30 C16 20 16 14 16 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+					<path d="M16 18 C10 16 7 12 8 6 C14 7 17 11 16 18 Z" fill="currentColor" opacity="0.85"/>
+					<path d="M16 14 C22 12 25 8 24 3 C18 4 15 8 16 14 Z" fill="currentColor" opacity="0.55"/>
+					<circle cx="16" cy="7" r="3" fill="currentColor"/>
+				</svg>
+			</span>
+			<span>Latent&nbsp;Garden</span>
+		</div>
+		<p class="foot-tag">Intelligence should feel alive.</p>
+		<p class="foot-fine">An independent research studio · Grown, not manufactured · © 2026</p>
+	</footer>
+</body>
+</html>

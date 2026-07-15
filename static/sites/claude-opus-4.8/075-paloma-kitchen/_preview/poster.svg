@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Paloma — Wood fire, citrus, late nights. A Roma Norte restaurant.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c140f"/>
+      <stop offset="0.5" stop-color="#17110d"/>
+      <stop offset="1" stop-color="#100b08"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="94%" r="62%">
+      <stop offset="0" stop-color="#e8622a" stop-opacity="0.55"/>
+      <stop offset="0.55" stop-color="#e8622a" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#e8622a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="citrusGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#f7cf5e"/>
+      <stop offset="0.7" stop-color="#f4c145"/>
+      <stop offset="1" stop-color="#e8a520"/>
+    </radialGradient>
+    <linearGradient id="flame" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#b53d13"/>
+      <stop offset="0.5" stop-color="#e8622a"/>
+      <stop offset="1" stop-color="#f4c145"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- floating embers -->
+  <g fill="#f4c145">
+    <circle cx="210" cy="640" r="4" opacity="0.8"/>
+    <circle cx="300" cy="470" r="3" opacity="0.6"/>
+    <circle cx="170" cy="360" r="2.5" opacity="0.5"/>
+    <circle cx="980" cy="600" r="4" opacity="0.75"/>
+    <circle cx="1050" cy="430" r="2.5" opacity="0.55"/>
+    <circle cx="900" cy="330" r="3" opacity="0.6"/>
+    <circle cx="620" cy="250" r="2.5" opacity="0.5"/>
+    <circle cx="1010" cy="720" r="3" opacity="0.65"/>
+  </g>
+
+  <!-- frame -->
+  <rect x="40" y="40" width="1120" height="820" rx="26" fill="none" stroke="#f6ecdd" stroke-opacity="0.16" stroke-width="2"/>
+
+  <!-- eyebrow -->
+  <text x="600" y="150" text-anchor="middle" fill="#f4c145" font-family="ui-sans-serif, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="10">MEXICO CITY · ROMA NORTE</text>
+
+  <!-- dove + flame motif -->
+  <g transform="translate(600 340)">
+    <!-- citrus sun behind -->
+    <circle cx="0" cy="18" r="86" fill="url(#citrusGlow)" opacity="0.22"/>
+    <!-- flame -->
+    <path d="M0 118 C -58 78 -70 20 -34 -34 C -30 6 -12 20 6 24 C -20 -20 -14 -78 24 -122 C 66 -70 88 -18 88 26 C 88 82 46 118 0 118 Z" fill="url(#flame)"/>
+    <path d="M0 116 C -30 92 -38 54 -20 20 C -16 44 -2 52 12 52 C -6 22 0 -18 24 -50 C 44 -18 52 12 52 42 C 52 78 30 106 0 116 Z" fill="#f7cf5e" opacity="0.85"/>
+    <!-- dove silhouette in cream -->
+    <path d="M-2 -8 C 26 -30 66 -32 96 -14 C 78 -12 66 -4 60 8 C 84 6 104 16 116 34 C 92 30 74 34 60 46 C 44 60 20 64 2 56 C 20 50 30 40 32 28 C 14 34 -6 30 -18 16 C -30 2 -30 -18 -18 -30 C -16 -14 -8 -8 -2 -8 Z" fill="#f6ecdd" transform="translate(2 -6) scale(0.62)"/>
+  </g>
+
+  <!-- title -->
+  <g font-family="Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif" text-anchor="middle" fill="#f6ecdd">
+    <text x="600" y="620" font-size="150" font-weight="600" letter-spacing="-2">Paloma</text>
+  </g>
+
+  <!-- tagline -->
+  <text x="600" y="690" text-anchor="middle" font-family="Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif" font-size="42" fill="#cdbca8">Wood fire, <tspan fill="#f4c145" font-style="italic">citrus,</tspan> late nights.</text>
+
+  <!-- divider -->
+  <line x1="480" y1="740" x2="720" y2="740" stroke="#e8622a" stroke-width="2" stroke-opacity="0.6"/>
+
+  <!-- footer line -->
+  <text x="600" y="800" text-anchor="middle" fill="#cdbca8" font-family="ui-sans-serif, system-ui, Segoe UI, Roboto, Arial, sans-serif" font-size="24" letter-spacing="6">COASTAL PLATES · MEZCAL · LIVE FLAME</text>
+</svg>

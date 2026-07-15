@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <title>Zero Hour — The climate story, without distance.</title>
+  <meta name="description" content="Independent reporting through investigations, local voices, and visual evidence." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to reporting</a>
+
+  <header class="topbar" role="banner">
+    <a class="brand" href="#top" aria-label="Zero Hour home">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="30" height="30">
+          <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="2" />
+          <line x1="20" y1="20" x2="20" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <line x1="20" y1="20" x2="29" y2="20" stroke="var(--ember)" stroke-width="2" stroke-linecap="round" />
+          <circle cx="20" cy="20" r="2.4" fill="var(--ember)" />
+        </svg>
+      </span>
+      <span class="brand__text">Zero<span>Hour</span></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#latest">Latest</a>
+      <a href="#atlas">The Atlas</a>
+      <a href="#voices">Voices</a>
+      <a href="#about">About</a>
+    </nav>
+    <p class="clock" aria-live="off">
+      <span class="clock__label">Reading time</span>
+      <span class="clock__value" id="session-clock">00:00</span>
+    </p>
+  </header>
+
+  <main id="main">
+    <a id="top"></a>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__grid">
+        <div class="hero__lede">
+          <p class="eyebrow">Reporting from the threshold</p>
+          <h1 id="hero-title">The climate story,<br /><em>without distance.</em></h1>
+          <p class="hero__desc">
+            Zero Hour is an independent newsroom covering the warming world through
+            long-form investigations, the people living the change first, and evidence
+            you can see for yourself.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--ember" href="#latest">Read the latest</a>
+            <a class="btn btn--ghost" href="#atlas">Explore the atlas</a>
+          </div>
+          <dl class="stats">
+            <div><dt>Investigations this year</dt><dd>48</dd></div>
+            <div><dt>Field correspondents</dt><dd>19</dd></div>
+            <div><dt>Countries reported from</dt><dd>34</dd></div>
+          </dl>
+        </div>
+        <figure class="hero__stripes" aria-labelledby="stripes-cap">
+          <div class="stripes" id="stripes" role="img" aria-label="Warming stripes showing rising global temperatures from 1900 to today, cool blue tones giving way to deep red."></div>
+          <figcaption id="stripes-cap">
+            <span>1900</span>
+            <span>Warming stripes · global average anomaly</span>
+            <span>Now</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="latest" class="latest" aria-labelledby="latest-title">
+      <div class="section-head">
+        <h2 id="latest-title">Latest reporting</h2>
+        <div class="filters" role="tablist" aria-label="Filter reporting by desk">
+          <button class="chip is-active" role="tab" aria-selected="true" data-desk="all">All</button>
+          <button class="chip" role="tab" aria-selected="false" data-desk="investigations">Investigations</button>
+          <button class="chip" role="tab" aria-selected="false" data-desk="oceans">Oceans</button>
+          <button class="chip" role="tab" aria-selected="false" data-desk="cities">Cities</button>
+        </div>
+      </div>
+      <div class="cards" id="cards"></div>
+    </section>
+
+    <section id="atlas" class="atlas" aria-labelledby="atlas-title">
+      <div class="atlas__intro">
+        <p class="eyebrow eyebrow--light">Visual evidence</p>
+        <h2 id="atlas-title">The Atlas</h2>
+        <p>
+          Numbers become real when you can trace them across a place. Drag the year
+          to watch a coastline, a glacier line, and a heat threshold move together.
+        </p>
+      </div>
+      <div class="atlas__panel">
+        <div class="atlas__scene" aria-hidden="true">
+          <svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" class="scene">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#12324a" />
+                <stop offset="1" stop-color="#3a4a3e" />
+              </linearGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#sky)" />
+            <rect id="heat-band" x="0" y="0" width="400" height="60" fill="#ff6b35" opacity="0.18" />
+            <polygon id="glacier" points="0,150 120,90 240,120 400,70 400,0 0,0" fill="#dfe9ef" opacity="0.55" />
+            <rect id="sea" x="0" y="170" width="400" height="70" fill="#1c6e7e" opacity="0.9" />
+            <path d="M0,170 Q100,160 200,172 T400,170 L400,240 L0,240 Z" fill="#124a55" opacity="0.7" />
+          </svg>
+          <output class="atlas__readout" id="atlas-readout">Global anomaly in 1980: +0.3&nbsp;°C</output>
+        </div>
+        <div class="atlas__control">
+          <label for="year">Year</label>
+          <input type="range" id="year" min="1900" max="2025" step="5" value="1980" />
+          <div class="atlas__year"><span id="year-value">1980</span></div>
+          <ul class="atlas__legend">
+            <li><span class="dot dot--heat"></span>Heat threshold days</li>
+            <li><span class="dot dot--ice"></span>Glacier extent</li>
+            <li><span class="dot dot--sea"></span>Relative sea level</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="voices" class="voices" aria-labelledby="voices-title">
+      <p class="eyebrow">Local voices</p>
+      <h2 id="voices-title">Told by the people living it first</h2>
+      <div class="quotes">
+        <figure class="quote">
+          <blockquote>The tide line used to be twenty steps past the wall. Now the wall <em>is</em> the tide line.</blockquote>
+          <figcaption><span>Amara Okonkwo</span>oyster farmer, Gulf coast</figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote>We don't argue about whether the season shifted. We reschedule the whole harvest around it.</blockquote>
+          <figcaption><span>Tomás Rivera</span>vineyard steward, Mendoza</figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote>The kids know the smoke calendar better than the school calendar now.</blockquote>
+          <figcaption><span>Dr. Lena Haugen</span>public health nurse, Interior West</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="about" class="about" aria-labelledby="about-title">
+      <div class="about__text">
+        <p class="eyebrow eyebrow--light">About the newsroom</p>
+        <h2 id="about-title">Independent, evidence-first, member-funded</h2>
+        <p>
+          Zero Hour takes no advertising and no fossil-adjacent funding. Every
+          investigation is documented, every dataset is cited, and every correction
+          stays on the record. We report from the threshold so the story arrives
+          before the consequences do.
+        </p>
+        <ul class="pledges">
+          <li>Open methods on every data story</li>
+          <li>Sources protected, findings public</li>
+          <li>Reader-supported, ad-free forever</li>
+        </ul>
+      </div>
+      <aside class="ledger" aria-label="This year at a glance">
+        <h3>This year, on the record</h3>
+        <ol>
+          <li><b>2,140</b> pages of documents obtained</li>
+          <li><b>7</b> policies revised after reporting</li>
+          <li><b>0</b> stories retracted</li>
+        </ol>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="foot" role="contentinfo">
+    <p class="foot__brand">Zero Hour</p>
+    <p class="foot__tag">The climate story, without distance.</p>
+    <p class="foot__fine">Independent climate journalism · Member-funded · No trackers, no ads.</p>
+  </footer>
+</body>
+</html>

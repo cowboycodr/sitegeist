@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+<title>Court Eleven — New rituals for the old game.</title>
+<meta name="description" content="A design-led city club combining open play, coaching, recovery, and all-day hospitality. Brooklyn. Open 06:00." />
+<style>
+  :root {
+    --paper: #f3ece0;
+    --paper-2: #ece2d1;
+    --ink: #1a1916;
+    --clay: #c2603a;
+    --clay-deep: #a94e2c;
+    --court: #3d5a49;
+    --court-deep: #2c4436;
+    --line: #d8cdb8;
+    --net: rgba(26, 25, 22, 0.12);
+    --serif: "Iowan Old Style", "Palatino Linotype", "Georgia", serif;
+    --sans: "Helvetica Neue", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    --measure: 1180px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .display { font-family: var(--serif); font-weight: 400; }
+
+  a { color: inherit; }
+
+  img { max-width: 100%; display: block; }
+
+  .skip {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 12px 18px;
+    z-index: 40;
+    border-radius: 0 0 10px 0;
+  }
+  .skip:focus { left: 0; }
+
+  .wrap {
+    width: 100%;
+    max-width: var(--measure);
+    margin-inline: auto;
+    padding-inline: clamp(18px, 5vw, 56px);
+  }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--clay-deep);
+  }
+
+  /* ---------- Header ---------- */
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 66px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    font-family: var(--serif);
+    font-size: 22px;
+    letter-spacing: 0.01em;
+  }
+  .brand .mark {
+    width: 30px;
+    height: 30px;
+    flex: none;
+  }
+  nav.primary ul {
+    list-style: none;
+    display: flex;
+    gap: 26px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+  nav.primary a {
+    text-decoration: none;
+    font-size: 14.5px;
+    letter-spacing: 0.02em;
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+  }
+  nav.primary a:hover,
+  nav.primary a:focus-visible { border-bottom-color: var(--clay); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--sans);
+    font-size: 14.5px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 999px;
+    border: 1.5px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    cursor: pointer;
+    transition: transform .18s ease, background .18s ease, color .18s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn.clay { background: var(--clay); border-color: var(--clay); }
+  .btn.clay:hover { background: var(--clay-deep); border-color: var(--clay-deep); }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.ghost:hover { background: var(--ink); color: var(--paper); }
+
+  .menu-toggle {
+    display: none;
+    width: 44px; height: 44px;
+    border: 1.5px solid var(--ink);
+    border-radius: 12px;
+    background: transparent;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+  }
+  .menu-toggle svg { width: 22px; height: 22px; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding-top: clamp(40px, 8vw, 84px);
+    padding-bottom: clamp(36px, 7vw, 72px);
+    overflow: hidden;
+  }
+  .court-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(28px, 5vw, 60px);
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: clamp(44px, 8.5vw, 96px);
+    line-height: 0.96;
+    letter-spacing: -0.015em;
+    margin: 14px 0 0;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--clay-deep);
+  }
+  .lede {
+    font-size: clamp(17px, 2.1vw, 20px);
+    max-width: 34ch;
+    margin: 20px 0 28px;
+    color: color-mix(in srgb, var(--ink) 82%, transparent);
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .hero-card {
+    background: var(--court);
+    color: #f1efe6;
+    border-radius: 20px;
+    padding: 26px;
+    box-shadow: 0 30px 60px -34px rgba(44, 68, 54, 0.8);
+  }
+  .hero-card h2 {
+    font-size: 22px;
+    margin: 0 0 4px;
+  }
+  .hero-card p.sub { margin: 0 0 18px; color: rgba(241,239,230,.72); font-size: 14px; }
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 18px;
+    border-top: 1px solid rgba(241,239,230,.22);
+    padding-top: 18px;
+  }
+  .stat .n { font-family: var(--serif); font-size: 30px; line-height: 1; }
+  .stat .l { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(241,239,230,.7); margin-top: 6px; }
+
+  /* ---------- Marquee strip ---------- */
+  .strip {
+    background: var(--ink);
+    color: var(--paper);
+    border-block: 1px solid var(--ink);
+    overflow: hidden;
+  }
+  .strip .row {
+    display: flex;
+    gap: 40px;
+    white-space: nowrap;
+    padding: 12px 0;
+    font-family: var(--serif);
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    animation: slide 32s linear infinite;
+  }
+  .strip .row span { display: inline-flex; align-items: center; gap: 40px; }
+  .strip .dot { color: var(--clay); }
+  @keyframes slide { to { transform: translateX(-50%); } }
+
+  /* ---------- Section frame ---------- */
+  section { padding-block: clamp(48px, 8vw, 96px); }
+  .sec-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: clamp(26px, 4vw, 44px);
+    flex-wrap: wrap;
+  }
+  .sec-head h2 {
+    font-size: clamp(30px, 5vw, 52px);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    margin: 8px 0 0;
+    max-width: 18ch;
+  }
+  .sec-head p { max-width: 40ch; margin: 0; color: color-mix(in srgb, var(--ink) 78%, transparent); }
+
+  /* ---------- Rituals grid ---------- */
+  .rituals {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  .ritual {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 260px;
+  }
+  .ritual .num {
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--clay-deep);
+    letter-spacing: 0.08em;
+  }
+  .ritual h3 { font-size: 24px; margin: 10px 0 8px; }
+  .ritual p { margin: 0; font-size: 15px; color: color-mix(in srgb, var(--ink) 80%, transparent); }
+  .ritual .tag {
+    margin-top: auto;
+    padding-top: 16px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--court);
+    font-weight: 700;
+  }
+  .ritual svg { width: 40px; height: 40px; margin-bottom: 10px; color: var(--court); }
+
+  /* ---------- Schedule ---------- */
+  .schedule { background: var(--court); color: #f1efe6; }
+  .schedule .eyebrow { color: #e7b79f; }
+  .schedule .sec-head h2 { color: #f6f2e9; }
+  .schedule .sec-head p { color: rgba(241,239,230,.75); }
+  .day-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+  .day-tabs button {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 9px 16px;
+    border-radius: 999px;
+    border: 1.5px solid rgba(241,239,230,.35);
+    background: transparent;
+    color: #f1efe6;
+    cursor: pointer;
+  }
+  .day-tabs button[aria-selected="true"] {
+    background: var(--clay);
+    border-color: var(--clay);
+  }
+  .slots { display: grid; gap: 10px; }
+  .slot {
+    display: grid;
+    grid-template-columns: 92px 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 18px;
+    background: rgba(241,239,230,.06);
+    border: 1px solid rgba(241,239,230,.16);
+    border-radius: 14px;
+  }
+  .slot .time { font-family: var(--serif); font-size: 19px; }
+  .slot .what { font-size: 15px; }
+  .slot .what b { display: block; font-size: 16.5px; font-weight: 600; }
+  .slot .what span { color: rgba(241,239,230,.66); font-size: 13px; }
+  .slot .state {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .state.open { background: #e7f0e5; color: var(--court-deep); }
+  .state.few { background: #f5e3c4; color: #7a4f13; }
+  .state.wait { background: rgba(241,239,230,.14); color: rgba(241,239,230,.8); }
+
+  /* ---------- Membership ---------- */
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .plan {
+    border: 1.5px solid var(--line);
+    border-radius: 20px;
+    padding: 26px;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+  }
+  .plan.feature {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .plan h3 { font-size: 24px; margin: 0 0 6px; }
+  .plan .price { font-family: var(--serif); font-size: 44px; line-height: 1; margin: 8px 0 2px; }
+  .plan .price small { font-family: var(--sans); font-size: 14px; font-weight: 400; opacity: .7; }
+  .plan .who { font-size: 14px; margin: 0 0 16px; opacity: .82; }
+  .plan ul { list-style: none; margin: 0 0 22px; padding: 0; display: grid; gap: 10px; }
+  .plan li { position: relative; padding-left: 24px; font-size: 15px; }
+  .plan li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 7px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--clay);
+  }
+  .plan.feature li::before { border-color: #e7b79f; }
+  .plan .btn { margin-top: auto; width: 100%; }
+  .plan.feature .btn { background: var(--clay); border-color: var(--clay); }
+
+  .ribbon {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--clay);
+    margin-bottom: 4px;
+  }
+
+  /* ---------- Visit / hours ---------- */
+  .visit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(24px, 5vw, 56px);
+    align-items: start;
+  }
+  .hours { list-style: none; margin: 18px 0 0; padding: 0; }
+  .hours li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 15.5px;
+  }
+  .hours li b { font-weight: 600; }
+  .hours li span { color: color-mix(in srgb, var(--ink) 70%, transparent); font-variant-numeric: tabular-nums; }
+  .info-card {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 26px;
+  }
+  .info-card h3 { font-size: 22px; margin: 0 0 4px; }
+  .info-card address { font-style: normal; color: color-mix(in srgb, var(--ink) 76%, transparent); line-height: 1.7; }
+  .map {
+    margin-top: 18px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .map svg { width: 100%; height: auto; display: block; }
+
+  /* ---------- Footer ---------- */
+  footer.site {
+    background: var(--ink);
+    color: var(--paper);
+    padding-block: clamp(40px, 6vw, 72px);
+  }
+  .foot-top {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 32px;
+    padding-bottom: 34px;
+    border-bottom: 1px solid rgba(243,236,224,.16);
+  }
+  footer .cta h2 { font-size: clamp(28px, 4.5vw, 46px); margin: 0 0 16px; line-height: 1.02; max-width: 16ch; }
+  footer .cta .btn.clay { background: var(--clay); border-color: var(--clay); }
+  footer .cta .btn.line { background: transparent; color: var(--paper); border-color: rgba(243,236,224,.5); }
+  .foot-col h4 { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(243,236,224,.55); margin: 0 0 14px; font-family: var(--sans); font-weight: 700; }
+  .foot-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .foot-col a { text-decoration: none; font-size: 15px; opacity: .85; }
+  .foot-col a:hover { opacity: 1; color: #e7b79f; }
+  .foot-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding-top: 22px;
+    font-size: 13px;
+    color: rgba(243,236,224,.6);
+    flex-wrap: wrap;
+  }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .rituals { grid-template-columns: repeat(2, 1fr); }
+    .plans { grid-template-columns: 1fr; }
+    .visit-grid { grid-template-columns: 1fr; }
+    .foot-top { grid-template-columns: 1fr; gap: 26px; }
+  }
+
+  @media (max-width: 720px) {
+    nav.primary { display: none; }
+    .bar .btn.header-cta { display: none; }
+    .menu-toggle { display: inline-flex; }
+    nav.primary.open {
+      display: block;
+      position: fixed;
+      inset: 66px 0 0;
+      background: var(--paper);
+      z-index: 25;
+      padding: 24px clamp(18px, 5vw, 56px) 40px;
+      overflow-y: auto;
+    }
+    nav.primary.open ul { flex-direction: column; align-items: stretch; gap: 4px; }
+    nav.primary.open a { font-size: 22px; font-family: var(--serif); padding: 14px 0; border-bottom: 1px solid var(--line); }
+    nav.primary.open .btn { margin-top: 18px; width: 100%; }
+    .menu-close-item { display: block; }
+  }
+  @media (min-width: 721px) { .menu-close-item { display: none; } }
+
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    .rituals { grid-template-columns: 1fr; }
+    .slot { grid-template-columns: 74px 1fr; }
+    .slot .state { grid-column: 2; justify-self: start; }
+    .stat-row { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .strip .row { animation: none; }
+    .btn { transition: none; }
+    * { scroll-behavior: auto; }
+  }
+
+  html { scroll-behavior: smooth; }
+  :target { scroll-margin-top: 84px; }
+  :focus-visible { outline: 3px solid var(--clay); outline-offset: 3px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Court Eleven home">
+      <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <rect x="1.5" y="1.5" width="37" height="37" rx="8" fill="#3d5a49"/>
+        <rect x="7" y="7" width="26" height="26" rx="3" fill="none" stroke="#f3ece0" stroke-width="1.6"/>
+        <line x1="20" y1="7" x2="20" y2="33" stroke="#c2603a" stroke-width="1.6"/>
+        <line x1="7" y1="20" x2="33" y2="20" stroke="#f3ece0" stroke-width="1.2"/>
+      </svg>
+      <span>Court&nbsp;Eleven</span>
+    </a>
+
+    <nav class="primary" id="nav" aria-label="Primary">
+      <ul>
+        <li><a href="#rituals">Rituals</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#membership">Membership</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li class="menu-close-item"><a class="btn clay" href="#book">Book a court</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn clay header-cta" href="#book">Book a court</a>
+
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <span id="top"></span>
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <svg class="court-bg" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <rect width="1200" height="640" fill="#f3ece0"/>
+      <g stroke="rgba(26,25,22,0.12)" stroke-width="2" fill="none" opacity="0.9">
+        <rect x="120" y="90" width="960" height="460"/>
+        <rect x="120" y="200" width="960" height="240"/>
+        <line x1="600" y1="200" x2="600" y2="440"/>
+        <line x1="120" y1="320" x2="1080" y2="320" stroke-dasharray="3 10"/>
+        <line x1="360" y1="90" x2="360" y2="550"/>
+        <line x1="840" y1="90" x2="840" y2="550"/>
+      </g>
+      <circle cx="1010" cy="150" r="34" fill="#c2603a" opacity="0.16"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Brooklyn · Open 06:00</p>
+          <h1 id="hero-title">New rituals<br>for the <em>old game.</em></h1>
+          <p class="lede">A design-led city club where open play, coaching, recovery, and all-day hospitality share one clay-toned roof.</p>
+          <div class="hero-actions">
+            <a class="btn clay" href="#book">Book a court</a>
+            <a class="btn ghost" href="#membership">Join the club</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Today at Court Eleven">
+          <h2>Today on court</h2>
+          <p class="sub">Eleven courts · Har-Tru clay &amp; cushioned hard</p>
+          <div class="stat-row">
+            <div class="stat"><div class="n">11</div><div class="l">Courts</div></div>
+            <div class="stat"><div class="n">06—23</div><div class="l">Daily hours</div></div>
+            <div class="stat"><div class="n">7</div><div class="l">Resident pros</div></div>
+            <div class="stat"><div class="n">18°</div><div class="l">Indoor clay</div></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <div class="strip" aria-hidden="true">
+    <div class="row">
+      <span>
+        Open play <b class="dot">·</b> Private coaching <b class="dot">·</b> Cold plunge <b class="dot">·</b> Café &amp; wine bar <b class="dot">·</b> Stringing lab <b class="dot">·</b> Ladder nights <b class="dot">·</b>
+        Open play <b class="dot">·</b> Private coaching <b class="dot">·</b> Cold plunge <b class="dot">·</b> Café &amp; wine bar <b class="dot">·</b> Stringing lab <b class="dot">·</b> Ladder nights <b class="dot">·</b>
+      </span>
+    </div>
+  </div>
+
+  <!-- RITUALS -->
+  <section id="rituals" aria-labelledby="rituals-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">The four rituals</p>
+          <h2 id="rituals-title">One membership, four ways to spend a morning.</h2>
+        </div>
+        <p>Court Eleven is built around a simple loop — warm up, play, recover, linger. Everything you need for it lives on site.</p>
+      </div>
+
+      <div class="rituals">
+        <article class="ritual">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+          <span class="num">01</span>
+          <h3>Open play</h3>
+          <p>Book by the hour or drop into a doubles rotation. Balanced matchmaking pairs you by level, not by luck.</p>
+          <span class="tag">Book by the hour</span>
+        </article>
+        <article class="ritual">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="7" r="3.4"/><path d="M4 20c0-4 3.6-6.5 8-6.5S20 16 20 20"/></svg>
+          <span class="num">02</span>
+          <h3>Coaching</h3>
+          <p>Seven resident pros running privates, small-group clinics, and video breakdowns from beginner to tournament.</p>
+          <span class="tag">Privates &amp; clinics</span>
+        </article>
+        <article class="ritual">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3c3.5 3 5.5 6 5.5 9a5.5 5.5 0 0 1-11 0c0-3 2-6 5.5-9z"/></svg>
+          <span class="num">03</span>
+          <h3>Recovery</h3>
+          <p>Cold plunge, infrared sauna, and a stretch studio. Reset between sets or make it the whole visit.</p>
+          <span class="tag">Plunge &amp; sauna</span>
+        </article>
+        <article class="ritual">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3v7a3 3 0 0 0 6 0V3"/><line x1="9" y1="10" x2="9" y2="21"/><path d="M17 3c-1.4 1.4-2 3-2 5s.6 3 2 4v9"/></svg>
+          <span class="num">04</span>
+          <h3>Hospitality</h3>
+          <p>All-day café, natural wine, and a courtside kitchen. The clubhouse stays open long after the last point.</p>
+          <span class="tag">Café &amp; wine bar</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section id="schedule" class="schedule" aria-labelledby="schedule-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Today &amp; this week</p>
+          <h2 id="schedule-title">Live court &amp; class schedule.</h2>
+        </div>
+        <p>A snapshot of open blocks and programmed sessions. Members see real-time availability inside the app.</p>
+      </div>
+
+      <div class="day-tabs" role="tablist" aria-label="Choose a day">
+        <button role="tab" id="tab-mon" aria-controls="panel" aria-selected="true">Mon</button>
+        <button role="tab" id="tab-wed" aria-controls="panel" aria-selected="false">Wed</button>
+        <button role="tab" id="tab-fri" aria-controls="panel" aria-selected="false">Fri</button>
+        <button role="tab" id="tab-sat" aria-controls="panel" aria-selected="false">Sat</button>
+      </div>
+
+      <div class="slots" id="panel" role="tabpanel" aria-live="polite">
+        <!-- filled by script; static fallback below for no-JS -->
+        <div class="slot"><span class="time">06:00</span><span class="what"><b>Sunrise singles</b><span>Open play · Courts 1–4</span></span><span class="state open">Open</span></div>
+        <div class="slot"><span class="time">08:30</span><span class="what"><b>Cardio clinic</b><span>Coaching · Court 7</span></span><span class="state few">2 spots</span></div>
+        <div class="slot"><span class="time">12:00</span><span class="what"><b>Lunch doubles rotation</b><span>Open play · Courts 8–11</span></span><span class="state open">Open</span></div>
+        <div class="slot"><span class="time">18:30</span><span class="what"><b>Ladder night</b><span>League · All courts</span></span><span class="state wait">Waitlist</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP -->
+  <section id="membership" aria-labelledby="membership-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Membership</p>
+          <h2 id="membership-title">Belong to the whole building.</h2>
+        </div>
+        <p>Every tier includes court booking, recovery access, and clubhouse privileges. No initiation fee before September.</p>
+      </div>
+
+      <div class="plans">
+        <article class="plan">
+          <h3>Daylight</h3>
+          <div class="price">$95<small>/mo</small></div>
+          <p class="who">Off-peak play, 06:00–15:00 weekdays.</p>
+          <ul>
+            <li>Book courts up to 3 days out</li>
+            <li>Recovery suite access</li>
+            <li>Two guest passes monthly</li>
+            <li>10% off clinics &amp; café</li>
+          </ul>
+          <a class="btn ghost" href="#book">Choose Daylight</a>
+        </article>
+
+        <article class="plan feature">
+          <span class="ribbon">Most chosen</span>
+          <h3>Full Court</h3>
+          <div class="price">$185<small>/mo</small></div>
+          <p class="who">All-hours access, every day.</p>
+          <ul>
+            <li>Priority booking, 7 days out</li>
+            <li>Unlimited recovery &amp; sauna</li>
+            <li>Four guest passes monthly</li>
+            <li>One monthly private lesson</li>
+            <li>Ladder &amp; league entry</li>
+          </ul>
+          <a class="btn clay" href="#book">Choose Full Court</a>
+        </article>
+
+        <article class="plan">
+          <h3>Household</h3>
+          <div class="price">$320<small>/mo</small></div>
+          <p class="who">Up to four names, one clubhouse.</p>
+          <ul>
+            <li>Everything in Full Court</li>
+            <li>Junior academy enrollment</li>
+            <li>Family court blocks</li>
+            <li>Shared guest allowance</li>
+          </ul>
+          <a class="btn ghost" href="#book">Choose Household</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit" aria-labelledby="visit-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Visit</p>
+          <h2 id="visit-title">Find us under the bridge.</h2>
+        </div>
+        <p>Walk-ins welcome for the café and day passes. Courts are best reserved ahead.</p>
+      </div>
+
+      <div class="visit-grid">
+        <div>
+          <h3 style="font-family:var(--serif);font-size:26px;margin:0 0 4px;">Hours</h3>
+          <ul class="hours">
+            <li><b>Monday — Friday</b><span>06:00 — 23:00</span></li>
+            <li><b>Saturday</b><span>07:00 — 23:00</span></li>
+            <li><b>Sunday</b><span>07:00 — 21:00</span></li>
+            <li><b>Café &amp; wine bar</b><span>08:00 — late</span></li>
+            <li><b>Recovery suite</b><span>06:00 — 21:30</span></li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3>Court Eleven</h3>
+          <address>
+            118 Water Street<br>
+            Dumbo, Brooklyn, NY 11201<br>
+            hello@courteleven.club<br>
+            (718) 555-0111
+          </address>
+          <div class="map" role="img" aria-label="Stylized map showing Court Eleven near the waterfront.">
+            <svg viewBox="0 0 400 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="400" height="220" fill="#ece2d1"/>
+              <path d="M0 150 Q120 120 240 160 T400 150 V220 H0 Z" fill="#cfe0d3"/>
+              <g stroke="#d8cdb8" stroke-width="6" fill="none">
+                <line x1="0" y1="70" x2="400" y2="90"/>
+                <line x1="120" y1="0" x2="150" y2="220"/>
+                <line x1="260" y1="0" x2="300" y2="220"/>
+              </g>
+              <g stroke="#3d5a49" stroke-width="4" fill="none" opacity=".5">
+                <line x1="0" y1="40" x2="400" y2="20"/>
+              </g>
+              <circle cx="205" cy="118" r="12" fill="#c2603a"/>
+              <circle cx="205" cy="118" r="20" fill="none" stroke="#c2603a" stroke-width="2" opacity=".5"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER / BOOK -->
+<footer class="site" id="book">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="cta">
+        <h2>Ready to hit? Reserve a court.</h2>
+        <div class="hero-actions">
+          <a class="btn clay" href="#membership">Join the club</a>
+          <a class="btn line" href="#schedule">See the schedule</a>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h4>Club</h4>
+        <ul>
+          <li><a href="#rituals">The four rituals</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#membership">Membership</a></li>
+          <li><a href="#visit">Visit &amp; hours</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Play</h4>
+        <ul>
+          <li><a href="#book">Book a court</a></li>
+          <li><a href="#rituals">Coaching</a></li>
+          <li><a href="#rituals">Recovery suite</a></li>
+          <li><a href="#rituals">Café &amp; wine bar</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2026 Court Eleven · Dumbo, Brooklyn</span>
+      <span>New rituals for the old game.</span>
+    </div>
+  </div>
+</footer>
+
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</body>
+</html>

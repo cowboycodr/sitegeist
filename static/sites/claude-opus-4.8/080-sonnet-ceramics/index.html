@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+<meta name="description" content="Small-batch vessels and tableware shaped by hand in a light-filled coastal studio." />
+<title>Sonnet Ceramics — Objects for slower rooms.</title>
+<style>
+  :root {
+    --clay: #b06a4c;
+    --clay-deep: #8a4d33;
+    --sand: #efe4d3;
+    --shell: #f7f0e6;
+    --sea: #6f8b84;
+    --ink: #34281f;
+    --ink-soft: #5f5044;
+    --line: rgba(52, 40, 31, 0.14);
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--shell);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.12; letter-spacing: -0.01em; }
+
+  a { color: inherit; }
+
+  .wrap { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+
+  .eyebrow {
+    font-family: var(--sans);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--clay-deep);
+    margin: 0;
+  }
+
+  /* Header */
+  .site-head {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(247, 240, 230, 0.86);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-head .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.9rem;
+  }
+  .brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; }
+  .brand svg { display: block; }
+  .brand-name { font-family: var(--serif); font-size: 1.25rem; letter-spacing: 0.01em; }
+  .nav { display: flex; align-items: center; gap: 1.6rem; }
+  .nav a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+    padding: 0.35rem 0;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .nav a:hover, .nav a:focus-visible { color: var(--clay-deep); border-color: var(--clay); }
+  .nav-links { display: flex; gap: 1.6rem; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--sans);
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 0.7rem 1.35rem;
+    border-radius: 999px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid var(--clay-deep);
+    transition: transform 0.2s, background 0.2s, color 0.2s;
+  }
+  .btn-primary { background: var(--clay); color: var(--shell); }
+  .btn-primary:hover, .btn-primary:focus-visible { background: var(--clay-deep); transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--clay-deep); }
+  .btn-ghost:hover, .btn-ghost:focus-visible { background: rgba(176, 106, 76, 0.1); transform: translateY(-1px); }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--clay-deep);
+    outline-offset: 3px;
+  }
+
+  /* Hero */
+  .hero { padding-block: clamp(3rem, 8vw, 6.5rem) clamp(2.5rem, 6vw, 4.5rem); }
+  .hero .wrap {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: center;
+  }
+  .hero h1 { font-size: clamp(2.5rem, 7vw, 4.4rem); margin: 1rem 0 1.2rem; }
+  .hero p.lede { font-size: 1.15rem; color: var(--ink-soft); max-width: 34ch; margin: 0 0 2rem; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+
+  .hero-art {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    border-radius: 220px 220px 24px 24px;
+    background:
+      radial-gradient(120% 90% at 50% 8%, #f4e0c8 0, transparent 55%),
+      linear-gradient(180deg, var(--sand), #e2cdb4);
+    overflow: hidden;
+    box-shadow: 0 30px 60px -30px rgba(52, 40, 31, 0.4);
+  }
+  .hero-art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+  /* Marquee of clay words */
+  .strip {
+    border-block: 1px solid var(--line);
+    background: var(--sand);
+    overflow: hidden;
+  }
+  .strip-track {
+    display: flex;
+    gap: 2.5rem;
+    padding-block: 0.8rem;
+    white-space: nowrap;
+    width: max-content;
+    animation: drift 32s linear infinite;
+  }
+  .strip-track span { font-family: var(--serif); font-size: 1.1rem; color: var(--ink-soft); display: inline-flex; align-items: center; gap: 2.5rem; }
+  .strip-track span::after { content: "•"; color: var(--clay); }
+  @keyframes drift { to { transform: translateX(-50%); } }
+
+  /* Collection */
+  section { padding-block: clamp(3rem, 7vw, 5.5rem); }
+  .section-head { max-width: 46ch; margin-bottom: 2.5rem; }
+  .section-head h2 { font-size: clamp(1.9rem, 4.5vw, 2.8rem); margin: 0.6rem 0 0.8rem; }
+  .section-head p { color: var(--ink-soft); margin: 0; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+  }
+  .card {
+    background: var(--sand);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 22px 40px -26px rgba(52, 40, 31, 0.45); }
+  .card-art { aspect-ratio: 4 / 3; }
+  .card-art svg { width: 100%; height: 100%; display: block; }
+  .card-body { padding: 1.2rem 1.3rem 1.5rem; }
+  .card h3 { font-size: 1.3rem; margin: 0 0 0.3rem; }
+  .card .kind { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--sea); font-weight: 600; }
+  .card p { color: var(--ink-soft); font-size: 0.95rem; margin: 0.55rem 0 0.9rem; }
+  .card .price { font-family: var(--serif); font-size: 1.1rem; color: var(--clay-deep); }
+
+  /* Process */
+  .process { background: var(--clay); color: var(--shell); }
+  .process .eyebrow { color: rgba(247, 240, 230, 0.8); }
+  .process .section-head h2 { color: var(--shell); }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2.5rem; }
+  .step .num { font-family: var(--serif); font-size: 2.4rem; opacity: 0.5; }
+  .step h3 { font-size: 1.35rem; margin: 0.3rem 0 0.6rem; color: var(--shell); }
+  .step p { color: rgba(247, 240, 230, 0.85); font-size: 0.96rem; margin: 0; }
+
+  /* Studio */
+  .studio .wrap { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+  .studio-art { aspect-ratio: 1; border-radius: 20px; overflow: hidden; border: 1px solid var(--line); }
+  .studio-art svg { width: 100%; height: 100%; display: block; }
+  .studio blockquote { font-family: var(--serif); font-size: clamp(1.5rem, 3.5vw, 2.1rem); line-height: 1.3; margin: 0 0 1.5rem; }
+  .studio cite { font-style: normal; color: var(--ink-soft); font-size: 0.95rem; letter-spacing: 0.02em; }
+  .studio cite b { color: var(--clay-deep); font-weight: 600; }
+  .studio .hours { margin-top: 1.8rem; border-top: 1px solid var(--line); padding-top: 1.4rem; display: grid; gap: 0.4rem; }
+  .studio .hours div { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.95rem; }
+  .studio .hours span:first-child { color: var(--ink-soft); }
+
+  /* Footer */
+  .site-foot { background: var(--ink); color: var(--sand); padding-block: 3rem; }
+  .site-foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem; align-items: center; }
+  .site-foot .brand-name { color: var(--shell); }
+  .foot-note { font-size: 0.85rem; color: rgba(239, 228, 211, 0.6); }
+  .foot-links { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+  .foot-links a { text-decoration: none; font-size: 0.9rem; color: var(--sand); border-bottom: 1px solid transparent; }
+  .foot-links a:hover, .foot-links a:focus-visible { border-color: var(--clay); }
+
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 860px) {
+    .hero .wrap, .studio .wrap { grid-template-columns: 1fr; }
+    .hero-art { max-width: 420px; order: -1; }
+    .grid, .steps { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 560px) {
+    .grid, .steps { grid-template-columns: 1fr; }
+    .hero-actions .btn { flex: 1 1 auto; justify-content: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .strip-track { animation: none; }
+    .reveal { transition: none; opacity: 1; transform: none; }
+    .card, .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main" style="position:absolute;left:-999px;top:0;background:var(--clay);color:#fff;padding:.6rem 1rem;border-radius:0 0 8px 0;z-index:50;" onfocus="this.style.left='0'" onblur="this.style.left='-999px'">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Sonnet Ceramics home">
+      <svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M13 6h14c-1 4-4 5-4 8 0 4 6 6 6 15 0 4-3 5-9 5s-9-1-9-5c0-9 6-11 6-15 0-3-3-4-4-8z" fill="#b06a4c"/>
+        <ellipse cx="20" cy="34" rx="8" ry="1.6" fill="#8a4d33" opacity=".5"/>
+      </svg>
+      <span class="brand-name">Sonnet Ceramics</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-links">
+        <a href="#collection">Collection</a>
+        <a href="#process">Process</a>
+        <a href="#studio">Studio</a>
+      </div>
+      <a class="btn btn-ghost" href="#studio">Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <span id="top"></span>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Made in small editions</p>
+        <h1>Objects for slower rooms.</h1>
+        <p class="lede">Small-batch vessels and tableware shaped by hand in a light-filled coastal studio.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#collection">Shop the collection</a>
+          <a class="btn btn-ghost" href="#studio">Visit the studio</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" role="presentation">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#c07b5b"/><stop offset="1" stop-color="#8a4d33"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#8fa79f"/><stop offset="1" stop-color="#6f8b84"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="200" cy="470" rx="150" ry="20" fill="#c9b291" opacity=".6"/>
+          <!-- tall vase -->
+          <path d="M170 120c-6 22-26 30-26 70 0 60 12 90 12 150 0 40-8 55-40 55h168c-32 0-40-15-40-55 0-60 12-90 12-150 0-40-20-48-26-70z" transform="translate(-20 0)" fill="url(#g1)"/>
+          <ellipse cx="180" cy="120" rx="26" ry="7" fill="#6e3c27"/>
+          <!-- bowl -->
+          <path d="M250 350c0 40 30 65 62 65s62-25 62-65z" fill="url(#g2)"/>
+          <ellipse cx="312" cy="350" rx="62" ry="12" fill="#5c7972"/>
+          <!-- small cup -->
+          <path d="M250 420h44l-6 55c-1 8-8 12-16 12s-15-4-16-12z" fill="#e8d4bb"/>
+          <ellipse cx="272" cy="420" rx="22" ry="5" fill="#cdb493"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip" aria-hidden="true">
+    <div class="strip-track">
+      <span>Stoneware</span><span>Wheel-thrown</span><span>Wood ash glaze</span><span>Porcelain</span><span>Coastal clay</span><span>Small editions</span>
+      <span>Stoneware</span><span>Wheel-thrown</span><span>Wood ash glaze</span><span>Porcelain</span><span>Coastal clay</span><span>Small editions</span>
+    </div>
+  </div>
+
+  <!-- Collection -->
+  <section id="collection">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">The collection</p>
+        <h2>Pieces released in numbered batches.</h2>
+        <p>Each glaze is mixed in-house and fired in a small gas kiln, so no two vessels leave the studio quite alike.</p>
+      </div>
+      <div class="grid">
+        <article class="card reveal">
+          <div class="card-art"><svg viewBox="0 0 200 150" aria-hidden="true"><rect width="200" height="150" fill="#e2cdb4"/><path d="M80 40c-3 12-14 16-14 40 0 26 6 40 6 55h44c0-15 6-29 6-55 0-24-11-28-14-40z" fill="#b06a4c"/><ellipse cx="94" cy="40" rx="14" ry="4" fill="#8a4d33"/></svg></div>
+          <div class="card-body">
+            <span class="kind">Vase — Edition 04</span>
+            <h3>Tideline Vase</h3>
+            <p>A tall stoneware form finished in a matte oat glaze that breaks warm at the rim.</p>
+            <span class="price">£68</span>
+          </div>
+        </article>
+        <article class="card reveal">
+          <div class="card-art"><svg viewBox="0 0 200 150" aria-hidden="true"><rect width="200" height="150" fill="#dfe6e2"/><path d="M60 70c0 28 18 42 40 42s40-14 40-42z" fill="#6f8b84"/><ellipse cx="100" cy="70" rx="40" ry="9" fill="#5c7972"/></svg></div>
+          <div class="card-body">
+            <span class="kind">Bowl — Edition 07</span>
+            <h3>Rockpool Bowl</h3>
+            <p>Wide serving bowl in a sea-glass green, glazed to pool deeper toward the centre.</p>
+            <span class="price">£52</span>
+          </div>
+        </article>
+        <article class="card reveal">
+          <div class="card-art"><svg viewBox="0 0 200 150" aria-hidden="true"><rect width="200" height="150" fill="#efe4d3"/><path d="M78 55h44l-6 52c-1 7-8 11-16 11s-15-4-16-11z" fill="#e8d4bb" stroke="#cdb493"/><path d="M122 65c14 0 20 8 20 18s-8 16-20 16" fill="none" stroke="#cdb493" stroke-width="5"/><ellipse cx="100" cy="55" rx="22" ry="5" fill="#cdb493"/></svg></div>
+          <div class="card-body">
+            <span class="kind">Cup — Edition 11</span>
+            <h3>Morning Cup</h3>
+            <p>A cup sized for both hands, with an unglazed foot left raw to the touch.</p>
+            <span class="price">£30</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="process">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">From clay to shelf</p>
+        <h2>Slow work, done in daylight.</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><div class="num">01</div><h3>Thrown</h3><p>Every form begins on the wheel with clay wedged by hand that same morning.</p></div>
+        <div class="step reveal"><div class="num">02</div><h3>Glazed</h3><p>Glazes are mixed from mineral oxides and tested in small tiles before a batch.</p></div>
+        <div class="step reveal"><div class="num">03</div><h3>Fired</h3><p>Two firings over three days settle colour and make each piece watertight for life.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Studio -->
+  <section id="studio" class="studio">
+    <div class="wrap">
+      <div class="studio-art reveal" aria-hidden="true">
+        <svg viewBox="0 0 300 300" role="presentation">
+          <rect width="300" height="300" fill="#efe4d3"/>
+          <rect x="0" y="0" width="300" height="120" fill="#f7f0e6"/>
+          <circle cx="230" cy="55" r="30" fill="#f2d9a8"/>
+          <rect x="30" y="150" width="240" height="14" rx="7" fill="#c9b291"/>
+          <path d="M70 150c-2 8-9 10-9 24 0 16 4 24 4 36h30c0-12 4-20 4-36 0-14-7-16-9-24z" fill="#b06a4c"/>
+          <path d="M140 165c0 15 10 24 22 24s22-9 22-24z" fill="#6f8b84"/>
+          <path d="M215 155h30l-4 42c0 5-6 8-11 8s-11-3-11-8z" fill="#e8d4bb"/>
+          <rect x="0" y="240" width="300" height="60" fill="#e2cdb4"/>
+        </svg>
+      </div>
+      <div>
+        <p class="eyebrow reveal">The studio</p>
+        <blockquote class="reveal">“I want the things on your table to feel like they were made by a person — because they were.”</blockquote>
+        <cite class="reveal">— <b>Marlowe Frey</b>, potter &amp; founder</cite>
+        <div class="hours reveal">
+          <div><span>Open studio</span><span>Thu – Sat, 10–4</span></div>
+          <div><span>Location</span><span>Harbour Lane, Old Quay</span></div>
+          <div><span>Workshops</span><span>Monthly, by the sea</span></div>
+        </div>
+        <div class="hero-actions" style="margin-top:1.8rem;">
+          <a class="btn btn-primary" href="#collection">Shop the collection</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <span class="brand-name">Sonnet Ceramics</span>
+      <p class="foot-note">Objects for slower rooms. Hand-made on the coast.</p>
+    </div>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="#collection">Collection</a>
+      <a href="#process">Process</a>
+      <a href="#studio">Studio</a>
+      <a href="#top">Back to top</a>
+    </nav>
+  </div>
+</footer>
+
+<script defer src="sitegeist-bridge.js"></script>
+<script>
+  (function () {
+    "use strict";
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var els = document.querySelectorAll(".reveal");
+    if (reduce || !("IntersectionObserver" in window)) {
+      els.forEach(function (el) { el.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+	<meta name="description" content="A digital gallery presenting algorithmic editions, living systems, and machine-assisted practices.">
+	<meta name="color-scheme" content="dark">
+	<title>Latent Gallery — Art that never repeats itself.</title>
+	<link rel="stylesheet" href="styles.css">
+	<script defer src="sitegeist-bridge.js"></script>
+	<script defer src="app.js"></script>
+</head>
+<body>
+	<a class="skip" href="#exhibition">Skip to exhibition</a>
+
+	<header class="topbar">
+		<a class="brand" href="#top" aria-label="Latent Gallery home">
+			<span class="brand-mark" aria-hidden="true">
+				<span class="seed" style="--i:0"></span>
+				<span class="seed" style="--i:1"></span>
+				<span class="seed" style="--i:2"></span>
+				<span class="seed" style="--i:3"></span>
+			</span>
+			<span class="brand-name">Latent<em>Gallery</em></span>
+		</a>
+		<nav class="nav" aria-label="Primary">
+			<a href="#exhibition">Exhibition</a>
+			<a href="#works">Works</a>
+			<a href="#artists">Artists</a>
+			<a href="#visit">Visit</a>
+		</nav>
+	</header>
+
+	<main id="top">
+		<section class="hero" aria-labelledby="hero-title">
+			<canvas class="hero-canvas" aria-hidden="true"></canvas>
+			<div class="hero-grain" aria-hidden="true"></div>
+			<div class="hero-inner">
+				<p class="eyebrow">Exhibition 13 / Emergence</p>
+				<h1 id="hero-title">Art that never<br>repeats itself.</h1>
+				<p class="lede">A digital gallery presenting algorithmic editions, living systems, and machine-assisted practices — each canvas grown from a seed, never printed twice.</p>
+				<div class="cta-row">
+					<a class="btn btn-primary" href="#exhibition">Enter exhibition</a>
+					<a class="btn btn-ghost" href="#artists">Meet the artists</a>
+				</div>
+				<dl class="hero-stats">
+					<div><dt>Editions</dt><dd data-count="4096">4096</dd></div>
+					<div><dt>Living works</dt><dd data-count="17">17</dd></div>
+					<div><dt>Contributing artists</dt><dd data-count="9">9</dd></div>
+				</dl>
+			</div>
+			<button class="regen" type="button" aria-label="Reseed the generative field">
+				<span aria-hidden="true">↻</span> Reseed field
+			</button>
+		</section>
+
+		<section id="exhibition" class="band" aria-labelledby="exhibition-title" tabindex="-1">
+			<div class="band-head">
+				<p class="section-kicker">On view now</p>
+				<h2 id="exhibition-title">Emergence — thirteen rooms of the unrepeatable</h2>
+				<p class="section-note">Every visitor sees a different arrangement. The pieces below are rendered live in your browser; no two page loads are identical.</p>
+			</div>
+			<ul class="gen-grid" id="works" aria-label="Generative works">
+			</ul>
+		</section>
+
+		<section class="marquee" aria-hidden="true">
+			<div class="marquee-track">
+				<span>Flow fields</span><span aria-hidden="true">✦</span>
+				<span>Reaction–diffusion</span><span aria-hidden="true">✦</span>
+				<span>Strange attractors</span><span aria-hidden="true">✦</span>
+				<span>Voronoi tessellation</span><span aria-hidden="true">✦</span>
+				<span>Perlin drift</span><span aria-hidden="true">✦</span>
+				<span>Cellular automata</span><span aria-hidden="true">✦</span>
+				<span>Flow fields</span><span aria-hidden="true">✦</span>
+				<span>Reaction–diffusion</span><span aria-hidden="true">✦</span>
+				<span>Strange attractors</span><span aria-hidden="true">✦</span>
+				<span>Voronoi tessellation</span><span aria-hidden="true">✦</span>
+				<span>Perlin drift</span><span aria-hidden="true">✦</span>
+				<span>Cellular automata</span><span aria-hidden="true">✦</span>
+			</div>
+		</section>
+
+		<section id="artists" class="band" aria-labelledby="artists-title" tabindex="-1">
+			<div class="band-head">
+				<p class="section-kicker">The practitioners</p>
+				<h2 id="artists-title">Machine-assisted, human-directed</h2>
+				<p class="section-note">Nine artists working at the boundary of code and craft. Select a name to preview their signature system.</p>
+			</div>
+			<ul class="artist-list">
+				<li><button type="button" class="artist" data-signature="0">
+					<span class="artist-name">Mara Ellison</span>
+					<span class="artist-medium">Continuous flow fields</span>
+				</button></li>
+				<li><button type="button" class="artist" data-signature="1">
+					<span class="artist-name">Kojo Adeyemi</span>
+					<span class="artist-medium">Reaction–diffusion textiles</span>
+				</button></li>
+				<li><button type="button" class="artist" data-signature="2">
+					<span class="artist-name">Ines Vitale</span>
+					<span class="artist-medium">Attractor cartography</span>
+				</button></li>
+				<li><button type="button" class="artist" data-signature="3">
+					<span class="artist-name">Rune Halvorsen</span>
+					<span class="artist-medium">Voronoi landscapes</span>
+				</button></li>
+			</ul>
+		</section>
+
+		<section id="visit" class="band visit" aria-labelledby="visit-title" tabindex="-1">
+			<div class="band-head">
+				<p class="section-kicker">Plan your visit</p>
+				<h2 id="visit-title">The gallery is always open</h2>
+			</div>
+			<div class="visit-grid">
+				<div class="visit-card">
+					<h3>Hours</h3>
+					<p>Open continuously. The field re-seeds at every dawn — local to wherever you are.</p>
+				</div>
+				<div class="visit-card">
+					<h3>Editions</h3>
+					<p>Each work you generate carries a unique seed. Reseed as often as you like; the previous state is never recoverable.</p>
+				</div>
+				<div class="visit-card">
+					<h3>Provenance</h3>
+					<p>Everything renders on your device. Nothing is uploaded, tracked, or stored beyond your session.</p>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<p class="footer-mark">Latent<em>Gallery</em></p>
+		<p class="footer-note">Exhibition 13 / Emergence — a self-contained, offline generative showcase.</p>
+	</footer>
+
+	<div class="livemsg" role="status" aria-live="polite"></div>
+</body>
+</html>

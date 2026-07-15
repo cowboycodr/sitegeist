@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <meta name="description" content="Paloma — a neighborhood kitchen in Roma Norte, Mexico City. Coastal plates, mezcal, and warm evenings around the fire." />
+  <meta name="theme-color" content="#17110d" />
+  <title>Paloma · Wood fire, citrus, late nights</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2317110d'/%3E%3Cpath d='M16 6c5 2 7 6 7 10a7 7 0 0 1-14 0c0-2 .8-3.6 2-5 .2 2 1.2 3 2.5 3.4C12.8 12.4 13 9 16 6z' fill='%23e8622a'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#menu">Skip to the menu</a>
+
+  <div class="ember-field" aria-hidden="true" data-embers>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="Paloma, home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" role="img" focusable="false">
+          <path d="M16 4c6 2.4 9 7.2 9 12a9 9 0 0 1-18 0c0-2.6 1-4.9 2.7-6.8.2 2.7 1.5 4 3.3 4.6C12 10.8 12.3 6.6 16 4z" />
+        </svg>
+      </span>
+      <span class="brand-word">Paloma</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#menu">Menu</a>
+      <a href="#fire">The Fire</a>
+      <a href="#mezcal">Mezcal</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn-nav" href="#reserve">Book a table</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-nav-toggle>
+      <span class="sr-only">Toggle navigation</span>
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" data-mobile-nav hidden>
+    <a href="#menu">Menu</a>
+    <a href="#fire">The Fire</a>
+    <a href="#mezcal">Mezcal</a>
+    <a href="#visit">Visit</a>
+    <a class="btn" href="#reserve">Book a table</a>
+  </nav>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="eyebrow">Mexico City / Roma Norte</p>
+        <h1 id="hero-title">Wood fire,<br /><em>citrus,</em><br />late nights.</h1>
+        <p class="lede">A neighborhood kitchen serving coastal plates, mezcal, and warm evenings around the fire.</p>
+        <div class="hero-actions">
+          <a class="btn btn-lg" href="#reserve">Book a table</a>
+          <a class="btn btn-ghost btn-lg" href="#menu">See tonight's menu</a>
+        </div>
+        <dl class="hero-facts">
+          <div><dt>Kitchen</dt><dd>Tue–Sun · 6pm–1am</dd></div>
+          <div><dt>Fire</dt><dd>Coastal, live-flame</dd></div>
+          <div><dt>Bar</dt><dd>Agave &amp; citrus</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section marquee-wrap" aria-hidden="true">
+      <div class="marquee" data-marquee>
+        <span>Wood fire</span><span>·</span><span>Citrus</span><span>·</span><span>Mezcal</span><span>·</span><span>Late nights</span><span>·</span>
+        <span>Wood fire</span><span>·</span><span>Citrus</span><span>·</span><span>Mezcal</span><span>·</span><span>Late nights</span><span>·</span>
+      </div>
+    </section>
+
+    <section class="section menu" id="menu" aria-labelledby="menu-title">
+      <div class="section-head">
+        <p class="kicker">Tonight's kitchen</p>
+        <h2 id="menu-title">The menu</h2>
+        <p class="section-note">Plates change with the market and the tide. This is where the fire is pointed today.</p>
+      </div>
+
+      <div class="menu-tabs" role="tablist" aria-label="Menu sections" data-tabs>
+        <button role="tab" id="tab-fire" aria-controls="panel-fire" aria-selected="true" class="menu-tab">From the fire</button>
+        <button role="tab" id="tab-sea" aria-controls="panel-sea" aria-selected="false" tabindex="-1" class="menu-tab">Raw &amp; the sea</button>
+        <button role="tab" id="tab-sides" aria-controls="panel-sides" aria-selected="false" tabindex="-1" class="menu-tab">Sides &amp; masa</button>
+        <button role="tab" id="tab-sweet" aria-controls="panel-sweet" aria-selected="false" tabindex="-1" class="menu-tab">Sweet</button>
+      </div>
+
+      <div class="menu-panels">
+        <div role="tabpanel" id="panel-fire" aria-labelledby="tab-fire" class="menu-panel" tabindex="0">
+          <ul class="dish-list">
+            <li class="dish"><div class="dish-line"><h3>Whole grilled robalo</h3><span class="price">460</span></div><p>Sea bass over embers, burnt-lime butter, charred cabbage.</p></li>
+            <li class="dish"><div class="dish-line"><h3>Ember short rib</h3><span class="price">380</span></div><p>Slow smoke, guajillo adobo, salsa de árbol, tortillas de maíz azul.</p></li>
+            <li class="dish"><div class="dish-line"><h3>Fire-roasted octopus</h3><span class="price">340</span></div><p>Pulpo, chorizo oil, white beans, pickled onion.</p></li>
+            <li class="dish"><div class="dish-line"><h3>Charred cauliflower</h3><span class="price">240</span></div><p>Whole head, pepita mole, orange zest, herbs from the roof.</p></li>
+          </ul>
+        </div>
+
+        <div role="tabpanel" id="panel-sea" aria-labelledby="tab-sea" class="menu-panel" tabindex="0" hidden>
+          <ul class="dish-list">
+            <li class="dish"><div class="dish-line"><h3>Tostada de atún</h3><span class="price">180</span></div><p>Tuna, avocado, chile serrano, crisp masa.</p></li>
+            <li class="dish"><div class="dish-line"><h3>Aguachile verde</h3><span class="price">220</span></div><p>Gulf shrimp, cucumber, lime, cilantro, a slow heat.</p></li>
+            <li class="dish"><div class="dish-line"><h3>Scallop ceviche</h3><span class="price">240</span></div><p>Bay scallop, blood orange, fennel, sal de gusano.</p></li>
+            <li class="dish"><div class="dish-line"><h3>Oysters of the day</h3><span class="price">45<small>/ea</small></span></div><p>Ensenada oysters, mezcal mignonette, lime.</p></li>
+          </ul>
+        </div>
+
+        <div role="tabpanel" id="panel-sides" aria-labelledby="tab-sides" class="menu-panel" tabindex="0" hidden>
+          <ul class="dish-list">
+            <li class="dish"><div class="dish-line"><h3>Tortillas hechas a mano</h3><span class="price">70</span></div><p>Nixtamal ground in-house, azul or blanco.</p></li>
+            <li class="dish"><div class="dish-line"><h3>Elote de brasa</h3><span class="price">120</span></div><p>Grilled corn, cotija, chile, lime crema.</p></li>
+            <li class="dish"><div class="dish-line"><h3>Frijoles de la olla</h3><span class="price">110</span></div><p>Slow beans, avocado leaf, queso fresco.</p></li>
+            <li class="dish"><div class="dish-line"><h3>Ensalada de nopal</h3><span class="price">130</span></div><p>Cactus, tomato, red onion, oregano, lime.</p></li>
+          </ul>
+        </div>
+
+        <div role="tabpanel" id="panel-sweet" aria-labelledby="tab-sweet" class="menu-panel" tabindex="0" hidden>
+          <ul class="dish-list">
+            <li class="dish"><div class="dish-line"><h3>Flan de cajeta</h3><span class="price">140</span></div><p>Goat-milk caramel, burnt sugar, sea salt.</p></li>
+            <li class="dish"><div class="dish-line"><h3>Citrus &amp; mezcal sorbet</h3><span class="price">120</span></div><p>Blood orange, grapefruit, a whisper of espadín.</p></li>
+            <li class="dish"><div class="dish-line"><h3>Chocolate de metate</h3><span class="price">150</span></div><p>Oaxacan chocolate tart, cinnamon, ancho.</p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fire" id="fire" aria-labelledby="fire-title">
+      <div class="fire-grid">
+        <div class="fire-copy">
+          <p class="kicker">The Fire</p>
+          <h2 id="fire-title">Everything passes over flame.</h2>
+          <p>Our kitchen is built around a single wood hearth. Mesquite and oak, lit at four, coaxed down to embers by six. Coastal fish arrives in the afternoon; by night it's kissed with citrus and smoke.</p>
+          <p>It's the kind of room where dinner turns into midnight — low light, a little music, mezcal poured slow.</p>
+          <ul class="fire-points">
+            <li><span class="dot" aria-hidden="true"></span> Live-flame hearth, no gas line</li>
+            <li><span class="dot" aria-hidden="true"></span> Whole fish from Baja, daily</li>
+            <li><span class="dot" aria-hidden="true"></span> Masa nixtamalized in-house</li>
+          </ul>
+        </div>
+        <div class="fire-art" aria-hidden="true">
+          <div class="hearth">
+            <span class="flame f1"></span>
+            <span class="flame f2"></span>
+            <span class="flame f3"></span>
+            <span class="log l1"></span>
+            <span class="log l2"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section mezcal" id="mezcal" aria-labelledby="mezcal-title">
+      <div class="section-head">
+        <p class="kicker">The Bar</p>
+        <h2 id="mezcal-title">Mezcal &amp; citrus</h2>
+        <p class="section-note">A short list, poured neat or stirred long. Ask and we'll pour something off the shelf.</p>
+      </div>
+      <div class="pour-grid">
+        <article class="pour">
+          <h3>La Paloma</h3>
+          <p class="pour-sub">The house</p>
+          <p>Espadín, grapefruit, lime, salt, soda. Our name in a glass.</p>
+          <p class="pour-price">160</p>
+        </article>
+        <article class="pour">
+          <h3>Smoke &amp; Orange</h3>
+          <p class="pour-sub">Stirred</p>
+          <p>Tobalá, blood orange, mezcal-washed bitters, orange oil.</p>
+          <p class="pour-price">185</p>
+        </article>
+        <article class="pour">
+          <h3>Neat pours</h3>
+          <p class="pour-sub">By the copita</p>
+          <p>Small-batch espadín, tobalá, and tepeztate from Oaxaca.</p>
+          <p class="pour-price">140+</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reserve" id="reserve" aria-labelledby="reserve-title">
+      <div class="reserve-grid">
+        <div class="reserve-intro">
+          <p class="kicker">Reservations</p>
+          <h2 id="reserve-title">Book a table</h2>
+          <p>We hold a few seats at the bar for walk-ins each night. For everything else, tell us when — we'll confirm by the end of the day.</p>
+          <p class="reserve-line"><strong>Or call</strong> <a href="tel:+525555550142">+52 55 5555 0142</a></p>
+        </div>
+        <form class="reserve-form" data-reserve novalidate>
+          <div class="field">
+            <label for="r-name">Name</label>
+            <input id="r-name" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="r-date">Date</label>
+              <input id="r-date" name="date" type="date" required />
+            </div>
+            <div class="field">
+              <label for="r-time">Time</label>
+              <input id="r-time" name="time" type="time" value="20:00" required />
+            </div>
+          </div>
+          <div class="field">
+            <label for="r-guests">Guests</label>
+            <select id="r-guests" name="guests">
+              <option>1</option><option selected>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option><option>7+</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="r-note">Anything we should know?</label>
+            <textarea id="r-note" name="note" rows="2" placeholder="Window seat, birthday, allergies…"></textarea>
+          </div>
+          <button class="btn btn-lg btn-full" type="submit">Request table</button>
+          <p class="form-status" role="status" aria-live="polite" data-status></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section visit" id="visit" aria-labelledby="visit-title">
+      <div class="section-head">
+        <p class="kicker">Find us</p>
+        <h2 id="visit-title">Visit</h2>
+      </div>
+      <div class="visit-grid">
+        <div class="visit-card">
+          <h3>Address</h3>
+          <p>Calle Colima 214<br />Roma Norte, Cuauhtémoc<br />06700 Ciudad de México</p>
+        </div>
+        <div class="visit-card">
+          <h3>Hours</h3>
+          <ul class="hours">
+            <li><span>Tue – Thu</span><span>6pm – 12am</span></li>
+            <li><span>Fri – Sat</span><span>6pm – 1am</span></li>
+            <li><span>Sunday</span><span>2pm – 11pm</span></li>
+            <li><span>Monday</span><span>Closed</span></li>
+          </ul>
+        </div>
+        <div class="visit-card">
+          <h3>Details</h3>
+          <p>Bar seating for walk-ins. Groups of 7+ by arrangement. Nearest Metrobús: Álvaro Obregón. Late kitchen every night we're open.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-word">Paloma</span>
+        <p>Wood fire, citrus, late nights.</p>
+      </div>
+      <p class="footer-meta">Roma Norte · Ciudad de México · <a href="#top">Back to top</a></p>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite" data-toast hidden></div>
+</body>
+</html>

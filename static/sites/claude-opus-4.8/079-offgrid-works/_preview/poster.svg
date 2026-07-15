@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Offgrid Works poster: an electric camper under a night sky above a pine ridge.">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1a22"/>
+      <stop offset="0.6" stop-color="#122e26"/>
+      <stop offset="1" stop-color="#1a3a30"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0b455"/>
+      <stop offset="1" stop-color="#c47a1f"/>
+    </linearGradient>
+    <linearGradient id="band" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2c584a"/>
+      <stop offset="1" stop-color="#1e3f34"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#sky)"/>
+
+  <!-- topographic contours -->
+  <g fill="none" stroke="#7d9a72" stroke-width="1.4" opacity="0.28">
+    <path d="M-40 160 C240 90 400 240 640 180 S1040 90 1240 180"/>
+    <path d="M-40 250 C240 180 400 330 640 270 S1040 180 1240 270"/>
+    <path d="M-40 340 C240 270 400 420 640 360 S1040 270 1240 360"/>
+    <path d="M-40 430 C240 360 400 510 640 450 S1040 360 1240 450"/>
+  </g>
+
+  <!-- moon -->
+  <circle cx="980" cy="180" r="70" fill="#f4efe4" opacity="0.94"/>
+  <circle cx="952" cy="164" r="70" fill="#0b1a22" opacity="0.92"/>
+
+  <!-- stars -->
+  <g fill="#f4efe4">
+    <circle cx="150" cy="120" r="3"/><circle cx="300" cy="90" r="2"/><circle cx="520" cy="140" r="2.4"/>
+    <circle cx="700" cy="100" r="1.8"/><circle cx="1080" cy="300" r="2.2"/><circle cx="230" cy="230" r="1.8"/>
+    <circle cx="820" cy="220" r="2"/><circle cx="420" cy="200" r="1.6"/><circle cx="120" cy="330" r="2"/>
+  </g>
+
+  <!-- pine ridge -->
+  <path d="M0 620 L200 400 L330 560 L500 340 L680 590 L860 430 L1040 620 L1200 500 L1200 900 L0 900 Z" fill="#10261f"/>
+  <path d="M260 700 L340 540 L420 700 Z M760 720 L840 560 L920 720 Z M40 720 L110 580 L180 720 Z" fill="#0b1d17"/>
+
+  <!-- camper -->
+  <g transform="translate(360 560)">
+    <rect x="0" y="60" width="470" height="180" rx="26" fill="url(#band)"/>
+    <rect x="0" y="60" width="470" height="42" rx="20" fill="#356857"/>
+    <!-- solar roof rack -->
+    <rect x="10" y="40" width="300" height="22" rx="8" fill="#1a4235"/>
+    <rect x="24" y="30" width="272" height="14" rx="6" fill="#3a6b52"/>
+    <!-- windows -->
+    <rect x="46" y="118" width="110" height="80" rx="12" fill="url(#glow)"/>
+    <rect x="180" y="118" width="110" height="80" rx="12" fill="url(#glow)"/>
+    <!-- door -->
+    <rect x="320" y="104" width="104" height="120" rx="12" fill="#12352b"/>
+    <rect x="336" y="120" width="72" height="52" rx="6" fill="url(#glow)"/>
+    <circle cx="332" cy="176" r="5" fill="#f4efe4"/>
+    <!-- cab -->
+    <path d="M0 60 L0 224 L-56 224 L-56 118 Q-56 60 0 60 Z" fill="#356857"/>
+    <rect x="-46" y="128" width="38" height="48" rx="7" fill="#8fb7c4" opacity="0.7"/>
+    <!-- wheels -->
+    <circle cx="90" cy="244" r="34" fill="#0b1d17" stroke="#3a6b52" stroke-width="7"/>
+    <circle cx="360" cy="244" r="34" fill="#0b1d17" stroke="#3a6b52" stroke-width="7"/>
+  </g>
+
+  <!-- wordmark -->
+  <g font-family="'Avenir Next','Segoe UI',system-ui,sans-serif">
+    <rect x="88" y="86" width="66" height="66" rx="16" fill="#17322a"/>
+    <path d="M104 128 L121 108 L138 128 Z" fill="none" stroke="#e8a13c" stroke-width="3.4" stroke-linejoin="round"/>
+    <rect x="112" y="128" width="18" height="10" rx="2.5" fill="#7d9a72"/>
+    <text x="172" y="118" fill="#f4efe4" font-size="42" font-weight="800" letter-spacing="-1">Offgrid Works</text>
+    <text x="172" y="146" fill="#e8a13c" font-size="17" font-weight="700" letter-spacing="4">ADVENTURE VEHICLES</text>
+  </g>
+
+  <!-- tagline block -->
+  <g font-family="'Avenir Next','Segoe UI',system-ui,sans-serif" fill="#f4efe4">
+    <text x="88" y="742" fill="#e8a13c" font-size="22" font-weight="700" letter-spacing="5">BUILT BEYOND THE MAP</text>
+    <text x="86" y="810" font-size="64" font-weight="800" letter-spacing="-2">A cabin with</text>
+    <text x="86" y="874" font-size="64" font-weight="800" letter-spacing="-2">a steering wheel.</text>
+  </g>
+</svg>

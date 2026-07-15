@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-label="Afterimage Archive — What remains after looking.">
+  <defs>
+    <radialGradient id="expose" cx="32%" cy="26%" r="85%">
+      <stop offset="0%" stop-color="#b8622a"/>
+      <stop offset="38%" stop-color="#5a2410"/>
+      <stop offset="100%" stop-color="#0b0c0f"/>
+    </radialGradient>
+    <radialGradient id="glowCyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4fd6cf"/>
+      <stop offset="70%" stop-color="#4fd6cf" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowMagenta" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e26db0"/>
+      <stop offset="70%" stop-color="#e26db0" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.09"/></feComponentTransfer>
+    </filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="6"/></filter>
+    <style>
+      .name { font-family: "Iowan Old Style", Palatino, "Book Antiqua", Georgia, serif; font-weight: 500; }
+      .mono { font-family: ui-sans-serif, "Segoe UI", Helvetica, Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <!-- Base -->
+  <rect width="1200" height="900" fill="#0b0c0f"/>
+
+  <!-- Exposure field / procedural photograph -->
+  <rect x="80" y="80" width="1040" height="500" rx="12" fill="url(#expose)"/>
+  <!-- Complementary afterimage halos rising off the field -->
+  <ellipse cx="430" cy="270" rx="260" ry="220" fill="url(#glowCyan)" opacity="0.55" filter="url(#soft)" style="mix-blend-mode:screen"/>
+  <ellipse cx="770" cy="360" rx="220" ry="180" fill="url(#glowMagenta)" opacity="0.5" filter="url(#soft)" style="mix-blend-mode:screen"/>
+
+  <!-- Frame edge + plate number -->
+  <rect x="80" y="80" width="1040" height="500" rx="12" fill="none" stroke="#2a2c33" stroke-width="1.5"/>
+  <g class="mono" fill="#ece7dd">
+    <rect x="112" y="112" width="150" height="34" rx="5" fill="#0b0c0f" opacity="0.55"/>
+    <text x="128" y="135" font-size="20" letter-spacing="5">PLATE 014</text>
+  </g>
+
+  <!-- Overlapping afterimage discs, the mark -->
+  <g style="mix-blend-mode:screen">
+    <circle cx="1000" cy="470" r="70" fill="url(#glowCyan)"/>
+    <circle cx="1042" cy="470" r="70" fill="url(#glowMagenta)"/>
+  </g>
+
+  <!-- Eyebrow -->
+  <text x="80" y="660" class="mono" fill="#4fd6cf" font-size="24" letter-spacing="7">ARCHIVE 001—947 · 1968–1999</text>
+
+  <!-- Wordmark with complementary ghosting -->
+  <g class="name" font-size="118" letter-spacing="-2">
+    <text x="76" y="782" fill="#e26db0" opacity="0.5" style="mix-blend-mode:screen">Afterimage</text>
+    <text x="84" y="778" fill="#4fd6cf" opacity="0.5" style="mix-blend-mode:screen">Afterimage</text>
+    <text x="80" y="780" fill="#ece7dd">Afterimage</text>
+  </g>
+  <text x="80" y="866" class="name" font-size="40" fill="#a29b8e">Archive — <tspan font-style="italic">what remains after looking.</tspan></text>
+
+  <!-- Grain over everything -->
+  <rect width="1200" height="900" filter="url(#grain)" style="mix-blend-mode:screen"/>
+</svg>

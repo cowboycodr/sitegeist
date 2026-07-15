@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Transit 2050 — The city moves when everyone can.">
+	<defs>
+		<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#0a1224" />
+			<stop offset="0.55" stop-color="#0b1428" />
+			<stop offset="1" stop-color="#070d1a" />
+		</linearGradient>
+		<radialGradient id="halo" cx="76%" cy="30%" r="55%">
+			<stop offset="0" stop-color="#35e0d0" stop-opacity="0.28" />
+			<stop offset="1" stop-color="#35e0d0" stop-opacity="0" />
+		</radialGradient>
+		<radialGradient id="halo2" cx="12%" cy="88%" r="50%">
+			<stop offset="0" stop-color="#9784ff" stop-opacity="0.22" />
+			<stop offset="1" stop-color="#9784ff" stop-opacity="0" />
+		</radialGradient>
+		<style>
+			.t { font-family: 'Segoe UI', system-ui, Arial, sans-serif; }
+		</style>
+	</defs>
+
+	<rect width="1200" height="900" fill="url(#bg)" />
+	<rect width="1200" height="900" fill="url(#halo)" />
+	<rect width="1200" height="900" fill="url(#halo2)" />
+
+	<!-- grid -->
+	<g stroke="#21365e" stroke-width="1" opacity="0.35">
+		<path d="M0 150 H1200 M0 300 H1200 M0 450 H1200 M0 600 H1200 M0 750 H1200" />
+		<path d="M150 0 V900 M300 0 V900 M450 0 V900 M600 0 V900 M750 0 V900 M900 0 V900 M1050 0 V900" />
+	</g>
+
+	<!-- transit network motif -->
+	<g fill="none" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+		<polyline points="120,720 320,560 560,560 760,360 1040,300" stroke="#35e0d0" />
+		<polyline points="180,300 380,470 620,470 820,700 1060,700" stroke="#ffb14e" />
+		<polyline points="320,560 500,300 760,360 620,470 320,560" stroke="#9784ff" opacity="0.9" />
+		<polyline points="120,720 180,300 500,300" stroke="#8fe36b" opacity="0.85" />
+	</g>
+	<g fill="#0a1224" stroke="#dbe9ff" stroke-width="6">
+		<circle cx="320" cy="560" r="17" />
+		<circle cx="560" cy="560" r="17" />
+		<circle cx="760" cy="360" r="17" />
+		<circle cx="500" cy="300" r="17" />
+		<circle cx="620" cy="470" r="17" />
+		<circle cx="180" cy="300" r="17" />
+		<circle cx="820" cy="700" r="17" />
+		<circle cx="1040" cy="300" r="17" />
+	</g>
+
+	<!-- brand mark -->
+	<g transform="translate(96, 96)">
+		<circle cx="30" cy="30" r="28" fill="none" stroke="#35e0d0" stroke-width="4" />
+		<path d="M12 42 L26 20 L34 34 L48 15" fill="none" stroke="#35e0d0" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+		<circle cx="12" cy="42" r="5" fill="#ffb14e" />
+		<circle cx="48" cy="15" r="5" fill="#9784ff" />
+	</g>
+
+	<!-- text -->
+	<text class="t" x="96" y="360" fill="#35e0d0" font-size="30" font-weight="700" letter-spacing="7">A MOBILITY PLAN FOR EVERYONE</text>
+	<text class="t" x="92" y="470" fill="#e8eefb" font-size="128" font-weight="800" letter-spacing="-3">Transit<tspan fill="#ffb14e"> 2050</tspan></text>
+	<text class="t" x="96" y="560" fill="#e8eefb" font-size="56" font-weight="700">The city moves when everyone can.</text>
+	<text class="t" x="96" y="620" fill="#9db0d0" font-size="30" font-weight="400">Faster, cleaner, and more equitable urban transportation.</text>
+
+	<!-- pill stats -->
+	<g class="t" font-weight="700">
+		<g transform="translate(96, 720)">
+			<rect width="230" height="96" rx="16" fill="#142441" stroke="#21365e" />
+			<text x="24" y="44" fill="#35e0d0" font-size="40">96%</text>
+			<text x="24" y="74" fill="#9db0d0" font-size="19" font-weight="400">5-min walk to transit</text>
+		</g>
+		<g transform="translate(350, 720)">
+			<rect width="210" height="96" rx="16" fill="#142441" stroke="#21365e" />
+			<text x="24" y="44" fill="#ffb14e" font-size="40">100%</text>
+			<text x="24" y="74" fill="#9db0d0" font-size="19" font-weight="400">zero-emission fleet</text>
+		</g>
+		<g transform="translate(584, 720)">
+			<rect width="210" height="96" rx="16" fill="#142441" stroke="#21365e" />
+			<text x="24" y="44" fill="#9784ff" font-size="40">3 min</text>
+			<text x="24" y="74" fill="#9db0d0" font-size="19" font-weight="400">average peak wait</text>
+		</g>
+	</g>
+
+	<rect x="0.5" y="0.5" width="1199" height="899" fill="none" stroke="#21365e" stroke-width="1" />
+</svg>

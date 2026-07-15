@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="description" content="Finale — three days of digital art, sound, code, performance, and conversations beyond the interface.">
+<meta name="color-scheme" content="dark">
+<title>Finale — One hundred visions. One strange future.</title>
+<link rel="stylesheet" href="styles.css">
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#program">Skip to program</a>
+
+<div class="field" aria-hidden="true">
+  <canvas id="constellation"></canvas>
+</div>
+
+<header class="topbar">
+  <div class="wordmark">
+    <span class="mark" aria-hidden="true">▲</span>
+    <span class="name">Finale</span>
+  </div>
+  <nav class="nav" aria-label="Primary">
+    <a href="#program">Program</a>
+    <a href="#visions">Visions</a>
+    <a href="#info">Info</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="eyebrow">October&nbsp;08–10 &nbsp;/&nbsp; Everywhere</p>
+    <h1 id="hero-title">One&nbsp;hundred visions.<br><span class="accent">One strange future.</span></h1>
+    <p class="lede">Three days of digital art, sound, code, performance, and conversations beyond the interface.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#program">Enter the festival</a>
+      <a class="btn btn-ghost" href="#program">View the program</a>
+    </div>
+    <dl class="counters" aria-label="Festival at a glance">
+      <div><dt>Visions</dt><dd data-count="100">100</dd></div>
+      <div><dt>Days</dt><dd data-count="3">3</dd></div>
+      <div><dt>Stages</dt><dd data-count="12">12</dd></div>
+      <div><dt>Cost</dt><dd class="nocount">Free</dd></div>
+    </dl>
+  </section>
+
+  <section class="visions" id="visions" aria-labelledby="visions-title">
+    <div class="section-head">
+      <h2 id="visions-title">Visions in rotation</h2>
+      <p>The marquee never stops. A live index of what is being imagined right now.</p>
+    </div>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track" id="ticker-track"></div>
+    </div>
+  </section>
+
+  <section class="program" id="program" aria-labelledby="program-title">
+    <div class="section-head">
+      <h2 id="program-title">The program</h2>
+      <p>Choose a day. Every strand runs across all twelve stages, online and off.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Festival days">
+      <button role="tab" id="tab-d1" aria-controls="panel-d1" aria-selected="true" class="tab">Day 01 · Signal</button>
+      <button role="tab" id="tab-d2" aria-controls="panel-d2" aria-selected="false" tabindex="-1" class="tab">Day 02 · Noise</button>
+      <button role="tab" id="tab-d3" aria-controls="panel-d3" aria-selected="false" tabindex="-1" class="tab">Day 03 · Finale</button>
+    </div>
+
+    <div class="panels">
+      <div role="tabpanel" id="panel-d1" aria-labelledby="tab-d1" class="panel">
+        <ul class="slots">
+          <li><span class="time">10:00</span><div><h3>Cold Boot</h3><p>Opening rite for machines waking up. Generative organ, live.</p></div><span class="tag">Sound</span></li>
+          <li><span class="time">13:30</span><div><h3>Latent Gardens</h3><p>Walk-through diffusion installations that grow as you look.</p></div><span class="tag">Art</span></li>
+          <li><span class="time">16:00</span><div><h3>Teaching Stones to Count</h3><p>A hands-on hour building tiny computers from almost nothing.</p></div><span class="tag">Code</span></li>
+          <li><span class="time">20:30</span><div><h3>First Contact</h3><p>Choir and synthesiser answering signals from an unknown sender.</p></div><span class="tag">Live</span></li>
+        </ul>
+      </div>
+      <div role="tabpanel" id="panel-d2" aria-labelledby="tab-d2" class="panel" hidden>
+        <ul class="slots">
+          <li><span class="time">11:00</span><div><h3>The Glitch Museum</h3><p>Corrupted archives, curated. Beauty from broken formats.</p></div><span class="tag">Art</span></li>
+          <li><span class="time">14:00</span><div><h3>Protocols of Care</h3><p>A conversation on building networks that hold people gently.</p></div><span class="tag">Talk</span></li>
+          <li><span class="time">17:30</span><div><h3>Feedback Loop</h3><p>Modular jam where the room's noise plays the instruments back.</p></div><span class="tag">Sound</span></li>
+          <li><span class="time">22:00</span><div><h3>Static Rave</h3><p>Bring your own frequency. Twelve stages, one waveform.</p></div><span class="tag">Live</span></li>
+        </ul>
+      </div>
+      <div role="tabpanel" id="panel-d3" aria-labelledby="tab-d3" class="panel" hidden>
+        <ul class="slots">
+          <li><span class="time">12:00</span><div><h3>Unfinished Manifestos</h3><p>Read your future aloud. The archive keeps every draft.</p></div><span class="tag">Talk</span></li>
+          <li><span class="time">15:00</span><div><h3>Ghosts in the Render</h3><p>Performance in a volumetric fog you can reach into.</p></div><span class="tag">Live</span></li>
+          <li><span class="time">18:30</span><div><h3>The Hundredth Vision</h3><p>All ninety-nine works collapse into a single closing image.</p></div><span class="tag">Art</span></li>
+          <li><span class="time">21:00</span><div><h3>Finale</h3><p>The lights go strange. We turn the future off together.</p></div><span class="tag">Sound</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="info" id="info" aria-labelledby="info-title">
+    <div class="section-head">
+      <h2 id="info-title">Beyond the interface</h2>
+    </div>
+    <div class="info-grid">
+      <article><h3>Everywhere</h3><p>Finale has no single address. It streams into rooms, headsets, plazas, and speakers wherever you choose to gather.</p></article>
+      <article><h3>Free &amp; open</h3><p>No ticket, no gate. Every vision is public. Bring collaborators, bring skeptics, bring the future you fear.</p></article>
+      <article><h3>Made in the open</h3><p>All hundred works ship with their source. Remix them, break them, and send the pieces back to us.</p></article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wordmark">
+    <span class="mark" aria-hidden="true">▲</span>
+    <span class="name">Finale</span>
+  </div>
+  <p class="tagline">One hundred visions. One strange future.</p>
+  <p class="fineprint">A festival of digital culture · October 08–10 · Everywhere</p>
+</footer>
+</body>
+</html>
