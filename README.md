@@ -85,3 +85,7 @@ Use [`.skills/add-model/SKILL.md`](.skills/add-model/SKILL.md) as the operationa
 - Provider behavior, model aliases, and agent tooling can change over time. The committed reports preserve the configuration and evidence for these runs.
 
 Created by [Kian McKenna](https://kian.im).
+
+## License
+
+Sitegeist is available under the [MIT License](LICENSE).
