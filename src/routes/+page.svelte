@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { ArrowUp, ChevronDown, ChevronLeft, ChevronRight, Plus, Share2, X } from '@lucide/svelte';
+	import { ArrowUp, BookOpen, ChevronDown, ChevronLeft, ChevronRight, Plus, Share2, X } from '@lucide/svelte';
 	import { flip } from 'svelte/animate';
 	import { quintOut } from 'svelte/easing';
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
+	import BriefPanel from '$lib/components/BriefPanel.svelte';
 	import SiteExperience from '$lib/components/SiteExperience.svelte';
 	import SitePreview from '$lib/components/SitePreview.svelte';
+	import { briefBySlug } from '$lib/briefs';
 	import {
 		siteArtifactByModel,
 		type BenchmarkModel
@@ -106,6 +108,7 @@
 	let viewerBackdropElement = $state<HTMLDivElement>();
 	let viewerControlsElement = $state<HTMLDivElement>();
 	let compareControlElement = $state<HTMLDivElement>();
+	let briefControlElement = $state<HTMLButtonElement>();
 	let galleryFooterTextElement: HTMLParagraphElement;
 	let returnToTopElement: HTMLAnchorElement;
 	let showReturnToTop = $state(false);
@@ -122,6 +125,7 @@
 	let modelMenuOpen = $state(false);
 	let addMenuOpen = $state(false);
 	let comparisonMenu = $state<'second' | 'third' | null>(null);
+	let briefOpen = $state(false);
 	let compareModel = $state<BenchmarkModel | null>(null);
 	let thirdModel = $state<BenchmarkModel | null>(null);
 	let draggedModelOrder = $state<BenchmarkModel[] | null>(null);
@@ -144,6 +148,7 @@
 	let visibleSites = $derived(sitesByModel[activeModel]);
 	let activeArtifactBySlug = $derived(siteArtifactByModel[activeModel]);
 	let selectedArtifact = $derived(selected ? activeArtifactBySlug.get(selected.slug) ?? null : null);
+	let selectedBrief = $derived(selected ? briefBySlug.get(selected.slug) ?? null : null);
 	let selectedArtifactUrl = $derived(
 		selectedArtifact && artifactChannel
 			? `${selectedArtifact.artifactUrl}?sitegeistSlug=${encodeURIComponent(selectedArtifact.slug)}&sitegeistChannel=${encodeURIComponent(artifactChannel)}`
@@ -342,6 +347,7 @@
 		viewerArtifactReady = false;
 		comparisonArtifactReady = false;
 		thirdArtifactReady = false;
+		briefOpen = false;
 		artifactChannel = createArtifactChannel(nextSite);
 		selected = nextSite;
 	}
@@ -366,6 +372,7 @@
 		viewerArtifactReady = false;
 		comparisonArtifactReady = false;
 		thirdArtifactReady = false;
+		briefOpen = false;
 		artifactChannel = createArtifactChannel(site);
 		expandOrigin = {
 			x: rect.left,
@@ -433,6 +440,7 @@
 		modelMenuOpen = false;
 		addMenuOpen = false;
 		comparisonMenu = null;
+		briefOpen = false;
 		compareModel = null;
 		thirdModel = null;
 		viewerToast = null;
@@ -481,6 +489,16 @@
 		}
 	}
 
+	function closeBriefPanel(restoreFocus = true) {
+		briefOpen = false;
+		if (restoreFocus) void tick().then(() => briefControlElement?.focus());
+	}
+
+	function toggleBriefPanel() {
+		dismissModelMenus();
+		briefOpen = !briefOpen;
+	}
+
 	function selectComparisonModel(model: BenchmarkModel) {
 		if (model === compareModel) return;
 		comparisonArtifactReady = false;
@@ -518,12 +536,14 @@
 	}
 
 	function toggleModelMenu() {
+		briefOpen = false;
 		modelMenuOpen = !modelMenuOpen;
 		addMenuOpen = false;
 		comparisonMenu = null;
 	}
 
 	function toggleComparisonMenu(slot: 'second' | 'third') {
+		briefOpen = false;
 		comparisonMenu = comparisonMenu === slot ? null : slot;
 		modelMenuOpen = false;
 		addMenuOpen = false;
@@ -531,6 +551,7 @@
 
 	function handleCompareControl() {
 		if (!availableComparisonModels.length) return;
+		briefOpen = false;
 		modelMenuOpen = false;
 		comparisonMenu = null;
 		if (availableComparisonModels.length > 1) {
@@ -758,6 +779,7 @@
 
 	function activatePullGesture(gesture: PullGesture) {
 		gesture.phase = 'dragging';
+		briefOpen = false;
 		expandOrigin = null;
 		for (const animation of viewerEntryElement?.getAnimations() ?? []) animation.cancel();
 		for (const animation of viewerControlsElement?.getAnimations() ?? []) animation.cancel();
@@ -1182,6 +1204,10 @@
 
 	function handleViewerShortcut(key: string) {
 		if (!selected || viewerSettling) return;
+		if (key === 'Escape' && briefOpen) {
+			closeBriefPanel();
+			return;
+		}
 		if (key === 'Escape' && (modelMenuOpen || addMenuOpen || comparisonMenu)) {
 			modelMenuOpen = false;
 			addMenuOpen = false;
@@ -1681,6 +1707,9 @@
 		{#if viewerToast}
 			<div class="viewer-toast" role="status">{viewerToast}</div>
 		{/if}
+		{#if briefOpen && selectedBrief}
+			<BriefPanel brief={selectedBrief} onclose={closeBriefPanel} />
+		{/if}
 		{#if modelTabDrag?.moved}
 			<div
 				class="model-tab-drag-ghost"
@@ -1698,6 +1727,21 @@
 				<div class="close-control-pill">
 					<button class="close-control" onclick={closeSite} aria-label="Close site and return to gallery" title="Close"><X size={16} strokeWidth={2.2} /></button>
 					<button class="share-control" onclick={shareSelectedSite} aria-label="Share this website" title="Share"><Share2 size={15} strokeWidth={2.1} /></button>
+					{#if selectedBrief}
+						<button
+							class="brief-control"
+							class:active={briefOpen}
+							bind:this={briefControlElement}
+							onclick={toggleBriefPanel}
+							aria-label={briefOpen ? 'Close website brief' : 'View website brief'}
+							aria-expanded={briefOpen}
+							aria-controls="site-brief-panel"
+							title={briefOpen ? 'Close brief' : 'View brief'}
+						>
+							<BookOpen size={15} strokeWidth={2.1} />
+							<span>Brief</span>
+						</button>
+					{/if}
 				</div>
 				<div class="model-control-wrap" class:mobile-model-only={!desktopCompareAvailable} class:reordering={Boolean(modelTabDrag?.moved)}>
 						{#each displayedModels as model, modelIndex (model)}
@@ -1995,6 +2039,8 @@
 	.viewer-controls button:focus-visible { outline: 1px solid rgba(255, 255, 255, 0.7); outline-offset: -1px; }
 	.close-control { display: grid; width: 34px; min-width: 34px; place-items: center; padding: 0; background: #fff !important; color: #111 !important; cursor: pointer; }
 	.share-control { display: grid; width: 34px; min-width: 34px; place-items: center; padding: 0; color: rgba(255, 255, 255, 0.78); cursor: pointer; }
+	.brief-control { display: flex; min-width: 34px; align-items: center; justify-content: center; gap: 6px; padding: 0 10px; color: rgba(255, 255, 255, 0.78); font: 700 10px/1 'Inter Variable', Inter, sans-serif; cursor: pointer; }
+	.brief-control.active { background: rgba(255, 255, 255, 0.12); color: #fff; }
 	.model-segment { display: flex; height: 34px; max-width: min(145px, calc(50vw - 135px)); align-items: center; gap: 7px; padding: 0 8px 0 11px; font: 700 10px/1 'Inter Variable', Inter, sans-serif; letter-spacing: -0.01em; white-space: nowrap; }
 	.model-control, .comparison-model-control { cursor: pointer; }
 	.model-segment > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
@@ -2048,6 +2094,9 @@
 	@media (max-width: 430px) {
 		.card-caption p { display: none; }
 		.viewer-controls { bottom: 8px; max-width: calc(100vw - 12px); }
+		.brief-control { width: 34px; padding: 0; }
+		.brief-control span { display: none; }
+		.model-control-wrap.mobile-model-only .model-segment { max-width: min(112px, calc(100vw - 270px)); }
 		.viewer-id { min-width: 31px; padding-inline: 3px; }
 		.right-controls button { min-width: 30px; }
 		.right-controls .step-control { min-width: 33px; }
