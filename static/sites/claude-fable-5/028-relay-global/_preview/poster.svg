@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="t d">
+  <title id="t">Relay Global</title>
+  <desc id="d">Poster showing a dark navy globe with amber and teal freight routes, the Relay Global wordmark, and the tagline: every shipment, perfectly in motion.</desc>
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#16304f"/>
+      <stop offset="100%" stop-color="#0a1220"/>
+    </radialGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1a2d"/>
+      <stop offset="100%" stop-color="#0a1220"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+
+  <!-- faint grid -->
+  <g stroke="#16273f" stroke-width="1">
+    <path d="M0 225H1200M0 450H1200M0 675H1200"/>
+    <path d="M300 0V900M600 0V900M900 0V900"/>
+  </g>
+
+  <!-- globe -->
+  <g transform="translate(600 560)">
+    <circle r="270" fill="url(#glow)" stroke="#24405f" stroke-width="2"/>
+    <g fill="none" stroke="#24405f" stroke-width="1.5">
+      <ellipse rx="270" ry="100"/>
+      <ellipse rx="270" ry="200"/>
+      <ellipse rx="100" ry="270"/>
+      <ellipse rx="200" ry="270"/>
+      <line x1="-270" y1="0" x2="270" y2="0"/>
+      <line x1="0" y1="-270" x2="0" y2="270"/>
+    </g>
+    <g fill="none" stroke-width="6" stroke-linecap="round">
+      <path d="M-180 -70 Q 0 -240 180 -95" stroke="#ffb454" stroke-dasharray="14 18"/>
+      <path d="M-150 90 Q 30 0 170 80" stroke="#3fd0c9" stroke-dasharray="12 16"/>
+      <path d="M-90 180 Q 60 60 150 -140" stroke="#7aa7d9" stroke-dasharray="10 14"/>
+    </g>
+    <g stroke="#0a1220" stroke-width="4">
+      <circle cx="-180" cy="-70" r="11" fill="#ffb454"/>
+      <circle cx="180" cy="-95" r="11" fill="#ffb454"/>
+      <circle cx="-150" cy="90" r="11" fill="#3fd0c9"/>
+      <circle cx="170" cy="80" r="11" fill="#3fd0c9"/>
+      <circle cx="-90" cy="180" r="11" fill="#7aa7d9"/>
+      <circle cx="150" cy="-140" r="11" fill="#7aa7d9"/>
+    </g>
+  </g>
+
+  <!-- brand mark -->
+  <g transform="translate(84 84)">
+    <rect width="88" height="88" rx="20" fill="#14243d" stroke="#24405f" stroke-width="2"/>
+    <path d="M18 58 40 30l14 17 19-25" fill="none" stroke="#ffb454" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- type -->
+  <g font-family="'Avenir Next','Segoe UI',system-ui,sans-serif">
+    <text x="200" y="126" fill="#ffb454" font-size="26" font-weight="700" letter-spacing="7">CONNECTED FREIGHT NETWORK</text>
+    <text x="200" y="182" fill="#e8eef7" font-size="76" font-weight="800" letter-spacing="-1">Relay <tspan fill="#ffb454">Global</tspan></text>
+    <text x="600" y="278" fill="#9db1c9" font-size="34" font-weight="600" text-anchor="middle">Every shipment, perfectly in motion.</text>
+  </g>
+
+  <!-- footer stats band -->
+  <g font-family="'Avenir Next','Segoe UI',system-ui,sans-serif" text-anchor="middle">
+    <text x="240" y="836" fill="#3fd0c9" font-size="42" font-weight="800">1,842</text>
+    <text x="240" y="866" fill="#9db1c9" font-size="19" letter-spacing="3">ACTIVE LANES</text>
+    <text x="600" y="836" fill="#3fd0c9" font-size="42" font-weight="800">214</text>
+    <text x="600" y="866" fill="#9db1c9" font-size="19" letter-spacing="3">HUBS ONLINE</text>
+    <text x="960" y="836" fill="#3fd0c9" font-size="42" font-weight="800">98.6%</text>
+    <text x="960" y="866" fill="#9db1c9" font-size="19" letter-spacing="3">ON-TIME HANDOFFS</text>
+  </g>
+
+  <rect x="6" y="6" width="1188" height="888" rx="20" fill="none" stroke="#24405f" stroke-width="2"/>
+</svg>

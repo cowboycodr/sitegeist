@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+<title>Glyph Department — Typefaces with something to say.</title>
+<meta name="description" content="An independent foundry where variable letters stretch, collide, and perform across every screen.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23101014'/%3E%3Ctext x='16' y='24' font-family='Georgia,serif' font-size='24' fill='%23ff4d1c' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#tester">Skip to the type tester</a>
+
+<header class="masthead">
+  <a class="wordmark" href="#top" aria-label="Glyph Department, home">
+    <span class="wordmark-g" aria-hidden="true">G</span>
+    <span class="wordmark-text">Glyph<br>Dept<span class="dot">.</span></span>
+  </a>
+  <nav aria-label="Primary">
+    <ul class="nav-list">
+      <li><a href="#tester">Tester</a></li>
+      <li><a href="#families">Families</a></li>
+      <li><a href="#principles">Principles</a></li>
+      <li><a href="#licensing">Licensing</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+  <!-- ======================= HERO ======================= -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <p class="eyebrow">Independent type foundry</p>
+    <h1 id="hero-heading" class="hero-title">
+      <span class="hero-line"><span class="stretch w1">Type</span><span class="stretch w2">faces</span></span>
+      <span class="hero-line"><span class="stretch w3">with</span> <span class="stretch w4">some&shy;thing</span></span>
+      <span class="hero-line"><span class="stretch w5">to</span> <span class="stretch w6">say.</span></span>
+    </h1>
+    <p class="hero-copy">An independent foundry where variable letters stretch, collide, and perform across every screen. Six families, forty-one styles, zero apologies.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#tester">Test the type</a>
+      <a class="btn btn-ghost" href="#families">Browse families</a>
+    </div>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz 0123456789 ¶ § ★ →&nbsp;</span>
+        <span>Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz 0123456789 ¶ § ★ →&nbsp;</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= TYPE TESTER ======================= -->
+  <section class="tester" id="tester" aria-labelledby="tester-heading">
+    <div class="section-head">
+      <h2 id="tester-heading"><span class="index">01</span> The proving ground</h2>
+      <p>Type your own words, then drag the axes. Every control below rewrites the specimen live — no reloads, no mercy.</p>
+    </div>
+
+    <div class="tester-stage">
+      <p class="stage-meta"><span id="stage-family-name">Marrow Display</span> · <span id="stage-style-readout">wt 700 / 64 px</span></p>
+      <div class="stage-text" id="stage-text" contenteditable="true" spellcheck="false" role="textbox" aria-multiline="true" aria-label="Editable type specimen. Type to replace the sample text.">Hefty quartz jukebox</div>
+    </div>
+
+    <form class="tester-controls" aria-label="Type tester controls">
+      <div class="control">
+        <label for="axis-size">Size <output id="out-size" for="axis-size">64</output><span class="unit">px</span></label>
+        <input type="range" id="axis-size" min="16" max="140" step="1" value="64">
+      </div>
+      <div class="control">
+        <label for="axis-weight">Weight <output id="out-weight" for="axis-weight">700</output></label>
+        <input type="range" id="axis-weight" min="100" max="900" step="50" value="700">
+      </div>
+      <div class="control">
+        <label for="axis-track">Tracking <output id="out-track" for="axis-track">0</output><span class="unit">‰</span></label>
+        <input type="range" id="axis-track" min="-60" max="200" step="5" value="0">
+      </div>
+      <div class="control">
+        <label for="axis-slant">Slant <output id="out-slant" for="axis-slant">0</output><span class="unit">°</span></label>
+        <input type="range" id="axis-slant" min="-14" max="14" step="1" value="0">
+      </div>
+      <fieldset class="control control-wide">
+        <legend>Family</legend>
+        <div class="chip-row" id="family-chips" role="radiogroup" aria-label="Choose a family for the specimen">
+          <!-- chips injected by app.js; static fallback below -->
+          <noscript><p class="noscript-note">Enable JavaScript to switch families in the tester. The specimen above still shows Marrow Display.</p></noscript>
+        </div>
+      </fieldset>
+      <fieldset class="control control-wide">
+        <legend>Case</legend>
+        <div class="chip-row" role="radiogroup" aria-label="Letter case">
+          <button type="button" class="chip is-active" data-case="none" role="radio" aria-checked="true">As typed</button>
+          <button type="button" class="chip" data-case="uppercase" role="radio" aria-checked="false">CAPS</button>
+          <button type="button" class="chip" data-case="lowercase" role="radio" aria-checked="false">lower</button>
+        </div>
+      </fieldset>
+      <div class="control control-wide control-actions">
+        <button type="button" class="btn btn-ghost btn-small" id="btn-scramble">Surprise me</button>
+        <button type="button" class="btn btn-ghost btn-small" id="btn-reset">Reset axes</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ======================= FAMILIES ======================= -->
+  <section class="families" id="families" aria-labelledby="families-heading">
+    <div class="section-head">
+      <h2 id="families-heading"><span class="index">02</span> The families</h2>
+      <p>Six releases, each with a temperament. Select “Load in tester” to send any family upstairs and put it to work.</p>
+    </div>
+    <ul class="family-grid" id="family-grid">
+      <li class="family-card" data-family="marrow">
+        <p class="family-specimen spec-marrow" aria-hidden="true">Rg</p>
+        <h3>Marrow Display</h3>
+        <p class="family-meta">9 styles · wt 100–900 · display serif</p>
+        <p class="family-blurb">A serif with bones. Cut for posters that argue back and mastheads that refuse to whisper.</p>
+        <button type="button" class="btn btn-ghost btn-small load-btn" data-load="marrow">Load in tester<span class="visually-hidden"> — Marrow Display</span></button>
+      </li>
+      <li class="family-card" data-family="signalgrotesk">
+        <p class="family-specimen spec-signal" aria-hidden="true">Kk</p>
+        <h3>Signal Grotesk</h3>
+        <p class="family-meta">8 styles · wt 300–800 · workhorse sans</p>
+        <p class="family-blurb">Neutral until provoked. Interfaces, wayfinding, and captions that stay legible at 3 a.m.</p>
+        <button type="button" class="btn btn-ghost btn-small load-btn" data-load="signalgrotesk">Load in tester<span class="visually-hidden"> — Signal Grotesk</span></button>
+      </li>
+      <li class="family-card" data-family="ledgermono">
+        <p class="family-specimen spec-ledger" aria-hidden="true">0O</p>
+        <h3>Ledger Mono</h3>
+        <p class="family-meta">6 styles · wt 400–700 · monospace</p>
+        <p class="family-blurb">Slashed zeros, honest tabs. For code, receipts, and every table that must not lie.</p>
+        <button type="button" class="btn btn-ghost btn-small load-btn" data-load="ledgermono">Load in tester<span class="visually-hidden"> — Ledger Mono</span></button>
+      </li>
+      <li class="family-card" data-family="vellumtext">
+        <p class="family-specimen spec-vellum" aria-hidden="true">fi</p>
+        <h3>Vellum Text</h3>
+        <p class="family-meta">7 styles · wt 300–700 · book serif</p>
+        <p class="family-blurb">Set a novel in it and nobody notices — which is exactly the point. Long-form, low ego.</p>
+        <button type="button" class="btn btn-ghost btn-small load-btn" data-load="vellumtext">Load in tester<span class="visually-hidden"> — Vellum Text</span></button>
+      </li>
+      <li class="family-card" data-family="parapetslab">
+        <p class="family-specimen spec-parapet" aria-hidden="true">Ea</p>
+        <h3>Parapet Slab</h3>
+        <p class="family-meta">6 styles · wt 400–900 · slab serif</p>
+        <p class="family-blurb">Brackets like scaffolding. Built for packaging, protest signs, and stubborn headlines.</p>
+        <button type="button" class="btn btn-ghost btn-small load-btn" data-load="parapetslab">Load in tester<span class="visually-hidden"> — Parapet Slab</span></button>
+      </li>
+      <li class="family-card" data-family="loudhailer">
+        <p class="family-specimen spec-loud" aria-hidden="true">!?</p>
+        <h3>Loudhailer</h3>
+        <p class="family-meta">5 styles · wt 600–900 · compressed caps</p>
+        <p class="family-blurb">All caps, all elbows. A compressed shout for the one word that has to land first.</p>
+        <button type="button" class="btn btn-ghost btn-small load-btn" data-load="loudhailer">Load in tester<span class="visually-hidden"> — Loudhailer</span></button>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ======================= PRINCIPLES ======================= -->
+  <section class="principles" id="principles" aria-labelledby="principles-heading">
+    <div class="section-head">
+      <h2 id="principles-heading"><span class="index">03</span> House principles</h2>
+      <p>What we believe, in the order we shout it.</p>
+    </div>
+    <ol class="principle-list">
+      <li>
+        <h3>Letters are performers.</h3>
+        <p>A glyph that behaves identically at 12 px and 120 px is asleep on the job. Every family ships with optical cuts and variable axes so the letters act their size.</p>
+      </li>
+      <li>
+        <h3>Kerning is a contract.</h3>
+        <p>Each release carries hand-set pairs into the thousands — including the punctuation nobody tests until launch night.</p>
+      </li>
+      <li>
+        <h3>Screens first, stone second.</h3>
+        <p>We hint for low-DPI panels before we admire the specimen print. If it fails on a bus-stop display, it fails.</p>
+      </li>
+      <li>
+        <h3>No orphaned scripts.</h3>
+        <p>Extended Latin ships on day one, with Cyrillic and Greek in the roadmap for every text family — not as an afterthought edition.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ======================= LICENSING ======================= -->
+  <section class="licensing" id="licensing" aria-labelledby="licensing-heading">
+    <div class="section-head">
+      <h2 id="licensing-heading"><span class="index">04</span> Licensing, plainly</h2>
+      <p>One page, no lawyers required. Every tier includes desktop, web, and app embedding.</p>
+    </div>
+    <div class="license-grid">
+      <article class="license-card">
+        <h3>Studio</h3>
+        <p class="price">€90<span> / family</span></p>
+        <ul>
+          <li>Up to 5 workstations</li>
+          <li>250 k web views / month</li>
+          <li>One shipped app</li>
+        </ul>
+      </article>
+      <article class="license-card is-featured">
+        <p class="flag">Most chosen</p>
+        <h3>Company</h3>
+        <p class="price">€320<span> / family</span></p>
+        <ul>
+          <li>Up to 40 workstations</li>
+          <li>2 M web views / month</li>
+          <li>Unlimited apps</li>
+        </ul>
+      </article>
+      <article class="license-card">
+        <h3>Broadcast</h3>
+        <p class="price">€980<span> / family</span></p>
+        <ul>
+          <li>Unlimited seats</li>
+          <li>Unlimited web views</li>
+          <li>TV, film &amp; OOH rights</li>
+        </ul>
+      </article>
+    </div>
+    <p class="license-note">Students and non-profits: trial cuts of every family are free for mock-ups, forever. We were broke once too.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p class="footer-glyph" aria-hidden="true">¶</p>
+  <p><strong>Glyph Department</strong> — drawn, hinted, and argued over in a small studio above a print shop.</p>
+  <p class="footer-fine">Specimen settings live only in your browser. No trackers, no requests, just letters.</p>
+</footer>
+</body>
+</html>

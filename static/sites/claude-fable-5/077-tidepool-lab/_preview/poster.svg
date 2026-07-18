@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Tidepool Lab — Reading the edge of the sea">
+  <defs>
+    <radialGradient id="glow" cx="80%" cy="10%" r="90%">
+      <stop offset="0" stop-color="#17607c"/>
+      <stop offset="0.6" stop-color="#0b3446"/>
+      <stop offset="1" stop-color="#06212e"/>
+    </radialGradient>
+    <linearGradient id="pool" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#17607c" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#04141d"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- wave bands -->
+  <path d="M0,620 C200,570 400,670 600,620 S1000,570 1200,620 L1200,900 L0,900 Z" fill="#17607c" opacity="0.35"/>
+  <path d="M0,690 C200,650 400,730 600,690 S1000,650 1200,690 L1200,900 L0,900 Z" fill="#0d3a4e" opacity="0.85"/>
+  <path d="M0,770 C200,740 400,800 600,770 S1000,740 1200,770 L1200,900 L0,900 Z" fill="#04141d"/>
+
+  <!-- tidepool ring motif -->
+  <g transform="translate(930,250)">
+    <circle r="150" fill="url(#pool)" stroke="#f2a65a" stroke-width="5"/>
+    <path d="M-105,30 C-60,-15 -15,-15 30,30 S105,75 150,30" transform="scale(0.72)" fill="none" stroke="#ffbe76" stroke-width="9" stroke-linecap="round"/>
+    <path d="M-90,-35 C-50,-70 -10,-70 30,-35 S95,0 120,-35" transform="scale(0.72)" fill="none" stroke="#a8c9cf" stroke-width="7" stroke-linecap="round"/>
+    <!-- anemone -->
+    <g transform="translate(-25,72)" stroke="#f2a65a" stroke-width="6" stroke-linecap="round">
+      <circle r="16" fill="#0b3446"/>
+      <path d="M0,-18 L0,-38 M17,-8 L33,-22 M17,10 L34,18 M-17,-8 L-33,-22 M-17,10 L-34,18 M0,20 L0,38"/>
+    </g>
+  </g>
+
+  <!-- eyebrow -->
+  <text x="90" y="215" font-family="Trebuchet MS, Verdana, sans-serif" font-size="30" letter-spacing="7" fill="#f2a65a" font-weight="bold">FIELD NOTE / 37.7749° N</text>
+
+  <!-- title -->
+  <text x="86" y="330" font-family="Georgia, serif" font-size="108" font-weight="bold" fill="#e8f4f4">Tidepool Lab</text>
+
+  <!-- tagline -->
+  <text x="90" y="410" font-family="Georgia, serif" font-size="42" font-style="italic" fill="#a8c9cf">Reading the edge of the sea.</text>
+
+  <!-- rule -->
+  <line x1="90" y1="460" x2="560" y2="460" stroke="#f2a65a" stroke-width="3"/>
+
+  <!-- descriptors -->
+  <text x="90" y="515" font-family="Trebuchet MS, Verdana, sans-serif" font-size="27" letter-spacing="3" fill="#a8c9cf">BIODIVERSITY · TEMPERATURE · RESILIENT HABITATS</text>
+
+  <!-- mini chart line in the lower band -->
+  <g fill="none" stroke-linecap="round">
+    <polyline points="120,760 220,748 320,752 420,730 520,712 620,690 720,668 820,650 920,640 1020,660 1080,676" stroke="#f2a65a" stroke-width="7"/>
+    <g fill="#ffbe76" stroke="none">
+      <circle cx="120" cy="760" r="9"/><circle cx="320" cy="752" r="9"/><circle cx="520" cy="712" r="9"/>
+      <circle cx="720" cy="668" r="9"/><circle cx="920" cy="640" r="9"/><circle cx="1080" cy="676" r="9"/>
+    </g>
+  </g>
+  <text x="120" y="830" font-family="Trebuchet MS, Verdana, sans-serif" font-size="24" letter-spacing="4" fill="#a8c9cf">OCEAN RESEARCH · FIELD STATION</text>
+</svg>

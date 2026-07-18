@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'">
+<title>Carbon Zero — Make every tonne visible.</title>
+<meta name="description" content="Emissions intelligence for teams ready to turn climate promises into measurable progress.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230c1f18'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%235ce8a4' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="shell header-row">
+    <a class="brand" href="#top" aria-label="Carbon Zero home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect width="32" height="32" rx="8" fill="var(--ink-deep)"/>
+        <circle cx="16" cy="16" r="8" fill="none" stroke="var(--mint)" stroke-width="3"/>
+      </svg>
+      <span class="brand-name">Carbon&nbsp;Zero</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#ledger">Ledger</a></li>
+        <li><a href="#scopes">Scopes</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a class="nav-cta" href="#measure">Measure your footprint</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Operational carbon intelligence</p>
+        <h1>Make every <span class="accent">tonne</span> visible.</h1>
+        <p class="lede">Emissions intelligence for teams ready to turn climate promises into measurable progress. Carbon Zero turns invoices, meters, and mileage into one auditable ledger — updated daily, defensible always.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#measure">Measure your footprint</a>
+          <a class="btn btn-ghost" href="#methodology">View methodology</a>
+        </div>
+        <dl class="hero-stats">
+          <div><dt>Emission factors</dt><dd>41,208</dd></div>
+          <div><dt>Audit trail</dt><dd>Line-level</dd></div>
+          <div><dt>Refresh cadence</dt><dd>Daily</dd></div>
+        </dl>
+      </div>
+
+      <figure class="hero-panel" aria-labelledby="panel-caption">
+        <div class="panel-head">
+          <span class="panel-dot" aria-hidden="true"></span>
+          <span class="panel-title">Q2 2026 · Group footprint</span>
+          <span class="panel-badge">Assured</span>
+        </div>
+        <div class="panel-big">
+          <span class="big-number" id="hero-count" data-target="12847">12,847</span>
+          <span class="big-unit">tCO₂e year to date</span>
+        </div>
+        <svg class="spark" viewBox="0 0 320 96" role="img" aria-label="Monthly emissions trending down from 1,420 to 980 tonnes over the last twelve months">
+          <defs>
+            <linearGradient id="sparkfill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#5ce8a4" stop-opacity="0.35"/>
+              <stop offset="1" stop-color="#5ce8a4" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M8 26 L36 34 L64 30 L92 42 L120 38 L148 50 L176 46 L204 58 L232 56 L260 66 L288 62 L312 72 L312 92 L8 92 Z" fill="url(#sparkfill)"/>
+          <path d="M8 26 L36 34 L64 30 L92 42 L120 38 L148 50 L176 46 L204 58 L232 56 L260 66 L288 62 L312 72" fill="none" stroke="#5ce8a4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="312" cy="72" r="4" fill="#5ce8a4"/>
+        </svg>
+        <figcaption id="panel-caption" class="panel-foot">
+          <span class="delta-down">▾ 18.4% vs. same period last year</span>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="tonne-field" aria-hidden="true"></div>
+  </section>
+
+  <!-- ============ LOGO STRIP ============ -->
+  <section class="strip" aria-label="Reporting frameworks supported">
+    <div class="shell strip-row">
+      <span class="strip-label">Report-ready for</span>
+      <ul class="strip-list">
+        <li>GHG Protocol</li>
+        <li>CSRD / ESRS E1</li>
+        <li>SBTi</li>
+        <li>CDP</li>
+        <li>ISO 14064-1</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ LEDGER ============ -->
+  <section class="section" id="ledger">
+    <div class="shell">
+      <p class="eyebrow">The carbon ledger</p>
+      <h2>One tonne, one row, one source document.</h2>
+      <p class="section-lede">Every figure in Carbon Zero traces back to the record that produced it — a fuel invoice, a meter reading, a freight manifest. No black-box totals, no spreadsheet archaeology at audit time.</p>
+
+      <div class="ledger-card" role="region" aria-label="Sample emissions ledger" tabindex="0">
+        <table class="ledger-table">
+          <caption class="visually-hidden">Sample rows from the Carbon Zero emissions ledger</caption>
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Activity</th>
+              <th scope="col">Scope</th>
+              <th scope="col">Factor source</th>
+              <th scope="col" class="num">tCO₂e</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2026-06-30</td>
+              <td>Natural gas — Plant 2, Rotterdam</td>
+              <td><span class="chip chip-s1">Scope 1</span></td>
+              <td>DEFRA 2026 · v1.1</td>
+              <td class="num">412.6</td>
+            </tr>
+            <tr>
+              <td>2026-06-30</td>
+              <td>Grid electricity — HQ, Berlin</td>
+              <td><span class="chip chip-s2">Scope 2</span></td>
+              <td>AIB residual mix 2025</td>
+              <td class="num">128.9</td>
+            </tr>
+            <tr>
+              <td>2026-06-28</td>
+              <td>Ocean freight — Shanghai → Hamburg</td>
+              <td><span class="chip chip-s3">Scope 3.4</span></td>
+              <td>GLEC v3.0</td>
+              <td class="num">96.2</td>
+            </tr>
+            <tr>
+              <td>2026-06-27</td>
+              <td>Purchased steel — 840 t, supplier PCF</td>
+              <td><span class="chip chip-s3">Scope 3.1</span></td>
+              <td>Supplier-specific EPD</td>
+              <td class="num">1,512.0</td>
+            </tr>
+            <tr>
+              <td>2026-06-26</td>
+              <td>Employee air travel — 214 segments</td>
+              <td><span class="chip chip-s3">Scope 3.6</span></td>
+              <td>DEFRA 2026, RF included</td>
+              <td class="num">57.3</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul class="feature-grid">
+        <li class="feature">
+          <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v3H4zM4 10.5h16v3H4zM4 16h10v3H4z" fill="currentColor"/></svg>
+          <h3>Ingest anything</h3>
+          <p>Drop in utility bills, ERP extracts, fleet cards, and supplier PCFs. Carbon Zero normalises units, currencies, and periods automatically.</p>
+        </li>
+        <li class="feature">
+          <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 3 7v10l9 5 9-5V7l-9-5zm0 2.3 6.5 3.6L12 11.5 5.5 7.9 12 4.3z" fill="currentColor"/></svg>
+          <h3>Factor engine</h3>
+          <p>41,208 versioned emission factors across 62 jurisdictions. When a factor updates, affected rows are restated — and the change is logged.</p>
+        </li>
+        <li class="feature">
+          <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10h-2.2A7.8 7.8 0 1 1 12 4.2V2zm1 4v6.4l4.4 2.6-1 1.7L11 13V6h2z" fill="currentColor"/></svg>
+          <h3>Always audit-ready</h3>
+          <p>Every calculation carries its inputs, factor version, and reviewer sign-off. Export the evidence pack your assurer actually asks for.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ SCOPES ============ -->
+  <section class="section section-alt" id="scopes">
+    <div class="shell scopes-grid">
+      <div class="scopes-copy">
+        <p class="eyebrow">Scope breakdown</p>
+        <h2>See where the tonnes actually live.</h2>
+        <p class="section-lede">For most organisations, over 80% of the footprint sits in the value chain. Carbon Zero maps all fifteen Scope 3 categories, then ranks them by abatement potential — so the reduction plan starts where it matters.</p>
+        <ul class="legend" aria-hidden="true">
+          <li><span class="swatch sw-s1"></span>Scope 1 · Direct</li>
+          <li><span class="swatch sw-s2"></span>Scope 2 · Energy</li>
+          <li><span class="swatch sw-s3"></span>Scope 3 · Value chain</li>
+        </ul>
+      </div>
+      <div class="scopes-chart">
+        <svg viewBox="0 0 480 300" role="img" aria-label="Bar chart of the sample footprint: Scope 1 is 1,940 tonnes or 15 percent, Scope 2 is 610 tonnes or 5 percent, Scope 3 is 10,297 tonnes or 80 percent">
+          <g font-family="inherit">
+            <text x="8" y="52" class="chart-label">Scope 1</text>
+            <rect class="bar bar-s1" x="8" y="62" width="88" height="34" rx="6"/>
+            <text x="104" y="85" class="chart-value">1,940 t · 15%</text>
+
+            <text x="8" y="136" class="chart-label">Scope 2</text>
+            <rect class="bar bar-s2" x="8" y="146" width="34" height="34" rx="6"/>
+            <text x="50" y="169" class="chart-value">610 t · 5%</text>
+
+            <text x="8" y="220" class="chart-label">Scope 3</text>
+            <rect class="bar bar-s3" x="8" y="230" width="428" height="34" rx="6"/>
+            <text x="22" y="253" class="chart-value on-bar">10,297 t · 80%</text>
+          </g>
+        </svg>
+        <p class="chart-note">Sample group footprint, trailing twelve months. Purchased goods, upstream freight, and use-phase emissions dominate — typical for manufacturing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ METHODOLOGY ============ -->
+  <section class="section" id="methodology">
+    <div class="shell">
+      <p class="eyebrow">Methodology</p>
+      <h2>Numbers you can defend, step by step.</h2>
+      <p class="section-lede">Carbon Zero follows the GHG Protocol Corporate Standard end to end. Here is exactly how a raw record becomes a reported tonne.</p>
+
+      <ol class="method-steps">
+        <li class="step">
+          <span class="step-num" aria-hidden="true">01</span>
+          <h3>Collect</h3>
+          <p>Activity data lands from uploads and ledger extracts. Each record keeps its original document, timestamp, and owner.</p>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">02</span>
+          <h3>Classify</h3>
+          <p>Records are mapped to GHG Protocol scopes and categories with suggested matches your team confirms — never silently applied.</p>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">03</span>
+          <h3>Calculate</h3>
+          <p>Activity × factor = emissions, with the factor's publisher, vintage, and uncertainty band pinned to the result.</p>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">04</span>
+          <h3>Certify</h3>
+          <p>Reviewers approve at line level. Locked periods are immutable; restatements create a new, fully-logged version.</p>
+        </li>
+      </ol>
+
+      <div class="method-note">
+        <h3>Boundaries and honesty</h3>
+        <p>Where primary data is missing, Carbon Zero uses spend-based estimates — and says so. Every reported figure is tagged <strong>measured</strong>, <strong>calculated</strong>, or <strong>estimated</strong>, with the estimated share shown on the cover of every report. The goal is not the smallest number. It is the truest one.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="section section-alt" id="pricing">
+    <div class="shell">
+      <p class="eyebrow">Pricing</p>
+      <h2>Priced by sites, not by surprises.</h2>
+      <div class="price-grid">
+        <article class="price-card">
+          <h3>Baseline</h3>
+          <p class="price"><span class="price-amount">€490</span><span class="price-per">/month</span></p>
+          <p class="price-note">Up to 5 sites · Scopes 1 &amp; 2</p>
+          <ul class="price-list">
+            <li>Full carbon ledger &amp; audit trail</li>
+            <li>DEFRA, EPA &amp; AIB factor sets</li>
+            <li>GHG Protocol inventory report</li>
+          </ul>
+          <a class="btn btn-ghost btn-block" href="#measure">Start with Baseline</a>
+        </article>
+        <article class="price-card price-featured">
+          <p class="price-flag">Most chosen</p>
+          <h3>Value Chain</h3>
+          <p class="price"><span class="price-amount">€1,900</span><span class="price-per">/month</span></p>
+          <p class="price-note">Up to 25 sites · All 15 Scope 3 categories</p>
+          <ul class="price-list">
+            <li>Everything in Baseline</li>
+            <li>Supplier PCF requests &amp; scoring</li>
+            <li>SBTi target tracking &amp; forecasts</li>
+            <li>CSRD / ESRS E1 export</li>
+          </ul>
+          <a class="btn btn-primary btn-block" href="#measure">Measure your footprint</a>
+        </article>
+        <article class="price-card">
+          <h3>Assurance</h3>
+          <p class="price"><span class="price-amount">Custom</span></p>
+          <p class="price-note">Unlimited sites · Assurance workflow</p>
+          <ul class="price-list">
+            <li>Everything in Value Chain</li>
+            <li>Auditor workspace &amp; evidence packs</li>
+            <li>Dedicated methodology advisor</li>
+          </ul>
+          <a class="btn btn-ghost btn-block" href="#measure">Talk to us</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA / CALCULATOR ============ -->
+  <section class="section cta-section" id="measure">
+    <div class="shell cta-grid">
+      <div>
+        <p class="eyebrow eyebrow-light">Get started</p>
+        <h2>Your first estimate takes ninety seconds.</h2>
+        <p class="section-lede lede-light">Try the quick estimator: rough inputs in, an order-of-magnitude footprint out. It runs entirely on this page — nothing is sent anywhere.</p>
+      </div>
+      <form class="calc" id="calc-form" novalidate>
+        <div class="calc-field">
+          <label for="calc-people">Employees</label>
+          <input id="calc-people" name="people" type="number" inputmode="numeric" min="1" max="100000" step="1" value="120" required>
+        </div>
+        <div class="calc-field">
+          <label for="calc-energy">Electricity use (MWh / year)</label>
+          <input id="calc-energy" name="energy" type="number" inputmode="numeric" min="0" max="10000000" step="1" value="850" required>
+        </div>
+        <div class="calc-field">
+          <label for="calc-fleet">Road fleet (thousand km / year)</label>
+          <input id="calc-fleet" name="fleet" type="number" inputmode="numeric" min="0" max="10000000" step="1" value="300" required>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Estimate my footprint</button>
+        <p class="calc-result" id="calc-result" role="status" aria-live="polite">Estimated footprint: <strong>≈ 1,306 tCO₂e / year</strong></p>
+        <p class="calc-fine">Screening estimate only, using average factors (0.9 t/employee, 0.35 t/MWh residual mix, 0.19 kg/km). A real inventory replaces every one of these averages with your data.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="shell footer-row">
+    <div class="footer-brand">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect width="32" height="32" rx="8" fill="var(--ink-deep)"/>
+        <circle cx="16" cy="16" r="8" fill="none" stroke="var(--mint)" stroke-width="3"/>
+      </svg>
+      <div>
+        <p class="footer-name">Carbon Zero</p>
+        <p class="footer-tag">Make every tonne visible.</p>
+      </div>
+    </div>
+    <nav aria-label="Footer">
+      <ul class="footer-links">
+        <li><a href="#ledger">Ledger</a></li>
+        <li><a href="#scopes">Scopes</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+    </nav>
+    <p class="footer-legal">© 2026 Carbon Zero. A demonstration website — all figures are illustrative.</p>
+  </div>
+</footer>
+</body>
+</html>

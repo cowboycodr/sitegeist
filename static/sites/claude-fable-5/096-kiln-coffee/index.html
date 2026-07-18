@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Kiln Coffee — Heat reveals character.</title>
+  <meta name="description" content="Expressive coffees sourced carefully and developed with patient, exact roast profiles.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#coffees">Skip to coffees</a>
+
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Kiln Coffee — back to top">
+      <svg class="wordmark-flame" viewBox="0 0 24 32" aria-hidden="true" focusable="false">
+        <path d="M12 1c1 6-7 9-7 17a7 7 0 0 0 14 0c0-4-2-6-3-8-1 3-2 4-4 5 1-4-1-9 0-14z"/>
+      </svg>
+      <span>Kiln<em>Coffee</em></span>
+    </a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#coffees">Coffees</a>
+      <a href="#roasting">Roasting</a>
+      <a href="#producers">Producers</a>
+    </nav>
+    <p class="bag" aria-live="polite">Bag <span class="bag-count" id="bag-count">0</span></p>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="ember-dot" aria-hidden="true"></span>Roasted this week / Batch 214</p>
+        <h1 id="hero-title">Heat reveals<br><em>character.</em></h1>
+        <p class="lede">Expressive coffees sourced carefully and developed with patient, exact roast profiles. Every batch leaves the drum within four days of your order.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#coffees">Shop fresh coffee</a>
+          <a class="btn btn-ghost" href="#producers">Meet the producers</a>
+        </div>
+      </div>
+      <div class="hero-kiln" aria-hidden="true">
+        <svg viewBox="0 0 320 320" focusable="false">
+          <defs>
+            <radialGradient id="glow" cx="50%" cy="72%" r="60%">
+              <stop offset="0%" stop-color="#ff8a3d"/>
+              <stop offset="45%" stop-color="#d94f1e"/>
+              <stop offset="100%" stop-color="#2a1712"/>
+            </radialGradient>
+          </defs>
+          <path d="M40 300V160a120 120 0 0 1 240 0v140z" fill="url(#glow)"/>
+          <path d="M40 300V160a120 120 0 0 1 240 0v140z" fill="none" stroke="#f3e5d3" stroke-opacity=".25" stroke-width="2"/>
+          <g class="heat-lines" stroke="#ffb877" stroke-width="3" stroke-linecap="round" fill="none">
+            <path d="M120 128c6-10-6-18 0-28"/>
+            <path d="M160 118c6-10-6-18 0-28"/>
+            <path d="M200 128c6-10-6-18 0-28"/>
+          </g>
+          <ellipse cx="160" cy="236" rx="64" ry="40" fill="#1c0f0b"/>
+          <ellipse cx="160" cy="236" rx="64" ry="40" fill="none" stroke="#ffb877" stroke-opacity=".5" stroke-width="2"/>
+          <g fill="#8a4a24">
+            <ellipse cx="138" cy="228" rx="13" ry="9" transform="rotate(-18 138 228)"/>
+            <ellipse cx="170" cy="222" rx="13" ry="9" transform="rotate(12 170 222)"/>
+            <ellipse cx="186" cy="244" rx="13" ry="9" transform="rotate(-30 186 244)"/>
+            <ellipse cx="150" cy="250" rx="13" ry="9" transform="rotate(24 150 250)"/>
+          </g>
+          <g stroke="#2a1712" stroke-width="2" stroke-linecap="round" fill="none">
+            <path d="M133 222q5 6 10 12"/>
+            <path d="M165 216q5 6 10 12"/>
+            <path d="M181 238q5 6 10 12"/>
+            <path d="M145 244q5 6 10 12"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section class="coffees" id="coffees" aria-labelledby="coffees-title">
+      <div class="section-head">
+        <h2 id="coffees-title">This week from the drum</h2>
+        <p>Three coffees on the shelf, roasted Tuesday. Whole bean, 250&nbsp;g.</p>
+      </div>
+      <ul class="coffee-grid">
+        <li class="coffee-card">
+          <p class="roast-tag roast-light">Light roast</p>
+          <h3>Gera Sunrise</h3>
+          <p class="origin">Agaro, Ethiopia — washed heirloom</p>
+          <p class="notes">Apricot, bergamot, honeysuckle. Dropped early to keep the florals intact.</p>
+          <div class="card-foot">
+            <span class="price">$19</span>
+            <button class="btn btn-small add-btn" type="button" data-coffee="Gera Sunrise">Add to bag</button>
+          </div>
+        </li>
+        <li class="coffee-card">
+          <p class="roast-tag roast-medium">Medium roast</p>
+          <h3>Cerro Alto</h3>
+          <p class="origin">Huila, Colombia — washed caturra</p>
+          <p class="notes">Panela, red apple, cacao nib. A long development for a rounded, patient sweetness.</p>
+          <div class="card-foot">
+            <span class="price">$18</span>
+            <button class="btn btn-small add-btn" type="button" data-coffee="Cerro Alto">Add to bag</button>
+          </div>
+        </li>
+        <li class="coffee-card">
+          <p class="roast-tag roast-dark">Dark roast</p>
+          <h3>Kiln Ember</h3>
+          <p class="origin">Sul de Minas, Brazil — natural yellow bourbon</p>
+          <p class="notes">Molasses, roasted hazelnut, smoke. Taken just past second crack, never bitter.</p>
+          <div class="card-foot">
+            <span class="price">$17</span>
+            <button class="btn btn-small add-btn" type="button" data-coffee="Kiln Ember">Add to bag</button>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="roasting" id="roasting" aria-labelledby="roasting-title">
+      <div class="section-head">
+        <h2 id="roasting-title">Patient, exact profiles</h2>
+        <p>We log every second of every batch. Choose a roast to see how we shape its curve.</p>
+      </div>
+      <div class="profile-panel">
+        <div class="profile-tabs" role="tablist" aria-label="Roast profiles">
+          <button role="tab" id="tab-light" aria-controls="profile-chart" aria-selected="true" class="tab is-active" type="button" data-profile="light">Gera Sunrise</button>
+          <button role="tab" id="tab-medium" aria-controls="profile-chart" aria-selected="false" class="tab" type="button" data-profile="medium" tabindex="-1">Cerro Alto</button>
+          <button role="tab" id="tab-dark" aria-controls="profile-chart" aria-selected="false" class="tab" type="button" data-profile="dark" tabindex="-1">Kiln Ember</button>
+        </div>
+        <figure class="chart-figure" id="profile-chart" role="tabpanel" aria-labelledby="tab-light" tabindex="0">
+          <svg class="chart" viewBox="0 0 640 320" role="img" aria-labelledby="chart-title chart-desc">
+            <title id="chart-title">Roast profile chart</title>
+            <desc id="chart-desc">Bean temperature over roast time, with the first crack moment marked.</desc>
+            <g class="grid" stroke="#3a2a22" stroke-width="1">
+              <line x1="56" y1="40" x2="616" y2="40"/>
+              <line x1="56" y1="100" x2="616" y2="100"/>
+              <line x1="56" y1="160" x2="616" y2="160"/>
+              <line x1="56" y1="220" x2="616" y2="220"/>
+              <line x1="56" y1="280" x2="616" y2="280"/>
+            </g>
+            <g class="axis-labels" fill="#a68f7b">
+              <text x="48" y="44" text-anchor="end">220°</text>
+              <text x="48" y="104" text-anchor="end">180°</text>
+              <text x="48" y="164" text-anchor="end">140°</text>
+              <text x="48" y="224" text-anchor="end">100°</text>
+              <text x="48" y="284" text-anchor="end">60°</text>
+              <text x="56" y="306">0:00</text>
+              <text x="336" y="306" text-anchor="middle">6:00</text>
+              <text x="616" y="306" text-anchor="end">12:00</text>
+            </g>
+            <path id="curve" class="curve" fill="none" stroke="#ff8a3d" stroke-width="4" stroke-linecap="round"
+                  d="M56 90 C 120 250, 200 268, 300 220 S 520 120, 596 96"/>
+            <g id="crack-marker">
+              <line id="crack-line" x1="430" y1="40" x2="430" y2="280" stroke="#f3e5d3" stroke-opacity=".35" stroke-dasharray="4 6" stroke-width="2"/>
+              <text id="crack-text" x="430" y="30" text-anchor="middle" fill="#f3e5d3">First crack</text>
+            </g>
+            <circle id="drop-dot" cx="596" cy="96" r="7" fill="#ffb877"/>
+          </svg>
+          <figcaption id="profile-caption">Gera Sunrise — charge 190°, gentle drying phase, dropped 62 seconds after first crack at 198°.</figcaption>
+        </figure>
+        <dl class="profile-stats">
+          <div><dt>Total time</dt><dd id="stat-time">10:42</dd></div>
+          <div><dt>Drop temp</dt><dd id="stat-temp">198°C</dd></div>
+          <div><dt>Development</dt><dd id="stat-dev">14%</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="producers" id="producers" aria-labelledby="producers-title">
+      <div class="section-head">
+        <h2 id="producers-title">Meet the producers</h2>
+        <p>We buy from the same farms every season and publish what we pay.</p>
+      </div>
+      <ul class="producer-grid">
+        <li class="producer-card">
+          <div class="producer-mark mark-a" aria-hidden="true"><span>AB</span></div>
+          <h3>Abebe Bekele</h3>
+          <p class="origin">Agaro, Ethiopia</p>
+          <p>Four hectares of garden-grown heirloom under old shade trees. Sixth harvest with us; we took the entire washed lot this year at 2.4× the commodity price.</p>
+        </li>
+        <li class="producer-card">
+          <div class="producer-mark mark-b" aria-hidden="true"><span>LR</span></div>
+          <h3>Lucía Ramírez</h3>
+          <p class="origin">Huila, Colombia</p>
+          <p>Runs the family finca with her two brothers and an obsessive fermentation log. Cerro Alto is her tank&nbsp;3 caturra, picked over five passes.</p>
+        </li>
+        <li class="producer-card">
+          <div class="producer-mark mark-c" aria-hidden="true"><span>JS</span></div>
+          <h3>João &amp; Sofia Almeida</h3>
+          <p class="origin">Sul de Minas, Brazil</p>
+          <p>Third-generation growers drying yellow bourbon slowly on raised beds. Their patience upstream is why Kiln Ember can go dark without going flat.</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>Kiln Coffee</strong> — Heat reveals character.</p>
+    <p>Roasted in small batches. Unit 7, Foundry Lane. Cupping bar open Fri–Sun, 9–3.</p>
+  </footer>
+</body>
+</html>

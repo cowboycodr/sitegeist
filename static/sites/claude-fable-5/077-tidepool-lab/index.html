@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+<title>Tidepool Lab — Reading the edge of the sea</title>
+<meta name="description" content="A field station mapping biodiversity, temperature shifts, and resilient marine habitats.">
+<link rel="stylesheet" href="styles.css">
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Tidepool Lab, home">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+      <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M6 19c3-3 5-3 8 0s5 3 8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M9 13c2-2 3.5-2 6 0s4 2 6 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span>Tidepool&nbsp;Lab</span>
+  </a>
+  <nav class="topnav" aria-label="Primary">
+    <a href="#data">Data</a>
+    <a href="#habitats">Habitats</a>
+    <a href="#team">Team</a>
+    <a href="#log">Field log</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <p class="eyebrow">Field note / 37.7749° N</p>
+      <h1>Reading the edge<br>of the sea.</h1>
+      <p class="lede">Tidepool Lab is a field station mapping biodiversity, temperature shifts, and resilient marine habitats along the intertidal zone — one low tide at a time.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#data">Dive into the data</a>
+        <a class="btn btn-ghost" href="#team">Meet the researchers</a>
+      </div>
+      <dl class="hero-stats">
+        <div><dt>Monitoring stations</dt><dd>14</dd></div>
+        <div><dt>Species catalogued</dt><dd>212</dd></div>
+        <div><dt>Seasons surveyed</dt><dd>31</dd></div>
+      </dl>
+    </div>
+    <div class="hero-waves" aria-hidden="true">
+      <svg viewBox="0 0 1440 220" preserveAspectRatio="none">
+        <path class="wave wave-a" d="M0,120 C240,60 480,180 720,120 S1200,60 1440,120 L1440,220 L0,220 Z"/>
+        <path class="wave wave-b" d="M0,150 C240,100 480,200 720,150 S1200,100 1440,150 L1440,220 L0,220 Z"/>
+        <path class="wave wave-c" d="M0,180 C240,140 480,215 720,180 S1200,140 1440,180 L1440,220 L0,220 Z"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== Data ===== -->
+  <section class="section" id="data" aria-labelledby="data-heading">
+    <div class="section-head">
+      <p class="eyebrow">Instrument readout</p>
+      <h2 id="data-heading">Water temperature at the tide line</h2>
+      <p class="section-lede">Hourly logger readings, averaged by month, from three sentinel pools. Choose a station to redraw the year.</p>
+    </div>
+
+    <div class="station-tabs" role="tablist" aria-label="Monitoring stations">
+      <button class="tab" role="tab" id="tab-north" aria-selected="true" aria-controls="chart-panel" data-station="north">North Reef</button>
+      <button class="tab" role="tab" id="tab-cove" aria-selected="false" aria-controls="chart-panel" data-station="cove" tabindex="-1">Anemone Cove</button>
+      <button class="tab" role="tab" id="tab-shelf" aria-selected="false" aria-controls="chart-panel" data-station="shelf" tabindex="-1">Granite Shelf</button>
+    </div>
+
+    <div class="chart-card" id="chart-panel" role="tabpanel" aria-labelledby="tab-north" tabindex="0">
+      <div class="chart-meta">
+        <h3 id="chart-title">North Reef · 2025 monthly mean</h3>
+        <p class="chart-note" id="chart-note">Peak 16.8 °C in September; anomaly +0.6 °C over the ten-year baseline.</p>
+      </div>
+      <svg id="temp-chart" viewBox="0 0 720 320" role="img" aria-labelledby="chart-svg-title chart-svg-desc">
+        <title id="chart-svg-title">Monthly mean water temperature line chart</title>
+        <desc id="chart-svg-desc">Line chart of twelve monthly mean temperatures in degrees Celsius for the selected station. Values also listed in the table below.</desc>
+        <g id="chart-grid"></g>
+        <path id="chart-area" class="chart-area" d=""/>
+        <path id="chart-line" class="chart-line" d=""/>
+        <g id="chart-dots"></g>
+        <g id="chart-labels"></g>
+      </svg>
+      <details class="chart-table">
+        <summary>View readings as a table</summary>
+        <table>
+          <caption class="visually-hidden">Monthly mean water temperature in degrees Celsius</caption>
+          <thead><tr id="table-months"><th scope="col">Month</th></tr></thead>
+          <tbody><tr id="table-values"><th scope="row">°C</th></tr></tbody>
+        </table>
+      </details>
+    </div>
+
+    <ul class="readout-grid">
+      <li>
+        <span class="readout-value">+0.6&thinsp;°C</span>
+        <span class="readout-label">Mean warming vs. 2015 baseline</span>
+      </li>
+      <li>
+        <span class="readout-value">8.1&nbsp;pH</span>
+        <span class="readout-label">Median pool acidity, spring series</span>
+      </li>
+      <li>
+        <span class="readout-value">92%</span>
+        <span class="readout-label">Logger uptime across all stations</span>
+      </li>
+      <li>
+        <span class="readout-value">37</span>
+        <span class="readout-label">New species records this season</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ===== Habitats ===== -->
+  <section class="section section-alt" id="habitats" aria-labelledby="habitats-heading">
+    <div class="section-head">
+      <p class="eyebrow">Survey transects</p>
+      <h2 id="habitats-heading">Resilient habitats we track</h2>
+      <p class="section-lede">Each zone tells a different story of tolerance — to heat, to air, to the crush of waves.</p>
+    </div>
+    <div class="habitat-grid">
+      <article class="habitat-card">
+        <svg class="habitat-icon" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="26" r="10" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M24 16v-8M17 18l-5-6M31 18l5-6M14 26H6M34 26h8M17 34l-5 6M31 34l5 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <h3>Anemone gardens</h3>
+        <p>Clonal mats of <em>Anthopleura</em> that close against the sun and reopen with the flood tide. We track colony edges to measure heat stress.</p>
+        <p class="habitat-tag">Mid-intertidal · 112 quadrats</p>
+      </article>
+      <article class="habitat-card">
+        <svg class="habitat-icon" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M8 40c0-14 7-26 16-32 9 6 16 18 16 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M24 8v32M15 22c3 3 6 4 9 4s6-1 9-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <h3>Mussel beds</h3>
+        <p>Living breakwaters. Bed thickness buffers dozens of understory species; a single lost winter storm can reset a decade of growth.</p>
+        <p class="habitat-tag">Wave-exposed · 9 transects</p>
+      </article>
+      <article class="habitat-card">
+        <svg class="habitat-icon" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M10 42c2-10 1-18-2-26 8 1 13 5 16 12 3-7 8-11 16-12-3 8-4 16-2 26" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M24 42V28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <h3>Surfgrass meadows</h3>
+        <p>Nursery ribbon for juvenile fish and octopus. Blade density is our earliest signal of a cooling or warming year.</p>
+        <p class="habitat-tag">Low-intertidal · 5 meadows</p>
+      </article>
+      <article class="habitat-card">
+        <svg class="habitat-icon" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="16" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M24 12c-5 4-5 8 0 12s5 8 0 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <h3>Sculpted pools</h3>
+        <p>Granite basins that trap seawater twice a day — natural mesocosms where we watch temperature and pH swing in miniature.</p>
+        <p class="habitat-tag">All zones · 14 pools</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== Team ===== -->
+  <section class="section" id="team" aria-labelledby="team-heading">
+    <div class="section-head">
+      <p class="eyebrow">The field crew</p>
+      <h2 id="team-heading">Meet the researchers</h2>
+      <p class="section-lede">Four people, one skiff, and a standing appointment with every minus tide of the year.</p>
+    </div>
+    <div class="team-grid">
+      <article class="team-card">
+        <div class="team-avatar" aria-hidden="true"><span>MO</span></div>
+        <h3>Dr. Mara Okonkwo</h3>
+        <p class="team-role">Station lead · Invertebrate ecology</p>
+        <p>Twelve seasons mapping anemone clone wars. Believes every pool has a plot, if you sit still long enough.</p>
+      </article>
+      <article class="team-card">
+        <div class="team-avatar" aria-hidden="true"><span>RT</span></div>
+        <h3>Rafael Torres</h3>
+        <p class="team-role">Instrumentation · Data pipelines</p>
+        <p>Keeps fourteen loggers alive through salt, surf, and curious otters. Wrote the station's open telemetry toolkit.</p>
+      </article>
+      <article class="team-card">
+        <div class="team-avatar" aria-hidden="true"><span>JB</span></div>
+        <h3>June Baek</h3>
+        <p class="team-role">Phycology · Surfgrass surveys</p>
+        <p>Counts blades by headlamp before dawn. Their meadow index is now used by three sister stations up the coast.</p>
+      </article>
+      <article class="team-card">
+        <div class="team-avatar" aria-hidden="true"><span>AH</span></div>
+        <h3>Asha Hale</h3>
+        <p class="team-role">Outreach · Community science</p>
+        <p>Trains volunteer tidepoolers every spring; their photo records added 37 species to the catalogue this year.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== Field log ===== -->
+  <section class="section section-alt" id="log" aria-labelledby="log-heading">
+    <div class="section-head">
+      <p class="eyebrow">Recent entries</p>
+      <h2 id="log-heading">From the field log</h2>
+    </div>
+    <ol class="log-list">
+      <li class="log-entry">
+        <p class="log-date">Jul 09, 2026 · −0.4 m tide</p>
+        <h3>Octopus den confirmed at Granite Shelf</h3>
+        <p>A juvenile <em>Octopus rubescens</em> holding a midden of crab carapaces in pool G-7. Third den record this season — the surfgrass nursery is doing its job.</p>
+      </li>
+      <li class="log-entry">
+        <p class="log-date">Jun 24, 2026 · −0.2 m tide</p>
+        <h3>North Reef logger swap</h3>
+        <p>Retrieved logger N-2 after 181 days submerged; full record intact. September's warm pulse shows clearly in the hourly trace.</p>
+      </li>
+      <li class="log-entry">
+        <p class="log-date">Jun 11, 2026 · −0.5 m tide</p>
+        <h3>Mussel bed recruitment survey</h3>
+        <p>Strong spring settlement on the outer transects — best juvenile counts since 2021. Bed thickness up 11% year over year.</p>
+      </li>
+    </ol>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <p class="footer-brand">Tidepool Lab</p>
+    <p>Reading the edge of the sea · Field station at 37.7749° N</p>
+    <p class="footer-fine">Data shown are illustrative survey summaries prepared for public display.</p>
+  </div>
+</footer>
+
+</body>
+</html>

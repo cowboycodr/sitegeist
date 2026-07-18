@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Latent Gallery — Art that never repeats itself.</title>
+<meta name="description" content="A digital gallery presenting algorithmic editions, living systems, and machine-assisted practices.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="gallery.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#exhibition">Skip to exhibition</a>
+
+<header class="site-head">
+  <a class="wordmark" href="#top" aria-label="Latent Gallery, back to top">
+    <span class="wordmark-glyph" aria-hidden="true"></span>
+    Latent&nbsp;Gallery
+  </a>
+  <nav aria-label="Sections">
+    <a href="#exhibition">Exhibition</a>
+    <a href="#artists">Artists</a>
+    <a href="#notes">Notes</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-inner">
+      <p class="eyebrow">Exhibition 13 / Emergence</p>
+      <h1 id="hero-title">Art that never repeats itself.</h1>
+      <p class="lede">A digital gallery presenting algorithmic editions, living
+      systems, and machine-assisted practices. Every work below is computed in
+      your browser from a fresh seed — the edition you are looking at exists
+      only here, only now.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#exhibition">Enter exhibition</a>
+        <a class="btn btn-ghost" href="#artists">Meet the artists</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="exhibition" class="exhibition" aria-labelledby="exhibition-title">
+    <header class="section-head">
+      <p class="eyebrow">Room I–IV</p>
+      <h2 id="exhibition-title">Emergence</h2>
+      <p class="section-note">Four commissioned systems. Press
+      <strong>Reseed</strong> on any work to draw a new edition; the previous
+      one is gone forever.</p>
+    </header>
+
+    <div class="works">
+      <figure class="work" data-algorithm="drift">
+        <div class="frame">
+          <canvas width="900" height="1125" aria-label="Drift Field — generative flow-field drawing, regenerated with each seed"></canvas>
+        </div>
+        <figcaption>
+          <div class="work-meta">
+            <h3>Drift Field</h3>
+            <p class="artist-line">Mara Okonjo — flow-field ink</p>
+            <p class="seed-line">Seed <output class="seed">—</output> · Edition 1/1</p>
+          </div>
+          <button class="btn btn-small reseed" type="button">Reseed</button>
+        </figcaption>
+      </figure>
+
+      <figure class="work" data-algorithm="lattice">
+        <div class="frame">
+          <canvas width="900" height="1125" aria-label="Lattice Bloom — generative grid of blooming arcs, regenerated with each seed"></canvas>
+        </div>
+        <figcaption>
+          <div class="work-meta">
+            <h3>Lattice Bloom</h3>
+            <p class="artist-line">Jun Herrera-Sato — modulated lattice</p>
+            <p class="seed-line">Seed <output class="seed">—</output> · Edition 1/1</p>
+          </div>
+          <button class="btn btn-small reseed" type="button">Reseed</button>
+        </figcaption>
+      </figure>
+
+      <figure class="work" data-algorithm="moss">
+        <div class="frame">
+          <canvas width="900" height="1125" aria-label="Signal Moss — generative random-walk growth structure, regenerated with each seed"></canvas>
+        </div>
+        <figcaption>
+          <div class="work-meta">
+            <h3>Signal Moss</h3>
+            <p class="artist-line">A. Voss &amp; ORACLE-7 — walker colony</p>
+            <p class="seed-line">Seed <output class="seed">—</output> · Edition 1/1</p>
+          </div>
+          <button class="btn btn-small reseed" type="button">Reseed</button>
+        </figcaption>
+      </figure>
+
+      <figure class="work" data-algorithm="shards">
+        <div class="frame">
+          <canvas width="900" height="1125" aria-label="Partition Study — generative recursive subdivision composition, regenerated with each seed"></canvas>
+        </div>
+        <figcaption>
+          <div class="work-meta">
+            <h3>Partition Study</h3>
+            <p class="artist-line">Céline Duarte — recursive subdivision</p>
+            <p class="seed-line">Seed <output class="seed">—</output> · Edition 1/1</p>
+          </div>
+          <button class="btn btn-small reseed" type="button">Reseed</button>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="artists" class="artists" aria-labelledby="artists-title">
+    <header class="section-head">
+      <p class="eyebrow">The practices</p>
+      <h2 id="artists-title">Meet the artists</h2>
+    </header>
+    <ul class="artist-grid">
+      <li class="artist-card">
+        <span class="artist-mark" aria-hidden="true">MO</span>
+        <h3>Mara Okonjo</h3>
+        <p class="artist-tag">Lagos · flow systems</p>
+        <p>Okonjo treats vector fields like weather. Her plotters and browsers
+        run the same code; only the seed decides whether a piece becomes a
+        storm or a still morning.</p>
+      </li>
+      <li class="artist-card">
+        <span class="artist-mark" aria-hidden="true">JHS</span>
+        <h3>Jun Herrera-Sato</h3>
+        <p class="artist-tag">Osaka · lattice music</p>
+        <p>Herrera-Sato composes grids the way others compose chords. Each
+        cell in a lattice listens to its neighbours and blooms a fraction out
+        of phase — order arriving late, on purpose.</p>
+      </li>
+      <li class="artist-card">
+        <span class="artist-mark" aria-hidden="true">AV</span>
+        <h3>A. Voss &amp; ORACLE-7</h3>
+        <p class="artist-tag">Berlin · human–machine duo</p>
+        <p>Voss writes the constraints; a small language model they trained on
+        lichen photography proposes the growth rules. Neither can predict what
+        the colony will do next, which is the point.</p>
+      </li>
+      <li class="artist-card">
+        <span class="artist-mark" aria-hidden="true">CD</span>
+        <h3>Céline Duarte</h3>
+        <p class="artist-tag">Montréal · partitions</p>
+        <p>Duarte cuts a rectangle until it argues back. Her subdivision
+        studies borrow their palettes from archival print misregistrations —
+        errors promoted to composition.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="notes" class="notes" aria-labelledby="notes-title">
+    <div class="notes-inner">
+      <p class="eyebrow">Curatorial note</p>
+      <h2 id="notes-title">On emergence</h2>
+      <p>Nothing in this exhibition was drawn by hand, and nothing in it was
+      drawn twice. Each work is a small closed system — a few hundred lines of
+      rules — released into a random seed the moment the page loads. What you
+      see is not a reproduction of an artwork; it is the artwork, occurring.</p>
+      <p>Reseeding a piece is part of the practice, not an undo. The gallery
+      keeps no archive. When a composition strikes you, stay with it a while:
+      like the systems it came from, it will not come back.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <p><span class="wordmark-glyph" aria-hidden="true"></span> Latent Gallery — Exhibition 13 / Emergence</p>
+  <p>All works computed locally in this browser. No network, no archive, no repeats.</p>
+</footer>
+</body>
+</html>

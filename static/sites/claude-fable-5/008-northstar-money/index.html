@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self'; style-src 'self'; script-src 'self'">
+<title>Northstar — A clearer way to grow wealth.</title>
+<meta name="description" content="Personal finance guidance that balances confident long-term planning with precise, useful data.">
+<link rel="stylesheet" href="styles.css">
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Northstar home">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path d="M16 2l3 11 11 3-11 3-3 11-3-11-11-3 11-3z" fill="currentColor"/>
+    </svg>
+    <span class="brand-name">Northstar</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#planner">Planner</a>
+    <a href="#how">How it works</a>
+    <a href="#principles">Principles</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow">Investing, simplified</p>
+      <h1>A clearer way to grow&nbsp;wealth.</h1>
+      <p class="lede">Personal finance guidance that balances confident long-term planning with precise, useful data. Set a course once, then let steady contributions and time do the heavy lifting.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#planner">Build your plan</a>
+        <a class="button button-ghost" href="#how">See how it works</a>
+      </div>
+      <dl class="hero-stats">
+        <div><dt>Average plan setup</dt><dd>7 minutes</dd></div>
+        <div><dt>Guidance fee</dt><dd>0.20% / yr</dd></div>
+        <div><dt>Rebalance cadence</dt><dd>Quarterly</dd></div>
+      </dl>
+    </div>
+    <figure class="hero-figure" aria-hidden="true">
+      <svg viewBox="0 0 420 320" class="hero-chart" role="img" aria-label="Illustrative growth chart rising toward a north star">
+        <defs>
+          <linearGradient id="heroFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#e8b64c" stop-opacity="0.35"/>
+            <stop offset="1" stop-color="#e8b64c" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <g class="grid">
+          <line x1="24" y1="60" x2="396" y2="60"/>
+          <line x1="24" y1="120" x2="396" y2="120"/>
+          <line x1="24" y1="180" x2="396" y2="180"/>
+          <line x1="24" y1="240" x2="396" y2="240"/>
+        </g>
+        <path class="hero-area" d="M24 268 C 120 262, 180 240, 240 196 C 300 152, 340 112, 372 66 L 372 280 L 24 280 Z" fill="url(#heroFill)"/>
+        <path class="hero-line" d="M24 268 C 120 262, 180 240, 240 196 C 300 152, 340 112, 372 66" fill="none"/>
+        <path class="hero-star" d="M372 40 l6 18 18 6 -18 6 -6 18 -6 -18 -18 -6 18 -6 z"/>
+        <circle class="hero-dot" cx="372" cy="66" r="5"/>
+      </svg>
+      <figcaption class="visually-hidden">Illustrative chart of long-term compounding growth.</figcaption>
+    </figure>
+  </section>
+
+  <section class="planner" id="planner" aria-labelledby="planner-title">
+    <div class="section-head">
+      <h2 id="planner-title">Build your plan</h2>
+      <p>Adjust three dials and see, precisely, where steady investing could take you. Figures are illustrative projections, not guarantees.</p>
+    </div>
+    <div class="planner-grid">
+      <form class="planner-controls" aria-label="Plan inputs">
+        <div class="control">
+          <label for="monthly">Monthly contribution</label>
+          <output class="control-value" id="monthly-value" for="monthly">$500</output>
+          <input type="range" id="monthly" min="50" max="2000" step="25" value="500">
+        </div>
+        <div class="control">
+          <label for="years">Years invested</label>
+          <output class="control-value" id="years-value" for="years">25 years</output>
+          <input type="range" id="years" min="5" max="40" step="1" value="25">
+        </div>
+        <div class="control">
+          <label for="rate">Assumed annual return</label>
+          <output class="control-value" id="rate-value" for="rate">6.0%</output>
+          <input type="range" id="rate" min="2" max="10" step="0.5" value="6">
+        </div>
+      </form>
+      <div class="planner-results">
+        <svg id="plan-chart" viewBox="0 0 560 300" role="img" aria-labelledby="plan-chart-label">
+          <title id="plan-chart-label">Projected portfolio value versus total contributions over time</title>
+          <g id="chart-grid" class="grid"></g>
+          <path id="area-contrib" class="area-contrib" d=""/>
+          <path id="area-growth" class="area-growth" d=""/>
+          <path id="line-total" class="line-total" fill="none" d=""/>
+          <g id="chart-x-labels" class="axis-labels"></g>
+          <g id="chart-y-labels" class="axis-labels"></g>
+        </svg>
+        <div class="results-figures">
+          <div class="figure-block">
+            <span class="figure-label">Projected value</span>
+            <span class="figure-number" id="projected-total">$0</span>
+          </div>
+          <div class="figure-block">
+            <span class="figure-label"><span class="swatch swatch-contrib" aria-hidden="true"></span>You contribute</span>
+            <span class="figure-number figure-secondary" id="contributed-total">$0</span>
+          </div>
+          <div class="figure-block">
+            <span class="figure-label"><span class="swatch swatch-growth" aria-hidden="true"></span>Growth earns</span>
+            <span class="figure-number figure-secondary" id="growth-total">$0</span>
+          </div>
+        </div>
+        <p class="fine-print">Projection assumes monthly compounding at the assumed rate, before taxes. Markets vary; real results will differ.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="how" aria-labelledby="how-title">
+    <div class="section-head">
+      <h2 id="how-title">See how it works</h2>
+      <p>Three deliberate steps. No jargon, no guesswork, no daily fiddling.</p>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <span class="step-number" aria-hidden="true">01</span>
+        <h3>Chart your course</h3>
+        <p>Tell us the goal — retirement, a home, independence — and your timeline. We translate it into a target and a monthly number you can actually keep.</p>
+      </li>
+      <li class="step">
+        <span class="step-number" aria-hidden="true">02</span>
+        <h3>Automate the voyage</h3>
+        <p>Contributions move on schedule into a diversified, low-cost portfolio matched to your horizon. Quarterly rebalancing keeps the allocation honest.</p>
+      </li>
+      <li class="step">
+        <span class="step-number" aria-hidden="true">03</span>
+        <h3>Check the sky, not the waves</h3>
+        <p>Your dashboard reports the numbers that matter — progress to goal, real return, fees paid — and stays quiet about the daily noise.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="principles" id="principles" aria-labelledby="principles-title">
+    <div class="section-head">
+      <h2 id="principles-title">Our principles</h2>
+      <p>Confidence comes from clarity. Every decision at Northstar follows four rules.</p>
+    </div>
+    <div class="principle-grid">
+      <article class="principle">
+        <h3>Time beats timing</h3>
+        <p>Decades of steady contributions outperform clever entrances and exits. We build for the long arc and design against panic.</p>
+      </article>
+      <article class="principle">
+        <h3>Costs compound too</h3>
+        <p>Every basis point of fees grows at the same rate as your returns — against you. We keep total costs transparent and low.</p>
+      </article>
+      <article class="principle">
+        <h3>Precision over prediction</h3>
+        <p>We won't forecast next quarter. We will show your exact allocation, exact fees, and exact progress, updated continuously.</p>
+      </article>
+      <article class="principle">
+        <h3>Plans over products</h3>
+        <p>You get a plan tied to your life, not a menu of funds. Every recommendation traces back to your goal and horizon.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="cta-band" aria-labelledby="cta-title">
+    <h2 id="cta-title">Ready to set your course?</h2>
+    <p>Start with the planner above, or begin your plan now — it takes about seven minutes.</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="#planner">Build your plan</a>
+      <a class="button button-ghost-dark" href="#how">See how it works</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-brand">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path d="M16 2l3 11 11 3-11 3-3 11-3-11-11-3 11-3z" fill="currentColor"/>
+    </svg>
+    <span>Northstar</span>
+  </div>
+  <p class="footer-note">Northstar is a fictional demonstration site. Projections shown are illustrative and do not constitute financial advice.</p>
+</footer>
+
+</body>
+</html>

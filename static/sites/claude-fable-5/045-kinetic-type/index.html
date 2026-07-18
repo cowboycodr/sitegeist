@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self'; style-src 'self'; script-src 'self'">
+<title>Kinetic Type — Letters made to move.</title>
+<meta name="description" content="Experimental typefaces for screens, identities, motion systems, and formats still to come.">
+<link rel="stylesheet" href="style.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <a class="wordmark" href="#top" aria-label="Kinetic Type — home">K<span class="wordmark-tilt">t</span></a>
+  <nav aria-label="Primary">
+    <ul class="nav-list">
+      <li><a href="#typefaces">Typefaces</a></li>
+      <li><a href="#lab">Variable&nbsp;lab</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#licensing">Licensing</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-heading">
+    <p class="eyebrow">Independent type foundry</p>
+    <h1 id="hero-heading" class="hero-title" aria-label="Letters made to move.">
+      <span class="hero-line"><span class="k-word" data-motion="rise">Letters</span></span>
+      <span class="hero-line"><span class="k-word k-word-alt" data-motion="rise">made&nbsp;to</span></span>
+      <span class="hero-line"><span class="k-word k-word-ital" data-motion="rise">move.</span></span>
+    </h1>
+    <p class="hero-lede">Experimental typefaces for screens, identities, motion systems, and formats still to come.</p>
+    <div class="hero-actions">
+      <a class="button button-solid" href="#typefaces">Browse typefaces</a>
+      <a class="button button-ghost" href="#lab">Try the variable lab</a>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-run">Aa&ensp;Bb&ensp;Cc&ensp;Dd&ensp;Ee&ensp;Ff&ensp;Gg&ensp;Hh&ensp;Ii&ensp;Jj&ensp;Kk&ensp;Ll&ensp;Mm&ensp;Nn&ensp;Oo&ensp;Pp&ensp;Qq&ensp;Rr&ensp;Ss&ensp;Tt&ensp;Uu&ensp;Vv&ensp;Ww&ensp;Xx&ensp;Yy&ensp;Zz&ensp;·&ensp;</span><span class="ticker-run">Aa&ensp;Bb&ensp;Cc&ensp;Dd&ensp;Ee&ensp;Ff&ensp;Gg&ensp;Hh&ensp;Ii&ensp;Jj&ensp;Kk&ensp;Ll&ensp;Mm&ensp;Nn&ensp;Oo&ensp;Pp&ensp;Qq&ensp;Rr&ensp;Ss&ensp;Tt&ensp;Uu&ensp;Vv&ensp;Ww&ensp;Xx&ensp;Yy&ensp;Zz&ensp;·&ensp;</span>
+    </div>
+  </div>
+
+  <section class="section" id="typefaces" aria-labelledby="typefaces-heading">
+    <div class="section-head">
+      <h2 id="typefaces-heading">Typefaces</h2>
+      <p class="section-note">Six working families. Every release ships with static and variable builds, a motion spec sheet, and open-ended room to misuse it.</p>
+    </div>
+    <ul class="specimen-grid">
+      <li class="specimen" tabindex="0">
+        <span class="glyph glyph-gantry" aria-hidden="true">Gg</span>
+        <h3>Gantry</h3>
+        <p class="specimen-meta">Display · 2 axes · wght, wdth</p>
+        <p>A load-bearing grotesk that widens under pressure. Built for headlines that arrive before the layout does.</p>
+      </li>
+      <li class="specimen" tabindex="0">
+        <span class="glyph glyph-pivot" aria-hidden="true">Pp</span>
+        <h3>Pivot Mono</h3>
+        <p class="specimen-meta">Monospace · 1 axis · slnt</p>
+        <p>A terminal face that leans into corners. Every glyph rotates around its own optical center.</p>
+      </li>
+      <li class="specimen" tabindex="0">
+        <span class="glyph glyph-flux" aria-hidden="true">Ff</span>
+        <h3>Flux Grotesk</h3>
+        <p class="specimen-meta">Text · 3 axes · wght, opsz, GRAV</p>
+        <p>Our workhorse. The custom gravity axis lets baselines sag, snap, and settle inside motion systems.</p>
+      </li>
+      <li class="specimen" tabindex="0">
+        <span class="glyph glyph-ossature" aria-hidden="true">Oo</span>
+        <h3>Ossature</h3>
+        <p class="specimen-meta">Display · 1 axis · BONE</p>
+        <p>A skeletal stencil drawn from armatures, not outlines. Interpolates from wireframe to full mass.</p>
+      </li>
+      <li class="specimen" tabindex="0">
+        <span class="glyph glyph-ribbon" aria-hidden="true">Rr</span>
+        <h3>Ribbon</h3>
+        <p class="specimen-meta">Script · 2 axes · wght, TWST</p>
+        <p>A single continuous stroke per word. Made for titles that unspool across a frame.</p>
+      </li>
+      <li class="specimen" tabindex="0">
+        <span class="glyph glyph-meridian" aria-hidden="true">Mm</span>
+        <h3>Meridian</h3>
+        <p class="specimen-meta">Serif · 2 axes · wght, CNTR</p>
+        <p>A high-contrast serif whose thins can vanish entirely, leaving only the gesture of the letter.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section section-lab" id="lab" aria-labelledby="lab-heading">
+    <div class="section-head">
+      <h2 id="lab-heading">Variable lab</h2>
+      <p class="section-note">Push the axes. The preview responds live to weight, width, slant, and tracking — the same four levers our motion specs are written in.</p>
+    </div>
+    <div class="lab">
+      <p class="lab-stage" aria-live="off">
+        <output id="lab-preview" class="lab-preview" for="lab-text lab-weight lab-width lab-slant lab-tracking">Kinetic</output>
+      </p>
+      <form class="lab-controls">
+        <p class="lab-field lab-field-wide">
+          <label for="lab-text">Preview text</label>
+          <input id="lab-text" name="text" type="text" maxlength="24" value="Kinetic" autocomplete="off">
+        </p>
+        <p class="lab-field">
+          <label for="lab-weight">Weight <span class="lab-value" id="lab-weight-value">700</span></label>
+          <input id="lab-weight" name="weight" type="range" min="100" max="900" step="10" value="700">
+        </p>
+        <p class="lab-field">
+          <label for="lab-width">Width <span class="lab-value" id="lab-width-value">100%</span></label>
+          <input id="lab-width" name="width" type="range" min="60" max="160" step="1" value="100">
+        </p>
+        <p class="lab-field">
+          <label for="lab-slant">Slant <span class="lab-value" id="lab-slant-value">0°</span></label>
+          <input id="lab-slant" name="slant" type="range" min="-14" max="14" step="1" value="0">
+        </p>
+        <p class="lab-field">
+          <label for="lab-tracking">Tracking <span class="lab-value" id="lab-tracking-value">0</span></label>
+          <input id="lab-tracking" name="tracking" type="range" min="-6" max="30" step="1" value="0">
+        </p>
+        <p class="lab-field lab-field-buttons">
+          <button type="button" class="button button-ghost button-small" id="lab-random">Scramble axes</button>
+          <button type="reset" class="button button-ghost button-small" id="lab-reset">Reset</button>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <section class="section" id="process" aria-labelledby="process-heading">
+    <div class="section-head">
+      <h2 id="process-heading">Process</h2>
+      <p class="section-note">We draw for the frame, not the page. Every family starts as a motion test and earns its statics later.</p>
+    </div>
+    <ol class="process-list">
+      <li>
+        <span class="process-index" aria-hidden="true">01</span>
+        <h3>Sketch in time</h3>
+        <p>First drafts are animated interpolations, not proofs. If a letter can’t survive the tween, it goes back to the bench.</p>
+      </li>
+      <li>
+        <span class="process-index" aria-hidden="true">02</span>
+        <h3>Name the axis</h3>
+        <p>Custom axes — GRAV, BONE, TWST — are designed as instruments. Each ships with a notation for choreographing it.</p>
+      </li>
+      <li>
+        <span class="process-index" aria-hidden="true">03</span>
+        <h3>Break it in public</h3>
+        <p>Betas go straight into the lab above. The way people misuse a face tells us where its next master belongs.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section section-licensing" id="licensing" aria-labelledby="licensing-heading">
+    <div class="section-head">
+      <h2 id="licensing-heading">Licensing</h2>
+      <p class="section-note">One license per family. It covers print, screens, apps, broadcast, and whatever format arrives next — no per-pageview math, ever.</p>
+    </div>
+    <dl class="license-grid">
+      <div class="license-card">
+        <dt>Studio</dt>
+        <dd>Up to 5 seats. Full variable and static builds, motion spec sheets, lifetime updates.</dd>
+      </div>
+      <div class="license-card">
+        <dt>Broadcast</dt>
+        <dd>Unlimited seats for one production. Includes the choreography notation files for every custom axis.</dd>
+      </div>
+      <div class="license-card">
+        <dt>Trial</dt>
+        <dd>Full character set, watermarked interpolation. Take any family for a spin before it takes you.</dd>
+      </div>
+    </dl>
+  </section>
+</main>
+
+<footer class="footer">
+  <p class="footer-mark" aria-hidden="true">K<span class="wordmark-tilt">t</span></p>
+  <p>Kinetic Type — an independent foundry. Letters made to move.</p>
+  <p class="footer-fine">All specimen families shown are original works of the foundry.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Salt Air — Stay close to the tide</title>
+<meta name="description" content="A quiet inn shaped by open windows, local food, weathered timber, and slow mornings.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Salt Air, home">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path d="M2 22c4-4 8-4 12 0s8 4 12 0" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M6 27c3-2.6 6-2.6 9 0s6 2.6 9 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+      <circle cx="23" cy="9" r="4.2" fill="currentColor" opacity=".85"/>
+    </svg>
+    <span>Salt&nbsp;Air</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list">
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+      Menu
+    </button>
+    <ul id="nav-list" class="nav-list">
+      <li><a href="#rooms">Rooms</a></li>
+      <li><a href="#table">The Table</a></li>
+      <li><a href="#coast">The Coast</a></li>
+      <li><a href="#tides">Tides</a></li>
+      <li><a class="nav-book" href="#book">Book</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">Rooms by the sea</p>
+      <h1 id="hero-title">Salt Air</h1>
+      <p class="tagline">Stay close to the tide.</p>
+      <p class="lede">A quiet inn shaped by open windows, local food, weathered timber, and slow mornings. Nine rooms, one long porch, and nothing between you and the water but dune grass.</p>
+      <div class="actions">
+        <a class="button primary" href="#book">Book your stay</a>
+        <a class="button ghost" href="#coast">Explore the coast</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 520 640" role="presentation" focusable="false">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#e9dfc9"/>
+            <stop offset=".55" stop-color="#d9d3bd"/>
+            <stop offset="1" stop-color="#b9c4b8"/>
+          </linearGradient>
+          <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#5d8784"/>
+            <stop offset="1" stop-color="#28504f"/>
+          </linearGradient>
+        </defs>
+        <rect width="520" height="640" fill="url(#sky)"/>
+        <circle cx="392" cy="132" r="58" fill="#f2e8cf" opacity=".9"/>
+        <rect y="330" width="520" height="310" fill="url(#sea)"/>
+        <path d="M0 340c60-14 120-14 180 0s120 14 180 0 100-12 160-2v22c-60-10-100-12-160 2s-120 14-180 0-120-14-180 0z" fill="#f2ede1" opacity=".5"/>
+        <path d="M0 420c70-12 140-12 210 0s140 12 210 0 70-8 100-4v18c-30-4-30-8-100 4s-140 12-210 0-140-12-210 0z" fill="#f2ede1" opacity=".32"/>
+        <path d="M0 510c80-12 160-12 240 0s160 12 240 0 30-4 40-4v134H0z" fill="#e3d6b4"/>
+        <g stroke="#6c5f4a" stroke-width="3" stroke-linecap="round" opacity=".7">
+          <path d="M64 618v-46m0 46-12-20m12 20 14-24"/>
+          <path d="M430 626v-40m0 40-10-16m10 16 12-20"/>
+        </g>
+        <g fill="none" stroke="#2c3a37" stroke-width="3" stroke-linecap="round" opacity=".55">
+          <path d="M120 150c14 4 26 4 40-2"/>
+          <path d="M172 128c12 4 22 4 34-2"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <section class="strip" aria-label="Inn at a glance">
+    <dl>
+      <div><dt>Rooms</dt><dd>Nine, all sea-facing</dd></div>
+      <div><dt>Breakfast</dt><dd>Until 11, no rush</dd></div>
+      <div><dt>Shoreline</dt><dd>Forty steps away</dd></div>
+      <div><dt>Season</dt><dd>Open year-round</dd></div>
+    </dl>
+  </section>
+
+  <section class="section" id="rooms" aria-labelledby="rooms-title">
+    <div class="section-head">
+      <p class="eyebrow">Sleep</p>
+      <h2 id="rooms-title">Rooms that face the weather</h2>
+      <p>Every room keeps its original timber, a deep bed, and a window that opens all the way. No televisions, no minibar — a kettle, good blankets, and the sound of water.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <svg class="card-art" viewBox="0 0 300 170" aria-hidden="true" focusable="false">
+          <rect width="300" height="170" fill="#e7ddc6"/>
+          <rect x="36" y="30" width="228" height="110" fill="#f6f1e4" stroke="#8b7d63" stroke-width="3"/>
+          <line x1="150" y1="30" x2="150" y2="140" stroke="#8b7d63" stroke-width="3"/>
+          <path d="M36 96c38-16 76-16 114 0M150 96c38-16 76-16 114 0" fill="none" stroke="#3f6a68" stroke-width="4"/>
+          <rect x="36" y="96" width="228" height="44" fill="#3f6a68" opacity=".85"/>
+          <path d="M36 108c38-8 76-8 114 0M150 108c38-8 76-8 114 0" fill="none" stroke="#f6f1e4" stroke-width="2" opacity=".7"/>
+        </svg>
+        <h3>The Dune Rooms</h3>
+        <p>Ground floor, doors straight onto the boardwalk. Wake up, walk out, feet in cold sand before coffee.</p>
+        <p class="price">From $140 a night</p>
+      </article>
+      <article class="card">
+        <svg class="card-art" viewBox="0 0 300 170" aria-hidden="true" focusable="false">
+          <rect width="300" height="170" fill="#dfd6bd"/>
+          <path d="M40 140V70l110-42 110 42v70" fill="#f6f1e4" stroke="#8b7d63" stroke-width="3"/>
+          <circle cx="150" cy="86" r="26" fill="none" stroke="#3f6a68" stroke-width="4"/>
+          <line x1="150" y1="60" x2="150" y2="112" stroke="#3f6a68" stroke-width="3"/>
+          <line x1="124" y1="86" x2="176" y2="86" stroke="#3f6a68" stroke-width="3"/>
+          <rect x="40" y="140" width="220" height="8" fill="#8b7d63"/>
+        </svg>
+        <h3>The Gable Rooms</h3>
+        <p>Up under the roofline with a round window on the horizon. Best storms in the house, guests insist.</p>
+        <p class="price">From $165 a night</p>
+      </article>
+      <article class="card">
+        <svg class="card-art" viewBox="0 0 300 170" aria-hidden="true" focusable="false">
+          <rect width="300" height="170" fill="#d5cfba"/>
+          <rect x="30" y="44" width="240" height="96" fill="#f6f1e4" stroke="#8b7d63" stroke-width="3"/>
+          <g stroke="#8b7d63" stroke-width="3">
+            <line x1="30" y1="140" x2="30" y2="158"/><line x1="90" y1="140" x2="90" y2="158"/>
+            <line x1="150" y1="140" x2="150" y2="158"/><line x1="210" y1="140" x2="210" y2="158"/>
+            <line x1="270" y1="140" x2="270" y2="158"/>
+          </g>
+          <path d="M64 100c10-22 30-22 40 0s30 22 40 0 30-22 40 0 30 22 40 0" fill="none" stroke="#3f6a68" stroke-width="4"/>
+          <rect x="22" y="36" width="256" height="10" fill="#8b7d63"/>
+        </svg>
+        <h3>The Porch Suite</h3>
+        <p>The whole west end: sitting room, claw-foot tub, and a private stretch of porch with two rope hammocks.</p>
+        <p class="price">From $220 a night</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section alt" id="table" aria-labelledby="table-title">
+    <div class="section-head">
+      <p class="eyebrow">Eat</p>
+      <h2 id="table-title">The Table</h2>
+      <p>One long communal table of salvaged ship planking. What the boats land in the morning is what we cook at night — the menu is written on slate around four o'clock.</p>
+    </div>
+    <div class="menu">
+      <div class="menu-day">
+        <h3>A morning, roughly</h3>
+        <ul>
+          <li><span>Brown bread, still warm, with dune-honey butter</span></li>
+          <li><span>Smoked fish from the shed out back</span></li>
+          <li><span>Eggs from the Halloran farm up the lane</span></li>
+          <li><span>Coffee in heavy mugs, refilled without asking</span></li>
+        </ul>
+      </div>
+      <div class="menu-day">
+        <h3>An evening, depending on the boats</h3>
+        <ul>
+          <li><span>Chowder the way the harbormaster's mother made it</span></li>
+          <li><span>Whole grilled catch with charred lemon and sea greens</span></li>
+          <li><span>Roast roots and herbs from the walled garden</span></li>
+          <li><span>Something sweet with foraged berries, most nights</span></li>
+        </ul>
+      </div>
+    </div>
+    <blockquote class="quote">
+      <p>&ldquo;We ate what the tide brought in, slept with the window open, and drove home two days late.&rdquo;</p>
+      <cite>— A guestbook entry, left in pencil</cite>
+    </blockquote>
+  </section>
+
+  <section class="section" id="coast" aria-labelledby="coast-title">
+    <div class="section-head">
+      <p class="eyebrow">Wander</p>
+      <h2 id="coast-title">Explore the coast</h2>
+      <p>Nothing here is far, and none of it is in a hurry. Borrow boots and a walking map from the basket by the door.</p>
+    </div>
+    <ol class="walks">
+      <li>
+        <span class="walk-time">20 min</span>
+        <div><h3>The Slipway</h3><p>Down past the lobster pots to where the day boats unload. Go early and someone will hand you a mug of tea.</p></div>
+      </li>
+      <li>
+        <span class="walk-time">1 hr</span>
+        <div><h3>Grey Point Light</h3><p>An easy clifftop walk to the old lighthouse. Seals haul out on the rocks below from autumn through spring.</p></div>
+      </li>
+      <li>
+        <span class="walk-time">Half day</span>
+        <div><h3>The Long Strand</h3><p>Four miles of open sand with nobody on it. We'll pack you bread, cheese, and a flask if you tell us the night before.</p></div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section tide" id="tides" aria-labelledby="tides-title">
+    <div class="section-head">
+      <p class="eyebrow">Read the water</p>
+      <h2 id="tides-title">Today's tide, more or less</h2>
+      <p>The chalkboard in the hall keeps the real times. This is the shape of a typical day on our shore — low water is for walking, high water is for swimming off the slipway.</p>
+    </div>
+    <figure class="tide-chart">
+      <svg viewBox="0 0 720 220" role="img" aria-labelledby="tide-chart-title">
+        <title id="tide-chart-title">Chart of a typical tide: high water near 6 in the morning and 6 in the evening, low water near noon</title>
+        <path d="M0 60 C 90 60 90 170 180 170 S 270 60 360 60 S 450 170 540 170 S 630 60 720 60" fill="none" stroke="#2f5a58" stroke-width="4" stroke-linecap="round"/>
+        <line x1="0" y1="115" x2="720" y2="115" stroke="#8b7d63" stroke-width="2" stroke-dasharray="2 8"/>
+        <g fill="#2f5a58" font-size="16" font-family="Georgia, serif">
+          <text x="8" y="40">High · 6 am</text>
+          <text x="310" y="205">Low · noon</text>
+          <text x="620" y="40">High · 6 pm</text>
+        </g>
+        <circle cx="0" cy="60" r="6" fill="#2f5a58"/>
+        <circle cx="360" cy="60" r="6" fill="#2f5a58"/>
+        <circle cx="720" cy="60" r="6" fill="#2f5a58"/>
+        <circle cx="180" cy="170" r="6" fill="#b1622f"/>
+        <circle cx="540" cy="170" r="6" fill="#b1622f"/>
+      </svg>
+      <figcaption>Mean spring range on our shore is about eleven feet. Ask at the desk before walking out to the sandbar.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section alt book" id="book" aria-labelledby="book-title">
+    <div class="section-head">
+      <p class="eyebrow">Stay</p>
+      <h2 id="book-title">Book your stay</h2>
+      <p>We keep no booking engine — a note is enough. Tell us when you'd like to come and we'll write back within a day with what's free.</p>
+    </div>
+    <form class="book-form" novalidate>
+      <div class="field-row">
+        <p class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </p>
+        <p class="field">
+          <label for="f-guests">Guests</label>
+          <select id="f-guests" name="guests">
+            <option>One</option>
+            <option selected>Two</option>
+            <option>Three</option>
+            <option>Four</option>
+          </select>
+        </p>
+      </div>
+      <div class="field-row">
+        <p class="field">
+          <label for="f-arrive">Arriving</label>
+          <input id="f-arrive" name="arrive" type="date" required>
+        </p>
+        <p class="field">
+          <label for="f-depart">Leaving</label>
+          <input id="f-depart" name="depart" type="date" required>
+        </p>
+      </div>
+      <p class="field">
+        <label for="f-notes">Anything we should know? <span class="hint">(optional)</span></label>
+        <textarea id="f-notes" name="notes" rows="3" placeholder="A dog, an anniversary, a strong feeling about hammocks…"></textarea>
+      </p>
+      <button class="button primary" type="submit">Send the note</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <svg class="footer-wave" viewBox="0 0 720 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path d="M0 24c60-16 120-16 180 0s120 16 180 0 120-16 180 0 120 16 180 0v16H0z" fill="#22403f"/>
+  </svg>
+  <div class="footer-inner">
+    <p class="footer-brand">Salt&nbsp;Air <span aria-hidden="true">·</span> Stay close to the tide.</p>
+    <p>1 Slipway Lane, at the end of the boardwalk. Desk kept from seven until the last guest is in.</p>
+    <p class="footer-fine">A quiet inn shaped by open windows, local food, weathered timber, and slow mornings.</p>
+  </div>
+</footer>
+</body>
+</html>

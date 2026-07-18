@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Wavelength — Listen to the ocean change.</title>
+<meta name="description" content="Open acoustic sensing helps researchers understand and protect marine ecosystems.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23051726'/%3E%3Cpath d='M4 16h3l2-6 3 12 3-16 3 20 3-14 2 6 2-2h3' stroke='%234de3c9' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+	<a class="brand" href="#top" aria-label="Wavelength home">
+		<svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+			<rect width="32" height="32" rx="7" fill="var(--abyss-2)"></rect>
+			<path d="M4 16h3l2-6 3 12 3-16 3 20 3-14 2 6 2-2h3" stroke="var(--signal)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+		</svg>
+		<span class="brand-name">Wavelength</span>
+	</a>
+	<nav class="site-nav" aria-label="Primary">
+		<a href="#stations">Stations</a>
+		<a href="#data">Data</a>
+		<a href="#listen">Listen</a>
+		<a href="#mission">Mission</a>
+	</nav>
+</header>
+
+<main id="main">
+	<!-- ============ HERO ============ -->
+	<section class="hero" id="top">
+		<canvas id="hero-wave" class="hero-wave" aria-hidden="true"></canvas>
+		<div class="hero-inner">
+			<p class="eyebrow">Ocean intelligence</p>
+			<h1 class="hero-title">Wavelength</h1>
+			<p class="hero-tagline">Listen to the ocean change.</p>
+			<p class="hero-copy">Open acoustic sensing helps researchers understand and protect marine ecosystems. Our hydrophone network records the sea around the clock — whale song, ship traffic, ice, rain, and reef life — and publishes every byte for anyone to study.</p>
+			<div class="hero-actions">
+				<a class="button button-primary" href="#data">Dive into the data</a>
+				<a class="button button-ghost" href="#listen">Hear live recordings</a>
+			</div>
+			<dl class="hero-stats">
+				<div><dt>Hydrophone stations</dt><dd>27</dd></div>
+				<div><dt>Hours archived</dt><dd>418k</dd></div>
+				<div><dt>Species catalogued</dt><dd>63</dd></div>
+				<div><dt>Open license</dt><dd>CC-BY</dd></div>
+			</dl>
+		</div>
+		<div class="hero-fade" aria-hidden="true"></div>
+	</section>
+
+	<!-- ============ STATIONS ============ -->
+	<section class="section" id="stations" aria-labelledby="stations-title">
+		<div class="section-head">
+			<p class="eyebrow">The listening network</p>
+			<h2 id="stations-title">Twenty-seven ears on the seafloor</h2>
+			<p class="section-lede">Each station is a calibrated broadband hydrophone moored between the surface and the abyssal plain. Together they form a continuous acoustic transect from polar shelf to tropical reef.</p>
+		</div>
+		<ul class="station-grid" role="list">
+			<li class="station-card">
+				<div class="station-top">
+					<h3>Barkley Canyon</h3>
+					<span class="badge badge-live"><span class="dot" aria-hidden="true"></span>Recording</span>
+				</div>
+				<p class="station-meta">NE Pacific · 890 m depth</p>
+				<svg class="sparkline" viewBox="0 0 160 40" preserveAspectRatio="none" role="img" aria-label="Sound level trend for Barkley Canyon, moderate and steady">
+					<polyline points="0,26 12,24 24,27 36,22 48,25 60,20 72,23 84,18 96,22 108,17 120,21 132,16 144,19 160,15" fill="none"></polyline>
+				</svg>
+				<p class="station-note">Dominant band: fin whale 20 Hz pulses, winter chorus.</p>
+			</li>
+			<li class="station-card">
+				<div class="station-top">
+					<h3>Saguenay Mouth</h3>
+					<span class="badge badge-live"><span class="dot" aria-hidden="true"></span>Recording</span>
+				</div>
+				<p class="station-meta">St. Lawrence · 120 m depth</p>
+				<svg class="sparkline" viewBox="0 0 160 40" preserveAspectRatio="none" role="img" aria-label="Sound level trend for Saguenay Mouth, variable with traffic peaks">
+					<polyline points="0,30 12,12 24,28 36,10 48,26 60,14 72,30 84,8 96,24 108,12 120,28 132,10 144,26 160,14" fill="none"></polyline>
+				</svg>
+				<p class="station-note">Beluga social calls overlap daily shipping-lane noise.</p>
+			</li>
+			<li class="station-card">
+				<div class="station-top">
+					<h3>Ross Ice Shelf</h3>
+					<span class="badge badge-live"><span class="dot" aria-hidden="true"></span>Recording</span>
+				</div>
+				<p class="station-meta">Southern Ocean · 540 m depth</p>
+				<svg class="sparkline" viewBox="0 0 160 40" preserveAspectRatio="none" role="img" aria-label="Sound level trend for Ross Ice Shelf, quiet with ice cracking events">
+					<polyline points="0,32 12,31 24,33 36,30 48,12 60,31 72,32 84,30 96,10 108,31 120,32 132,30 144,33 160,31" fill="none"></polyline>
+				</svg>
+				<p class="station-note">Ice-quake transients punctuate the quietest water we record.</p>
+			</li>
+			<li class="station-card">
+				<div class="station-top">
+					<h3>Moorea Lagoon</h3>
+					<span class="badge badge-maint">Servicing</span>
+				</div>
+				<p class="station-meta">South Pacific · 18 m depth</p>
+				<svg class="sparkline" viewBox="0 0 160 40" preserveAspectRatio="none" role="img" aria-label="Sound level trend for Moorea Lagoon, dense reef crackle">
+					<polyline points="0,18 12,22 24,16 36,21 48,15 60,20 72,14 84,19 96,13 108,18 120,15 132,20 144,14 160,17" fill="none"></polyline>
+				</svg>
+				<p class="station-note">Snapping-shrimp crackle is our healthiest reef signature.</p>
+			</li>
+		</ul>
+	</section>
+
+	<!-- ============ DATA ============ -->
+	<section class="section section-alt" id="data" aria-labelledby="data-title">
+		<div class="section-head">
+			<p class="eyebrow">Dive into the data</p>
+			<h2 id="data-title">A year of sound, one screen</h2>
+			<p class="section-lede">The long-term spectrogram below condenses twelve months at Barkley Canyon into a single image. Pick a season to see how the soundscape shifts; the summary updates with it.</p>
+		</div>
+		<div class="spectro-panel">
+			<div class="spectro-toolbar" role="group" aria-label="Season selector">
+				<button type="button" class="chip" data-season="winter" aria-pressed="true">Winter</button>
+				<button type="button" class="chip" data-season="spring" aria-pressed="false">Spring</button>
+				<button type="button" class="chip" data-season="summer" aria-pressed="false">Summer</button>
+				<button type="button" class="chip" data-season="autumn" aria-pressed="false">Autumn</button>
+			</div>
+			<canvas id="spectrogram" class="spectrogram" width="960" height="360" role="img" aria-label="Seasonal spectrogram, frequency from 10 hertz to 10 kilohertz over three months. A caption below describes the selected season."></canvas>
+			<div class="spectro-axis" aria-hidden="true">
+				<span>10 Hz</span><span>100 Hz</span><span>1 kHz</span><span>10 kHz</span>
+			</div>
+			<p class="spectro-caption" id="spectro-caption" aria-live="polite">Winter: the 20 Hz fin whale chorus forms a bright unbroken band; storms lift broadband noise above 1 kHz for days at a time.</p>
+		</div>
+		<div class="data-facts">
+			<article class="fact">
+				<h3>Open by default</h3>
+				<p>Raw audio, calibrated spectra, and annotation sets ship under CC-BY within 24 hours of recording. No sign-up, no gatekeeping.</p>
+			</article>
+			<article class="fact">
+				<h3>Calibrated, comparable</h3>
+				<p>Every station reports absolute sound pressure in dB re 1 µPa, so a decade of measurements can be compared across oceans and instruments.</p>
+			</article>
+			<article class="fact">
+				<h3>Annotated together</h3>
+				<p>Researchers and trained volunteers have labelled 2.1 million acoustic events — the training ground for the detectors that watch the live streams.</p>
+			</article>
+		</div>
+	</section>
+
+	<!-- ============ LISTEN ============ -->
+	<section class="section" id="listen" aria-labelledby="listen-title">
+		<div class="section-head">
+			<p class="eyebrow">Hear live recordings</p>
+			<h2 id="listen-title">The ocean, in three voices</h2>
+			<p class="section-lede">These clips are synthesized on your device from the measured pitch contours of real recordings — a faithful sketch of each call, generated locally with no network connection.</p>
+		</div>
+		<ul class="listen-grid" role="list">
+			<li class="listen-card">
+				<h3>Humpback whale</h3>
+				<p class="listen-meta">Song unit · 200–600 Hz · Barkley Canyon</p>
+				<p class="listen-copy">A rising moan that carries for tens of kilometres. Males repeat and slowly remix these phrases across an entire season.</p>
+				<button type="button" class="button button-play" data-voice="humpback" aria-pressed="false">
+					<span class="play-icon" aria-hidden="true"></span><span class="play-label">Play call</span>
+				</button>
+			</li>
+			<li class="listen-card">
+				<h3>Fin whale</h3>
+				<p class="listen-meta">20 Hz pulse train · Ross Ice Shelf</p>
+				<p class="listen-copy">The loudest animal sound in the sea: short, metronomic infrasonic pulses. On small speakers you may feel it more than hear it.</p>
+				<button type="button" class="button button-play" data-voice="fin" aria-pressed="false">
+					<span class="play-icon" aria-hidden="true"></span><span class="play-label">Play call</span>
+				</button>
+			</li>
+			<li class="listen-card">
+				<h3>Reef crackle</h3>
+				<p class="listen-meta">Snapping shrimp · broadband · Moorea Lagoon</p>
+				<p class="listen-copy">Thousands of shrimp claws collapsing cavitation bubbles. A dense crackle is one of the quickest audible signs of a living reef.</p>
+				<button type="button" class="button button-play" data-voice="reef" aria-pressed="false">
+					<span class="play-icon" aria-hidden="true"></span><span class="play-label">Play call</span>
+				</button>
+			</li>
+		</ul>
+		<p class="listen-hint">Tip: headphones reveal the fin whale pulses that laptop speakers can't reproduce.</p>
+	</section>
+
+	<!-- ============ MISSION ============ -->
+	<section class="section section-alt" id="mission" aria-labelledby="mission-title">
+		<div class="mission-wrap">
+			<div class="section-head section-head-left">
+				<p class="eyebrow">Why we listen</p>
+				<h2 id="mission-title">Sound is the ocean's vital sign</h2>
+			</div>
+			<div class="mission-body">
+				<p>Light fades within a hundred metres of the surface, but sound travels for oceans. Acoustics is how whales find each other, how larvae find reefs — and how we can measure ecosystem health, shipping pressure, and climate stress without touching a single animal.</p>
+				<p>Wavelength exists to make that measurement a public good. When a marine protected area works, the hydrophones hear it first: the chorus thickens, the crackle returns. When it doesn't, the silence is evidence too.</p>
+				<ul class="mission-list" role="list">
+					<li><strong>For researchers:</strong> calibrated archives and detector baselines, citable by DOI.</li>
+					<li><strong>For policymakers:</strong> independent noise budgets for shipping lanes and sanctuaries.</li>
+					<li><strong>For everyone:</strong> the unedited sound of the sea, free to hear and to keep.</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+</main>
+
+<footer class="site-footer">
+	<svg class="footer-wave" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true">
+		<path d="M0 12 q 12 -10 25 0 t 25 0 t 25 0 t 25 0 t 25 0 t 25 0 t 25 0 t 25 0 t 25 0 t 25 0 t 25 0 t 25 0 t 25 0 t 25 0 t 25 0 t 25 0" fill="none"></path>
+	</svg>
+	<p><strong>Wavelength</strong> · Marine Research · Listen to the ocean change.</p>
+	<p class="footer-fine">All archive figures are illustrative program summaries. Recordings on this page are device-local acoustic reconstructions.</p>
+</footer>
+</body>
+</html>

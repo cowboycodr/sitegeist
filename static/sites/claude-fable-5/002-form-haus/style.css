@@ -1,0 +1,402 @@
+/* Form Haus — Copenhagen architecture practice */
+
+:root {
+  --paper: #efece5;
+  --paper-deep: #e4e0d6;
+  --ink: #2a2723;
+  --ink-soft: #57524a;
+  --stone: #b6ad9d;
+  --oxide: #c1502e;
+  --hairline: rgba(42, 39, 35, 0.22);
+  --measure: 62ch;
+  --gutter: clamp(1.25rem, 5vw, 4.5rem);
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --grotesk: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--grotesk);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img, svg { display: block; max-width: 100%; height: auto; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: -4rem;
+  z-index: 10;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.6rem 1rem;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  transition: top 160ms ease;
+}
+.skip-link:focus { top: 0.75rem; }
+
+/* ————— Masthead ————— */
+
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 1.25rem var(--gutter);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--grotesk);
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  font-size: 0.95rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.wordmark-block {
+  width: 0.85em;
+  height: 0.85em;
+  background: var(--oxide);
+  flex: none;
+}
+
+.masthead-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.masthead-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.4rem 0;
+  border-bottom: 2px solid transparent;
+}
+.masthead-nav a:hover,
+.masthead-nav a:focus-visible {
+  color: var(--ink);
+  border-bottom-color: var(--oxide);
+}
+
+/* ————— Type ————— */
+
+.eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--oxide);
+  margin: 0 0 1rem;
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.05;
+  margin: 0;
+  text-wrap: balance;
+}
+
+h1 { font-size: clamp(2.6rem, 8.5vw, 6rem); letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.9rem, 4.5vw, 3.25rem); }
+h3 { font-size: 1.35rem; line-height: 1.2; }
+
+/* ————— Hero ————— */
+
+.hero {
+  padding: clamp(3rem, 9vh, 6rem) var(--gutter) 0;
+}
+
+.hero-lede {
+  max-width: var(--measure);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--ink-soft);
+  margin: 1.75rem 0 2.25rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-bottom: clamp(2.5rem, 6vh, 4.5rem);
+}
+
+.button {
+  display: inline-block;
+  padding: 0.85rem 1.9rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--ink);
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.button-solid {
+  background: var(--ink);
+  color: var(--paper);
+}
+.button-solid:hover,
+.button-solid:focus-visible {
+  background: var(--oxide);
+  border-color: var(--oxide);
+  color: var(--paper);
+}
+
+.button-line {
+  background: transparent;
+  color: var(--ink);
+}
+.button-line:hover,
+.button-line:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.button:focus-visible,
+.masthead-nav a:focus-visible,
+.wordmark:focus-visible {
+  outline: 2px solid var(--oxide);
+  outline-offset: 3px;
+}
+
+.hero-figure {
+  margin: 0 calc(var(--gutter) * -1);
+  border-top: 1px solid var(--hairline);
+}
+.hero-figure svg { width: 100%; }
+
+/* ————— Sections ————— */
+
+section {
+  padding: clamp(3.5rem, 9vh, 6.5rem) var(--gutter);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.section-head { margin-bottom: clamp(2rem, 5vh, 3.5rem); }
+
+/* ————— Principles ————— */
+
+.principles { background: var(--paper-deep); }
+
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+  gap: 2.5rem var(--gutter);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: principle;
+}
+
+.principle {
+  border-top: 3px solid var(--ink);
+  padding-top: 1.25rem;
+}
+
+.principle-index {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--oxide);
+  letter-spacing: 0.1em;
+}
+
+.principle h3 { margin: 0.35rem 0 0.6rem; }
+.principle p { margin: 0; color: var(--ink-soft); }
+
+/* ————— Projects ————— */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr));
+  gap: clamp(2rem, 5vw, 3.5rem) var(--gutter);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-card figure {
+  margin: 0 0 1.1rem;
+  border: 1px solid var(--hairline);
+}
+
+.project-meta h3 { margin-bottom: 0.25rem; }
+
+.project-facts {
+  margin: 0 0 0.6rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--oxide);
+}
+
+.project-meta p:last-child {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+/* ————— Studio ————— */
+
+.studio { background: var(--paper-deep); }
+
+.studio-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 2.5rem var(--gutter);
+}
+
+.studio-text p {
+  max-width: var(--measure);
+  margin: 0 0 1.25rem;
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+}
+.studio-text p:last-child { margin-bottom: 0; }
+
+.studio-facts {
+  margin: 0;
+  align-self: start;
+  border-top: 3px solid var(--ink);
+}
+
+.studio-facts > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.studio-facts dt {
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.studio-facts dd {
+  margin: 0;
+  font-family: var(--serif);
+  text-align: right;
+}
+
+/* ————— Quote ————— */
+
+.quote-band {
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+}
+
+.quote-band blockquote { margin: 0 auto; max-width: 46ch; }
+
+.quote-band p {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  line-height: 1.25;
+  margin: 0 0 1.5rem;
+}
+
+.quote-band footer {
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+/* ————— Footer ————— */
+
+.site-footer {
+  padding: clamp(3rem, 8vh, 5rem) var(--gutter) 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 2rem var(--gutter);
+  margin-bottom: 3rem;
+}
+
+.footer-wordmark { margin: 0 0 0.75rem; }
+
+.footer-tagline {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.site-footer address { font-style: normal; }
+.site-footer p { color: var(--ink-soft); margin: 0 0 1rem; }
+
+.footer-fine {
+  border-top: 1px solid var(--hairline);
+  padding-top: 1.25rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ————— Reveal on scroll ————— */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.no-observer .reveal { opacity: 1; transform: none; }
+
+/* ————— Narrow screens ————— */
+
+@media (max-width: 720px) {
+  .studio-body { grid-template-columns: 1fr; }
+  .masthead { flex-direction: column; align-items: flex-start; }
+}
+
+/* ————— Reduced motion ————— */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .skip-link, .button { transition: none; }
+}

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'">
+<title>NULL Laboratory — Prototypes for uncertain futures</title>
+<meta name="description" content="Research into spatial computing, machine perception, and delightfully strange interfaces.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23070a08'/%3E%3Ccircle cx='8' cy='8' r='5' fill='none' stroke='%237cff6b' stroke-width='1.5'/%3E%3Cline x1='4.5' y1='11.5' x2='11.5' y2='4.5' stroke='%237cff6b' stroke-width='1.5'/%3E%3C/svg%3E">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#experiments">Skip to experiments</a>
+
+<header class="site-head">
+  <a class="brand" href="#top" aria-label="NULL Laboratory home">
+    <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+      <line x1="6.5" y1="17.5" x2="17.5" y2="6.5" stroke="currentColor" stroke-width="2"/>
+    </svg>
+    <span>NULL<em>&nbsp;Laboratory</em></span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#experiments">Experiments</a>
+    <a href="#manifesto">Manifesto</a>
+    <a href="#instruments">Instruments</a>
+  </nav>
+</header>
+
+<main id="top">
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-scan" aria-hidden="true"></div>
+    <p class="eyebrow"><span class="tick" aria-hidden="true"></span>Research index / 0090</p>
+    <h1 id="hero-title">Prototypes for<br><span class="hollow">uncertain</span> futures.</h1>
+    <p class="lede">Research into spatial computing, machine perception, and delightfully strange interfaces. Everything here is unfinished on purpose.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#experiments">Open experiments</a>
+      <a class="btn btn-ghost" href="#manifesto">Read the manifesto</a>
+    </div>
+    <dl class="hero-stats" aria-label="Laboratory status">
+      <div><dt>Active runs</dt><dd>07</dd></div>
+      <div><dt>Failure rate</dt><dd>81%</dd></div>
+      <div><dt>Regrets</dt><dd data-null>NULL</dd></div>
+      <div><dt>Cycle</dt><dd id="cycle-readout">—</dd></div>
+    </dl>
+  </section>
+
+  <!-- ============ EXPERIMENTS ============ -->
+  <section class="section" id="experiments" aria-labelledby="experiments-title">
+    <header class="section-head">
+      <h2 id="experiments-title"><span class="index" aria-hidden="true">01</span>Experiments</h2>
+      <p>Seven live prototypes. Select any card to read its field notes. Statuses update whenever something breaks in an interesting way.</p>
+    </header>
+    <ul class="exp-grid" role="list">
+      <li>
+        <article class="exp-card">
+          <header class="exp-top">
+            <span class="exp-id">EXP-014</span>
+            <span class="status status-live"><span class="dot" aria-hidden="true"></span>Live</span>
+          </header>
+          <h3>Peripheral Compiler</h3>
+          <p>A code editor that renders your program as weather at the edge of your vision. Errors arrive as thunderheads long before the linter notices.</p>
+          <button class="exp-toggle" type="button" aria-expanded="false" aria-controls="notes-014">Field notes<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+          <div class="exp-notes" id="notes-014" hidden>
+            <p>Day 41: participants report they can feel a null-pointer forming, described variously as "drizzle" and "dread." We consider this a success metric now.</p>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="exp-card">
+          <header class="exp-top">
+            <span class="exp-id">EXP-019</span>
+            <span class="status status-live"><span class="dot" aria-hidden="true"></span>Live</span>
+          </header>
+          <h3>Room-Scale Undo</h3>
+          <p>Spatial computing with a rewind key. Walk backwards through the last ninety seconds of a physical room, annotations and spilled coffee included.</p>
+          <button class="exp-toggle" type="button" aria-expanded="false" aria-controls="notes-019">Field notes<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+          <div class="exp-notes" id="notes-019" hidden>
+            <p>Day 12: the undo buffer now survives lunch. Redo remains philosophically contested and is disabled until the ethics reading group reconvenes.</p>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="exp-card">
+          <header class="exp-top">
+            <span class="exp-id">EXP-023</span>
+            <span class="status status-drift"><span class="dot" aria-hidden="true"></span>Drifting</span>
+          </header>
+          <h3>Sympathetic Cursor</h3>
+          <p>A pointer trained on ten years of hesitation data. It pre-flinches at destructive buttons and lingers, wistfully, over things you almost clicked.</p>
+          <button class="exp-toggle" type="button" aria-expanded="false" aria-controls="notes-023">Field notes<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+          <div class="exp-notes" id="notes-023" hidden>
+            <p>Day 67: the cursor has begun avoiding the settings page entirely. We are choosing to interpret this as machine perception rather than a bug.</p>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="exp-card">
+          <header class="exp-top">
+            <span class="exp-id">EXP-031</span>
+            <span class="status status-live"><span class="dot" aria-hidden="true"></span>Live</span>
+          </header>
+          <h3>Depth-First Wallpaper</h3>
+          <p>Machine-perceived rooms re-rendered as infinitely recursive interiors. Your wall contains a smaller office, which contains a smaller you, working harder.</p>
+          <button class="exp-toggle" type="button" aria-expanded="false" aria-controls="notes-031">Field notes<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+          <div class="exp-notes" id="notes-031" hidden>
+            <p>Day 8: recursion capped at depth 12 after a volunteer waved at themselves for an hour. The smaller you does not wave back. We checked.</p>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="exp-card">
+          <header class="exp-top">
+            <span class="exp-id">EXP-036</span>
+            <span class="status status-halt"><span class="dot" aria-hidden="true"></span>Halted</span>
+          </header>
+          <h3>Consensus Keyboard</h3>
+          <p>Every keypress is a vote. Text appears only when all connected typists agree on the next character. Produces one immaculate sentence per week.</p>
+          <button class="exp-toggle" type="button" aria-expanded="false" aria-controls="notes-036">Field notes<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+          <div class="exp-notes" id="notes-036" hidden>
+            <p>Day 90: halted after the group deadlocked for six days between "the" and "a". The sentence so far is perfect. We refuse to publish it.</p>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="exp-card">
+          <header class="exp-top">
+            <span class="exp-id">EXP-040</span>
+            <span class="status status-drift"><span class="dot" aria-hidden="true"></span>Drifting</span>
+          </header>
+          <h3>Haptic Horizon</h3>
+          <p>A wristband that renders distant deadlines as a faint gravitational tug. Time management, reimagined as an inner-ear problem.</p>
+          <button class="exp-toggle" type="button" aria-expanded="false" aria-controls="notes-040">Field notes<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+          <div class="exp-notes" id="notes-040" hidden>
+            <p>Day 29: testers now lean slightly toward Thursday. Calibration continues. The control group, tragically, remains upright.</p>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="exp-card">
+          <header class="exp-top">
+            <span class="exp-id">EXP-044</span>
+            <span class="status status-live"><span class="dot" aria-hidden="true"></span>Live</span>
+          </header>
+          <h3>Glossolalia Shell</h3>
+          <p>A terminal that accepts commands in any language you almost know. It responds in the one you were born with, gently corrected.</p>
+          <button class="exp-toggle" type="button" aria-expanded="false" aria-controls="notes-044">Field notes<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+          <div class="exp-notes" id="notes-044" hidden>
+            <p>Day 55: <code>rm</code> now requires an apology in the imperative mood. Accidental deletions down 94%. Sincerity unverifiable.</p>
+          </div>
+        </article>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ MANIFESTO ============ -->
+  <section class="section section-alt" id="manifesto" aria-labelledby="manifesto-title">
+    <header class="section-head">
+      <h2 id="manifesto-title"><span class="index" aria-hidden="true">02</span>Manifesto</h2>
+      <p>Four commitments, revised annually, broken weekly.</p>
+    </header>
+    <ol class="manifesto-list">
+      <li>
+        <h3>Build the wrong thing beautifully.</h3>
+        <p>A dead end explored with care teaches more than a shortcut taken on faith. Our failures are load-bearing; we document them like victories.</p>
+      </li>
+      <li>
+        <h3>Interfaces should be a little strange.</h3>
+        <p>Familiarity is a sedative. A small, honest strangeness keeps the hand thinking and the eye awake. Delight is not a rounding error — it is the spec.</p>
+      </li>
+      <li>
+        <h3>Machines may perceive; people decide.</h3>
+        <p>We give sensors curiosity and models opinions, but the last word in every loop belongs to a human who can say NULL and mean it.</p>
+      </li>
+      <li>
+        <h3>Ship the question.</h3>
+        <p>A prototype is a question made touchable. If the answer were known, it would be a product, and products belong to some other, tidier building.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ INSTRUMENTS ============ -->
+  <section class="section" id="instruments" aria-labelledby="instruments-title">
+    <header class="section-head">
+      <h2 id="instruments-title"><span class="index" aria-hidden="true">03</span>Instruments</h2>
+      <p>The bench. Everything is open, hand-soldered, or both.</p>
+    </header>
+    <div class="bench">
+      <div class="bench-row"><span class="bench-key">perception rig</span><span class="bench-dots" aria-hidden="true"></span><span class="bench-val">14-camera photogrammetry cage, one disco ball</span></div>
+      <div class="bench-row"><span class="bench-key">spatial stage</span><span class="bench-dots" aria-hidden="true"></span><span class="bench-val">6 × 6 m tracked volume, ceiling of projectors</span></div>
+      <div class="bench-row"><span class="bench-key">haptics drawer</span><span class="bench-dots" aria-hidden="true"></span><span class="bench-val">motors, magnets, a suspicious amount of felt</span></div>
+      <div class="bench-row"><span class="bench-key">compute</span><span class="bench-dots" aria-hidden="true"></span><span class="bench-val">one loud rack, named after a quiet philosopher</span></div>
+      <div class="bench-row"><span class="bench-key">archive</span><span class="bench-dots" aria-hidden="true"></span><span class="bench-val">every failed run since 2019, indexed by mood</span></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <p><strong>NULL Laboratory</strong> · Research index / 0090</p>
+  <p>Prototypes for uncertain futures. No result is final; several are not even results.</p>
+</footer>
+</body>
+</html>

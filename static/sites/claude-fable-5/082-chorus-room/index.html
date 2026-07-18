@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+<title>Chorus Room — Listening is better together.</title>
+<meta name="description" content="Live album rooms where friends trade discoveries and talk between tracks.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <a class="brand" href="#main" aria-label="Chorus Room home">
+    <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+      <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M11 24 v-8 M15 27 v-14 M19 25 v-10 M23 28 v-16 M27 24 v-8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    </svg>
+    <span>Chorus&nbsp;Room</span>
+  </a>
+  <nav class="topnav" aria-label="Primary">
+    <a href="#rooms">Rooms</a>
+    <a href="#session">Live now</a>
+    <a href="#how">How it works</a>
+    <a href="#voices">Voices</a>
+  </nav>
+  <a class="btn btn-small btn-primary" href="#rooms">Join a room</a>
+</header>
+
+<main id="main">
+
+  <!-- ===================== Hero ===================== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span>12,408 listeners online</p>
+      <h1 id="hero-title">Listening is better <em>together.</em></h1>
+      <p class="lede">Chorus Room hosts live album rooms where friends trade discoveries and talk between tracks. Press play once — everyone hears the same second, and the conversation waits for the fade-out.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#rooms">Join a room</a>
+        <a class="btn btn-ghost" href="#session">Start a session</a>
+      </div>
+      <dl class="hero-stats">
+        <div><dt>Rooms live tonight</dt><dd>312</dd></div>
+        <div><dt>Albums finished in full</dt><dd>48,902</dd></div>
+        <div><dt>Avg. friends per room</dt><dd>7</dd></div>
+      </dl>
+    </div>
+
+    <figure class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 420 420" role="img" aria-label="">
+        <defs>
+          <radialGradient id="discGlow" cx="50%" cy="45%" r="60%">
+            <stop offset="0%" stop-color="#3a2b52"/>
+            <stop offset="100%" stop-color="#181226"/>
+          </radialGradient>
+        </defs>
+        <circle cx="210" cy="210" r="196" fill="url(#discGlow)"/>
+        <g fill="none" stroke="#5c4a82" stroke-width="1.5" opacity="0.9">
+          <circle cx="210" cy="210" r="170"/>
+          <circle cx="210" cy="210" r="146"/>
+          <circle cx="210" cy="210" r="122"/>
+          <circle cx="210" cy="210" r="98"/>
+        </g>
+        <circle cx="210" cy="210" r="72" fill="#ff7a59"/>
+        <circle cx="210" cy="210" r="10" fill="#181226"/>
+        <g stroke="#ffc46b" stroke-width="5" stroke-linecap="round" fill="none">
+          <path d="M150 210 v-22 M170 210 v-40 M190 210 v-28 M210 210 v-52 M230 210 v-30 M250 210 v-44 M270 210 v-20" transform="translate(0,11)"/>
+        </g>
+        <g class="orbit-badges">
+          <g transform="translate(64,96)"><circle r="21" fill="#241b38" stroke="#ff7a59" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="16" fill="#ffe8dd" font-family="Georgia, serif">M</text></g>
+          <g transform="translate(356,132)"><circle r="21" fill="#241b38" stroke="#ffc46b" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="16" fill="#ffe8dd" font-family="Georgia, serif">J</text></g>
+          <g transform="translate(330,330)"><circle r="21" fill="#241b38" stroke="#9b7bd8" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="16" fill="#ffe8dd" font-family="Georgia, serif">A</text></g>
+          <g transform="translate(84,320)"><circle r="21" fill="#241b38" stroke="#6fd0b2" stroke-width="2"/><text x="0" y="6" text-anchor="middle" font-size="16" fill="#ffe8dd" font-family="Georgia, serif">R</text></g>
+        </g>
+      </svg>
+    </figure>
+  </section>
+
+  <!-- ===================== Rooms ===================== -->
+  <section class="section" id="rooms" aria-labelledby="rooms-title">
+    <div class="section-head">
+      <h2 id="rooms-title">Rooms open right now</h2>
+      <p>Every room spins one album, front to back. Pick a door and slip in between songs.</p>
+    </div>
+
+    <div class="filter-row" role="group" aria-label="Filter rooms by mood">
+      <button class="chip is-active" type="button" data-filter="all" aria-pressed="true">All rooms</button>
+      <button class="chip" type="button" data-filter="latenight" aria-pressed="false">Late night</button>
+      <button class="chip" type="button" data-filter="firstspin" aria-pressed="false">First spins</button>
+      <button class="chip" type="button" data-filter="classics" aria-pressed="false">Classics club</button>
+    </div>
+
+    <ul class="room-grid" id="room-grid">
+      <li class="room-card" data-mood="latenight">
+        <div class="room-cover cover-a" aria-hidden="true"><span>NM</span></div>
+        <div class="room-body">
+          <p class="room-status"><span class="pulse-dot" aria-hidden="true"></span>Track 4 of 11</p>
+          <h3>Night Maps Listening Club</h3>
+          <p class="room-album">“Harbor Lights” — Vela Marín</p>
+          <p class="room-meta">9 friends inside · hosted by Priya</p>
+          <button class="btn btn-small btn-outline join-btn" type="button" data-room="Night Maps Listening Club">Join a room</button>
+        </div>
+      </li>
+      <li class="room-card" data-mood="firstspin">
+        <div class="room-cover cover-b" aria-hidden="true"><span>FS</span></div>
+        <div class="room-body">
+          <p class="room-status"><span class="pulse-dot" aria-hidden="true"></span>Track 1 of 9</p>
+          <h3>First Spin Friday</h3>
+          <p class="room-album">“Glass Orchard” — The Hollow Suns</p>
+          <p class="room-meta">14 friends inside · hosted by Marcus</p>
+          <button class="btn btn-small btn-outline join-btn" type="button" data-room="First Spin Friday">Join a room</button>
+        </div>
+      </li>
+      <li class="room-card" data-mood="classics">
+        <div class="room-cover cover-c" aria-hidden="true"><span>BC</span></div>
+        <div class="room-body">
+          <p class="room-status"><span class="pulse-dot" aria-hidden="true"></span>Track 7 of 10</p>
+          <h3>B-Side Cathedral</h3>
+          <p class="room-album">“Blue Terrace” — Odette Rey (1974)</p>
+          <p class="room-meta">6 friends inside · hosted by Tomás</p>
+          <button class="btn btn-small btn-outline join-btn" type="button" data-room="B-Side Cathedral">Join a room</button>
+        </div>
+      </li>
+      <li class="room-card" data-mood="latenight">
+        <div class="room-cover cover-d" aria-hidden="true"><span>SW</span></div>
+        <div class="room-body">
+          <p class="room-status"><span class="pulse-dot" aria-hidden="true"></span>Track 2 of 8</p>
+          <h3>Slow Wave Society</h3>
+          <p class="room-album">“Undertow Hymns” — Cassette Fog</p>
+          <p class="room-meta">11 friends inside · hosted by Amara</p>
+          <button class="btn btn-small btn-outline join-btn" type="button" data-room="Slow Wave Society">Join a room</button>
+        </div>
+      </li>
+      <li class="room-card" data-mood="firstspin">
+        <div class="room-cover cover-e" aria-hidden="true"><span>DD</span></div>
+        <div class="room-body">
+          <p class="room-status"><span class="pulse-dot" aria-hidden="true"></span>Track 5 of 12</p>
+          <h3>Demo Day Diggers</h3>
+          <p class="room-album">“Paper Engines” — Lena Okafor</p>
+          <p class="room-meta">8 friends inside · hosted by Jules</p>
+          <button class="btn btn-small btn-outline join-btn" type="button" data-room="Demo Day Diggers">Join a room</button>
+        </div>
+      </li>
+      <li class="room-card" data-mood="classics">
+        <div class="room-cover cover-f" aria-hidden="true"><span>GR</span></div>
+        <div class="room-body">
+          <p class="room-status"><span class="pulse-dot" aria-hidden="true"></span>Track 3 of 9</p>
+          <h3>Golden Reel Revival</h3>
+          <p class="room-album">“Sun Parlor” — The Marigold Set (1968)</p>
+          <p class="room-meta">17 friends inside · hosted by Nadia</p>
+          <button class="btn btn-small btn-outline join-btn" type="button" data-room="Golden Reel Revival">Join a room</button>
+        </div>
+      </li>
+    </ul>
+    <p class="filter-empty" id="filter-empty" hidden>No rooms in this mood right now — start a session and be the first.</p>
+    <p class="join-note" id="join-note" role="status" aria-live="polite"></p>
+  </section>
+
+  <!-- ===================== Live session ===================== -->
+  <section class="section session" id="session" aria-labelledby="session-title">
+    <div class="section-head">
+      <h2 id="session-title">Inside a live session</h2>
+      <p>The needle keeps everyone honest. Chat opens wide in the gaps between tracks, then hushes to whispers while the music plays.</p>
+    </div>
+
+    <div class="session-panel">
+      <div class="now-playing">
+        <div class="np-cover" aria-hidden="true">
+          <svg viewBox="0 0 96 96" focusable="false">
+            <rect width="96" height="96" rx="10" fill="#2c2144"/>
+            <circle cx="48" cy="48" r="26" fill="none" stroke="#ff7a59" stroke-width="3"/>
+            <path d="M34 48 v-8 M41 48 v-14 M48 48 v-10 M55 48 v-18 M62 48 v-9" stroke="#ffc46b" stroke-width="3.5" stroke-linecap="round" transform="translate(0,4)"/>
+          </svg>
+        </div>
+        <div class="np-copy">
+          <p class="np-room">Night Maps Listening Club · <span class="live-tag">LIVE</span></p>
+          <h3 class="np-track">“Salt &amp; Signal”</h3>
+          <p class="np-album">Harbor Lights — Vela Marín · Track 4 of 11</p>
+          <div class="np-progress" role="progressbar" aria-label="Track progress" aria-valuemin="0" aria-valuemax="252" aria-valuenow="97" aria-valuetext="1 minute 37 seconds of 4 minutes 12 seconds">
+            <span class="np-bar" id="np-bar"></span>
+          </div>
+          <p class="np-times"><span id="np-elapsed">1:37</span><span>4:12</span></p>
+        </div>
+        <ul class="np-listeners" aria-label="Nine friends listening">
+          <li class="avatar av-1" title="Priya (host)">P</li>
+          <li class="avatar av-2" title="Marcus">M</li>
+          <li class="avatar av-3" title="June">J</li>
+          <li class="avatar av-4" title="Amara">A</li>
+          <li class="avatar av-more">+5</li>
+        </ul>
+      </div>
+
+      <div class="chat" aria-label="Between-track chat">
+        <p class="chat-divider"><span>after track 3 · “Ferry Weather”</span></p>
+        <ul class="chat-log">
+          <li class="msg"><span class="avatar av-2" aria-hidden="true">M</span><div><p class="msg-name">Marcus</p><p>That bassline in the last minute?? I had to stand up.</p></div></li>
+          <li class="msg"><span class="avatar av-3" aria-hidden="true">J</span><div><p class="msg-name">June</p><p>She recorded the whole album on an actual ferry. The engine hum is real.</p></div></li>
+          <li class="msg"><span class="avatar av-1" aria-hidden="true">P</span><div><p class="msg-name">Priya <em>host</em></p><p>Track 4 is my favorite — no talking, just listen for the horn at 2:40.</p></div></li>
+          <li class="msg msg-whisper"><span class="avatar av-4" aria-hidden="true">A</span><div><p class="msg-name">Amara <em>whisper</em></p><p>👀 the horn. she wasn’t kidding</p></div></li>
+        </ul>
+        <form class="chat-form" id="chat-form">
+          <label class="visually-hidden" for="chat-input">Whisper to the room</label>
+          <input id="chat-input" name="whisper" type="text" maxlength="140" autocomplete="off" placeholder="Whisper while the track plays…">
+          <button class="btn btn-small btn-primary" type="submit">Send</button>
+        </form>
+        <p class="chat-hint">Chat opens fully in <strong id="gap-count">2:35</strong>, at the end of the track.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== How it works ===================== -->
+  <section class="section" id="how" aria-labelledby="how-title">
+    <div class="section-head">
+      <h2 id="how-title">How a session works</h2>
+      <p>No algorithms, no shuffle, no skipping ahead alone. Three small rules make the room feel like a living room.</p>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <span class="step-num" aria-hidden="true">01</span>
+        <h3>Pick the record</h3>
+        <p>The host chooses one album and posts the door time. Friends get a sleeve-note preview and a seat at the table.</p>
+      </li>
+      <li class="step">
+        <span class="step-num" aria-hidden="true">02</span>
+        <h3>Drop the needle together</h3>
+        <p>Playback is synced to the second for everyone. While a track plays, chat softens to whispers so the music leads.</p>
+      </li>
+      <li class="step">
+        <span class="step-num" aria-hidden="true">03</span>
+        <h3>Talk in the grooves</h3>
+        <p>Between tracks the floor opens: hot takes, liner-note trivia, and the next discovery someone can’t wait to queue.</p>
+      </li>
+    </ol>
+    <div class="cta-band">
+      <p>Got an album your friends need to hear tonight?</p>
+      <a class="btn btn-primary" href="#session">Start a session</a>
+    </div>
+  </section>
+
+  <!-- ===================== Voices ===================== -->
+  <section class="section" id="voices" aria-labelledby="voices-title">
+    <div class="section-head">
+      <h2 id="voices-title">Voices from the rooms</h2>
+      <p>What people say once the last track fades.</p>
+    </div>
+    <div class="quotes">
+      <blockquote class="quote">
+        <p>“I hadn’t listened to an album start to finish in years. Now it’s our Thursday ritual — same room, new record, same eight people.”</p>
+        <footer><span class="avatar av-3" aria-hidden="true">J</span>June T. · B-Side Cathedral regular</footer>
+      </blockquote>
+      <blockquote class="quote">
+        <p>“The between-track chat is the best part. It’s like the walk out of a concert, eleven times per album.”</p>
+        <footer><span class="avatar av-2" aria-hidden="true">M</span>Marcus O. · hosts First Spin Friday</footer>
+      </blockquote>
+      <blockquote class="quote">
+        <p>“Someone whispered ‘wait for the horn’ and I’ve thought about that horn every day since.”</p>
+        <footer><span class="avatar av-4" aria-hidden="true">A</span>Amara K. · Night Maps listener</footer>
+      </blockquote>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="foot-brand">
+    <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+      <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M11 24 v-8 M15 27 v-14 M19 25 v-10 M23 28 v-16 M27 24 v-8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    </svg>
+    <span>Chorus Room</span>
+  </div>
+  <p>Listening is better together. One album, one room, all ears.</p>
+  <nav aria-label="Footer">
+    <a href="#rooms">Rooms</a>
+    <a href="#session">Live now</a>
+    <a href="#how">How it works</a>
+    <a href="#voices">Voices</a>
+  </nav>
+</footer>
+</body>
+</html>

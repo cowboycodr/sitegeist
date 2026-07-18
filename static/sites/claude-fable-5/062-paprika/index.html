@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Paprika — Dinner should feel alive.</title>
+<meta name="description" content="Bold chef-made meals from independent kitchens, delivered hot and ready for the table.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#menu">Skip to tonight’s menu</a>
+
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Paprika home">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path d="M19 5c1-2 3-3 5-3 0 0-.5 3-2 4.5C25.5 8 28 12 28 17c0 7-5 12-11 12S5 24 5 17C5 11 9 6.5 15 6.2c1.4-.1 2.9.2 4-.2Z" fill="currentColor"/>
+      <path d="M17.5 3.5c.8-1 2-1.5 3.2-1.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span class="brand-name">Paprika</span>
+  </a>
+  <nav class="topnav" aria-label="Primary">
+    <a href="#menu">Tonight</a>
+    <a href="#kitchens">Kitchens</a>
+    <a href="#how">How it works</a>
+    <a class="topnav-cta" href="#menu">Order</a>
+  </nav>
+</header>
+
+<main id="top">
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-inner">
+      <p class="eyebrow">Made nearby</p>
+      <h1 id="hero-title">Dinner should feel <em>alive.</em></h1>
+      <p class="hero-lede">Bold chef-made meals from independent kitchens, delivered hot and ready for the table.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#menu">Find tonight’s dinner</a>
+        <a class="btn btn-ghost" href="#kitchens">Meet the kitchens</a>
+      </div>
+      <dl class="hero-stats">
+        <div><dt>Kitchens cooking tonight</dt><dd>14</dd></div>
+        <div><dt>Average door time</dt><dd>32 min</dd></div>
+        <div><dt>Menus change</dt><dd>Daily</dd></div>
+      </dl>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 420 420" role="img" focusable="false">
+        <circle cx="210" cy="210" r="200" fill="var(--clay)"/>
+        <circle cx="210" cy="210" r="168" fill="var(--cream)"/>
+        <circle cx="210" cy="210" r="150" fill="var(--ember)"/>
+        <path d="M120 250c20-60 60-90 90-90s70 30 90 90c-30 22-58 32-90 32s-60-10-90-32Z" fill="var(--maroon)"/>
+        <path d="M150 200c14-26 38-40 60-40s46 14 60 40" fill="none" stroke="var(--gold)" stroke-width="10" stroke-linecap="round"/>
+        <g stroke="var(--cream)" stroke-width="6" stroke-linecap="round">
+          <path d="M170 120c0-14 10-18 10-30"/>
+          <path d="M210 110c0-14 10-18 10-30"/>
+          <path d="M250 120c0-14 10-18 10-30"/>
+        </g>
+        <circle cx="150" cy="265" r="7" fill="var(--gold)"/>
+        <circle cx="270" cy="265" r="7" fill="var(--gold)"/>
+        <circle cx="210" cy="278" r="7" fill="var(--gold)"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Tonight's menu -->
+  <section class="section" id="menu" aria-labelledby="menu-title">
+    <div class="section-head">
+      <p class="eyebrow">Tonight only</p>
+      <h2 id="menu-title">Find tonight’s dinner</h2>
+      <p class="section-lede">Every dish below is being cooked right now, a short ride from your table. Filter by mood — the menu resets at midnight.</p>
+    </div>
+
+    <div class="filters" role="group" aria-label="Filter dishes">
+      <button class="chip is-active" type="button" data-filter="all" aria-pressed="true">All dishes</button>
+      <button class="chip" type="button" data-filter="fire" aria-pressed="false">Bring the fire</button>
+      <button class="chip" type="button" data-filter="comfort" aria-pressed="false">Comfort</button>
+      <button class="chip" type="button" data-filter="green" aria-pressed="false">Green &amp; bright</button>
+    </div>
+    <p class="filter-status" role="status" aria-live="polite">Showing all 6 dishes.</p>
+
+    <ul class="dish-grid">
+      <li class="dish" data-tags="fire">
+        <div class="dish-art dish-art-a" aria-hidden="true"><span class="dish-glyph">🌶</span></div>
+        <div class="dish-body">
+          <div class="dish-top">
+            <h3>Ember Harissa Chicken</h3>
+            <p class="price">$16</p>
+          </div>
+          <p class="dish-kitchen">Kettle &amp; Flame · 1.2 mi</p>
+          <p class="dish-desc">Charcoal-grilled thigh, smoked harissa butter, charred lemon, and pillowy flatbread straight off the stone.</p>
+          <p class="dish-meta"><span class="heat" aria-label="Heat level: hot">◆◆◆</span><span>28 min</span></p>
+        </div>
+      </li>
+      <li class="dish" data-tags="comfort">
+        <div class="dish-art dish-art-b" aria-hidden="true"><span class="dish-glyph">🍜</span></div>
+        <div class="dish-body">
+          <div class="dish-top">
+            <h3>Midnight Miso Ramen</h3>
+            <p class="price">$15</p>
+          </div>
+          <p class="dish-kitchen">Ando’s Counter · 0.8 mi</p>
+          <p class="dish-desc">Twelve-hour broth, blistered corn, soft egg, and chili oil packed on the side so the noodles arrive perfect.</p>
+          <p class="dish-meta"><span class="heat" aria-label="Heat level: mild">◆</span><span>25 min</span></p>
+        </div>
+      </li>
+      <li class="dish" data-tags="green">
+        <div class="dish-art dish-art-c" aria-hidden="true"><span class="dish-glyph">🥬</span></div>
+        <div class="dish-body">
+          <div class="dish-top">
+            <h3>Charred Greens Bowl</h3>
+            <p class="price">$13</p>
+          </div>
+          <p class="dish-kitchen">Verde Norte · 1.6 mi</p>
+          <p class="dish-desc">Fire-kissed broccolini, herbed farro, whipped feta, pickled shallot, and a green chile vinaigrette.</p>
+          <p class="dish-meta"><span class="heat" aria-label="Heat level: medium">◆◆</span><span>22 min</span></p>
+        </div>
+      </li>
+      <li class="dish" data-tags="fire comfort">
+        <div class="dish-art dish-art-d" aria-hidden="true"><span class="dish-glyph">🔥</span></div>
+        <div class="dish-body">
+          <div class="dish-top">
+            <h3>Paprika Braise</h3>
+            <p class="price">$18</p>
+          </div>
+          <p class="dish-kitchen">House of Paprika · 0.5 mi</p>
+          <p class="dish-desc">Our namesake: slow beef braised in three paprikas, sour cream swirl, and buttered egg noodles.</p>
+          <p class="dish-meta"><span class="heat" aria-label="Heat level: medium">◆◆</span><span>34 min</span></p>
+        </div>
+      </li>
+      <li class="dish" data-tags="green">
+        <div class="dish-art dish-art-e" aria-hidden="true"><span class="dish-glyph">🍋</span></div>
+        <div class="dish-body">
+          <div class="dish-top">
+            <h3>Citrus Snapper Crudo</h3>
+            <p class="price">$17</p>
+          </div>
+          <p class="dish-kitchen">Baja Linda · 2.1 mi</p>
+          <p class="dish-desc">Day-boat snapper, lime leaf oil, serrano threads, and crisped tortilla — chilled to the door.</p>
+          <p class="dish-meta"><span class="heat" aria-label="Heat level: mild">◆</span><span>19 min</span></p>
+        </div>
+      </li>
+      <li class="dish" data-tags="comfort">
+        <div class="dish-art dish-art-f" aria-hidden="true"><span class="dish-glyph">🥧</span></div>
+        <div class="dish-body">
+          <div class="dish-top">
+            <h3>Sunday Pot Pie</h3>
+            <p class="price">$14</p>
+          </div>
+          <p class="dish-kitchen">Fern &amp; Crust · 1.4 mi</p>
+          <p class="dish-desc">Rye-crusted chicken pot pie with leeks and tarragon cream, baked to order in a single serving tin.</p>
+          <p class="dish-meta"><span class="heat" aria-label="Heat level: none">–</span><span>36 min</span></p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Kitchens -->
+  <section class="section section-dark" id="kitchens" aria-labelledby="kitchens-title">
+    <div class="section-head">
+      <p class="eyebrow">Independent, always</p>
+      <h2 id="kitchens-title">Meet the kitchens</h2>
+      <p class="section-lede">No ghost brands, no franchise lines. Every Paprika kitchen is run by the chef whose name is on the door — and they keep 90% of every order.</p>
+    </div>
+    <ul class="kitchen-grid">
+      <li class="kitchen">
+        <p class="kitchen-initials" aria-hidden="true">KF</p>
+        <h3>Kettle &amp; Flame</h3>
+        <p class="kitchen-chef">Chef Amara Diallo</p>
+        <p>Live-fire North African grill out of a converted rail depot. The harissa is stone-ground every morning.</p>
+      </li>
+      <li class="kitchen">
+        <p class="kitchen-initials" aria-hidden="true">AC</p>
+        <h3>Ando’s Counter</h3>
+        <p class="kitchen-chef">Chef Kenji Ando</p>
+        <p>Eight seats, one broth, zero shortcuts. Ramen built for delivery with noodles packed dry until the last mile.</p>
+      </li>
+      <li class="kitchen">
+        <p class="kitchen-initials" aria-hidden="true">HP</p>
+        <h3>House of Paprika</h3>
+        <p class="kitchen-chef">Chef Ilona Kovács</p>
+        <p>Third-generation Hungarian braises and dumplings, cooked from a family recipe book older than the city block.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- How it works -->
+  <section class="section" id="how" aria-labelledby="how-title">
+    <div class="section-head">
+      <p class="eyebrow">Hot, not held</p>
+      <h2 id="how-title">How it works</h2>
+      <p class="section-lede">We fire your dish only after a courier is assigned, so nothing sits under a heat lamp waiting for a ride.</p>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <p class="step-num" aria-hidden="true">01</p>
+        <h3>Pick tonight’s dish</h3>
+        <p>Menus are short and change daily, built around what each kitchen is excited to cook right now.</p>
+      </li>
+      <li class="step">
+        <p class="step-num" aria-hidden="true">02</p>
+        <h3>The kitchen fires it</h3>
+        <p>Your order hits the pass the moment a courier accepts, timed so plating and pickup meet at the counter.</p>
+      </li>
+      <li class="step">
+        <p class="step-num" aria-hidden="true">03</p>
+        <h3>It lands hot</h3>
+        <p>Insulated crates, split-packed sauces, and a door time average of 32 minutes across the whole city.</p>
+      </li>
+    </ol>
+    <div class="cta-band">
+      <h2>Ready when you’re hungry.</h2>
+      <p>Kitchens are firing until 11pm tonight.</p>
+      <a class="btn btn-primary" href="#menu">Find tonight’s dinner</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p class="footer-brand">Paprika</p>
+  <p>Dinner should feel alive. Cooked by independent kitchens, delivered hot and ready for the table.</p>
+  <p class="footer-fine">© 2026 Paprika Collective. A fictional food delivery service.</p>
+</footer>
+</body>
+</html>

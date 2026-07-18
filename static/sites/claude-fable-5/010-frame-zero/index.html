@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+<title>Frame Zero — Films that refuse the expected.</title>
+<meta name="description" content="A living festival program for independent films, sharp new voices, and stories without a formula.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#program">Skip to the program</a>
+
+<header class="masthead">
+  <a class="wordmark" href="#top" aria-label="Frame Zero, home">
+    <span class="wordmark-frame" aria-hidden="true"><span class="wordmark-zero">0</span></span>
+    <span class="wordmark-text">Frame&nbsp;Zero</span>
+  </a>
+  <nav class="masthead-nav" aria-label="Sections">
+    <a href="#program">Program</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#venues">Venues</a>
+    <a href="#pass">Passes</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-leader" aria-hidden="true">
+      <span class="leader-tick"></span><span class="leader-tick"></span>
+      <span class="leader-count">3&ensp;·&ensp;2&ensp;·&ensp;1&ensp;·&ensp;0</span>
+      <span class="leader-tick"></span><span class="leader-tick"></span>
+    </div>
+    <p class="eyebrow">Independent cinema</p>
+    <h1 id="hero-title">Films that refuse<br>the&nbsp;expected.</h1>
+    <p class="hero-copy">A living festival program for independent films, sharp new voices, and stories without a formula. Twelve nights, four strands, zero apologies.</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="#tonight">Start watching</a>
+      <a class="button button-ghost" href="#program">Browse the program</a>
+    </div>
+    <dl class="hero-facts">
+      <div><dt>Films</dt><dd>48</dd></div>
+      <div><dt>Premieres</dt><dd>19</dd></div>
+      <div><dt>Nights</dt><dd>12</dd></div>
+      <div><dt>Formula</dt><dd>0</dd></div>
+    </dl>
+  </section>
+
+  <section id="tonight" class="tonight" aria-labelledby="tonight-title">
+    <div class="section-head">
+      <h2 id="tonight-title"><span class="frame-mark" aria-hidden="true">▸</span> Tonight at Frame Zero</h2>
+      <p class="section-note">Doors 19:30 · Reel Hall</p>
+    </div>
+    <article class="tonight-card">
+      <div class="tonight-still" aria-hidden="true">
+        <div class="still-grain"></div>
+        <span class="still-badge">World premiere</span>
+        <span class="still-title">SALT&nbsp;ORBIT</span>
+      </div>
+      <div class="tonight-body">
+        <p class="strand-tag strand-signal">Signal</p>
+        <h3>Salt Orbit</h3>
+        <p class="credit">dir. Amara Okonkwo · 96 min · Nigeria / Portugal</p>
+        <p>A lighthouse keeper intercepts radio letters from a ship that sank forty years ago — and begins answering them. Shot on expired 16mm stock, scored live each screening by a different ensemble.</p>
+        <p class="meta-line">20:00 · Followed by a director Q&amp;A</p>
+      </div>
+    </article>
+  </section>
+
+  <section id="program" class="program" aria-labelledby="program-title">
+    <div class="section-head">
+      <h2 id="program-title"><span class="frame-mark" aria-hidden="true">▸</span> The program</h2>
+      <p class="section-note">Four strands. Pick a lane or ignore them all.</p>
+    </div>
+
+    <div class="filters" role="group" aria-label="Filter films by strand">
+      <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All films</button>
+      <button type="button" class="filter" data-filter="signal" aria-pressed="false">Signal</button>
+      <button type="button" class="filter" data-filter="fault" aria-pressed="false">Fault Lines</button>
+      <button type="button" class="filter" data-filter="night" aria-pressed="false">Night Shift</button>
+      <button type="button" class="filter" data-filter="short" aria-pressed="false">Short Circuits</button>
+    </div>
+    <p class="filter-status" id="filter-status" role="status">Showing all 8 featured films.</p>
+
+    <ul class="film-grid" id="film-grid">
+      <li class="film" data-strand="signal">
+        <div class="film-frame hue-a" aria-hidden="true"><span>01</span></div>
+        <div class="film-body">
+          <p class="strand-tag strand-signal">Signal</p>
+          <h3>Salt Orbit</h3>
+          <p class="credit">Amara Okonkwo · 96 min</p>
+          <p>Radio letters from a drowned ship, answered four decades late.</p>
+        </div>
+      </li>
+      <li class="film" data-strand="fault">
+        <div class="film-frame hue-b" aria-hidden="true"><span>02</span></div>
+        <div class="film-body">
+          <p class="strand-tag strand-fault">Fault Lines</p>
+          <h3>The Cartographer's Divorce</h3>
+          <p class="credit">Iris Vellan · 88 min</p>
+          <p>Two mapmakers split a city between them, one street at a time.</p>
+        </div>
+      </li>
+      <li class="film" data-strand="night">
+        <div class="film-frame hue-c" aria-hidden="true"><span>03</span></div>
+        <div class="film-body">
+          <p class="strand-tag strand-night">Night Shift</p>
+          <h3>Fluorescent Gods</h3>
+          <p class="credit">Dario Muntz · 104 min</p>
+          <p>A supermarket after midnight becomes a temple for the sleepless.</p>
+        </div>
+      </li>
+      <li class="film" data-strand="short">
+        <div class="film-frame hue-d" aria-hidden="true"><span>04</span></div>
+        <div class="film-body">
+          <p class="strand-tag strand-short">Short Circuits</p>
+          <h3>Nine Ways to Fold a Bird</h3>
+          <p class="credit">Yuki Asano · 14 min</p>
+          <p>Paper animation about the last origami master in a burning archive.</p>
+        </div>
+      </li>
+      <li class="film" data-strand="signal">
+        <div class="film-frame hue-b" aria-hidden="true"><span>05</span></div>
+        <div class="film-body">
+          <p class="strand-tag strand-signal">Signal</p>
+          <h3>Antenna Mother</h3>
+          <p class="credit">Petra Halvorsen · 91 min</p>
+          <p>A daughter rebuilds her mother's voice from decades of answering-machine tape.</p>
+        </div>
+      </li>
+      <li class="film" data-strand="night">
+        <div class="film-frame hue-a" aria-hidden="true"><span>06</span></div>
+        <div class="film-body">
+          <p class="strand-tag strand-night">Night Shift</p>
+          <h3>Last Bus to Nowhere Good</h3>
+          <p class="credit">Tomas Reyes · 79 min</p>
+          <p>One route, six passengers, and a driver who never announces the stops.</p>
+        </div>
+      </li>
+      <li class="film" data-strand="fault">
+        <div class="film-frame hue-d" aria-hidden="true"><span>07</span></div>
+        <div class="film-body">
+          <p class="strand-tag strand-fault">Fault Lines</p>
+          <h3>Concrete Lullaby</h3>
+          <p class="credit">Sana El-Amin · 102 min</p>
+          <p>Demolition crews race preservationists for the soul of a brutalist estate.</p>
+        </div>
+      </li>
+      <li class="film" data-strand="short">
+        <div class="film-frame hue-c" aria-hidden="true"><span>08</span></div>
+        <div class="film-body">
+          <p class="strand-tag strand-short">Short Circuits</p>
+          <h3>Static Between Stations</h3>
+          <p class="credit">Milo Grieves · 11 min</p>
+          <p>Found-footage collage cut entirely from broadcast test patterns.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="schedule" class="schedule" aria-labelledby="schedule-title">
+    <div class="section-head">
+      <h2 id="schedule-title"><span class="frame-mark" aria-hidden="true">▸</span> This week</h2>
+      <p class="section-note">All screenings ticketed at the door or by pass.</p>
+    </div>
+    <ol class="timeline">
+      <li>
+        <span class="timeline-day">Thu</span>
+        <div><h3>Salt Orbit <span class="badge">Premiere</span></h3><p>20:00 · Reel Hall · live score by the Driftworks Ensemble</p></div>
+      </li>
+      <li>
+        <span class="timeline-day">Fri</span>
+        <div><h3>Night Shift double bill</h3><p>21:30 · The Depot · Fluorescent Gods + Last Bus to Nowhere Good</p></div>
+      </li>
+      <li>
+        <span class="timeline-day">Sat</span>
+        <div><h3>Short Circuits marathon</h3><p>14:00 · Annex Screen · twelve shorts, audience jury, no intermission</p></div>
+      </li>
+      <li>
+        <span class="timeline-day">Sun</span>
+        <div><h3>Fault Lines talk: cities on film</h3><p>17:00 · Reel Hall · with Iris Vellan and Sana El-Amin</p></div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="venues" class="venues" aria-labelledby="venues-title">
+    <div class="section-head">
+      <h2 id="venues-title"><span class="frame-mark" aria-hidden="true">▸</span> Venues</h2>
+      <p class="section-note">Three rooms, one block, walkable in the rain.</p>
+    </div>
+    <div class="venue-grid">
+      <article class="venue">
+        <h3>Reel Hall</h3>
+        <p>Our 300-seat main house in a converted print works. 35mm and 16mm projection, live-score rig, the good seats.</p>
+        <p class="meta-line">14 Ledger Street</p>
+      </article>
+      <article class="venue">
+        <h3>The Depot</h3>
+        <p>Late-night room with a bar at the back and a projector that has seen things. Home of the Night Shift strand.</p>
+        <p class="meta-line">3 Coil Yard</p>
+      </article>
+      <article class="venue">
+        <h3>Annex Screen</h3>
+        <p>Sixty seats, zero pretension. Shorts, work-in-progress cuts, and arguments that spill into the corridor.</p>
+        <p class="meta-line">14 Ledger Street, rear</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="pass" class="pass" aria-labelledby="pass-title">
+    <div class="pass-inner">
+      <h2 id="pass-title">Hold the whole reel.</h2>
+      <p>The Zero Pass covers all 48 films, every talk, and priority doors — priced so a projectionist could afford one. Day tickets stay cheap and nothing sells out to sponsors.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#tonight">Start watching</a>
+        <a class="button button-ghost" href="#program">Browse the program</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p><strong>Frame Zero</strong> · Films that refuse the expected.</p>
+  <p class="footer-fine">Programmed by volunteers. Projected with care. Frame 0 is where the story hasn't decided yet.</p>
+</footer>
+</body>
+</html>

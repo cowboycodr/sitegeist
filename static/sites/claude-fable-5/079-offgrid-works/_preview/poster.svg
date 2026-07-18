@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="pt">
+  <title id="pt">Offgrid Works — A cabin with a steering wheel.</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1512"/>
+      <stop offset=".7" stop-color="#16302a"/>
+      <stop offset="1" stop-color="#1c3a30"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3ede1"/>
+      <stop offset="1" stop-color="#d9d0bd"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#sky)"/>
+
+  <!-- topographic contours -->
+  <g fill="none" stroke="#3f6b58" stroke-width="2" opacity=".5">
+    <path d="M-40 150c180-64 296-56 438 12s330 74 492 6 224-60 350-18"/>
+    <path d="M-40 220c168-52 312-40 450 22s318 64 480 0 248-56 350-14"/>
+    <path d="M-40 290c160-42 322-26 460 34s308 52 468-8 262-48 352-10"/>
+    <path d="M-40 360c152-32 334-14 470 42s298 44 456-14 274-42 354-8"/>
+  </g>
+
+  <!-- moon -->
+  <circle cx="990" cy="170" r="58" fill="#f0b64c" opacity=".95"/>
+  <circle cx="970" cy="154" r="58" fill="#10241d" opacity=".55"/>
+
+  <!-- stars -->
+  <g fill="#e9e2d2" opacity=".85">
+    <circle cx="140" cy="110" r="3"/><circle cx="300" cy="170" r="2.2"/>
+    <circle cx="470" cy="95" r="2.6"/><circle cx="640" cy="180" r="2.2"/>
+    <circle cx="820" cy="90" r="3"/><circle cx="1120" cy="260" r="2.2"/>
+    <circle cx="90" cy="260" r="2.2"/><circle cx="560" cy="60" r="2"/>
+  </g>
+
+  <!-- ridge lines -->
+  <path d="M0 470 170 330l108 82 138-130 172 152 128-96 180 138 152-108 152 116v320H0Z" fill="#12281f"/>
+  <path d="M0 545 130 460l124 62 158-96 178 108 172-74 194 96 138-60 106 50v240H0Z" fill="#0b1b15"/>
+
+  <!-- ground -->
+  <rect x="0" y="660" width="1200" height="240" fill="#081310"/>
+  <path d="M0 660h1200" stroke="#2b4c3d" stroke-width="3"/>
+
+  <!-- pines -->
+  <g fill="#132b21">
+    <path d="M96 660 138 548l42 112Z"/>
+    <path d="M176 660l30-84 30 84Z"/>
+    <path d="M1044 660l46-128 46 128Z"/>
+    <path d="M1128 660l30-86 30 86Z"/>
+  </g>
+
+  <!-- camper -->
+  <g>
+    <rect x="330" y="420" width="430" height="170" rx="22" fill="url(#body)"/>
+    <path d="M760 456h82c38 0 64 26 75 64l15 46c5 15-6 24-18 24H760Z" fill="url(#body)"/>
+    <path d="M820 468h24c21 0 38 15 47 38l10 29h-81Z" fill="#1c2f27"/>
+    <rect x="362" y="448" width="100" height="64" rx="11" fill="#1c2f27"/>
+    <rect x="486" y="448" width="100" height="64" rx="11" fill="#1c2f27"/>
+    <rect x="610" y="460" width="44" height="42" rx="8" fill="#f0b64c" opacity=".92"/>
+    <rect x="362" y="534" width="366" height="15" rx="7" fill="#f0b64c"/>
+    <!-- solar panel -->
+    <rect x="362" y="396" width="340" height="17" rx="6" fill="#27413a"/>
+    <g stroke="#f0b64c" stroke-width="2" opacity=".8">
+      <path d="M404 396v17M446 396v17M488 396v17M530 396v17M572 396v17M614 396v17M656 396v17"/>
+    </g>
+    <!-- wheels -->
+    <circle cx="428" cy="596" r="44" fill="#0b1410"/>
+    <circle cx="428" cy="596" r="20" fill="#3c4a44"/>
+    <circle cx="792" cy="596" r="44" fill="#0b1410"/>
+    <circle cx="792" cy="596" r="20" fill="#3c4a44"/>
+  </g>
+
+  <!-- brand mark -->
+  <g transform="translate(560 700)">
+    <path d="M40 8 72 26v36L40 80 8 62V26Z" fill="none" stroke="#f0b64c" stroke-width="5"/>
+    <path d="M22 48c6-11 10-17 18-17s12 6 18 17" fill="none" stroke="#f0b64c" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="40" cy="42" r="4.5" fill="#f0b64c"/>
+  </g>
+
+  <!-- type -->
+  <text x="600" y="822" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="66" fill="#e9e2d2">Offgrid <tspan fill="#f0b64c">Works</tspan></text>
+  <text x="600" y="866" text-anchor="middle" font-family="Consolas, 'SF Mono', monospace" font-size="24" letter-spacing="6" fill="#a8b3a6">A CABIN WITH A STEERING WHEEL</text>
+</svg>

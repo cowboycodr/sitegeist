@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Static Bloom — Beautiful noise, carefully released.">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#3b2a4d"/>
+      <stop offset="100%" stop-color="#120f16"/>
+    </radialGradient>
+    <linearGradient id="chroma" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff5e78"/>
+      <stop offset="35%" stop-color="#f5c26b"/>
+      <stop offset="70%" stop-color="#7ce7d8"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="band1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff5e78" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#ff5e78" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#ff5e78" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="band2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7ce7d8" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#7ce7d8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#7ce7d8" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" result="n"/>
+      <feColorMatrix in="n" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0"/>
+      <feComposite operator="over" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- chromatic noise bands -->
+  <rect x="-100" y="120" width="1400" height="120" fill="url(#band1)" transform="rotate(-6 600 180)"/>
+  <rect x="-100" y="660" width="1400" height="120" fill="url(#band2)" transform="rotate(4 600 720)"/>
+
+  <!-- vinyl record -->
+  <g transform="translate(600 400)">
+    <circle r="252" fill="#0d0b11" opacity="0.6"/>
+    <circle r="240" fill="#0d0b11"/>
+    <circle r="240" fill="none" stroke="#2a2335" stroke-width="4"/>
+    <circle r="212" fill="none" stroke="#f4efe9" stroke-opacity="0.14" stroke-width="2"/>
+    <circle r="184" fill="none" stroke="#f4efe9" stroke-opacity="0.12" stroke-width="2"/>
+    <circle r="156" fill="none" stroke="#f4efe9" stroke-opacity="0.10" stroke-width="2"/>
+    <circle r="128" fill="none" stroke="#f4efe9" stroke-opacity="0.08" stroke-width="2"/>
+    <circle r="82" fill="url(#chroma)"/>
+    <circle r="14" fill="#120f16"/>
+    <!-- light sheen -->
+    <path d="M -170 -170 A 240 240 0 0 1 170 -170 L 120 -120 A 172 172 0 0 0 -120 -120 Z" fill="#f4efe9" opacity="0.06"/>
+  </g>
+
+  <!-- eyebrow -->
+  <text x="600" y="120" text-anchor="middle" font-family="'Avenir Next','Futura','Helvetica Neue',Arial,sans-serif" font-size="26" letter-spacing="8" fill="#f5c26b" font-weight="600">RECORDS · EDITIONS · NOISE</text>
+
+  <!-- title -->
+  <text x="600" y="756" text-anchor="middle" font-family="'Avenir Next','Futura','Helvetica Neue',Arial,sans-serif" font-size="104" font-weight="800" letter-spacing="2" fill="#f4efe9">Static Bloom</text>
+
+  <!-- tagline -->
+  <text x="600" y="816" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="34" fill="#c9c2ce">Beautiful noise, carefully released.</text>
+
+  <!-- grain overlay -->
+  <rect width="1200" height="900" filter="url(#grain)" fill="none"/>
+</svg>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+<title>Relay Global — Every shipment, perfectly in motion.</title>
+<meta name="description" content="A connected freight network making global routes, handoffs, and operations clear in real time.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1526'/%3E%3Cpath d='M6 21 14 11l5 6 7-9' fill='none' stroke='%23ffb454' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#tracker">Skip to shipment tracker</a>
+
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Relay Global home">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <rect width="32" height="32" rx="7" fill="var(--panel-2)"/>
+      <path d="M6 21 14 11l5 6 7-9" fill="none" stroke="var(--amber)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="brand-name">Relay<span class="brand-dot"> Global</span></span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#tracker">Track</a>
+    <a href="#network">Network</a>
+    <a href="#operations">Operations</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Connected freight network</p>
+      <h1>Every shipment, perfectly in&nbsp;motion.</h1>
+      <p class="lede">Relay Global links ports, rail heads, air hubs, and last‑mile fleets into a single operating picture — so every route, handoff, and delay is visible the moment it happens.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#tracker">Track a shipment</a>
+        <a class="btn btn-ghost" href="#network">Explore the network</a>
+      </div>
+      <dl class="hero-stats" aria-label="Network at a glance">
+        <div><dt>Active lanes</dt><dd>1,842</dd></div>
+        <div><dt>Hubs online</dt><dd>214</dd></div>
+        <div><dt>On‑time handoffs</dt><dd>98.6%</dd></div>
+      </dl>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg class="hero-globe" viewBox="0 0 420 420" focusable="false">
+        <defs>
+          <radialGradient id="globeGlow" cx="50%" cy="42%" r="60%">
+            <stop offset="0%" stop-color="#16304f"/>
+            <stop offset="100%" stop-color="#0b1526"/>
+          </radialGradient>
+        </defs>
+        <circle cx="210" cy="210" r="168" fill="url(#globeGlow)" stroke="#24405f" stroke-width="1.5"/>
+        <g fill="none" stroke="#24405f" stroke-width="1">
+          <ellipse cx="210" cy="210" rx="168" ry="64"/>
+          <ellipse cx="210" cy="210" rx="168" ry="126"/>
+          <ellipse cx="210" cy="210" rx="64" ry="168"/>
+          <ellipse cx="210" cy="210" rx="126" ry="168"/>
+          <line x1="42" y1="210" x2="378" y2="210"/>
+          <line x1="210" y1="42" x2="210" y2="378"/>
+        </g>
+        <g fill="none" stroke-linecap="round" stroke-width="2.5" class="globe-routes">
+          <path class="route route-a" d="M98 168 Q 210 60 322 150" stroke="var(--amber)"/>
+          <path class="route route-b" d="M120 268 Q 226 210 316 262" stroke="var(--teal)"/>
+          <path class="route route-c" d="M150 320 Q 240 250 300 120" stroke="#7aa7d9"/>
+        </g>
+        <g fill="var(--amber)">
+          <circle cx="98" cy="168" r="5"/><circle cx="322" cy="150" r="5"/>
+        </g>
+        <g fill="var(--teal)">
+          <circle cx="120" cy="268" r="5"/><circle cx="316" cy="262" r="5"/>
+        </g>
+        <g fill="#7aa7d9">
+          <circle cx="150" cy="320" r="5"/><circle cx="300" cy="120" r="5"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <section id="tracker" class="section tracker" aria-labelledby="tracker-title">
+    <div class="section-head">
+      <p class="eyebrow">Live tracking</p>
+      <h2 id="tracker-title">Track a shipment</h2>
+      <p class="section-lede">Enter a Relay waybill ID, or try one of the sample shipments moving on the network right now.</p>
+    </div>
+    <form id="track-form" class="track-form" novalidate>
+      <label class="visually-hidden" for="track-input">Waybill ID</label>
+      <input id="track-input" name="waybill" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="e.g. RG-8841-TYO" aria-describedby="track-hint">
+      <button class="btn btn-primary" type="submit">Track</button>
+    </form>
+    <p id="track-hint" class="track-hint">Sample waybills:</p>
+    <div class="chips" role="list" aria-label="Sample waybills">
+      <button class="chip" type="button" data-waybill="RG-8841-TYO" role="listitem">RG‑8841‑TYO</button>
+      <button class="chip" type="button" data-waybill="RG-2107-RTM" role="listitem">RG‑2107‑RTM</button>
+      <button class="chip" type="button" data-waybill="RG-5530-SCL" role="listitem">RG‑5530‑SCL</button>
+    </div>
+    <div id="track-result" class="track-result" role="status" aria-live="polite"></div>
+  </section>
+
+  <section id="network" class="section network" aria-labelledby="network-title">
+    <div class="section-head">
+      <p class="eyebrow">The relay map</p>
+      <h2 id="network-title">Explore the network</h2>
+      <p class="section-lede">Fourteen anchor hubs across six continents, stitched together by ocean, air, and rail lanes with guaranteed handoff windows.</p>
+    </div>
+    <figure class="map-figure">
+      <svg class="map" viewBox="0 0 960 480" role="img" aria-labelledby="map-title map-desc" focusable="false">
+        <title id="map-title">Relay Global network map</title>
+        <desc id="map-desc">A stylized world map showing anchor hubs in the Americas, Europe, Africa, Asia, and Oceania connected by freight lanes.</desc>
+        <rect width="960" height="480" rx="18" fill="var(--panel)"/>
+        <g fill="none" stroke="#223b58" stroke-width="1">
+          <path d="M0 120 H960 M0 240 H960 M0 360 H960"/>
+          <path d="M160 0 V480 M320 0 V480 M480 0 V480 M640 0 V480 M800 0 V480"/>
+        </g>
+        <g fill="#18314f">
+          <path d="M120 90q60-30 120 0t40 70q-20 50-70 60t-90-20q-40-30-30-70t30-40Z"/>
+          <path d="M220 250q40-10 60 20t0 80q-20 50-50 40t-40-60q-10-50 30-80Z"/>
+          <path d="M440 90q50-25 100 0t30 55q-15 30-65 35t-75-25q-20-35 10-65Z"/>
+          <path d="M470 200q60-20 100 20t20 90q-20 50-70 40t-70-70q-10-50 20-80Z"/>
+          <path d="M640 80q90-35 160 10t40 100q-30 60-110 55t-110-60q-20-60 20-105Z"/>
+          <path d="M760 320q45-15 70 15t5 65q-25 30-60 15t-35-50q0-30 20-45Z"/>
+        </g>
+        <g class="lanes" fill="none" stroke-width="2.5" stroke-linecap="round">
+          <path class="lane lane-ocean" d="M215 160 Q 330 60 490 130"/>
+          <path class="lane lane-ocean" d="M215 160 Q 250 260 270 300"/>
+          <path class="lane lane-air" d="M490 130 Q 600 70 720 140"/>
+          <path class="lane lane-air" d="M720 140 Q 790 230 800 360"/>
+          <path class="lane lane-rail" d="M510 260 Q 620 220 720 140"/>
+          <path class="lane lane-ocean" d="M270 300 Q 390 340 510 260"/>
+          <path class="lane lane-air" d="M490 130 Q 500 200 510 260"/>
+        </g>
+        <g class="hubs">
+          <g tabindex="0" role="img" aria-label="Halvern Bay hub, Americas gateway"><circle cx="215" cy="160" r="9" class="hub"/><text x="215" y="138" class="hub-label">Halvern Bay</text></g>
+          <g tabindex="0" role="img" aria-label="Puerto Sereno hub, South American corridor"><circle cx="270" cy="300" r="9" class="hub"/><text x="270" y="332" class="hub-label">Puerto Sereno</text></g>
+          <g tabindex="0" role="img" aria-label="Nordkade hub, European gateway"><circle cx="490" cy="130" r="9" class="hub"/><text x="490" y="108" class="hub-label">Nordkade</text></g>
+          <g tabindex="0" role="img" aria-label="Adari Point hub, African corridor"><circle cx="510" cy="260" r="9" class="hub"/><text x="510" y="292" class="hub-label">Adari Point</text></g>
+          <g tabindex="0" role="img" aria-label="Kessho Harbor hub, Asian gateway"><circle cx="720" cy="140" r="9" class="hub"/><text x="720" y="118" class="hub-label">Kessho Harbor</text></g>
+          <g tabindex="0" role="img" aria-label="Marlowe Reach hub, Oceania corridor"><circle cx="800" cy="360" r="9" class="hub"/><text x="800" y="392" class="hub-label">Marlowe Reach</text></g>
+        </g>
+      </svg>
+      <figcaption class="map-caption">
+        <span class="legend"><span class="swatch swatch-ocean"></span>Ocean lane</span>
+        <span class="legend"><span class="swatch swatch-air"></span>Air lane</span>
+        <span class="legend"><span class="swatch swatch-rail"></span>Rail lane</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section id="operations" class="section operations" aria-labelledby="operations-title">
+    <div class="section-head">
+      <p class="eyebrow">Operations, in the open</p>
+      <h2 id="operations-title">Clarity at every handoff</h2>
+      <p class="section-lede">Freight fails at the seams. Relay instruments every seam.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <h3>Guaranteed handoff windows</h3>
+        <p>Every carrier-to-carrier transfer is scheduled against a shared clock. If a window slips, the downstream leg is rebooked before the container hits the yard.</p>
+      </article>
+      <article class="card">
+        <h3>One waybill, whole journey</h3>
+        <p>A single Relay ID follows a shipment across ocean, air, and rail. Customs, temperature logs, and custody records travel with it.</p>
+      </article>
+      <article class="card">
+        <h3>Delay math you can act on</h3>
+        <p>We don't just flag a late vessel — we show which downstream orders are exposed, and the recovery routes ranked by cost and hours saved.</p>
+      </article>
+      <article class="card">
+        <h3>Operations desk, always on</h3>
+        <p>Regional control rooms in each anchor hub watch the network around the clock, with authority to reroute in minutes, not meetings.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p><strong>Relay Global</strong> — Every shipment, perfectly in motion.</p>
+  <p class="footer-fine">A connected freight network making global routes, handoffs, and operations clear in real time.</p>
+</footer>
+</body>
+</html>

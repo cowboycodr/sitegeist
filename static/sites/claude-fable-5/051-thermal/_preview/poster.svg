@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Thermal — Heat, put to work.">
+  <defs>
+    <linearGradient id="heat" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#3b1d12"/>
+      <stop offset=".45" stop-color="#b3411f"/>
+      <stop offset=".75" stop-color="#f07a2b"/>
+      <stop offset="1" stop-color="#ffc46b"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f4ede4"/>
+      <stop offset=".65" stop-color="#ffc46b"/>
+      <stop offset="1" stop-color="#f07a2b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".62" r=".65">
+      <stop offset="0" stop-color="#4a2314"/>
+      <stop offset="1" stop-color="#14100d"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="#14100d"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- orbit rings -->
+  <circle cx="600" cy="560" r="330" fill="none" stroke="#3a3531" stroke-width="2"/>
+  <circle cx="600" cy="560" r="255" fill="none" stroke="#3a3531" stroke-width="2" stroke-dasharray="5 14"/>
+
+  <!-- rising heat plumes -->
+  <g stroke="url(#heat)" stroke-width="18" stroke-linecap="round" fill="none">
+    <path d="M480 770c-30-66 34-96 6-162 24-62-26-92-6-152"/>
+    <path d="M600 796c-30-72 36-106 6-178 26-70-30-102-6-168"/>
+    <path d="M720 770c-30-66 34-96 6-162 24-62-26-92-6-152"/>
+  </g>
+
+  <!-- return loop -->
+  <path d="M600 268a292 292 0 0 1 0 584" fill="none" stroke="#79d9c8" stroke-width="9" stroke-linecap="round" stroke-dasharray="20 26"/>
+  <path d="M600 268a292 292 0 0 0 0 584" fill="none" stroke="#f07a2b" stroke-width="9" stroke-linecap="round" opacity=".35"/>
+
+  <!-- identity -->
+  <text x="600" y="132" text-anchor="middle" font-family="'Avenir Next','Segoe UI',system-ui,sans-serif" font-size="26" font-weight="700" letter-spacing="14" fill="#f07a2b">CLOSING THE ENERGY LOOP</text>
+  <text x="600" y="248" text-anchor="middle" font-family="'Avenir Next','Segoe UI',system-ui,sans-serif" font-size="128" font-weight="800" letter-spacing="10" fill="url(#title)">THERMAL</text>
+
+  <rect x="440" y="820" width="320" height="2" fill="#3a3531"/>
+  <text x="600" y="868" text-anchor="middle" font-family="'Avenir Next','Segoe UI',system-ui,sans-serif" font-size="34" font-weight="600" fill="#a89f96">Heat, put to work.</text>
+</svg>

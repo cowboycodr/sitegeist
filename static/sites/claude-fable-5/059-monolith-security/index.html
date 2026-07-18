@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+<title>Monolith Security — Nothing gets through.</title>
+<meta name="description" content="Adaptive infrastructure protecting critical systems without slowing the people who run them.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <a class="brand" href="#top" aria-label="Monolith Security home">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <rect x="11" y="3" width="10" height="26" fill="currentColor"/>
+      <rect x="4" y="12" width="4" height="17" fill="currentColor" opacity=".45"/>
+      <rect x="24" y="8" width="4" height="21" fill="currentColor" opacity=".45"/>
+    </svg>
+    <span class="brand-name">Monolith<span class="brand-dim"> Security</span></span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-label">Menu</span>
+    </button>
+    <ul class="nav-list" id="nav-list">
+      <li><a href="#platform">Platform</a></li>
+      <li><a href="#doctrine">Doctrine</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#deploy" class="nav-cta">Secure your stack</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="eyebrow-tick" aria-hidden="true"></span>Zero-trust infrastructure</p>
+      <h1 class="hero-title">Nothing gets<br>through.</h1>
+      <p class="hero-lede">Adaptive infrastructure protecting critical systems without slowing the people who run them. Monolith verifies every request, isolates every workload, and stays out of your way.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#deploy">Secure your stack</a>
+        <a class="btn btn-ghost" href="#research">View threat research</a>
+      </div>
+      <dl class="hero-stats" aria-label="Operating metrics">
+        <div><dt>Median added latency</dt><dd>0.4<span class="unit">ms</span></dd></div>
+        <div><dt>Requests verified daily</dt><dd>61<span class="unit">B</span></dd></div>
+        <div><dt>Breaches past the perimeter</dt><dd>0</dd></div>
+      </dl>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 420 520" focusable="false">
+        <defs>
+          <linearGradient id="slab" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#242b33"/>
+            <stop offset="1" stop-color="#12161b"/>
+          </linearGradient>
+          <linearGradient id="scan" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ff6a3d" stop-opacity="0"/>
+            <stop offset=".5" stop-color="#ff6a3d" stop-opacity=".9"/>
+            <stop offset="1" stop-color="#ff6a3d" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <g class="art-grid" stroke="#2a323b" stroke-width="1">
+          <path d="M30 60H390M30 130H390M30 200H390M30 270H390M30 340H390M30 410H390M30 480H390"/>
+          <path d="M60 30V500M130 30V500M200 30V500M270 30V500M340 30V500"/>
+        </g>
+        <g class="art-threats" stroke="#5b6773" stroke-width="2" stroke-linecap="round">
+          <path d="M14 120 L142 208" />
+          <path d="M8 300 L142 292" />
+          <path d="M20 452 L142 372" />
+          <path d="M406 96 L258 200" />
+          <path d="M412 420 L258 336" />
+        </g>
+        <g class="art-sparks" fill="#ff6a3d">
+          <circle cx="142" cy="208" r="4"/>
+          <circle cx="142" cy="292" r="4"/>
+          <circle cx="142" cy="372" r="4"/>
+          <circle cx="258" cy="200" r="4"/>
+          <circle cx="258" cy="336" r="4"/>
+        </g>
+        <rect x="150" y="70" width="100" height="390" fill="url(#slab)" stroke="#3a434d"/>
+        <rect x="150" y="70" width="100" height="390" fill="none" stroke="#ff6a3d" stroke-opacity=".35"/>
+        <rect class="art-scan" x="150" y="70" width="100" height="60" fill="url(#scan)"/>
+        <rect x="196" y="70" width="8" height="390" fill="#0b0d10"/>
+        <rect class="art-core" x="196" y="70" width="8" height="390" fill="#ff6a3d"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============ TRUST STRIP ============ -->
+  <section class="strip" aria-label="Where Monolith runs">
+    <p class="strip-label">Standing guard over</p>
+    <ul class="strip-list">
+      <li>Power grids</li>
+      <li>Clearing houses</li>
+      <li>Rail signalling</li>
+      <li>Hospital networks</li>
+      <li>Water treatment</li>
+      <li>Launch control</li>
+    </ul>
+  </section>
+
+  <!-- ============ PLATFORM ============ -->
+  <section class="section" id="platform">
+    <header class="section-head">
+      <p class="eyebrow"><span class="eyebrow-tick" aria-hidden="true"></span>Platform</p>
+      <h2>One slab. Three layers of stone.</h2>
+      <p class="section-lede">Monolith sits inline with your infrastructure and treats every packet as hostile until proven otherwise — without adding a single perceptible millisecond for the people doing real work.</p>
+    </header>
+    <div class="card-grid">
+      <article class="card">
+        <svg class="card-icon" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <rect x="8" y="16" width="24" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M14 16v-5a6 6 0 0 1 12 0v5" fill="none" stroke="currentColor" stroke-width="2"/>
+          <rect x="18" y="22" width="4" height="7" fill="currentColor"/>
+        </svg>
+        <h3>Verify</h3>
+        <p>Every request carries cryptographic identity — human, service, or machine. No standing credentials, no implicit trust, no exceptions for the corner office.</p>
+        <p class="card-foot">mTLS everywhere · hardware-bound keys</p>
+      </article>
+      <article class="card">
+        <svg class="card-icon" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <rect x="6" y="6" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"/>
+          <rect x="22" y="6" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"/>
+          <rect x="6" y="22" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"/>
+          <rect x="22" y="22" width="12" height="12" fill="currentColor"/>
+        </svg>
+        <h3>Isolate</h3>
+        <p>Workloads run in sealed micro-segments. A compromised container reaches exactly nothing: lateral movement ends at the first wall it touches.</p>
+        <p class="card-foot">Per-workload segments · default-deny mesh</p>
+      </article>
+      <article class="card">
+        <svg class="card-icon" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <path d="M6 30 L14 18 L20 24 L28 10 L34 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="28" cy="10" r="3" fill="currentColor"/>
+          <path d="M6 34 H34" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <h3>Adapt</h3>
+        <p>Policy tightens itself as behavior shifts. Anomalies are contained in milliseconds and reviewed by your team on their schedule, not the attacker's.</p>
+        <p class="card-foot">Behavioral baselines · automatic containment</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ DOCTRINE ============ -->
+  <section class="section section-alt" id="doctrine">
+    <header class="section-head">
+      <p class="eyebrow"><span class="eyebrow-tick" aria-hidden="true"></span>Doctrine</p>
+      <h2>Security that respects the operator</h2>
+      <p class="section-lede">Controls that slow people down get bypassed, and bypassed controls protect no one. Monolith is built on four non-negotiables.</p>
+    </header>
+    <ol class="doctrine-list">
+      <li>
+        <span class="doctrine-num" aria-hidden="true">01</span>
+        <div><h3>Trust is earned per request</h3>
+        <p>There is no inside. Every call is authenticated, authorized, and logged as if it arrived from the open internet.</p></div>
+      </li>
+      <li>
+        <span class="doctrine-num" aria-hidden="true">02</span>
+        <div><h3>Friction is a vulnerability</h3>
+        <p>If the secure path is slower than the workaround, people take the workaround. Our budget for added latency is under one millisecond.</p></div>
+      </li>
+      <li>
+        <span class="doctrine-num" aria-hidden="true">03</span>
+        <div><h3>Blast radius is a design input</h3>
+        <p>We assume something will eventually be compromised, and we architect so that "something" is always one small, sealed segment.</p></div>
+      </li>
+      <li>
+        <span class="doctrine-num" aria-hidden="true">04</span>
+        <div><h3>Evidence over assurance</h3>
+        <p>Every decision the platform makes is reconstructable from an immutable audit trail. You never have to take our word for it.</p></div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ RESEARCH ============ -->
+  <section class="section" id="research">
+    <header class="section-head">
+      <p class="eyebrow"><span class="eyebrow-tick" aria-hidden="true"></span>Threat research</p>
+      <h2>From the watchtower</h2>
+      <p class="section-lede">The Monolith research group publishes what it finds. Recent briefings from the team defending the perimeter.</p>
+    </header>
+    <div class="research-grid">
+      <article class="report">
+        <p class="report-meta"><span class="report-tag">Briefing MS-2026-11</span><time datetime="2026-06-30">June 2026</time></p>
+        <h3>Credential relay campaigns against OT gateways</h3>
+        <p>How stolen session tokens were replayed against industrial control gateways in three regions — and why per-request identity binding stopped the fourth.</p>
+      </article>
+      <article class="report">
+        <p class="report-meta"><span class="report-tag">Briefing MS-2026-09</span><time datetime="2026-05-14">May 2026</time></p>
+        <h3>Lateral movement in flat clinical networks</h3>
+        <p>A post-incident anatomy of a hospital intrusion that traveled from a badge printer to imaging archives in eleven minutes, and the segmentation that would have ended it in one.</p>
+      </article>
+      <article class="report">
+        <p class="report-meta"><span class="report-tag">Briefing MS-2026-07</span><time datetime="2026-03-02">March 2026</time></p>
+        <h3>Latency as an adoption metric for zero trust</h3>
+        <p>Twelve months of telemetry across 40 critical-infrastructure deployments showing that sub-millisecond controls see 98% policy adherence.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="section deploy" id="deploy">
+    <div class="deploy-inner">
+      <h2>Put the slab between them and you.</h2>
+      <p>Deployment starts inline and observation-only. Most teams move to full enforcement within thirty days — without a single change to how their operators work.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#top">Secure your stack</a>
+        <a class="btn btn-ghost" href="#research">View threat research</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-brand">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <rect x="11" y="3" width="10" height="26" fill="currentColor"/>
+      <rect x="4" y="12" width="4" height="17" fill="currentColor" opacity=".45"/>
+      <rect x="24" y="8" width="4" height="21" fill="currentColor" opacity=".45"/>
+    </svg>
+    <span>Monolith Security</span>
+  </div>
+  <p class="footer-tag">Nothing gets through.</p>
+  <p class="footer-fine">© 2026 Monolith Security. Adaptive infrastructure for critical systems.</p>
+</footer>
+</body>
+</html>

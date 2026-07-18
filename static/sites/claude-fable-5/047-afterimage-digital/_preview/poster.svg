@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Afterimage Digital — Art beyond the frame. Exhibition 017.">
+  <defs>
+    <radialGradient id="glowGreen" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a3ffd6" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#a3ffd6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowMagenta" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff7ad9" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ff7ad9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowCyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7ae2ff" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#7ae2ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="50%" cy="42%" r="75%">
+      <stop offset="0%" stop-color="#150c24"/>
+      <stop offset="100%" stop-color="#060309"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#vignette)"/>
+
+  <!-- luminous field -->
+  <g>
+    <circle cx="600" cy="360" r="330" fill="url(#glowMagenta)" opacity="0.35"/>
+    <circle cx="380" cy="300" r="240" fill="url(#glowGreen)" opacity="0.45"/>
+    <circle cx="830" cy="420" r="260" fill="url(#glowCyan)" opacity="0.4"/>
+    <circle cx="980" cy="160" r="150" fill="url(#glowGreen)" opacity="0.25"/>
+    <circle cx="180" cy="620" r="180" fill="url(#glowMagenta)" opacity="0.22"/>
+  </g>
+
+  <!-- afterimage rings: offset echoes of one circle -->
+  <g fill="none" stroke-linecap="round">
+    <circle cx="600" cy="352" r="190" stroke="#a3ffd6" stroke-width="7"/>
+    <circle cx="640" cy="322" r="190" stroke="#ff7ad9" stroke-width="4.5" opacity="0.75"/>
+    <circle cx="676" cy="296" r="190" stroke="#7ae2ff" stroke-width="3" opacity="0.5"/>
+    <circle cx="708" cy="272" r="190" stroke="#ffc46b" stroke-width="2" opacity="0.3"/>
+  </g>
+
+  <!-- phosphor tide lines -->
+  <g fill="none" stroke="#a3ffd6" opacity="0.35">
+    <path d="M0 640 Q 150 610 300 640 T 600 640 T 900 640 T 1200 640" stroke-width="3"/>
+    <path d="M0 672 Q 150 700 300 672 T 600 672 T 900 672 T 1200 672" stroke-width="2.2" opacity="0.7"/>
+    <path d="M0 704 Q 150 678 300 704 T 600 704 T 900 704 T 1200 704" stroke-width="1.6" opacity="0.45"/>
+  </g>
+
+  <!-- text block -->
+  <g text-anchor="middle" font-family="Palatino, 'Palatino Linotype', Georgia, serif">
+    <text x="600" y="150" font-family="Avenir, 'Segoe UI', sans-serif" font-size="26" letter-spacing="12" fill="#ff7ad9">EXHIBITION 017</text>
+    <text x="600" y="392" font-size="110" fill="#ece5f6" letter-spacing="2">Afterimage</text>
+    <text x="600" y="472" font-size="58" fill="#a89bc0" letter-spacing="8">DIGITAL</text>
+    <text x="600" y="560" font-size="40" font-style="italic" fill="#a3ffd6">Art beyond the frame.</text>
+    <text x="600" y="805" font-family="Avenir, 'Segoe UI', sans-serif" font-size="24" letter-spacing="4" fill="#a89bc0">PERSISTENCE OF LIGHT · FOUR LUMINOUS COMMISSIONS</text>
+    <text x="600" y="848" font-family="Avenir, 'Segoe UI', sans-serif" font-size="20" letter-spacing="6" fill="#6f6488">ILVES · OKAFOR · ANDRADE · MARCHETTI</text>
+  </g>
+
+  <!-- frame -->
+  <rect x="28" y="28" width="1144" height="844" fill="none" stroke="#a3ffd6" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="40" y="40" width="1120" height="820" fill="none" stroke="#ff7ad9" stroke-opacity="0.2" stroke-width="1"/>
+</svg>

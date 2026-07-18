@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="t d">
+  <title id="t">Vanta Audio — Series One</title>
+  <desc id="d">Gallery poster: matte black reference headphones with brass accents on a dark field, with the tagline "Hear the space between."</desc>
+
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#d8b98a" stop-opacity="0.18"/>
+      <stop offset="55%" stop-color="#d8b98a" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#d8b98a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cup" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#262932"/>
+      <stop offset="55%" stop-color="#121419"/>
+      <stop offset="100%" stop-color="#0a0b0e"/>
+    </linearGradient>
+    <linearGradient id="band" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2e313b"/>
+      <stop offset="100%" stop-color="#14161b"/>
+    </linearGradient>
+    <linearGradient id="brass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8cfa3"/>
+      <stop offset="100%" stop-color="#a9834f"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="#090a0d"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- concentric sound rings -->
+  <g fill="none" stroke="#d8b98a">
+    <circle cx="600" cy="380" r="200" stroke-opacity="0.18" stroke-width="1.5"/>
+    <circle cx="600" cy="380" r="260" stroke-opacity="0.12" stroke-width="1.2"/>
+    <circle cx="600" cy="380" r="320" stroke-opacity="0.07" stroke-width="1"/>
+  </g>
+
+  <!-- headphones -->
+  <g transform="translate(600 355)">
+    <!-- headband -->
+    <path d="M-150 30 C-150 -140 -70 -210 0 -210 C70 -210 150 -140 150 30"
+          fill="none" stroke="url(#band)" stroke-width="30" stroke-linecap="round"/>
+    <path d="M-150 30 C-150 -140 -70 -210 0 -210 C70 -210 150 -140 150 30"
+          fill="none" stroke="#3a3e49" stroke-width="2" stroke-opacity="0.7"/>
+    <!-- yokes -->
+    <path d="M-150 26 L-150 82" stroke="url(#brass)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M150 26 L150 82" stroke="url(#brass)" stroke-width="6" stroke-linecap="round"/>
+    <!-- left cup -->
+    <ellipse cx="-138" cy="145" rx="72" ry="92" fill="url(#cup)"/>
+    <ellipse cx="-138" cy="145" rx="72" ry="92" fill="none" stroke="#33363f" stroke-width="2"/>
+    <ellipse cx="-138" cy="145" rx="46" ry="64" fill="none" stroke="url(#brass)" stroke-width="2.5" stroke-opacity="0.9"/>
+    <ellipse cx="-138" cy="145" rx="24" ry="36" fill="#0a0b0e" stroke="#2b2e36" stroke-width="1.5"/>
+    <!-- right cup -->
+    <ellipse cx="138" cy="145" rx="72" ry="92" fill="url(#cup)"/>
+    <ellipse cx="138" cy="145" rx="72" ry="92" fill="none" stroke="#33363f" stroke-width="2"/>
+    <ellipse cx="138" cy="145" rx="46" ry="64" fill="none" stroke="url(#brass)" stroke-width="2.5" stroke-opacity="0.9"/>
+    <ellipse cx="138" cy="145" rx="24" ry="36" fill="#0a0b0e" stroke="#2b2e36" stroke-width="1.5"/>
+  </g>
+
+  <!-- waveform rule -->
+  <path d="M240 660 C270 660 270 640 300 640 S330 682 360 682 390 648 420 648 450 672 480 672 510 632 540 632 570 686 600 686 630 650 660 650 690 674 720 674 750 638 780 638 810 660 840 660 870 646 900 646 930 660 960 660"
+        fill="none" stroke="#d8b98a" stroke-width="2" stroke-opacity="0.55"/>
+
+  <!-- wordmark -->
+  <text x="600" y="756" text-anchor="middle" fill="#d8b98a"
+        font-family="Georgia, 'Times New Roman', serif" font-size="72" letter-spacing="6">Vanta Audio</text>
+  <text x="600" y="808" text-anchor="middle" fill="#a5a29b"
+        font-family="Helvetica, Arial, sans-serif" font-size="26" letter-spacing="8">HEAR THE SPACE BETWEEN.</text>
+  <text x="600" y="120" text-anchor="middle" fill="#a9834f"
+        font-family="Helvetica, Arial, sans-serif" font-size="22" letter-spacing="12">SERIES ONE</text>
+</svg>

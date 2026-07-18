@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self'; style-src 'self'; script-src 'self'">
+<title>Monolith Shield — Know what touches your systems.</title>
+<meta name="description" content="Continuous security maps exposure, verifies controls, and responds at machine speed.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="wordmark" href="#top" aria-label="Monolith Shield home">
+    <svg class="glyph" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12 2 20 5v7c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V5l8-3z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <rect x="10.4" y="7" width="3.2" height="9" fill="currentColor"/>
+    </svg>
+    <span>MONOLITH<b>SHIELD</b></span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#exposure">Exposure</a>
+    <a href="#controls">Controls</a>
+    <a href="#response">Response</a>
+    <a href="#threat-brief">Threat brief</a>
+  </nav>
+</header>
+
+<main id="main">
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span>Security posture / Live</p>
+      <h1>Know what touches your&nbsp;systems.</h1>
+      <p class="lede">Continuous security maps exposure, verifies controls, and responds at machine speed. One monolith of evidence — no blind spots, no stale reports.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#assessment">Run an assessment</a>
+        <a class="btn btn-ghost" href="#threat-brief">View threat brief</a>
+      </div>
+      <dl class="hero-stats">
+        <div><dt>Assets mapped</dt><dd>4,182</dd></div>
+        <div><dt>Controls verified</dt><dd>312</dd></div>
+        <div><dt>Median response</dt><dd>1.8&nbsp;s</dd></div>
+      </dl>
+    </div>
+
+    <div class="posture-panel" aria-label="Live posture summary">
+      <div class="panel-head">
+        <span class="panel-title">POSTURE // ORG-PRIMARY</span>
+        <span class="panel-clock" id="utc-clock" aria-live="off">--:--:-- UTC</span>
+      </div>
+      <div class="score-block">
+        <svg class="score-ring" viewBox="0 0 120 120" role="img" aria-label="Posture score 92 out of 100">
+          <circle cx="60" cy="60" r="52" class="ring-track"/>
+          <circle cx="60" cy="60" r="52" class="ring-fill" id="score-ring"/>
+        </svg>
+        <div class="score-readout">
+          <span class="score-value" id="score-value">92</span>
+          <span class="score-label">POSTURE SCORE</span>
+        </div>
+      </div>
+      <ul class="signal-list" id="signal-list" aria-label="Latest signals">
+        <li><span class="sig ok">OK</span> TLS policy verified on edge-fleet</li>
+        <li><span class="sig ok">OK</span> IAM drift check: 0 findings</li>
+        <li><span class="sig warn">WATCH</span> New listener on build-runner-07</li>
+        <li><span class="sig ok">OK</span> EDR heartbeat 4,182 / 4,182</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Pillars ===== -->
+  <section class="pillars" aria-label="What Monolith Shield does">
+    <article class="pillar">
+      <h2><span class="index" aria-hidden="true">01</span> Map exposure</h2>
+      <p>Every asset, port, identity, and dependency is discovered continuously and drawn onto one live surface map. If it can be reached, it is on the map before an attacker finds it.</p>
+    </article>
+    <article class="pillar">
+      <h2><span class="index" aria-hidden="true">02</span> Verify controls</h2>
+      <p>Policies are not trusted — they are tested. Shield exercises each control against real attack behavior and records pass or fail as evidence, not opinion.</p>
+    </article>
+    <article class="pillar">
+      <h2><span class="index" aria-hidden="true">03</span> Respond at machine speed</h2>
+      <p>Detections trigger contain-and-verify playbooks in seconds. Humans review the decision trail; they are never the bottleneck in the first minute.</p>
+    </article>
+  </section>
+
+  <!-- ===== Exposure map ===== -->
+  <section class="section" id="exposure">
+    <header class="section-head">
+      <p class="kicker">Surface map</p>
+      <h2>Exposure, drawn hourly.</h2>
+      <p class="section-lede">A living inventory of what the internet — and your own network — can touch. Each cell is an asset class; shade is current exposure.</p>
+    </header>
+    <div class="exposure-grid" role="list" aria-label="Asset exposure summary">
+      <div class="cell low" role="listitem"><h3>Edge fleet</h3><p class="cell-num">640 hosts</p><p class="cell-tag">Low exposure</p></div>
+      <div class="cell low" role="listitem"><h3>Identity plane</h3><p class="cell-num">2,913 principals</p><p class="cell-tag">Low exposure</p></div>
+      <div class="cell mid" role="listitem"><h3>Build runners</h3><p class="cell-num">57 nodes</p><p class="cell-tag">1 open listener</p></div>
+      <div class="cell low" role="listitem"><h3>Data stores</h3><p class="cell-num">88 stores</p><p class="cell-tag">Encrypted, private</p></div>
+      <div class="cell mid" role="listitem"><h3>Third-party SaaS</h3><p class="cell-num">34 tenants</p><p class="cell-tag">2 tokens aging</p></div>
+      <div class="cell low" role="listitem"><h3>Workstations</h3><p class="cell-num">450 devices</p><p class="cell-tag">EDR complete</p></div>
+    </div>
+  </section>
+
+  <!-- ===== Controls ===== -->
+  <section class="section" id="controls">
+    <header class="section-head">
+      <p class="kicker">Control verification</p>
+      <h2>Tested, not assumed.</h2>
+      <p class="section-lede">Last verification cycle across the control stack. Every row is an executed test with recorded evidence.</p>
+    </header>
+    <div class="table-wrap">
+      <table class="controls-table">
+        <caption class="visually-hidden">Control verification results from the last cycle</caption>
+        <thead>
+          <tr><th scope="col">Control</th><th scope="col">Test</th><th scope="col">Result</th><th scope="col">Last run</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">MFA enforcement</th><td>Legacy-auth bypass attempt</td><td><span class="sig ok">PASS</span></td><td>14 min ago</td></tr>
+          <tr><th scope="row">Egress filtering</th><td>Beacon to staged C2 sinkhole</td><td><span class="sig ok">PASS</span></td><td>14 min ago</td></tr>
+          <tr><th scope="row">Backup isolation</th><td>Credentialed delete request</td><td><span class="sig ok">PASS</span></td><td>1 hr ago</td></tr>
+          <tr><th scope="row">Lateral movement</th><td>SMB relay simulation</td><td><span class="sig warn">PARTIAL</span></td><td>1 hr ago</td></tr>
+          <tr><th scope="row">Secrets hygiene</th><td>Repository token sweep</td><td><span class="sig ok">PASS</span></td><td>3 hr ago</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== Response ===== -->
+  <section class="section" id="response">
+    <header class="section-head">
+      <p class="kicker">Machine-speed response</p>
+      <h2>The first minute is automated.</h2>
+      <p class="section-lede">A real containment sequence from last quarter, replayed from the evidence log. Total time from detection to verified containment: 41 seconds.</p>
+    </header>
+    <ol class="timeline">
+      <li><span class="t">T+0.0s</span><div><h3>Detection</h3><p>Anomalous token use on a build runner matches a credential-theft signature.</p></div></li>
+      <li><span class="t">T+1.8s</span><div><h3>Containment</h3><p>Runner is network-quarantined; the token and its refresh chain are revoked everywhere.</p></div></li>
+      <li><span class="t">T+9.4s</span><div><h3>Verification</h3><p>Shield replays the access attempt against the quarantined segment and confirms it now fails.</p></div></li>
+      <li><span class="t">T+41s</span><div><h3>Evidence sealed</h3><p>Full decision trail is written to the immutable log and handed to the on-call analyst.</p></div></li>
+    </ol>
+  </section>
+
+  <!-- ===== Threat brief ===== -->
+  <section class="section" id="threat-brief">
+    <header class="section-head">
+      <p class="kicker">Threat brief</p>
+      <h2>This week on the wire.</h2>
+      <p class="section-lede">What Shield's sensor network is seeing across monitored estates, summarized for humans.</p>
+    </header>
+    <div class="brief-grid">
+      <article class="brief-card">
+        <p class="brief-meta">ADVISORY · CI/CD</p>
+        <h3>Token theft via poisoned build steps</h3>
+        <p>Attackers are targeting build pipelines to harvest short-lived cloud tokens. Estates with verified egress filtering saw zero successful exfiltrations.</p>
+      </article>
+      <article class="brief-card">
+        <p class="brief-meta">TREND · IDENTITY</p>
+        <h3>MFA-fatigue prompts, retooled</h3>
+        <p>Push-bombing volume is down, but number-matching bypass attempts against helpdesk workflows are up 3× quarter over quarter.</p>
+      </article>
+      <article class="brief-card">
+        <p class="brief-meta">WATCH · EDGE</p>
+        <h3>Scans for forgotten staging hosts</h3>
+        <p>Broad scanning for stale staging subdomains continues. Continuous surface mapping retired the median exposed host in under six hours.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== Assessment ===== -->
+  <section class="section assessment" id="assessment">
+    <header class="section-head">
+      <p class="kicker">Live demo</p>
+      <h2>Run an assessment.</h2>
+      <p class="section-lede">A local, self-contained simulation of Shield's five-phase posture assessment. Nothing leaves this page.</p>
+    </header>
+    <div class="assess-panel">
+      <button class="btn btn-primary" id="run-btn" type="button">Run an assessment</button>
+      <div class="assess-progress" role="status" aria-live="polite">
+        <p class="assess-status" id="assess-status">Idle — ready to run.</p>
+        <div class="bar" aria-hidden="true"><div class="bar-fill" id="bar-fill"></div></div>
+      </div>
+      <ol class="assess-steps" id="assess-steps">
+        <li data-step><span class="step-mark" aria-hidden="true"></span>Enumerate reachable surface</li>
+        <li data-step><span class="step-mark" aria-hidden="true"></span>Fingerprint services &amp; identities</li>
+        <li data-step><span class="step-mark" aria-hidden="true"></span>Exercise control stack</li>
+        <li data-step><span class="step-mark" aria-hidden="true"></span>Correlate findings</li>
+        <li data-step><span class="step-mark" aria-hidden="true"></span>Seal evidence &amp; score</li>
+      </ol>
+      <p class="assess-result" id="assess-result" hidden>Assessment complete. Posture score <strong>92 / 100</strong> — 2 items on the watchlist, full evidence trail sealed.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="foot-brand">
+    <svg class="glyph" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12 2 20 5v7c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V5l8-3z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <rect x="10.4" y="7" width="3.2" height="9" fill="currentColor"/>
+    </svg>
+    <span>MONOLITH<b>SHIELD</b></span>
+  </div>
+  <p>Know what touches your systems. · Continuous security, verified in place.</p>
+  <p class="foot-fine">Demonstration site. All figures are illustrative.</p>
+</footer>
+</body>
+</html>

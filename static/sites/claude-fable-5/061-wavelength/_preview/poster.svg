@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="poster-title">
+  <title id="poster-title">Wavelength — Listen to the ocean change.</title>
+  <defs>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d3350"/>
+      <stop offset="0.45" stop-color="#051726"/>
+      <stop offset="1" stop-color="#030d17"/>
+    </linearGradient>
+    <linearGradient id="titleFill" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#dcf0f4"/>
+      <stop offset="1" stop-color="#4de3c9"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4de3c9" stop-opacity="0"/>
+      <stop offset="1" stop-color="#4de3c9" stop-opacity="0.18"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#sea)"/>
+
+  <!-- faint depth rings -->
+  <g fill="none" stroke="#4de3c9" stroke-opacity="0.07">
+    <circle cx="600" cy="330" r="150" stroke-width="2"/>
+    <circle cx="600" cy="330" r="240" stroke-width="2"/>
+    <circle cx="600" cy="330" r="340" stroke-width="2"/>
+    <circle cx="600" cy="330" r="450" stroke-width="2"/>
+  </g>
+
+  <!-- light shaft -->
+  <path d="M480 0 L720 0 L900 900 L300 900 Z" fill="url(#beam)"/>
+
+  <!-- layered waveforms -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 560 Q 75 500 150 560 T 300 560 T 450 560 T 600 560 T 750 560 T 900 560 T 1050 560 T 1200 560"
+          stroke="#1fa896" stroke-opacity="0.35" stroke-width="3"/>
+    <path d="M0 600 Q 50 520 100 600 T 200 600 T 300 600 T 400 600 T 500 600 T 600 600 T 700 600 T 800 600 T 900 600 T 1000 600 T 1100 600 T 1200 600"
+          stroke="#4de3c9" stroke-opacity="0.55" stroke-width="3.5"/>
+    <path d="M0 640 Q 100 590 200 640 T 400 640 T 600 640 T 800 640 T 1000 640 T 1200 640"
+          stroke="#4de3c9" stroke-opacity="0.25" stroke-width="3"/>
+  </g>
+
+  <!-- central pulse waveform -->
+  <path d="M100 330 h90 l30 -50 40 100 45 -190 50 300 45 -360 55 420 50 -330 45 220 40 -130 35 70 30 -40 h90
+           l30 40 35 -70 40 130 45 -220 50 330 55 -420 45 360 50 -300 45 190 40 -100 30 50 h95"
+        fill="none" stroke="#4de3c9" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- hydrophone mooring -->
+  <g stroke="#8fb4c2" stroke-opacity="0.5" stroke-width="2.5" fill="none">
+    <line x1="600" y1="470" x2="600" y2="760"/>
+  </g>
+  <circle cx="600" cy="775" r="16" fill="#ffb45e"/>
+  <circle cx="600" cy="775" r="30" fill="none" stroke="#ffb45e" stroke-opacity="0.45" stroke-width="3"/>
+  <circle cx="600" cy="775" r="48" fill="none" stroke="#ffb45e" stroke-opacity="0.2" stroke-width="3"/>
+
+  <!-- text block -->
+  <text x="600" y="118" text-anchor="middle" fill="#4de3c9"
+        font-family="Avenir Next, Segoe UI, Trebuchet MS, sans-serif"
+        font-size="26" font-weight="700" letter-spacing="10">OCEAN INTELLIGENCE</text>
+
+  <text x="600" y="222" text-anchor="middle" fill="url(#titleFill)"
+        font-family="Avenir Next, Segoe UI, Trebuchet MS, sans-serif"
+        font-size="108" font-weight="800" letter-spacing="6">WAVELENGTH</text>
+
+  <text x="600" y="862" text-anchor="middle" fill="#dcf0f4"
+        font-family="Avenir Next, Segoe UI, Trebuchet MS, sans-serif"
+        font-size="38" font-weight="600" letter-spacing="2">Listen to the ocean change.</text>
+
+  <!-- corner frame ticks -->
+  <g stroke="#4de3c9" stroke-opacity="0.5" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M40 90 V40 H90"/>
+    <path d="M1110 40 H1160 V90"/>
+    <path d="M1160 810 V860 H1110"/>
+    <path d="M90 860 H40 V810"/>
+  </g>
+</svg>

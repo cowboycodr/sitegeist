@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Transit 2050 poster: four colored transit lines converging on a hub over a night-navy city grid, with the tagline: the city moves when everyone can.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="1" stop-color="#121a33"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#39e6c1" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#39e6c1" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="420" fill="url(#glow)"/>
+
+  <!-- faint city grid -->
+  <g stroke="#233052" stroke-width="2">
+    <path d="M0 180 H1200 M0 400 H1200 M0 620 H1200 M240 0 V900 M520 0 V900 M800 0 V900 M1060 0 V900"/>
+  </g>
+
+  <!-- transit lines -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="26">
+    <path stroke="#39e6c1" d="M120 860 L120 560 Q120 520 160 520 L680 520 Q720 520 720 480 L720 120"/>
+    <path stroke="#ff7a59" d="M60 340 L500 340 Q540 340 540 380 L540 700 Q540 740 580 740 L1150 740"/>
+    <path stroke="#ffc94d" d="M1100 100 L1100 480 Q1100 520 1060 520 L300 520"/>
+    <path stroke="#7aa7ff" d="M340 880 L340 260 Q340 220 380 220 L1060 220"/>
+  </g>
+
+  <!-- stations -->
+  <g fill="#0b1020" stroke="#eef3ff" stroke-width="8">
+    <circle cx="340" cy="340" r="18"/>
+    <circle cx="720" cy="220" r="18"/>
+    <circle cx="540" cy="520" r="22"/>
+    <circle cx="120" cy="680" r="18"/>
+    <circle cx="1100" cy="340" r="18"/>
+    <circle cx="880" cy="740" r="18"/>
+    <circle cx="720" cy="520" r="26"/>
+  </g>
+
+  <!-- text panel -->
+  <g font-family="'Avenir Next','Segoe UI',system-ui,sans-serif">
+    <text x="90" y="150" font-size="34" font-weight="700" letter-spacing="8" fill="#39e6c1">A MOBILITY PLAN FOR EVERYONE</text>
+    <text x="86" y="268" font-size="120" font-weight="800" letter-spacing="-2" fill="#eef3ff">Transit <tspan fill="#39e6c1">2050</tspan></text>
+    <text x="90" y="820" font-size="46" font-weight="600" fill="#9fb0d8">The city moves when <tspan fill="#eef3ff">everyone</tspan> can.</text>
+  </g>
+
+  <!-- line chips -->
+  <g font-family="'Avenir Next','Segoe UI',system-ui,sans-serif" font-size="40" font-weight="800" text-anchor="middle">
+    <circle cx="930" cy="806" r="34" fill="#39e6c1"/><text x="930" y="820" fill="#0b1020">A</text>
+    <circle cx="1012" cy="806" r="34" fill="#ff7a59"/><text x="1012" y="820" fill="#0b1020">B</text>
+    <circle cx="1094" cy="806" r="34" fill="#ffc94d"/><text x="1094" y="820" fill="#0b1020">C</text>
+    <circle cx="1136" cy="806" r="34" fill="#7aa7ff"/><text x="1136" y="820" fill="#0b1020">D</text>
+  </g>
+</svg>

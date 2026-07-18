@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="poster-title">
+  <title id="poster-title">Low Sun Spirits — Distilled at the edge of daylight</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#241733"/>
+      <stop offset=".42" stop-color="#4b2340"/>
+      <stop offset=".72" stop-color="#93412f"/>
+      <stop offset="1" stop-color="#c9702f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#ffd9a0" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#ffd9a0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#sky)"/>
+
+  <!-- Low sun -->
+  <circle cx="600" cy="618" r="300" fill="url(#glow)"/>
+  <circle cx="600" cy="618" r="150" fill="#f6a04d"/>
+
+  <!-- Dunes -->
+  <path d="M0 660 Q 300 590 620 648 T 1200 630 V 900 H 0 Z" fill="#31182b" opacity=".88"/>
+  <path d="M0 730 Q 380 668 800 726 T 1200 712 V 900 H 0 Z" fill="#1d0f22"/>
+
+  <!-- Ocotillo silhouettes -->
+  <g stroke="#120a18" stroke-width="14" stroke-linecap="round" fill="none">
+    <path d="M170 742 V 600 M170 668 q -52 -10 -52 -66 M170 654 q 56 -6 56 -76"/>
+    <path d="M1060 754 V 640 M1060 700 q -40 -8 -40 -52 M1060 690 q 42 -6 42 -58"/>
+  </g>
+
+  <!-- Bottle silhouette centered over the sun -->
+  <g transform="translate(544 380)">
+    <rect x="48" y="0" width="16" height="34" rx="5" fill="#1d0f22"/>
+    <path d="M48 34 q -22 26 -22 60 v 120 q 0 14 14 14 h 32 q 14 0 14 -14 v -120 q 0 -34 -22 -60 z" fill="#1d0f22"/>
+    <rect x="36" y="118" width="40" height="58" rx="4" fill="#f7e7cd"/>
+    <circle cx="56" cy="137" r="9" fill="#c9702f"/>
+    <rect x="43" y="153" width="26" height="4" rx="2" fill="#31182b"/>
+    <rect x="40" y="162" width="32" height="3" rx="1.5" fill="#31182b" opacity=".55"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g text-anchor="middle" font-family="Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif">
+    <text x="600" y="150" fill="#f6a04d" font-size="26" letter-spacing="10" font-family="Avenir Next, Segoe UI, Helvetica Neue, Arial, sans-serif">DESERT BOTANICAL SPIRITS</text>
+    <text x="600" y="238" fill="#f7e7cd" font-size="86" letter-spacing="3">Low Sun Spirits</text>
+    <text x="600" y="296" fill="#dcbf8f" font-size="32" font-style="italic">Distilled at the edge of daylight.</text>
+  </g>
+
+  <!-- Horizon rule -->
+  <g fill="#f7e7cd" opacity=".85">
+    <rect x="470" y="332" width="110" height="3" rx="1.5"/>
+    <rect x="620" y="332" width="110" height="3" rx="1.5"/>
+    <circle cx="600" cy="333.5" r="7" fill="#e8873c"/>
+  </g>
+
+  <!-- Footer line -->
+  <text x="600" y="852" text-anchor="middle" fill="#dcbf8f" font-size="24" letter-spacing="6" font-family="Avenir Next, Segoe UI, Helvetica Neue, Arial, sans-serif">SMALL BATCH · LONG SHADOWS · PATIENT WORK</text>
+</svg>

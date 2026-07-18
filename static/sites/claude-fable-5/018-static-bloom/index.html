@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+<title>Static Bloom — Beautiful noise, carefully released.</title>
+<meta name="description" content="A fiercely independent label releasing chromatic records, artist stories, and limited vinyl editions.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23120f16'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23ff5e78' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%237ce7d8'/%3E%3C/svg%3E">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Static Bloom, home">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <circle cx="16" cy="16" r="14" fill="var(--ink-2)"/>
+      <circle cx="16" cy="16" r="9" fill="none" stroke="var(--rose)" stroke-width="2"/>
+      <circle cx="16" cy="16" r="3" fill="var(--mint)"/>
+    </svg>
+    <span>Static&nbsp;Bloom</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navList">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      Menu
+    </button>
+    <ul class="nav-list" id="navList">
+      <li><a href="#releases">Releases</a></li>
+      <li><a href="#stories">Stories</a></li>
+      <li><a href="#editions">Editions</a></li>
+      <li><a href="#archive">Archive</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow">Records · Editions · Noise</p>
+      <h1>Beautiful noise, <em>carefully</em> released.</h1>
+      <p class="lede">Static Bloom is a fiercely independent label pressing chromatic records in small, deliberate runs — music that hisses, shimmers, and refuses to sit still.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#releases">Hear the latest</a>
+        <a class="button button-ghost" href="#archive">Visit the archive</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="vinyl">
+        <div class="vinyl-disc">
+          <span class="vinyl-groove g1"></span>
+          <span class="vinyl-groove g2"></span>
+          <span class="vinyl-groove g3"></span>
+          <span class="vinyl-label"></span>
+          <span class="vinyl-hole"></span>
+        </div>
+        <div class="vinyl-glow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LATEST / PLAYER ============ -->
+  <section class="latest" aria-labelledby="latest-heading">
+    <div class="latest-card">
+      <div class="latest-cover" aria-hidden="true">
+        <span class="cover-band b1"></span>
+        <span class="cover-band b2"></span>
+        <span class="cover-band b3"></span>
+      </div>
+      <div class="latest-body">
+        <p class="kicker">Latest release · SB-018</p>
+        <h2 id="latest-heading">Marrow Chorus — <cite>Petal Static</cite></h2>
+        <p>Nine tracks of blown-out harmonium and tape-warped choir, recorded in a decommissioned grain silo over one humid August. Our loudest quiet record yet.</p>
+        <div class="player" role="group" aria-label="Noise bloom demo player">
+          <button class="button button-primary play-button" id="playButton" aria-pressed="false">
+            <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+            <svg class="icon icon-stop" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="6" width="12" height="12" fill="currentColor"/></svg>
+            <span id="playLabel">Play a noise bloom</span>
+          </button>
+          <div class="meter" id="meter" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <p class="player-note" id="playerNote">A thirty-second generative texture, synthesized right here in your browser. No files, no streaming — just noise, blooming.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RELEASES ============ -->
+  <section class="releases" id="releases" aria-labelledby="releases-heading">
+    <header class="section-head">
+      <h2 id="releases-heading">Recent releases</h2>
+      <p>Every record is mastered for vinyl first, digital second. Pressed in editions of 300 or fewer, then gone.</p>
+    </header>
+    <ul class="release-grid">
+      <li class="release">
+        <div class="release-cover cover-rose" aria-hidden="true"><span class="cover-orb"></span></div>
+        <h3>Hollow Aviary — <cite>Feedback Garden</cite></h3>
+        <p class="release-meta">SB-017 · LP · Rose-smoke vinyl</p>
+        <p>Guitar swarms and dawn-chorus field recordings, braided into slow, glowing walls.</p>
+      </li>
+      <li class="release">
+        <div class="release-cover cover-mint" aria-hidden="true"><span class="cover-orb"></span></div>
+        <h3>Vera Lindqvist — <cite>Salt Diagram</cite></h3>
+        <p class="release-meta">SB-016 · LP · Sea-glass vinyl</p>
+        <p>Prepared piano recorded underwater microphones-first, then rebuilt note by note.</p>
+      </li>
+      <li class="release">
+        <div class="release-cover cover-gold" aria-hidden="true"><span class="cover-orb"></span></div>
+        <h3>Cassette Mothers — <cite>Warm Ruin</cite></h3>
+        <p class="release-meta">SB-015 · 2×LP · Amber marble vinyl</p>
+        <p>A double album of decaying loops that gets more beautiful every time the tape frays.</p>
+      </li>
+      <li class="release">
+        <div class="release-cover cover-violet" aria-hidden="true"><span class="cover-orb"></span></div>
+        <h3>Marrow Chorus — <cite>First Bloom EP</cite></h3>
+        <p class="release-meta">SB-014 · 10″ · Ultraviolet vinyl</p>
+        <p>The debut that started it: four songs of choir static, sold out in eleven hours.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ STORIES ============ -->
+  <section class="stories" id="stories" aria-labelledby="stories-heading">
+    <header class="section-head">
+      <h2 id="stories-heading">Artist stories</h2>
+      <p>Liner notes are never enough. We publish long conversations with everyone we press.</p>
+    </header>
+    <div class="story-list">
+      <article class="story">
+        <p class="kicker">Interview · 24 min read</p>
+        <h3>“The silo taught us to sing quieter.”</h3>
+        <p>Marrow Chorus on recording <cite>Petal Static</cite> inside forty feet of concrete reverb, and why they mixed the whole album standing up.</p>
+      </article>
+      <article class="story">
+        <p class="kicker">Studio diary · 12 min read</p>
+        <h3>Vera Lindqvist's underwater piano, in her own words</h3>
+        <p>Waterproofed hydrophones, a borrowed swimming pool, and the two notes that survived the drowning intact.</p>
+      </article>
+      <article class="story">
+        <p class="kicker">Essay · 9 min read</p>
+        <h3>Why we still cut lacquers by hand</h3>
+        <p>Our founder on the lathe in the back room, the smell of hot acetate, and the case for records you can hear being made.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ EDITIONS ============ -->
+  <section class="editions" id="editions" aria-labelledby="editions-heading">
+    <header class="section-head">
+      <h2 id="editions-heading">Limited editions</h2>
+      <p>Small runs, numbered by hand, announced only here. When they're gone, they're gone.</p>
+    </header>
+    <ul class="edition-list">
+      <li class="edition">
+        <span class="edition-badge">14 of 100 left</span>
+        <h3><cite>Petal Static</cite> — Silo Edition</h3>
+        <p>Chromatic splatter vinyl, risograph poster, and a vial of silo dust. Numbered and signed.</p>
+      </li>
+      <li class="edition">
+        <span class="edition-badge">Sold out</span>
+        <h3><cite>Warm Ruin</cite> — Tape Loop Box</h3>
+        <p>The double LP plus an actual loop from the master reel, mounted in a walnut frame.</p>
+      </li>
+      <li class="edition">
+        <span class="edition-badge">62 of 150 left</span>
+        <h3>Label sampler — <cite>Bloom I–IV</cite></h3>
+        <p>Four flexi-discs of unreleased sketches from the whole roster, bound in a cloth folio.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ ARCHIVE ============ -->
+  <section class="archive" id="archive" aria-labelledby="archive-heading">
+    <header class="section-head">
+      <h2 id="archive-heading">The archive</h2>
+      <p>Every catalogue number since 2019. Filter by ear, not by algorithm.</p>
+    </header>
+    <table class="archive-table">
+      <thead>
+        <tr><th scope="col">Cat. no.</th><th scope="col">Artist</th><th scope="col">Title</th><th scope="col">Year</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>SB-018</td><td>Marrow Chorus</td><td><cite>Petal Static</cite></td><td>2026</td></tr>
+        <tr><td>SB-017</td><td>Hollow Aviary</td><td><cite>Feedback Garden</cite></td><td>2026</td></tr>
+        <tr><td>SB-016</td><td>Vera Lindqvist</td><td><cite>Salt Diagram</cite></td><td>2025</td></tr>
+        <tr><td>SB-015</td><td>Cassette Mothers</td><td><cite>Warm Ruin</cite></td><td>2025</td></tr>
+        <tr><td>SB-014</td><td>Marrow Chorus</td><td><cite>First Bloom EP</cite></td><td>2024</td></tr>
+        <tr><td>SB-013</td><td>Hollow Aviary</td><td><cite>Wire Nest</cite></td><td>2024</td></tr>
+        <tr><td>SB-012</td><td>The Slow Antenna</td><td><cite>Broadcast Ghosts</cite></td><td>2023</td></tr>
+        <tr><td>SB-011</td><td>Vera Lindqvist</td><td><cite>Eight Rooms</cite></td><td>2023</td></tr>
+        <tr><td>SB-010</td><td>Cassette Mothers</td><td><cite>Hiss Lullabies</cite></td><td>2022</td></tr>
+        <tr><td>SB-009</td><td>The Slow Antenna</td><td><cite>Night Frequencies</cite></td><td>2021</td></tr>
+        <tr><td>SB-008</td><td>Various</td><td><cite>Static Bloom Vol. 1</cite></td><td>2019</td></tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-brand">Static&nbsp;Bloom</p>
+    <p>Beautiful noise, carefully released. Pressed, packed, and posted from a small workshop that smells of cardboard and ozone.</p>
+    <p class="footer-fine">© 2026 Static Bloom Records. All frequencies reserved.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Museum of Small Things — Ordinary objects. Extraordinary stories.</title>
+<meta name="description" content="A digital museum revealing the emotional histories hidden inside the things people keep.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#collection">Skip to the collection</a>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="wordmark" href="#top" aria-label="Museum of Small Things — home">
+      <svg class="wordmark-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <rect x="4" y="4" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.5"/>
+        <circle cx="20" cy="21" r="5" fill="currentColor"/>
+        <line x1="10" y1="31" x2="30" y2="31" stroke="currentColor" stroke-width="2.5"/>
+      </svg>
+      <span class="wordmark-text">Museum of<br>Small Things</span>
+    </a>
+    <nav class="masthead-nav" aria-label="Primary">
+      <a href="#collection">Collection</a>
+      <a href="#about">About</a>
+      <a href="#submit">Submit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ======================= HERO ======================= -->
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="eyebrow">Open collection&nbsp;·&nbsp;4,208 objects</p>
+    <h1 id="hero-title">Ordinary objects.<br><em>Extraordinary stories.</em></h1>
+    <p class="hero-lede">Every drawer holds a museum. We collect the small things people cannot throw away — and the histories folded inside them.</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="#collection">Browse the collection</a>
+      <a class="button button-ghost" href="#submit">Submit an object</a>
+    </div>
+    <div class="hero-plinths" aria-hidden="true">
+      <div class="plinth"><svg viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="28" r="14" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="27" cy="24" r="2.4" fill="currentColor"/><circle cx="37" cy="24" r="2.4" fill="currentColor"/><circle cx="27" cy="33" r="2.4" fill="currentColor"/><circle cx="37" cy="33" r="2.4" fill="currentColor"/><rect x="14" y="48" width="36" height="6" fill="currentColor"/></svg></div>
+      <div class="plinth plinth-tall"><svg viewBox="0 0 64 64" focusable="false"><path d="M20 14h18l6 6v26H20z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M38 14v6h6" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><line x1="26" y1="28" x2="38" y2="28" stroke="currentColor" stroke-width="2.4"/><line x1="26" y1="34" x2="38" y2="34" stroke="currentColor" stroke-width="2.4"/><rect x="14" y="50" width="36" height="6" fill="currentColor"/></svg></div>
+      <div class="plinth"><svg viewBox="0 0 64 64" focusable="false"><path d="M24 16c0-3 3.6-5 8-5s8 2 8 5v22a8 8 0 0 1-16 0z" fill="none" stroke="currentColor" stroke-width="3"/><line x1="24" y1="24" x2="40" y2="24" stroke="currentColor" stroke-width="2.4"/><rect x="14" y="50" width="36" height="6" fill="currentColor"/></svg></div>
+    </div>
+  </section>
+
+  <!-- ======================= COLLECTION ======================= -->
+  <section class="collection" id="collection" aria-labelledby="collection-title">
+    <div class="section-head">
+      <h2 id="collection-title">From the permanent collection</h2>
+      <p>Twelve recent acquisitions, catalogued with the stories their keepers told us. Select any object to read its full record.</p>
+    </div>
+    <ul class="object-grid" id="object-grid">
+      <!-- Cards are rendered by app.js from the catalogue; a no-script fallback follows. -->
+    </ul>
+    <noscript>
+      <p class="noscript-note">The interactive catalogue needs JavaScript. Highlights: a brass coat button carried through two winters at sea; a 1998 bus transfer from a first date; a teacup glued back together after an argument that never was resolved; a grey pebble from the beach at Whitby.</p>
+    </noscript>
+  </section>
+
+  <!-- ======================= ABOUT ======================= -->
+  <section class="about" id="about" aria-labelledby="about-title">
+    <div class="about-inner">
+      <div class="about-copy">
+        <h2 id="about-title">Why small things?</h2>
+        <p>Great museums keep crowns and cannons. We keep the bus ticket, the spare key, the spool of thread — objects with no market value and enormous private weight.</p>
+        <p>Each acquisition is donated with its story. Together they form an archive of ordinary attachment: how people fall in love, grieve, move house, and remember.</p>
+      </div>
+      <dl class="about-stats">
+        <div><dt>4,208</dt><dd>objects catalogued</dd></div>
+        <div><dt>61</dt><dd>countries of origin</dd></div>
+        <div><dt>1893</dt><dd>oldest dated object</dd></div>
+        <div><dt>0&nbsp;g</dt><dd>lightest — a held breath, donated in a jar</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ======================= SUBMIT ======================= -->
+  <section class="submit" id="submit" aria-labelledby="submit-title">
+    <div class="submit-inner">
+      <div class="submit-copy">
+        <h2 id="submit-title">Submit an object</h2>
+        <p>Tell us about something small you keep and cannot explain to strangers. Our registrars read every entry; if accepted, your object joins the open collection under your chosen credit.</p>
+        <p class="submit-note">Drafts are prepared locally in your browser — nothing is sent anywhere from this page.</p>
+      </div>
+      <form class="submit-form" id="submit-form" novalidate>
+        <p class="field">
+          <label for="f-name">Your name <span class="optional">(or “Anonymous donor”)</span></label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </p>
+        <p class="field">
+          <label for="f-object">The object</label>
+          <input id="f-object" name="object" type="text" placeholder="e.g. A hotel key fob, room 214" required>
+        </p>
+        <p class="field">
+          <label for="f-story">Its story</label>
+          <textarea id="f-story" name="story" rows="5" placeholder="Where it came from, and why it stays." required></textarea>
+        </p>
+        <button class="button button-primary" type="submit">Prepare submission</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p><strong>Museum of Small Things</strong> — Ordinary objects. Extraordinary stories.</p>
+  <p>An open digital collection. Free to everyone, always. No object too small.</p>
+</footer>
+
+<!-- ======================= OBJECT RECORD DIALOG ======================= -->
+<dialog class="record" id="record" aria-labelledby="record-title">
+  <article class="record-card">
+    <header class="record-head">
+      <p class="record-accession" id="record-accession"></p>
+      <button class="record-close" id="record-close" type="button" aria-label="Close object record">&times;</button>
+    </header>
+    <div class="record-figure" id="record-figure" aria-hidden="true"></div>
+    <h3 class="record-title" id="record-title"></h3>
+    <p class="record-donor" id="record-donor"></p>
+    <p class="record-story" id="record-story"></p>
+    <footer class="record-foot">
+      <button class="button button-ghost" id="record-prev" type="button">&larr; Previous</button>
+      <button class="button button-ghost" id="record-next" type="button">Next &rarr;</button>
+    </footer>
+  </article>
+</dialog>
+</body>
+</html>

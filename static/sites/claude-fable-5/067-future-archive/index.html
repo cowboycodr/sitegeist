@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+<title>Future Archive — Save what tomorrow should remember</title>
+<meta name="description" content="Long-term preservation for digital art, cultural records, and the fragile history made online.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Future Archive — home">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <rect x="4" y="22" width="24" height="4" rx="1"></rect>
+      <rect x="7" y="15" width="18" height="4" rx="1"></rect>
+      <rect x="10" y="8" width="12" height="4" rx="1"></rect>
+      <rect x="14" y="3" width="4" height="2" rx="1"></rect>
+    </svg>
+    <span>Future&nbsp;Archive</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#archive">Archive</a>
+    <a href="#method">Method</a>
+    <a href="#principles">Principles</a>
+    <a class="nav-cta" href="#preserve">Preserve</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow">Memory infrastructure</p>
+      <h1>Save what tomorrow <em>should remember.</em></h1>
+      <p class="lede">Long-term preservation for digital art, cultural records, and the fragile history made online. We keep the files, the formats, and the context — so a browser tab from 2009 still opens in 2109.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#archive">Explore the archive</a>
+        <a class="button ghost" href="#preserve">Preserve a collection</a>
+      </div>
+      <dl class="hero-stats" aria-label="Archive at a glance">
+        <div><dt>Objects preserved</dt><dd>4.2M</dd></div>
+        <div><dt>Formats migrated</dt><dd>318</dd></div>
+        <div><dt>Fixity checks / day</dt><dd>96K</dd></div>
+        <div><dt>Planned horizon</dt><dd>500&nbsp;yrs</dd></div>
+      </dl>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 420 420" role="presentation" focusable="false">
+        <defs>
+          <linearGradient id="strata" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#e8b64c"/>
+            <stop offset="1" stop-color="#b6742a"/>
+          </linearGradient>
+        </defs>
+        <g class="strata-group">
+          <rect x="30" y="330" width="360" height="42" rx="6" fill="#20262e"/>
+          <rect x="60" y="272" width="300" height="42" rx="6" fill="#272f3a"/>
+          <rect x="90" y="214" width="240" height="42" rx="6" fill="#2e3846"/>
+          <rect x="120" y="156" width="180" height="42" rx="6" fill="#364253"/>
+          <rect x="150" y="98" width="120" height="42" rx="6" fill="url(#strata)"/>
+          <circle class="pulse-dot" cx="210" cy="70" r="8" fill="#e8b64c"/>
+          <line x1="210" y1="78" x2="210" y2="98" stroke="#e8b64c" stroke-width="2" stroke-dasharray="3 4"/>
+        </g>
+        <g fill="none" stroke="#3d4a5c" stroke-width="1.5">
+          <path d="M30 351h-14M390 351h14M60 293h-44M360 293h44M90 235h-74M330 235h74"/>
+        </g>
+        <g class="ticks" fill="#7c8ba0" font-size="11" font-family="ui-monospace, monospace">
+          <text x="6" y="355">2090</text><text x="6" y="297">2060</text><text x="6" y="239">2030</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <section class="archive" id="archive" aria-labelledby="archive-title">
+    <header class="section-head">
+      <p class="eyebrow">Open stacks</p>
+      <h2 id="archive-title">Explore the archive</h2>
+      <p>A sample shelf from the reading room. Filter by medium to see what long-term care looks like across formats.</p>
+    </header>
+    <div class="filters" role="group" aria-label="Filter collections by medium">
+      <button class="chip is-active" data-filter="all" aria-pressed="true">All</button>
+      <button class="chip" data-filter="art" aria-pressed="false">Net art</button>
+      <button class="chip" data-filter="record" aria-pressed="false">Records</button>
+      <button class="chip" data-filter="web" aria-pressed="false">Web history</button>
+      <button class="chip" data-filter="sound" aria-pressed="false">Sound</button>
+    </div>
+    <ul class="stacks" id="stacks">
+      <li class="card" data-kind="art">
+        <p class="card-id">FA-0117 · Net art</p>
+        <h3>Flash Cartography, 1998–2010</h3>
+        <p>2,400 interactive works rebuilt to run without their dead runtime, each with a recorded walkthrough as a fallback witness.</p>
+        <p class="card-meta"><span class="status ok">Fixity verified</span> · migrated ×3</p>
+      </li>
+      <li class="card" data-kind="record">
+        <p class="card-id">FA-0342 · Records</p>
+        <h3>Community Radio Logbooks</h3>
+        <p>Scanned station diaries from 61 low-power broadcasters, paired with OCR text and the schedules they anchored.</p>
+        <p class="card-meta"><span class="status ok">Fixity verified</span> · 4 mirrors</p>
+      </li>
+      <li class="card" data-kind="web">
+        <p class="card-id">FA-0518 · Web history</p>
+        <h3>Personal Homepage Belt</h3>
+        <p>140,000 hand-built homepages, crawled with their guestbooks, ring links, and under-construction GIFs intact.</p>
+        <p class="card-meta"><span class="status ok">Fixity verified</span> · migrated ×2</p>
+      </li>
+      <li class="card" data-kind="sound">
+        <p class="card-id">FA-0629 · Sound</p>
+        <h3>Tracker Music Modules</h3>
+        <p>MOD, XM, and IT files with sample provenance mapped, rendered to reference audio for future ears without players.</p>
+        <p class="card-meta"><span class="status ok">Fixity verified</span> · 4 mirrors</p>
+      </li>
+      <li class="card" data-kind="art">
+        <p class="card-id">FA-0731 · Net art</p>
+        <h3>Browser Poetry Collective</h3>
+        <p>Works that only existed as view-source. Preserved as annotated code, emulated renders, and author interviews.</p>
+        <p class="card-meta"><span class="status watch">Migration queued</span> · 3 mirrors</p>
+      </li>
+      <li class="card" data-kind="record">
+        <p class="card-id">FA-0846 · Records</p>
+        <h3>Mutual Aid Spreadsheets, 2020</h3>
+        <p>Anonymized coordination sheets from 312 neighborhood networks — the operational memory of a crisis year.</p>
+        <p class="card-meta"><span class="status ok">Fixity verified</span> · restricted access</p>
+      </li>
+      <li class="card" data-kind="web">
+        <p class="card-id">FA-0903 · Web history</p>
+        <h3>Forum Threads That Mattered</h3>
+        <p>Curated long threads where communities solved things, preserved with usernames redacted and structure intact.</p>
+        <p class="card-meta"><span class="status ok">Fixity verified</span> · migrated ×1</p>
+      </li>
+      <li class="card" data-kind="sound">
+        <p class="card-id">FA-1057 · Sound</p>
+        <h3>Voicemail Time Capsule</h3>
+        <p>Donated voicemails, 1997–2015, with consent records and transcripts sealed alongside the audio.</p>
+        <p class="card-meta"><span class="status watch">Migration queued</span> · 4 mirrors</p>
+      </li>
+    </ul>
+    <p class="stacks-empty" id="stacks-empty" hidden>No collections match this filter yet.</p>
+  </section>
+
+  <section class="method" id="method" aria-labelledby="method-title">
+    <header class="section-head">
+      <p class="eyebrow">How preservation works</p>
+      <h2 id="method-title">Four layers between your files and oblivion</h2>
+    </header>
+    <ol class="layers">
+      <li>
+        <span class="layer-num" aria-hidden="true">01</span>
+        <h3>Ingest &amp; describe</h3>
+        <p>We capture bit-perfect copies, record checksums, and interview creators while the context is still alive.</p>
+      </li>
+      <li>
+        <span class="layer-num" aria-hidden="true">02</span>
+        <h3>Replicate</h3>
+        <p>Every object lives on at least four independent media types across three legal jurisdictions. No single failure erases it.</p>
+      </li>
+      <li>
+        <span class="layer-num" aria-hidden="true">03</span>
+        <h3>Verify forever</h3>
+        <p>Automated fixity audits re-read every byte on a rolling schedule. Silent corruption is caught, repaired, and logged.</p>
+      </li>
+      <li>
+        <span class="layer-num" aria-hidden="true">04</span>
+        <h3>Migrate &amp; witness</h3>
+        <p>When a format dies, we move the work forward — and keep the original plus a rendered witness copy, so nothing is lost in translation.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="principles" id="principles" aria-labelledby="principles-title">
+    <header class="section-head">
+      <p class="eyebrow">What we believe</p>
+      <h2 id="principles-title">Principles of a long institution</h2>
+    </header>
+    <div class="principle-grid">
+      <article>
+        <h3>Ordinary things count</h3>
+        <p>History is not only the famous files. A fan forum, a family blog, a mixtape playlist — these are the primary sources of online life.</p>
+      </article>
+      <article>
+        <h3>Context is the artifact</h3>
+        <p>A file without its meaning is noise. We preserve the who, when, and why alongside the bytes.</p>
+      </article>
+      <article>
+        <h3>Consent outlives us</h3>
+        <p>Donors set access rules — open, delayed, or sealed — and those rules are enforced by the archive, not by trust in future staff.</p>
+      </article>
+      <article>
+        <h3>Plan in centuries</h3>
+        <p>Endowment-funded, format-agnostic, and governed to survive its founders. The archive assumes we will be gone before it is.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="preserve" id="preserve" aria-labelledby="preserve-title">
+    <div class="preserve-inner">
+      <p class="eyebrow">For creators, estates &amp; institutions</p>
+      <h2 id="preserve-title">Preserve a collection</h2>
+      <p>Bring us a body of work — a finished project, an at-risk platform export, an artist's estate. Accession takes three steps:</p>
+      <ol class="steps">
+        <li><strong>Appraisal.</strong> An archivist reviews scope, rights, and risk with you. Most reviews finish within two weeks.</li>
+        <li><strong>Deed of deposit.</strong> You choose access terms and embargo dates; we commit to storage class and audit cadence in writing.</li>
+        <li><strong>Ingest.</strong> We take custody, publish the finding aid, and send you the first fixity report.</li>
+      </ol>
+      <p class="preserve-note">Reading-room desks accept deposit inquiries in person, and every regional mirror keeps open office hours on the first Friday of each month.</p>
+      <a class="button primary" href="#archive">Explore the archive first</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p><strong>Future Archive</strong> — Save what tomorrow should remember.</p>
+  <p class="footer-fine">A memory institution planned in centuries. Est. 2019 · fixity audit no. 41,006 passed today.</p>
+</footer>
+</body>
+</html>

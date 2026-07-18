@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-labelledby="posterTitle posterDesc">
+  <title id="posterTitle">Deep Time — Four billion years, still unfolding.</title>
+  <desc id="posterDesc">A gallery poster for the Deep Time natural history museum, showing a spiral ammonite motif over layered rock strata in ochre, rust and bone.</desc>
+
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#0d0f14"/>
+      <stop offset="100%" stop-color="#161a22"/>
+    </linearGradient>
+    <radialGradient id="warm" cx="76%" cy="16%" r="62%">
+      <stop offset="0%" stop-color="#d69a3c" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#d69a3c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cool" cx="10%" cy="88%" r="60%">
+      <stop offset="0%" stop-color="#b3542f" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#b3542f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="scaleBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4a1f14"/>
+      <stop offset="14%" stop-color="#7a3320"/>
+      <stop offset="48%" stop-color="#b3542f"/>
+      <stop offset="82%" stop-color="#d69a3c"/>
+      <stop offset="92%" stop-color="#6f8a5e"/>
+      <stop offset="100%" stop-color="#7fa4b8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#sky)"/>
+  <rect width="1200" height="900" fill="url(#warm)"/>
+  <rect width="1200" height="900" fill="url(#cool)"/>
+
+  <!-- strata band across the lower third -->
+  <g opacity="0.55">
+    <rect x="0" y="612" width="1200" height="46" fill="#7fa4b8" opacity="0.16"/>
+    <rect x="0" y="658" width="1200" height="58" fill="#6f8a5e" opacity="0.18"/>
+    <rect x="0" y="716" width="1200" height="52" fill="#d69a3c" opacity="0.16"/>
+    <rect x="0" y="768" width="1200" height="60" fill="#b3542f" opacity="0.20"/>
+    <rect x="0" y="828" width="1200" height="72" fill="#2b3240" opacity="0.75"/>
+  </g>
+
+  <!-- ammonite motif -->
+  <g transform="translate(880 392)" stroke="#d69a3c" fill="none" stroke-linecap="round">
+    <circle r="252" stroke="#ece4d6" stroke-width="1.5" opacity="0.14"/>
+    <circle r="196" stroke="#ece4d6" stroke-width="1.5" opacity="0.10"/>
+    <g stroke-width="7" opacity="0.95">
+      <path d="M0 218a218 218 0 1 1 176-88 166 166 0 1 0-135-275 125 125 0 1 1 109 187 88 88 0 1 0-78-135 62 62 0 1 1 52 99"/>
+    </g>
+    <g stroke-width="2.6" opacity="0.4">
+      <path d="M0 218V0M-218 0H0M-154-154 0 0M154-154 0 0M-154 154 0 0M176 130 0 0M-190 100 0 0M-80-203 0 0M92-198 0 0M200-88 0 0"/>
+    </g>
+    <circle r="9" fill="#b3542f" stroke="none"/>
+  </g>
+
+  <!-- text block -->
+  <g font-family="Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif">
+    <g font-family="Avenir Next, Segoe UI, Helvetica Neue, Arial, sans-serif">
+      <text x="96" y="150" fill="#d69a3c" font-size="25" letter-spacing="9">AN ATLAS OF EARTH</text>
+    </g>
+    <text x="92" y="308" fill="#ece4d6" font-size="152" letter-spacing="-2">Deep Time</text>
+    <text x="96" y="392" fill="#b6ae9f" font-size="47">Four billion years,</text>
+    <text x="96" y="452" fill="#b6ae9f" font-size="47">still unfolding.</text>
+  </g>
+
+  <line x1="96" y1="506" x2="620" y2="506" stroke="#ece4d6" stroke-width="1.5" opacity="0.25"/>
+
+  <g font-family="Avenir Next, Segoe UI, Helvetica Neue, Arial, sans-serif">
+    <text x="96" y="556" fill="#b6ae9f" font-size="26">Fossils · Climates · Extinctions</text>
+  </g>
+
+  <!-- geologic scale bar -->
+  <g>
+    <rect x="96" y="700" width="700" height="16" rx="8" fill="url(#scaleBar)"/>
+    <rect x="96" y="700" width="700" height="16" rx="8" fill="none" stroke="#ece4d6" stroke-width="1.2" opacity="0.3"/>
+    <g font-family="Avenir Next, Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="20" letter-spacing="4" fill="#b6ae9f">
+      <text x="96" y="752">4.5 Ga</text>
+      <text x="796" y="752" text-anchor="end">NOW</text>
+    </g>
+  </g>
+
+  <g font-family="Avenir Next, Segoe UI, Helvetica Neue, Arial, sans-serif">
+    <text x="96" y="856" fill="#ece4d6" font-size="21" letter-spacing="7" opacity="0.72">NATURAL HISTORY</text>
+  </g>
+</svg>

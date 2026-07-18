@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="t d">
+  <title id="t">Chorus Room</title>
+  <desc id="d">A glowing record with a golden waveform, orbited by friends' avatars. Listening is better together.</desc>
+
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="35%" r="90%">
+      <stop offset="0%" stop-color="#241a41"/>
+      <stop offset="60%" stop-color="#171126"/>
+      <stop offset="100%" stop-color="#100b1a"/>
+    </radialGradient>
+    <radialGradient id="disc" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#3a2b52"/>
+      <stop offset="100%" stop-color="#1c1530"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+
+  <!-- record -->
+  <g transform="translate(600,430)">
+    <circle r="270" fill="url(#disc)"/>
+    <g fill="none" stroke="#5c4a82" stroke-width="2" opacity="0.9">
+      <circle r="238"/>
+      <circle r="206"/>
+      <circle r="174"/>
+      <circle r="142"/>
+    </g>
+    <circle r="104" fill="#ff7a59"/>
+    <circle r="13" fill="#171126"/>
+    <g stroke="#ffc46b" stroke-width="8" stroke-linecap="round" fill="none">
+      <path d="M-84 14 v-32 M-56 14 v-58 M-28 14 v-40 M0 14 v-76 M28 14 v-44 M56 14 v-64 M84 14 v-28"/>
+    </g>
+
+    <!-- orbiting listeners -->
+    <g transform="translate(-208,-160)">
+      <circle r="34" fill="#241b38" stroke="#ff7a59" stroke-width="3"/>
+      <text y="10" text-anchor="middle" font-family="Georgia, serif" font-size="28" fill="#ffe8dd">M</text>
+    </g>
+    <g transform="translate(226,-118)">
+      <circle r="34" fill="#241b38" stroke="#ffc46b" stroke-width="3"/>
+      <text y="10" text-anchor="middle" font-family="Georgia, serif" font-size="28" fill="#ffe8dd">J</text>
+    </g>
+    <g transform="translate(196,178)">
+      <circle r="34" fill="#241b38" stroke="#9b7bd8" stroke-width="3"/>
+      <text y="10" text-anchor="middle" font-family="Georgia, serif" font-size="28" fill="#ffe8dd">A</text>
+    </g>
+    <g transform="translate(-232,150)">
+      <circle r="34" fill="#241b38" stroke="#6fd0b2" stroke-width="3"/>
+      <text y="10" text-anchor="middle" font-family="Georgia, serif" font-size="28" fill="#ffe8dd">R</text>
+    </g>
+  </g>
+
+  <!-- eyebrow pill -->
+  <g transform="translate(600,110)">
+    <rect x="-198" y="-27" width="396" height="54" rx="27" fill="#1b1430" stroke="#382d59" stroke-width="2"/>
+    <circle cx="-160" cy="0" r="7" fill="#6fd0b2"/>
+    <text y="8" x="12" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" letter-spacing="2" fill="#ffc46b">12,408 LISTENERS ONLINE</text>
+  </g>
+
+  <!-- wordmark -->
+  <text x="600" y="790" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="96" fill="#f2ecff">Chorus <tspan font-style="italic" fill="#ff7a59">Room</tspan></text>
+  <text x="600" y="848" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" letter-spacing="4" fill="#b6a9d6">LISTENING IS BETTER TOGETHER</text>
+</svg>

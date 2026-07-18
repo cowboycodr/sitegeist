@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:">
+  <title>Latent Garden — Intelligence should feel alive.</title>
+  <meta name="description" content="An optimistic research studio exploring creative models through organic simulations and open essays.">
+  <link rel="stylesheet" href="style.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="garden.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Latent Garden home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <path d="M16 28 C16 20 10 18 6 12 C12 12 15 15 16 19 C17 13 21 8 27 6 C25 14 21 18 16 22 Z" />
+        <circle cx="16" cy="28" r="1.6" />
+      </svg>
+      <span>Latent Garden</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#experiments">Experiments</a>
+      <a href="#papers">Papers</a>
+      <a href="#principles">Principles</a>
+      <a href="#studio">Studio</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <canvas id="garden-canvas" aria-hidden="true"></canvas>
+      <div class="hero-inner">
+        <p class="eyebrow">Creative intelligence</p>
+        <h1 id="hero-title">Intelligence should feel <em>alive</em>.</h1>
+        <p class="lede">Latent Garden is an optimistic research studio. We grow creative
+        models the way gardeners grow orchards — with patience, pruning, and delight —
+        and we publish everything we learn as organic simulations and open essays.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#experiments">Explore experiments</a>
+          <a class="button ghost" href="#papers">Read our papers</a>
+        </div>
+        <p class="hero-hint" id="garden-hint">The meadow above is grown live by a tiny
+        branching model. Reseed it, or let it drift.</p>
+        <div class="hero-controls">
+          <button type="button" class="button small" id="reseed">Reseed the garden</button>
+          <button type="button" class="button small ghost" id="toggle-growth" aria-pressed="true">Pause growth</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="experiments" aria-labelledby="experiments-title">
+      <div class="band-head">
+        <p class="eyebrow">Field notes</p>
+        <h2 id="experiments-title">Experiments in bloom</h2>
+        <p class="band-lede">Each experiment is a small, legible model paired with a living
+        visualization. We keep them small on purpose: a garden you can walk through
+        teaches more than a forest you can only fly over.</p>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-glyph glyph-tendril" aria-hidden="true"></div>
+          <h3>Tendril</h3>
+          <p class="card-meta">Growth simulation · 2026</p>
+          <p>A 40-parameter branching model that learns phototropism from a single
+          reward: reach the light without shading your siblings. Watching it fail is
+          half the curriculum.</p>
+          <p class="card-tags"><span>emergence</span><span>reward shaping</span></p>
+        </article>
+        <article class="card">
+          <div class="card-glyph glyph-mycelia" aria-hidden="true"></div>
+          <h3>Mycelia</h3>
+          <p class="card-meta">Distributed memory · 2026</p>
+          <p>Thousands of tiny agents share gradients the way fungal networks share
+          sugar. Knowledge routes itself toward the agents that need it most, with no
+          central coordinator.</p>
+          <p class="card-tags"><span>swarms</span><span>credit assignment</span></p>
+        </article>
+        <article class="card">
+          <div class="card-glyph glyph-pollen" aria-hidden="true"></div>
+          <h3>Pollen</h3>
+          <p class="card-meta">Idea recombination · 2025</p>
+          <p>A generative model that cross-pollinates sketches from two artists and
+          returns the offspring for critique. The artists keep veto power; the model
+          keeps a diary of every rejection.</p>
+          <p class="card-tags"><span>co-creation</span><span>feedback</span></p>
+        </article>
+        <article class="card">
+          <div class="card-glyph glyph-understory" aria-hidden="true"></div>
+          <h3>Understory</h3>
+          <p class="card-meta">Interpretability · 2025</p>
+          <p>A microscope for latent space that renders concept neighborhoods as
+          shaded groves. Related ideas grow closer; contradictions clear their own
+          canopy gaps.</p>
+          <p class="card-tags"><span>latent maps</span><span>visualization</span></p>
+        </article>
+        <article class="card">
+          <div class="card-glyph glyph-seedbank" aria-hidden="true"></div>
+          <h3>Seed Bank</h3>
+          <p class="card-meta">Open weights · ongoing</p>
+          <p>Every model we train ships with its full lineage: data recipe, failed
+          ancestors, and the exact prompt-gardening notes that shaped it. Reproduce
+          us, then outgrow us.</p>
+          <p class="card-tags"><span>open science</span><span>lineage</span></p>
+        </article>
+        <article class="card">
+          <div class="card-glyph glyph-nocturne" aria-hidden="true"></div>
+          <h3>Nocturne</h3>
+          <p class="card-meta">Dreaming models · 2026</p>
+          <p>What does a model rehearse when no one is prompting it? Nocturne lets a
+          small network replay its day at low temperature and studies which memories
+          it chooses to strengthen.</p>
+          <p class="card-tags"><span>replay</span><span>consolidation</span></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="band alt" id="papers" aria-labelledby="papers-title">
+      <div class="band-head">
+        <p class="eyebrow">Open essays</p>
+        <h2 id="papers-title">Everything we learn, in the open</h2>
+        <p class="band-lede">We write essays instead of press releases. Plain language,
+        honest negative results, and figures you can replant in your own notebook.</p>
+      </div>
+      <ol class="paper-list">
+        <li class="paper">
+          <div class="paper-date"><span class="paper-season">Spring</span><span class="paper-year">2026</span></div>
+          <div class="paper-body">
+            <h3>Pruning as pedagogy: what dead branches teach living models</h3>
+            <p>We removed the worst 3% of Tendril's branches at every epoch and found
+            the survivors learned faster — but only when the pruning was visible to
+            the reward model. An argument for teaching by subtraction.</p>
+            <p class="paper-authors">Iris Okafor · Tomás Reyes · June Ashby</p>
+          </div>
+        </li>
+        <li class="paper">
+          <div class="paper-date"><span class="paper-season">Winter</span><span class="paper-year">2026</span></div>
+          <div class="paper-body">
+            <h3>The mycelial gradient: cooperation without a coordinator</h3>
+            <p>A formal treatment of sugar-routing in Mycelia, showing that local
+            fairness rules produce global specialization. Includes the four failure
+            modes we hit first, in detail.</p>
+            <p class="paper-authors">Tomás Reyes · Priya Natarajan</p>
+          </div>
+        </li>
+        <li class="paper">
+          <div class="paper-date"><span class="paper-season">Autumn</span><span class="paper-year">2025</span></div>
+          <div class="paper-body">
+            <h3>Veto power: keeping artists sovereign in co-creative loops</h3>
+            <p>Design principles from a year of Pollen sessions with twelve artists.
+            The headline: rejection data is more valuable than acceptance data, and
+            models should be graded on how gracefully they lose.</p>
+            <p class="paper-authors">June Ashby · Iris Okafor · Wren Delacroix</p>
+          </div>
+        </li>
+        <li class="paper">
+          <div class="paper-date"><span class="paper-season">Summer</span><span class="paper-year">2025</span></div>
+          <div class="paper-body">
+            <h3>Canopy gaps: reading contradiction in latent space</h3>
+            <p>Understory reveals that a model's confusions are spatially organized.
+            We map three "clearings" in a language model's geography and show they
+            predict hallucination sites with 71% precision.</p>
+            <p class="paper-authors">Priya Natarajan · Wren Delacroix</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="band" id="principles" aria-labelledby="principles-title">
+      <div class="band-head">
+        <p class="eyebrow">How we grow</p>
+        <h2 id="principles-title">Principles of the garden</h2>
+      </div>
+      <div class="principle-grid">
+        <div class="principle">
+          <h3><span class="principle-num" aria-hidden="true">01</span> Small enough to understand</h3>
+          <p>We favor models a person can hold in their head. Scale is a tool, not a
+          destination; legibility is the destination.</p>
+        </div>
+        <div class="principle">
+          <h3><span class="principle-num" aria-hidden="true">02</span> Failure composts</h3>
+          <p>Every dead end is published beside every breakthrough. Yesterday's
+          failed run is the soil for next season's result.</p>
+        </div>
+        <div class="principle">
+          <h3><span class="principle-num" aria-hidden="true">03</span> People keep the shears</h3>
+          <p>Humans hold veto power in every loop we build. A garden without a
+          gardener is just a thicket.</p>
+        </div>
+        <div class="principle">
+          <h3><span class="principle-num" aria-hidden="true">04</span> Delight is data</h3>
+          <p>If a result doesn't make someone lean closer to the screen, we ask why.
+          Wonder is a signal worth optimizing for.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band alt studio" id="studio" aria-labelledby="studio-title">
+      <div class="band-head">
+        <p class="eyebrow">The studio</p>
+        <h2 id="studio-title">Five researchers, one greenhouse</h2>
+        <p class="band-lede">We work from a converted greenhouse where the humidity is
+        bad for laptops and excellent for thinking. Reading groups are open to
+        anyone; our seminar notes are published within a week.</p>
+      </div>
+      <dl class="studio-facts">
+        <div class="fact"><dt>Founded</dt><dd>2024, in a rainy city</dd></div>
+        <div class="fact"><dt>Experiments released</dt><dd>23 living demos</dd></div>
+        <div class="fact"><dt>Essays published</dt><dd>31, all open access</dd></div>
+        <div class="fact"><dt>Models withheld</dt><dd>Zero</dd></div>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>Latent Garden</strong> — Intelligence should feel alive.</p>
+    <p class="footer-fine">Grown with patience. Every simulation on this page runs
+    locally in your browser; nothing is tracked, phoned home, or harvested.</p>
+  </footer>
+</body>
+</html>

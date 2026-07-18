@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="poster-title">
+  <title id="poster-title">Orbit — Money that moves with you.</title>
+  <defs>
+    <radialGradient id="sky" cx="72%" cy="18%" r="95%">
+      <stop offset="0%" stop-color="#17204a"/>
+      <stop offset="55%" stop-color="#0b1128"/>
+      <stop offset="100%" stop-color="#070b1a"/>
+    </radialGradient>
+    <radialGradient id="planet" cx="38%" cy="32%" r="80%">
+      <stop offset="0%" stop-color="#ffe9a8"/>
+      <stop offset="55%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </radialGradient>
+    <linearGradient id="ringA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5eead4"/>
+      <stop offset="100%" stop-color="#5eead4" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ringB" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="wordgrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5eead4"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#sky)"/>
+
+  <!-- Stars -->
+  <g fill="#8ea0c9">
+    <circle cx="120" cy="120" r="2.5"/>
+    <circle cx="1080" cy="90" r="2"/>
+    <circle cx="980" cy="640" r="2.8"/>
+    <circle cx="200" cy="760" r="2"/>
+    <circle cx="620" cy="70" r="1.8"/>
+    <circle cx="90" cy="450" r="1.8"/>
+    <circle cx="1130" cy="380" r="2.2"/>
+    <circle cx="420" cy="840" r="1.6"/>
+    <circle cx="860" cy="180" r="1.6"/>
+  </g>
+
+  <!-- Orbits and planet -->
+  <g transform="translate(810 380)">
+    <ellipse rx="330" ry="128" fill="none" stroke="url(#ringA)" stroke-width="4" transform="rotate(-24)"/>
+    <ellipse rx="262" ry="200" fill="none" stroke="url(#ringB)" stroke-width="4" transform="rotate(18)"/>
+    <ellipse rx="196" ry="248" fill="none" stroke="#33406b" stroke-width="2.5" transform="rotate(-52)"/>
+    <circle r="118" fill="url(#planet)"/>
+    <path d="M-76 -22c42-25 116-28 155 8" fill="none" stroke="#92600a" stroke-width="7" stroke-linecap="round" opacity=".45"/>
+    <path d="M-68 38c47 22 100 17 138-11" fill="none" stroke="#92600a" stroke-width="7" stroke-linecap="round" opacity=".35"/>
+    <!-- Currency satellites -->
+    <g transform="rotate(-24) translate(305 0)">
+      <circle r="24" fill="#0c1230" stroke="#5eead4" stroke-width="3"/>
+      <text y="9" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" fill="#5eead4">$</text>
+    </g>
+    <g transform="rotate(18) translate(-250 0)">
+      <circle r="24" fill="#0c1230" stroke="#a78bfa" stroke-width="3"/>
+      <text y="9" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" fill="#a78bfa">€</text>
+    </g>
+    <g transform="rotate(-52) translate(0 -235)">
+      <circle r="24" fill="#0c1230" stroke="#fbbf24" stroke-width="3"/>
+      <text y="9" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" fill="#fbbf24">¥</text>
+    </g>
+  </g>
+
+  <!-- Copy -->
+  <g font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+    <text x="90" y="360" font-size="26" font-weight="700" letter-spacing="8" fill="#5eead4">BANKING WITHOUT GRAVITY</text>
+    <text x="84" y="480" font-size="128" font-weight="800" letter-spacing="-2" fill="#eaf0ff">Orbit</text>
+    <text x="90" y="560" font-size="46" font-weight="700" fill="url(#wordgrad)">Money that moves with you.</text>
+    <text x="90" y="628" font-size="27" fill="#9aa7cc">One beautifully simple account for saving,</text>
+    <text x="90" y="668" font-size="27" fill="#9aa7cc">spending, investing, and living across borders.</text>
+  </g>
+
+  <!-- CTA pill -->
+  <g>
+    <rect x="90" y="716" rx="37" width="330" height="74" fill="#fbbf24"/>
+    <text x="255" y="763" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="#221600">Open an account</text>
+  </g>
+
+  <rect x="6" y="6" width="1188" height="888" rx="20" fill="none" stroke="#232c52" stroke-width="2"/>
+</svg>

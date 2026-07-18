@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Deep Time — Four billion years, still unfolding.</title>
+  <meta name="description" content="An immersive museum tracing the improbable story of Earth through fossils, climates, and extinction.">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="sitegeist-bridge.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="40" height="40" focusable="false">
+            <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            <circle cx="20" cy="20" r="12" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+            <circle cx="20" cy="20" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="20" cy="20" r="2" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <strong>Deep Time</strong>
+          <small>Natural History</small>
+        </span>
+      </div>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#timeline">Timeline</a>
+        <a href="#collection">Collection</a>
+        <a href="#extinctions">Extinctions</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-strata" aria-hidden="true">
+        <span class="stratum s1"></span>
+        <span class="stratum s2"></span>
+        <span class="stratum s3"></span>
+        <span class="stratum s4"></span>
+        <span class="stratum s5"></span>
+      </div>
+      <div class="wrap hero-inner">
+        <p class="eyebrow">An atlas of Earth</p>
+        <h1 id="hero-title">Four billion years,<br>still unfolding.</h1>
+        <p class="hero-lede">Walk the length of the planet's memory — from a molten beginning to the fragile blue moment we live in now. Every layer of rock is a page; every fossil, a sentence written in stone.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#timeline">Begin the timeline</a>
+          <a class="btn btn-ghost" href="#collection">Explore the collection</a>
+        </div>
+        <dl class="hero-stats">
+          <div><dt>Age of Earth</dt><dd>4.54 <span>Ga</span></dd></div>
+          <div><dt>Mass extinctions</dt><dd>5</dd></div>
+          <div><dt>Species described</dt><dd>~2.1 <span>M</span></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="timeline" class="timeline" aria-labelledby="timeline-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="section-kicker">Scroll through the eons</p>
+          <h2 id="timeline-title">The timeline of Earth</h2>
+          <p class="section-intro">Select an interval to travel through the planet's four grand chapters. The scale below compresses billions of years into a single reach of your arm.</p>
+        </header>
+
+        <div class="scale" role="group" aria-label="Geologic scale, oldest to youngest">
+          <div class="scale-track" aria-hidden="true">
+            <span class="scale-band b-hadean"></span>
+            <span class="scale-band b-archean"></span>
+            <span class="scale-band b-proterozoic"></span>
+            <span class="scale-band b-phanerozoic"></span>
+          </div>
+          <div class="scale-marks">
+            <span>4.5 Ga</span><span>4.0</span><span>2.5</span><span>541 Ma</span><span>Now</span>
+          </div>
+        </div>
+
+        <div class="era-tabs" role="tablist" aria-label="Geologic eons">
+          <button role="tab" id="tab-hadean" aria-controls="panel-hadean" aria-selected="true" class="era-tab" data-era="hadean">Hadean</button>
+          <button role="tab" id="tab-archean" aria-controls="panel-archean" aria-selected="false" tabindex="-1" class="era-tab" data-era="archean">Archean</button>
+          <button role="tab" id="tab-proterozoic" aria-controls="panel-proterozoic" aria-selected="false" tabindex="-1" class="era-tab" data-era="proterozoic">Proterozoic</button>
+          <button role="tab" id="tab-phanerozoic" aria-controls="panel-phanerozoic" aria-selected="false" tabindex="-1" class="era-tab" data-era="phanerozoic">Phanerozoic</button>
+        </div>
+
+        <div class="era-panels">
+          <article role="tabpanel" id="panel-hadean" aria-labelledby="tab-hadean" class="era-panel" tabindex="0">
+            <div class="era-span">4,540 – 4,000 million years ago</div>
+            <h3>Hadean — A world of fire</h3>
+            <p>Earth coalesces from a disc of debris, its surface an ocean of magma. A Mars-sized body strikes the young planet and flings the Moon into orbit. As the crust cools, the first oceans condense from a steaming sky.</p>
+            <ul class="era-facts">
+              <li><span>Surface</span>Molten to first solid crust</li>
+              <li><span>Sky</span>Steam, CO₂, nitrogen</li>
+              <li><span>Life</span>None yet — the chemistry is only rehearsing</li>
+            </ul>
+          </article>
+          <article role="tabpanel" id="panel-archean" aria-labelledby="tab-archean" class="era-panel" tabindex="0" hidden>
+            <div class="era-span">4,000 – 2,500 million years ago</div>
+            <h3>Archean — The first breath</h3>
+            <p>In warm shallow seas, single cells learn to copy themselves. Cyanobacteria stack into stromatolites and begin exhaling oxygen — a slow poison that will one day remake the atmosphere and the world.</p>
+            <ul class="era-facts">
+              <li><span>Continents</span>First stable cratons</li>
+              <li><span>Oceans</span>Iron-rich, green under the sun</li>
+              <li><span>Life</span>Microbial mats, the oldest fossils</li>
+            </ul>
+          </article>
+          <article role="tabpanel" id="panel-proterozoic" aria-labelledby="tab-proterozoic" class="era-panel" tabindex="0" hidden>
+            <div class="era-span">2,500 – 541 million years ago</div>
+            <h3>Proterozoic — Oxygen and ice</h3>
+            <p>Free oxygen accumulates and rusts the planet in the Great Oxidation. Complex cells with a nucleus appear. Earth freezes over more than once — a snowball world — then thaws into the dawn of animal life.</p>
+            <ul class="era-facts">
+              <li><span>Air</span>Oxygen crosses a threshold</li>
+              <li><span>Climate</span>Snowball glaciations</li>
+              <li><span>Life</span>Eukaryotes, then Ediacaran animals</li>
+            </ul>
+          </article>
+          <article role="tabpanel" id="panel-phanerozoic" aria-labelledby="tab-phanerozoic" class="era-panel" tabindex="0" hidden>
+            <div class="era-span">541 million years ago – today</div>
+            <h3>Phanerozoic — Visible life</h3>
+            <p>The Cambrian explosion fills the seas with eyes, shells, and skeletons. Life crawls ashore, forests rise, reptiles give way to birds and mammals, and — in the last flicker of the clock — a curious ape looks up and starts asking questions.</p>
+            <ul class="era-facts">
+              <li><span>Land</span>Forests, then flowers</li>
+              <li><span>Giants</span>Dinosaurs, whales, mammoths</li>
+              <li><span>Now</span>You, reading this</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="collection" class="collection" aria-labelledby="collection-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="section-kicker">From the vaults</p>
+          <h2 id="collection-title">Explore the collection</h2>
+          <p class="section-intro">A handful of objects that carry deep time in their bodies. Each was buried, pressed, and preserved long enough to reach a museum case.</p>
+        </header>
+        <ul class="specimen-grid" role="list">
+          <li class="specimen">
+            <span class="specimen-art art-trilobite" aria-hidden="true"></span>
+            <h3>Trilobite</h3>
+            <p class="specimen-age">521 Ma · Cambrian</p>
+            <p>Among the first animals with complex eyes — compound lenses of pure calcite that still catch the light.</p>
+          </li>
+          <li class="specimen">
+            <span class="specimen-art art-ammonite" aria-hidden="true"></span>
+            <h3>Ammonite</h3>
+            <p class="specimen-age">150 Ma · Jurassic</p>
+            <p>A coiled shell built to the golden spiral, its chambers a diving apparatus for a vanished ocean predator.</p>
+          </li>
+          <li class="specimen">
+            <span class="specimen-art art-fern" aria-hidden="true"></span>
+            <h3>Seed fern</h3>
+            <p class="specimen-age">300 Ma · Carboniferous</p>
+            <p>Pressed leaves from the coal forests whose buried carbon still heats our homes today.</p>
+          </li>
+          <li class="specimen">
+            <span class="specimen-art art-tooth" aria-hidden="true"></span>
+            <h3>Shark tooth</h3>
+            <p class="specimen-age">15 Ma · Miocene</p>
+            <p>A serrated blade from <em>Otodus megalodon</em>, a shark longer than a bus and heavier than a truck.</p>
+          </li>
+          <li class="specimen">
+            <span class="specimen-art art-amber" aria-hidden="true"></span>
+            <h3>Amber</h3>
+            <p class="specimen-age">99 Ma · Cretaceous</p>
+            <p>Hardened tree resin holding an insect mid-step, a single Cretaceous instant frozen in gold.</p>
+          </li>
+          <li class="specimen">
+            <span class="specimen-art art-strata" aria-hidden="true"></span>
+            <h3>Banded strata</h3>
+            <p class="specimen-age">2.1 Ga · Proterozoic</p>
+            <p>Iron and silica laid down in rhythmic layers as oxygen first rusted the young oceans.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="extinctions" class="extinctions" aria-labelledby="ext-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="section-kicker">The great resets</p>
+          <h2 id="ext-title">Five times, life nearly ended</h2>
+          <p class="section-intro">Each mass extinction cleared the stage and let something new inherit the Earth. The percentage marks marine genera lost.</p>
+        </header>
+        <ol class="ext-list" role="list">
+          <li class="ext-item">
+            <div class="ext-bar"><span style="--pct:57%"></span></div>
+            <div class="ext-body">
+              <h3>Ordovician–Silurian</h3>
+              <p class="ext-when">444 Ma · glaciation drained the seas</p>
+            </div>
+            <div class="ext-pct">57%</div>
+          </li>
+          <li class="ext-item">
+            <div class="ext-bar"><span style="--pct:60%"></span></div>
+            <div class="ext-body">
+              <h3>Late Devonian</h3>
+              <p class="ext-when">372 Ma · oceans starved of oxygen</p>
+            </div>
+            <div class="ext-pct">60%</div>
+          </li>
+          <li class="ext-item">
+            <div class="ext-bar"><span style="--pct:81%"></span></div>
+            <div class="ext-body">
+              <h3>Permian–Triassic</h3>
+              <p class="ext-when">252 Ma · the Great Dying, worst of all</p>
+            </div>
+            <div class="ext-pct">81%</div>
+          </li>
+          <li class="ext-item">
+            <div class="ext-bar"><span style="--pct:47%"></span></div>
+            <div class="ext-body">
+              <h3>Triassic–Jurassic</h3>
+              <p class="ext-when">201 Ma · volcanism cleared the way for dinosaurs</p>
+            </div>
+            <div class="ext-pct">47%</div>
+          </li>
+          <li class="ext-item">
+            <div class="ext-bar"><span style="--pct:76%"></span></div>
+            <div class="ext-body">
+              <h3>Cretaceous–Paleogene</h3>
+              <p class="ext-when">66 Ma · an asteroid ended the dinosaurs</p>
+            </div>
+            <div class="ext-pct">76%</div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div class="wrap closing-inner">
+        <h2 id="closing-title">The story is still being written.</h2>
+        <p>If Earth's history were a single day, all of recorded human history would fit in the final tenth of a second. We are the newest layer — and the first one that can choose what comes next.</p>
+        <a class="btn btn-primary" href="#hero-title">Return to the beginning</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p><strong>Deep Time</strong> — An atlas of Earth</p>
+      <p class="footer-note">A self-contained natural history exhibit. All figures approximate and drawn from the geologic record.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'">
+<title>Narra — Turn research into a living story</title>
+<meta name="description" content="A collaborative workspace connecting sources, notes, and ideas into clear narrative maps.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='9' cy='22' r='4' fill='%23e8a13c'/%3E%3Ccircle cx='23' cy='9' r='4' fill='%23f4ede1'/%3E%3Cpath d='M9 22Q16 22 23 9' stroke='%23e8a13c' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Narra home">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path d="M8 23Q16 23 24 9" stroke="var(--amber)" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      <circle cx="8" cy="23" r="4.5" fill="var(--amber)"/>
+      <circle cx="24" cy="9" r="4.5" fill="var(--paper)"/>
+    </svg>
+    <span class="brand-name">Narra</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#map">The map</a>
+    <a href="#method">Method</a>
+    <a href="#voices">Voices</a>
+  </nav>
+  <a class="button button-small button-primary" href="#start">Build a narrative</a>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">Context, connected</p>
+      <h1 id="hero-title">Turn research into a <em>living story</em>.</h1>
+      <p class="lede">Narra is a collaborative workspace that connects your sources, notes, and ideas into clear narrative maps — so the thread of your thinking is never lost.</p>
+      <div class="cta-row">
+        <a class="button button-primary" href="#start">Build a narrative</a>
+        <a class="button button-ghost" href="#method">
+          <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" class="icon-play"><circle cx="8" cy="8" r="7.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M6.6 5.4v5.2L11 8z" fill="currentColor"/></svg>
+          Watch overview
+        </a>
+      </div>
+      <dl class="hero-stats" aria-label="Narra in numbers">
+        <div><dt>Sources threaded</dt><dd>4.2M</dd></div>
+        <div><dt>Teams narrating</dt><dd>12,800</dd></div>
+        <div><dt>Avg. time to first draft</dt><dd>−38%</dd></div>
+      </dl>
+    </div>
+
+    <figure class="hero-map" aria-labelledby="hero-map-caption">
+      <div class="map-frame">
+        <svg id="story-map" viewBox="0 0 560 460" role="img" aria-label="Interactive narrative map: five research nodes joined by a story thread. Use the buttons below to step through the thread.">
+          <defs>
+            <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+              <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0b1020" flood-opacity="0.45"/>
+            </filter>
+          </defs>
+          <g id="thread-layer" fill="none" stroke-linecap="round">
+            <path class="thread" data-edge="0" d="M104 340 C 170 300, 190 220, 236 176"/>
+            <path class="thread" data-edge="1" d="M236 176 C 300 130, 330 118, 396 96"/>
+            <path class="thread" data-edge="2" d="M396 96 C 452 130, 462 190, 442 250"/>
+            <path class="thread" data-edge="3" d="M442 250 C 400 330, 320 360, 232 352"/>
+          </g>
+          <g id="node-layer"></g>
+        </svg>
+        <div class="map-detail" id="map-detail" role="status" aria-live="polite">
+          <p class="map-detail-kind" id="detail-kind">Source</p>
+          <p class="map-detail-title" id="detail-title">Field interviews, coastal towns</p>
+          <p class="map-detail-body" id="detail-body">Nineteen transcripts tagged by theme. Three quotes are already pinned to the storyline.</p>
+        </div>
+      </div>
+      <div class="map-controls" role="group" aria-label="Step through the narrative thread">
+        <button type="button" class="button button-small button-ghost" id="thread-prev">◂ Back</button>
+        <span class="map-step" id="thread-step">Node 1 of 5</span>
+        <button type="button" class="button button-small button-ghost" id="thread-next">Next ▸</button>
+      </div>
+      <figcaption id="hero-map-caption" class="map-caption">A narrative map: every claim stays attached to the evidence behind it.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ MAP / FEATURES ============ -->
+  <section class="band" id="map" aria-labelledby="map-title">
+    <p class="eyebrow">Why maps, not folders</p>
+    <h2 id="map-title">Your research already has a shape. Narra lets you see it.</h2>
+    <div class="feature-grid">
+      <article class="feature-card">
+        <svg viewBox="0 0 40 40" class="feature-icon" aria-hidden="true" focusable="false"><rect x="7" y="6" width="20" height="26" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 13h10M12 19h10M12 25h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="30" cy="28" r="6" fill="var(--amber)"/></svg>
+        <h3>Sources that stay cited</h3>
+        <p>Drop in papers, interviews, links, and datasets. Every excerpt keeps a live pointer back to its origin, page, and timestamp.</p>
+      </article>
+      <article class="feature-card">
+        <svg viewBox="0 0 40 40" class="feature-icon" aria-hidden="true" focusable="false"><circle cx="10" cy="30" r="5" fill="var(--amber)"/><circle cx="30" cy="10" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="30" cy="30" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M14 27L26 13M15 30h10" stroke="currentColor" stroke-width="2"/></svg>
+        <h3>Notes that link themselves</h3>
+        <p>As you write, Narra suggests connections to related notes and contradicting evidence — you approve them with one keystroke.</p>
+      </article>
+      <article class="feature-card">
+        <svg viewBox="0 0 40 40" class="feature-icon" aria-hidden="true" focusable="false"><path d="M6 32C14 30 12 12 20 10s8 16 14 14" fill="none" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round"/><circle cx="6" cy="32" r="3.5" fill="currentColor"/><circle cx="20" cy="10" r="3.5" fill="currentColor"/><circle cx="34" cy="24" r="3.5" fill="currentColor"/></svg>
+        <h3>Threads that become drafts</h3>
+        <p>Pull nodes onto a storyline and Narra assembles an outlined draft, evidence attached, ready for your voice.</p>
+      </article>
+      <article class="feature-card">
+        <svg viewBox="0 0 40 40" class="feature-icon" aria-hidden="true" focusable="false"><circle cx="14" cy="16" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="27" cy="16" r="5" fill="var(--amber)"/><path d="M6 32c1-5 4-7 8-7s7 2 8 7M19 32c1-5 4-7 8-7s7 2 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <h3>Made for many minds</h3>
+        <p>Colleagues annotate the same map in real time. Disagreements become labeled forks, not lost comments.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ METHOD ============ -->
+  <section class="band band-alt" id="method" aria-labelledby="method-title">
+    <p class="eyebrow">The Narra method</p>
+    <h2 id="method-title">From pile to plot in three moves</h2>
+    <ol class="method-list">
+      <li>
+        <span class="method-num" aria-hidden="true">01</span>
+        <div><h3>Gather</h3><p>Bring everything in — PDFs, transcripts, spreadsheets, stray thoughts. Nothing needs a folder yet.</p></div>
+      </li>
+      <li>
+        <span class="method-num" aria-hidden="true">02</span>
+        <div><h3>Connect</h3><p>Link claims to evidence and ideas to each other. The map grows as your understanding does.</p></div>
+      </li>
+      <li>
+        <span class="method-num" aria-hidden="true">03</span>
+        <div><h3>Narrate</h3><p>Trace a thread through the map. Narra turns the path into a structured, fully-cited draft.</p></div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ VOICES ============ -->
+  <section class="band" id="voices" aria-labelledby="voices-title">
+    <p class="eyebrow">Voices</p>
+    <h2 id="voices-title">Teams who found their thread</h2>
+    <div class="quote-grid">
+      <blockquote class="quote-card">
+        <p>“Our literature review used to live in eleven documents and one person's head. Now the whole lab can walk the argument.”</p>
+        <footer><cite>Dr. Imani Okafor</cite><span>Principal Investigator, urban climate lab</span></footer>
+      </blockquote>
+      <blockquote class="quote-card">
+        <p>“I filed a four-part investigative series without once losing a citation. The map <em>was</em> the story.”</p>
+        <footer><cite>Tomas Rivera</cite><span>Investigative journalist</span></footer>
+      </blockquote>
+      <blockquote class="quote-card">
+        <p>“Narra made our strategy memo honest. Every recommendation points straight at the evidence behind it.”</p>
+        <footer><cite>Hana Suzuki</cite><span>Policy research director</span></footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="band band-cta" id="start" aria-labelledby="cta-title">
+    <h2 id="cta-title">Your next story is already in your notes.</h2>
+    <p class="lede">Start a map, invite your team, and watch the thread appear.</p>
+    <div class="cta-row cta-center">
+      <a class="button button-primary" href="#top">Build a narrative</a>
+      <a class="button button-ghost" href="#method">Watch overview</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>Narra — Knowledge Technology · Context, connected.</p>
+  <p class="footnote">Sources, notes, and ideas, woven into clear narrative maps.</p>
+</footer>
+</body>
+</html>

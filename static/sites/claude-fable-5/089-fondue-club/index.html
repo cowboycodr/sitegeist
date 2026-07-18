@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:;">
+  <title>Fondue Club — Dip irresponsibly.</title>
+  <meta name="description" content="A roving supper club serving bubbling cheese, cold wine, and very unserious evenings.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Fondue Club — home">
+      <svg class="wordmark-pot" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <path d="M6 16h28l-3 14a6 6 0 0 1-6 5H15a6 6 0 0 1-6-5Z" fill="currentColor"/>
+        <path d="M8 16c0 3 4 3 5 6s5 1 5-2c0-2 3-3 4 0s6 4 6-1c0-2 3-3 4-3v-2H8Z" fill="var(--cheese)"/>
+        <circle cx="16" cy="10" r="2.4" fill="var(--cheese)"/>
+        <circle cx="24" cy="7" r="1.8" fill="var(--cheese)"/>
+      </svg>
+      Fondue Club
+    </a>
+    <nav aria-label="Sections">
+      <a href="#menu">Menu</a>
+      <a href="#rules">House rules</a>
+      <a href="#melts">Melts</a>
+      <a class="nav-cta" href="#seat">Grab a seat</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <p class="eyebrow"><span class="bubble-dot" aria-hidden="true"></span>Next melt / Friday 8&nbsp;PM</p>
+      <h1>Dip <em>irresponsibly.</em></h1>
+      <p class="lede">A roving supper club serving bubbling cheese, cold wine, and very unserious evenings. No fixed address. No dress code. One pot, long forks, strangers who leave as accomplices.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#seat">Grab a seat</a>
+        <a class="btn btn-ghost" href="#menu">Inspect the menu</a>
+      </div>
+      <div class="hero-pot" aria-hidden="true">
+        <svg viewBox="0 0 320 220" focusable="false">
+          <circle class="bub bub-1" cx="140" cy="70" r="8" fill="var(--cheese)"/>
+          <circle class="bub bub-2" cx="180" cy="52" r="5" fill="var(--cheese)"/>
+          <circle class="bub bub-3" cx="112" cy="46" r="4" fill="var(--cheese)"/>
+          <path d="M40 96h240l-20 84a26 26 0 0 1-25 20H85a26 26 0 0 1-25-20Z" fill="var(--wine-deep)"/>
+          <path d="M48 96c0 14 18 12 22 26 4 13 22 8 24-4 2-13 18-14 22 0 4 15 26 17 28 0 2-14 18-16 22-2 4 13 24 12 24-6 0-8 12-11 14-14H48Z" fill="var(--cheese)"/>
+          <rect x="18" y="88" width="284" height="14" rx="7" fill="var(--wine)"/>
+          <g class="fork">
+            <rect x="222" y="8" width="6" height="96" rx="3" fill="var(--crust)" transform="rotate(18 225 56)"/>
+            <rect x="196" y="88" width="22" height="16" rx="6" fill="var(--crust-lite)" transform="rotate(18 207 96)"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <div class="drip" aria-hidden="true">
+      <svg viewBox="0 0 1200 90" preserveAspectRatio="none" focusable="false">
+        <path d="M0 0h1200v18c-36 0-36 44-70 44s-30-32-64-32-28 20-60 20-34-46-70-46-30 26-62 26-32-14-66-14-30 40-64 40-30-28-62-28-34 12-68 12-28-32-62-32-32 22-66 22-30-16-62-16-34 36-68 36-28-24-60-24-34 14-68 14-30-40-64-40-28 30-64 30V0Z" fill="var(--cheese)"/>
+      </svg>
+    </div>
+
+    <section class="menu" id="menu" aria-labelledby="menu-title">
+      <h2 id="menu-title"><span class="tick" aria-hidden="true">01</span>The menu</h2>
+      <p class="section-lede">Three pots. One table. Everything gets dipped eventually.</p>
+      <div class="cards">
+        <article class="card">
+          <h3>Moitié-Moitié</h3>
+          <p class="card-tag">The classic</p>
+          <p>Gruyère and Vacherin Fribourgeois, white wine, a rude amount of garlic, and a splash of kirsch nobody admits to.</p>
+        </article>
+        <article class="card">
+          <h3>Cheddar &amp; Ale</h3>
+          <p class="card-tag">The loud one</p>
+          <p>Sharp farmhouse cheddar folded into dark ale with mustard and smoked paprika. Pairs well with poor decisions.</p>
+        </article>
+        <article class="card">
+          <h3>The Chocolate Finale</h3>
+          <p class="card-tag">The alibi</p>
+          <p>Dark chocolate, a whisper of orange, and whatever fruit survived the ride over. Arrives when you least deserve it.</p>
+        </article>
+      </div>
+      <div class="dippables">
+        <h3>For dipping</h3>
+        <ul class="dip-list">
+          <li>Day-old sourdough cubes</li>
+          <li>Baby potatoes, still steaming</li>
+          <li>Cornichons &amp; pickled onions</li>
+          <li>Charred broccoli spears</li>
+          <li>Apple wedges (controversial)</li>
+          <li>Whatever you smuggle in</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="rules" id="rules" aria-labelledby="rules-title">
+      <h2 id="rules-title"><span class="tick" aria-hidden="true">02</span>House rules</h2>
+      <ol class="rule-list">
+        <li><strong>Lose your bread in the pot,</strong> you pour the next round of wine. Ancient law. Non-negotiable.</li>
+        <li><strong>Phones face down.</strong> The cheese is the entertainment. So is Marcel, if he's had two glasses.</li>
+        <li><strong>Stir in a figure eight.</strong> Clockwise stirrers will be gently re-educated.</li>
+        <li><strong>The crust at the bottom</strong> — la religieuse — is shared by whoever stayed to help stack chairs.</li>
+        <li><strong>No double-dipping</strong> unless everyone at the table agrees to become a family.</li>
+      </ol>
+    </section>
+
+    <section class="melts" id="melts" aria-labelledby="melts-title">
+      <h2 id="melts-title"><span class="tick" aria-hidden="true">03</span>Upcoming melts</h2>
+      <p class="section-lede">The address drops 24 hours before the first bubble. Bring layers; bring an appetite.</p>
+      <ul class="melt-list">
+        <li class="melt">
+          <span class="melt-date">Fri&nbsp;· Jul&nbsp;24</span>
+          <span class="melt-place">A rooftop with questionable stairs, Northside</span>
+          <span class="melt-status is-next">Next melt</span>
+        </li>
+        <li class="melt">
+          <span class="melt-date">Fri&nbsp;· Aug&nbsp;07</span>
+          <span class="melt-place">The bookshop after it closes, Old Quarter</span>
+          <span class="melt-status">Seats open</span>
+        </li>
+        <li class="melt">
+          <span class="melt-date">Fri&nbsp;· Aug&nbsp;21</span>
+          <span class="melt-place">Somebody's very trusting greenhouse</span>
+          <span class="melt-status">Seats open</span>
+        </li>
+        <li class="melt">
+          <span class="melt-date">Fri&nbsp;· Sep&nbsp;04</span>
+          <span class="melt-place">Location under negotiation (it involves a boat)</span>
+          <span class="melt-status is-soon">Soon</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="seat" id="seat" aria-labelledby="seat-title">
+      <h2 id="seat-title"><span class="tick" aria-hidden="true">04</span>Grab a seat</h2>
+      <p class="section-lede">Twelve chairs per melt. First come, first fondue.</p>
+      <form class="seat-form" id="seat-form" novalidate>
+        <div class="field">
+          <label for="guest-name">Name for the chalkboard</label>
+          <input id="guest-name" name="guest-name" type="text" autocomplete="name" required
+                 placeholder="e.g. Margot of the Long Fork">
+        </div>
+        <fieldset class="field">
+          <legend>How many forks?</legend>
+          <div class="seat-count" role="radiogroup" aria-label="Number of seats">
+            <label class="count-pill"><input type="radio" name="seats" value="1" checked><span>Just me</span></label>
+            <label class="count-pill"><input type="radio" name="seats" value="2"><span>Two</span></label>
+            <label class="count-pill"><input type="radio" name="seats" value="3"><span>Three</span></label>
+            <label class="count-pill"><input type="radio" name="seats" value="4"><span>A whole table</span></label>
+          </div>
+        </fieldset>
+        <button class="btn btn-primary" type="submit">Hold my seat</button>
+        <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-mark">Fondue Club</p>
+    <p>Dip irresponsibly. Stir generously. Leave no crust behind.</p>
+    <p class="footer-small">A roving supper club · no fixed address · est. one very cold January</p>
+  </footer>
+</body>
+</html>

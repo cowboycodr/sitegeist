@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Orbit — Money that moves with you.</title>
+<meta name="description" content="One beautifully simple account for saving, spending, investing, and living across borders.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Orbit — home">
+    <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+      <circle cx="20" cy="20" r="9" fill="#fbbf24"/>
+      <ellipse cx="20" cy="20" rx="17" ry="7" fill="none" stroke="#5eead4" stroke-width="2" transform="rotate(-22 20 20)"/>
+      <circle cx="33.5" cy="13.6" r="2.6" fill="#a78bfa"/>
+    </svg>
+    <span class="brand-name">Orbit</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#benefits">Benefits</a>
+    <a href="#card">Card</a>
+    <a href="#exchange">Exchange</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <a class="button button-small button-primary header-cta" href="#open">Open an account</a>
+</header>
+
+<main id="main">
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow">Banking without gravity</p>
+      <h1>Money that moves <span class="grad">with you.</span></h1>
+      <p class="lede">One beautifully simple account for saving, spending, investing, and living across borders.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#open">Open an account</a>
+        <a class="button button-ghost" href="#benefits">See benefits</a>
+      </div>
+      <dl class="hero-stats">
+        <div><dt>Currencies held</dt><dd>40+</dd></div>
+        <div><dt>Savings APY</dt><dd>4.10%</dd></div>
+        <div><dt>Countries</dt><dd>150</dd></div>
+      </dl>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 520 520" role="img" focusable="false">
+        <defs>
+          <radialGradient id="planet" cx="38%" cy="32%" r="80%">
+            <stop offset="0%" stop-color="#ffe9a8"/>
+            <stop offset="55%" stop-color="#fbbf24"/>
+            <stop offset="100%" stop-color="#b45309"/>
+          </radialGradient>
+          <linearGradient id="ringA" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#5eead4"/>
+            <stop offset="100%" stop-color="#5eead400"/>
+          </linearGradient>
+          <linearGradient id="ringB" x1="1" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#a78bfa"/>
+            <stop offset="100%" stop-color="#a78bfa00"/>
+          </linearGradient>
+        </defs>
+        <circle cx="88" cy="76" r="1.6" fill="#8ea0c9"/>
+        <circle cx="452" cy="118" r="1.2" fill="#8ea0c9"/>
+        <circle cx="404" cy="452" r="1.8" fill="#8ea0c9"/>
+        <circle cx="70" cy="400" r="1.3" fill="#8ea0c9"/>
+        <circle cx="250" cy="40" r="1.1" fill="#8ea0c9"/>
+        <g class="spin-slow">
+          <ellipse cx="260" cy="260" rx="238" ry="96" fill="none" stroke="url(#ringA)" stroke-width="2" transform="rotate(-24 260 260)"/>
+          <g transform="rotate(-24 260 260)">
+            <circle cx="498" cy="260" r="13" fill="#0c1230" stroke="#5eead4" stroke-width="2"/>
+            <text x="498" y="265" text-anchor="middle" class="orbit-glyph glyph-teal">$</text>
+          </g>
+        </g>
+        <g class="spin-mid">
+          <ellipse cx="260" cy="260" rx="196" ry="150" fill="none" stroke="url(#ringB)" stroke-width="2" transform="rotate(18 260 260)"/>
+          <g transform="rotate(18 260 260)">
+            <circle cx="64" cy="260" r="13" fill="#0c1230" stroke="#a78bfa" stroke-width="2"/>
+            <text x="64" y="265" text-anchor="middle" class="orbit-glyph glyph-violet">€</text>
+          </g>
+        </g>
+        <g class="spin-fast">
+          <ellipse cx="260" cy="260" rx="150" ry="188" fill="none" stroke="#33406b" stroke-width="1.5" transform="rotate(-52 260 260)"/>
+          <g transform="rotate(-52 260 260)">
+            <circle cx="260" cy="72" r="13" fill="#0c1230" stroke="#fbbf24" stroke-width="2"/>
+            <text x="260" y="77" text-anchor="middle" class="orbit-glyph glyph-amber">¥</text>
+          </g>
+        </g>
+        <circle cx="260" cy="260" r="84" fill="url(#planet)"/>
+        <path d="M204 244c30-18 84-20 112 6" fill="none" stroke="#92600a" stroke-width="5" stroke-linecap="round" opacity=".45"/>
+        <path d="M210 288c34 16 72 12 100-8" fill="none" stroke="#92600a" stroke-width="5" stroke-linecap="round" opacity=".35"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section" id="benefits" aria-labelledby="benefits-title">
+    <p class="eyebrow">Why Orbit</p>
+    <h2 id="benefits-title">Four ways your money stays in motion</h2>
+    <div class="card-grid">
+      <article class="feature">
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="6" fill="#fbbf24"/><ellipse cx="12" cy="12" rx="10.5" ry="4.2" fill="none" stroke="#5eead4" stroke-width="1.6" transform="rotate(-20 12 12)"/></svg>
+        <h3>Save on autopilot</h3>
+        <p>Round-ups and scheduled orbits sweep spare change into Vaults earning 4.10% APY, compounded daily with no minimums.</p>
+      </article>
+      <article class="feature">
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="6" width="18" height="12" rx="2.5" fill="none" stroke="#a78bfa" stroke-width="1.6"/><rect x="3" y="9" width="18" height="3" fill="#a78bfa"/></svg>
+        <h3>Spend anywhere</h3>
+        <p>One card, 40+ currencies. Orbit auto-converts at the mid-market rate the moment you tap, with zero foreign fees.</p>
+      </article>
+      <article class="feature">
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 18 10 11l4 3 6-8" fill="none" stroke="#5eead4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="6" r="2" fill="#fbbf24"/></svg>
+        <h3>Invest in fractions</h3>
+        <p>Buy slices of global stocks and index funds from $1. Recurring orbits keep your portfolio on course automatically.</p>
+      </article>
+      <article class="feature">
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="#fbbf24" stroke-width="1.6"/><path d="M3 12h18M12 3c3.2 2.6 3.2 15.4 0 18M12 3c-3.2 2.6-3.2 15.4 0 18" fill="none" stroke="#fbbf24" stroke-width="1.2"/></svg>
+        <h3>Live across borders</h3>
+        <p>Local account details in ten regions. Get paid like a local in London, pay rent in Lisbon, split dinner in Tokyo.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Card -->
+  <section class="section split" id="card" aria-labelledby="card-title">
+    <div class="split-visual">
+      <svg class="debit-card" viewBox="0 0 360 224" role="img" aria-label="The Orbit debit card">
+        <defs>
+          <linearGradient id="cardbg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#131a3d"/>
+            <stop offset="100%" stop-color="#0a0f26"/>
+          </linearGradient>
+        </defs>
+        <rect x="2" y="2" width="356" height="220" rx="18" fill="url(#cardbg)" stroke="#33406b"/>
+        <ellipse cx="290" cy="40" rx="120" ry="46" fill="none" stroke="#5eead4" stroke-width="1.4" opacity=".55" transform="rotate(-18 290 40)"/>
+        <circle cx="300" cy="44" r="16" fill="#fbbf24"/>
+        <text x="24" y="44" class="card-word">Orbit</text>
+        <rect x="24" y="88" width="44" height="32" rx="6" fill="#c9a227"/>
+        <path d="M24 100h44M24 108h44M46 88v32" stroke="#8a6d12" stroke-width="1.4"/>
+        <text x="24" y="156" class="card-number">5314&#8195;&#8226;&#8226;&#8226;&#8226;&#8195;&#8226;&#8226;&#8226;&#8226;&#8195;9041</text>
+        <text x="24" y="196" class="card-name">RIN&#8202; SOLARA</text>
+        <text x="336" y="196" text-anchor="end" class="card-name">12/31</text>
+      </svg>
+    </div>
+    <div class="split-copy">
+      <p class="eyebrow">The Orbit card</p>
+      <h2 id="card-title">Metal-light. Fee-free. Everywhere.</h2>
+      <p>A single card that follows your itinerary, not the other way around. Freeze it, set orbit-wide limits, or spin up disposable virtual cards in two taps.</p>
+      <ul class="check-list">
+        <li>Zero foreign transaction fees, always</li>
+        <li>Free ATM withdrawals up to $600 a month</li>
+        <li>Instant freeze, unfreeze, and virtual cards</li>
+        <li>Real-time notifications in your home currency</li>
+      </ul>
+      <a class="button button-primary" href="#open">Open an account</a>
+    </div>
+  </section>
+
+  <!-- Exchange -->
+  <section class="section" id="exchange" aria-labelledby="exchange-title">
+    <p class="eyebrow">Borderless by design</p>
+    <h2 id="exchange-title">See what your money becomes</h2>
+    <p class="section-lede">Orbit converts at the live mid-market rate with no markup. Try it with our illustrative sample rates.</p>
+    <form class="fx" aria-describedby="fx-note">
+      <div class="fx-field">
+        <label for="fx-amount">You send</label>
+        <input id="fx-amount" name="amount" type="number" inputmode="decimal" min="0" step="0.01" value="1000">
+      </div>
+      <div class="fx-field">
+        <label for="fx-from">From</label>
+        <select id="fx-from" name="from">
+          <option value="USD" selected>USD — US Dollar</option>
+          <option value="EUR">EUR — Euro</option>
+          <option value="GBP">GBP — British Pound</option>
+          <option value="JPY">JPY — Japanese Yen</option>
+          <option value="BRL">BRL — Brazilian Real</option>
+          <option value="AUD">AUD — Australian Dollar</option>
+        </select>
+      </div>
+      <button class="fx-swap" type="button" id="fx-swap" aria-label="Swap currencies">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4 3.5 7.5 7 11M3.5 7.5H17M17 20l3.5-3.5L17 13m3.5 3.5H7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="fx-field">
+        <label for="fx-to">To</label>
+        <select id="fx-to" name="to">
+          <option value="USD">USD — US Dollar</option>
+          <option value="EUR" selected>EUR — Euro</option>
+          <option value="GBP">GBP — British Pound</option>
+          <option value="JPY">JPY — Japanese Yen</option>
+          <option value="BRL">BRL — Brazilian Real</option>
+          <option value="AUD">AUD — Australian Dollar</option>
+        </select>
+      </div>
+      <div class="fx-result" role="status" aria-live="polite">
+        <span class="fx-result-label">They receive</span>
+        <output id="fx-output" for="fx-amount fx-from fx-to">€912.40</output>
+        <span class="fx-rate" id="fx-rate">1 USD = 0.9124 EUR</span>
+      </div>
+    </form>
+    <p class="fine-print" id="fx-note">Sample rates for illustration only; this demo does not fetch live market data.</p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <p class="eyebrow">Good to know</p>
+    <h2 id="faq-title">Questions, answered</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Is Orbit a real bank?</summary>
+        <p>Orbit is a fictional showcase brand. In this concept, deposits would be held with partner banks and insured up to applicable limits in each region.</p>
+      </details>
+      <details>
+        <summary>What does an account cost?</summary>
+        <p>The standard Orbit account is free — no monthly fees, no minimum balance. An optional Orbit+ tier adds higher ATM limits and travel insurance.</p>
+      </details>
+      <details>
+        <summary>How fast are international transfers?</summary>
+        <p>Most transfers between Orbit users land instantly. Transfers to outside accounts typically arrive the same day within supported corridors.</p>
+      </details>
+      <details>
+        <summary>Can I hold multiple currencies at once?</summary>
+        <p>Yes. Hold and exchange 40+ currencies in one account, and spend from any balance with the same card.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band" id="open" aria-labelledby="cta-title">
+    <h2 id="cta-title">Ready for liftoff?</h2>
+    <p>Open your Orbit account in about three minutes. No paperwork, no branch, no gravity.</p>
+    <a class="button button-primary button-large" href="#top">Open an account</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p><strong>Orbit</strong> — Money that moves with you.</p>
+  <p class="fine-print">Orbit is a fictional demonstration site. Nothing here is financial advice, and no real accounts, rates, or services are offered.</p>
+</footer>
+</body>
+</html>
