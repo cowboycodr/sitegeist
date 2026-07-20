@@ -1475,17 +1475,25 @@
 <svelte:head>
 	<title>Sitegeist</title>
 	<meta name="description" content="One hundred generated websites testing how well leading models maintain visual quality, consistency, and originality." />
+	<link rel="canonical" href="https://sitegeist.kian.im/" />
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 	<meta name="theme-color" content={themeColor} />
 	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="Sitegeist" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:url" content="https://sitegeist.kian.im/" />
 	<meta property="og:title" content="Sitegeist" />
 	<meta property="og:description" content="One hundred generated websites testing how well leading models maintain visual quality, consistency, and originality." />
 	<meta property="og:image" content={`${data.origin}/og.jpg`} />
+	<meta property="og:image:type" content="image/jpeg" />
 	<meta property="og:image:width" content="1712" />
 	<meta property="og:image:height" content="963" />
+	<meta property="og:image:alt" content="Sitegeist — Can AI create without repeating itself?" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Sitegeist" />
 	<meta name="twitter:description" content="One hundred generated websites testing how well leading models maintain visual quality, consistency, and originality." />
 	<meta name="twitter:image" content={`${data.origin}/og.jpg`} />
+	<meta name="twitter:image:alt" content="Sitegeist — Can AI create without repeating itself?" />
 </svelte:head>
 
 <svelte:window onkeydown={handleKeydown} onmessage={handleArtifactMessage} onpointerdown={handleWindowPointerDown} />
