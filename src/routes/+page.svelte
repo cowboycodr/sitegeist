@@ -14,10 +14,6 @@
 	} from '$lib/generated/site-artifacts';
 	import { sitesByModel } from '$lib/sites';
 	import type { ShowcaseSite } from '$lib/site-types';
-	import type { PageData } from './$types';
-
-	let { data }: { data: PageData } = $props();
-
 	type BenchmarkFilter = BenchmarkModel;
 	const filters: Array<{ name: BenchmarkFilter; available: boolean }> = [
 		{ name: '5.6 Sol', available: true },
@@ -25,6 +21,20 @@
 		{ name: 'Grok 4.5', available: true },
 		{ name: 'Opus 4.8', available: true }
 	];
+
+	const SITE_URL = 'https://sitegeist.kian.im/';
+	const SITE_TITLE = 'Sitegeist';
+	const SITE_DESCRIPTION = 'One hundred generated websites testing how well leading models maintain visual quality, consistency, and originality.';
+	const SITE_IMAGE = 'https://sitegeist.kian.im/og.jpg';
+	const structuredData = JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'WebSite',
+		name: SITE_TITLE,
+		url: SITE_URL,
+		description: SITE_DESCRIPTION,
+		image: SITE_IMAGE,
+		inLanguage: 'en-US'
+	}).replace(/</g, '\\u003c');
 	const PAGE_THEME_COLOR = 'rgb(242, 240, 233)';
 	const SHELL_THEME_COLOR = 'rgb(17, 18, 16)';
 	const TRIPLE_COMPARE_MIN_WIDTH = 1260;
@@ -1473,19 +1483,28 @@
 </script>
 
 <svelte:head>
-	<title>Sitegeist</title>
-	<meta name="description" content="One hundred generated websites testing how well leading models maintain visual quality, consistency, and originality." />
+	<title>{SITE_TITLE}</title>
+	<meta name="description" content={SITE_DESCRIPTION} />
+	<link rel="canonical" href={SITE_URL} />
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 	<meta name="theme-color" content={themeColor} />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Sitegeist" />
-	<meta property="og:description" content="One hundred generated websites testing how well leading models maintain visual quality, consistency, and originality." />
-	<meta property="og:image" content={`${data.origin}/og.jpg`} />
+	<meta property="og:site_name" content="Sitegeist" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:url" content={SITE_URL} />
+	<meta property="og:title" content={SITE_TITLE} />
+	<meta property="og:description" content={SITE_DESCRIPTION} />
+	<meta property="og:image" content={SITE_IMAGE} />
+	<meta property="og:image:type" content="image/jpeg" />
 	<meta property="og:image:width" content="1712" />
 	<meta property="og:image:height" content="963" />
+	<meta property="og:image:alt" content="Sitegeist — Can AI create without repeating itself?" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Sitegeist" />
-	<meta name="twitter:description" content="One hundred generated websites testing how well leading models maintain visual quality, consistency, and originality." />
-	<meta name="twitter:image" content={`${data.origin}/og.jpg`} />
+	<meta name="twitter:title" content={SITE_TITLE} />
+	<meta name="twitter:description" content={SITE_DESCRIPTION} />
+	<meta name="twitter:image" content={SITE_IMAGE} />
+	<meta name="twitter:image:alt" content="Sitegeist — Can AI create without repeating itself?" />
+	{@html `<script type="application/ld+json">${structuredData}</script>`}
 </svelte:head>
 
 <svelte:window onkeydown={handleKeydown} onmessage={handleArtifactMessage} onpointerdown={handleWindowPointerDown} />
