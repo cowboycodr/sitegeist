@@ -34,7 +34,7 @@
 		description: SITE_DESCRIPTION,
 		image: SITE_IMAGE,
 		inLanguage: 'en-US'
-	});
+	}).replace(/</g, '\\u003c');
 	const PAGE_THEME_COLOR = 'rgb(242, 240, 233)';
 	const SHELL_THEME_COLOR = 'rgb(17, 18, 16)';
 	const TRIPLE_COMPARE_MIN_WIDTH = 1260;
@@ -1504,7 +1504,7 @@
 	<meta name="twitter:description" content={SITE_DESCRIPTION} />
 	<meta name="twitter:image" content={SITE_IMAGE} />
 	<meta name="twitter:image:alt" content="Sitegeist — Can AI create without repeating itself?" />
-	<script type="application/ld+json">{structuredData}</script>
+	{@html `<script type="application/ld+json">${structuredData}</script>`}
 </svelte:head>
 
 <svelte:window onkeydown={handleKeydown} onmessage={handleArtifactMessage} onpointerdown={handleWindowPointerDown} />
