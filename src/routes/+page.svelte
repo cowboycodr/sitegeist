@@ -1391,7 +1391,7 @@
 			const scrollPosition = Math.max(0, window.scrollY);
 			const measuredCollectionTop = collectionElement.getBoundingClientRect().top + scrollPosition;
 			const filterStickyStart = filterSentinelElement.getBoundingClientRect().top + scrollPosition;
-			const stickyBrandWidth = Math.ceil(stickyBrandElement.getBoundingClientRect().width);
+			const stickyBrandWidth = Math.ceil(stickyBrandElement.scrollWidth);
 
 			cancelAnimationFrame(frame);
 			framePending = false;
@@ -1541,15 +1541,17 @@
 					<span>Sitegeist</span>
 					<i></i>
 				</div>
-				<div class="filter-buttons">
-					{#each filters as item}
-						<button
-							class:active={filter === item.name}
-							disabled={!item.available}
-							title={item.available ? item.name : `${item.name} benchmark coming soon`}
-							onclick={() => (filter = item.name)}
-						>{item.name}</button>
-					{/each}
+				<div class="filter-scroll">
+					<div class="filter-buttons">
+						{#each filters as item}
+							<button
+								class:active={filter === item.name}
+								disabled={!item.available}
+								title={item.available ? item.name : `${item.name} benchmark coming soon`}
+								onclick={() => (filter = item.name)}
+							>{item.name}</button>
+						{/each}
+					</div>
 				</div>
 			</div>
 		</div>
@@ -1940,16 +1942,16 @@
 	.collection h2 { margin: 0; font-size: clamp(36px, 3.7vw, 58px); font-weight: 610; line-height: 0.9; letter-spacing: -0.065em; }
 
 	.filter-sticky-sentinel { height: 1px; margin-bottom: -1px; pointer-events: none; }
-	.filter-row { position: relative; z-index: 40; display: block; margin: 0 clamp(-34px, -3vw, -24px); padding: 12px clamp(24px, 3vw, 34px) 14px; overflow-x: auto; background: #111210; scrollbar-width: none; }
+	.filter-row { position: relative; z-index: 40; display: block; margin: 0 clamp(-34px, -3vw, -24px); padding: 12px clamp(24px, 3vw, 34px) 14px; overflow: hidden; background: #111210; }
 	.filter-row.pinned { position: sticky; top: 0; }
-	.filter-row::-webkit-scrollbar { display: none; }
-	.filter-track { position: relative; width: max-content; min-width: 100%; padding-right: var(--sticky-brand-shift, 86px); }
-	.filter-buttons { display: flex; width: max-content; align-items: center; gap: 8px; transform: translate3d(0, 0, 0); will-change: transform; transition: transform 520ms cubic-bezier(.4,0,.2,1) 60ms; }
-	.sticky-brand { position: absolute; top: 50%; left: 0; display: flex; width: max-content; align-items: center; gap: 8px; color: #f3f1e9; opacity: 0; transform: translate3d(-18px, -50%, 0) scale(.985); transform-origin: left center; backface-visibility: hidden; will-change: transform, opacity; pointer-events: none; transition: transform 320ms cubic-bezier(.4,0,.2,1), opacity 170ms ease-out; }
+	.filter-track { position: relative; display: flex; width: 100%; min-width: 0; align-items: center; }
+	.filter-scroll { min-width: 0; flex: 1; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+	.filter-scroll::-webkit-scrollbar { display: none; }
+	.filter-buttons { display: flex; width: max-content; align-items: center; gap: 8px; }
+	.sticky-brand { display: flex; width: 0; min-width: 0; align-items: center; gap: 8px; overflow: hidden; color: #f3f1e9; opacity: 0; transform: translate3d(-18px, 0, 0) scale(.985); transform-origin: left center; backface-visibility: hidden; will-change: width, transform, opacity; pointer-events: none; transition: width 320ms cubic-bezier(.4,0,.2,1), transform 320ms cubic-bezier(.4,0,.2,1), opacity 170ms ease-out; }
 	.sticky-brand span { flex: none; font-size: 15px; font-weight: 650; letter-spacing: -0.035em; }
 	.sticky-brand i { width: 1px; height: 22px; flex: none; background: #474843; }
-	.filter-row.pinned .sticky-brand { opacity: 1; transform: translate3d(0, -50%, 0) scale(1); transition: transform 600ms cubic-bezier(.22,0,.16,1) 70ms, opacity 300ms cubic-bezier(.2,0,.2,1) 130ms; }
-	.filter-row.pinned .filter-buttons { transform: translate3d(var(--sticky-brand-shift, 86px), 0, 0); transition: transform 720ms cubic-bezier(.22,0,.16,1); }
+	.filter-row.pinned .sticky-brand { width: var(--sticky-brand-shift, 86px); opacity: 1; transform: translate3d(0, 0, 0) scale(1); transition: width 600ms cubic-bezier(.22,0,.16,1), transform 600ms cubic-bezier(.22,0,.16,1) 70ms, opacity 300ms cubic-bezier(.2,0,.2,1) 130ms; }
 	.filter-row button { display: inline-flex; flex: none; align-items: center; padding: 10px 15px; border: 1px solid #474843; border-radius: 99px; background: transparent; color: #a3a59d; font: 600 11px/1 'Inter Variable', Inter, sans-serif; letter-spacing: -0.015em; cursor: pointer; transition: background 180ms ease, color 180ms ease, border-color 180ms ease; }
 	.filter-row button:hover, .filter-row button.active { border-color: #f3f1e9; background: #f3f1e9; color: #111210; }
 	.filter-row button:disabled { opacity: 0.42; cursor: not-allowed; }
