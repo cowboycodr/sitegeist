@@ -6,7 +6,7 @@ import type { SiteArtifact } from './sol-site-artifacts';
 
 export type { SiteArtifact } from './sol-site-artifacts';
 
-export const benchmarkModels = ['5.6 Sol', 'Opus 4.8', 'Grok 4.5', 'Fable 5'] as const;
+export const benchmarkModels = ['5.6 Sol', 'Fable 5', 'Grok 4.5', 'Opus 4.8'] as const;
 export type BenchmarkModel = (typeof benchmarkModels)[number];
 
 export const siteArtifactsByModel: Record<BenchmarkModel, SiteArtifact[]> = {
