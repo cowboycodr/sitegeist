@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Offgrid Works — A cabin with a steering wheel.</title>
+<meta name="description" content="Modular electric campers engineered for quiet roads, remote work, and weekends beyond signal.">
+<link rel="stylesheet" href="styles.css">
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Offgrid Works — home">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path d="M16 3 29 10.5v11L16 29 3 21.5v-11Z" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M9 19c2.5-4.5 4-7 7-7s4.5 2.5 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="16" cy="16" r="1.8" fill="currentColor"/>
+    </svg>
+    <span class="brand-name">Offgrid<span class="brand-accent">&nbsp;Works</span></span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#platform">Platform</a>
+    <a href="#tour">Tour</a>
+    <a href="#specs">Specs</a>
+    <a class="nav-cta" href="#configure">Configure yours</a>
+  </nav>
+</header>
+
+<main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">Built beyond the map</p>
+      <h1 id="hero-title">A cabin with a<br>steering&nbsp;wheel.</h1>
+      <p class="lede">Modular electric campers engineered for quiet roads, remote work, and weekends beyond signal.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#configure">Configure yours</a>
+        <a class="btn btn-ghost" href="#tour">Take the tour</a>
+      </div>
+    </div>
+
+    <figure class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 640 420" role="img" focusable="false">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#10221c"/>
+            <stop offset="1" stop-color="#1c3a30"/>
+          </linearGradient>
+          <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f3ede1"/>
+            <stop offset="1" stop-color="#d9d0bd"/>
+          </linearGradient>
+        </defs>
+        <rect width="640" height="420" rx="18" fill="url(#sky)"/>
+        <!-- topographic contours -->
+        <g fill="none" stroke="#3f6b58" stroke-width="1.4" opacity=".55">
+          <path d="M-20 84c96-34 158-30 234 6s176 40 262 4 120-32 184-10"/>
+          <path d="M-20 122c90-28 166-22 240 12s170 34 256 0 132-30 184-8"/>
+          <path d="M-20 160c86-22 172-14 246 18s164 28 250-4 140-26 184-6"/>
+        </g>
+        <!-- moon -->
+        <circle cx="540" cy="78" r="30" fill="#f0b64c" opacity=".92"/>
+        <circle cx="530" cy="70" r="30" fill="#10221c" opacity=".55"/>
+        <!-- ridge line -->
+        <path d="M0 250 90 168l58 44 74-70 92 82 68-52 96 74 82-58 80 62v170H0Z" fill="#12281f"/>
+        <path d="M0 292 70 246l66 34 84-52 96 58 92-40 104 52 74-32 54 26v128H0Z" fill="#0b1b15"/>
+        <!-- ground -->
+        <rect x="0" y="352" width="640" height="68" fill="#081310"/>
+        <path d="M0 352h640" stroke="#2b4c3d" stroke-width="2"/>
+        <!-- camper -->
+        <g>
+          <rect x="128" y="220" width="300" height="118" rx="16" fill="url(#body)"/>
+          <path d="M428 246h56c26 0 44 18 52 44l10 32c3 10-4 16-12 16H428Z" fill="url(#body)"/>
+          <path d="M470 254h16c14 0 26 10 32 26l7 20h-55Z" fill="#1c2f27"/>
+          <rect x="150" y="240" width="70" height="44" rx="8" fill="#1c2f27"/>
+          <rect x="236" y="240" width="70" height="44" rx="8" fill="#1c2f27"/>
+          <rect x="150" y="300" width="256" height="10" rx="5" fill="#f0b64c"/>
+          <!-- solar panel -->
+          <rect x="150" y="204" width="240" height="12" rx="4" fill="#27413a"/>
+          <g stroke="#f0b64c" stroke-width="1.4" opacity=".8">
+            <path d="M180 204v12M210 204v12M240 204v12M270 204v12M300 204v12M330 204v12M360 204v12"/>
+          </g>
+          <!-- wheels -->
+          <circle cx="196" cy="342" r="30" fill="#0b1410"/>
+          <circle cx="196" cy="342" r="14" fill="#3c4a44"/>
+          <circle cx="452" cy="342" r="30" fill="#0b1410"/>
+          <circle cx="452" cy="342" r="14" fill="#3c4a44"/>
+          <!-- warm window glow -->
+          <rect x="322" y="248" width="30" height="28" rx="5" fill="#f0b64c" opacity=".9"/>
+        </g>
+        <!-- pines -->
+        <g fill="#132b21">
+          <path d="M56 352 78 292l22 60Zm14-34 8-24 8 24Z"/>
+          <path d="M560 352l24-70 24 70Z"/>
+          <path d="M604 352l16-44 16 44Z"/>
+        </g>
+        <!-- stars -->
+        <g fill="#e9e2d2" opacity=".8">
+          <circle cx="80" cy="52" r="1.6"/><circle cx="150" cy="88" r="1.2"/>
+          <circle cx="250" cy="46" r="1.4"/><circle cx="340" cy="92" r="1.2"/>
+          <circle cx="430" cy="40" r="1.6"/><circle cx="600" cy="140" r="1.2"/>
+        </g>
+      </svg>
+    </figure>
+
+    <dl class="stat-strip" aria-label="Key figures">
+      <div><dt>Range</dt><dd>up to 410 mi</dd></div>
+      <div><dt>Solar</dt><dd>1.2 kW roof</dd></div>
+      <div><dt>Sleeps</dt><dd>2–4</dd></div>
+      <div><dt>Drivetrain</dt><dd>Dual-motor EV</dd></div>
+    </dl>
+  </section>
+
+  <!-- ============ PLATFORM ============ -->
+  <section class="section" id="platform" aria-labelledby="platform-title">
+    <p class="eyebrow">One chassis, many lives</p>
+    <h2 id="platform-title">Swap the interior like luggage.</h2>
+    <p class="section-lede">Every Offgrid Works camper is built on a flat skateboard battery deck with a rail-mounted interior. Modules lock in with four latches each — reconfigure the whole cabin in an afternoon, no tools heavier than your hands.</p>
+
+    <ul class="module-grid">
+      <li class="module-card">
+        <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="6" y="10" width="36" height="28" rx="4" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M6 22h36M16 22v16" stroke="currentColor" stroke-width="2.5"/><circle cx="26" cy="16" r="3" fill="currentColor"/><circle cx="35" cy="16" r="3" fill="currentColor"/></svg>
+        <h3>Galley</h3>
+        <p>Induction two-burner, 65&nbsp;L fridge drawer, and a cutting-board counter that folds out the side door for camp cooking.</p>
+      </li>
+      <li class="module-card">
+        <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 34V22a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4v12" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M6 34h36M12 18v-6m24 6v-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <h3>Bunk</h3>
+        <p>A true queen platform with a cedar-slat base, plus a drop-down single up top when the whole crew comes along.</p>
+      </li>
+      <li class="module-card">
+        <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="8" y="12" width="32" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M8 26h32M20 38h8M24 32v6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <h3>Desk</h3>
+        <p>A standing-height workstation with a second display arm, sound-damped walls, and a window that frames the horizon, not the parking lot.</p>
+      </li>
+      <li class="module-card">
+        <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="8" y="8" width="32" height="32" rx="4" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M8 20h32M8 30h32M28 8v32" stroke="currentColor" stroke-width="2.5"/></svg>
+        <h3>Gear locker</h3>
+        <p>Slide-out ski and board racks, a drying cabinet with vented airflow, and lashing rails for anything with wheels.</p>
+      </li>
+      <li class="module-card">
+        <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6c7 8 12 14 12 21a12 12 0 0 1-24 0c0-7 5-13 12-21Z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M19 28a5 5 0 0 0 5 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <h3>Wet bath</h3>
+        <p>Recirculating shower that stretches 110&nbsp;L of water across a week, with a composting head and heated teak floor.</p>
+      </li>
+      <li class="module-card">
+        <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="10" y="14" width="28" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M14 20h8M14 26h5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M30 24l4 4 6-8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Power wall</h3>
+        <p>An extra 8&nbsp;kWh module that feeds tools, e-bikes, or your house in an outage — and charges back off the roof by noon.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ TOUR ============ -->
+  <section class="section section-alt" id="tour" aria-labelledby="tour-title">
+    <p class="eyebrow">Take the tour</p>
+    <h2 id="tour-title">A day beyond signal.</h2>
+    <ol class="tour-list">
+      <li>
+        <span class="tour-time">06:40</span>
+        <div><h3>Wake to weather, not alarms</h3>
+        <p>The roof glass dims itself at dusk and clears at dawn. Diffused light, no LEDs blinking, cabin already warmed by the heat pump.</p></div>
+      </li>
+      <li>
+        <span class="tour-time">08:15</span>
+        <div><h3>The desk unfolds</h3>
+        <p>Bunk stows flat, desk module rotates out. Sound-damped panels keep calls crisp even when rain is working the roof.</p></div>
+      </li>
+      <li>
+        <span class="tour-time">12:30</span>
+        <div><h3>Lunch off the tailgate</h3>
+        <p>The galley counter slides through the side door. Induction burner, fridge drawer, and a view you didn't have to book.</p></div>
+      </li>
+      <li>
+        <span class="tour-time">17:00</span>
+        <div><h3>Move camp on sunlight</h3>
+        <p>The 1.2&nbsp;kW roof array put 30 miles back in the pack while you worked. Quiet dual motors mean the drive is part of the rest.</p></div>
+      </li>
+      <li>
+        <span class="tour-time">21:10</span>
+        <div><h3>Lights out, heat on</h3>
+        <p>The battery deck carries the night with the heat pump running and margin to spare. Tomorrow, the map is optional again.</p></div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ CONFIGURATOR ============ -->
+  <section class="section" id="configure" aria-labelledby="configure-title">
+    <p class="eyebrow">Configure yours</p>
+    <h2 id="configure-title">Build the cabin you'll drive.</h2>
+    <p class="section-lede">Pick a pack, load your modules, and watch range and payload update live. Every build ships road-ready with the galley and bunk latched in.</p>
+
+    <div class="configurator">
+      <form class="config-form" aria-describedby="config-note">
+        <fieldset class="config-group">
+          <legend>Battery pack</legend>
+          <div class="choice-row" role="radiogroup" aria-label="Battery pack">
+            <label class="choice">
+              <input type="radio" name="pack" value="scout" data-range="290" data-price="68000">
+              <span class="choice-body"><strong>Scout</strong><small>105 kWh · 290 mi</small></span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="pack" value="range" checked data-range="410" data-price="79500">
+              <span class="choice-body"><strong>Range</strong><small>150 kWh · 410 mi</small></span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="pack" value="basecamp" data-range="360" data-price="86000">
+              <span class="choice-body"><strong>Basecamp</strong><small>150 kWh + 8 kWh cabin · 360 mi</small></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="config-group">
+          <legend>Modules</legend>
+          <div class="choice-row">
+            <label class="choice">
+              <input type="checkbox" name="module" value="galley" checked disabled data-weight="60" data-price="0">
+              <span class="choice-body"><strong>Galley</strong><small>Included · 60 kg</small></span>
+            </label>
+            <label class="choice">
+              <input type="checkbox" name="module" value="bunk" checked disabled data-weight="45" data-price="0">
+              <span class="choice-body"><strong>Bunk</strong><small>Included · 45 kg</small></span>
+            </label>
+            <label class="choice">
+              <input type="checkbox" name="module" value="desk" data-weight="38" data-price="2400">
+              <span class="choice-body"><strong>Desk</strong><small>+$2,400 · 38 kg</small></span>
+            </label>
+            <label class="choice">
+              <input type="checkbox" name="module" value="locker" data-weight="52" data-price="1900">
+              <span class="choice-body"><strong>Gear locker</strong><small>+$1,900 · 52 kg</small></span>
+            </label>
+            <label class="choice">
+              <input type="checkbox" name="module" value="bath" data-weight="74" data-price="4800">
+              <span class="choice-body"><strong>Wet bath</strong><small>+$4,800 · 74 kg</small></span>
+            </label>
+            <label class="choice">
+              <input type="checkbox" name="module" value="power" data-weight="66" data-price="5600">
+              <span class="choice-body"><strong>Power wall</strong><small>+$5,600 · 66 kg</small></span>
+            </label>
+          </div>
+        </fieldset>
+        <p id="config-note" class="config-note">Range figures assume mixed terrain at 55&nbsp;mph with the heat pump on. Module weight trims range slightly; the readout accounts for it.</p>
+      </form>
+
+      <aside class="config-readout" aria-label="Your build">
+        <h3>Your build</h3>
+        <dl>
+          <div class="readout-row"><dt>Estimated range</dt><dd><span id="out-range">410</span> mi</dd></div>
+          <div class="readout-row"><dt>Module load</dt><dd><span id="out-weight">105</span> kg</dd></div>
+          <div class="readout-row"><dt>Sleeps</dt><dd id="out-sleeps">2</dd></div>
+          <div class="readout-row readout-total"><dt>From</dt><dd>$<span id="out-price">79,500</span></dd></div>
+        </dl>
+        <p class="readout-summary" id="out-summary" aria-live="polite">Range pack with galley and bunk. Ready for the long way home.</p>
+        <button type="button" class="btn btn-primary btn-block" id="reserve-btn">Reserve this build</button>
+        <p class="reserve-confirm" id="reserve-confirm" hidden>Saved. A build sheet is waiting in your glovebox — well, it will be.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ SPECS ============ -->
+  <section class="section section-alt" id="specs" aria-labelledby="specs-title">
+    <p class="eyebrow">The numbers</p>
+    <h2 id="specs-title">Engineered, then measured.</h2>
+    <div class="table-wrap">
+      <table class="spec-table">
+        <caption class="visually-hidden">Offgrid Works platform specifications</caption>
+        <tbody>
+          <tr><th scope="row">Drivetrain</th><td>Dual permanent-magnet motors, 320 kW combined</td></tr>
+          <tr><th scope="row">Battery</th><td>105 or 150 kWh LFP skateboard deck</td></tr>
+          <tr><th scope="row">Charging</th><td>DC fast 10–80% in 32 min · 1.2 kW rooftop solar</td></tr>
+          <tr><th scope="row">Water</th><td>110 L fresh, recirculating shower loop</td></tr>
+          <tr><th scope="row">Climate</th><td>Heat pump rated to −20 °C, radiant floor</td></tr>
+          <tr><th scope="row">Interior</th><td>Rail-mounted modules, four latches each, tool-free</td></tr>
+          <tr><th scope="row">Length / height</th><td>5.9 m / 2.7 m — fits a standard parking space</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+    <path d="M16 3 29 10.5v11L16 29 3 21.5v-11Z" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M9 19c2.5-4.5 4-7 7-7s4.5 2.5 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="16" cy="16" r="1.8" fill="currentColor"/>
+  </svg>
+  <p><strong>Offgrid Works</strong> — a cabin with a steering wheel.</p>
+  <p class="footer-fine">Built beyond the map. Charged by the sky. See you out there.</p>
+</footer>
+</body>
+</html>

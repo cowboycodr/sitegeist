@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+<title>One Point Five — Climate data observatory</title>
+<meta name="description" content="A climate observatory turning dense planetary signals into urgent, legible, collective action.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="One Point Five, home">
+    <span class="brand-mark" aria-hidden="true">1.5°</span>
+    <span class="brand-name">One Point Five</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#signals">Signals</a>
+    <a href="#threshold">Threshold</a>
+    <a href="#outlook">Outlook</a>
+    <a href="#act">Act</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="stripes" aria-hidden="true"></div>
+    <p class="eyebrow">Climate data observatory</p>
+    <h1>One Point <span class="hot">Five</span></h1>
+    <p class="tagline">Make the future measurable.</p>
+    <p class="lede">
+      In 2015, the world agreed to hold warming to 1.5&nbsp;°C above the pre-industrial
+      average. In 2024, the planet crossed that line for a full calendar year for the
+      first time. This observatory turns dense planetary signals into something you can
+      read, weigh, and act on.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#signals">Explore the signals</a>
+      <a class="btn btn-ghost" href="#outlook">Read the outlook</a>
+    </div>
+    <dl class="hero-stats">
+      <div>
+        <dt>Global anomaly, 2024</dt>
+        <dd><span class="stat" data-count="1.55" data-decimals="2">1.55</span><span class="unit">°C</span></dd>
+      </div>
+      <div>
+        <dt>Atmospheric CO₂</dt>
+        <dd><span class="stat" data-count="424" data-decimals="0">424</span><span class="unit">ppm</span></dd>
+      </div>
+      <div>
+        <dt>Sea level since 1993</dt>
+        <dd><span class="stat" data-count="105" data-decimals="0">105</span><span class="unit">mm</span></dd>
+      </div>
+      <div>
+        <dt>Remaining 1.5° budget</dt>
+        <dd><span class="stat" data-count="200" data-decimals="0">200</span><span class="unit">Gt&nbsp;CO₂</span></dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- ============ SIGNALS ============ -->
+  <section class="section" id="signals" aria-labelledby="signals-title">
+    <p class="eyebrow">Section 01</p>
+    <h2 id="signals-title">Four signals, one direction</h2>
+    <p class="section-lede">
+      Every card below is a decade-scale trace of a planetary vital sign, drawn from the
+      long observational records kept by the world's meteorological and space agencies.
+      Read them together: the story is coherence, not coincidence.
+    </p>
+
+    <div class="card-grid">
+      <article class="card">
+        <h3>Carbon dioxide</h3>
+        <p class="card-value">424 <span>ppm, 2024 mean</span></p>
+        <svg class="spark" viewBox="0 0 300 90" role="img" aria-label="Line chart: atmospheric carbon dioxide rising from about 315 parts per million in 1960 to 424 in 2024">
+          <polyline class="spark-line" points="10,78 50,72 90,65 130,56 170,45 210,33 250,20 290,8"/>
+          <circle class="spark-dot" cx="290" cy="8" r="4"/>
+        </svg>
+        <p class="card-note">Highest concentration in at least 800,000 years of ice-core record. Growth is still accelerating.</p>
+      </article>
+
+      <article class="card">
+        <h3>Surface temperature</h3>
+        <p class="card-value">+1.55 <span>°C vs 1850–1900</span></p>
+        <svg class="spark" viewBox="0 0 300 90" role="img" aria-label="Line chart: global temperature anomaly climbing from near zero in 1960 to 1.55 degrees Celsius in 2024">
+          <polyline class="spark-line hotline" points="10,74 50,76 90,68 130,60 170,50 210,38 250,26 290,8"/>
+          <circle class="spark-dot hotdot" cx="290" cy="8" r="4"/>
+        </svg>
+        <p class="card-note">2024 was the warmest year ever measured, and the first full year above the 1.5&nbsp;°C mark.</p>
+      </article>
+
+      <article class="card">
+        <h3>Sea level</h3>
+        <p class="card-value">+105 <span>mm since 1993</span></p>
+        <svg class="spark" viewBox="0 0 300 90" role="img" aria-label="Line chart: satellite-measured global sea level rising 105 millimetres between 1993 and 2024">
+          <polyline class="spark-line coolline" points="10,80 50,74 90,68 130,60 170,50 210,40 250,26 290,10"/>
+          <circle class="spark-dot cooldot" cx="290" cy="10" r="4"/>
+        </svg>
+        <p class="card-note">The rate of rise has roughly doubled since satellite altimetry began — now about 4.5&nbsp;mm each year.</p>
+      </article>
+
+      <article class="card">
+        <h3>Arctic sea ice</h3>
+        <p class="card-value">4.28 <span>M&nbsp;km², Sept. minimum</span></p>
+        <svg class="spark" viewBox="0 0 300 90" role="img" aria-label="Line chart: Arctic September sea ice extent falling from about 7 million square kilometres in 1980 to 4.28 million in 2024">
+          <polyline class="spark-line coolline" points="10,12 50,20 90,24 130,38 170,54 210,58 250,66 290,74"/>
+          <circle class="spark-dot cooldot" cx="290" cy="74" r="4"/>
+        </svg>
+        <p class="card-note">Late-summer ice cover has shrunk by roughly 40&nbsp;percent since 1980, remaking an entire ocean.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ THRESHOLD ============ -->
+  <section class="section" id="threshold" aria-labelledby="threshold-title">
+    <p class="eyebrow">Section 02</p>
+    <h2 id="threshold-title">The line we drew</h2>
+    <p class="section-lede">
+      Global mean surface temperature, 1880–2024, relative to the 1850–1900 baseline.
+      The red line is the 1.5&nbsp;°C guardrail of the Paris Agreement. One hot year above
+      it is weather; a decade above it is a different planet.
+    </p>
+
+    <figure class="chart-frame">
+      <svg class="big-chart" viewBox="0 0 720 340" role="img"
+           aria-label="Line chart of global temperature anomaly from 1880 to 2024. The line wanders near zero until 1980, then climbs steeply, touching the 1.5 degree threshold line in 2024.">
+        <!-- gridlines: y scale 0°C at y=280, 1.5°C at y=70, i.e. 140px per °C -->
+        <line class="grid" x1="60" y1="280" x2="700" y2="280"/>
+        <line class="grid" x1="60" y1="210" x2="700" y2="210"/>
+        <line class="grid" x1="60" y1="140" x2="700" y2="140"/>
+        <line class="threshold-line" x1="60" y1="70" x2="700" y2="70"/>
+        <text class="axis-label" x="52" y="284" text-anchor="end">0.0°</text>
+        <text class="axis-label" x="52" y="214" text-anchor="end">0.5°</text>
+        <text class="axis-label" x="52" y="144" text-anchor="end">1.0°</text>
+        <text class="axis-label threshold-label" x="52" y="74" text-anchor="end">1.5°</text>
+        <text class="axis-label" x="60" y="310">1880</text>
+        <text class="axis-label" x="273" y="310">1930</text>
+        <text class="axis-label" x="487" y="310">1980</text>
+        <text class="axis-label" x="700" y="310" text-anchor="end">2024</text>
+        <!-- anomaly trace: x = 60 + (year-1880)*(640/144); y = 280 - anomaly*140 -->
+        <path class="anomaly-path" fill="none" d="
+          M 60,297  L 104,290  L 149,287  L 193,294  L 238,283
+          L 282,262  L 327,278  L 371,273  L 416,276  L 460,266
+          L 505,238  L 549,224  L 594,196  L 638,154  L 660,105
+          L 682,77   L 700,63"/>
+        <circle class="anomaly-now" cx="700" cy="63" r="5"/>
+        <text class="now-label" x="694" y="46" text-anchor="end">2024 · +1.55°</text>
+      </svg>
+      <figcaption>
+        Decadal means with recent single years; anomalies in °C relative to 1850–1900.
+        Crossing the guardrail once does not break the Paris goal — that is judged on a
+        twenty-year average — but the margin for holding it is now measured in a handful
+        of years of current emissions.
+      </figcaption>
+    </figure>
+
+    <div class="stripe-band" role="img" aria-label="Warming stripes: a band of colour for each year from 1880 to 2024, shifting from cool blues to deep reds"></div>
+    <p class="stripe-caption">One stripe per year, 1880 → 2024. Blue is cooler than the baseline, red is warmer.</p>
+  </section>
+
+  <!-- ============ OUTLOOK ============ -->
+  <section class="section" id="outlook" aria-labelledby="outlook-title">
+    <p class="eyebrow">Section 03</p>
+    <h2 id="outlook-title">The outlook</h2>
+    <p class="section-lede">
+      The future is not a single number — it is a choice between emission pathways.
+      Pick a pathway to see the central estimate of warming by 2100 and what it means
+      on the ground.
+    </p>
+
+    <div class="scenario-picker" role="group" aria-label="Choose an emissions pathway">
+      <button type="button" class="scenario-btn" data-scenario="low" aria-pressed="false">Deep cuts</button>
+      <button type="button" class="scenario-btn is-active" data-scenario="current" aria-pressed="true">Current policies</button>
+      <button type="button" class="scenario-btn" data-scenario="high" aria-pressed="false">High emissions</button>
+    </div>
+
+    <div class="scenario-panel" aria-live="polite">
+      <p class="scenario-figure"><span id="scenario-temp">+2.7</span><span class="unit">°C by 2100</span></p>
+      <p class="scenario-name" id="scenario-name">Current policies</p>
+      <p class="scenario-desc" id="scenario-desc">
+        Policies already on the books bend the curve but do not hold the line. Around
+        +2.7&nbsp;°C, most warm-water coral reefs are lost, extreme heat that was once a
+        1-in-50-year event arrives most summers, and hundreds of millions of people face
+        chronic water stress.
+      </p>
+      <ul class="scenario-facts">
+        <li><strong id="fact-heat">×14</strong> more frequent extreme heat events</li>
+        <li><strong id="fact-sea">0.6&nbsp;m</strong> likely sea-level rise by 2100</li>
+        <li><strong id="fact-ice">1-in-3</strong> odds of an ice-free Arctic September</li>
+      </ul>
+    </div>
+
+    <div class="outlook-prose">
+      <h3>What the numbers agree on</h3>
+      <p>
+        Every tenth of a degree matters, in both directions. The difference between
+        1.5&nbsp;°C and 2&nbsp;°C is roughly twice the number of people exposed to severe
+        heat, ten more centimetres of sea by 2100, and the difference between damaged
+        reefs and vanished ones. Nothing about the physics rewards despair: warming
+        stops within years of emissions reaching net zero.
+      </p>
+      <p>
+        The remaining carbon budget for a 50-percent chance of holding 1.5&nbsp;°C is
+        about 200 gigatonnes of CO₂ — five years of current emissions. Overshoot is now
+        likely; how far, and for how long, is still being decided. That decision is the
+        subject of the next section.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ ACT ============ -->
+  <section class="section" id="act" aria-labelledby="act-title">
+    <p class="eyebrow">Section 04</p>
+    <h2 id="act-title">Legible, collective action</h2>
+    <p class="section-lede">
+      Individual arithmetic matters most where it compounds into systems. These are the
+      levers with the largest measured effect, ordered by scale.
+    </p>
+
+    <ol class="action-list">
+      <li>
+        <h3>Move the money</h3>
+        <p>Energy transition investment passed $2&nbsp;trillion in 2024 — but needs to
+        roughly double. Where pensions, banks, and public budgets point is the single
+        largest signal a person or institution controls.</p>
+      </li>
+      <li>
+        <h3>Electrify the big four</h3>
+        <p>Heating, driving, cooking, and industry heat account for most direct fossil
+        use. Each heat pump, EV, and induction range retires a small combustion source
+        for decades.</p>
+      </li>
+      <li>
+        <h3>Vote the grid</h3>
+        <p>Permitting rules, grid build-out, and carbon pricing are set by people who
+        are elected. Climate outcomes are decided in planning meetings more often than
+        in supermarkets.</p>
+      </li>
+      <li>
+        <h3>Keep the record honest</h3>
+        <p>Observatories exist because measurement is the precondition of accountability.
+        Support open climate data, and cite it — dense signals only drive action when
+        they stay legible.</p>
+      </li>
+    </ol>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p class="brand-mark" aria-hidden="true">1.5°</p>
+  <p>
+    <strong>One Point Five</strong> — a climate data observatory.
+    Figures reflect the published observational record through 2024 and IPCC AR6
+    assessed ranges; this is a static exhibit and fetches nothing at runtime.
+  </p>
+  <nav aria-label="Footer">
+    <a href="#signals">Signals</a>
+    <a href="#threshold">Threshold</a>
+    <a href="#outlook">Outlook</a>
+    <a href="#act">Act</a>
+    <a href="#top">Back to top</a>
+  </nav>
+</footer>
+</body>
+</html>

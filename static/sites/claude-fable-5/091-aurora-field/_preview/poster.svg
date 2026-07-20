@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Aurora Field — A darker sky. A clearer universe.">
+  <defs>
+    <radialGradient id="sky" cx="50%" cy="0%" r="110%">
+      <stop offset="0%" stop-color="#0d1b33"/>
+      <stop offset="65%" stop-color="#060b18"/>
+      <stop offset="100%" stop-color="#04070f"/>
+    </radialGradient>
+    <linearGradient id="curtainA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#52e8a4" stop-opacity="0.85"/>
+      <stop offset="55%" stop-color="#35c8c0" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#35c8c0" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="curtainB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8f7bff" stop-opacity="0.7"/>
+      <stop offset="60%" stop-color="#52e8a4" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#52e8a4" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="titleInk" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e8f0f6"/>
+      <stop offset="70%" stop-color="#52e8a4"/>
+      <stop offset="100%" stop-color="#35c8c0"/>
+    </linearGradient>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#sky)"/>
+
+  <!-- aurora curtains -->
+  <g filter="url(#soft)">
+    <path d="M-80 40 C 160 -60 260 220 470 120 C 640 40 700 260 900 170 C 1050 100 1180 200 1280 90 L 1280 460 C 1000 380 760 470 520 400 C 320 340 100 420 -80 350 Z" fill="url(#curtainA)"/>
+    <path d="M-60 160 C 200 90 420 320 640 220 C 830 130 1020 330 1260 210 L 1260 520 C 980 470 700 560 420 480 C 220 420 60 500 -60 440 Z" fill="url(#curtainB)" opacity="0.75"/>
+  </g>
+  <!-- crisp auroral rays -->
+  <g stroke="#52e8a4" stroke-linecap="round" opacity="0.5">
+    <path d="M300 90 L 268 330" stroke-width="7" opacity="0.55"/>
+    <path d="M420 60 L 400 300" stroke-width="10" opacity="0.4"/>
+    <path d="M700 110 L 690 330" stroke-width="8" opacity="0.5"/>
+    <path d="M880 80 L 900 310" stroke-width="6" opacity="0.45"/>
+    <path d="M1020 140 L 1044 340" stroke-width="9" opacity="0.35"/>
+  </g>
+
+  <!-- stars -->
+  <g fill="#e8f0f6">
+    <circle cx="130" cy="120" r="2.4"/>
+    <circle cx="230" cy="250" r="1.6" opacity="0.7"/>
+    <circle cx="360" cy="170" r="2" opacity="0.8"/>
+    <circle cx="540" cy="90" r="1.7" opacity="0.7"/>
+    <circle cx="610" cy="260" r="2.4"/>
+    <circle cx="760" cy="150" r="1.5" opacity="0.6"/>
+    <circle cx="860" cy="240" r="2.1" opacity="0.8"/>
+    <circle cx="990" cy="90" r="1.8" opacity="0.7"/>
+    <circle cx="1090" cy="200" r="2.5"/>
+    <circle cx="1150" cy="330" r="1.6" opacity="0.6"/>
+    <circle cx="80" cy="330" r="1.9" opacity="0.7"/>
+    <circle cx="470" cy="320" r="1.5" opacity="0.6"/>
+    <path d="M940 380 l3.5 9.5 9.5 3.5 -9.5 3.5 -3.5 9.5 -3.5 -9.5 -9.5 -3.5 9.5 -3.5 Z" fill="#b4dcff"/>
+    <path d="M180 420 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3 Z" fill="#b4dcff" opacity="0.85"/>
+  </g>
+
+  <!-- ridge silhouette with observatory dome -->
+  <path d="M0 700 L 210 626 L 350 668 L 470 640 L 640 690 L 800 636 L 960 676 L 1110 640 L 1200 668 L 1200 900 L 0 900 Z" fill="#04070f"/>
+  <g fill="#0b1322" stroke="#52e8a4" stroke-width="3">
+    <path d="M166 626 a44 44 0 0 1 88 0 Z"/>
+    <rect x="158" y="626" width="104" height="26" stroke="none" fill="#0b1322"/>
+    <line x1="210" y1="582" x2="210" y2="626" stroke-width="4"/>
+  </g>
+  <line x1="210" y1="580" x2="286" y2="420" stroke="#52e8a4" stroke-width="2.5" stroke-dasharray="2 10" opacity="0.8"/>
+
+  <!-- type block -->
+  <g text-anchor="middle" font-family="'Avenir Next','Segoe UI','Helvetica Neue',Arial,sans-serif">
+    <text x="600" y="524" font-size="26" letter-spacing="9" fill="#52e8a4" font-weight="600">LATITUDE 64.1466° N</text>
+    <text x="600" y="622" font-size="104" font-weight="700" letter-spacing="2" fill="url(#titleInk)">AURORA FIELD</text>
+    <text x="600" y="690" font-size="32" fill="#9db0c4" font-family="Georgia,'Times New Roman',serif" font-style="italic">A darker sky. A clearer universe.</text>
+  </g>
+
+  <!-- footer rule -->
+  <g>
+    <line x1="420" y1="780" x2="780" y2="780" stroke="rgba(140,180,220,0.35)" stroke-width="1.5"/>
+    <text x="600" y="822" text-anchor="middle" font-size="21" letter-spacing="5.5" fill="#9db0c4" font-family="'Avenir Next','Segoe UI','Helvetica Neue',Arial,sans-serif">RESIDENCIES · PUBLIC NIGHTS · ASTRONOMY</text>
+  </g>
+</svg>

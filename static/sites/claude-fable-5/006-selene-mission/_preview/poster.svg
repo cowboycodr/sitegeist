@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="poster-title">
+  <title id="poster-title">Selene Mission — The moon is our next address.</title>
+  <defs>
+    <radialGradient id="sky" cx="60%" cy="20%" r="110%">
+      <stop offset="0%" stop-color="#141d34"/>
+      <stop offset="60%" stop-color="#0a0e1a"/>
+      <stop offset="100%" stop-color="#070a12"/>
+    </radialGradient>
+    <radialGradient id="moon" cx="38%" cy="32%" r="80%">
+      <stop offset="0%" stop-color="#f2f5fb"/>
+      <stop offset="55%" stop-color="#c9d2e2"/>
+      <stop offset="100%" stop-color="#828da4"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#sky)"/>
+
+  <!-- stars -->
+  <g fill="#d9dfeb">
+    <circle cx="90" cy="110" r="3" opacity="0.8"/>
+    <circle cx="220" cy="70" r="2" opacity="0.55"/>
+    <circle cx="340" cy="170" r="2.5" opacity="0.7"/>
+    <circle cx="520" cy="90" r="2" opacity="0.5"/>
+    <circle cx="700" cy="60" r="3" opacity="0.75"/>
+    <circle cx="1050" cy="120" r="2.5" opacity="0.7"/>
+    <circle cx="1130" cy="300" r="2" opacity="0.5"/>
+    <circle cx="150" cy="320" r="2" opacity="0.5"/>
+    <circle cx="70" cy="520" r="2.5" opacity="0.6"/>
+    <circle cx="1110" cy="540" r="3" opacity="0.7"/>
+    <circle cx="980" cy="80" r="2" opacity="0.5"/>
+    <circle cx="420" cy="260" r="2" opacity="0.55"/>
+    <circle cx="870" cy="200" r="2" opacity="0.6"/>
+    <circle cx="60" cy="740" r="2" opacity="0.45"/>
+    <circle cx="1150" cy="760" r="2.5" opacity="0.55"/>
+  </g>
+
+  <!-- orbit ring + orbiter -->
+  <g transform="rotate(-20 790 350)">
+    <ellipse cx="790" cy="350" rx="330" ry="112" fill="none" stroke="#e8b45a"
+             stroke-width="2.5" stroke-dasharray="4 10" opacity="0.85"/>
+    <circle cx="1120" cy="350" r="9" fill="#e8b45a"/>
+  </g>
+
+  <!-- moon -->
+  <circle cx="790" cy="350" r="210" fill="url(#moon)"/>
+  <circle cx="716" cy="282" r="40" fill="#a9b3c8" opacity="0.75"/>
+  <circle cx="858" cy="396" r="25" fill="#a9b3c8" opacity="0.65"/>
+  <circle cx="772" cy="448" r="15" fill="#9aa5bc" opacity="0.7"/>
+  <circle cx="876" cy="256" r="18" fill="#b3bcd0" opacity="0.6"/>
+  <circle cx="672" cy="398" r="11" fill="#9aa5bc" opacity="0.6"/>
+
+  <!-- habitat lander at pole -->
+  <g transform="translate(790 214)">
+    <path d="M-24 0 L24 0 L15 -38 L-15 -38 Z" fill="#101625" stroke="#e8b45a" stroke-width="3"/>
+    <path d="M-24 0 L-38 20 M24 0 L38 20" stroke="#e8b45a" stroke-width="3" fill="none"/>
+    <line x1="0" y1="-38" x2="0" y2="-62" stroke="#e8b45a" stroke-width="3"/>
+    <rect x="-20" y="-76" width="16" height="12" rx="2" fill="#1b2437" stroke="#e8b45a" stroke-width="2"/>
+    <rect x="4" y="-76" width="16" height="12" rx="2" fill="#1b2437" stroke="#e8b45a" stroke-width="2"/>
+  </g>
+
+  <!-- text block -->
+  <g font-family="'Avenir Next', Avenir, 'Segoe UI', system-ui, sans-serif">
+    <text x="96" y="620" fill="#e8b45a" font-size="26" font-weight="700"
+          letter-spacing="9">LUNAR HABITAT · M01</text>
+    <text x="92" y="704" fill="#d9dfeb" font-size="88" font-weight="800" letter-spacing="1">Selene Mission</text>
+    <text x="96" y="768" fill="#97a1b8" font-size="34">The moon is our next address.</text>
+    <line x1="96" y1="806" x2="400" y2="806" stroke="#232d44" stroke-width="2"/>
+    <text x="96" y="846" fill="#97a1b8" font-size="22" letter-spacing="3">AEROSPACE · AUTONOMOUS SURFACE HABITAT</text>
+  </g>
+</svg>

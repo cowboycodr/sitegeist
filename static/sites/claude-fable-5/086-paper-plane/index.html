@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'">
+<title>Paper Plane — Go somewhere worth writing down.</title>
+<meta name="description" content="A slow-travel journal publishing intimate city guides, train routes, and stories from the road.">
+<style>
+:root{
+  --paper:#f6f0e4;
+  --paper-deep:#efe6d3;
+  --ink:#28241c;
+  --ink-soft:#5c5442;
+  --rust:#b5502a;
+  --rust-deep:#8f3c1d;
+  --sky:#3e6b74;
+  --line:#d8ccb4;
+  --gold:#c8973f;
+  --serif:"Georgia","Iowan Old Style","Times New Roman",serif;
+  --mono:"Courier New","Courier",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:1.0625rem;
+  line-height:1.65;
+  overflow-x:clip;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(200,151,63,.07), transparent 42%),
+    radial-gradient(circle at 90% 90%, rgba(62,107,116,.06), transparent 40%);
+}
+a{color:var(--rust)}
+a:focus-visible,button:focus-visible,summary:focus-visible{
+  outline:3px solid var(--sky);
+  outline-offset:3px;
+  border-radius:2px;
+}
+.skip-link{
+  position:absolute;left:-999px;top:0;
+  background:var(--ink);color:var(--paper);
+  padding:.6rem 1rem;z-index:99;text-decoration:none;
+}
+.skip-link:focus{left:.75rem;top:.75rem}
+.wrap{max-width:64rem;margin:0 auto;padding:0 1.25rem}
+
+/* ---------- header ---------- */
+header.masthead{
+  border-bottom:1px solid var(--line);
+  background:rgba(246,240,228,.94);
+  position:sticky;top:0;z-index:10;
+}
+.masthead-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;padding:.7rem 0;flex-wrap:wrap;
+}
+.brand{
+  display:flex;align-items:center;gap:.6rem;
+  text-decoration:none;color:var(--ink);
+}
+.brand svg{flex:none}
+.brand-name{
+  font-size:1.35rem;letter-spacing:.02em;font-weight:700;
+}
+.brand-name em{font-style:italic;font-weight:400;color:var(--rust)}
+nav.top ul{display:flex;gap:1.1rem;list-style:none;flex-wrap:wrap}
+nav.top a{
+  text-decoration:none;color:var(--ink-soft);
+  font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:.35rem 0;border-bottom:2px solid transparent;
+}
+nav.top a:hover{color:var(--rust);border-bottom-color:var(--rust)}
+
+/* ---------- hero ---------- */
+.hero{
+  padding:3.5rem 0 3rem;
+  border-bottom:1px solid var(--line);
+  position:relative;
+}
+.eyebrow{
+  font-family:var(--mono);font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--rust-deep);
+  display:inline-flex;align-items:center;gap:.6rem;
+  border:1px solid var(--rust);border-radius:999px;
+  padding:.35rem .95rem;background:#fdf9ef;
+}
+.hero h1{
+  font-size:clamp(2.4rem,7vw,4.4rem);
+  line-height:1.05;font-weight:700;letter-spacing:-.015em;
+  margin:1.1rem 0 .9rem;max-width:22ch;
+}
+.hero h1 em{font-style:italic;color:var(--sky)}
+.hero .tagline{
+  font-size:clamp(1.1rem,2.4vw,1.35rem);
+  font-style:italic;color:var(--ink-soft);max-width:38ch;
+}
+.hero-actions{display:flex;gap:.9rem;margin-top:2rem;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--mono);font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;padding:.85rem 1.4rem;border-radius:3px;
+  border:2px solid var(--ink);cursor:pointer;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 3px 0 var(--ink)}
+.btn-primary{background:var(--rust);border-color:var(--rust-deep);color:#fdf6ea}
+.btn-secondary{background:transparent;color:var(--ink)}
+.hero-plane{
+  position:absolute;right:0;top:2.2rem;width:min(34vw,270px);opacity:.9;
+  pointer-events:none;
+}
+@media (max-width:700px){.hero-plane{width:130px;top:auto;bottom:.5rem;opacity:.45}}
+
+/* ---------- dispatch article ---------- */
+.section{padding:3.5rem 0;border-bottom:1px solid var(--line)}
+.section-label{
+  font-family:var(--mono);font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--sky);margin-bottom:.6rem;
+}
+.section h2{font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.15;margin-bottom:.4rem}
+.byline{
+  font-family:var(--mono);font-size:.8rem;color:var(--ink-soft);
+  margin-bottom:2rem;letter-spacing:.05em;
+}
+.dispatch-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:2.5rem}
+@media (min-width:860px){.dispatch-grid{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}}
+.prose p{margin-bottom:1.2rem;max-width:62ch}
+.prose p:first-of-type::first-letter{
+  font-size:3.4em;float:left;line-height:.82;
+  padding:.06em .12em 0 0;color:var(--rust);font-weight:700;
+}
+.prose blockquote{
+  border-left:3px solid var(--gold);
+  padding:.4rem 0 .4rem 1.2rem;margin:1.6rem 0;
+  font-style:italic;font-size:1.15rem;color:var(--ink-soft);max-width:52ch;
+}
+.marginalia{
+  background:var(--paper-deep);border:1px solid var(--line);border-radius:6px;
+  padding:1.4rem;align-self:start;position:relative;
+}
+.marginalia::before{
+  content:"";position:absolute;inset:6px;border:1px dashed var(--gold);
+  border-radius:4px;pointer-events:none;
+}
+.marginalia h3{
+  font-family:var(--mono);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--rust-deep);margin-bottom:1rem;
+}
+.marginalia dl{display:grid;grid-template-columns:auto 1fr;gap:.45rem .9rem;font-size:.95rem}
+.marginalia dt{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);padding-top:.15em}
+.marginalia dd{margin:0}
+.stamp{
+  margin-top:1.4rem;display:inline-block;
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--sky);border:2px solid var(--sky);border-radius:6px;
+  padding:.4rem .7rem;transform:rotate(-3deg);opacity:.85;
+}
+
+/* ---------- map ---------- */
+.map-frame{
+  margin-top:2rem;border:1px solid var(--line);border-radius:8px;overflow:hidden;
+  background:#e9f0ee;
+}
+.map-frame svg{display:block;width:100%;height:auto}
+.map-caption{
+  font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-soft);padding:.7rem 1rem;background:var(--paper-deep);
+  border-top:1px solid var(--line);
+}
+.map-legend{display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:1rem;font-size:.9rem;color:var(--ink-soft)}
+.map-legend span{display:inline-flex;align-items:center;gap:.45rem}
+.dot{width:.75rem;height:.75rem;border-radius:50%;display:inline-block;flex:none}
+.dot-rust{background:var(--rust)}
+.dot-sky{background:var(--sky)}
+.dot-gold{background:var(--gold)}
+
+/* ---------- rail routes ---------- */
+.routes{list-style:none;display:grid;gap:0;margin-top:2rem;position:relative}
+.routes::before{
+  content:"";position:absolute;left:.55rem;top:.9rem;bottom:.9rem;
+  width:2px;background:repeating-linear-gradient(to bottom,var(--sky) 0 8px,transparent 8px 14px);
+}
+.routes li{
+  position:relative;padding:0 0 1.8rem 2.2rem;
+}
+.routes li:last-child{padding-bottom:0}
+.routes li::before{
+  content:"";position:absolute;left:0;top:.35rem;
+  width:1.15rem;height:1.15rem;border-radius:50%;
+  background:var(--paper);border:3px solid var(--rust);
+}
+.route-name{font-size:1.2rem;font-weight:700}
+.route-meta{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin:.2rem 0 .35rem}
+.routes p{color:var(--ink-soft);max-width:56ch}
+
+/* ---------- archive ---------- */
+.archive-grid{
+  display:grid;gap:1.2rem;margin-top:2rem;
+  grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+}
+.card{
+  border:1px solid var(--line);border-radius:6px;background:#fbf6ea;
+  padding:1.3rem;display:flex;flex-direction:column;gap:.5rem;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 6px 14px rgba(40,36,28,.1)}
+.card .no{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rust-deep)}
+.card h3{font-size:1.25rem;line-height:1.2}
+.card h3 a{text-decoration:none;color:var(--ink)}
+.card h3 a:hover{color:var(--rust)}
+.card p{font-size:.95rem;color:var(--ink-soft)}
+.card .mode{margin-top:auto;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sky)}
+
+/* ---------- footer ---------- */
+footer{padding:3rem 0 3.5rem;text-align:center}
+footer .fold{margin:0 auto 1.2rem;width:70px}
+footer p{color:var(--ink-soft);max-width:46ch;margin:0 auto .4rem}
+footer .fine{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-top:1.6rem}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#dispatch">Skip to the dispatch</a>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <a class="brand" href="#top" aria-label="Paper Plane, home">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
+        <path d="M3 16 L31 5 L20 30 L15 20 Z" fill="#b5502a"/>
+        <path d="M15 20 L31 5 L17 24 Z" fill="#8f3c1d"/>
+      </svg>
+      <span class="brand-name">Paper <em>Plane</em></span>
+    </a>
+    <nav class="top" aria-label="Site">
+      <ul>
+        <li><a href="#dispatch">Dispatch</a></li>
+        <li><a href="#map">Map</a></li>
+        <li><a href="#rails">Rails</a></li>
+        <li><a href="#archive">Archive</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ================= HERO ================= -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <p class="eyebrow">Dispatch No. 28 / Tbilisi</p>
+      <h1 id="hero-title">Go somewhere <em>worth writing down.</em></h1>
+      <p class="tagline">A slow-travel journal of intimate city guides, train routes, and stories from the road.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#dispatch">Read the dispatch</a>
+        <a class="btn btn-secondary" href="#map">Open the map</a>
+      </div>
+    </div>
+    <svg class="hero-plane" viewBox="0 0 260 180" aria-hidden="true">
+      <path d="M10 150 C 60 120, 120 130, 160 96 S 220 40, 246 22" fill="none" stroke="#3e6b74" stroke-width="2" stroke-dasharray="2 9" stroke-linecap="round"/>
+      <g transform="translate(196,26) rotate(24)">
+        <path d="M0 18 L54 0 L34 44 L24 27 Z" fill="#b5502a"/>
+        <path d="M24 27 L54 0 L28 34 Z" fill="#8f3c1d"/>
+        <path d="M0 18 L34 12 L24 27 Z" fill="#d3693c"/>
+      </g>
+    </svg>
+  </section>
+
+  <!-- ================= DISPATCH ================= -->
+  <section class="section" id="dispatch" aria-labelledby="dispatch-title">
+    <div class="wrap">
+      <p class="section-label">Dispatch No. 28</p>
+      <h2 id="dispatch-title">Tbilisi: The City That Pours Slowly</h2>
+      <p class="byline">Filed from Sololaki, Georgia — by a slow hand, over three weeks</p>
+      <div class="dispatch-grid">
+        <article class="prose">
+          <p>The first thing Tbilisi teaches you is that a courtyard is a room. Push past any leaning door in Sololaki and the street noise drops away: laundry strung between carved wooden balconies, a fig tree nobody planted, a grandmother who nods as if she has been expecting you since spring. The city does not open all at once. It pours slowly, like the amber wine here that spends months underground in clay before anyone is allowed to taste it.</p>
+          <p>We spent the first week doing almost nothing, which in Tbilisi is a legitimate itinerary. Mornings at the sulfur baths in Abanotubani, where the domed brick roofs steam at street level and an attendant scrubs a year of airports off your back. Afternoons climbing to Narikala fortress the long way, through stairways that are half public street and half somebody's garden. Evenings at a table that keeps growing — Georgians treat a supra, the traditional feast, less like a meal and more like a slow-moving argument in favor of being alive.</p>
+          <blockquote>"You cannot rush a toast," the tamada told us, refilling the glasses. "The wine waited eight months in the ground. You can wait three minutes for the words."</blockquote>
+          <p>The dry bridge market sells brass irons, Soviet cameras, and single chandelier crystals, priced according to how much the seller likes your face. The Fabrika courtyard hums with people who came for a week and stayed a year. And the metro — deep, fast, thirty tetri a ride — drops you at Station Square, where the night train to Zugdidi idles like a promise.</p>
+          <p>Go in October, when the grape trucks roll in from Kakheti and the whole city smells faintly of fermentation. Book nothing in advance except patience. Tbilisi rewards the traveler who arrives with an unfinished notebook and no particular plan for filling it.</p>
+        </article>
+        <aside class="marginalia" aria-label="Field notes">
+          <h3>Field Notes</h3>
+          <dl>
+            <dt>Stay</dt><dd>Sololaki or Vera — old balconies, walkable everything</dd>
+            <dt>Eat</dt><dd>Khinkali at a basement sakhinkle; twist, sip, never use a fork on the broth</dd>
+            <dt>Drink</dt><dd>Qvevri amber wine from Kakheti, by the unlabeled bottle</dd>
+            <dt>Bathe</dt><dd>Abanotubani sulfur domes, private room, order the scrub</dd>
+            <dt>Ride</dt><dd>Metro to Station Square; night train onward to Zugdidi</dd>
+            <dt>Pace</dt><dd>Three weeks minimum. One is an insult.</dd>
+          </dl>
+          <span class="stamp">Posted · TBS → You</span>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MAP ================= -->
+  <section class="section" id="map" aria-labelledby="map-title">
+    <div class="wrap">
+      <p class="section-label">The Map</p>
+      <h2 id="map-title">Old Tbilisi, on foot</h2>
+      <p>A hand-drawn sketch of the walk we kept repeating: river down the middle, baths at the bend, fortress on the hill. Distances are emotional, not to scale.</p>
+      <div class="map-frame">
+        <svg viewBox="0 0 800 460" role="img" aria-labelledby="map-svg-title map-svg-desc">
+          <title id="map-svg-title">Sketch map of Old Tbilisi</title>
+          <desc id="map-svg-desc">A stylized map showing the Mtkvari river curving through the city, with markers for the Sololaki district, Abanotubani sulfur baths, Narikala fortress, the Dry Bridge market, Fabrika, and Station Square, connected by a dotted walking route.</desc>
+          <rect width="800" height="460" fill="#e9f0ee"/>
+          <!-- river -->
+          <path d="M-10 300 C 150 260, 260 320, 400 270 S 640 160, 810 190" fill="none" stroke="#8fb6bd" stroke-width="34" stroke-linecap="round" opacity=".8"/>
+          <path d="M-10 300 C 150 260, 260 320, 400 270 S 640 160, 810 190" fill="none" stroke="#3e6b74" stroke-width="2" stroke-dasharray="1 10" stroke-linecap="round"/>
+          <text x="330" y="312" font-family="Courier New,monospace" font-size="15" fill="#3e6b74" font-style="italic" transform="rotate(-8 330 312)">Mtkvari River</text>
+          <!-- fortress hill -->
+          <path d="M60 420 Q 150 330 250 420 Z" fill="#d8ccb4" opacity=".8"/>
+          <!-- walking route -->
+          <path d="M140 385 C 200 360, 250 380, 310 350 C 370 322, 380 300, 430 296 C 500 290, 520 240, 585 235 C 640 231, 660 205, 700 170" fill="none" stroke="#b5502a" stroke-width="3" stroke-dasharray="3 9" stroke-linecap="round"/>
+          <!-- markers -->
+          <g font-family="Georgia,serif" font-size="17" fill="#28241c">
+            <circle cx="140" cy="385" r="9" fill="#b5502a" stroke="#fdf6ea" stroke-width="3"/>
+            <text x="118" y="418">Narikala Fortress</text>
+            <circle cx="310" cy="350" r="9" fill="#c8973f" stroke="#fdf6ea" stroke-width="3"/>
+            <text x="262" y="384">Abanotubani Baths</text>
+            <circle cx="430" cy="296" r="9" fill="#b5502a" stroke="#fdf6ea" stroke-width="3"/>
+            <text x="398" y="330">Sololaki</text>
+            <circle cx="585" cy="235" r="9" fill="#c8973f" stroke="#fdf6ea" stroke-width="3"/>
+            <text x="510" y="268">Dry Bridge Market</text>
+            <circle cx="700" cy="170" r="9" fill="#3e6b74" stroke="#fdf6ea" stroke-width="3"/>
+            <text x="628" y="150">Station Square</text>
+            <circle cx="620" cy="90" r="9" fill="#3e6b74" stroke="#fdf6ea" stroke-width="3"/>
+            <text x="580" y="70">Fabrika</text>
+          </g>
+          <path d="M700 170 C 680 140, 650 115, 620 90" fill="none" stroke="#3e6b74" stroke-width="2.5" stroke-dasharray="3 8" stroke-linecap="round"/>
+          <!-- compass -->
+          <g transform="translate(742,54)">
+            <circle r="26" fill="#fdf6ea" stroke="#28241c" stroke-width="2"/>
+            <path d="M0 -18 L5 6 L0 1 L-5 6 Z" fill="#b5502a"/>
+            <text y="-32" text-anchor="middle" font-family="Courier New,monospace" font-size="13" fill="#28241c">N</text>
+          </g>
+        </svg>
+        <p class="map-caption">Fig. 1 — The Sololaki loop, roughly 4 km, best walked with no destination</p>
+      </div>
+      <div class="map-legend" aria-label="Map legend">
+        <span><span class="dot dot-rust" aria-hidden="true"></span> Walking route</span>
+        <span><span class="dot dot-gold" aria-hidden="true"></span> Stop &amp; linger</span>
+        <span><span class="dot dot-sky" aria-hidden="true"></span> Onward connections</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RAILS ================= -->
+  <section class="section" id="rails" aria-labelledby="rails-title">
+    <div class="wrap">
+      <p class="section-label">Train Routes</p>
+      <h2 id="rails-title">Rails out of Tbilisi</h2>
+      <p>Every dispatch ends at a station. These are the lines we rode, in the order we loved them.</p>
+      <ol class="routes">
+        <li>
+          <span class="route-name">Tbilisi → Zugdidi, night train</span>
+          <p class="route-meta">Dep. 21:45 · Arr. 06:15 · Second-class sleeper</p>
+          <p>Fall asleep to the clatter leaving Station Square, wake up in Mingrelia with the Caucasus pink out the window. The samovar at the end of the carriage runs all night.</p>
+        </li>
+        <li>
+          <span class="route-name">Tbilisi → Batumi, Stadler day train</span>
+          <p class="route-meta">Dep. 08:00 · Arr. 13:05 · Window seat, left side</p>
+          <p>Five hours from dry Kartli hills to subtropical coast. The moment the Black Sea appears, the whole carriage leans left at once.</p>
+        </li>
+        <li>
+          <span class="route-name">Tbilisi → Yerevan, overnight international</span>
+          <p class="route-meta">Dep. 20:20 · Arr. 06:55 · Bring your own tea</p>
+          <p>A border crossing at 2 a.m., a stamp by flashlight, and breakfast under Mount Ararat. Slow in the best sense of the word.</p>
+        </li>
+        <li>
+          <span class="route-name">Borjomi branch line, for no reason at all</span>
+          <p class="route-meta">Dep. whenever · Arr. eventually · Standing room fine</p>
+          <p>A creaking two-car elektrichka into a spa-town gorge. Fill a bottle at the mineral spring, ride it straight back. That is the entire itinerary and it is enough.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= ARCHIVE ================= -->
+  <section class="section" id="archive" aria-labelledby="archive-title">
+    <div class="wrap">
+      <p class="section-label">From the Archive</p>
+      <h2 id="archive-title">Earlier dispatches</h2>
+      <div class="archive-grid">
+        <article class="card">
+          <span class="no">Dispatch No. 27</span>
+          <h3><a href="#archive">Trieste: A Harbor for Unfinished Books</a></h3>
+          <p>Coffee houses that outlived three empires, and the bora wind that edits everything you write.</p>
+          <span class="mode">By rail · Vienna line</span>
+        </article>
+        <article class="card">
+          <span class="no">Dispatch No. 26</span>
+          <h3><a href="#archive">Matsumoto: The Slow Side of the Alps</a></h3>
+          <p>A black castle, wasabi fields, and the local line that stops for herons.</p>
+          <span class="mode">By rail · Shinonoi line</span>
+        </article>
+        <article class="card">
+          <span class="no">Dispatch No. 25</span>
+          <h3><a href="#archive">Oaxaca: Ash, Corn, and Patience</a></h3>
+          <p>Three weeks of markets, mezcal palenques, and learning to wait for the tortilla to blister.</p>
+          <span class="mode">By road · Sierra Norte</span>
+        </article>
+        <article class="card">
+          <span class="no">Dispatch No. 24</span>
+          <h3><a href="#archive">Porto: The City Reads Itself to Sleep</a></h3>
+          <p>Tiled façades, riverside vinho verde, and a funicular that has never once hurried.</p>
+          <span class="mode">By rail · Douro line</span>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <svg class="fold" viewBox="0 0 70 46" aria-hidden="true">
+      <path d="M2 30 L68 4 L44 44 L32 24 Z" fill="#b5502a"/>
+      <path d="M32 24 L68 4 L38 34 Z" fill="#8f3c1d"/>
+    </svg>
+    <p><strong>Paper Plane</strong> is written slowly, by people who missed the fast train on purpose.</p>
+    <p>New dispatches fold themselves roughly once a month.</p>
+    <p class="fine">Paper Plane · A Slow-Travel Journal · Dispatch No. 28</p>
+  </div>
+</footer>
+
+<script src="sitegeist-bridge.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>

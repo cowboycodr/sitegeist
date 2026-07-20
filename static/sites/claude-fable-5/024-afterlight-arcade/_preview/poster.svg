@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="posterTitle">
+  <title id="posterTitle">Afterlight Arcade — One more run before sunrise.</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b0616"/>
+      <stop offset="0.62" stop-color="#1d0f38"/>
+      <stop offset="1" stop-color="#3a1257"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd447"/>
+      <stop offset="1" stop-color="#ff3ea5"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#12081f"/>
+      <stop offset="1" stop-color="#0b0616"/>
+    </linearGradient>
+  </defs>
+
+  <!-- night sky -->
+  <rect width="1200" height="900" fill="url(#sky)"/>
+
+  <!-- stars -->
+  <g fill="#efe9ff">
+    <circle cx="110" cy="90" r="3"/><circle cx="300" cy="150" r="2"/>
+    <circle cx="520" cy="70" r="2.5"/><circle cx="760" cy="130" r="2"/>
+    <circle cx="950" cy="60" r="3"/><circle cx="1100" cy="170" r="2"/>
+    <circle cx="200" cy="230" r="2"/><circle cx="1020" cy="260" r="2.5"/>
+    <circle cx="650" cy="40" r="2"/><circle cx="420" cy="200" r="2"/>
+  </g>
+
+  <!-- setting sun with slats -->
+  <g>
+    <circle cx="600" cy="540" r="190" fill="url(#sun)" opacity="0.95"/>
+    <g fill="#0b0616">
+      <rect x="400" y="560" width="400" height="12"/>
+      <rect x="400" y="592" width="400" height="16"/>
+      <rect x="400" y="630" width="400" height="20"/>
+      <rect x="400" y="676" width="400" height="26"/>
+    </g>
+  </g>
+
+  <!-- perspective grid floor -->
+  <rect x="0" y="620" width="1200" height="280" fill="url(#floor)"/>
+  <g stroke="#38f0ff" stroke-width="2" opacity="0.65">
+    <path d="M600 620 600 900"/>
+    <path d="M600 620 380 900"/><path d="M600 620 820 900"/>
+    <path d="M600 620 120 900"/><path d="M600 620 1080 900"/>
+    <path d="M600 620 -220 900"/><path d="M600 620 1420 900"/>
+    <path d="M0 648 1200 648"/><path d="M0 686 1200 686"/>
+    <path d="M0 736 1200 736"/><path d="M0 800 1200 800"/>
+    <path d="M0 878 1200 878"/>
+  </g>
+  <path d="M0 618 1200 618" stroke="#ff3ea5" stroke-width="4"/>
+
+  <!-- city silhouette on the horizon -->
+  <g fill="#160b2b">
+    <rect x="30" y="470" width="90" height="150"/>
+    <rect x="140" y="520" width="70" height="100"/>
+    <rect x="990" y="500" width="80" height="120"/>
+    <rect x="1090" y="450" width="80" height="170"/>
+  </g>
+  <g stroke="#38f0ff" stroke-width="3" opacity="0.8">
+    <path d="M30 470h90M140 520h70M990 500h80M1090 450h80"/>
+  </g>
+  <g fill="#ffd447" opacity="0.9">
+    <rect x="50" y="495" width="10" height="10"/><rect x="86" y="530" width="10" height="10"/>
+    <rect x="158" y="545" width="9" height="9"/><rect x="1012" y="525" width="10" height="10"/>
+    <rect x="1112" y="480" width="10" height="10"/><rect x="1140" y="540" width="10" height="10"/>
+  </g>
+
+  <!-- arcade cabinet silhouette -->
+  <g transform="translate(600 690)">
+    <path d="M-110 -170 110 -170 128 -80 128 150 -128 150 -128 -80Z" fill="#160b2b" stroke="#ff3ea5" stroke-width="5"/>
+    <rect x="-92" y="-146" width="184" height="96" rx="8" fill="#0b0616" stroke="#38f0ff" stroke-width="4"/>
+    <path d="M-74 -74 -34 -116 -6 -92 30 -128 74 -80" fill="none" stroke="#ffd447" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <rect x="-104" y="-28" width="208" height="52" rx="10" fill="#1d0f38" stroke="#38f0ff" stroke-width="3"/>
+    <rect x="-53" y="-56" width="8" height="30" rx="4" fill="#38f0ff"/>
+    <circle cx="-49" cy="-2" r="13" fill="#ff3ea5"/>
+    <circle cx="26" cy="-2" r="11" fill="#ffd447"/>
+    <circle cx="62" cy="-2" r="11" fill="#38f0ff"/>
+    <rect x="-104" y="52" width="208" height="18" rx="6" fill="#0b0616" stroke="#ff3ea5" stroke-width="3"/>
+  </g>
+
+  <!-- title block -->
+  <g text-anchor="middle" font-family="'Courier New', Courier, monospace">
+    <text x="600" y="128" font-size="30" letter-spacing="12" fill="#ffd447">INDEPENDENT GAMES UNIVERSE</text>
+    <text x="600" y="228" font-size="96" font-weight="bold" letter-spacing="6" fill="#efe9ff">AFTERLIGHT</text>
+    <text x="600" y="330" font-size="96" font-weight="bold" letter-spacing="24" fill="#ff3ea5">ARCADE</text>
+    <text x="600" y="398" font-size="34" letter-spacing="4" fill="#38f0ff">ONE MORE RUN BEFORE SUNRISE.</text>
+  </g>
+
+  <!-- press start marquee -->
+  <g transform="translate(600 852)" text-anchor="middle" font-family="'Courier New', Courier, monospace">
+    <rect x="-170" y="-34" width="340" height="52" rx="10" fill="#0b0616" stroke="#ffd447" stroke-width="3"/>
+    <text y="1" font-size="28" letter-spacing="8" fill="#ffd447">PRESS START</text>
+  </g>
+
+  <!-- scanline texture -->
+  <g stroke="#000000" stroke-width="2" opacity="0.1">
+    <path d="M0 12H1200M0 36H1200M0 60H1200M0 84H1200M0 108H1200M0 132H1200M0 156H1200M0 180H1200M0 204H1200M0 228H1200M0 252H1200M0 276H1200M0 300H1200M0 324H1200M0 348H1200M0 372H1200M0 396H1200M0 420H1200M0 444H1200M0 468H1200M0 492H1200M0 516H1200M0 540H1200M0 564H1200M0 588H1200M0 612H1200M0 636H1200M0 660H1200M0 684H1200M0 708H1200M0 732H1200M0 756H1200M0 780H1200M0 804H1200M0 828H1200M0 852H1200M0 876H1200"/>
+  </g>
+
+  <!-- frame -->
+  <rect x="14" y="14" width="1172" height="872" fill="none" stroke="#38f0ff" stroke-width="4" rx="18"/>
+</svg>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; media-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Folkways — Every song carries a place.</title>
+<meta name="description" content="A living archive of field recordings, oral histories, and traditional music from across the world.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#recordings">Skip to the recordings</a>
+
+<header class="site-header">
+  <a class="wordmark" href="#top" aria-label="Folkways, home">
+    <svg class="wordmark-glyph" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M8 16 Q11 9 14 16 T20 16 T26 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span>Folkways</span>
+  </a>
+  <nav class="site-nav" aria-label="Sections">
+    <a href="#recordings">Listen</a>
+    <a href="#map">Map</a>
+    <a href="#voices">Voices</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="eyebrow">Sounds from the archive</p>
+    <h1 id="hero-title">Folkways</h1>
+    <p class="tagline">Every song carries a place.</p>
+    <p class="lede">A living archive of field recordings, oral histories, and traditional music from across the world — gathered on porches, in kitchens, at harvest fires, and kept in trust for the people who made them.</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="#recordings">Start listening</a>
+      <a class="button button-ghost" href="#map">Explore the map</a>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path d="M0,60 C60,20 120,100 180,60 C240,20 300,100 360,60 C420,30 480,90 540,60 C600,15 660,105 720,60 C780,25 840,95 900,60 C960,35 1020,85 1080,60 C1140,40 1170,75 1200,60" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </section>
+
+  <!-- ============ RECORDINGS ============ -->
+  <section class="section" id="recordings" aria-labelledby="recordings-title">
+    <div class="section-head">
+      <p class="eyebrow">The listening room</p>
+      <h2 id="recordings-title">Field recordings</h2>
+      <p class="section-note">Each entry below plays a short study motif sketched from the recording's own scale and pulse — a sonic postcard while the full tapes rest in the vault.</p>
+    </div>
+
+    <div class="filter-row" role="group" aria-label="Filter recordings by region">
+      <button class="chip is-active" type="button" data-region="all" aria-pressed="true">All regions</button>
+      <button class="chip" type="button" data-region="andes" aria-pressed="false">Andes</button>
+      <button class="chip" type="button" data-region="sahel" aria-pressed="false">Sahel</button>
+      <button class="chip" type="button" data-region="appalachia" aria-pressed="false">Appalachia</button>
+      <button class="chip" type="button" data-region="balkans" aria-pressed="false">Balkans</button>
+      <button class="chip" type="button" data-region="mekong" aria-pressed="false">Mekong Delta</button>
+      <button class="chip" type="button" data-region="hebrides" aria-pressed="false">Hebrides</button>
+    </div>
+
+    <ul class="recording-list" id="recording-list">
+      <li class="recording" data-region="andes" data-tune="andes">
+        <button class="play" type="button" aria-label="Play study motif for Sikuri procession at dawn">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="icon-play" d="M8 5l12 7-12 7z"/><g class="icon-stop"><rect x="6" y="6" width="12" height="12" rx="1.5"/></g></svg>
+        </button>
+        <div class="recording-body">
+          <p class="recording-meta"><span class="tag">Andes</span> Puno, Peru · 1978</p>
+          <h3>Sikuri procession at dawn</h3>
+          <p>Paired panpipe choirs trade breath in hocket as the procession climbs toward the plaza, drums keeping the walkers in step.</p>
+        </div>
+        <div class="recording-side">
+          <span class="duration">4:12</span>
+          <div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </li>
+
+      <li class="recording" data-region="sahel" data-tune="sahel">
+        <button class="play" type="button" aria-label="Play study motif for Griot praise song for the river">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="icon-play" d="M8 5l12 7-12 7z"/><g class="icon-stop"><rect x="6" y="6" width="12" height="12" rx="1.5"/></g></svg>
+        </button>
+        <div class="recording-body">
+          <p class="recording-meta"><span class="tag">Sahel</span> Ségou, Mali · 1983</p>
+          <h3>Griot praise song for the river</h3>
+          <p>An ngoni ripples beneath a genealogy sung from memory, naming seven generations of ferrymen on the Niger.</p>
+        </div>
+        <div class="recording-side">
+          <span class="duration">6:47</span>
+          <div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </li>
+
+      <li class="recording" data-region="appalachia" data-tune="appalachia">
+        <button class="play" type="button" aria-label="Play study motif for Porch ballad, unaccompanied">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="icon-play" d="M8 5l12 7-12 7z"/><g class="icon-stop"><rect x="6" y="6" width="12" height="12" rx="1.5"/></g></svg>
+        </button>
+        <div class="recording-body">
+          <p class="recording-meta"><span class="tag">Appalachia</span> Madison County, North Carolina · 1969</p>
+          <h3>Porch ballad, unaccompanied</h3>
+          <p>A seventy-line murder ballad delivered in high lonesome style, with crickets and a screen door audible between verses.</p>
+        </div>
+        <div class="recording-side">
+          <span class="duration">5:03</span>
+          <div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </li>
+
+      <li class="recording" data-region="balkans" data-tune="balkans">
+        <button class="play" type="button" aria-label="Play study motif for Wedding tune in eleven">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="icon-play" d="M8 5l12 7-12 7z"/><g class="icon-stop"><rect x="6" y="6" width="12" height="12" rx="1.5"/></g></svg>
+        </button>
+        <div class="recording-body">
+          <p class="recording-meta"><span class="tag">Balkans</span> Rhodope Mountains, Bulgaria · 1991</p>
+          <h3>Wedding tune in eleven</h3>
+          <p>Gaida and tapan lock into an eleven-beat kopanitsa while dancers' boots strike the packed courtyard earth.</p>
+        </div>
+        <div class="recording-side">
+          <span class="duration">3:58</span>
+          <div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </li>
+
+      <li class="recording" data-region="mekong" data-tune="mekong">
+        <button class="play" type="button" aria-label="Play study motif for Boat song across the floodplain">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="icon-play" d="M8 5l12 7-12 7z"/><g class="icon-stop"><rect x="6" y="6" width="12" height="12" rx="1.5"/></g></svg>
+        </button>
+        <div class="recording-body">
+          <p class="recording-meta"><span class="tag">Mekong Delta</span> Cần Thơ, Vietnam · 1996</p>
+          <h3>Boat song across the floodplain</h3>
+          <p>A vọng cổ melody carries over open water, answered faintly by another singer two boats away.</p>
+        </div>
+        <div class="recording-side">
+          <span class="duration">7:21</span>
+          <div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </li>
+
+      <li class="recording" data-region="hebrides" data-tune="hebrides">
+        <button class="play" type="button" aria-label="Play study motif for Waulking song at the long table">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="icon-play" d="M8 5l12 7-12 7z"/><g class="icon-stop"><rect x="6" y="6" width="12" height="12" rx="1.5"/></g></svg>
+        </button>
+        <div class="recording-body">
+          <p class="recording-meta"><span class="tag">Hebrides</span> Isle of Barra, Scotland · 1957</p>
+          <h3>Waulking song at the long table</h3>
+          <p>Women beat wet tweed against boards in strict rhythm, call and refrain in Gaelic keeping the work in time.</p>
+        </div>
+        <div class="recording-side">
+          <span class="duration">4:44</span>
+          <div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </li>
+    </ul>
+    <p class="empty-note" id="empty-note" hidden>No recordings match this region yet — the collecting continues.</p>
+  </section>
+
+  <!-- ============ MAP ============ -->
+  <section class="section section-alt" id="map" aria-labelledby="map-title">
+    <div class="section-head">
+      <p class="eyebrow">Where the tapes were made</p>
+      <h2 id="map-title">The sound map</h2>
+      <p class="section-note">Choose a marker to hear what was gathered there. Each dot is a kitchen, a riverbank, a mountain pass with a microphone in it.</p>
+    </div>
+
+    <div class="map-frame">
+      <svg class="world" viewBox="0 0 1000 520" role="img" aria-labelledby="world-title world-desc">
+        <title id="world-title">Stylized world map with six recording sites</title>
+        <desc id="world-desc">An abstract map showing marked recording locations in the Andes, the Sahel, Appalachia, the Balkans, the Mekong Delta, and the Hebrides.</desc>
+        <g class="landmass" aria-hidden="true">
+          <!-- Americas -->
+          <path d="M175 70 q60 -18 105 8 q28 16 20 46 q-6 24 -36 30 q10 22 -6 40 q-20 22 -50 16 q-8 26 12 44 q22 20 30 52 q8 34 -10 66 q-16 30 -22 64 q-4 22 -18 24 q-16 2 -22 -20 q-10 -36 -26 -66 q-18 -34 -20 -72 q-2 -30 -22 -50 q-24 -24 -28 -58 q-4 -36 22 -62 q28 -28 71 -62 z"/>
+          <!-- Europe / Africa -->
+          <path d="M470 80 q40 -22 84 -10 q34 8 52 34 q14 22 -4 42 q-14 16 -38 14 q14 20 36 26 q30 8 40 38 q10 32 -6 62 q-16 30 -14 66 q2 34 -18 60 q-18 24 -46 22 q-26 -2 -38 -26 q-14 -28 -12 -62 q2 -30 -16 -52 q-20 -24 -24 -56 q-4 -30 -14 -58 q-10 -28 -4 -58 q4 -26 22 -42 z"/>
+          <!-- Asia / Oceania -->
+          <path d="M660 60 q66 -20 128 2 q46 16 66 54 q16 32 2 66 q-12 30 -44 38 q10 26 -8 48 q-20 26 -54 22 q-28 -4 -42 -26 q-20 8 -40 0 q-26 -10 -30 -38 q-4 -24 12 -44 q-24 -8 -32 -32 q-10 -30 8 -56 q14 -22 34 -34 z"/>
+          <path d="M800 330 q30 -12 56 4 q22 14 18 40 q-4 24 -28 32 q-26 8 -46 -8 q-20 -16 -16 -40 q4 -20 16 -28 z"/>
+        </g>
+        <g class="graticule" aria-hidden="true">
+          <path d="M0 130 H1000 M0 260 H1000 M0 390 H1000"/>
+          <path d="M250 0 V520 M500 0 V520 M750 0 V520"/>
+        </g>
+        <g class="markers">
+          <g class="marker" data-region="hebrides" transform="translate(462,108)"><circle class="halo" r="16"/><circle class="dot" r="6"/><text x="12" y="-10">Hebrides</text></g>
+          <g class="marker" data-region="balkans" transform="translate(556,160)"><circle class="halo" r="16"/><circle class="dot" r="6"/><text x="12" y="20">Balkans</text></g>
+          <g class="marker" data-region="appalachia" transform="translate(238,178)"><circle class="halo" r="16"/><circle class="dot" r="6"/><text x="12" y="-10">Appalachia</text></g>
+          <g class="marker" data-region="sahel" transform="translate(500,246)"><circle class="halo" r="16"/><circle class="dot" r="6"/><text x="12" y="22">Sahel</text></g>
+          <g class="marker" data-region="mekong" transform="translate(768,258)"><circle class="halo" r="16"/><circle class="dot" r="6"/><text x="12" y="-10">Mekong Delta</text></g>
+          <g class="marker" data-region="andes" transform="translate(258,340)"><circle class="halo" r="16"/><circle class="dot" r="6"/><text x="12" y="22">Andes</text></g>
+        </g>
+      </svg>
+      <div class="map-legend" role="group" aria-label="Recording sites">
+        <button type="button" class="legend-btn" data-region="hebrides">Hebrides — waulking songs, 1957</button>
+        <button type="button" class="legend-btn" data-region="appalachia">Appalachia — ballads, 1969</button>
+        <button type="button" class="legend-btn" data-region="andes">Andes — sikuri panpipes, 1978</button>
+        <button type="button" class="legend-btn" data-region="sahel">Sahel — griot praise songs, 1983</button>
+        <button type="button" class="legend-btn" data-region="balkans">Balkans — wedding tunes, 1991</button>
+        <button type="button" class="legend-btn" data-region="mekong">Mekong Delta — boat songs, 1996</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VOICES ============ -->
+  <section class="section" id="voices" aria-labelledby="voices-title">
+    <div class="section-head">
+      <p class="eyebrow">Oral histories</p>
+      <h2 id="voices-title">Voices beside the music</h2>
+      <p class="section-note">Between songs, people talked. The tape kept running, and these are some of the things it kept.</p>
+    </div>
+    <div class="voices-grid">
+      <figure class="voice">
+        <blockquote>“My grandmother said a tune isn't yours until you've carried it over a mountain. She meant it plainly. You walked, and you sang, and by the far side it had changed to fit your breath.”</blockquote>
+        <figcaption>Ballad singer, Madison County · reel 14, side B</figcaption>
+      </figure>
+      <figure class="voice">
+        <blockquote>“The river has its own praise names. When I sing them, the old men close their eyes, because they can hear which crossing I mean.”</blockquote>
+        <figcaption>Griot, Ségou · reel 31, side A</figcaption>
+      </figure>
+      <figure class="voice">
+        <blockquote>“We never counted the eleven. You count with your feet, and your feet learned it before you could talk.”</blockquote>
+        <figcaption>Gaida player, Rhodopes · reel 52, side A</figcaption>
+      </figure>
+      <figure class="voice">
+        <blockquote>“The cloth won't full itself, and no one can beat tweed alone and stay sane. That is why the songs exist. The songs are the extra pairs of hands.”</blockquote>
+        <figcaption>Waulking singer, Barra · reel 03, side B</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section section-alt" id="about" aria-labelledby="about-title">
+    <div class="about-grid">
+      <div>
+        <p class="eyebrow">About the archive</p>
+        <h2 id="about-title">Kept in trust</h2>
+        <p>Folkways holds several thousand hours of tape, wax, wire, and digital sound, collected over seven decades and catalogued alongside the stories of the people who made it. Nothing here is background music: every item names its singer, its place, and — wherever the community wishes — the terms on which it may be heard.</p>
+        <p>Recordings return home first. Communities receive copies, corrections, and the final word on access before anything enters the public listening room.</p>
+      </div>
+      <dl class="stats">
+        <div><dt>Hours of tape</dt><dd>11,400</dd></div>
+        <div><dt>Languages sung</dt><dd>312</dd></div>
+        <div><dt>Collecting trips</dt><dd>780</dd></div>
+        <div><dt>Years of fieldwork</dt><dd>70</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p><strong>Folkways</strong> — Every song carries a place.</p>
+  <p class="footer-fine">A living archive of field recordings, oral histories, and traditional music from across the world.</p>
+</footer>
+
+</body>
+</html>

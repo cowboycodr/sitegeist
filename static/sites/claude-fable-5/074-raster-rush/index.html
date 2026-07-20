@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self'; script-src 'self'; style-src 'self'">
+<title>Raster Rush — Tiny pixels. Huge worlds.</title>
+<meta name="description" content="An indie studio building kinetic arcade worlds with tactile mechanics and loud color.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <a class="logo" href="#top" aria-label="Raster Rush home">
+    <span class="logo-block" aria-hidden="true"></span>
+    <span class="logo-word">RASTER<b>RUSH</b></span>
+  </a>
+  <nav aria-label="Main">
+    <a href="#games">Games</a>
+    <a href="#demo">Demo</a>
+    <a href="#crew">Crew</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <p class="eyebrow"><span class="blink" aria-hidden="true">▶</span> Insert imagination</p>
+      <h1 class="hero-title">
+        <span class="line line-a">TINY&nbsp;PIXELS.</span>
+        <span class="line line-b">HUGE&nbsp;WORLDS.</span>
+      </h1>
+      <p class="hero-copy">Raster Rush is an indie studio building kinetic arcade
+      worlds with tactile mechanics and loud color. Every frame hand-placed,
+      every beep earned.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#demo">Play the demo</a>
+        <a class="btn btn-ghost" href="#crew">Meet the crew</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="sprite sprite-ship"></div>
+      <div class="sprite sprite-invader"></div>
+      <div class="sprite sprite-heart"></div>
+      <div class="sprite sprite-coin"></div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>★ NOW LOADING ★ 8 COLORS, 0 COMPROMISES ★ HAND-PLACED FRAMES ★ COIN-OP HEARTS ★ NOW LOADING ★ 8 COLORS, 0 COMPROMISES ★ HAND-PLACED FRAMES ★ COIN-OP HEARTS ★&nbsp;</span>
+      <span>★ NOW LOADING ★ 8 COLORS, 0 COMPROMISES ★ HAND-PLACED FRAMES ★ COIN-OP HEARTS ★ NOW LOADING ★ 8 COLORS, 0 COMPROMISES ★ HAND-PLACED FRAMES ★ COIN-OP HEARTS ★&nbsp;</span>
+    </div>
+  </div>
+
+  <section class="section" id="games" aria-labelledby="games-title">
+    <h2 class="section-title" id="games-title"><span>01</span> The cartridge shelf</h2>
+    <p class="section-lede">Three worlds in active development. Loud, small, and
+    tuned until the controller hums.</p>
+    <div class="game-grid">
+      <article class="game-card card-magma">
+        <div class="game-icon icon-magma" aria-hidden="true"></div>
+        <h3>Magma Hop</h3>
+        <p class="game-tag">Vertical platformer</p>
+        <p>Bounce a lava slime up a collapsing volcano. One button, ninety-nine
+        near misses per minute.</p>
+        <p class="game-status">Status: polishing the wobble</p>
+      </article>
+      <article class="game-card card-drift">
+        <div class="game-icon icon-drift" aria-hidden="true"></div>
+        <h3>Neon Driftline</h3>
+        <p class="game-tag">Micro racer</p>
+        <p>Slide chunky hovercars through a city drawn in four shades of loud.
+        Ghost your friends, then your past self.</p>
+        <p class="game-status">Status: tuning tire squeal</p>
+      </article>
+      <article class="game-card card-grove">
+        <div class="game-icon icon-grove" aria-hidden="true"></div>
+        <h3>Sprout &amp; Smash</h3>
+        <p class="game-tag">Garden brawler</p>
+        <p>Grow vegetables by day, defend them by night with a watering can that
+        doubles as a bat. Co-op on one keyboard.</p>
+        <p class="game-status">Status: balancing the beets</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section-demo" id="demo" aria-labelledby="demo-title">
+    <h2 class="section-title" id="demo-title"><span>02</span> Play the demo</h2>
+    <p class="section-lede">A thirty-second slice of our studio warm-up game,
+    <strong>Pixel Plunge</strong>. Catch falling pixels, dodge the glitches.</p>
+    <div class="cabinet">
+      <div class="cabinet-screen">
+        <canvas id="game-canvas" width="320" height="200" aria-label="Pixel Plunge mini game. Move the paddle to catch bright pixels and avoid dark glitch blocks."></canvas>
+        <div class="game-overlay" id="game-overlay">
+          <p class="overlay-title" id="overlay-title">PIXEL PLUNGE</p>
+          <p class="overlay-copy" id="overlay-copy">Catch the bright pixels. Dodge the glitch blocks. 30 seconds on the clock.</p>
+          <button class="btn btn-primary" id="start-button" type="button">Insert coin</button>
+        </div>
+      </div>
+      <div class="cabinet-panel">
+        <p class="hud" aria-live="polite"><span>SCORE <b id="hud-score">0</b></span><span>BEST <b id="hud-best">0</b></span><span>TIME <b id="hud-time">30</b></span></p>
+        <p class="controls-hint">Arrow keys / A D · mouse · touch-drag the screen</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="crew" aria-labelledby="crew-title">
+    <h2 class="section-title" id="crew-title"><span>03</span> Meet the crew</h2>
+    <p class="section-lede">Four humans, one shared palette, far too many
+    arcade sticks.</p>
+    <div class="crew-grid">
+      <article class="crew-card">
+        <div class="avatar avatar-juno" aria-hidden="true"></div>
+        <h3>Juno Park</h3>
+        <p class="crew-role">Direction &amp; design</p>
+        <p>Decides which three mechanics survive the cut. Keeps a jar of rejected
+        power-ups on the desk.</p>
+      </article>
+      <article class="crew-card">
+        <div class="avatar avatar-mabel" aria-hidden="true"></div>
+        <h3>Mabel Osei</h3>
+        <p class="crew-role">Pixel art</p>
+        <p>Paints entire biomes sixteen pixels at a time. Believes every sprite
+        deserves an idle animation.</p>
+      </article>
+      <article class="crew-card">
+        <div class="avatar avatar-rex" aria-hidden="true"></div>
+        <h3>Rex Calder</h3>
+        <p class="crew-role">Code &amp; game feel</p>
+        <p>Measures fun in milliseconds of hitstop. Will not ship a jump that
+        feels floaty. Has never once felt floaty.</p>
+      </article>
+      <article class="crew-card">
+        <div class="avatar avatar-suki" aria-hidden="true"></div>
+        <h3>Suki Tanaka</h3>
+        <p class="crew-role">Chiptune &amp; sound</p>
+        <p>Writes boss themes in three channels and one triangle wave. Hums in
+        square waves when concentrating.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p class="footer-mark" aria-hidden="true">▚▞▚ RASTER RUSH ▚▞▚</p>
+  <p>Tiny pixels. Huge worlds. Built pixel by pixel at Raster Rush studio.</p>
+  <p class="footer-fine">© 2026 Raster Rush · Press any button to continue</p>
+</footer>
+</body>
+</html>

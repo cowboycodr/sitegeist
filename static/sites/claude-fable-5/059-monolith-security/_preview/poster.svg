@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Monolith Security — Nothing gets through.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#101318"/>
+      <stop offset="1" stop-color="#0b0d10"/>
+    </linearGradient>
+    <linearGradient id="slab" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a323c"/>
+      <stop offset="1" stop-color="#12161b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+
+  <!-- background grid -->
+  <g stroke="#20262e" stroke-width="1.5">
+    <path d="M0 150H1200M0 300H1200M0 450H1200M0 600H1200M0 750H1200"/>
+    <path d="M150 0V900M300 0V900M450 0V900M600 0V900M750 0V900M900 0V900M1050 0V900"/>
+  </g>
+
+  <!-- deflected threat lines -->
+  <g stroke="#556170" stroke-width="4" stroke-linecap="round">
+    <path d="M120 200 L790 355"/>
+    <path d="M60 480 L790 462"/>
+    <path d="M150 760 L790 590"/>
+    <path d="M1160 240 L950 380"/>
+    <path d="M1180 720 L950 560"/>
+  </g>
+  <g fill="#ff6a3d">
+    <circle cx="790" cy="355" r="9"/>
+    <circle cx="790" cy="462" r="9"/>
+    <circle cx="790" cy="590" r="9"/>
+    <circle cx="950" cy="380" r="9"/>
+    <circle cx="950" cy="560" r="9"/>
+  </g>
+
+  <!-- the monolith -->
+  <rect x="800" y="130" width="140" height="640" fill="url(#slab)" stroke="#3a434d" stroke-width="2"/>
+  <rect x="800" y="130" width="140" height="640" fill="none" stroke="#ff6a3d" stroke-opacity="0.4" stroke-width="2"/>
+  <rect x="864" y="130" width="12" height="640" fill="#ff6a3d"/>
+  <rect x="800" y="330" width="140" height="70" fill="#ff6a3d" opacity="0.12"/>
+
+  <!-- text block -->
+  <g font-family="'Avenir Next','Segoe UI','Helvetica Neue',Arial,sans-serif">
+    <g font-family="'Cascadia Mono','SF Mono',Consolas,monospace" fill="#ff6a3d" font-size="26" letter-spacing="6">
+      <rect x="96" y="268" width="14" height="28" />
+      <text x="130" y="291">ZERO-TRUST INFRASTRUCTURE</text>
+    </g>
+    <text x="92" y="400" fill="#e8ebef" font-size="118" font-weight="800" letter-spacing="-2">NOTHING</text>
+    <text x="92" y="512" fill="#e8ebef" font-size="118" font-weight="800" letter-spacing="-2">GETS</text>
+    <text x="92" y="624" fill="#ff6a3d" font-size="118" font-weight="800" letter-spacing="-2">THROUGH.</text>
+    <text x="94" y="694" fill="#9aa4ad" font-size="30">Adaptive infrastructure for critical systems.</text>
+
+    <!-- brand lockup -->
+    <g transform="translate(92,760)">
+      <rect x="14" y="0" width="20" height="52" fill="#ff6a3d"/>
+      <rect x="0" y="18" width="8" height="34" fill="#ff6a3d" opacity="0.45"/>
+      <rect x="40" y="10" width="8" height="42" fill="#ff6a3d" opacity="0.45"/>
+      <text x="66" y="38" fill="#e8ebef" font-size="34" font-weight="700" letter-spacing="1">Monolith <tspan fill="#9aa4ad" font-weight="500">Security</tspan></text>
+    </g>
+  </g>
+
+  <!-- frame -->
+  <rect x="24" y="24" width="1152" height="852" fill="none" stroke="#2a323b" stroke-width="2"/>
+</svg>

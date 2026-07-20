@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+<title>Transit 2050 — The city moves when everyone can.</title>
+<meta name="description" content="A public initiative visualizing faster, cleaner, and more equitable urban transportation.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Transit 2050 home">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="3"/>
+      <path d="M8 20 L14 12 L20 18 L26 9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>Transit<b>2050</b></span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#network">Network</a>
+    <a href="#goals">Goals</a>
+    <a href="#timeline">Timeline</a>
+    <a class="nav-cta" href="#proposal">Proposal</a>
+  </nav>
+</header>
+
+<main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow">A mobility plan for everyone</p>
+      <h1>The city moves<br>when <em>everyone</em> can.</h1>
+      <p class="lede">Transit 2050 is a public initiative visualizing faster, cleaner, and more equitable urban transportation — four new rapid corridors, all-day frequency, and a network designed around people, not traffic.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#network">Explore the network</a>
+        <a class="btn btn-ghost" href="#proposal">Read the proposal</a>
+      </div>
+      <dl class="hero-stats" aria-label="Plan headline figures">
+        <div><dt>New rapid corridors</dt><dd data-count="4">4</dd></div>
+        <div><dt>Residents within a 10-min walk</dt><dd><span data-count="92">92</span>%</dd></div>
+        <div><dt>Peak wait, anywhere</dt><dd><span data-count="6">6</span>&thinsp;min</dd></div>
+      </dl>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 520 560" role="img" aria-label="">
+        <defs>
+          <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#39e6c1" stop-opacity=".18"/>
+            <stop offset="1" stop-color="#39e6c1" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="520" height="560" rx="28" fill="url(#glow)"/>
+        <g class="hero-lines" fill="none" stroke-linecap="round" stroke-width="10">
+          <path class="line-a" stroke="#39e6c1" d="M60 500 L60 320 Q60 290 90 290 L300 290 Q330 290 330 260 L330 90"/>
+          <path class="line-b" stroke="#ff7a59" d="M140 520 L140 240 Q140 210 170 210 L430 210"/>
+          <path class="line-c" stroke="#ffc94d" d="M40 130 L230 130 Q260 130 260 160 L260 430 Q260 460 290 460 L470 460"/>
+          <path class="line-d" stroke="#7aa7ff" d="M460 60 L460 330 Q460 360 430 360 L110 360"/>
+        </g>
+        <g class="hero-stations" fill="#0b1020" stroke="#eef3ff" stroke-width="4">
+          <circle cx="60" cy="400" r="9"/>
+          <circle cx="140" cy="290" r="9"/>
+          <circle cx="330" cy="210" r="9"/>
+          <circle cx="260" cy="360" r="9"/>
+          <circle cx="260" cy="130" r="9"/>
+          <circle cx="460" cy="210" r="9"/>
+          <circle cx="330" cy="460" r="9"/>
+          <circle cx="140" cy="360" r="11"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============ NETWORK ============ -->
+  <section class="section network" id="network" aria-labelledby="network-h">
+    <div class="section-head">
+      <p class="eyebrow">Explore the network</p>
+      <h2 id="network-h">Four corridors. One connected city.</h2>
+      <p>Tap or focus a line below to trace its route. Every corridor runs at least every six minutes, dawn to midnight, seven days a week.</p>
+    </div>
+
+    <div class="network-layout">
+      <div class="map-frame">
+        <svg id="network-map" viewBox="0 0 640 520" role="img" aria-label="Schematic map of the four proposed rapid transit corridors crossing the city and meeting at Union Exchange">
+          <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <g class="map-grid" stroke="#233052" stroke-width="1">
+              <path d="M0 130 H640 M0 260 H640 M0 390 H640 M160 0 V520 M320 0 V520 M480 0 V520"/>
+            </g>
+            <path id="path-a" class="map-line" data-line="a" stroke="#39e6c1" stroke-width="12" d="M70 470 L70 300 Q70 270 100 270 L300 270 Q330 270 330 240 L330 60"/>
+            <path id="path-b" class="map-line" data-line="b" stroke="#ff7a59" stroke-width="12" d="M40 190 L250 190 Q280 190 280 220 L280 400 Q280 430 310 430 L600 430"/>
+            <path id="path-c" class="map-line" data-line="c" stroke="#ffc94d" stroke-width="12" d="M580 60 L580 300 Q580 330 550 330 L120 330"/>
+            <path id="path-d" class="map-line" data-line="d" stroke="#7aa7ff" stroke-width="12" d="M180 500 L180 120 Q180 90 210 90 L560 90"/>
+          </g>
+          <g class="map-stations" fill="#0b1020" stroke="#eef3ff" stroke-width="4">
+            <circle cx="70" cy="380" r="9"/>
+            <circle cx="180" cy="190" r="9"/>
+            <circle cx="280" cy="330" r="11"/>
+            <circle cx="330" cy="90" r="9"/>
+            <circle cx="180" cy="430" r="9"/>
+            <circle cx="580" cy="190" r="9"/>
+            <circle cx="450" cy="330" r="9"/>
+            <circle cx="450" cy="430" r="9"/>
+            <circle cx="330" cy="270" r="12" class="hub"/>
+          </g>
+          <g class="map-labels" font-size="16" fill="#9fb0d8">
+            <text x="346" y="262">Union Exchange</text>
+            <text x="82" y="376">Harbor South</text>
+            <text x="196" y="86">Northgate</text>
+            <text x="470" y="454">Eastfield</text>
+          </g>
+        </svg>
+      </div>
+
+      <ul class="line-list" aria-label="Corridor lines">
+        <li>
+          <button class="line-card" data-line="a" aria-pressed="false">
+            <span class="chip chip-a" aria-hidden="true">A</span>
+            <span class="line-info"><strong>Harborline</strong><span>Harbor South ⇄ Northgate · 14 stations · light rail</span></span>
+          </button>
+        </li>
+        <li>
+          <button class="line-card" data-line="b" aria-pressed="false">
+            <span class="chip chip-b" aria-hidden="true">B</span>
+            <span class="line-info"><strong>Crosstown</strong><span>Westmill ⇄ Eastfield · 17 stations · bus rapid transit</span></span>
+          </button>
+        </li>
+        <li>
+          <button class="line-card" data-line="c" aria-pressed="false">
+            <span class="chip chip-c" aria-hidden="true">C</span>
+            <span class="line-info"><strong>Ridge Loop</strong><span>Hillcrest ⇄ Old Quarter · 12 stations · tram</span></span>
+          </button>
+        </li>
+        <li>
+          <button class="line-card" data-line="d" aria-pressed="false">
+            <span class="chip chip-d" aria-hidden="true">D</span>
+            <span class="line-info"><strong>Meridian</strong><span>Southbank ⇄ Airport Gate · 15 stations · metro</span></span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ GOALS ============ -->
+  <section class="section goals" id="goals" aria-labelledby="goals-h">
+    <div class="section-head">
+      <p class="eyebrow">Why it matters</p>
+      <h2 id="goals-h">Faster. Cleaner. Fairer.</h2>
+    </div>
+    <div class="goal-grid">
+      <article class="goal-card">
+        <h3>Faster</h3>
+        <p>Dedicated lanes and signal priority cut the average crosstown trip from 54 to 31 minutes. Frequency is the timetable: show up and go.</p>
+        <p class="goal-figure"><span data-count="43">43</span>%<small>shorter average trip</small></p>
+      </article>
+      <article class="goal-card">
+        <h3>Cleaner</h3>
+        <p>A fully electric fleet powered by the municipal grid removes an estimated 88,000 tonnes of CO₂ per year — the exhaust of 19,000 cars.</p>
+        <p class="goal-figure"><span data-count="88">88</span>k&thinsp;t<small>CO₂ avoided yearly</small></p>
+      </article>
+      <article class="goal-card">
+        <h3>Fairer</h3>
+        <p>Level boarding at every door, audio and tactile wayfinding, fare capping, and free transfers — designed with disability and transit-equity advocates from day one.</p>
+        <p class="goal-figure"><span data-count="100">100</span>%<small>step-free stations</small></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ TIMELINE ============ -->
+  <section class="section timeline" id="timeline" aria-labelledby="timeline-h">
+    <div class="section-head">
+      <p class="eyebrow">The road ahead</p>
+      <h2 id="timeline-h">From proposal to platform</h2>
+    </div>
+    <ol class="timeline-track">
+      <li class="milestone is-done">
+        <span class="milestone-dot" aria-hidden="true"></span>
+        <h3>2026 · Public review</h3>
+        <p>Open consultation across all nine districts, with route workshops in six languages.</p>
+      </li>
+      <li class="milestone">
+        <span class="milestone-dot" aria-hidden="true"></span>
+        <h3>2028 · Ground breaks</h3>
+        <p>Crosstown bus rapid transit opens first — dedicated lanes delivered in 20 months.</p>
+      </li>
+      <li class="milestone">
+        <span class="milestone-dot" aria-hidden="true"></span>
+        <h3>2035 · Rail arrives</h3>
+        <p>Harborline and Meridian enter service; Union Exchange becomes the city's central hub.</p>
+      </li>
+      <li class="milestone">
+        <span class="milestone-dot" aria-hidden="true"></span>
+        <h3>2050 · Full network</h3>
+        <p>All four corridors complete. Nine in ten residents live a ten-minute walk from rapid transit.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ PROPOSAL ============ -->
+  <section class="section proposal" id="proposal" aria-labelledby="proposal-h">
+    <div class="proposal-panel">
+      <div>
+        <p class="eyebrow">Read the proposal</p>
+        <h2 id="proposal-h">The full plan, in plain language</h2>
+        <p>The complete Transit 2050 proposal covers routes and station areas, funding and phasing, accessibility standards, and how public feedback shaped every corridor. Summaries below; the full document is available at every library branch and district office.</p>
+      </div>
+      <ul class="proposal-list">
+        <li>
+          <h3>Funding &amp; phasing</h3>
+          <p>A 60/25/15 split across regional, municipal, and land-value sources. No fare increases fund construction.</p>
+        </li>
+        <li>
+          <h3>Accessibility standard</h3>
+          <p>Every station step-free, every vehicle level-boarding, every sign paired with audio and braille.</p>
+        </li>
+        <li>
+          <h3>Street reallocation</h3>
+          <p>38 km of protected cycle lanes and 12 new pedestrian plazas built alongside the corridors.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p><strong>Transit 2050</strong> · A public initiative of the Metropolitan Mobility Office</p>
+  <p>The city moves when everyone can.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self'; style-src 'self'; script-src 'self'">
+  <title>Selene Mission — The moon is our next address.</title>
+  <meta name="description" content="A private lunar program preparing its first autonomous surface habitat and a new chapter off-world.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Selene Mission home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <circle cx="16" cy="16" r="9" fill="#d9dfeb"/>
+        <circle cx="12.5" cy="13" r="2.2" fill="#aab3c6"/>
+        <circle cx="19" cy="18.5" r="1.5" fill="#aab3c6"/>
+        <ellipse cx="16" cy="16" rx="14" ry="5.5" fill="none" stroke="#e8b45a" stroke-width="1.4" transform="rotate(-24 16 16)"/>
+        <circle cx="27.5" cy="10.5" r="1.6" fill="#e8b45a"/>
+      </svg>
+      <span class="brand-name">Selene<span class="brand-thin"> Mission</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#mission">Mission</a>
+      <a href="#vehicle">Vehicle</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#habitat">Habitat</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="starfield" aria-hidden="true">
+        <span class="star s1"></span><span class="star s2"></span><span class="star s3"></span>
+        <span class="star s4"></span><span class="star s5"></span><span class="star s6"></span>
+        <span class="star s7"></span><span class="star s8"></span><span class="star s9"></span>
+        <span class="star s10"></span><span class="star s11"></span><span class="star s12"></span>
+      </div>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Lunar habitat · M01</p>
+          <h1 id="hero-title">The moon is our<br>next address.</h1>
+          <p class="lede">Selene is a private lunar program preparing its first autonomous
+            surface habitat — a pressurized outpost that lands itself, powers itself,
+            and keeps a crew alive at the rim of Shackleton crater. A new chapter
+            off-world begins with M01.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#timeline">Track the mission</a>
+            <a class="btn btn-ghost" href="#vehicle">Explore the vehicle</a>
+          </div>
+          <dl class="clock" aria-label="Countdown to launch window">
+            <div class="clock-cell"><dt>Days</dt><dd id="cd-days">—</dd></div>
+            <div class="clock-cell"><dt>Hours</dt><dd id="cd-hours">—</dd></div>
+            <div class="clock-cell"><dt>Minutes</dt><dd id="cd-mins">—</dd></div>
+            <div class="clock-cell clock-label"><dt>Until</dt><dd>Launch window opens</dd></div>
+          </dl>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 420 420" role="img" focusable="false">
+            <defs>
+              <radialGradient id="moonGlow" cx="38%" cy="34%" r="75%">
+                <stop offset="0%" stop-color="#f2f5fb"/>
+                <stop offset="55%" stop-color="#c9d2e2"/>
+                <stop offset="100%" stop-color="#8791a7"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="210" cy="210" rx="196" ry="72" fill="none" stroke="#e8b45a" stroke-width="1.5"
+                     stroke-dasharray="3 7" transform="rotate(-24 210 210)" opacity="0.85"/>
+            <circle cx="210" cy="210" r="128" fill="url(#moonGlow)"/>
+            <circle cx="164" cy="168" r="24" fill="#a9b3c8" opacity="0.75"/>
+            <circle cx="252" cy="236" r="15" fill="#a9b3c8" opacity="0.65"/>
+            <circle cx="200" cy="268" r="9" fill="#9aa5bc" opacity="0.7"/>
+            <circle cx="262" cy="150" r="11" fill="#b3bcd0" opacity="0.6"/>
+            <circle cx="140" cy="238" r="7" fill="#9aa5bc" opacity="0.6"/>
+            <g class="orbiter" transform="rotate(-24 210 210)">
+              <circle cx="406" cy="210" r="6" fill="#e8b45a"/>
+            </g>
+            <g transform="translate(210 128)">
+              <path d="M-14 0 L14 0 L9 -22 L-9 -22 Z" fill="#101625" stroke="#e8b45a" stroke-width="1.5"/>
+              <path d="M-14 0 L-22 12 M14 0 L22 12" stroke="#e8b45a" stroke-width="1.5" fill="none"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MISSION ============ -->
+    <section class="section" id="mission" aria-labelledby="mission-title">
+      <header class="section-head">
+        <p class="eyebrow">The program</p>
+        <h2 id="mission-title">One habitat, landed whole.</h2>
+      </header>
+      <p class="section-lede">Most lunar architectures assemble a base over a decade of
+        launches. Selene lands a finished home in one flight. M01 delivers the habitat,
+        proves 200 days of uncrewed operation, then opens the door for its first
+        residents on M02.</p>
+      <ul class="stat-grid" role="list">
+        <li class="stat"><span class="stat-num">54 m³</span><span class="stat-label">Pressurized living volume</span></li>
+        <li class="stat"><span class="stat-num">4</span><span class="stat-label">Crew supported for 60 days</span></li>
+        <li class="stat"><span class="stat-num">200</span><span class="stat-label">Days of autonomous checkout</span></li>
+        <li class="stat"><span class="stat-num">89.9° S</span><span class="stat-label">Shackleton rim landing site</span></li>
+      </ul>
+    </section>
+
+    <!-- ============ VEHICLE ============ -->
+    <section class="section section-alt" id="vehicle" aria-labelledby="vehicle-title">
+      <header class="section-head">
+        <p class="eyebrow">The vehicle</p>
+        <h2 id="vehicle-title">Habitat Lander H-1</h2>
+      </header>
+      <div class="vehicle-grid">
+        <figure class="vehicle-figure">
+          <svg viewBox="0 0 360 400" role="img" aria-labelledby="vh-title" focusable="false">
+            <title id="vh-title">Cutaway diagram of the H-1 habitat lander: solar mast on top, pressurized dome, equipment deck, and four landing legs</title>
+            <line x1="180" y1="18" x2="180" y2="86" stroke="#e8b45a" stroke-width="3"/>
+            <rect x="132" y="18" width="40" height="26" rx="3" fill="#1b2437" stroke="#e8b45a"/>
+            <rect x="188" y="18" width="40" height="26" rx="3" fill="#1b2437" stroke="#e8b45a"/>
+            <path d="M92 210 A88 88 0 0 1 268 210 Z" fill="#232d44" stroke="#d9dfeb" stroke-width="2"/>
+            <circle cx="180" cy="176" r="24" fill="#0a0e1a" stroke="#e8b45a" stroke-width="2"/>
+            <circle cx="180" cy="176" r="14" fill="#16203a"/>
+            <rect x="84" y="210" width="192" height="64" rx="6" fill="#161e31" stroke="#d9dfeb" stroke-width="2"/>
+            <line x1="84" y1="238" x2="276" y2="238" stroke="#39445f"/>
+            <path d="M100 274 L58 356 M260 274 L302 356 M132 274 L112 356 M228 274 L248 356"
+                  stroke="#d9dfeb" stroke-width="3" fill="none"/>
+            <path d="M44 356 H72 M98 356 H126 M234 356 H262 M288 356 H316" stroke="#e8b45a" stroke-width="4"/>
+            <line x1="30" y1="372" x2="330" y2="372" stroke="#39445f" stroke-dasharray="4 6"/>
+          </svg>
+        </figure>
+        <div class="vehicle-specs">
+          <h3 class="visually-hidden">H-1 systems</h3>
+          <dl class="spec-list">
+            <div class="spec"><dt>Solar mast</dt><dd>A 9-meter deployable mast catches near-continuous polar sunlight, feeding 21 kW into the habitat bus.</dd></div>
+            <div class="spec"><dt>Pressurized dome</dt><dd>Two decks of living and working space behind a 40&nbsp;cm regolith-ready shield wall, with a cupola facing Earth.</dd></div>
+            <div class="spec"><dt>Equipment deck</dt><dd>Life support, water recovery, and thermal loops sit below the floor, serviceable from inside in shirtsleeves.</dd></div>
+            <div class="spec"><dt>Landing system</dt><dd>Four crushable legs and terrain-relative navigation put H-1 within 40 meters of its survey point.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TIMELINE ============ -->
+    <section class="section" id="timeline" aria-labelledby="timeline-title">
+      <header class="section-head">
+        <p class="eyebrow">Mission tracker</p>
+        <h2 id="timeline-title">M01 flight plan</h2>
+      </header>
+      <p class="section-lede">Six phases from the pad to a powered, breathing outpost.
+        Select a phase to read what happens and how we confirm it worked.</p>
+
+      <div class="phases">
+        <div class="phase-tabs" role="tablist" aria-label="Mission phases">
+          <button class="phase-tab" role="tab" id="tab-0" aria-selected="true" aria-controls="panel-0">
+            <span class="phase-num">01</span><span class="phase-name">Launch</span>
+          </button>
+          <button class="phase-tab" role="tab" id="tab-1" aria-selected="false" aria-controls="panel-1" tabindex="-1">
+            <span class="phase-num">02</span><span class="phase-name">Cruise</span>
+          </button>
+          <button class="phase-tab" role="tab" id="tab-2" aria-selected="false" aria-controls="panel-2" tabindex="-1">
+            <span class="phase-num">03</span><span class="phase-name">Orbit</span>
+          </button>
+          <button class="phase-tab" role="tab" id="tab-3" aria-selected="false" aria-controls="panel-3" tabindex="-1">
+            <span class="phase-num">04</span><span class="phase-name">Descent</span>
+          </button>
+          <button class="phase-tab" role="tab" id="tab-4" aria-selected="false" aria-controls="panel-4" tabindex="-1">
+            <span class="phase-num">05</span><span class="phase-name">Deploy</span>
+          </button>
+          <button class="phase-tab" role="tab" id="tab-5" aria-selected="false" aria-controls="panel-5" tabindex="-1">
+            <span class="phase-num">06</span><span class="phase-name">Outpost</span>
+          </button>
+        </div>
+
+        <div class="phase-panels">
+          <div class="phase-panel" role="tabpanel" id="panel-0" aria-labelledby="tab-0" tabindex="0">
+            <h3>Launch — T+0 to T+9 min</h3>
+            <p>H-1 rides a heavy-lift vehicle to a 200&nbsp;km parking orbit. The habitat
+              flies fully fueled and buttoned up, its mast and legs stowed inside a
+              5.4-meter fairing.</p>
+            <p class="phase-check"><strong>Confirmed by:</strong> clean separation telemetry and a nominal parking orbit within 2&nbsp;km of target.</p>
+          </div>
+          <div class="phase-panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1" tabindex="0" hidden>
+            <h3>Cruise — Day 1 to Day 5</h3>
+            <p>A translunar injection burn sends H-1 on a 4.5-day coast. Mid-course
+              corrections keep arrival dispersion under a kilometer while the habitat
+              runs on internal power.</p>
+            <p class="phase-check"><strong>Confirmed by:</strong> two correction burns closed out with residuals under 0.1&nbsp;m/s.</p>
+          </div>
+          <div class="phase-panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" tabindex="0" hidden>
+            <h3>Orbit — Day 5 to Day 8</h3>
+            <p>Lunar orbit insertion places H-1 in a polar mapping orbit. Cameras
+              re-survey the Shackleton rim site against archived terrain models before
+              committing to descent.</p>
+            <p class="phase-check"><strong>Confirmed by:</strong> a landing-site go decision from the survey review board.</p>
+          </div>
+          <div class="phase-panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" tabindex="0" hidden>
+            <h3>Descent — Day 8, 12 minutes</h3>
+            <p>Powered descent is fully autonomous. Terrain-relative navigation matches
+              crater patterns in real time; hazard avoidance retargets in the final
+              500 meters before a two-meter-per-second touchdown.</p>
+            <p class="phase-check"><strong>Confirmed by:</strong> touchdown within 40&nbsp;m of the survey point, tilt under 3 degrees.</p>
+          </div>
+          <div class="phase-panel" role="tabpanel" id="panel-4" aria-labelledby="tab-4" tabindex="0" hidden>
+            <h3>Deploy — Day 8 to Day 12</h3>
+            <p>The solar mast rises, radiators unfold, and the habitat pressurizes to
+              70&nbsp;kPa. Life support boots and begins closed-loop water and air
+              cycling with no one aboard.</p>
+            <p class="phase-check"><strong>Confirmed by:</strong> 72 hours of stable pressure, power, and thermal margins.</p>
+          </div>
+          <div class="phase-panel" role="tabpanel" id="panel-5" aria-labelledby="tab-5" tabindex="0" hidden>
+            <h3>Outpost — Day 12 to Day 212</h3>
+            <p>Two hundred days of uncrewed shakedown through ten lunar nights. Every
+              system that a crew will depend on gets exercised, faulted, and recovered
+              from the ground before M02 brings the first four residents.</p>
+            <p class="phase-check"><strong>Confirmed by:</strong> full habitability certification — the door is ready to open.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HABITAT ============ -->
+    <section class="section section-alt" id="habitat" aria-labelledby="habitat-title">
+      <header class="section-head">
+        <p class="eyebrow">Life aboard</p>
+        <h2 id="habitat-title">Built to be lived in</h2>
+      </header>
+      <div class="feature-grid">
+        <article class="feature">
+          <h3>Polar light, steady power</h3>
+          <p>The Shackleton rim sees sunlight more than 80% of the year. The mast
+            tracks it continuously, so the habitat never budgets for a two-week night
+            on solar alone.</p>
+        </article>
+        <article class="feature">
+          <h3>Water that stays home</h3>
+          <p>A closed-loop recovery system reclaims better than 93% of water from air
+            and wastewater — and the crater floor below holds ice for the years after.</p>
+        </article>
+        <article class="feature">
+          <h3>Quiet where it counts</h3>
+          <p>Sleep quarters sit on the deck farthest from pumps and fans, held under
+            45 dB. Off-world or not, a good night matters.</p>
+        </article>
+        <article class="feature">
+          <h3>Earth in the window</h3>
+          <p>The cupola faces home. From the rim, Earth hangs low over the horizon,
+            never setting — a fixed point for every crew that follows.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-brand">Selene Mission</p>
+    <p class="footer-tag">The moon is our next address.</p>
+    <p class="footer-note">Lunar habitat · M01 — a fictional program presented for design purposes.</p>
+  </footer>
+</body>
+</html>

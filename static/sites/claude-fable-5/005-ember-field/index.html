@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Ember &amp; Field — Roasted slowly. Remembered vividly.</title>
+  <meta name="description" content="Seasonal coffee traced from highland farms to small-batch roasts and the rituals they become.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="masthead">
+    <a class="wordmark" href="#top" aria-label="Ember &amp; Field — home">
+      <svg class="wordmark-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <path d="M16 3c5 5.4 8 9.7 8 14a8 8 0 0 1-16 0c0-4.3 3-8.6 8-14Z" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M16 10c0 3.4 0 9 0 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>Ember &amp; Field</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#roasts">Roasts</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#producers">Producers</a></li>
+        <li><a href="#rituals">Rituals</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Small-batch coffee</p>
+        <h1>Roasted slowly.<br>Remembered vividly.</h1>
+        <p class="lede">Seasonal coffee traced from highland farms to small-batch roasts and the rituals they become. Four lots a season, never more, each roasted the week it ships.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#roasts">Find your roast</a>
+          <a class="button button-ghost" href="#producers">Meet the producers</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 400 400" role="presentation" focusable="false">
+          <circle cx="200" cy="200" r="196" fill="none" stroke="#8a4a2b" stroke-width="1.5" opacity="0.5"/>
+          <circle cx="200" cy="200" r="160" fill="#2b1a12"/>
+          <path d="M200 78c46 50 74 90 74 130a74 74 0 0 1-148 0c0-40 28-80 74-130Z" fill="#e07a3f"/>
+          <path d="M200 140c-3 32-3 66 0 128" fill="none" stroke="#2b1a12" stroke-width="10" stroke-linecap="round"/>
+          <path d="M96 330c34-16 70-24 104-24s70 8 104 24" fill="none" stroke="#b9a58a" stroke-width="3" stroke-linecap="round"/>
+          <path d="M112 352c28-12 58-18 88-18s60 6 88 18" fill="none" stroke="#b9a58a" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="section" id="roasts" aria-labelledby="roasts-heading">
+      <header class="section-head">
+        <p class="eyebrow">The season's four</p>
+        <h2 id="roasts-heading">Find your roast</h2>
+        <p class="section-lede">Tell us how you brew, and we'll bring the right lot forward. Or browse all four — the season is short either way.</p>
+      </header>
+
+      <fieldset class="finder" aria-describedby="finder-note">
+        <legend>How do you usually brew?</legend>
+        <div class="finder-options" role="group">
+          <button type="button" class="chip" data-brew="all" aria-pressed="true">Show all</button>
+          <button type="button" class="chip" data-brew="pourover" aria-pressed="false">Pour-over</button>
+          <button type="button" class="chip" data-brew="espresso" aria-pressed="false">Espresso</button>
+          <button type="button" class="chip" data-brew="press" aria-pressed="false">French press</button>
+        </div>
+        <p class="finder-note" id="finder-note" role="status">Showing all four roasts of the season.</p>
+      </fieldset>
+
+      <ul class="roast-grid">
+        <li class="roast-card" data-brews="pourover">
+          <div class="roast-swatch swatch-dawn" aria-hidden="true"></div>
+          <h3>Dawn Terrace</h3>
+          <p class="roast-origin">Gedeb, Ethiopia · washed heirloom</p>
+          <p>Bergamot, apricot, and a honeyed finish that lingers like early light on wet stone.</p>
+          <dl class="roast-meta">
+            <div><dt>Roast</dt><dd>Light</dd></div>
+            <div><dt>Elevation</dt><dd>2,100 m</dd></div>
+            <div><dt>Best as</dt><dd>Pour-over</dd></div>
+          </dl>
+        </li>
+        <li class="roast-card" data-brews="pourover press">
+          <div class="roast-swatch swatch-orchard" aria-hidden="true"></div>
+          <h3>Orchard Smoke</h3>
+          <p class="roast-origin">Huila, Colombia · honey-processed caturra</p>
+          <p>Baked apple and panela sweetness with a soft cedar edge from a long, low development.</p>
+          <dl class="roast-meta">
+            <div><dt>Roast</dt><dd>Medium</dd></div>
+            <div><dt>Elevation</dt><dd>1,750 m</dd></div>
+            <div><dt>Best as</dt><dd>Pour-over or press</dd></div>
+          </dl>
+        </li>
+        <li class="roast-card" data-brews="espresso">
+          <div class="roast-swatch swatch-hearth" aria-hidden="true"></div>
+          <h3>Hearthline</h3>
+          <p class="roast-origin">Acatenango, Guatemala · washed bourbon</p>
+          <p>Dark chocolate and toasted hazelnut, built dense for espresso and unbothered by milk.</p>
+          <dl class="roast-meta">
+            <div><dt>Roast</dt><dd>Medium-dark</dd></div>
+            <div><dt>Elevation</dt><dd>1,600 m</dd></div>
+            <div><dt>Best as</dt><dd>Espresso</dd></div>
+          </dl>
+        </li>
+        <li class="roast-card" data-brews="press espresso">
+          <div class="roast-swatch swatch-lantern" aria-hidden="true"></div>
+          <h3>Late Lantern</h3>
+          <p class="roast-origin">Karatina, Kenya · natural SL28</p>
+          <p>Blackcurrant and molasses, roasted to the edge of the ember for slow evenings.</p>
+          <dl class="roast-meta">
+            <div><dt>Roast</dt><dd>Dark</dd></div>
+            <div><dt>Elevation</dt><dd>1,850 m</dd></div>
+            <div><dt>Best as</dt><dd>Press or espresso</dd></div>
+          </dl>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section section-dark" id="journey" aria-labelledby="journey-heading">
+      <header class="section-head">
+        <p class="eyebrow">Farm to first pour</p>
+        <h2 id="journey-heading">Every lot, traced end to end</h2>
+        <p class="section-lede">We publish the whole path for each lot — no blends of unknowns, no anonymous middle miles.</p>
+      </header>
+      <ol class="journey">
+        <li class="journey-step">
+          <span class="journey-num" aria-hidden="true">01</span>
+          <h3>Picked at the peak</h3>
+          <p>Cherries are hand-selected over three passes as each terrace ripens, usually across five weeks of harvest.</p>
+        </li>
+        <li class="journey-step">
+          <span class="journey-num" aria-hidden="true">02</span>
+          <h3>Processed on the farm</h3>
+          <p>Washing, fermentation, and drying stay with the producer — and so does the premium that skill commands.</p>
+        </li>
+        <li class="journey-step">
+          <span class="journey-num" aria-hidden="true">03</span>
+          <h3>Rested, then roasted</h3>
+          <p>Green coffee rests six weeks in our climate-held store before we roast in 12-kilogram batches, one profile per lot.</p>
+        </li>
+        <li class="journey-step">
+          <span class="journey-num" aria-hidden="true">04</span>
+          <h3>Shipped within the week</h3>
+          <p>Bags leave the roastery no more than seven days off the drum, dated by roast day, never by guesswork.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section" id="producers" aria-labelledby="producers-heading">
+      <header class="section-head">
+        <p class="eyebrow">The people behind the lots</p>
+        <h2 id="producers-heading">Meet the producers</h2>
+        <p class="section-lede">Long relationships, not spot buys. We have worked with each of these farms for at least four harvests.</p>
+      </header>
+      <ul class="producer-grid">
+        <li class="producer-card">
+          <svg class="producer-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <circle cx="32" cy="32" r="30" fill="#efe2cd"/>
+            <path d="M14 44c8-14 12-26 18-26s10 12 18 26" fill="none" stroke="#8a4a2b" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="32" cy="18" r="4" fill="#e07a3f"/>
+          </svg>
+          <h3>Worknesh Alemu</h3>
+          <p class="producer-place">Gedeb, Ethiopia — Dawn Terrace</p>
+          <p>Worknesh's four-hectare garden farm sits above the mist line. Her drying beds are turned every ninety minutes, and it shows in the cup.</p>
+        </li>
+        <li class="producer-card">
+          <svg class="producer-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <circle cx="32" cy="32" r="30" fill="#efe2cd"/>
+            <path d="M12 40h40M18 40c2-10 6-18 14-18s12 8 14 18" fill="none" stroke="#8a4a2b" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="46" cy="18" r="4" fill="#e07a3f"/>
+          </svg>
+          <h3>Elena Rojas Quintero</h3>
+          <p class="producer-place">Huila, Colombia — Orchard Smoke</p>
+          <p>Elena leads a family co-op of nine plots. Her honey process — cherries dried in their own sugars — gives the lot its baked-fruit depth.</p>
+        </li>
+        <li class="producer-card">
+          <svg class="producer-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <circle cx="32" cy="32" r="30" fill="#efe2cd"/>
+            <path d="M20 46 32 16l12 30" fill="none" stroke="#8a4a2b" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M26 36h12" stroke="#e07a3f" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <h3>Mateo Xiquín</h3>
+          <p class="producer-place">Acatenango, Guatemala — Hearthline</p>
+          <p>Mateo farms volcanic slopes his grandmother terraced by hand. Slow-maturing bourbon trees give Hearthline its density and chocolate core.</p>
+        </li>
+        <li class="producer-card">
+          <svg class="producer-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <circle cx="32" cy="32" r="30" fill="#efe2cd"/>
+            <path d="M16 44c6-4 10-10 10-18m12 18c-6-4-10-10-10-18" fill="none" stroke="#8a4a2b" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="32" cy="18" r="4" fill="#e07a3f"/>
+          </svg>
+          <h3>Njeri Wambui</h3>
+          <p class="producer-place">Karatina, Kenya — Late Lantern</p>
+          <p>Njeri manages her washing station's first natural-process program. Late Lantern is its third vintage, and its boldest.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section section-dark" id="rituals" aria-labelledby="rituals-heading">
+      <header class="section-head">
+        <p class="eyebrow">How it becomes yours</p>
+        <h2 id="rituals-heading">The rituals</h2>
+        <p class="section-lede">A coffee isn't finished at the roastery. These are the ways our four lots settle into a day.</p>
+      </header>
+      <div class="ritual-grid">
+        <article class="ritual">
+          <h3>The quiet first pour</h3>
+          <p>Dawn Terrace, 15 grams to 250, water just off the boil. Pour in spirals and let the bloom tell you the beans are fresh.</p>
+          <p class="ritual-time">6:40 a.m. — before anyone else wakes</p>
+        </article>
+        <article class="ritual">
+          <h3>The kitchen-table press</h3>
+          <p>Orchard Smoke, coarse and unhurried. Four minutes steeping while the toast burns slightly, as it always does.</p>
+          <p class="ritual-time">9:00 a.m. — the slow weekend start</p>
+        </article>
+        <article class="ritual">
+          <h3>The afternoon reset</h3>
+          <p>Hearthline pulled short, 18 grams in, 36 out. A cortado if the day has been kind; straight if it hasn't.</p>
+          <p class="ritual-time">2:30 p.m. — between the meetings</p>
+        </article>
+        <article class="ritual">
+          <h3>The last ember</h3>
+          <p>Late Lantern, half-caff by choice of a small evening cup. Blackcurrant fades to molasses as the light goes.</p>
+          <p class="ritual-time">8:00 p.m. — the day's long exhale</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section closing" aria-labelledby="closing-heading">
+      <h2 id="closing-heading">The season won't wait</h2>
+      <p class="section-lede">Four lots. Twelve kilograms at a time. Roasted the week they ship, and gone when the harvest is.</p>
+      <div class="hero-actions closing-actions">
+        <a class="button button-primary" href="#roasts">Find your roast</a>
+        <a class="button button-ghost" href="#producers">Meet the producers</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>Ember &amp; Field</strong> — roasted slowly, remembered vividly.</p>
+    <p class="footer-fine">Roasted in 12 kg batches. Traced from farm to first pour. © 2026 Ember &amp; Field Coffee.</p>
+  </footer>
+</body>
+</html>

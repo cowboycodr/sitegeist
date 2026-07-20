@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Kintsu — Care for the life between appointments</title>
+<meta name="description" content="A calm platform connecting daily reflection, therapy, and practical mental health tools.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Kintsu home">
+    <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+      <circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" stroke-width="2.5"/>
+      <path d="M20 4 L17 14 L23 20 L16 27 L20 36" fill="none" stroke="#c8973f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="brand-name">Kintsu</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#how">How it works</a>
+    <a href="#tools">Tools</a>
+    <a href="#therapy">Therapy</a>
+    <a class="nav-cta" href="#checkin">Check in</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <p class="eyebrow">Whole-person mental care</p>
+      <h1>Care for the life <em>between</em> appointments.</h1>
+      <p class="lede">Kintsu is a calm platform connecting daily reflection, therapy, and practical mental health tools — so the fifty minutes on the couch and the ten thousand minutes after it belong to the same story.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#checkin">Begin a check-in</a>
+        <a class="btn btn-ghost" href="#how">How it works</a>
+      </div>
+      <p class="hero-note">Everything below runs privately on this page. Nothing is sent anywhere.</p>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 420 420" focusable="false">
+        <circle cx="210" cy="210" r="170" fill="#efe6d7"/>
+        <circle cx="210" cy="210" r="170" fill="none" stroke="#d9cbb4" stroke-width="2"/>
+        <path class="seam" d="M210 40 C 190 110, 250 140, 205 210 C 170 265, 245 300, 210 380" fill="none" stroke="#c8973f" stroke-width="4" stroke-linecap="round"/>
+        <path class="seam seam-2" d="M70 240 C 130 230, 160 250, 205 212 C 250 175, 300 200, 350 180" fill="none" stroke="#c8973f" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="205" cy="211" r="7" fill="#c8973f"/>
+        <circle cx="210" cy="40" r="4" fill="#c8973f"/>
+        <circle cx="350" cy="180" r="4" fill="#c8973f"/>
+        <circle cx="70" cy="240" r="4" fill="#c8973f"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="checkin" id="checkin" aria-labelledby="checkin-title">
+    <div class="section-head">
+      <h2 id="checkin-title">A two-minute check-in</h2>
+      <p>Reflection works best when it is small and honest. Answer three gentle questions and Kintsu will hand you one practical next step.</p>
+    </div>
+
+    <form class="checkin-card" id="checkin-form" novalidate>
+      <div class="checkin-progress" aria-hidden="true">
+        <span class="dot is-active" data-dot="1"></span>
+        <span class="dot" data-dot="2"></span>
+        <span class="dot" data-dot="3"></span>
+      </div>
+      <p class="visually-hidden" id="checkin-step-label" aria-live="polite">Step 1 of 3</p>
+
+      <fieldset class="step is-current" data-step="1">
+        <legend>How are you arriving right now?</legend>
+        <div class="mood-grid" role="radiogroup" aria-label="Current feeling">
+          <label class="mood"><input type="radio" name="mood" value="heavy"><span>Heavy</span></label>
+          <label class="mood"><input type="radio" name="mood" value="frayed"><span>Frayed</span></label>
+          <label class="mood"><input type="radio" name="mood" value="tender"><span>Tender</span></label>
+          <label class="mood"><input type="radio" name="mood" value="steady"><span>Steady</span></label>
+          <label class="mood"><input type="radio" name="mood" value="bright"><span>Bright</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="step" data-step="2" hidden>
+        <legend>How loud is that feeling today?</legend>
+        <div class="slider-row">
+          <span class="slider-cap">a whisper</span>
+          <input type="range" id="intensity" name="intensity" min="1" max="5" value="3" step="1" aria-describedby="intensity-out">
+          <span class="slider-cap">a roar</span>
+        </div>
+        <output class="intensity-out" id="intensity-out" for="intensity">3 — present, but sharing the room</output>
+      </fieldset>
+
+      <fieldset class="step" data-step="3" hidden>
+        <legend>Anything you want to set down? <span class="optional">(optional)</span></legend>
+        <textarea id="note" name="note" rows="4" maxlength="400" placeholder="A sentence is plenty. This stays on your device and disappears when you leave."></textarea>
+      </fieldset>
+
+      <div class="checkin-nav">
+        <button type="button" class="btn btn-ghost" id="back-btn" hidden>Back</button>
+        <button type="button" class="btn btn-primary" id="next-btn" disabled>Continue</button>
+      </div>
+
+      <div class="checkin-result" id="checkin-result" hidden tabindex="-1" aria-live="polite">
+        <svg class="result-seam" viewBox="0 0 200 12" aria-hidden="true" focusable="false" preserveAspectRatio="none">
+          <path d="M0 6 C 40 2, 70 10, 100 6 C 130 2, 160 10, 200 6" fill="none" stroke="#c8973f" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <h3 id="result-title">Thank you for arriving.</h3>
+        <p id="result-body"></p>
+        <p class="result-tool"><strong>One small next step:</strong> <span id="result-tool"></span></p>
+        <button type="button" class="btn btn-ghost" id="restart-btn">Check in again</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="how" id="how" aria-labelledby="how-title">
+    <div class="section-head">
+      <h2 id="how-title">How Kintsu works</h2>
+      <p>Named for kintsugi — the craft of repairing pottery with gold — Kintsu treats the mending itself as part of the design, not something to hide.</p>
+    </div>
+    <ol class="how-grid">
+      <li class="how-card">
+        <span class="how-num" aria-hidden="true">01</span>
+        <h3>Notice, daily</h3>
+        <p>Two-minute check-ins turn vague weather into a named feeling. Over weeks, the pattern of your days becomes something you can actually see.</p>
+      </li>
+      <li class="how-card">
+        <span class="how-num" aria-hidden="true">02</span>
+        <h3>Bring it to therapy</h3>
+        <p>Your reflections become a private summary you can share with your therapist, so sessions start where your week actually was — not where memory guesses.</p>
+      </li>
+      <li class="how-card">
+        <span class="how-num" aria-hidden="true">03</span>
+        <h3>Practice in between</h3>
+        <p>Skills your therapist assigns live beside your check-ins: grounding, paced breathing, thought records. Small tools, exactly when the feeling is present.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="tools" id="tools" aria-labelledby="tools-title">
+    <div class="section-head">
+      <h2 id="tools-title">Practical tools, not homework</h2>
+      <p>Everything in the toolkit takes under five minutes and works offline, because hard moments rarely wait for good Wi-Fi.</p>
+    </div>
+    <ul class="tool-grid">
+      <li class="tool-card">
+        <h3>5-4-3-2-1 grounding</h3>
+        <p>A sensory anchor for spiraling moments: five things you see, four you feel, three you hear, two you smell, one you taste.</p>
+        <span class="tool-tag">For anxiety</span>
+      </li>
+      <li class="tool-card">
+        <h3>Paced breathing</h3>
+        <p>A quiet visual guide for four-in, six-out breathing that settles the nervous system in about ninety seconds.</p>
+        <span class="tool-tag">For overwhelm</span>
+      </li>
+      <li class="tool-card">
+        <h3>Thought record</h3>
+        <p>Catch the automatic thought, weigh the evidence, write the kinder and truer sentence. CBT's workhorse, made pocket-sized.</p>
+        <span class="tool-tag">For rumination</span>
+      </li>
+      <li class="tool-card">
+        <h3>Evening unload</h3>
+        <p>Three prompts before sleep that move the day's residue from your head to the page, where it can wait until morning.</p>
+        <span class="tool-tag">For rest</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="therapy" id="therapy" aria-labelledby="therapy-title">
+    <div class="therapy-inner">
+      <div class="therapy-copy">
+        <h2 id="therapy-title">Therapy stays at the center</h2>
+        <p>Kintsu is not a replacement for professional care — it is the connective tissue around it. Your therapist sees only what you choose to share, and your daily notes remain yours alone.</p>
+        <blockquote>
+          <p>&ldquo;The gold in kintsugi is not decoration. It is a record of care — proof that something was worth mending.&rdquo;</p>
+          <cite>— The idea Kintsu is built on</cite>
+        </blockquote>
+      </div>
+      <ul class="therapy-points">
+        <li><strong>You hold the key.</strong> Sharing a week's summary is a deliberate act, never a default.</li>
+        <li><strong>Session-ready.</strong> Arrive with a picture of your week instead of reconstructing it from scratch.</li>
+        <li><strong>Between-session support.</strong> Assigned practices appear in your toolkit the day after a session.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="closing" aria-labelledby="closing-title">
+    <h2 id="closing-title">Begin where you are.</h2>
+    <p>No streaks, no scores, no guilt. Just a quiet place to notice, mend, and carry on.</p>
+    <a class="btn btn-primary" href="#checkin">Begin a check-in</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p><span class="brand-name">Kintsu</span> · Care for the life between appointments.</p>
+  <p class="footer-note">Kintsu is a wellbeing companion, not a crisis service. If you are in immediate danger, contact your local emergency number or crisis line.</p>
+</footer>
+</body>
+</html>

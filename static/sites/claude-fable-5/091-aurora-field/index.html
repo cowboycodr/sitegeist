@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Aurora Field — A darker sky. A clearer universe.</title>
+  <meta name="description" content="A remote observatory offering research residencies and public nights under northern skies.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="sky" aria-hidden="true">
+    <div class="aurora aurora-a"></div>
+    <div class="aurora aurora-b"></div>
+    <div class="aurora aurora-c"></div>
+    <div class="stars stars-near"></div>
+    <div class="stars stars-far"></div>
+  </div>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#top">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M7 22 Q12 8 16 15 Q20 22 25 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="16" cy="16" r="1.6" fill="currentColor"/>
+        </svg>
+        Aurora Field
+      </a>
+      <ul class="nav-links">
+        <li><a href="#tonight">Tonight</a></li>
+        <li><a href="#residencies">Residencies</a></li>
+        <li><a href="#public-nights">Public nights</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <p class="eyebrow">Latitude 64.1466° N</p>
+      <h1>A darker sky.<br>A clearer universe.</h1>
+      <p class="lede">Aurora Field is a remote observatory on a subarctic ridge, far
+        beyond the last streetlight. We host research residencies through the long
+        winter dark and open the domes to the public when the sky is at its best.</p>
+      <div class="actions">
+        <a class="button button-primary" href="#tonight">See tonight's sky</a>
+        <a class="button button-ghost" href="#visit">Plan a visit</a>
+      </div>
+      <p class="hero-note">Bortle class 1 site · 22 dark-sky weeks per year · zero artificial light within 40&nbsp;km</p>
+    </section>
+
+    <section class="section" id="tonight" aria-labelledby="tonight-title">
+      <div class="section-head">
+        <p class="section-eyebrow">Sky almanac</p>
+        <h2 id="tonight-title">Tonight at the field</h2>
+        <p class="section-lede">Conditions for <span id="tonight-date">this evening</span>,
+          computed locally at the ridge station. No forecast survives contact with
+          subarctic weather — treat the outlook as a promise of possibility.</p>
+      </div>
+      <div class="cards almanac" role="list">
+        <article class="card" role="listitem">
+          <h3>Astronomical dark</h3>
+          <p class="stat" id="stat-dark">21:47 → 03:12</p>
+          <p>The window when the Sun sits more than 18° below the horizon and the
+            Milky Way's core structure resolves to the naked eye.</p>
+        </article>
+        <article class="card" role="listitem">
+          <h3>Moon phase</h3>
+          <p class="stat" id="stat-moon">Waning crescent · 18% lit</p>
+          <p>Our public dome sessions are scheduled around lunar interference;
+            faint-object imaging runs prefer the darkest half of the cycle.</p>
+        </article>
+        <article class="card" role="listitem">
+          <h3>Aurora outlook</h3>
+          <p class="stat" id="stat-aurora">Kp 4 · overhead likely</p>
+          <p>At this latitude the auroral oval sits nearly overhead. Even a quiet
+            geomagnetic night usually offers a green arc on the northern horizon.</p>
+        </article>
+        <article class="card" role="listitem">
+          <h3>Transparency</h3>
+          <p class="stat" id="stat-seeing">Excellent · 21.9 mag/arcsec²</p>
+          <p>Dry continental air and altitude give us some of the steadiest,
+            most transparent skies accessible by road anywhere on Earth.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="residencies" aria-labelledby="residencies-title">
+      <div class="section-head">
+        <p class="section-eyebrow">For researchers</p>
+        <h2 id="residencies-title">Research residencies</h2>
+        <p class="section-lede">Two-to-twelve-week residencies for astronomers,
+          atmospheric scientists, and instrument builders who need real darkness
+          and a warm place to think.</p>
+      </div>
+      <div class="cards" role="list">
+        <article class="card" role="listitem">
+          <h3>Instruments</h3>
+          <p>A 1.0&nbsp;m Ritchey–Chrétien reflector, a 0.5&nbsp;m wide-field
+            astrograph, an all-sky auroral imaging array, and bench space for
+            visiting hardware. Dedicated fiber between domes and the data barn.</p>
+        </article>
+        <article class="card" role="listitem">
+          <h3>Life at the field</h3>
+          <p>Six private cabins, a shared kitchen and sauna, and a night-shifted
+            rhythm: quiet hours run through the daylight so observers sleep well.
+            Meals appear when the sky clouds over.</p>
+        </article>
+        <article class="card" role="listitem">
+          <h3>How to apply</h3>
+          <p>We review proposals twice a year, at the equinoxes. A residency
+            covers lodging, telescope time, and technical support; travel grants
+            are available for early-career researchers.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="public-nights" aria-labelledby="public-title">
+      <div class="section-head">
+        <p class="section-eyebrow">For everyone</p>
+        <h2 id="public-title">Public nights</h2>
+        <p class="section-lede">On the darkest weekends of the season we open the
+          gates. Dress warmly; the universe does not heat the viewing terrace.</p>
+      </div>
+      <ol class="timeline">
+        <li>
+          <h3><span class="timeline-time">20:00</span> Arrival &amp; dark adaptation</h3>
+          <p>Headlights off at the lower lot. A red-lit trail leads up the ridge
+            while your eyes learn what darkness actually means.</p>
+        </li>
+        <li>
+          <h3><span class="timeline-time">21:00</span> The naked-eye sky</h3>
+          <p>A guided tour of the season's constellations, satellites, meteors,
+            and — most nights — the shifting curtains of the aurora itself.</p>
+        </li>
+        <li>
+          <h3><span class="timeline-time">22:30</span> At the eyepiece</h3>
+          <p>Small groups rotate through both domes: planets and the Moon in the
+            astrograph, galaxies and nebulae in the one-metre reflector.</p>
+        </li>
+        <li>
+          <h3><span class="timeline-time">00:00</span> Fire, cocoa, questions</h3>
+          <p>The night ends around the fire pit with resident astronomers on hand.
+            No question about the universe is too small or too large.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section" id="visit" aria-labelledby="visit-title">
+      <div class="section-head">
+        <p class="section-eyebrow">Getting here</p>
+        <h2 id="visit-title">Plan a visit</h2>
+        <p class="section-lede">The field sits at the end of a 34&nbsp;km gravel
+          road north of the Kaldá river crossing. The journey is part of the point.</p>
+      </div>
+      <div class="visit-grid">
+        <div class="visit-panel">
+          <h3>Season</h3>
+          <p>Public nights run <strong>late August through mid-April</strong>,
+            whenever astronomical darkness returns. Midsummer brings the midnight
+            sun — beautiful, but useless for astronomy — so summer visits are
+            daytime tours of the instruments only.</p>
+        </div>
+        <div class="visit-panel">
+          <h3>What to bring</h3>
+          <p>Layered clothing rated well below freezing, insulated boots, a red
+            flashlight if you have one, and patience. Leave white lights, drones,
+            and haste at home. Loaner parkas are available at the gate.</p>
+        </div>
+        <div class="visit-panel">
+          <h3>Access</h3>
+          <p>The trail from the lower lot to the terrace is 600&nbsp;m with a
+            gentle grade; a heated shuttle serves visitors who prefer not to walk.
+            Both domes and the fire circle are step-free.</p>
+        </div>
+        <div class="visit-panel">
+          <h3>Weather policy</h3>
+          <p>If the ridge clouds over, the night moves indoors: a live tour of the
+            control room and the auroral archive. Cloud-night tickets carry over
+            to any clear night in the same season.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>Aurora Field</strong> · Latitude 64.1466° N · A darker sky. A clearer universe.</p>
+    <p class="footer-fine">The field is a certified dark-sky sanctuary. All outdoor
+      lighting is red, shielded, and switched off during observing hours.</p>
+  </footer>
+</body>
+</html>

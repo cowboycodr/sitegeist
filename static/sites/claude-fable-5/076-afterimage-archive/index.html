@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Afterimage Archive — What remains after looking.</title>
+  <meta name="description" content="A digital archive preserving overlooked experimental photography from 1968 to 1999.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#archive">Skip to the archive</a>
+
+<header class="masthead">
+  <a class="wordmark" href="#top" aria-label="Afterimage Archive, back to top">
+    <span class="wordmark-mark" aria-hidden="true"></span>
+    <span class="wordmark-text">Afterimage<em>Archive</em></span>
+  </a>
+  <nav class="masthead-nav" aria-label="Site">
+    <a href="#archive">Archive</a>
+    <a href="#note">Curatorial note</a>
+    <a href="#colophon">Colophon</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-plate" aria-hidden="true">
+      <svg viewBox="0 0 640 640" class="hero-plate-svg" role="img" aria-hidden="true" focusable="false">
+        <defs>
+          <radialGradient id="hero-glow" cx="50%" cy="46%" r="60%">
+            <stop offset="0%" stop-color="#f4ead8" stop-opacity="0.95"/>
+            <stop offset="34%" stop-color="#d8b98a" stop-opacity="0.55"/>
+            <stop offset="62%" stop-color="#7a5a3a" stop-opacity="0.22"/>
+            <stop offset="100%" stop-color="#100e0c" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="hero-grain" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" stitchTiles="stitch" result="n"/>
+            <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.9  0 0 0 0 0.85  0 0 0 0 0.75  0 0 0 0.14 0"/>
+            <feComposite operator="over" in2="SourceGraphic"/>
+          </filter>
+        </defs>
+        <rect width="640" height="640" fill="#0e0c0a"/>
+        <g filter="url(#hero-grain)">
+          <rect width="640" height="640" fill="#0e0c0a"/>
+          <circle cx="320" cy="296" r="238" fill="url(#hero-glow)"/>
+          <circle cx="320" cy="296" r="176" fill="none" stroke="#f4ead8" stroke-opacity="0.32" stroke-width="1.5"/>
+          <circle cx="320" cy="296" r="128" fill="none" stroke="#f4ead8" stroke-opacity="0.2" stroke-width="1"/>
+          <circle cx="320" cy="296" r="82" fill="none" stroke="#e2582c" stroke-opacity="0.55" stroke-width="2"/>
+          <circle cx="320" cy="296" r="30" fill="#0e0c0a" stroke="#f4ead8" stroke-opacity="0.7" stroke-width="1.5"/>
+          <line x1="60" y1="530" x2="580" y2="530" stroke="#f4ead8" stroke-opacity="0.28" stroke-width="1"/>
+          <line x1="60" y1="546" x2="430" y2="546" stroke="#e2582c" stroke-opacity="0.45" stroke-width="1"/>
+        </g>
+      </svg>
+    </div>
+    <div class="hero-copy">
+      <p class="eyebrow">Archive 001—947</p>
+      <h1 id="hero-title">Afterimage<br>Archive</h1>
+      <p class="tagline">What remains after looking.</p>
+      <p class="lede">A digital archive preserving overlooked experimental photography from 1968 to 1999 — photograms, chemigrams, solarizations, and luminograms made without cameras, recovered from closed darkrooms and forgotten portfolios.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#archive">Browse the archive</a>
+        <a class="button button-ghost" href="#note">Read curatorial note</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ARCHIVE ============ -->
+  <section class="archive" id="archive" aria-labelledby="archive-title">
+    <div class="section-head">
+      <p class="eyebrow">Holdings · sixteen plates on view</p>
+      <h2 id="archive-title">The archive</h2>
+      <p class="section-lede">Each plate below is a study reconstruction of a recovered work, rendered from its catalogue record. Select a plate to open its full record.</p>
+    </div>
+
+    <div class="filters" role="group" aria-label="Filter plates by decade">
+      <button class="filter is-active" type="button" data-decade="all" aria-pressed="true">All decades</button>
+      <button class="filter" type="button" data-decade="1960" aria-pressed="false">1968–69</button>
+      <button class="filter" type="button" data-decade="1970" aria-pressed="false">1970s</button>
+      <button class="filter" type="button" data-decade="1980" aria-pressed="false">1980s</button>
+      <button class="filter" type="button" data-decade="1990" aria-pressed="false">1990s</button>
+    </div>
+
+    <p class="filter-status" id="filter-status" role="status">Showing all sixteen plates.</p>
+
+    <ul class="plate-grid" id="plate-grid">
+      <!-- populated by app.js -->
+    </ul>
+
+    <noscript>
+      <p class="noscript-note">The interactive plate viewer needs JavaScript. The full catalogue record — artists, dates, and processes — is preserved in the colophon index below.</p>
+    </noscript>
+  </section>
+
+  <!-- ============ CURATORIAL NOTE ============ -->
+  <section class="note" id="note" aria-labelledby="note-title">
+    <div class="note-inner">
+      <p class="eyebrow">Curatorial note</p>
+      <h2 id="note-title">On keeping what almost vanished</h2>
+      <div class="note-body">
+        <p><span class="dropcap">B</span>etween 1968 and 1999, in rented darkrooms and borrowed bathrooms, a scattered generation of photographers stopped pointing cameras at the world and began pointing light at paper. They made photograms with keys and lace, burned chemistry directly into gelatin, split tones until silver turned to smoke. Almost none of it was exhibited. Most of it was thrown away.</p>
+        <p>The Afterimage Archive collects what survived: nine hundred forty-seven works recovered from estate sales, shuttered community darkrooms, and the backs of framing-shop drawers. The sixteen plates presented in this first public hanging were chosen not because they are the best — such a ranking would betray the work — but because each one demonstrates a process the archive is committed to documenting before the last practitioners are gone.</p>
+        <p>An afterimage is what the eye keeps once the light has stopped. These prints are the same thing at the scale of a life: evidence that someone stood in the dark, paid attention, and left a mark. We keep them so the looking is not lost.</p>
+        <p class="note-sig">— The Keepers of the Archive, est. 2003</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COLOPHON / INDEX ============ -->
+  <section class="colophon" id="colophon" aria-labelledby="colophon-title">
+    <div class="section-head">
+      <p class="eyebrow">Index</p>
+      <h2 id="colophon-title">Catalogue index</h2>
+    </div>
+    <div class="index-table-wrap">
+      <table class="index-table">
+        <caption class="visually-hidden">All sixteen plates on view, with catalogue number, artist, year, and process</caption>
+        <thead>
+          <tr><th scope="col">No.</th><th scope="col">Title</th><th scope="col">Artist</th><th scope="col">Year</th><th scope="col">Process</th></tr>
+        </thead>
+        <tbody id="index-body">
+          <tr><td>014</td><td>Latch and Wire</td><td>Miriam Okafor</td><td>1968</td><td>Photogram</td></tr>
+          <tr><td>027</td><td>Static Field II</td><td>Devon Ruiz</td><td>1969</td><td>Luminogram</td></tr>
+          <tr><td>081</td><td>Slow Burn</td><td>Anneke Vos</td><td>1971</td><td>Chemigram</td></tr>
+          <tr><td>106</td><td>Eclipse Rehearsal</td><td>Tomas Iwai</td><td>1973</td><td>Solarization</td></tr>
+          <tr><td>149</td><td>Kitchen Window, 4 a.m.</td><td>Miriam Okafor</td><td>1975</td><td>Photogram</td></tr>
+          <tr><td>203</td><td>Signal Decay</td><td>Priya Menon</td><td>1977</td><td>Luminogram</td></tr>
+          <tr><td>238</td><td>Sixteen Exposures of a Door</td><td>Carl Whitfield</td><td>1979</td><td>Multiple exposure</td></tr>
+          <tr><td>311</td><td>Acid Bloom</td><td>Anneke Vos</td><td>1982</td><td>Chemigram</td></tr>
+          <tr><td>356</td><td>Half-Remembered Room</td><td>Devon Ruiz</td><td>1984</td><td>Pinhole</td></tr>
+          <tr><td>402</td><td>Interference Study 9</td><td>Priya Menon</td><td>1986</td><td>Luminogram</td></tr>
+          <tr><td>477</td><td>The Argument, Rewound</td><td>Carl Whitfield</td><td>1988</td><td>Multiple exposure</td></tr>
+          <tr><td>530</td><td>Salt on Glass</td><td>Tomas Iwai</td><td>1990</td><td>Solarization</td></tr>
+          <tr><td>618</td><td>Ferns, Inverted</td><td>Lena Barros</td><td>1992</td><td>Photogram</td></tr>
+          <tr><td>701</td><td>Long Room, Small Hole</td><td>Lena Barros</td><td>1995</td><td>Pinhole</td></tr>
+          <tr><td>856</td><td>Dial Tone</td><td>Priya Menon</td><td>1997</td><td>Luminogram</td></tr>
+          <tr><td>947</td><td>Last Print Before Closing</td><td>Anneke Vos</td><td>1999</td><td>Chemigram</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <footer class="site-footer">
+      <p>Afterimage Archive · Archive 001—947 · Preserving overlooked experimental photography, 1968–1999.</p>
+      <p class="footer-fine">All plates are study reconstructions rendered from catalogue records. No cameras were harmed, or in most cases even used.</p>
+    </footer>
+  </section>
+
+</main>
+
+<!-- ============ PLATE RECORD DIALOG ============ -->
+<dialog class="record" id="record" aria-labelledby="record-title">
+  <div class="record-inner">
+    <button class="record-close" id="record-close" type="button" aria-label="Close record">×</button>
+    <figure class="record-figure" id="record-figure">
+      <!-- large plate SVG injected here -->
+    </figure>
+    <div class="record-meta">
+      <p class="eyebrow" id="record-no">Plate</p>
+      <h3 id="record-title">Untitled</h3>
+      <dl class="record-facts">
+        <div><dt>Artist</dt><dd id="record-artist">—</dd></div>
+        <div><dt>Year</dt><dd id="record-year">—</dd></div>
+        <div><dt>Process</dt><dd id="record-process">—</dd></div>
+        <div><dt>Recovered</dt><dd id="record-recovered">—</dd></div>
+      </dl>
+      <p class="record-note" id="record-note"></p>
+      <div class="record-nav">
+        <button class="button button-ghost" id="record-prev" type="button">← Previous plate</button>
+        <button class="button button-ghost" id="record-next" type="button">Next plate →</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+</body>
+</html>

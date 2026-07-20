@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+<title>Afterlight Arcade — One more run before sunrise.</title>
+<meta name="description" content="A neon-soaked arcade of original worlds, weekly challenges, and a living global leaderboard.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230b0616'/%3E%3Cpath d='M3 13 8 3l5 10h-3l-2-4-2 4z' fill='%23ff3ea5'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#worlds">Skip to worlds</a>
+
+<div class="scanlines" aria-hidden="true"></div>
+
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Afterlight Arcade home">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <rect x="1" y="1" width="30" height="30" rx="6" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M8 24 16 8l8 16h-4.6L16 16.9 12.6 24Z" fill="currentColor"/>
+    </svg>
+    <span>Afterlight<b>Arcade</b></span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#worlds">Worlds</a>
+    <a href="#challenge">Challenge</a>
+    <a href="#leaderboard">Leaderboard</a>
+    <a href="#cabinet">Cabinet</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="eyebrow">Independent games universe</p>
+      <h1 id="hero-title">One more run<br><span class="glow-pink">before sunrise.</span></h1>
+      <p class="lede">Afterlight Arcade is a neon-soaked constellation of original worlds — hand-built games, weekly gauntlets, and a global leaderboard that never sleeps. Insert coin. The night is young.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#cabinet">Press start</a>
+        <a class="btn btn-ghost" href="#leaderboard">View leaderboards</a>
+      </div>
+      <dl class="hero-stats" aria-label="Arcade statistics">
+        <div><dt>Original worlds</dt><dd>12</dd></div>
+        <div><dt>Runs tonight</dt><dd><span id="runs-tonight">48,112</span></dd></div>
+        <div><dt>Players online</dt><dd><span id="players-online">6,204</span></dd></div>
+      </dl>
+    </div>
+    <div class="hero-cab" aria-hidden="true">
+      <svg viewBox="0 0 260 340" role="img" focusable="false">
+        <defs>
+          <linearGradient id="cabScreen" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#2a0f4a"/><stop offset="1" stop-color="#0b0616"/>
+          </linearGradient>
+        </defs>
+        <path d="M40 30 220 30 235 120 235 330 25 330 25 120Z" fill="#160b2b" stroke="#ff3ea5" stroke-width="2"/>
+        <rect x="55" y="55" width="150" height="105" rx="6" fill="url(#cabScreen)" stroke="#38f0ff" stroke-width="2"/>
+        <path class="cab-sun" d="M85 160a45 45 0 0 1 90 0Z" fill="#ff3ea5" opacity=".85"/>
+        <path d="M55 132h150M55 144h150" stroke="#38f0ff" stroke-width="1.5" opacity=".5"/>
+        <path d="M70 122 100 92l24 22 30-34 36 42" fill="none" stroke="#ffd447" stroke-width="2.5" stroke-linejoin="round"/>
+        <rect x="45" y="185" width="170" height="46" rx="8" fill="#1d0f38" stroke="#38f0ff" stroke-width="1.5"/>
+        <circle cx="90" cy="208" r="9" fill="#ff3ea5"/><rect x="87" y="180" width="6" height="22" rx="3" fill="#38f0ff"/>
+        <circle cx="150" cy="208" r="8" fill="#ffd447"/><circle cx="178" cy="208" r="8" fill="#38f0ff"/>
+        <rect x="45" y="250" width="170" height="14" rx="4" fill="#0b0616" stroke="#ff3ea5" stroke-width="1.5"/>
+        <text x="130" y="47" text-anchor="middle" fill="#ffd447" font-family="monospace" font-size="14" letter-spacing="3">AFTERLIGHT</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============ WORLDS ============ -->
+  <section class="section" id="worlds" aria-labelledby="worlds-title">
+    <header class="section-head">
+      <p class="eyebrow">Choose your world</p>
+      <h2 id="worlds-title">Twelve cabinets, zero reruns</h2>
+      <p>Every world in the arcade is an original. These four are burning brightest tonight.</p>
+    </header>
+    <ul class="worlds-grid">
+      <li class="world-card" style="--accent:#38f0ff">
+        <svg class="world-art" viewBox="0 0 120 72" aria-hidden="true" focusable="false">
+          <rect width="120" height="72" fill="#0e0a24"/>
+          <path d="M0 58 20 40 38 52 60 28 82 46 104 24 120 38V72H0Z" fill="#123a5c"/>
+          <circle cx="92" cy="18" r="10" fill="#38f0ff"/>
+          <path d="M10 12h18M34 20h12M96 46h14" stroke="#38f0ff" stroke-width="2" opacity=".6"/>
+        </svg>
+        <div class="world-body">
+          <h3>Vector Tide</h3>
+          <p class="world-tag">Wave-surfing shooter</p>
+          <p>Carve laser swells across a wireframe ocean while the moon fires back.</p>
+          <p class="world-meta"><span class="pill">Top score</span> 1,204,880 — NEB</p>
+        </div>
+      </li>
+      <li class="world-card" style="--accent:#ff3ea5">
+        <svg class="world-art" viewBox="0 0 120 72" aria-hidden="true" focusable="false">
+          <rect width="120" height="72" fill="#170826"/>
+          <path d="M20 72V30h14v42M50 72V16h14v56M84 72V40h14v32" fill="#3c1257"/>
+          <path d="M20 30h14M50 16h14M84 40h14" stroke="#ff3ea5" stroke-width="3"/>
+          <circle cx="60" cy="10" r="4" fill="#ffd447"/>
+          <path d="M0 66h120" stroke="#ff3ea5" stroke-width="2"/>
+        </svg>
+        <div class="world-body">
+          <h3>Neon Necropolis</h3>
+          <p class="world-tag">Roguelite crawler</p>
+          <p>Descend a glowing tower of ghosts where every floor rearranges at midnight.</p>
+          <p class="world-meta"><span class="pill">Top score</span> 987,340 — KYO</p>
+        </div>
+      </li>
+      <li class="world-card" style="--accent:#ffd447">
+        <svg class="world-art" viewBox="0 0 120 72" aria-hidden="true" focusable="false">
+          <rect width="120" height="72" fill="#1a1206"/>
+          <path d="M0 50 40 50 60 20 80 50 120 50" fill="none" stroke="#ffd447" stroke-width="3" stroke-linejoin="round"/>
+          <circle cx="60" cy="20" r="6" fill="#ffd447"/>
+          <path d="M8 62h104" stroke="#8a5a00" stroke-width="4"/>
+          <path d="M20 62v-8M44 62v-8M76 62v-8M100 62v-8" stroke="#ffd447" stroke-width="2"/>
+        </svg>
+        <div class="world-body">
+          <h3>Sunset Circuit</h3>
+          <p class="world-tag">Anti-grav racer</p>
+          <p>Sixteen tracks stitched along the horizon line, raced flat-out until dawn.</p>
+          <p class="world-meta"><span class="pill">Top score</span> 1,118,205 — RUE</p>
+        </div>
+      </li>
+      <li class="world-card" style="--accent:#7dff8a">
+        <svg class="world-art" viewBox="0 0 120 72" aria-hidden="true" focusable="false">
+          <rect width="120" height="72" fill="#06170d"/>
+          <path d="M12 60c20-32 76-32 96 0" fill="none" stroke="#7dff8a" stroke-width="2"/>
+          <path d="M24 60c14-20 58-20 72 0" fill="none" stroke="#7dff8a" stroke-width="2" opacity=".6"/>
+          <circle cx="60" cy="34" r="8" fill="#7dff8a"/>
+          <path d="M56 34h8M60 30v8" stroke="#06170d" stroke-width="2"/>
+        </svg>
+        <div class="world-body">
+          <h3>Garden.exe</h3>
+          <p class="world-tag">Puzzle terrarium</p>
+          <p>Grow logic-vines through corrupted greenhouses one careful pulse at a time.</p>
+          <p class="world-meta"><span class="pill">Top score</span> 640,010 — MOSS</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ WEEKLY CHALLENGE ============ -->
+  <section class="section challenge" id="challenge" aria-labelledby="challenge-title">
+    <div class="challenge-card">
+      <div class="challenge-copy">
+        <p class="eyebrow">Weekly gauntlet · resets Monday 00:00 UTC</p>
+        <h2 id="challenge-title">This week: “No-Boost Necropolis”</h2>
+        <p>Clear ten floors of Neon Necropolis without touching a boost pad. One attempt per night. Ghost replays of the top three runs play in every cabinet's attract mode.</p>
+        <ul class="challenge-rules">
+          <li><b>Mutator</b> — boost pads are lava</li>
+          <li><b>Reward</b> — the “Cold Feet” cabinet badge</li>
+          <li><b>Cleared so far</b> — 341 players</li>
+        </ul>
+      </div>
+      <div class="challenge-timer" role="timer" aria-label="Time remaining in weekly challenge">
+        <p class="timer-label">Gauntlet closes in</p>
+        <p class="timer-digits" id="countdown" aria-live="off">3d 08:14:22</p>
+        <p class="timer-note">Runs submitted after the buzzer still count for the nightly board.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LEADERBOARD ============ -->
+  <section class="section" id="leaderboard" aria-labelledby="leaderboard-title">
+    <header class="section-head">
+      <p class="eyebrow">Living global leaderboard</p>
+      <h2 id="leaderboard-title">Tonight's high scores</h2>
+      <p>Scores tick in live from cabinets around the world. Pick a world to see who owns it.</p>
+    </header>
+
+    <div class="board">
+      <div class="board-tabs" role="tablist" aria-label="Leaderboard worlds">
+        <button role="tab" id="tab-vector" aria-selected="true" aria-controls="panel-board" data-board="vector">Vector Tide</button>
+        <button role="tab" id="tab-necro" aria-selected="false" aria-controls="panel-board" data-board="necro" tabindex="-1">Neon Necropolis</button>
+        <button role="tab" id="tab-circuit" aria-selected="false" aria-controls="panel-board" data-board="circuit" tabindex="-1">Sunset Circuit</button>
+        <button role="tab" id="tab-garden" aria-selected="false" aria-controls="panel-board" data-board="garden" tabindex="-1">Garden.exe</button>
+      </div>
+      <div id="panel-board" role="tabpanel" aria-labelledby="tab-vector" tabindex="0">
+        <table class="board-table">
+          <caption class="visually-hidden">High scores for the selected world</caption>
+          <thead>
+            <tr><th scope="col">Rank</th><th scope="col">Player</th><th scope="col">Score</th><th scope="col" class="col-when">When</th></tr>
+          </thead>
+          <tbody id="board-body">
+            <!-- rows rendered by app.js; static fallback below -->
+            <tr><td>1</td><td>NEB</td><td>1,204,880</td><td class="col-when">2m ago</td></tr>
+            <tr><td>2</td><td>VXA</td><td>1,187,410</td><td class="col-when">11m ago</td></tr>
+            <tr><td>3</td><td>SOL</td><td>1,102,995</td><td class="col-when">19m ago</td></tr>
+            <tr><td>4</td><td>RIN</td><td>1,066,120</td><td class="col-when">34m ago</td></tr>
+            <tr><td>5</td><td>OKO</td><td>1,020,455</td><td class="col-when">1h ago</td></tr>
+          </tbody>
+        </table>
+        <p class="board-foot" id="board-note" aria-live="polite">Vector Tide — 8,921 runs logged tonight.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CABINET / MINI-GAME ============ -->
+  <section class="section cabinet" id="cabinet" aria-labelledby="cabinet-title">
+    <header class="section-head">
+      <p class="eyebrow">Free play</p>
+      <h2 id="cabinet-title">The lobby cabinet</h2>
+      <p>A tiny taste of the arcade, right here. Tap the buttons or press <kbd>1</kbd>–<kbd>4</kbd> to echo the pattern back. How long can you keep the sequence alive?</p>
+    </header>
+
+    <div class="minigame" aria-label="Afterglow pattern mini-game">
+      <div class="mini-screen">
+        <p class="mini-status" id="mini-status" aria-live="polite">Press start to watch the pattern.</p>
+        <p class="mini-score">Streak <output id="mini-streak" for="pad-1 pad-2 pad-3 pad-4">0</output> · Best <output id="mini-best">0</output></p>
+      </div>
+      <div class="mini-pads">
+        <button class="pad" id="pad-1" data-pad="0" style="--pad:#38f0ff" aria-label="Pad 1, cyan"><span>1</span></button>
+        <button class="pad" id="pad-2" data-pad="1" style="--pad:#ff3ea5" aria-label="Pad 2, pink"><span>2</span></button>
+        <button class="pad" id="pad-3" data-pad="2" style="--pad:#ffd447" aria-label="Pad 3, gold"><span>3</span></button>
+        <button class="pad" id="pad-4" data-pad="3" style="--pad:#7dff8a" aria-label="Pad 4, green"><span>4</span></button>
+      </div>
+      <button class="btn btn-primary mini-start" id="mini-start">Press start</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p><b>Afterlight Arcade</b> — one more run before sunrise.</p>
+  <p>An independent games universe. All worlds original, all scores earned, no quarters harmed.</p>
+  <nav aria-label="Footer">
+    <a href="#worlds">Worlds</a> · <a href="#challenge">Challenge</a> · <a href="#leaderboard">Leaderboard</a> · <a href="#top">Back to top</a>
+  </nav>
+</footer>
+
+</body>
+</html>

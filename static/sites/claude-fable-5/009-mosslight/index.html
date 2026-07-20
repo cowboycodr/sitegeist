@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:">
+<title>Mosslight — Disappear into the green.</title>
+<meta name="description" content="Restorative forest cabins, seasonal field notes, and unhurried itineraries in the Cascades.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="wordmark" href="#top" aria-label="Mosslight — home">
+    <svg class="wordmark-fern" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path d="M16 29V6" />
+      <path d="M16 10c-4-1-6-4-6-7 3 0 6 2 6 7Zm0 0c4-1 6-4 6-7-3 0-6 2-6 7Z" class="fill" />
+      <path d="M16 16c-5-1-8-4-8-8 4 0 8 3 8 8Zm0 0c5-1 8-4 8-8-4 0-8 3-8 8Z" class="fill faint" />
+      <path d="M16 22c-6-1-9-4-9-9 5 0 9 4 9 9Zm0 0c6-1 9-4 9-9-5 0-9 4-9 9Z" class="fill fainter" />
+    </svg>
+    <span>Mosslight</span>
+  </a>
+  <nav class="site-nav" aria-label="Site">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      Menu
+    </button>
+    <ul id="nav-list" class="nav-list">
+      <li><a href="#cabins">Cabins</a></li>
+      <li><a href="#grounds">Grounds</a></li>
+      <li><a href="#notes">Field notes</a></li>
+      <li><a href="#itineraries">Itineraries</a></li>
+      <li><a class="nav-cta" href="#plan">Plan your stay</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============ Hero ============ -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <svg class="hero-art" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#0d1f17"/>
+          <stop offset=".55" stop-color="#14372a"/>
+          <stop offset="1" stop-color="#1c4a36"/>
+        </linearGradient>
+        <linearGradient id="mist" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#dcead9" stop-opacity="0"/>
+          <stop offset="1" stop-color="#dcead9" stop-opacity=".35"/>
+        </linearGradient>
+      </defs>
+      <rect width="1440" height="760" fill="url(#sky)"/>
+      <circle cx="1120" cy="170" r="58" fill="#f2ead2" opacity=".85"/>
+      <g fill="#0f2b20">
+        <path d="M0 760 220 380 440 760Z"/><path d="M300 760 520 300 740 760Z"/><path d="M900 760 1120 340 1340 760Z"/>
+      </g>
+      <g fill="#123527">
+        <path d="M-80 760 120 460 320 760Z"/><path d="M560 760 760 420 960 760Z"/><path d="M1120 760 1320 440 1520 760Z"/>
+      </g>
+      <g fill="#1a4433">
+        <path d="M60 760 240 520 420 760Z"/><path d="M420 760 620 500 820 760Z"/><path d="M780 760 980 520 1180 760Z"/><path d="M1160 760 1340 540 1520 760Z"/>
+      </g>
+      <rect y="520" width="1440" height="240" fill="url(#mist)"/>
+      <!-- cabin -->
+      <g>
+        <rect x="640" y="596" width="160" height="96" fill="#3b2f24"/>
+        <path d="M620 600 720 528 820 600Z" fill="#241c14"/>
+        <rect x="700" y="632" width="40" height="60" fill="#0f0c08"/>
+        <rect x="660" y="620" width="26" height="26" fill="#f4c96b"/>
+        <rect x="754" y="620" width="26" height="26" fill="#f4c96b"/>
+      </g>
+    </svg>
+    <div class="hero-inner">
+      <p class="eyebrow">Cabins in the Cascades</p>
+      <h1 id="hero-title">Disappear into the&nbsp;green.</h1>
+      <p class="hero-lede">Restorative forest cabins, seasonal field notes, and unhurried itineraries beneath old-growth hemlock and fir.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#plan">Plan your stay</a>
+        <a class="button ghost" href="#grounds">Explore the grounds</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Cabins ============ -->
+  <section class="section" id="cabins" aria-labelledby="cabins-title">
+    <div class="section-head">
+      <p class="eyebrow">Stay</p>
+      <h2 id="cabins-title">Three cabins, one canopy</h2>
+      <p class="section-lede">Each cabin sits alone at the end of its own boardwalk, close enough to the lodge for morning bread, far enough for silence.</p>
+    </div>
+    <div class="card-grid">
+      <article class="cabin-card">
+        <svg class="cabin-icon" viewBox="0 0 96 72" aria-hidden="true" focusable="false">
+          <path d="M8 66 48 30l40 36" class="roof"/>
+          <rect x="24" y="46" width="48" height="20" class="wall"/>
+          <rect x="42" y="52" width="12" height="14" class="door"/>
+        </svg>
+        <h3>Fernbrook</h3>
+        <p class="cabin-meta">Sleeps 2 · Creekside · Wood stove</p>
+        <p>A one-room cabin above Millican Creek. Fall asleep to water over stone; wake to steam rising off the riffle.</p>
+        <p class="cabin-rate">From $210 / night</p>
+      </article>
+      <article class="cabin-card">
+        <svg class="cabin-icon" viewBox="0 0 96 72" aria-hidden="true" focusable="false">
+          <path d="M8 66 48 22l40 44" class="roof"/>
+          <rect x="20" y="44" width="56" height="22" class="wall"/>
+          <rect x="30" y="50" width="14" height="10" class="door"/>
+          <rect x="52" y="50" width="14" height="10" class="door"/>
+        </svg>
+        <h3>Hemlock Hall</h3>
+        <p class="cabin-meta">Sleeps 4 · Loft · Soaking tub</p>
+        <p>Our tallest cabin, built around a standing hemlock. The loft window frames Threefinger Ridge at first light.</p>
+        <p class="cabin-rate">From $285 / night</p>
+      </article>
+      <article class="cabin-card">
+        <svg class="cabin-icon" viewBox="0 0 96 72" aria-hidden="true" focusable="false">
+          <path d="M12 66 48 36l36 30" class="roof"/>
+          <rect x="26" y="50" width="44" height="16" class="wall"/>
+          <rect x="44" y="54" width="10" height="12" class="door"/>
+          <circle cx="48" cy="24" r="7" class="moon"/>
+        </svg>
+        <h3>Lantern Low</h3>
+        <p class="cabin-meta">Sleeps 2 · Meadow edge · Star porch</p>
+        <p>Low-slung and lantern-lit at the meadow's edge, with the darkest sky on the property for late-night watching.</p>
+        <p class="cabin-rate">From $195 / night</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ Grounds ============ -->
+  <section class="section alt" id="grounds" aria-labelledby="grounds-title">
+    <div class="section-head">
+      <p class="eyebrow">Wander</p>
+      <h2 id="grounds-title">The grounds</h2>
+      <p class="section-lede">Forty acres of second-growth forest, one creek, one meadow, and paths that never hurry you anywhere.</p>
+    </div>
+    <ul class="grounds-list">
+      <li>
+        <h3>The bathhouse</h3>
+        <p>Cedar sauna and two outdoor soaking tubs fed by the spring, open dawn to midnight.</p>
+      </li>
+      <li>
+        <h3>Millican Creek loop</h3>
+        <p>A forty-minute walk under mossed maples, with two benches and one very good log.</p>
+      </li>
+      <li>
+        <h3>The lodge table</h3>
+        <p>Bread at seven, soup at noon, and a long communal dinner on Saturdays. Always tea.</p>
+      </li>
+      <li>
+        <h3>The dark meadow</h3>
+        <p>No lamps past the last boardwalk post. Blankets in the chest; the sky does the rest.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ Field notes ============ -->
+  <section class="section" id="notes" aria-labelledby="notes-title">
+    <div class="section-head">
+      <p class="eyebrow">Seasonal field notes</p>
+      <h2 id="notes-title">What the forest is doing</h2>
+      <p class="section-lede">Short dispatches from the caretakers, one per season, kept honest.</p>
+    </div>
+    <div class="notes-grid">
+      <article class="note">
+        <p class="note-season">Midsummer · July</p>
+        <h3>The creek runs shy</h3>
+        <p>Millican has dropped to its summer voice — more murmur than rush. Thimbleberries are ripening along the loop, and the swifts have taken the lodge chimney again. Evenings ask for a light sweater, nothing more.</p>
+      </article>
+      <article class="note">
+        <p class="note-season">Spring · April</p>
+        <h3>Trillium fortnight</h3>
+        <p>Two weeks when the forest floor turns white with trillium and we route the loop trail around the best of it. Rain most afternoons, which is why the sauna exists.</p>
+      </article>
+      <article class="note">
+        <p class="note-season">Autumn · October</p>
+        <h3>Mushroom weather</h3>
+        <p>Chanterelle season. Guided foraging on Sunday mornings, and whatever comes back clean goes into the noon soup. The maples along the creek go amber first.</p>
+      </article>
+      <article class="note">
+        <p class="note-season">Winter · January</p>
+        <h3>Snow-quiet</h3>
+        <p>The boardwalks are swept, the stoves are stacked, and the property goes properly silent. Bring a thick book. The tubs steam hardest this time of year.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ Itineraries ============ -->
+  <section class="section alt" id="itineraries" aria-labelledby="itineraries-title">
+    <div class="section-head">
+      <p class="eyebrow">Unhurried itineraries</p>
+      <h2 id="itineraries-title">Ways to spend a day</h2>
+      <p class="section-lede">Suggestions, not schedules. Skip anything; nothing minds.</p>
+    </div>
+    <div class="itinerary-list">
+      <details class="itinerary" open>
+        <summary><span class="itinerary-name">The Slow Morning</span><span class="itinerary-length">half day</span></summary>
+        <ol>
+          <li>Bread and coffee at the lodge when the bell rings at seven.</li>
+          <li>Creek loop at whatever pace the moss allows.</li>
+          <li>Sauna, then the cold plunge if you are feeling brave, then the warm tub because you were.</li>
+          <li>Back to the porch by noon with nothing left to do.</li>
+        </ol>
+      </details>
+      <details class="itinerary">
+        <summary><span class="itinerary-name">The Ridge Day</span><span class="itinerary-length">full day</span></summary>
+        <ol>
+          <li>Packed lunch from the lodge kitchen — ask the night before.</li>
+          <li>Drive twenty minutes to the Threefinger trailhead; climb through fir to the overlook.</li>
+          <li>Eat lunch above the valley. Watch clouds get caught on the ridge.</li>
+          <li>Return for the Saturday table, or soup if it's any other day.</li>
+        </ol>
+      </details>
+      <details class="itinerary">
+        <summary><span class="itinerary-name">The Rain Day</span><span class="itinerary-length">as long as it rains</span></summary>
+        <ol>
+          <li>Do not fight it. Move a chair to the window.</li>
+          <li>Tea from the shelf; the smoky one is better than it smells.</li>
+          <li>Bathhouse at dusk, when the rain on the cedar roof is loudest.</li>
+          <li>Dinner by the stove. Bed early. The forest will be washed by morning.</li>
+        </ol>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ Plan ============ -->
+  <section class="section plan" id="plan" aria-labelledby="plan-title">
+    <div class="section-head">
+      <p class="eyebrow">Plan your stay</p>
+      <h2 id="plan-title">Tell us when you'd like to disappear</h2>
+      <p class="section-lede">Sketch a stay below and we'll shape it into a note you can send when you're back within range of the world.</p>
+    </div>
+    <form class="plan-form" novalidate>
+      <div class="field-row">
+        <div class="field">
+          <label for="plan-cabin">Cabin</label>
+          <select id="plan-cabin" name="cabin">
+            <option value="Fernbrook">Fernbrook — creekside, sleeps 2</option>
+            <option value="Hemlock Hall">Hemlock Hall — loft, sleeps 4</option>
+            <option value="Lantern Low">Lantern Low — meadow edge, sleeps 2</option>
+            <option value="any">Whichever is quietest</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="plan-season">Season</label>
+          <select id="plan-season" name="season">
+            <option value="summer">Summer — creek and swifts</option>
+            <option value="autumn">Autumn — mushroom weather</option>
+            <option value="winter">Winter — snow-quiet</option>
+            <option value="spring">Spring — trillium fortnight</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="plan-nights">Nights</label>
+          <input id="plan-nights" name="nights" type="number" min="1" max="14" value="3" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="plan-guests">Guests</label>
+          <input id="plan-guests" name="guests" type="number" min="1" max="4" value="2" inputmode="numeric">
+        </div>
+      </div>
+      <button class="button primary" type="button" id="plan-build">Sketch this stay</button>
+      <p class="plan-note" id="plan-output" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-mark">Mosslight</p>
+    <p>Forty acres off Forest Road 46, upper Millican Valley, Cascades of Oregon.</p>
+    <p>Open all four seasons. No signal past the gate — that's rather the point.</p>
+    <p class="footer-fine">© 2026 Mosslight Cabins. Leave only footprints; the moss keeps the rest.</p>
+  </div>
+</footer>
+</body>
+</html>

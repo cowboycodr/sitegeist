@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+<title>Clearwater Index — Know where every drop goes</title>
+<meta name="description" content="A public information service explaining water supply, maintenance, quality, and long-term infrastructure planning.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3c6 8 10 12.5 10 18a10 10 0 1 1-20 0C6 15.5 10 11 16 3z' fill='%230b7285'/%3E%3C/svg%3E">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="#top" aria-label="Clearwater Index home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <path d="M16 3c6 8 10 12.5 10 18a10 10 0 1 1-20 0C6 15.5 10 11 16 3z" fill="currentColor"/>
+        <path d="M10.5 21.5c1.8 1.4 3.6 1.4 5.5 0s3.7-1.4 5.5 0" fill="none" stroke="#e7f7fb" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-name">Clearwater Index</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      Menu
+    </button>
+    <nav id="siteNav" class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#supply">Supply</a></li>
+        <li><a href="#quality">Quality</a></li>
+        <li><a href="#maintenance">Maintenance</a></li>
+        <li><a href="#planning">Planning</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Water systems · Public data</p>
+        <h1>Know where every drop goes.</h1>
+        <p class="lede">The Clearwater Index is a public information service explaining how your water is sourced, treated, delivered, maintained, and planned for — in plain language, with the numbers behind every claim.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#supply">Explore the system</a>
+          <a class="btn btn-ghost" href="#methodology">Read the methodology</a>
+        </div>
+        <dl class="hero-stats" aria-label="System at a glance">
+          <div><dt>Population served</dt><dd>412,600</dd></div>
+          <div><dt>Mains in service</dt><dd>1,847 km</dd></div>
+          <div><dt>Compliance, 12 mo</dt><dd>99.97%</dd></div>
+        </dl>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 420" role="presentation">
+          <defs>
+            <linearGradient id="hg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#66d3e4"/>
+              <stop offset="1" stop-color="#0b7285"/>
+            </linearGradient>
+          </defs>
+          <circle cx="210" cy="210" r="196" fill="#0d3b46"/>
+          <circle cx="210" cy="210" r="196" fill="none" stroke="#155e70" stroke-width="2"/>
+          <path d="M210 62c58 76 96 120 96 172a96 96 0 1 1-192 0c0-52 38-96 96-172z" fill="url(#hg)"/>
+          <path d="M138 268c24 18 48 18 72 0s48-18 72 0" fill="none" stroke="#e7f7fb" stroke-width="6" stroke-linecap="round"/>
+          <path d="M150 302c20 14 40 14 60 0s40-14 60 0" fill="none" stroke="#bfeaf3" stroke-width="5" stroke-linecap="round"/>
+          <g stroke="#3d99ac" stroke-width="2" fill="none" opacity="0.7">
+            <circle cx="210" cy="210" r="150"/>
+            <circle cx="210" cy="210" r="120"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" role="presentation">
+        <path d="M0 40c120 30 240 30 360 8s240-30 360-8 240 38 360 22 240-30 360-8v26H0z" fill="#f4fafc"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Supply -->
+  <section class="section" id="supply" aria-labelledby="supply-h">
+    <div class="wrap">
+      <p class="eyebrow">Section 01 · Supply</p>
+      <h2 id="supply-h">Where the water comes from</h2>
+      <p class="section-lede">Three sources feed the network. Their share shifts with the seasons: the reservoir carries winter demand, while the aquifer and river intake balance summer peaks.</p>
+      <div class="split">
+        <figure class="chart-card">
+          <figcaption id="supply-chart-cap"><strong>Source mix, trailing 12 months</strong> — share of total volume delivered</figcaption>
+          <svg class="chart" viewBox="0 0 520 240" role="img" aria-labelledby="supply-chart-cap">
+            <g class="bar-row">
+              <text x="0" y="42" class="c-label">Millbrook Reservoir</text>
+              <rect x="180" y="26" width="312" height="24" rx="4" class="c-track"/>
+              <rect x="180" y="26" width="193" height="24" rx="4" class="c-bar c-bar-1"/>
+              <text x="380" y="42" class="c-value">62%</text>
+            </g>
+            <g class="bar-row">
+              <text x="0" y="106" class="c-label">Deepfield Aquifer</text>
+              <rect x="180" y="90" width="312" height="24" rx="4" class="c-track"/>
+              <rect x="180" y="90" width="81" height="24" rx="4" class="c-bar c-bar-2"/>
+              <text x="268" y="106" class="c-value">26%</text>
+            </g>
+            <g class="bar-row">
+              <text x="0" y="170" class="c-label">Arden River intake</text>
+              <rect x="180" y="154" width="312" height="24" rx="4" class="c-track"/>
+              <rect x="180" y="154" width="37" height="24" rx="4" class="c-bar c-bar-3"/>
+              <text x="224" y="170" class="c-value">12%</text>
+            </g>
+            <text x="0" y="222" class="c-note">Total delivered: 46.8 billion litres · Jul 2025 – Jun 2026</text>
+          </svg>
+        </figure>
+        <div class="cards">
+          <article class="card">
+            <h3>Millbrook Reservoir</h3>
+            <p>A 92-billion-litre surface reservoir 31 km north of the city. Currently at <strong>84% capacity</strong>, above the ten-year seasonal median of 79%.</p>
+          </article>
+          <article class="card">
+            <h3>Deepfield Aquifer</h3>
+            <p>Twelve bores drawing from a confined sandstone aquifer. Extraction is capped at the independently assessed recharge rate of <strong>13.1 GL per year</strong>.</p>
+          </article>
+          <article class="card">
+            <h3>Arden River intake</h3>
+            <p>A run-of-river intake used mainly in summer. It pauses automatically whenever river flow drops below the environmental minimum of <strong>420 ML per day</strong>.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quality -->
+  <section class="section section-alt" id="quality" aria-labelledby="quality-h">
+    <div class="wrap">
+      <p class="eyebrow">Section 02 · Quality</p>
+      <h2 id="quality-h">What's in the water — and what isn't</h2>
+      <p class="section-lede">Samples are collected at treatment plants, storage tanks, and 64 rotating tap points across the network. Every result below is the network-wide figure for the last full quarter.</p>
+      <div class="quality-grid" role="list">
+        <div class="metric" role="listitem">
+          <span class="metric-value">7.4</span>
+          <span class="metric-name">pH</span>
+          <span class="metric-range">Target 6.5 – 8.5</span>
+          <span class="badge badge-ok">Within range</span>
+        </div>
+        <div class="metric" role="listitem">
+          <span class="metric-value">0.09 <small>NTU</small></span>
+          <span class="metric-name">Turbidity</span>
+          <span class="metric-range">Limit &lt; 1.0 NTU</span>
+          <span class="badge badge-ok">Within range</span>
+        </div>
+        <div class="metric" role="listitem">
+          <span class="metric-value">0.6 <small>mg/L</small></span>
+          <span class="metric-name">Free chlorine</span>
+          <span class="metric-range">Target 0.2 – 1.5 mg/L</span>
+          <span class="badge badge-ok">Within range</span>
+        </div>
+        <div class="metric" role="listitem">
+          <span class="metric-value">0 <small>detections</small></span>
+          <span class="metric-name">E. coli</span>
+          <span class="metric-range">2,304 samples tested</span>
+          <span class="badge badge-ok">Compliant</span>
+        </div>
+        <div class="metric" role="listitem">
+          <span class="metric-value">&lt;0.001 <small>mg/L</small></span>
+          <span class="metric-name">Lead</span>
+          <span class="metric-range">Limit 0.01 mg/L</span>
+          <span class="badge badge-ok">Within range</span>
+        </div>
+        <div class="metric" role="listitem">
+          <span class="metric-value">168 <small>mg/L</small></span>
+          <span class="metric-name">Hardness (CaCO₃)</span>
+          <span class="metric-range">Moderately hard</span>
+          <span class="badge badge-info">Aesthetic only</span>
+        </div>
+      </div>
+      <p class="fine">One turbidity exceedance was recorded on 14 March 2026 at the Harwick tank after a mains break; the affected zone was flushed and re-tested clear within 11 hours. It is counted against the 99.97% compliance figure above.</p>
+    </div>
+  </section>
+
+  <!-- Maintenance -->
+  <section class="section" id="maintenance" aria-labelledby="maintenance-h">
+    <div class="wrap">
+      <p class="eyebrow">Section 03 · Maintenance</p>
+      <h2 id="maintenance-h">Keeping 1,847 km of pipe honest</h2>
+      <p class="section-lede">Mains are renewed on a condition-led schedule, not a fixed age. Acoustic sensors and pressure logging flag likely failures before they surface.</p>
+      <div class="split">
+        <div class="timeline" role="list" aria-label="Current and upcoming maintenance work">
+          <div class="tl-item" role="listitem">
+            <span class="tl-when">Now – Sep 2026</span>
+            <h3>Northgate trunk main relining</h3>
+            <p>4.2 km of 1950s cast-iron trunk main relined in place. Overnight work; no planned supply interruptions.</p>
+            <span class="badge badge-live">In progress</span>
+          </div>
+          <div class="tl-item" role="listitem">
+            <span class="tl-when">Oct 2026</span>
+            <h3>Harwick tank recoat and inspection</h3>
+            <p>Internal recoat of the 18 ML Harwick storage tank. Supply switches to the adjacent Eastfield tank for six weeks.</p>
+            <span class="badge badge-info">Scheduled</span>
+          </div>
+          <div class="tl-item" role="listitem">
+            <span class="tl-when">Feb 2027</span>
+            <h3>Zone 7 smart-meter rollout</h3>
+            <p>11,400 properties move to hourly-read meters, tightening leak detection from district level to street level.</p>
+            <span class="badge badge-info">Scheduled</span>
+          </div>
+        </div>
+        <figure class="chart-card">
+          <figcaption id="leak-chart-cap"><strong>Water lost to leaks, % of volume supplied</strong> — five-year trend</figcaption>
+          <svg class="chart" viewBox="0 0 520 240" role="img" aria-labelledby="leak-chart-cap">
+            <g class="grid">
+              <line x1="48" y1="20" x2="500" y2="20"/><text x="40" y="24" class="c-axis">12%</text>
+              <line x1="48" y1="70" x2="500" y2="70"/><text x="40" y="74" class="c-axis">9%</text>
+              <line x1="48" y1="120" x2="500" y2="120"/><text x="40" y="124" class="c-axis">6%</text>
+              <line x1="48" y1="170" x2="500" y2="170"/><text x="40" y="174" class="c-axis">3%</text>
+              <line x1="48" y1="200" x2="500" y2="200" class="c-base"/>
+            </g>
+            <polyline class="c-line" points="70,38 176,62 282,88 388,118 494,138"/>
+            <g class="c-dots">
+              <circle cx="70" cy="38" r="5"/><circle cx="176" cy="62" r="5"/><circle cx="282" cy="88" r="5"/><circle cx="388" cy="118" r="5"/><circle cx="494" cy="138" r="5"/>
+            </g>
+            <g class="c-axis-x">
+              <text x="70" y="222">2022</text><text x="176" y="222">2023</text><text x="282" y="222">2024</text><text x="388" y="222">2025</text><text x="494" y="222">2026</text>
+            </g>
+            <text x="494" y="126" class="c-callout">3.7%</text>
+          </svg>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Planning -->
+  <section class="section section-alt" id="planning" aria-labelledby="planning-h">
+    <div class="wrap">
+      <p class="eyebrow">Section 04 · Planning</p>
+      <h2 id="planning-h">The next thirty years</h2>
+      <p class="section-lede">Demand is projected to grow 22% by 2056 while dry-year inflows decline. The long-term plan closes that gap in three stages, each triggered by measured demand rather than the calendar.</p>
+      <ol class="plan-steps">
+        <li class="plan-step">
+          <span class="plan-stage">Stage 1 · 2026 – 2034</span>
+          <h3>Use less, lose less</h3>
+          <p>Network-wide smart metering, pressure management, and leak reduction to 2.5%. Defers new supply by an estimated eight years at roughly a fifth of the cost.</p>
+        </li>
+        <li class="plan-step">
+          <span class="plan-stage">Stage 2 · trigger ≈ 2034</span>
+          <h3>Recycle for industry</h3>
+          <p>A purified recycled water scheme supplying the industrial corridor, freeing up to 9 GL per year of drinking water. Triggered when peak demand reaches 88% of firm yield.</p>
+        </li>
+        <li class="plan-step">
+          <span class="plan-stage">Stage 3 · trigger ≈ 2043</span>
+          <h3>Climate-independent supply</h3>
+          <p>A 25 ML-per-day desalination plant, held at design-ready status. Built only if Stages 1 and 2 leave a shortfall in the two driest planning scenarios.</p>
+        </li>
+      </ol>
+      <p class="fine">The full 30-year plan, including cost ranges and the demand model, is reviewed publicly every five years. The next review opens for comment in March 2028.</p>
+    </div>
+  </section>
+
+  <!-- Methodology -->
+  <section class="section" id="methodology" aria-labelledby="methodology-h">
+    <div class="wrap narrow">
+      <p class="eyebrow">Section 05 · Methodology</p>
+      <h2 id="methodology-h">How these numbers are made</h2>
+      <p class="section-lede">Every figure on this page can be traced to a named dataset, a sampling method, and a review step. If a number can't meet that bar, it doesn't appear here.</p>
+      <div class="method-list">
+        <details class="method">
+          <summary>Sampling and testing</summary>
+          <p>Water quality samples are collected by accredited technicians on a rotating schedule covering every supply zone at least monthly. Microbiological and chemical analysis is performed by an independent laboratory accredited to ISO/IEC 17025. Results are published quarterly, exceedances within 24 hours.</p>
+        </details>
+        <details class="method">
+          <summary>Volume and leakage figures</summary>
+          <p>Supply volumes come from calibrated meters at each source and treatment plant. Leakage is calculated with the standard water-balance method: volume supplied minus metered consumption and authorised unmetered use, cross-checked against district metered area minimum night flows.</p>
+        </details>
+        <details class="method">
+          <summary>Demand projections</summary>
+          <p>The 30-year demand model combines official population projections with per-capita use trends and three climate scenarios drawn from downscaled regional models. The model, its assumptions, and its error ranges are re-baselined at every five-year plan review.</p>
+        </details>
+        <details class="method">
+          <summary>Corrections</summary>
+          <p>When a published figure is found to be wrong, it is corrected in place and the change is logged in a public corrections register with the original value, the corrected value, and the reason. Nothing is silently edited.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="brand-name footer-brand">Clearwater Index</p>
+      <p class="fine">Know where every drop goes. A public information service explaining water supply, maintenance, quality, and long-term infrastructure planning.</p>
+    </div>
+    <div>
+      <p class="fine">Figures on this page reflect the reporting period July 2025 – June 2026 unless noted. Updated quarterly. This is a static reference document; no data is collected from visitors.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:">
+<title>Crumb Theory — A daily study in butter and flour</title>
+<meta name="description" content="A neighborhood bakery sharing today's counter, preorder specials, and obsessive pastry notes.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#counter">Skip to today's counter</a>
+
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <a class="brand" href="#top" aria-label="Crumb Theory, home">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <path d="M6 24c0-8 6-14 14-14s14 6 14 14c0 3-2 6-6 6H12c-4 0-6-3-6-6Z" fill="none" stroke="currentColor" stroke-width="2.4"/>
+        <path d="M14 18l2 5M20 16l0 6M26 18l-2 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-word">Crumb Theory</span>
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="#counter">Counter</a>
+      <a href="#preorder">Preorder</a>
+      <a href="#notes">Notes</a>
+      <a href="#visit">Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Baked each morning</p>
+        <h1 id="hero-title">A daily study in <em>butter</em> and <em>flour</em>.</h1>
+        <p class="lede">We are a small neighborhood bakery with a large opinion about lamination. Every day we post the counter, take a short list of preorders, and write down exactly what we learned at the oven.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#counter">See today's counter</a>
+          <a class="button ghost" href="#preorder">Preorder a box</a>
+        </div>
+        <dl class="hero-facts">
+          <div><dt>Oven on</dt><dd>4:30 am</dd></div>
+          <div><dt>Doors open</dt><dd>7:00 am</dd></div>
+          <div><dt>Sold out by</dt><dd>usually noon</dd></div>
+        </dl>
+      </div>
+      <figure class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 420" role="img" focusable="false">
+          <circle cx="210" cy="210" r="196" fill="var(--cream)"/>
+          <g class="spin">
+            <g fill="none" stroke="var(--rye)" stroke-width="3">
+              <circle cx="210" cy="210" r="150" stroke-dasharray="2 14"/>
+            </g>
+          </g>
+          <path d="M96 236c0-58 51-98 114-98s114 40 114 98c0 24-16 44-46 44H142c-30 0-46-20-46-44Z" fill="var(--crust)"/>
+          <path d="M96 236c0-58 51-98 114-98s114 40 114 98c0 24-16 44-46 44H142c-30 0-46-20-46-44Z" fill="none" stroke="var(--espresso)" stroke-width="5"/>
+          <path d="M152 196l14 34M210 186v40M268 196l-14 34" stroke="var(--espresso)" stroke-width="6" stroke-linecap="round"/>
+          <path d="M124 250c26 12 146 12 172 0" fill="none" stroke="var(--espresso)" stroke-width="4" stroke-linecap="round" opacity=".5"/>
+          <g fill="var(--espresso)" opacity=".8">
+            <circle cx="150" cy="310" r="4"/><circle cx="182" cy="322" r="3"/><circle cx="226" cy="318" r="4"/><circle cx="262" cy="308" r="3"/>
+          </g>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Today's counter -->
+  <section id="counter" class="section counter" aria-labelledby="counter-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="counter-title">Today's counter</h2>
+        <p class="section-sub">Posted at 6:52 am. Quantities are honest; when a tray is gone, it is gone.</p>
+      </div>
+      <ul class="counter-grid" role="list">
+        <li class="card">
+          <div class="card-top"><span class="tag">Laminated</span><span class="stock ok">18 left</span></div>
+          <h3>Croissant, plain</h3>
+          <p>Twenty-seven layers of cultured butter. Shatters loudly; we do not apologize.</p>
+          <p class="price">$4.50</p>
+        </li>
+        <li class="card">
+          <div class="card-top"><span class="tag">Laminated</span><span class="stock ok">11 left</span></div>
+          <h3>Rye &amp; honey kouign-amann</h3>
+          <p>Caramel edges, a dark rye crumb, and a thumbprint of buckwheat honey.</p>
+          <p class="price">$5.75</p>
+        </li>
+        <li class="card">
+          <div class="card-top"><span class="tag">Loaf</span><span class="stock low">4 left</span></div>
+          <h3>Country sourdough</h3>
+          <p>Thirty-hour ferment, 78% hydration, scored with our crumb curve.</p>
+          <p class="price">$9.00</p>
+        </li>
+        <li class="card">
+          <div class="card-top"><span class="tag">Loaf</span><span class="stock ok">9 left</span></div>
+          <h3>Seeded polenta batard</h3>
+          <p>Toasted corn sweetness with a sesame-flax crust. Best sliced thick.</p>
+          <p class="price">$8.50</p>
+        </li>
+        <li class="card">
+          <div class="card-top"><span class="tag">Sweet</span><span class="stock low">6 left</span></div>
+          <h3>Burnt-sugar canelé</h3>
+          <p>Beeswax-brushed copper molds, custard center, near-black shell.</p>
+          <p class="price">$4.25</p>
+        </li>
+        <li class="card">
+          <div class="card-top"><span class="tag">Sweet</span><span class="stock gone">Sold out</span></div>
+          <h3>Apricot frangipane tart</h3>
+          <p>Went before eight. It returns Saturday with the last of the stone fruit.</p>
+          <p class="price">$5.50</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Preorder -->
+  <section id="preorder" class="section preorder" aria-labelledby="preorder-title">
+    <div class="wrap preorder-grid">
+      <div class="preorder-copy">
+        <h2 id="preorder-title">Preorder a box</h2>
+        <p class="section-sub">Build a box of six for tomorrow. We bake to the list at 4:30 am and hold your box at the counter until close.</p>
+        <p class="fine">This is a demonstration counter — no order leaves this page.</p>
+      </div>
+      <div class="box-builder">
+        <fieldset class="picker">
+          <legend>Choose up to six pastries</legend>
+          <div class="pick-row">
+            <span class="pick-name">Croissant, plain</span>
+            <span class="stepper">
+              <button type="button" class="step" data-item="croissant" data-delta="-1" aria-label="Remove one plain croissant">−</button>
+              <output id="count-croissant" data-count="croissant" aria-live="polite">0</output>
+              <button type="button" class="step" data-item="croissant" data-delta="1" aria-label="Add one plain croissant">+</button>
+            </span>
+          </div>
+          <div class="pick-row">
+            <span class="pick-name">Rye &amp; honey kouign-amann</span>
+            <span class="stepper">
+              <button type="button" class="step" data-item="kouign" data-delta="-1" aria-label="Remove one kouign-amann">−</button>
+              <output id="count-kouign" data-count="kouign" aria-live="polite">0</output>
+              <button type="button" class="step" data-item="kouign" data-delta="1" aria-label="Add one kouign-amann">+</button>
+            </span>
+          </div>
+          <div class="pick-row">
+            <span class="pick-name">Burnt-sugar canelé</span>
+            <span class="stepper">
+              <button type="button" class="step" data-item="canele" data-delta="-1" aria-label="Remove one canelé">−</button>
+              <output id="count-canele" data-count="canele" aria-live="polite">0</output>
+              <button type="button" class="step" data-item="canele" data-delta="1" aria-label="Add one canelé">+</button>
+            </span>
+          </div>
+          <div class="pick-row">
+            <span class="pick-name">Seeded polenta slice</span>
+            <span class="stepper">
+              <button type="button" class="step" data-item="polenta" data-delta="-1" aria-label="Remove one polenta slice">−</button>
+              <output id="count-polenta" data-count="polenta" aria-live="polite">0</output>
+              <button type="button" class="step" data-item="polenta" data-delta="1" aria-label="Add one polenta slice">+</button>
+            </span>
+          </div>
+        </fieldset>
+        <div class="box-summary">
+          <p class="box-meter" id="box-meter" aria-live="polite">Box: 0 of 6 filled</p>
+          <button type="button" class="button primary" id="reserve">Reserve this box</button>
+          <p class="box-confirm" id="box-confirm" role="status"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pastry notes -->
+  <section id="notes" class="section notes" aria-labelledby="notes-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="notes-title">Pastry notes</h2>
+        <p class="section-sub">What we learned at the oven this week, written down before we forget.</p>
+      </div>
+      <div class="notes-list">
+        <article class="note">
+          <p class="note-date">Thursday, July 16</p>
+          <h3>On resting rye</h3>
+          <p>An extra forty minutes of autolyse turned the rye kouign-amann from stubborn to silk. The honey now goes on after the fold, not before — it was tearing the layers.</p>
+        </article>
+        <article class="note">
+          <p class="note-date">Tuesday, July 14</p>
+          <h3>Canelé shell, corrected</h3>
+          <p>We chased a matte shell for a month. The answer was boring: colder batter, hotter first ten minutes, and leaving the oven door shut like we tell everyone else to.</p>
+        </article>
+        <article class="note">
+          <p class="note-date">Sunday, July 12</p>
+          <h3>Crumb reading</h3>
+          <p>Wild, uneven holes look impressive but carry butter poorly. We are steering the sourdough toward a tighter, glossy crumb. Theory: bread should serve the toast.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visit -->
+  <section id="visit" class="section visit" aria-labelledby="visit-title">
+    <div class="wrap visit-grid">
+      <div>
+        <h2 id="visit-title">Visit the counter</h2>
+        <p class="section-sub">We are the warm smell on the corner of Alder and 9th.</p>
+      </div>
+      <dl class="visit-facts">
+        <div><dt>Hours</dt><dd>Wed–Sun, 7 am until sold out</dd></div>
+        <div><dt>Address</dt><dd>214 Alder Street, at 9th</dd></div>
+        <div><dt>Coffee</dt><dd>Batch brew, one size, bottomless while you wait</dd></div>
+        <div><dt>Day-olds</dt><dd>Half price at the door from 11 am, when they exist</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-row">
+    <p>© 2026 Crumb Theory. Baked each morning, argued over nightly.</p>
+    <a href="#top">Back to top</a>
+  </div>
+</footer>
+</body>
+</html>

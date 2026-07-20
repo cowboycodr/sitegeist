@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+<title>Stillroom — A quieter place inside your day</title>
+<meta name="description" content="Gentle breathwork and meditation practices made around spacious pacing and responsive ambient form.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#session">Skip to the session</a>
+
+<div class="ambient" aria-hidden="true">
+  <div class="ambient-orb orb-a"></div>
+  <div class="ambient-orb orb-b"></div>
+  <div class="ambient-orb orb-c"></div>
+</div>
+
+<header class="site-header">
+  <a class="wordmark" href="#top" aria-label="Stillroom, home">
+    <svg class="wordmark-sigil" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true" focusable="false">
+      <circle cx="16" cy="16" r="12" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <circle cx="16" cy="16" r="5.5" fill="currentColor" opacity="0.28"/>
+      <circle cx="16" cy="16" r="1.8" fill="currentColor"/>
+    </svg>
+    <span>Stillroom</span>
+  </a>
+  <nav class="site-nav" aria-label="Sections">
+    <a href="#session">Session</a>
+    <a href="#practices">Practices</a>
+    <a href="#pace">Pace</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ======================= Hero ======================= -->
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="eyebrow">Daily practices for calm</p>
+    <h1 id="hero-title">A quieter place<br>inside your day.</h1>
+    <p class="lede">Stillroom is a small collection of breathwork and meditation practices, paced generously and shaped by ambient form. Nothing to track, nothing to earn — only a few unhurried minutes that belong to you.</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="#session">Begin a session</a>
+      <a class="button button-ghost" href="#practices">Explore practices</a>
+    </div>
+    <p class="hero-note">Four practices · two to ten minutes · no account, ever</p>
+  </section>
+
+  <!-- ======================= Session ======================= -->
+  <section class="session" id="session" aria-labelledby="session-title">
+    <div class="session-head">
+      <h2 id="session-title">The session</h2>
+      <p>Choose a practice and a length, then follow the vessel as it widens and settles. If motion is reduced on your device, the words alone will carry the rhythm.</p>
+    </div>
+
+    <div class="session-body">
+      <div class="vessel-stage">
+        <div class="vessel-rings" aria-hidden="true">
+          <span class="ring ring-outer"></span>
+          <span class="ring ring-mid"></span>
+        </div>
+        <div class="vessel" id="vessel" aria-hidden="true"></div>
+        <div class="vessel-readout">
+          <p class="phase-label" id="phase-label">Ready</p>
+          <p class="phase-count" id="phase-count">&nbsp;</p>
+        </div>
+      </div>
+
+      <div class="session-panel">
+        <fieldset class="control-group">
+          <legend>Practice</legend>
+          <div class="chip-row" id="practice-chips" role="radiogroup" aria-label="Practice">
+            <button type="button" class="chip" data-practice="resonant" role="radio" aria-checked="true">Resonant tide</button>
+            <button type="button" class="chip" data-practice="box" role="radio" aria-checked="false">Box breathing</button>
+            <button type="button" class="chip" data-practice="soften" role="radio" aria-checked="false">Long exhale</button>
+            <button type="button" class="chip" data-practice="ground" role="radio" aria-checked="false">Grounding</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="control-group">
+          <legend>Length</legend>
+          <div class="chip-row" id="length-chips" role="radiogroup" aria-label="Session length">
+            <button type="button" class="chip" data-minutes="2" role="radio" aria-checked="false">2 min</button>
+            <button type="button" class="chip" data-minutes="5" role="radio" aria-checked="true">5 min</button>
+            <button type="button" class="chip" data-minutes="10" role="radio" aria-checked="false">10 min</button>
+          </div>
+        </fieldset>
+
+        <p class="practice-blurb" id="practice-blurb">Even tides of breath — about five and a half seconds in, the same out. A gentle default for almost any moment.</p>
+
+        <div class="session-actions">
+          <button type="button" class="button button-primary" id="session-toggle">Begin a session</button>
+          <button type="button" class="button button-ghost" id="session-reset" hidden>End &amp; reset</button>
+        </div>
+
+        <p class="session-progress" id="session-progress"></p>
+        <p class="visually-hidden" id="session-announce" role="status"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= Practices ======================= -->
+  <section class="practices" id="practices" aria-labelledby="practices-title">
+    <div class="section-head">
+      <h2 id="practices-title">Explore practices</h2>
+      <p>Each practice is a simple, well-worn shape of breath. Begin one directly, or read a little first — there is no wrong door.</p>
+    </div>
+
+    <div class="practice-grid">
+      <article class="practice-card">
+        <svg class="card-glyph" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false">
+          <path d="M4 26c6-8 14-8 20 0s14 8 20 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M4 34c6-8 14-8 20 0s14 8 20 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity="0.45"/>
+        </svg>
+        <h3>Resonant tide</h3>
+        <p class="card-meter">5.5 in · 5.5 out</p>
+        <p>Breathing near six breaths a minute, where heart and lungs settle into an easy conversation. The steady default for daily practice.</p>
+        <button type="button" class="card-begin" data-begin="resonant">Begin this practice</button>
+      </article>
+
+      <article class="practice-card">
+        <svg class="card-glyph" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false">
+          <rect x="10" y="10" width="28" height="28" rx="6" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="10" cy="24" r="2.4" fill="currentColor"/>
+        </svg>
+        <h3>Box breathing</h3>
+        <p class="card-meter">4 in · 4 hold · 4 out · 4 hold</p>
+        <p>Four even sides — in, held, out, held. A composed, square rhythm for gathering yourself before or after a demanding hour.</p>
+        <button type="button" class="card-begin" data-begin="box">Begin this practice</button>
+      </article>
+
+      <article class="practice-card">
+        <svg class="card-glyph" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false">
+          <path d="M12 12c4 2 6 5 6 10s-2 10-6 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M24 10c5 3 8 8 8 14s-3 12-8 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity="0.45"/>
+        </svg>
+        <h3>Long exhale</h3>
+        <p class="card-meter">4 in · 7 hold · 8 out</p>
+        <p>A brief inhale, a quiet pause, then an exhale twice as long. The extended out-breath asks the body, kindly, to stand down.</p>
+        <button type="button" class="card-begin" data-begin="soften">Begin this practice</button>
+      </article>
+
+      <article class="practice-card">
+        <svg class="card-glyph" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false">
+          <path d="M24 8v22" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M14 30c0 6 4 10 10 10s10-4 10-10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="24" cy="8" r="2.4" fill="currentColor"/>
+        </svg>
+        <h3>Grounding</h3>
+        <p class="card-meter">4 in · 6 out</p>
+        <p>In for four, out for six — a slight lean toward the exhale. Light enough to practice anywhere, with eyes open, feet on the floor.</p>
+        <button type="button" class="card-begin" data-begin="ground">Begin this practice</button>
+      </article>
+    </div>
+  </section>
+
+  <!-- ======================= Pace ======================= -->
+  <section class="pace" id="pace" aria-labelledby="pace-title">
+    <div class="section-head">
+      <h2 id="pace-title">Made around spacious pacing</h2>
+      <p>Stillroom keeps a few quiet commitments, so the room stays a room and never becomes a feed.</p>
+    </div>
+    <ul class="pace-list">
+      <li>
+        <h3>Nothing counts you</h3>
+        <p>No streaks, scores, or reminders. A practice ends when it ends, and the room does not remember whether you came yesterday.</p>
+      </li>
+      <li>
+        <h3>Form follows breath</h3>
+        <p>The vessel widens and settles at the true tempo of each practice — the interface breathes with you rather than at you.</p>
+      </li>
+      <li>
+        <h3>Words can carry it</h3>
+        <p>When your device asks for reduced motion, the session moves to plain, unhurried language. The practice loses nothing.</p>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p class="footer-mark">Stillroom</p>
+  <p>A quieter place inside your day. Breathwork is a gentle companion, not medical care — be easy with yourself, and stop if anything feels strained.</p>
+</footer>
+
+</body>
+</html>

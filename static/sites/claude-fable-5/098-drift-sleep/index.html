@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Drift — A softer landing for your day</title>
+<meta name="description" content="An adaptive sleep companion combining sound, breath, and gentle screen-free routines.">
+<link rel="stylesheet" href="styles.css">
+<script defer src="sitegeist-bridge.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Drift home">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path d="M23.5 4a12 12 0 1 0 4.4 16.3A10 10 0 0 1 23.5 4Z" fill="currentColor" opacity="0.9"/>
+    </svg>
+    <span>Drift</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#how">How it works</a>
+    <a href="#breath">Breathe</a>
+    <a href="#sound">Sound</a>
+    <a href="#routine">Routine</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero-sky" aria-hidden="true">
+      <span class="star s1"></span><span class="star s2"></span><span class="star s3"></span>
+      <span class="star s4"></span><span class="star s5"></span><span class="star s6"></span>
+      <span class="star s7"></span><span class="star s8"></span><span class="star s9"></span>
+    </div>
+    <p class="eyebrow">Tonight begins here</p>
+    <h1 id="hero-title">Drift</h1>
+    <p class="tagline">A softer landing for your day.</p>
+    <p class="lede">An adaptive sleep companion combining sound, breath, and gentle screen-free routines — so the last hour of your evening asks less of you, and gives more back.</p>
+    <div class="cta-row">
+      <a class="button primary" href="#breath">Start winding down</a>
+      <a class="button ghost" href="#sound">Hear a soundscape</a>
+    </div>
+    <div class="hero-waves" aria-hidden="true">
+      <svg viewBox="0 0 1440 180" preserveAspectRatio="none" focusable="false">
+        <path d="M0 90 C 240 30, 480 150, 720 90 S 1200 30, 1440 90 V 180 H 0 Z" fill="var(--wave-1)"/>
+        <path d="M0 120 C 240 70, 480 170, 720 120 S 1200 70, 1440 120 V 180 H 0 Z" fill="var(--wave-2)"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="section" id="how" aria-labelledby="how-title">
+    <h2 id="how-title">Three quiet ingredients</h2>
+    <p class="section-lede">Drift doesn't gamify your rest or grade your night. It listens to how your evening is going and offers just enough — a sound, a breath, a small ritual — then gets out of the way.</p>
+    <div class="cards">
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M8 24h4"/><path d="M14 16v16"/><path d="M20 10v28"/><path d="M26 16v16"/><path d="M32 20v8"/><path d="M38 23v2"/></g></svg>
+        </div>
+        <h3>Adaptive sound</h3>
+        <p>Layered soundscapes that soften as you settle. Rain thins to mist, waves lengthen, tones sink lower — mirroring your wind-down instead of looping at you.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="24" cy="24" r="8"/><circle cx="24" cy="24" r="15" opacity="0.5"/><circle cx="24" cy="24" r="21" opacity="0.25"/></g></svg>
+        </div>
+        <h3>Guided breath</h3>
+        <p>A slow visual pacer for evening breathing — four counts in, six counts out. Two minutes is usually enough to trade the day's tempo for your own.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M31 8a14 14 0 1 0 9 15 11 11 0 0 1-9-15Z"/><path d="M12 38h24" opacity="0.5"/></g></svg>
+        </div>
+        <h3>Screen-free routines</h3>
+        <p>Short, printed-feel rituals you do away from the phone: dim one lamp, warm one drink, write one line. Drift cues them, then goes dark on purpose.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section alt" id="breath" aria-labelledby="breath-title">
+    <h2 id="breath-title">Start winding down</h2>
+    <p class="section-lede">Follow the circle. Breathe in as it grows, out as it releases. The pacer runs a gentle 4-in, 6-out rhythm — try it for a few rounds right now.</p>
+    <div class="breath-stage">
+      <div class="breath-ring" id="breathRing" aria-hidden="true">
+        <div class="breath-core"></div>
+      </div>
+      <p class="breath-phase" id="breathPhase" role="status" aria-live="polite">Ready when you are</p>
+      <div class="breath-controls">
+        <button class="button primary" id="breathToggle" type="button" aria-pressed="false">Begin breathing</button>
+        <p class="breath-count" id="breathCount">0 rounds completed</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sound" aria-labelledby="sound-title">
+    <h2 id="sound-title">Hear a soundscape</h2>
+    <p class="section-lede">These previews are generated right here on your device — nothing streams, nothing tracks. Pick a texture and set it low, like weather in the next room.</p>
+    <div class="sound-panel">
+      <div class="sound-choices" role="group" aria-label="Soundscape selection">
+        <button class="sound-chip" type="button" data-sound="rain" aria-pressed="false">
+          <span class="chip-dot" aria-hidden="true"></span>Night rain
+        </button>
+        <button class="sound-chip" type="button" data-sound="wind" aria-pressed="false">
+          <span class="chip-dot" aria-hidden="true"></span>High wind
+        </button>
+        <button class="sound-chip" type="button" data-sound="hum" aria-pressed="false">
+          <span class="chip-dot" aria-hidden="true"></span>Deep hum
+        </button>
+      </div>
+      <div class="sound-volume">
+        <label for="volume">Volume</label>
+        <input type="range" id="volume" min="0" max="100" value="35" step="1">
+      </div>
+      <p class="sound-note" id="soundNote" role="status" aria-live="polite">Soundscapes are quiet by design. Tap one to begin; tap again to stop.</p>
+    </div>
+  </section>
+
+  <section class="section alt" id="routine" aria-labelledby="routine-title">
+    <h2 id="routine-title">A wind-down that fits in one hour</h2>
+    <p class="section-lede">Drift's evening arc is deliberately small. Each step is a nudge, not a task — and the last one happens with the screen face-down.</p>
+    <ol class="routine">
+      <li>
+        <span class="routine-time">T−60</span>
+        <div><h3>Lights step down</h3><p>Drift suggests dimming one light in the room you're actually in. Warmth over darkness — the goal is dusk, not a cave.</p></div>
+      </li>
+      <li>
+        <span class="routine-time">T−40</span>
+        <div><h3>Sound comes up</h3><p>Your chosen soundscape fades in at a whisper and slowly simplifies, shedding layers as the hour goes on.</p></div>
+      </li>
+      <li>
+        <span class="routine-time">T−20</span>
+        <div><h3>Two minutes of breath</h3><p>The pacer opens for a short session. In for four, out for six — long exhales tell your nervous system the day is over.</p></div>
+      </li>
+      <li>
+        <span class="routine-time">T−10</span>
+        <div><h3>Screen goes dark</h3><p>Drift dims to a single ember of light, then nothing. Sound carries on without the screen. The rest of the landing is yours.</p></div>
+      </li>
+    </ol>
+    <div class="cta-row center">
+      <a class="button primary" href="#breath">Start winding down</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p><strong>Drift</strong> · A softer landing for your day.</p>
+  <p class="fine">Everything on this page runs locally. No accounts, no streams, no scores for how you slept.</p>
+</footer>
+</body>
+</html>

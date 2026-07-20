@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="poster-title">
+  <title id="poster-title">Kinetic Foundry — Machines with a human sense of motion</title>
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#f5a524" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f5a524" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#171c25"/>
+      <stop offset="100%" stop-color="#12161d"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="1200" height="900" fill="#12161d"/>
+  <rect width="1200" height="900" fill="url(#floor)"/>
+  <circle cx="820" cy="430" r="380" fill="url(#glow)"/>
+
+  <!-- reach rings -->
+  <circle cx="820" cy="470" r="300" fill="none" stroke="#2c3440" stroke-width="2" stroke-dasharray="5 12"/>
+  <circle cx="820" cy="470" r="230" fill="none" stroke="#3b4656" stroke-width="2"/>
+  <circle cx="820" cy="470" r="160" fill="none" stroke="#2c3440" stroke-width="1.5" stroke-dasharray="3 9"/>
+
+  <!-- effector trace arc -->
+  <path d="M600 350 Q740 210 940 300" fill="none" stroke="#f5a524" stroke-width="3" stroke-opacity="0.45" stroke-dasharray="2 10" stroke-linecap="round"/>
+
+  <!-- robotic arm motif -->
+  <rect x="760" y="690" width="120" height="34" rx="12" fill="#2c3440"/>
+  <rect x="792" y="628" width="56" height="70" rx="16" fill="#39424f"/>
+  <g stroke-linecap="round">
+    <line x1="820" y1="646" x2="770" y2="450" stroke="#8a94a6" stroke-width="30"/>
+    <line x1="770" y1="450" x2="900" y2="352" stroke="#aeb8c8" stroke-width="22"/>
+    <line x1="900" y1="352" x2="948" y2="298" stroke="#f5a524" stroke-width="14"/>
+  </g>
+  <circle cx="820" cy="646" r="24" fill="#1b212b" stroke="#f5a524" stroke-width="6"/>
+  <circle cx="770" cy="450" r="19" fill="#1b212b" stroke="#f5a524" stroke-width="6"/>
+  <circle cx="900" cy="352" r="15" fill="#1b212b" stroke="#f5a524" stroke-width="5"/>
+  <circle cx="948" cy="298" r="11" fill="#f5a524"/>
+
+  <!-- text block -->
+  <g font-family="Avenir Next, Avenir, Segoe UI, Helvetica, Arial, sans-serif">
+    <text x="90" y="330" fill="#f5a524" font-size="26" font-weight="700" letter-spacing="7">APPLIED ROBOTICS</text>
+    <text x="86" y="420" fill="#e8ecf2" font-size="88" font-weight="800" letter-spacing="-1">Kinetic</text>
+    <text x="86" y="512" fill="#e8ecf2" font-size="88" font-weight="800" letter-spacing="-1">Foundry</text>
+    <text x="90" y="580" fill="#9aa5b5" font-size="30">Machines with a human</text>
+    <text x="90" y="622" fill="#9aa5b5" font-size="30">sense of motion.</text>
+  </g>
+
+  <!-- accent rule -->
+  <rect x="90" y="270" width="72" height="8" rx="4" fill="#f5a524"/>
+
+  <!-- footer strip -->
+  <line x1="90" y1="800" x2="1110" y2="800" stroke="#2c3440" stroke-width="2"/>
+  <g font-family="Avenir Next, Avenir, Segoe UI, Helvetica, Arial, sans-serif" font-size="22" fill="#9aa5b5">
+    <text x="90" y="840">±0.04 mm repeatability</text>
+    <text x="480" y="840">&#60;9 s tool changeover</text>
+    <text x="880" y="840">140+ cells deployed</text>
+  </g>
+</svg>

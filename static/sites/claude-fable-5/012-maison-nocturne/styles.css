@@ -1,0 +1,329 @@
+/* Maison Nocturne — nocturnal restraint, exacting craft */
+
+:root {
+  --ink: #0b0b12;
+  --ink-2: #131420;
+  --panel: #1b1c2a;
+  --line: rgba(201, 185, 141, 0.28);
+  --gold: #c9b98d;
+  --gold-bright: #e8ddc8;
+  --text: #d8d5cd;
+  --muted: #9a97a6;
+  --serif: "Didot", "Bodoni MT", "Playfair Display", Georgia, "Times New Roman", serif;
+  --sans: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ---------- utility ---------- */
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3.5rem;
+  z-index: 20;
+  padding: 0.6rem 1rem;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 160ms ease;
+}
+.skip-link:focus { top: 1rem; }
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem clamp(1rem, 5vw, 3rem);
+  background: rgba(11, 11, 18, 0.88);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.wordmark {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  white-space: nowrap;
+}
+.wordmark span { color: var(--gold); font-size: 0.7em; vertical-align: 0.15em; }
+
+.masthead nav ul {
+  display: flex;
+  gap: clamp(0.9rem, 3vw, 2rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.masthead nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.1rem;
+  border-bottom: 1px solid transparent;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+.masthead nav a:hover,
+.masthead nav a:focus-visible { color: var(--gold-bright); border-color: var(--gold); }
+
+a:focus-visible,
+.button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  position: relative;
+  min-height: min(88vh, 54rem);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: clamp(4rem, 10vh, 7rem) 1.25rem;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-veil,
+.hero-veil svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-copy { position: relative; max-width: 44rem; }
+
+.hero h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 9vw, 5.25rem);
+  line-height: 1.05;
+  letter-spacing: 0.05em;
+  color: var(--gold-bright);
+  text-transform: uppercase;
+}
+
+.tagline {
+  margin: 1.1rem 0 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  color: var(--gold);
+}
+
+.lede {
+  margin: 1.1rem auto 0;
+  max-width: 34rem;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  justify-content: center;
+  margin-top: 2.2rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.85rem 1.8rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--gold);
+  transition: background-color 180ms ease, color 180ms ease;
+}
+.button.primary { background: var(--gold); color: var(--ink); font-weight: 600; }
+.button.primary:hover { background: var(--gold-bright); border-color: var(--gold-bright); }
+.button.ghost { color: var(--gold-bright); background: transparent; }
+.button.ghost:hover { background: rgba(201, 185, 141, 0.12); }
+
+/* ---------- sections ---------- */
+
+section { scroll-margin-top: 4.5rem; }
+
+.collection,
+.atelier,
+.appointments {
+  padding: clamp(3.5rem, 9vw, 6.5rem) clamp(1rem, 5vw, 3rem);
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.section-head { max-width: 40rem; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+
+.section-head h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 5vw, 2.75rem);
+  letter-spacing: 0.03em;
+  color: var(--gold-bright);
+}
+
+.section-note { color: var(--muted); margin: 0.9rem 0 0; }
+
+/* ---------- looks ---------- */
+
+.looks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: look;
+}
+
+.look figure {
+  margin: 0;
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.look-art { display: block; width: 100%; height: auto; }
+
+.look figcaption { padding: 1.25rem 1.4rem 1.6rem; border-top: 1px solid var(--line); }
+
+.look h3 {
+  margin: 0 0 0.5rem;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+}
+
+.look p { margin: 0; font-size: 0.92rem; color: var(--muted); }
+
+/* ---------- atelier ---------- */
+
+.atelier { border-top: 1px solid var(--line); }
+
+.craft {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+  gap: clamp(1.25rem, 3vw, 2rem);
+  margin: 0;
+}
+
+.craft-item {
+  border-left: 2px solid var(--gold);
+  padding: 0.25rem 0 0.25rem 1.25rem;
+}
+
+.craft-item dt {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  color: var(--gold-bright);
+  margin-bottom: 0.4rem;
+}
+
+.craft-item dd { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+/* ---------- appointments ---------- */
+
+.appointments { border-top: 1px solid var(--line); }
+
+.appointments-card {
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 3.5rem) clamp(1.25rem, 5vw, 3rem);
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201, 185, 141, 0.08), transparent 60%),
+    var(--ink-2);
+}
+
+.appointments-card h2 {
+  margin: 0 0 1rem;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 4.5vw, 2.1rem);
+  color: var(--gold-bright);
+}
+
+.appointments-card p { color: var(--muted); margin: 0 0 1rem; }
+
+.address {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--gold) !important;
+  margin-bottom: 0 !important;
+}
+
+/* ---------- footer ---------- */
+
+.colophon {
+  border-top: 1px solid var(--line);
+  padding: 2rem clamp(1rem, 5vw, 3rem) 2.5rem;
+  text-align: center;
+}
+.colophon p {
+  margin: 0.2rem 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.colophon span { color: var(--gold); }
+
+/* ---------- reveal on scroll ---------- */
+
+/* Hidden state only applies once JS has confirmed it can reveal again */
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+.js-reveal .reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js-reveal .reveal { opacity: 1; transform: none; transition: none; }
+  .skip-link, .button, .masthead nav a { transition: none; }
+}

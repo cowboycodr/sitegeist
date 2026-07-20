@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Nightjar FM — Broadcasts after dark.">
+  <defs>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.65">
+      <stop offset="0" stop-color="#1c2135"/>
+      <stop offset="1" stop-color="#0b0d16"/>
+    </radialGradient>
+    <linearGradient id="amber" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#f2a33c"/>
+      <stop offset="1" stop-color="#ffd28a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- stars -->
+  <g fill="#e8e6dc">
+    <circle cx="120" cy="110" r="3" opacity=".55"/>
+    <circle cx="310" cy="70" r="2.4" opacity=".4"/>
+    <circle cx="520" cy="140" r="2.8" opacity=".5"/>
+    <circle cx="760" cy="60" r="2.4" opacity=".45"/>
+    <circle cx="980" cy="130" r="3" opacity=".55"/>
+    <circle cx="1110" cy="230" r="2.4" opacity=".4"/>
+    <circle cx="90" cy="300" r="2.4" opacity=".4"/>
+    <circle cx="880" cy="250" r="2" opacity=".35"/>
+    <circle cx="420" cy="230" r="2" opacity=".35"/>
+    <circle cx="640" cy="90" r="2" opacity=".4"/>
+  </g>
+
+  <!-- transmitter beacon and rings -->
+  <g transform="translate(600,330)">
+    <circle r="150" fill="none" stroke="#f2a33c" stroke-opacity=".16" stroke-width="3"/>
+    <circle r="108" fill="none" stroke="#f2a33c" stroke-opacity=".3" stroke-width="3"/>
+    <circle r="68" fill="none" stroke="#f2a33c" stroke-opacity=".5" stroke-width="3"/>
+    <circle r="26" fill="url(#amber)"/>
+  </g>
+
+  <!-- nightjar silhouette crossing the signal -->
+  <path d="M420 260c60-20 92-68 140-76 32-6 54 8 80 4 52-8 88-36 164-28-40 16-60 44-104 60-28 10-52 6-76 20-36 22-80 44-140 40 24-8 40-18 54-32-40 16-76 20-118 12z"
+        fill="#232941" opacity=".95"/>
+
+  <!-- waveform -->
+  <g fill="url(#amber)">
+    <rect x="330" y="562" width="14" height="38" rx="4" opacity=".5"/>
+    <rect x="360" y="540" width="14" height="60" rx="4" opacity=".65"/>
+    <rect x="390" y="516" width="14" height="84" rx="4" opacity=".8"/>
+    <rect x="420" y="548" width="14" height="52" rx="4" opacity=".6"/>
+    <rect x="450" y="500" width="14" height="100" rx="4"/>
+    <rect x="480" y="530" width="14" height="70" rx="4" opacity=".75"/>
+    <rect x="510" y="554" width="14" height="46" rx="4" opacity=".55"/>
+    <rect x="540" y="510" width="14" height="90" rx="4" opacity=".9"/>
+    <rect x="570" y="544" width="14" height="56" rx="4" opacity=".65"/>
+    <rect x="600" y="496" width="14" height="104" rx="4"/>
+    <rect x="630" y="536" width="14" height="64" rx="4" opacity=".7"/>
+    <rect x="660" y="558" width="14" height="42" rx="4" opacity=".5"/>
+    <rect x="690" y="520" width="14" height="80" rx="4" opacity=".85"/>
+    <rect x="720" y="546" width="14" height="54" rx="4" opacity=".6"/>
+    <rect x="750" y="508" width="14" height="92" rx="4" opacity=".9"/>
+    <rect x="780" y="538" width="14" height="62" rx="4" opacity=".7"/>
+    <rect x="810" y="560" width="14" height="40" rx="4" opacity=".5"/>
+    <rect x="840" y="532" width="14" height="68" rx="4" opacity=".7"/>
+  </g>
+  <rect x="300" y="600" width="600" height="3" fill="#f2a33c" opacity=".35"/>
+
+  <!-- title -->
+  <text x="600" y="686" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="92" fill="#e8e6dc">Nightjar <tspan fill="#f2a33c">FM</tspan></text>
+  <text x="600" y="744" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="34" font-style="italic" fill="#a9a89f">Broadcasts after dark.</text>
+
+  <!-- badge row -->
+  <g font-family="'Avenir Next', 'Segoe UI', system-ui, sans-serif" font-size="22" letter-spacing="3">
+    <rect x="392" y="784" width="196" height="46" rx="23" fill="none" stroke="#f2a33c" stroke-opacity=".5"/>
+    <text x="490" y="814" text-anchor="middle" fill="#f2a33c">104.4 MHZ</text>
+    <rect x="612" y="784" width="196" height="46" rx="23" fill="none" stroke="#f2a33c" stroke-opacity=".5"/>
+    <text x="710" y="814" text-anchor="middle" fill="#f2a33c">FROM 11 PM</text>
+  </g>
+</svg>

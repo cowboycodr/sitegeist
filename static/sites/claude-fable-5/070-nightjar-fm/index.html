@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+<title>Nightjar FM — Broadcasts after dark.</title>
+<meta name="description" content="Independent transmissions of ambient, experimental, and left-field music through the night.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0d16'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23f2a33c'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23f2a33c' stroke-opacity='.45' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#live">Skip to content</a>
+
+<header class="site-header">
+  <a class="wordmark" href="#top" aria-label="Nightjar FM, home">
+    <svg class="wordmark-sigil" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false">
+      <circle cx="16" cy="16" r="5" fill="currentColor"/>
+      <path d="M16 3a13 13 0 0 1 0 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".45"/>
+      <path d="M16 8a8 8 0 0 1 0 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+    </svg>
+    <span class="wordmark-text">Nightjar <em>FM</em></span>
+  </a>
+  <nav class="site-nav" aria-label="Sections">
+    <a href="#live">Live</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#residents">Residents</a>
+    <a href="#signal">Signal</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-sky" aria-hidden="true">
+      <span class="star s1"></span><span class="star s2"></span><span class="star s3"></span>
+      <span class="star s4"></span><span class="star s5"></span><span class="star s6"></span>
+      <span class="star s7"></span><span class="star s8"></span><span class="star s9"></span>
+      <svg class="hero-bird" viewBox="0 0 200 90" aria-hidden="true" focusable="false">
+        <path d="M4 62c30-10 46-34 70-38 16-3 27 4 40 2 26-4 44-18 82-14-20 8-30 22-52 30-14 5-26 3-38 10-18 11-40 22-70 20 12-4 20-9 27-16-20 8-38 10-59 6z" fill="currentColor"/>
+      </svg>
+    </div>
+    <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Live from 11:00 PM</p>
+    <h1 id="hero-title">Broadcasts after dark.</h1>
+    <p class="hero-lede">Independent transmissions of ambient, experimental, and left-field music through the night. No playlists by committee, no daylight — just a small transmitter and long hours.</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="#live">Listen live</a>
+      <a class="button button-ghost" href="#schedule">Browse schedule</a>
+    </div>
+  </section>
+
+  <section id="live" class="live" aria-labelledby="live-title">
+    <div class="section-head">
+      <h2 id="live-title">On air now</h2>
+      <p class="section-sub">The overnight desk, streaming from a shed on the edge of town.</p>
+    </div>
+    <div class="live-card">
+      <div class="live-meta">
+        <p class="live-freq" aria-hidden="true">104.4 <span>MHz</span></p>
+        <p class="live-show">Moth Light</p>
+        <p class="live-host">with Vesper Hale</p>
+        <p class="live-track"><span class="live-track-label">Now playing</span> <span id="track-title">Cassia Vault — Sodium Lamps at Four</span></p>
+      </div>
+      <div class="live-deck">
+        <div class="visualizer" id="visualizer" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <button class="button button-primary live-toggle" id="live-toggle" type="button" aria-pressed="false">
+          Tune in
+        </button>
+        <p class="live-status" id="live-status" role="status">Receiver idle — press Tune in to join the broadcast.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="schedule" class="schedule" aria-labelledby="schedule-title">
+    <div class="section-head">
+      <h2 id="schedule-title">Tonight's schedule</h2>
+      <p class="section-sub">Every night, 11:00 PM until first light. All times local.</p>
+    </div>
+    <ol class="schedule-list">
+      <li class="slot">
+        <span class="slot-time">11:00 PM</span>
+        <span class="slot-body">
+          <span class="slot-show">Moth Light</span>
+          <span class="slot-desc">Slow ambient openers to switch the town off. Tape hiss encouraged.</span>
+        </span>
+        <span class="slot-host">Vesper Hale</span>
+      </li>
+      <li class="slot">
+        <span class="slot-time">12:30 AM</span>
+        <span class="slot-body">
+          <span class="slot-show">Interference Patterns</span>
+          <span class="slot-desc">Shortwave collage, musique concrète, and field recordings from the ring road.</span>
+        </span>
+        <span class="slot-host">D. Okafor</span>
+      </li>
+      <li class="slot">
+        <span class="slot-time">2:00 AM</span>
+        <span class="slot-body">
+          <span class="slot-show">The Nocturne Index</span>
+          <span class="slot-desc">Left-field club edits played at entirely the wrong tempo, on purpose.</span>
+        </span>
+        <span class="slot-host">Juno Marsh</span>
+      </li>
+      <li class="slot">
+        <span class="slot-time">3:30 AM</span>
+        <span class="slot-body">
+          <span class="slot-show">Long Wave Goodnight</span>
+          <span class="slot-desc">Drones, dulcimers, and the occasional unexplained silence.</span>
+        </span>
+        <span class="slot-host">R. Calloway</span>
+      </li>
+      <li class="slot">
+        <span class="slot-time">5:00 AM</span>
+        <span class="slot-body">
+          <span class="slot-show">Signal Fade</span>
+          <span class="slot-desc">Birdsong crossfaded with sine tones until the sun takes over.</span>
+        </span>
+        <span class="slot-host">Automated</span>
+      </li>
+    </ol>
+  </section>
+
+  <section id="residents" class="residents" aria-labelledby="residents-title">
+    <div class="section-head">
+      <h2 id="residents-title">Resident voices</h2>
+      <p class="section-sub">Four people who should probably sleep more.</p>
+    </div>
+    <div class="resident-grid">
+      <article class="resident">
+        <h3>Vesper Hale</h3>
+        <p class="resident-role">Moth Light · nightly</p>
+        <p>Collects lullabies for adults. Once played a single chord for forty minutes and received two thank-you letters.</p>
+      </article>
+      <article class="resident">
+        <h3>D. Okafor</h3>
+        <p class="resident-role">Interference Patterns · nightly</p>
+        <p>Builds radios out of things that were never meant to be radios. Believes static is a genre.</p>
+      </article>
+      <article class="resident">
+        <h3>Juno Marsh</h3>
+        <p class="resident-role">The Nocturne Index · nightly</p>
+        <p>Files every record by the hour of night it belongs to. 2:00 AM is a well-stocked shelf.</p>
+      </article>
+      <article class="resident">
+        <h3>R. Calloway</h3>
+        <p class="resident-role">Long Wave Goodnight · nightly</p>
+        <p>Speaks rarely, and only in a whisper. The silence between tracks is part of the show.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="signal" class="signal" aria-labelledby="signal-title">
+    <div class="section-head">
+      <h2 id="signal-title">About the signal</h2>
+    </div>
+    <div class="signal-grid">
+      <div class="signal-fact"><span class="signal-num">104.4</span><span class="signal-label">MHz, low-power FM</span></div>
+      <div class="signal-fact"><span class="signal-num">11 PM</span><span class="signal-label">sign-on, every night</span></div>
+      <div class="signal-fact"><span class="signal-num">0</span><span class="signal-label">advertisements, ever</span></div>
+      <div class="signal-fact"><span class="signal-num">7 km</span><span class="signal-label">radius on a clear night</span></div>
+    </div>
+    <p class="signal-copy">Nightjar FM is run by volunteers from a converted allotment shed. We broadcast ambient, experimental, and left-field music for insomniacs, night-shift workers, and anyone driving nowhere in particular. If you can hear us, you're a listener.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>Nightjar FM · Broadcasts after dark · 104.4 MHz</p>
+  <p class="footer-fine">Transmitting nightly, 11:00 PM until first light.</p>
+</footer>
+</body>
+</html>

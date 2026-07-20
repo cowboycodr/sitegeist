@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Common Blue — The ocean belongs to everyone.</title>
+  <meta name="description" content="A coastal action network connecting restoration projects, field data, and local volunteers.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="sitegeist-bridge.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#top">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M4 19c3-2.6 5-2.6 8 0s5 2.6 8 0 5-2.6 8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M6 24c2.6-2.2 4.4-2.2 7 0s4.4 2.2 7 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Common Blue
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#field-data">Field data</a></li>
+        <li><a href="#volunteer">Volunteer</a></li>
+        <li><a class="nav-cta" href="#volunteer">Join a local project</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <p class="eyebrow">Coastal action network</p>
+        <h1>The ocean belongs to <span class="accent">everyone.</span></h1>
+        <p class="lede">Common Blue connects restoration projects, open field data, and local volunteers along working coastlines — so a Saturday morning with a bucket and a clipboard adds up to something measurable.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#volunteer">Join a local project</a>
+          <a class="button ghost" href="#impact">See our impact</a>
+        </div>
+        <dl class="hero-stats">
+          <div><dt>Active shorelines</dt><dd>47</dd></div>
+          <div><dt>Volunteers this season</dt><dd>3,120</dd></div>
+          <div><dt>Open datasets</dt><dd>212</dd></div>
+        </dl>
+      </div>
+      <svg class="hero-waves" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path d="M0 90c120-40 240-40 360 0s240 40 360 0 240-40 360 0 240 40 360 0v90H0z" fill="#0b3c5d" opacity="0.55"/>
+        <path d="M0 120c120-34 240-34 360 0s240 34 360 0 240-34 360 0 240 34 360 0v60H0z" fill="#0a2e47" opacity="0.8"/>
+        <path d="M0 150c120-26 240-26 360 0s240 26 360 0 240-26 360 0 240 26 360 0v30H0z" fill="#081f33"/>
+      </svg>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-heading">
+      <div class="section-head">
+        <h2 id="projects-heading">Restoration projects near the water you know</h2>
+        <p>Every project is led by a local partner, logged in the open, and built to be joined on a weekend. Filter by the kind of work you want your hands in.</p>
+      </div>
+      <div class="filter-row" role="group" aria-label="Filter projects by type">
+        <button class="chip is-active" type="button" data-filter="all" aria-pressed="true">All projects</button>
+        <button class="chip" type="button" data-filter="habitat" aria-pressed="false">Habitat</button>
+        <button class="chip" type="button" data-filter="cleanup" aria-pressed="false">Cleanup</button>
+        <button class="chip" type="button" data-filter="monitoring" aria-pressed="false">Monitoring</button>
+      </div>
+      <ul class="project-grid">
+        <li class="project-card" data-type="habitat">
+          <p class="tag tag-habitat">Habitat</p>
+          <h3>Eelgrass replanting — Harkers Sound</h3>
+          <p>Divers and shore crews are re-seeding 4.5 acres of eelgrass meadow that anchors juvenile herring and steadies the seabed against storm surge.</p>
+          <p class="meta"><span>Next outing: Sat mornings</span><span>18 spots open</span></p>
+        </li>
+        <li class="project-card" data-type="cleanup">
+          <p class="tag tag-cleanup">Cleanup</p>
+          <h3>Ghost gear sweep — Pilot Jetty</h3>
+          <p>Monthly hauls of abandoned line, pots, and net fragments from the jetty rocks — sorted, weighed, and logged before it can strangle another season.</p>
+          <p class="meta"><span>Next outing: First Sunday</span><span>Gloves provided</span></p>
+        </li>
+        <li class="project-card" data-type="monitoring">
+          <p class="tag tag-monitoring">Monitoring</p>
+          <h3>Tidepool census — Norling Flats</h3>
+          <p>Volunteers walk fixed transects at low tide, counting sea stars, anemones, and invasive green crab. Fifteen years of records; your count extends the line.</p>
+          <p class="meta"><span>Timed to tide charts</span><span>Training included</span></p>
+        </li>
+        <li class="project-card" data-type="habitat">
+          <p class="tag tag-habitat">Habitat</p>
+          <h3>Oyster reef build — Camas Slough</h3>
+          <p>Bagging cured shell and setting it along the slough edge to seed a living reef that filters water and blunts the wake from the ferry channel.</p>
+          <p class="meta"><span>Next outing: Alternate Sats</span><span>All ages welcome</span></p>
+        </li>
+        <li class="project-card" data-type="cleanup">
+          <p class="tag tag-cleanup">Cleanup</p>
+          <h3>Storm-drain markers — Old Harbor</h3>
+          <p>Stenciling and tracing the drains that feed the harbor, pairing each marker with an upstream litter audit that the city now uses for street sweeping routes.</p>
+          <p class="meta"><span>Weekday evenings</span><span>Good first project</span></p>
+        </li>
+        <li class="project-card" data-type="monitoring">
+          <p class="tag tag-monitoring">Monitoring</p>
+          <h3>Water quality relay — Broadwater Run</h3>
+          <p>A relay of sampling kits handed shore to shore each Friday, testing temperature, salinity, and dissolved oxygen at nine stations along the run.</p>
+          <p class="meta"><span>Fridays, 90 minutes</span><span>Kit lending library</span></p>
+        </li>
+      </ul>
+      <p class="empty-note" hidden>No projects match this filter right now — check back after the next season posting.</p>
+    </section>
+
+    <section class="section section-deep" id="impact" aria-labelledby="impact-heading">
+      <div class="section-head">
+        <h2 id="impact-heading">Impact you can stand on at low tide</h2>
+        <p>We publish everything we count. These are running totals since Common Blue's first shoreline in 2019, updated from volunteer logs each season.</p>
+      </div>
+      <ul class="impact-grid">
+        <li><span class="impact-number" data-count="86400">0</span><span class="impact-label">pounds of debris removed</span></li>
+        <li><span class="impact-number" data-count="12">0</span><span class="impact-label">acres of eelgrass replanted</span></li>
+        <li><span class="impact-number" data-count="9300">0</span><span class="impact-label">volunteer field hours logged</span></li>
+        <li><span class="impact-number" data-count="212">0</span><span class="impact-label">open datasets published</span></li>
+      </ul>
+      <blockquote class="pull-quote">
+        <p>“The tidepool counts our volunteers keep are the longest continuous record on this stretch of coast. Agencies call us now, not the other way around.”</p>
+        <footer>— Mercedes Ilagan, field coordinator, Norling Flats</footer>
+      </blockquote>
+    </section>
+
+    <section class="section" id="field-data" aria-labelledby="data-heading">
+      <div class="split">
+        <div class="split-copy">
+          <h2 id="data-heading">Field data, kept in common</h2>
+          <p>Every count, haul weight, and water sample goes into an open ledger that anyone — a harbor commission, a grad student, a curious kid — can read. No logins, no paywalls, no fine print.</p>
+          <ul class="check-list">
+            <li>Standardized paper-and-pencil protocols that survive wet hands and dead batteries</li>
+            <li>Season summaries written in plain language alongside the raw tables</li>
+            <li>Every dataset credits the volunteers who walked the transect</li>
+          </ul>
+        </div>
+        <figure class="chart-figure">
+          <figcaption id="chart-caption">Eelgrass shoot density at Harkers Sound, shoots per square meter</figcaption>
+          <svg class="chart" viewBox="0 0 460 240" role="img" aria-labelledby="chart-caption" aria-describedby="chart-desc">
+            <desc id="chart-desc">Bar chart of six seasons: 2021 at 14, 2022 at 22, 2023 at 31, 2024 at 45, 2025 at 58, and 2026 at 66 shoots per square meter.</desc>
+            <g class="chart-grid" stroke="#1c4f70" stroke-width="1">
+              <line x1="40" y1="200" x2="440" y2="200"/>
+              <line x1="40" y1="150" x2="440" y2="150"/>
+              <line x1="40" y1="100" x2="440" y2="100"/>
+              <line x1="40" y1="50" x2="440" y2="50"/>
+            </g>
+            <g fill="#8fd8c7">
+              <rect x="58"  y="165" width="42" height="35"/>
+              <rect x="122" y="145" width="42" height="55"/>
+              <rect x="186" y="123" width="42" height="77"/>
+              <rect x="250" y="88"  width="42" height="112"/>
+              <rect x="314" y="55"  width="42" height="145"/>
+              <rect x="378" y="35"  width="42" height="165" fill="#ffd166"/>
+            </g>
+            <g class="chart-values" text-anchor="middle">
+              <text x="79"  y="157">14</text>
+              <text x="143" y="137">22</text>
+              <text x="207" y="115">31</text>
+              <text x="271" y="80">45</text>
+              <text x="335" y="47">58</text>
+              <text x="399" y="27">66</text>
+            </g>
+            <g class="chart-labels" text-anchor="middle">
+              <text x="79"  y="222">2021</text>
+              <text x="143" y="222">2022</text>
+              <text x="207" y="222">2023</text>
+              <text x="271" y="222">2024</text>
+              <text x="335" y="222">2025</text>
+              <text x="399" y="222">2026</text>
+            </g>
+          </svg>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section-deep" id="volunteer" aria-labelledby="volunteer-heading">
+      <div class="section-head">
+        <h2 id="volunteer-heading">Join a local project</h2>
+        <p>Tell us where you are and what kind of morning you're after. A coordinator from the nearest shoreline crew will reach out with the next outing.</p>
+      </div>
+      <form class="signup" novalidate>
+        <div class="field">
+          <label for="signup-name">Name</label>
+          <input id="signup-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="signup-town">Town or harbor</label>
+          <input id="signup-town" name="town" type="text" autocomplete="address-level2" required>
+        </div>
+        <div class="field field-wide">
+          <label for="signup-interest">What draws you to the water?</label>
+          <select id="signup-interest" name="interest">
+            <option value="habitat">Habitat restoration</option>
+            <option value="cleanup">Shoreline cleanup</option>
+            <option value="monitoring">Monitoring and field data</option>
+            <option value="any">Wherever hands are needed</option>
+          </select>
+        </div>
+        <button class="button primary" type="submit">Request my first outing</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-brand">Common Blue</p>
+      <p>The ocean belongs to everyone. A coastal action network connecting restoration projects, field data, and local volunteers.</p>
+      <p class="footer-fine">Field guides, protocols, and season summaries are shared freely with partner shorelines.</p>
+    </div>
+  </footer>
+</body>
+</html>

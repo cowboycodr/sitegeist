@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Quiet Mile — The city, softened.</title>
+<meta name="description" content="Silent, lightweight electric bikes made for elegant movement through dense urban life.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="main.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="wordmark" href="#top" aria-label="Quiet Mile — home">
+    <svg class="wordmark-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M16 3 A13 13 0 0 1 29 16" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="16" cy="16" r="2.4" fill="currentColor"/>
+    </svg>
+    <span>Quiet&nbsp;Mile</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#m1">The M1</a>
+    <a href="#philosophy">Philosophy</a>
+    <a href="#sound">Sound</a>
+    <a href="#ride" class="nav-cta">Test ride</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============ Hero ============ -->
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow">Urban electric mobility</p>
+      <h1>The city,<br><em>softened.</em></h1>
+      <p class="lede">Silent, lightweight electric bikes made for elegant movement through dense urban life. No hum, no haste — just the street, gliding past.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#m1">Meet the M1</a>
+        <a class="btn btn-ghost" href="#ride">Book a test ride</a>
+      </div>
+      <dl class="hero-stats" aria-label="Key figures">
+        <div><dt>Weight</dt><dd>13.8&nbsp;kg</dd></div>
+        <div><dt>Range</dt><dd>90&nbsp;km</dd></div>
+        <div><dt>Drive noise</dt><dd>&lt;&nbsp;29&nbsp;dB</dd></div>
+      </dl>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg class="bike-svg" viewBox="0 0 640 420" role="img" aria-label="Line illustration of the Quiet Mile M1 electric bike">
+        <defs>
+          <linearGradient id="haze" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#e8e4dc"/>
+            <stop offset="1" stop-color="#f4f1ea"/>
+          </linearGradient>
+        </defs>
+        <!-- skyline haze -->
+        <g class="skyline" stroke="#d4cec2" stroke-width="2" fill="none" opacity="0.7">
+          <path d="M20 240 v-70 h44 v-34 h30 v104"/>
+          <path d="M120 240 v-52 h38 v52"/>
+          <path d="M470 240 v-88 h50 v88"/>
+          <path d="M545 240 v-60 h40 v-22 h28 v82"/>
+          <path d="M180 240 v-30 h34 v30"/>
+        </g>
+        <rect x="0" y="238" width="640" height="4" fill="url(#haze)"/>
+        <line x1="16" y1="252" x2="624" y2="252" stroke="#cfc8ba" stroke-width="2"/>
+        <!-- bike -->
+        <g class="bike" stroke="#2b2b28" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="170" cy="300" r="72"/>
+          <circle cx="470" cy="300" r="72"/>
+          <circle cx="170" cy="300" r="8" fill="#2b2b28"/>
+          <circle cx="470" cy="300" r="8" fill="#2b2b28"/>
+          <!-- frame -->
+          <path d="M170 300 L290 170 L430 170"/>
+          <path d="M170 300 L310 300 L290 170"/>
+          <path d="M310 300 L430 170"/>
+          <!-- seat post + saddle -->
+          <path d="M290 170 L278 132"/>
+          <path d="M256 130 Q278 122 304 128"/>
+          <!-- fork + bars -->
+          <path d="M470 300 L438 158"/>
+          <path d="M438 158 Q436 142 452 136 L482 132"/>
+          <!-- crank -->
+          <circle cx="310" cy="300" r="14"/>
+          <path d="M310 300 L336 326"/>
+        </g>
+        <!-- accent battery in downtube -->
+        <rect class="battery" x="222" y="230" width="96" height="14" rx="7" transform="rotate(-42 270 237)" fill="#8a9b7c"/>
+        <!-- motion whispers -->
+        <g class="whispers" stroke="#8a9b7c" stroke-width="3" stroke-linecap="round" opacity="0.65">
+          <line x1="46" y1="286" x2="86" y2="286"/>
+          <line x1="30" y1="308" x2="80" y2="308"/>
+          <line x1="52" y1="330" x2="88" y2="330"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============ M1 ============ -->
+  <section class="m1" id="m1" aria-labelledby="m1-title">
+    <div class="section-head">
+      <p class="eyebrow">The flagship</p>
+      <h2 id="m1-title">Meet the M1</h2>
+      <p class="section-lede">One frame, one finish, one idea: a bike so quiet and so light it disappears into the ride. Every gram and every decibel was argued over.</p>
+    </div>
+    <div class="spec-grid" role="list">
+      <article class="spec" role="listitem">
+        <h3>Whisper drive</h3>
+        <p>A gearless hub motor with belt drive — no chain rattle, no gear whine. Under 29&nbsp;dB at cruising speed, quieter than a library reading room.</p>
+      </article>
+      <article class="spec" role="listitem">
+        <h3>13.8&nbsp;kg, all in</h3>
+        <p>Full battery, fenders, lights. Light enough for a fourth-floor walk-up, balanced enough to carry with one hand on the top tube.</p>
+      </article>
+      <article class="spec" role="listitem">
+        <h3>90&nbsp;km of city</h3>
+        <p>A week of commutes on one charge. The cell pack hides inside the downtube and tops up from empty in three and a half hours.</p>
+      </article>
+      <article class="spec" role="listitem">
+        <h3>Matte stone finish</h3>
+        <p>A soft mineral grey that reads as calm, not chrome. Sage detailing marks the battery line — the only place the bike raises its voice.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ Philosophy ============ -->
+  <section class="philosophy" id="philosophy" aria-labelledby="phi-title">
+    <div class="phi-inner">
+      <p class="eyebrow">Design philosophy</p>
+      <h2 id="phi-title">Elegance is subtraction</h2>
+      <div class="phi-cols">
+        <p>Cities are loud enough. Most electric bikes add to the noise — motors that whine, apps that ping, screens that glow. We went the other way. The M1 has no display, no speaker, and no app requirement. A single dial sets assistance; a single tone of light shows charge.</p>
+        <p>What remains is the part we love: the low hiss of tyres on wet asphalt, the swing of the frame between traffic islands, the mile that passes without you noticing. We build for that mile. The quiet one.</p>
+      </div>
+      <blockquote class="phi-quote">
+        <p>&ldquo;The best sound an electric bike can make is the city itself.&rdquo;</p>
+        <footer>— Quiet Mile design principle no. 1</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ============ Sound ============ -->
+  <section class="sound" id="sound" aria-labelledby="sound-title">
+    <div class="section-head">
+      <p class="eyebrow">Measured at 25 km/h, 1 m distance</p>
+      <h2 id="sound-title">How quiet is quiet?</h2>
+    </div>
+    <ul class="db-chart" aria-label="Noise comparison in decibels">
+      <li>
+        <span class="db-label">City traffic</span>
+        <span class="db-track"><span class="db-bar" data-width="85" role="img" aria-label="78 decibels"></span></span>
+        <span class="db-value">78&nbsp;dB</span>
+      </li>
+      <li>
+        <span class="db-label">Typical e-bike drive</span>
+        <span class="db-track"><span class="db-bar" data-width="58" role="img" aria-label="55 decibels"></span></span>
+        <span class="db-value">55&nbsp;dB</span>
+      </li>
+      <li>
+        <span class="db-label">Quiet conversation</span>
+        <span class="db-track"><span class="db-bar" data-width="44" role="img" aria-label="42 decibels"></span></span>
+        <span class="db-value">42&nbsp;dB</span>
+      </li>
+      <li class="db-hero">
+        <span class="db-label">Quiet Mile M1</span>
+        <span class="db-track"><span class="db-bar" data-width="30" role="img" aria-label="under 29 decibels"></span></span>
+        <span class="db-value">&lt;29&nbsp;dB</span>
+      </li>
+    </ul>
+    <p class="db-note">Independent lab measurement, drive unit only, October 2025 test batch.</p>
+  </section>
+
+  <!-- ============ Test ride ============ -->
+  <section class="ride" id="ride" aria-labelledby="ride-title">
+    <div class="ride-inner">
+      <div class="ride-copy">
+        <p class="eyebrow">Try before anything</p>
+        <h2 id="ride-title">Book a test ride</h2>
+        <p>Thirty unhurried minutes on the M1, on real streets, from one of our three city studios. Bring nothing but yourself — helmets, locks, and coffee are on us.</p>
+      </div>
+      <form class="ride-form" id="ride-form" novalidate>
+        <div class="field">
+          <label for="rider-name">Name</label>
+          <input id="rider-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="rider-studio">Studio</label>
+          <select id="rider-studio" name="studio" required>
+            <option value="">Choose a studio…</option>
+            <option>Canal District — Amsterdam</option>
+            <option>Kreuzberg — Berlin</option>
+            <option>Vesterbro — Copenhagen</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="rider-time">Preferred time</label>
+          <select id="rider-time" name="time" required>
+            <option value="">Choose a time…</option>
+            <option>Weekday morning</option>
+            <option>Weekday evening</option>
+            <option>Weekend</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Reserve my ride</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p class="foot-mark">Quiet&nbsp;Mile</p>
+  <p>The city, softened. · Amsterdam · Berlin · Copenhagen</p>
+  <p class="foot-fine">© 2026 Quiet Mile Mobility. Ride gently.</p>
+</footer>
+
+</body>
+</html>

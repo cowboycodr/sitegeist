@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Bloom — Medicine, grown differently.">
+  <defs>
+    <radialGradient id="bg" cx="78%" cy="12%" r="90%">
+      <stop offset="0%" stop-color="#12503a"/>
+      <stop offset="55%" stop-color="#0b1f19"/>
+      <stop offset="100%" stop-color="#08160f"/>
+    </radialGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a8f0c8"/>
+      <stop offset="100%" stop-color="#3f9d74"/>
+    </linearGradient>
+    <linearGradient id="pill" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7fd4a3"/>
+      <stop offset="100%" stop-color="#3f9d74"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+
+  <!-- decorative cell rings -->
+  <g fill="none" stroke="#7fd4a3" stroke-opacity="0.18">
+    <circle cx="1010" cy="150" r="220" stroke-width="1.5"/>
+    <circle cx="1080" cy="470" r="140" stroke-width="1.5"/>
+    <circle cx="180" cy="760" r="120" stroke-width="1.5"/>
+  </g>
+
+  <!-- spores -->
+  <g fill="#a8f0c8">
+    <circle cx="250" cy="220" r="6" opacity="0.7"/>
+    <circle cx="920" cy="640" r="5" opacity="0.6"/>
+    <circle cx="1050" cy="300" r="7" opacity="0.55"/>
+    <circle cx="140" cy="440" r="4" opacity="0.6"/>
+    <circle cx="780" cy="180" r="5" opacity="0.5"/>
+  </g>
+
+  <!-- brand mark: bloom motif -->
+  <g transform="translate(110 120)">
+    <circle cx="0" cy="0" r="46" fill="none" stroke="#7fd4a3" stroke-opacity="0.4" stroke-width="2"/>
+    <path d="M0 -32C14 -20 14 12 0 30C-14 12 -14 -20 0 -32Z" fill="url(#leaf)" opacity="0.9"/>
+    <path d="M0 32C-14 20 -14 -12 0 -30C14 -12 14 20 0 32Z" fill="#7fd4a3" opacity="0.4"/>
+    <circle cx="0" cy="1" r="7" fill="#f4ede1"/>
+  </g>
+  <text x="176" y="135" font-family="Georgia, 'Times New Roman', serif" font-size="52" fill="#f4ede1" letter-spacing="1">Bloom</text>
+
+  <!-- eyebrow -->
+  <text x="112" y="360" font-family="'Segoe UI', system-ui, sans-serif" font-size="24" letter-spacing="8" fill="#7fd4a3">BIOLOGY IN MOTION</text>
+
+  <!-- headline -->
+  <text x="108" y="470" font-family="Georgia, 'Times New Roman', serif" font-size="104" fill="#f4ede1">Medicine,</text>
+  <text x="108" y="580" font-family="Georgia, 'Times New Roman', serif" font-size="104" fill="#7fd4a3" font-style="italic">grown</text>
+  <text x="415" y="580" font-family="Georgia, 'Times New Roman', serif" font-size="104" fill="#f4ede1">differently.</text>
+
+  <!-- tagline -->
+  <text x="112" y="660" font-family="'Segoe UI', system-ui, sans-serif" font-size="30" fill="#c9d8cc">Regenerative therapies from cells, fungi, and plants.</text>
+
+  <!-- three-kingdom chips -->
+  <g font-family="'Segoe UI', system-ui, sans-serif" font-size="26" font-weight="600">
+    <g>
+      <rect x="112" y="720" width="230" height="64" rx="32" fill="none" stroke="#3f9d74" stroke-width="2"/>
+      <text x="227" y="761" fill="#f4ede1" text-anchor="middle">Cellular</text>
+    </g>
+    <g>
+      <rect x="366" y="720" width="240" height="64" rx="32" fill="none" stroke="#3f9d74" stroke-width="2"/>
+      <text x="486" y="761" fill="#f4ede1" text-anchor="middle">Mycelial</text>
+    </g>
+    <g>
+      <rect x="630" y="720" width="250" height="64" rx="32" fill="url(#pill)"/>
+      <text x="755" y="761" fill="#05130d" text-anchor="middle">Botanical</text>
+    </g>
+  </g>
+</svg>

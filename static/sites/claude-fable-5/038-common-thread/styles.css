@@ -1,0 +1,598 @@
+/* Common Thread — seasonless essentials, traceable fibers */
+
+:root {
+  --linen: #f3eee4;
+  --linen-deep: #e9e1d1;
+  --paper: #faf7f0;
+  --ink: #26211a;
+  --ink-soft: #5b5344;
+  --clay: #a8542c;
+  --clay-deep: #8c4322;
+  --moss: #5b6b4a;
+  --thread: #c9bda4;
+  --radius: 14px;
+  --measure: 62ch;
+  font-size: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--linen);
+  color: var(--ink);
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: anywhere;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--clay-deep);
+}
+
+:focus-visible {
+  outline: 3px solid var(--clay);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3.5rem;
+  z-index: 20;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.6rem 1rem;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+.wrap {
+  width: min(100% - 2.5rem, 68rem);
+  margin-inline: auto;
+}
+
+/* ---------- header ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--linen) 88%, white);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px dashed var(--thread);
+}
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.01em;
+}
+
+.brand svg {
+  flex: none;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--ink-soft);
+  border-radius: 8px;
+  padding: 0.45rem 0.7rem;
+  font: inherit;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.site-nav ul {
+  display: flex;
+  gap: 1.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.35rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover {
+  border-bottom-color: var(--clay);
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  padding: clamp(3rem, 8vw, 5.5rem) 0 clamp(2.5rem, 6vw, 4rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--clay-deep);
+  border: 1px solid var(--clay);
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  max-width: 14ch;
+}
+
+.hero .lede {
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.6rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 1.5px solid var(--ink);
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.button.primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.button.primary:hover {
+  background: var(--clay-deep);
+  border-color: var(--clay-deep);
+}
+
+.button.ghost {
+  color: var(--ink);
+  background: transparent;
+}
+
+.button.ghost:hover {
+  background: var(--linen-deep);
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.hero-art {
+  justify-self: center;
+  width: min(100%, 24rem);
+}
+
+/* running-stitch divider */
+
+.stitch {
+  border: none;
+  height: 0;
+  border-top: 2px dashed var(--thread);
+  margin: 0;
+}
+
+/* ---------- sections ---------- */
+
+section {
+  padding: clamp(2.8rem, 7vw, 5rem) 0;
+}
+
+.section-head {
+  max-width: var(--measure);
+  margin-bottom: 2rem;
+}
+
+.section-head .kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin-bottom: 0.4rem;
+}
+
+.section-head h2 {
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+}
+
+.section-head p {
+  color: var(--ink-soft);
+}
+
+/* collection grid */
+
+.garments {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.garment {
+  background: var(--paper);
+  border: 1px solid var(--linen-deep);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.garment:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(38, 33, 26, 0.12);
+}
+
+.garment figure {
+  margin: 0;
+  background: var(--linen-deep);
+  padding: 1.4rem;
+  display: grid;
+  place-items: center;
+}
+
+.garment figure svg {
+  width: 7.5rem;
+  height: 7.5rem;
+}
+
+.garment-body {
+  padding: 1.1rem 1.3rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.garment h3 {
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.garment .fiber {
+  font-size: 0.85rem;
+  color: var(--moss);
+  letter-spacing: 0.04em;
+}
+
+.garment .note {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin: 0.2rem 0 0.6rem;
+  flex: 1;
+}
+
+.garment .price {
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+}
+
+/* ---------- trace ---------- */
+
+.trace {
+  background: var(--ink);
+  color: var(--linen);
+}
+
+.trace .section-head h2 {
+  color: var(--paper);
+}
+
+.trace .section-head p,
+.trace .section-head .kicker {
+  color: var(--thread);
+}
+
+.trace-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.6rem;
+  padding: 0;
+}
+
+.trace-tab {
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid var(--thread);
+  background: transparent;
+  color: var(--linen);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.trace-tab[aria-selected="true"] {
+  background: var(--linen);
+  color: var(--ink);
+  border-color: var(--linen);
+}
+
+.trace-panel {
+  background: rgba(250, 247, 240, 0.06);
+  border: 1px dashed rgba(201, 189, 164, 0.5);
+  border-radius: var(--radius);
+  padding: clamp(1.2rem, 3vw, 2rem);
+}
+
+.trace-panel[hidden] {
+  display: none;
+}
+
+.journey {
+  list-style: none;
+  margin: 1.2rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+
+.journey li {
+  position: relative;
+  padding: 0 0 1.4rem 2rem;
+}
+
+.journey li:last-child {
+  padding-bottom: 0;
+}
+
+.journey li::before {
+  content: "";
+  position: absolute;
+  left: 0.42rem;
+  top: 0.5rem;
+  bottom: -0.5rem;
+  border-left: 2px dashed var(--thread);
+}
+
+.journey li:last-child::before {
+  display: none;
+}
+
+.journey li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--clay);
+  border: 3px solid var(--ink);
+  box-shadow: 0 0 0 1.5px var(--thread);
+}
+
+.journey .stage {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--thread);
+}
+
+.journey .place {
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+  color: var(--paper);
+}
+
+.journey p {
+  margin: 0.2rem 0 0;
+  color: rgba(243, 238, 228, 0.8);
+  max-width: 52ch;
+}
+
+/* ---------- repair ---------- */
+
+.repair-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.4rem;
+}
+
+.repair-card {
+  background: var(--paper);
+  border: 1px solid var(--linen-deep);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.repair-card .num {
+  display: inline-grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: var(--moss);
+  color: var(--paper);
+  font-family: Georgia, serif;
+  margin-bottom: 0.8rem;
+}
+
+.repair-card h3 {
+  font-size: 1.15rem;
+}
+
+.repair-card p {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.pledge {
+  margin-top: 2.2rem;
+  background: var(--linen-deep);
+  border-radius: var(--radius);
+  padding: clamp(1.4rem, 3.5vw, 2.2rem);
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.pledge svg {
+  flex: none;
+  width: 3rem;
+  height: 3rem;
+}
+
+.pledge p {
+  margin: 0;
+  max-width: 58ch;
+}
+
+.pledge strong {
+  font-family: Georgia, serif;
+  font-weight: 500;
+  display: block;
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+}
+
+/* ---------- footer ---------- */
+
+.site-footer {
+  border-top: 1px dashed var(--thread);
+  padding: 2.2rem 0 2.6rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.footer-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-bar p {
+  margin: 0;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-art {
+    order: -1;
+    width: min(70%, 17rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-toggle {
+    display: inline-block;
+  }
+
+  .site-nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: var(--paper);
+    border-bottom: 1px dashed var(--thread);
+    display: none;
+  }
+
+  .site-nav.open {
+    display: block;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 1.25rem 1rem;
+  }
+
+  .site-nav a {
+    display: block;
+    padding: 0.7rem 0;
+    font-size: 1.05rem;
+  }
+
+  .actions .button {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

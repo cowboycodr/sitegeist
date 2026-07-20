@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="posterTitle">
+  <title id="posterTitle">Drift — A softer landing for your day</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#161233"/>
+      <stop offset="0.6" stop-color="#0d0b1e"/>
+      <stop offset="1" stop-color="#0a0817"/>
+    </linearGradient>
+    <linearGradient id="word" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fdf6ea"/>
+      <stop offset="1" stop-color="#f0b97b"/>
+    </linearGradient>
+    <radialGradient id="moonGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f0b97b" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#f0b97b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb" cx="0.38" cy="0.32" r="0.8">
+      <stop offset="0" stop-color="#b7a9ff"/>
+      <stop offset="0.55" stop-color="#8f7fe8"/>
+      <stop offset="1" stop-color="#4a3aa8"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#sky)"/>
+
+  <!-- stars -->
+  <g fill="#e9e6f7">
+    <circle cx="110" cy="130" r="3" opacity="0.7"/>
+    <circle cx="255" cy="70" r="2" opacity="0.45"/>
+    <circle cx="410" cy="170" r="2.5" opacity="0.6"/>
+    <circle cx="560" cy="90" r="2" opacity="0.4"/>
+    <circle cx="705" cy="150" r="3" opacity="0.65"/>
+    <circle cx="850" cy="60" r="2" opacity="0.5"/>
+    <circle cx="1090" cy="140" r="2.5" opacity="0.6"/>
+    <circle cx="170" cy="300" r="2" opacity="0.4"/>
+    <circle cx="1010" cy="290" r="2" opacity="0.45"/>
+    <circle cx="330" cy="250" r="1.8" opacity="0.35"/>
+  </g>
+
+  <!-- crescent moon -->
+  <circle cx="960" cy="180" r="130" fill="url(#moonGlow)"/>
+  <path d="M 1000 110 A 74 74 0 1 0 1027 210 A 60 60 0 1 1 1000 110 Z" fill="#f0b97b" opacity="0.95"/>
+
+  <!-- breath orb with rings -->
+  <g>
+    <circle cx="600" cy="560" r="205" fill="none" stroke="#2b2650" stroke-width="2"/>
+    <circle cx="600" cy="560" r="160" fill="none" stroke="#8f7fe8" stroke-width="2" opacity="0.35"/>
+    <circle cx="600" cy="560" r="120" fill="none" stroke="#8f7fe8" stroke-width="2" opacity="0.55"/>
+    <circle cx="600" cy="560" r="78" fill="url(#orb)"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="600" y="330" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="170" letter-spacing="12" fill="url(#word)">Drift</text>
+  <text x="600" y="120" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif"
+        font-size="26" letter-spacing="9" fill="#f0b97b">TONIGHT BEGINS HERE</text>
+
+  <!-- waves -->
+  <path d="M0 760 C 200 700, 400 820, 600 760 S 1000 700, 1200 760 V 900 H 0 Z" fill="#171432"/>
+  <path d="M0 810 C 200 760, 400 860, 600 810 S 1000 760, 1200 810 V 900 H 0 Z" fill="#131028"/>
+
+  <text x="600" y="866" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-style="italic" font-size="34" fill="#e9e6f7">A softer landing for your day.</text>
+</svg>

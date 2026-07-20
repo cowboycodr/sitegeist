@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+<title>Lucid — Learn by seeing.</title>
+<meta name="description" content="Interactive courses turn difficult ideas into playful simulations, diagrams, and experiments.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Ccircle%20cx='16'%20cy='16'%20r='14'%20fill='%23241f4e'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='7'%20fill='%23ffd166'/%3E%3C/svg%3E">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="lucid.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Lucid home">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <circle cx="16" cy="16" r="14" fill="var(--ink)"/>
+      <circle cx="16" cy="16" r="7" fill="var(--sun)"/>
+    </svg>
+    <span class="brand-name">Lucid</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#labs">Labs</a>
+    <a href="#subjects">Subjects</a>
+    <a href="#method">Method</a>
+  </nav>
+</header>
+
+<main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow">Ideas you can touch</p>
+      <h1>Learn by <em>seeing.</em></h1>
+      <p class="lede">Interactive courses turn difficult ideas into playful simulations, diagrams, and experiments. Drag a slider, watch a law of nature respond.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#labs">Start exploring</a>
+        <a class="button ghost" href="#subjects">Browse subjects</a>
+      </div>
+      <dl class="hero-stats">
+        <div><dt>140+</dt><dd>interactive lessons</dd></div>
+        <div><dt>9</dt><dd>subject tracks</dd></div>
+        <div><dt>0</dt><dd>walls of text</dd></div>
+      </dl>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <canvas id="hero-canvas" width="640" height="640"></canvas>
+    </div>
+  </section>
+
+  <!-- ============ LABS ============ -->
+  <section class="labs" id="labs" aria-labelledby="labs-heading">
+    <header class="section-head">
+      <p class="eyebrow">Try three lessons right now</p>
+      <h2 id="labs-heading">Every concept is a hands-on lab</h2>
+      <p class="section-lede">No account, no video, no lecture. Each lesson below is a real Lucid interactive — move the controls and the mathematics moves with you.</p>
+    </header>
+
+    <!-- Lab 1: Waves -->
+    <article class="lab" aria-labelledby="wave-title">
+      <div class="lab-info">
+        <p class="lab-track">Physics · Oscillations</p>
+        <h3 id="wave-title">Anatomy of a wave</h3>
+        <p>Frequency sets how tightly the crests pack together; amplitude sets how tall they stand. Slide both and read the equation as a picture.</p>
+        <p class="lab-readout" id="wave-readout" aria-live="polite">y = 1.0 · sin(3.0x)</p>
+        <div class="lab-controls">
+          <label>Frequency
+            <input type="range" id="wave-freq" min="1" max="8" step="0.1" value="3" aria-describedby="wave-readout">
+          </label>
+          <label>Amplitude
+            <input type="range" id="wave-amp" min="0.2" max="1.6" step="0.05" value="1" aria-describedby="wave-readout">
+          </label>
+        </div>
+      </div>
+      <figure class="lab-stage">
+        <svg id="wave-svg" viewBox="0 0 480 260" role="img" aria-label="Sine wave that changes shape as you adjust frequency and amplitude">
+          <line x1="0" y1="130" x2="480" y2="130" class="axis"/>
+          <line x1="240" y1="10" x2="240" y2="250" class="axis"/>
+          <path id="wave-path" class="wave-line" d=""/>
+        </svg>
+      </figure>
+    </article>
+
+    <!-- Lab 2: Pendulum -->
+    <article class="lab flip" aria-labelledby="pend-title">
+      <div class="lab-info">
+        <p class="lab-track">Physics · Mechanics</p>
+        <h3 id="pend-title">The honest pendulum</h3>
+        <p>A pendulum's period ignores how heavy the bob is — only length and gravity matter. Shorten the string or fly it to the Moon and watch the rhythm change.</p>
+        <p class="lab-readout" id="pend-readout" aria-live="polite">Period ≈ 2.01 s</p>
+        <div class="lab-controls">
+          <label>Length
+            <input type="range" id="pend-length" min="0.3" max="2" step="0.05" value="1" aria-describedby="pend-readout">
+          </label>
+          <label>Gravity
+            <input type="range" id="pend-gravity" min="1.6" max="24" step="0.1" value="9.8" aria-describedby="pend-readout">
+          </label>
+          <button class="button small" id="pend-toggle" aria-pressed="true">Pause swing</button>
+        </div>
+      </div>
+      <figure class="lab-stage">
+        <svg id="pend-svg" viewBox="0 0 480 300" role="img" aria-label="Animated pendulum whose swing responds to the length and gravity sliders">
+          <line x1="140" y1="24" x2="340" y2="24" class="beam"/>
+          <line id="pend-rod" x1="240" y1="24" x2="240" y2="220" class="rod"/>
+          <circle id="pend-bob" cx="240" cy="220" r="22" class="bob"/>
+        </svg>
+      </figure>
+    </article>
+
+    <!-- Lab 3: Refraction -->
+    <article class="lab" aria-labelledby="snell-title">
+      <div class="lab-info">
+        <p class="lab-track">Physics · Optics</p>
+        <h3 id="snell-title">Why light bends</h3>
+        <p>When light crosses into glass or water it slows down and bends toward the normal — Snell's law in one picture. Steepen the beam, thicken the medium, watch the kink.</p>
+        <p class="lab-readout" id="snell-readout" aria-live="polite">40° in air → 25° in the medium</p>
+        <div class="lab-controls">
+          <label>Angle of incidence
+            <input type="range" id="snell-angle" min="5" max="80" step="1" value="40" aria-describedby="snell-readout">
+          </label>
+          <label>Refractive index
+            <input type="range" id="snell-index" min="1" max="2.4" step="0.05" value="1.5" aria-describedby="snell-readout">
+          </label>
+        </div>
+      </div>
+      <figure class="lab-stage">
+        <svg id="snell-svg" viewBox="0 0 480 300" role="img" aria-label="Diagram of a light ray bending as it enters a denser medium">
+          <rect x="0" y="150" width="480" height="150" class="medium"/>
+          <line x1="240" y1="20" x2="240" y2="280" class="normal-line"/>
+          <line id="snell-in" x1="100" y1="30" x2="240" y2="150" class="ray"/>
+          <line id="snell-out" x1="240" y1="150" x2="320" y2="280" class="ray refracted"/>
+          <circle cx="240" cy="150" r="5" class="hit"/>
+          <text x="12" y="140" class="svg-label">air</text>
+          <text x="12" y="176" class="svg-label">medium</text>
+        </svg>
+      </figure>
+    </article>
+  </section>
+
+  <!-- ============ SUBJECTS ============ -->
+  <section class="subjects" id="subjects" aria-labelledby="subjects-heading">
+    <header class="section-head">
+      <p class="eyebrow">Nine tracks, one habit</p>
+      <h2 id="subjects-heading">Browse subjects</h2>
+      <p class="section-lede">Each track is a chain of short interactive lessons that build on each other — finish one and the next unlocks naturally.</p>
+    </header>
+    <ul class="subject-grid">
+      <li><span class="chip c1" aria-hidden="true">∿</span><h3>Waves &amp; Sound</h3><p>Oscillation, resonance, and why bridges hum.</p><span class="lesson-count">18 lessons</span></li>
+      <li><span class="chip c2" aria-hidden="true">◐</span><h3>Light &amp; Optics</h3><p>Lenses, rainbows, and the speed limit of the universe.</p><span class="lesson-count">15 lessons</span></li>
+      <li><span class="chip c3" aria-hidden="true">∫</span><h3>Calculus, Seen</h3><p>Slopes and areas as things you drag, not symbols you fear.</p><span class="lesson-count">22 lessons</span></li>
+      <li><span class="chip c4" aria-hidden="true">⚖</span><h3>Mechanics</h3><p>Forces, orbits, and pendulums with opinions.</p><span class="lesson-count">20 lessons</span></li>
+      <li><span class="chip c5" aria-hidden="true">🜁</span><h3>Chemistry in Motion</h3><p>Bonds, reactions, and equilibrium as living diagrams.</p><span class="lesson-count">14 lessons</span></li>
+      <li><span class="chip c6" aria-hidden="true">%</span><h3>Probability</h3><p>Coin flips, false positives, and honest uncertainty.</p><span class="lesson-count">16 lessons</span></li>
+      <li><span class="chip c7" aria-hidden="true">⟳</span><h3>Algorithms</h3><p>Sorting, searching, and recursion you can single-step.</p><span class="lesson-count">17 lessons</span></li>
+      <li><span class="chip c8" aria-hidden="true">🜨</span><h3>Earth &amp; Climate</h3><p>Feedback loops, carbon budgets, and tipping points.</p><span class="lesson-count">12 lessons</span></li>
+      <li><span class="chip c9" aria-hidden="true">✶</span><h3>Astronomy</h3><p>Parallax, redshift, and the scale of everything.</p><span class="lesson-count">13 lessons</span></li>
+    </ul>
+  </section>
+
+  <!-- ============ METHOD ============ -->
+  <section class="method" id="method" aria-labelledby="method-heading">
+    <header class="section-head">
+      <p class="eyebrow">The Lucid method</p>
+      <h2 id="method-heading">See it. Poke it. Predict it.</h2>
+    </header>
+    <ol class="method-steps">
+      <li>
+        <span class="step-num" aria-hidden="true">1</span>
+        <h3>See the idea</h3>
+        <p>Every lesson opens with a picture, not a paragraph. The concept is on screen before a single symbol appears.</p>
+      </li>
+      <li>
+        <span class="step-num" aria-hidden="true">2</span>
+        <h3>Poke it yourself</h3>
+        <p>Sliders, drags, and toggles let you break the system on purpose. Intuition comes from the edge cases you find.</p>
+      </li>
+      <li>
+        <span class="step-num" aria-hidden="true">3</span>
+        <h3>Predict what happens</h3>
+        <p>Before revealing an answer, Lucid asks you to commit to a guess. Being confidently wrong is the fastest way to remember being right.</p>
+      </li>
+    </ol>
+    <blockquote class="pull-quote">
+      <p>“I finally understand what a derivative <em>is</em>. I dragged a point along a curve and the slope followed my finger. Ten years of classes never did that.”</p>
+      <cite>— A learner in the Calculus, Seen track</cite>
+    </blockquote>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta" aria-labelledby="cta-heading">
+    <h2 id="cta-heading">Difficult ideas, in focus.</h2>
+    <p>Pick any subject. The first lesson takes four minutes and zero prerequisites.</p>
+    <div class="hero-actions">
+      <a class="button primary" href="#labs">Start exploring</a>
+      <a class="button ghost" href="#subjects">Browse subjects</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p><strong>Lucid</strong> · Learn by seeing.</p>
+  <p class="fineprint">Interactive courses turn difficult ideas into playful simulations, diagrams, and experiments.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'">
+<title>Agora Index — Public life, made legible.</title>
+<meta name="description" content="An open dashboard translating budgets, housing, transit, and participation into local signals.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#signals">Skip to signals</a>
+
+<header class="masthead">
+  <div class="wrap masthead__row">
+    <a class="brand" href="#top" aria-label="Agora Index home">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect x="2" y="22" width="5" height="8" rx="1"></rect>
+        <rect x="9.5" y="14" width="5" height="16" rx="1"></rect>
+        <rect x="17" y="8" width="5" height="22" rx="1"></rect>
+        <rect x="24.5" y="2" width="5" height="28" rx="1"></rect>
+      </svg>
+      <span class="brand__name">Agora <em>Index</em></span>
+    </a>
+    <nav class="masthead__nav" aria-label="Sections">
+      <a href="#signals">Signals</a>
+      <a href="#budget">Budget</a>
+      <a href="#housing">Housing</a>
+      <a href="#transit">Transit</a>
+      <a href="#participation">Participation</a>
+    </nav>
+    <p class="masthead__pulse" role="status">
+      <span class="pulse-dot" aria-hidden="true"></span>Live · 07:00 sync
+    </p>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow">City pulse / Updated hourly</p>
+        <h1 id="hero-title">Public life, made&nbsp;legible.</h1>
+        <p class="hero__lede">Agora Index reads the open ledgers of one mid-size city — every budget line, building permit, bus arrival, and ballot — and translates them into four plain-language signals anyone can check over coffee.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#signals">Explore your city</a>
+          <a class="btn btn--ghost" href="#opendata">Download open data</a>
+        </div>
+        <dl class="hero__facts">
+          <div><dt>Datasets read</dt><dd>41</dd></div>
+          <div><dt>Records this week</dt><dd>1.2M</dd></div>
+          <div><dt>Wards covered</dt><dd>12 of 12</dd></div>
+        </dl>
+      </div>
+
+      <figure class="hero__dial" aria-labelledby="dial-caption">
+        <svg viewBox="0 0 260 260" role="img" aria-label="Composite civic index gauge showing 71 out of 100, rated steady">
+          <circle class="dial__track" cx="130" cy="130" r="104"></circle>
+          <circle class="dial__arc" cx="130" cy="130" r="104" pathLength="100"></circle>
+          <g class="dial__ticks" aria-hidden="true">
+            <line x1="130" y1="14" x2="130" y2="26"></line>
+            <line x1="246" y1="130" x2="234" y2="130"></line>
+            <line x1="130" y1="246" x2="130" y2="234"></line>
+            <line x1="14" y1="130" x2="26" y2="130"></line>
+          </g>
+          <text class="dial__value" x="130" y="126" text-anchor="middle" data-count="71">71</text>
+          <text class="dial__label" x="130" y="156" text-anchor="middle">of 100 · steady</text>
+        </svg>
+        <figcaption id="dial-caption">Composite civic index, all four signals weighted equally. Up 2 points since June.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ SIGNAL GRID ============ -->
+  <section id="signals" class="section" aria-labelledby="signals-title">
+    <div class="wrap">
+      <header class="section__head">
+        <h2 id="signals-title">This week's signals</h2>
+        <p>Each signal condenses a domain into a 0–100 score against the city's own five-year baseline. Higher is healthier. Tap a card to jump to its full picture.</p>
+      </header>
+      <ul class="signal-grid">
+        <li>
+          <a class="signal-card signal-card--budget" href="#budget">
+            <div class="signal-card__top">
+              <h3>Budget</h3><span class="trend trend--up" aria-label="trending up">▲ 3</span>
+            </div>
+            <p class="signal-card__score"><span data-count="76">76</span><small>/100</small></p>
+            <svg class="spark" viewBox="0 0 120 36" aria-hidden="true" focusable="false">
+              <polyline points="0,26 15,24 30,27 45,20 60,22 75,16 90,14 105,12 120,9"></polyline>
+            </svg>
+            <p class="signal-card__note">Q2 spending tracked plan within 1.8%; reserves at target.</p>
+          </a>
+        </li>
+        <li>
+          <a class="signal-card signal-card--housing" href="#housing">
+            <div class="signal-card__top">
+              <h3>Housing</h3><span class="trend trend--down" aria-label="trending down">▼ 2</span>
+            </div>
+            <p class="signal-card__score"><span data-count="58">58</span><small>/100</small></p>
+            <svg class="spark" viewBox="0 0 120 36" aria-hidden="true" focusable="false">
+              <polyline points="0,10 15,12 30,11 45,16 60,14 75,19 90,18 105,22 120,21"></polyline>
+            </svg>
+            <p class="signal-card__note">Permits slowed in June; median approval now 74 days.</p>
+          </a>
+        </li>
+        <li>
+          <a class="signal-card signal-card--transit" href="#transit">
+            <div class="signal-card__top">
+              <h3>Transit</h3><span class="trend trend--up" aria-label="trending up">▲ 5</span>
+            </div>
+            <p class="signal-card__score"><span data-count="81">81</span><small>/100</small></p>
+            <svg class="spark" viewBox="0 0 120 36" aria-hidden="true" focusable="false">
+              <polyline points="0,28 15,25 30,26 45,21 60,18 75,19 90,13 105,10 120,7"></polyline>
+            </svg>
+            <p class="signal-card__note">On-time arrivals hit 87% after the signal-priority rollout.</p>
+          </a>
+        </li>
+        <li>
+          <a class="signal-card signal-card--participation" href="#participation">
+            <div class="signal-card__top">
+              <h3>Participation</h3><span class="trend trend--flat" aria-label="holding steady">◆ 0</span>
+            </div>
+            <p class="signal-card__score"><span data-count="67">67</span><small>/100</small></p>
+            <svg class="spark" viewBox="0 0 120 36" aria-hidden="true" focusable="false">
+              <polyline points="0,18 15,15 30,19 45,14 60,17 75,13 90,16 105,14 120,15"></polyline>
+            </svg>
+            <p class="signal-card__note">Comment volume steady; ward meetings drew 2,140 residents.</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ BUDGET ============ -->
+  <section id="budget" class="section section--alt" aria-labelledby="budget-title">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">Signal 01 · score 76</p>
+        <h2 id="budget-title">Where the money goes</h2>
+        <p>Fiscal year 2026 adopted budget, $2.41B total. Bars compare each department's share against last year's; the small delta shows the year-over-year change in real terms.</p>
+      </header>
+      <div class="budget-chart" role="img" aria-label="Horizontal bar chart of budget shares: Schools 31%, Public safety 22%, Transit and streets 15%, Housing and shelter 11%, Parks and libraries 9%, Water and waste 7%, Administration 5%">
+        <div class="budget-row"><span class="budget-row__label">Schools</span><div class="budget-row__track"><div class="budget-row__bar w31"></div></div><span class="budget-row__val">31% <em class="delta delta--up">+0.8</em></span></div>
+        <div class="budget-row"><span class="budget-row__label">Public safety</span><div class="budget-row__track"><div class="budget-row__bar w22"></div></div><span class="budget-row__val">22% <em class="delta delta--down">−0.4</em></span></div>
+        <div class="budget-row"><span class="budget-row__label">Transit &amp; streets</span><div class="budget-row__track"><div class="budget-row__bar w15"></div></div><span class="budget-row__val">15% <em class="delta delta--up">+1.2</em></span></div>
+        <div class="budget-row"><span class="budget-row__label">Housing &amp; shelter</span><div class="budget-row__track"><div class="budget-row__bar w11"></div></div><span class="budget-row__val">11% <em class="delta delta--up">+0.6</em></span></div>
+        <div class="budget-row"><span class="budget-row__label">Parks &amp; libraries</span><div class="budget-row__track"><div class="budget-row__bar w9"></div></div><span class="budget-row__val">9% <em class="delta delta--flat">0.0</em></span></div>
+        <div class="budget-row"><span class="budget-row__label">Water &amp; waste</span><div class="budget-row__track"><div class="budget-row__bar w7"></div></div><span class="budget-row__val">7% <em class="delta delta--down">−0.9</em></span></div>
+        <div class="budget-row"><span class="budget-row__label">Administration</span><div class="budget-row__track"><div class="budget-row__bar w5"></div></div><span class="budget-row__val">5% <em class="delta delta--down">−1.3</em></span></div>
+      </div>
+      <p class="footnote">Source: Adopted Budget FY2026, City Comptroller ledger export, July 14 2026.</p>
+    </div>
+  </section>
+
+  <!-- ============ HOUSING ============ -->
+  <section id="housing" class="section" aria-labelledby="housing-title">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">Signal 02 · score 58</p>
+        <h2 id="housing-title">Homes permitted, homes built</h2>
+        <p>Monthly residential units permitted (columns) against units completed (line). The gap between the two is tomorrow's supply — and this spring it narrowed.</p>
+      </header>
+      <figure class="chart-frame">
+        <svg class="housing-chart" viewBox="0 0 640 300" role="img" aria-label="Combined chart, January to June 2026. Units permitted per month: 310, 285, 342, 298, 264, 241. Units completed per month: 188, 205, 197, 226, 238, 251.">
+          <g class="axis" aria-hidden="true">
+            <line x1="48" y1="250" x2="620" y2="250"></line>
+            <line x1="48" y1="130" x2="620" y2="130"></line>
+            <line x1="48" y1="10" x2="620" y2="10"></line>
+            <text x="40" y="254" text-anchor="end">0</text>
+            <text x="40" y="134" text-anchor="end">200</text>
+            <text x="40" y="14" text-anchor="end">400</text>
+          </g>
+          <g class="cols" aria-hidden="true">
+            <rect x="70"  y="64"  width="42" height="186"></rect>
+            <rect x="165" y="79"  width="42" height="171"></rect>
+            <rect x="260" y="45"  width="42" height="205"></rect>
+            <rect x="355" y="71"  width="42" height="179"></rect>
+            <rect x="450" y="92"  width="42" height="158"></rect>
+            <rect x="545" y="105" width="42" height="145"></rect>
+          </g>
+          <polyline class="line-completed" aria-hidden="true"
+            points="91,137 186,127 281,132 376,114 471,107 566,99"></polyline>
+          <g class="dots" aria-hidden="true">
+            <circle cx="91" cy="137" r="4"></circle><circle cx="186" cy="127" r="4"></circle>
+            <circle cx="281" cy="132" r="4"></circle><circle cx="376" cy="114" r="4"></circle>
+            <circle cx="471" cy="107" r="4"></circle><circle cx="566" cy="99" r="4"></circle>
+          </g>
+          <g class="months" aria-hidden="true">
+            <text x="91" y="272" text-anchor="middle">Jan</text>
+            <text x="186" y="272" text-anchor="middle">Feb</text>
+            <text x="281" y="272" text-anchor="middle">Mar</text>
+            <text x="376" y="272" text-anchor="middle">Apr</text>
+            <text x="471" y="272" text-anchor="middle">May</text>
+            <text x="566" y="272" text-anchor="middle">Jun</text>
+          </g>
+        </svg>
+        <figcaption class="legend">
+          <span class="legend__item"><i class="swatch swatch--permitted" aria-hidden="true"></i> Units permitted</span>
+          <span class="legend__item"><i class="swatch swatch--completed" aria-hidden="true"></i> Units completed</span>
+        </figcaption>
+      </figure>
+      <div class="stat-strip">
+        <div class="stat"><p class="stat__num" data-count="1740">1,740</p><p class="stat__label">units permitted, H1 2026</p></div>
+        <div class="stat"><p class="stat__num" data-count="74">74</p><p class="stat__label">median days to approve</p></div>
+        <div class="stat"><p class="stat__num">38%</p><p class="stat__label">of permits are multi-family</p></div>
+      </div>
+      <p class="footnote">Source: Buildings Department permit register; certificates of occupancy file, July 14 2026.</p>
+    </div>
+  </section>
+
+  <!-- ============ TRANSIT ============ -->
+  <section id="transit" class="section section--alt" aria-labelledby="transit-title">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">Signal 03 · score 81</p>
+        <h2 id="transit-title">Is the bus on time?</h2>
+        <p>Share of arrivals within five minutes of schedule, by corridor. Choose a window; the chart redraws from the same open feed.</p>
+      </header>
+      <div class="seg" role="tablist" aria-label="Time window">
+        <button class="seg__btn" role="tab" id="tab-30" aria-selected="true" aria-controls="transit-panel" data-window="d30">Last 30 days</button>
+        <button class="seg__btn" role="tab" id="tab-90" aria-selected="false" aria-controls="transit-panel" data-window="d90">Last 90 days</button>
+        <button class="seg__btn" role="tab" id="tab-365" aria-selected="false" aria-controls="transit-panel" data-window="d365">12 months</button>
+      </div>
+      <div id="transit-panel" class="transit-panel" role="tabpanel" aria-labelledby="tab-30">
+        <ul class="route-list" id="route-list"></ul>
+        <p class="transit-panel__summary" id="transit-summary" role="status"></p>
+      </div>
+      <p class="footnote">Source: Transit authority automatic vehicle location feed, GTFS-RT archive.</p>
+    </div>
+  </section>
+
+  <!-- ============ PARTICIPATION ============ -->
+  <section id="participation" class="section" aria-labelledby="participation-title">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">Signal 04 · score 67</p>
+        <h2 id="participation-title">Who shows up</h2>
+        <p>Civic participation by ward: turnout in the May bond election and residents at June's budget hearings. Sort the table however you read a city.</p>
+      </header>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Ward participation table, scrolls horizontally on small screens">
+        <table class="ward-table" id="ward-table">
+          <caption class="visually-hidden">Turnout and hearing attendance by ward</caption>
+          <thead>
+            <tr>
+              <th scope="col"><button class="sort-btn" data-key="ward" data-type="text" aria-label="Sort by ward">Ward <span class="sort-arrow" aria-hidden="true"></span></button></th>
+              <th scope="col"><button class="sort-btn" data-key="turnout" data-type="num" aria-label="Sort by turnout">Turnout <span class="sort-arrow" aria-hidden="true"></span></button></th>
+              <th scope="col"><button class="sort-btn" data-key="attend" data-type="num" aria-label="Sort by hearing attendance">At hearings <span class="sort-arrow" aria-hidden="true"></span></button></th>
+              <th scope="col"><button class="sort-btn" data-key="change" data-type="num" aria-label="Sort by change since 2024">vs 2024 <span class="sort-arrow" aria-hidden="true"></span></button></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="footnote">Source: Board of Elections certified results; Clerk's hearing sign-in sheets, June 2026.</p>
+    </div>
+  </section>
+
+  <!-- ============ OPEN DATA / METHOD ============ -->
+  <section id="opendata" class="section section--ink" aria-labelledby="opendata-title">
+    <div class="wrap opendata__grid">
+      <div>
+        <h2 id="opendata-title">Take the data with you</h2>
+        <p>Everything on this page is computed from published municipal records. The bundles below mirror our working tables — no accounts, no trackers, machine-readable, refreshed each morning at 07:00.</p>
+        <div class="hero__actions">
+          <a class="btn btn--paper" href="#opendata" aria-describedby="bundle-note">Download open data</a>
+          <a class="btn btn--ghost-paper" href="#signals">Explore your city</a>
+        </div>
+        <p class="footnote footnote--paper" id="bundle-note">Bundles: signals.csv · budget-fy26.csv · permits-2026.csv · transit-otp.csv · participation.csv (demo site — bundles illustrative).</p>
+      </div>
+      <div class="method">
+        <h3>How a signal is scored</h3>
+        <ol class="method__list">
+          <li><strong>Collect.</strong> Nightly pull of the primary record — ledgers, permits, vehicle pings, sign-ins.</li>
+          <li><strong>Normalize.</strong> Each metric is scaled against the city's own five-year range, not another city's.</li>
+          <li><strong>Weight.</strong> Domain metrics are averaged; no single dataset can move a signal more than 20 points.</li>
+          <li><strong>Publish.</strong> Score, inputs, and code notes ship together, so every number can be re-derived.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__row">
+    <p><strong>Agora Index</strong> · Public life, made legible.</p>
+    <p>A civic-data demonstration. Figures are illustrative composites of typical municipal open data.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self'; style-src 'self'; script-src 'self'">
+<title>Paper Moon — Films that linger.</title>
+<meta name="description" content="A repertory cinema for overlooked classics, midnight oddities, and unforgettable new voices.">
+<link rel="stylesheet" href="styles.css">
+<script src="sitegeist-bridge.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="masthead">
+  <div class="shell masthead__row">
+    <a class="wordmark" href="#top" aria-label="Paper Moon — home">
+      <svg class="wordmark__moon" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <circle cx="20" cy="20" r="17" fill="var(--gold)"></circle>
+        <circle cx="27" cy="15" r="14" fill="var(--ink)"></circle>
+      </svg>
+      <span>Paper&nbsp;Moon</span>
+    </a>
+    <nav class="masthead__nav" aria-label="Primary">
+      <a href="#tonight">Tonight</a>
+      <a href="#week">This week</a>
+      <a href="#archive">Archive</a>
+      <a href="#membership">Membership</a>
+      <a href="#visit">Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== Hero ===================== -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero__sky" aria-hidden="true">
+      <svg class="hero__moon" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+        <circle cx="100" cy="100" r="90" fill="var(--gold)"></circle>
+        <circle cx="132" cy="76" r="74" fill="var(--night-2)"></circle>
+        <circle cx="72" cy="128" r="5" fill="var(--night-2)" opacity=".35"></circle>
+        <circle cx="52" cy="96" r="8" fill="var(--night-2)" opacity=".25"></circle>
+        <circle cx="86" cy="160" r="4" fill="var(--night-2)" opacity=".3"></circle>
+      </svg>
+      <span class="star star--1"></span>
+      <span class="star star--2"></span>
+      <span class="star star--3"></span>
+      <span class="star star--4"></span>
+      <span class="star star--5"></span>
+      <span class="star star--6"></span>
+      <span class="star star--7"></span>
+    </div>
+    <div class="shell hero__copy">
+      <p class="eyebrow">Tonight at Paper Moon</p>
+      <h1 id="hero-title">Wanda <span class="hero__year">(1970)</span></h1>
+      <p class="hero__dek">Barbara Loden’s only feature — a drifting, devastating portrait of a
+      woman adrift in Pennsylvania coal country. New 4K restoration, introduced by our
+      programming director. One night only.</p>
+      <dl class="hero__facts">
+        <div><dt>Showtime</dt><dd>7:30&nbsp;pm</dd></div>
+        <div><dt>Runtime</dt><dd>102&nbsp;min · 35mm-sourced 4K</dd></div>
+        <div><dt>Screen</dt><dd>Main House</dd></div>
+      </dl>
+      <div class="hero__actions">
+        <a class="button button--primary" href="#box-office">Get tickets</a>
+        <a class="button button--ghost" href="#archive">Browse the archive</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Ticket strip ===================== -->
+  <section class="strip" id="box-office" aria-labelledby="strip-title">
+    <div class="shell strip__row">
+      <div>
+        <h2 id="strip-title">Box office</h2>
+        <p>Doors open one hour before each screening. General admission $11 ·
+        Members $7 · Midnight shows $9 flat. Tickets are sold at the counter,
+        cash or card — we hold twenty seats for walk-ups at every show.</p>
+      </div>
+      <ul class="strip__prices" aria-label="Ticket prices">
+        <li><strong>$11</strong><span>General</span></li>
+        <li><strong>$7</strong><span>Members</span></li>
+        <li><strong>$9</strong><span>Midnight</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== Week program ===================== -->
+  <section class="week" id="week" aria-labelledby="week-title">
+    <div class="shell">
+      <p class="eyebrow">Program</p>
+      <h2 id="week-title">This week on the marquee</h2>
+      <p class="section-dek">Three strands, seven nights. Pick a day — every screening
+      lists its print format and introduction.</p>
+
+      <div class="tabs">
+        <div class="tabs__list" role="tablist" aria-label="Day of the week">
+          <button class="tab" id="tab-fri" role="tab" aria-selected="true" aria-controls="panel-fri">Fri&nbsp;17</button>
+          <button class="tab" id="tab-sat" role="tab" aria-selected="false" aria-controls="panel-sat" tabindex="-1">Sat&nbsp;18</button>
+          <button class="tab" id="tab-sun" role="tab" aria-selected="false" aria-controls="panel-sun" tabindex="-1">Sun&nbsp;19</button>
+          <button class="tab" id="tab-mid" role="tab" aria-selected="false" aria-controls="panel-mid" tabindex="-1">Mon–Thu</button>
+        </div>
+
+        <div class="tabs__panel" id="panel-fri" role="tabpanel" aria-labelledby="tab-fri" tabindex="0">
+          <article class="show">
+            <div class="show__time"><span>7:30</span><span class="show__meridiem">pm</span></div>
+            <div class="show__body">
+              <h3>Wanda (1970)</h3>
+              <p>Barbara Loden · 102 min · 4K restoration · Introduced live</p>
+              <p class="show__strand show__strand--classic">Overlooked Classics</p>
+            </div>
+          </article>
+          <article class="show">
+            <div class="show__time"><span>11:59</span><span class="show__meridiem">pm</span></div>
+            <div class="show__body">
+              <h3>Hausu (1977)</h3>
+              <p>Nobuhiko Ôbayashi · 88 min · 35mm print · Free popcorn if you scream</p>
+              <p class="show__strand show__strand--midnight">Midnight Oddities</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="tabs__panel" id="panel-sat" role="tabpanel" aria-labelledby="tab-sat" tabindex="0" hidden>
+          <article class="show">
+            <div class="show__time"><span>4:00</span><span class="show__meridiem">pm</span></div>
+            <div class="show__body">
+              <h3>Killer of Sheep (1978)</h3>
+              <p>Charles Burnett · 80 min · Restored DCP · Matinee</p>
+              <p class="show__strand show__strand--classic">Overlooked Classics</p>
+            </div>
+          </article>
+          <article class="show">
+            <div class="show__time"><span>7:30</span><span class="show__meridiem">pm</span></div>
+            <div class="show__body">
+              <h3>All Dirt Roads Taste of Salt (2023)</h3>
+              <p>Raven Jackson · 92 min · DCP · Post-film discussion</p>
+              <p class="show__strand show__strand--voices">New Voices</p>
+            </div>
+          </article>
+          <article class="show">
+            <div class="show__time"><span>11:59</span><span class="show__meridiem">pm</span></div>
+            <div class="show__body">
+              <h3>Possession (1981)</h3>
+              <p>Andrzej Żuławski · 124 min · Uncut · Not for the faint of heart</p>
+              <p class="show__strand show__strand--midnight">Midnight Oddities</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="tabs__panel" id="panel-sun" role="tabpanel" aria-labelledby="tab-sun" tabindex="0" hidden>
+          <article class="show">
+            <div class="show__time"><span>2:00</span><span class="show__meridiem">pm</span></div>
+            <div class="show__body">
+              <h3>Paper Moon (1973)</h3>
+              <p>Peter Bogdanovich · 102 min · Our namesake, screened every year</p>
+              <p class="show__strand show__strand--classic">House Tradition</p>
+            </div>
+          </article>
+          <article class="show">
+            <div class="show__time"><span>6:00</span><span class="show__meridiem">pm</span></div>
+            <div class="show__body">
+              <h3>Petite Maman (2021)</h3>
+              <p>Céline Sciamma · 72 min · DCP · All ages welcome</p>
+              <p class="show__strand show__strand--voices">New Voices</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="tabs__panel" id="panel-mid" role="tabpanel" aria-labelledby="tab-mid" tabindex="0" hidden>
+          <article class="show">
+            <div class="show__time"><span>7:30</span><span class="show__meridiem">pm</span></div>
+            <div class="show__body">
+              <h3>Weekday repertory rotation</h3>
+              <p>Monday to Thursday we run one show a night from the current retrospective —
+              this month, <em>Light Sleeper: The Films of Chantal Akerman</em>. Titles are
+              posted on the lobby chalkboard each Monday.</p>
+              <p class="show__strand show__strand--classic">Retrospective</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Archive ===================== -->
+  <section class="archive" id="archive" aria-labelledby="archive-title">
+    <div class="shell">
+      <p class="eyebrow">The vault</p>
+      <h2 id="archive-title">Browse the archive</h2>
+      <p class="section-dek">Every series we have ever run, kept like a scrapbook.
+      A few recent seasons below — program notes for all of them live in the lobby binder.</p>
+      <ul class="archive__grid">
+        <li class="card">
+          <p class="card__season">Spring 2026</p>
+          <h3>Static &amp; Snow</h3>
+          <p>Nine films about television, transmission, and the ghosts inside the set —
+          from <em>Videodrome</em> to <em>TVTV</em> shorts.</p>
+          <p class="card__count">9 films · 14 nights</p>
+        </li>
+        <li class="card">
+          <p class="card__season">Winter 2026</p>
+          <h3>Long Distance</h3>
+          <p>Road movies where nobody arrives. Wenders, Varda, and a rare print of
+          <em>Two-Lane Blacktop</em> that smelled faintly of gasoline.</p>
+          <p class="card__count">7 films · 11 nights</p>
+        </li>
+        <li class="card">
+          <p class="card__season">Fall 2025</p>
+          <h3>First Features, Last Chances</h3>
+          <p>Debuts by directors who never got a second film — and a weekend of
+          Q&amp;As asking why the industry let them go.</p>
+          <p class="card__count">12 films · 18 nights</p>
+        </li>
+        <li class="card">
+          <p class="card__season">Summer 2025</p>
+          <h3>Sweat Equity</h3>
+          <p>Work on screen: shift whistles, night cleaners, strike lines. Paired every
+          Thursday with talks from local organizers.</p>
+          <p class="card__count">8 films · 12 nights</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== Membership ===================== -->
+  <section class="membership" id="membership" aria-labelledby="membership-title">
+    <div class="shell membership__row">
+      <div class="membership__copy">
+        <p class="eyebrow">Join the house</p>
+        <h2 id="membership-title">A ticket that lasts all year</h2>
+        <p>Membership keeps the projectors threaded and the seats reupholstered.
+        Members pay $7 at every screening, get first pick of sold-out restorations,
+        and receive the monthly program by post — typeset, folded, and stamped by hand.</p>
+        <ul class="membership__perks">
+          <li>$7 admission to every show, every strand</li>
+          <li>Priority seats for restorations and one-night prints</li>
+          <li>The printed monthly program, mailed to your door</li>
+          <li>Your name in the year-end thank-you reel</li>
+        </ul>
+        <p class="membership__price"><strong>$60 a year</strong> — sign up at the box
+        office before any screening. It takes about ninety seconds.</p>
+      </div>
+      <div class="membership__stub" aria-hidden="true">
+        <div class="stub">
+          <p class="stub__title">Paper Moon</p>
+          <p class="stub__row">Member № 0417</p>
+          <p class="stub__row">Admit one · All year</p>
+          <p class="stub__perf">✂ ─ ─ ─ ─ ─ ─ ─ ─ ─</p>
+          <p class="stub__foot">Films that linger.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Visit ===================== -->
+  <section class="visit" id="visit" aria-labelledby="visit-title">
+    <div class="shell">
+      <p class="eyebrow">Find us</p>
+      <h2 id="visit-title">Visit the cinema</h2>
+      <div class="visit__grid">
+        <div>
+          <h3>Where</h3>
+          <p>214 Halyard Street<br>Under the old marquee, two doors past the bakery.</p>
+        </div>
+        <div>
+          <h3>When</h3>
+          <p>Box office opens one hour before the first show.<br>
+          Closed Tuesdays for projector maintenance.</p>
+        </div>
+        <div>
+          <h3>Access</h3>
+          <p>Step-free entry, two wheelchair positions in the Main House,
+          assistive-listening headsets at the counter, and open-caption
+          screenings every Sunday matinee.</p>
+        </div>
+        <div>
+          <h3>House rules</h3>
+          <p>Phones dark, whispers only, and stay through the credits —
+          the lights come up slowly on purpose.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="shell footer__row">
+    <p class="footer__mark">
+      <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <circle cx="20" cy="20" r="17" fill="var(--gold)"></circle>
+        <circle cx="27" cy="15" r="14" fill="var(--night-1)"></circle>
+      </svg>
+      Paper Moon — films that linger.
+    </p>
+    <p>A repertory cinema for overlooked classics, midnight oddities,
+    and unforgettable new voices.</p>
+  </div>
+</footer>
+
+</body>
+</html>

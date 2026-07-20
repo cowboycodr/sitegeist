@@ -1,0 +1,514 @@
+:root {
+  --ink: #12002b;
+  --panel: #1d0b3f;
+  --panel-2: #26124e;
+  --pink: #ff2d78;
+  --cyan: #16f4d0;
+  --yellow: #ffd23f;
+  --orange: #ff7a00;
+  --paper: #fdf6ff;
+  --grid-line: rgba(255, 255, 255, 0.05);
+  --mono: "Courier New", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 15px, var(--grid-line) 15px 16px),
+    repeating-linear-gradient(90deg, transparent 0 15px, var(--grid-line) 15px 16px),
+    var(--ink);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: -3.5rem;
+  z-index: 20;
+  background: var(--yellow);
+  color: var(--ink);
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 3px solid var(--ink);
+  transition: top 0.15s;
+}
+.skip-link:focus { top: 0.5rem; }
+
+/* ---------- top bar ---------- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem clamp(1rem, 4vw, 2.5rem);
+  background: rgba(18, 0, 43, 0.92);
+  border-bottom: 3px solid var(--pink);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  color: var(--paper);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.logo-word b { color: var(--cyan); }
+.logo-block {
+  width: 18px;
+  height: 18px;
+  background: var(--pink);
+  box-shadow: 6px 0 0 var(--yellow), 0 6px 0 var(--cyan), 6px 6px 0 var(--orange);
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+
+.topbar nav {
+  display: flex;
+  gap: clamp(0.6rem, 2vw, 1.4rem);
+}
+.topbar nav a {
+  color: var(--paper);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.15rem;
+  border-bottom: 3px solid transparent;
+}
+.topbar nav a:hover,
+.topbar nav a:focus-visible { border-bottom-color: var(--cyan); color: var(--cyan); }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 2rem;
+  align-items: center;
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 2.5rem) clamp(2.5rem, 6vw, 4rem);
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.85rem;
+}
+.blink { color: var(--pink); animation: blink 1.1s steps(1) infinite; }
+
+.hero-title {
+  margin: 0 0 1.2rem;
+  font-size: clamp(2.1rem, 6.5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.hero-title .line { display: block; }
+.line-a { color: var(--pink); text-shadow: 4px 4px 0 rgba(255, 45, 120, 0.25); }
+.line-b { color: var(--cyan); text-shadow: 4px 4px 0 rgba(22, 244, 208, 0.25); }
+
+.hero-copy {
+  margin: 0 0 1.8rem;
+  max-width: 34rem;
+  color: #d9c9f2;
+}
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.4rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  cursor: pointer;
+  border: 3px solid var(--paper);
+}
+.btn-primary {
+  background: var(--pink);
+  color: var(--ink);
+  border-color: var(--pink);
+  box-shadow: 5px 5px 0 var(--cyan);
+}
+.btn-primary:hover,
+.btn-primary:focus-visible { background: var(--yellow); border-color: var(--yellow); }
+.btn-ghost {
+  background: transparent;
+  color: var(--paper);
+  box-shadow: 5px 5px 0 rgba(253, 246, 255, 0.25);
+}
+.btn-ghost:hover,
+.btn-ghost:focus-visible { color: var(--cyan); border-color: var(--cyan); }
+.btn:active { translate: 3px 3px; box-shadow: none; }
+
+/* pixel sprites drawn with box-shadow, 1 unit = 10px */
+
+.hero-art {
+  position: relative;
+  min-height: 260px;
+}
+.sprite { position: absolute; width: 10px; height: 10px; }
+
+.sprite-ship {
+  left: 30%; top: 8%;
+  color: var(--cyan);
+  animation: bob 3s ease-in-out infinite;
+  box-shadow:
+    30px 0 0 currentColor,
+    20px 10px 0 currentColor, 30px 10px 0 currentColor, 40px 10px 0 currentColor,
+    10px 20px 0 currentColor, 20px 20px 0 var(--yellow), 30px 20px 0 var(--yellow), 40px 20px 0 var(--yellow), 50px 20px 0 currentColor,
+    0 30px 0 currentColor, 10px 30px 0 currentColor, 20px 30px 0 currentColor, 30px 30px 0 currentColor, 40px 30px 0 currentColor, 50px 30px 0 currentColor, 60px 30px 0 currentColor,
+    10px 40px 0 var(--orange), 50px 40px 0 var(--orange);
+}
+.sprite-invader {
+  left: 8%; top: 55%;
+  color: var(--pink);
+  animation: bob 2.6s ease-in-out infinite 0.4s;
+  box-shadow:
+    10px 0 0 currentColor, 50px 0 0 currentColor,
+    20px 10px 0 currentColor, 30px 10px 0 currentColor, 40px 10px 0 currentColor,
+    0 20px 0 currentColor, 10px 20px 0 var(--paper), 20px 20px 0 currentColor, 30px 20px 0 currentColor, 40px 20px 0 var(--paper), 50px 20px 0 currentColor, 60px 20px 0 currentColor,
+    0 30px 0 currentColor, 20px 30px 0 currentColor, 30px 30px 0 currentColor, 40px 30px 0 currentColor, 60px 30px 0 currentColor,
+    10px 40px 0 currentColor, 50px 40px 0 currentColor;
+}
+.sprite-heart {
+  right: 18%; top: 42%;
+  color: var(--orange);
+  animation: bob 3.4s ease-in-out infinite 0.8s;
+  box-shadow:
+    10px 0 0 currentColor, 30px 0 0 currentColor,
+    0 10px 0 currentColor, 10px 10px 0 var(--paper), 20px 10px 0 currentColor, 30px 10px 0 currentColor, 40px 10px 0 currentColor,
+    10px 20px 0 currentColor, 20px 20px 0 currentColor, 30px 20px 0 currentColor,
+    20px 30px 0 currentColor;
+}
+.sprite-coin {
+  right: 5%; top: 5%;
+  color: var(--yellow);
+  animation: bob 2.2s ease-in-out infinite 1.2s;
+  box-shadow:
+    10px 0 0 currentColor, 20px 0 0 currentColor,
+    0 10px 0 currentColor, 10px 10px 0 var(--paper), 20px 10px 0 currentColor, 30px 10px 0 currentColor,
+    0 20px 0 currentColor, 10px 20px 0 currentColor, 20px 20px 0 currentColor, 30px 20px 0 currentColor,
+    10px 30px 0 currentColor, 20px 30px 0 currentColor;
+}
+
+/* ---------- ticker ---------- */
+
+.ticker {
+  overflow: hidden;
+  border-block: 3px solid var(--yellow);
+  background: var(--panel);
+  padding: 0.45rem 0;
+  white-space: nowrap;
+}
+.ticker-track {
+  display: inline-flex;
+  color: var(--yellow);
+  letter-spacing: 0.18em;
+  font-size: 0.85rem;
+  animation: ticker 26s linear infinite;
+}
+
+/* ---------- sections ---------- */
+
+.section {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: clamp(2.8rem, 7vw, 5rem) clamp(1rem, 4vw, 2.5rem);
+}
+
+.section-title {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.section-title span {
+  color: var(--ink);
+  background: var(--cyan);
+  padding: 0.05em 0.35em;
+  margin-right: 0.5rem;
+  box-shadow: 4px 4px 0 var(--pink);
+}
+.section-lede {
+  margin: 0 0 2.2rem;
+  max-width: 40rem;
+  color: #d9c9f2;
+}
+
+/* ---------- games ---------- */
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(15.5rem, 100%), 1fr));
+  gap: 1.4rem;
+}
+
+.game-card {
+  background: var(--panel);
+  border: 3px solid var(--panel-2);
+  padding: 1.4rem 1.3rem 1.2rem;
+  position: relative;
+  transition: translate 0.15s;
+}
+.game-card:hover { translate: 0 -4px; }
+.card-magma { box-shadow: 6px 6px 0 var(--orange); }
+.card-drift { box-shadow: 6px 6px 0 var(--cyan); }
+.card-grove { box-shadow: 6px 6px 0 var(--yellow); }
+
+.game-card h3 {
+  margin: 1rem 0 0.1rem;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.game-tag {
+  margin: 0 0 0.7rem;
+  color: var(--cyan);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+.game-card p { margin: 0 0 0.7rem; color: #e6dbf7; font-size: 0.95rem; }
+.game-status {
+  color: var(--yellow) !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.06em;
+  margin-bottom: 0 !important;
+}
+
+.game-icon { width: 8px; height: 8px; }
+.icon-magma {
+  color: var(--orange);
+  box-shadow:
+    16px 0 0 var(--yellow),
+    8px 8px 0 currentColor, 16px 8px 0 var(--yellow), 24px 8px 0 currentColor,
+    0 16px 0 currentColor, 8px 16px 0 currentColor, 16px 16px 0 currentColor, 24px 16px 0 currentColor, 32px 16px 0 currentColor,
+    0 24px 0 var(--pink), 8px 24px 0 currentColor, 16px 24px 0 currentColor, 24px 24px 0 currentColor, 32px 24px 0 var(--pink),
+    0 32px 0 var(--pink), 8px 32px 0 var(--pink), 16px 32px 0 var(--pink), 24px 32px 0 var(--pink), 32px 32px 0 var(--pink);
+}
+.icon-drift {
+  color: var(--cyan);
+  box-shadow:
+    8px 0 0 currentColor, 16px 0 0 currentColor, 24px 0 0 currentColor,
+    0 8px 0 currentColor, 8px 8px 0 var(--panel-2), 16px 8px 0 var(--panel-2), 24px 8px 0 currentColor, 32px 8px 0 currentColor,
+    0 16px 0 currentColor, 8px 16px 0 currentColor, 16px 16px 0 currentColor, 24px 16px 0 currentColor, 32px 16px 0 currentColor,
+    8px 24px 0 var(--ink), 24px 24px 0 var(--ink),
+    8px 32px 0 var(--pink), 24px 32px 0 var(--pink);
+}
+.icon-grove {
+  color: var(--cyan);
+  box-shadow:
+    16px 0 0 #58e05a,
+    8px 8px 0 #58e05a, 16px 8px 0 #58e05a, 24px 8px 0 #58e05a,
+    16px 16px 0 var(--orange),
+    8px 24px 0 var(--orange), 16px 24px 0 var(--orange), 24px 24px 0 var(--orange),
+    8px 32px 0 var(--orange), 16px 32px 0 var(--orange), 24px 32px 0 var(--orange);
+}
+
+/* ---------- demo cabinet ---------- */
+
+.section-demo {
+  background: var(--panel);
+  border-block: 3px solid var(--pink);
+  max-width: none;
+}
+.section-demo > * { max-width: 68rem; margin-left: auto; margin-right: auto; }
+.section-demo .section-lede { margin-left: auto; margin-right: auto; max-width: 68rem; }
+
+.cabinet {
+  background: var(--ink);
+  border: 4px solid var(--pink);
+  box-shadow: 8px 8px 0 var(--cyan);
+  padding: clamp(0.7rem, 2.5vw, 1.4rem);
+}
+
+.cabinet-screen {
+  position: relative;
+  border: 3px solid var(--panel-2);
+  background: #050011;
+}
+
+#game-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  touch-action: none;
+}
+
+.game-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  text-align: center;
+  padding: 1rem;
+  background: rgba(5, 0, 17, 0.82);
+}
+.game-overlay[hidden] { display: none; }
+.overlay-title {
+  margin: 0;
+  font-size: clamp(1.3rem, 4vw, 2rem);
+  letter-spacing: 0.14em;
+  color: var(--yellow);
+  text-shadow: 3px 3px 0 var(--pink);
+}
+.overlay-copy { margin: 0; max-width: 26rem; color: #d9c9f2; font-size: 0.95rem; }
+
+.cabinet-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-top: 0.8rem;
+}
+.hud {
+  margin: 0;
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  color: #d9c9f2;
+}
+.hud b { color: var(--cyan); font-size: 1rem; }
+.controls-hint { margin: 0; font-size: 0.78rem; color: #9b86bf; letter-spacing: 0.05em; }
+
+/* ---------- crew ---------- */
+
+.crew-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(13.5rem, 100%), 1fr));
+  gap: 1.4rem;
+}
+.crew-card {
+  background: var(--panel);
+  border: 3px solid var(--panel-2);
+  padding: 1.4rem 1.2rem;
+  box-shadow: 6px 6px 0 rgba(255, 45, 120, 0.35);
+}
+.crew-card h3 { margin: 1.1rem 0 0.1rem; font-size: 1.1rem; letter-spacing: 0.03em; }
+.crew-role {
+  margin: 0 0 0.6rem;
+  color: var(--yellow);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+.crew-card p { margin: 0; font-size: 0.92rem; color: #e6dbf7; }
+
+/* 8x8-ish faces, 1 unit = 8px */
+.avatar { width: 8px; height: 8px; margin-bottom: 24px; }
+.avatar-juno {
+  color: #ffb08a;
+  box-shadow:
+    8px 0 0 var(--pink), 16px 0 0 var(--pink), 24px 0 0 var(--pink), 32px 0 0 var(--pink),
+    0 8px 0 var(--pink), 8px 8px 0 currentColor, 16px 8px 0 currentColor, 24px 8px 0 currentColor, 32px 8px 0 currentColor, 40px 8px 0 var(--pink),
+    0 16px 0 var(--pink), 8px 16px 0 currentColor, 16px 16px 0 var(--ink), 24px 16px 0 currentColor, 32px 16px 0 var(--ink), 40px 16px 0 var(--pink),
+    8px 24px 0 currentColor, 16px 24px 0 currentColor, 24px 24px 0 currentColor, 32px 24px 0 currentColor,
+    8px 32px 0 currentColor, 16px 32px 0 var(--pink), 24px 32px 0 var(--pink), 32px 32px 0 currentColor,
+    8px 40px 0 var(--cyan), 16px 40px 0 var(--cyan), 24px 40px 0 var(--cyan), 32px 40px 0 var(--cyan);
+}
+.avatar-mabel {
+  color: #8a5a3b;
+  box-shadow:
+    8px 0 0 var(--cyan), 16px 0 0 var(--cyan), 24px 0 0 var(--cyan), 32px 0 0 var(--cyan),
+    0 8px 0 var(--cyan), 8px 8px 0 currentColor, 16px 8px 0 currentColor, 24px 8px 0 currentColor, 32px 8px 0 currentColor, 40px 8px 0 var(--cyan),
+    0 16px 0 var(--cyan), 8px 16px 0 currentColor, 16px 16px 0 var(--ink), 24px 16px 0 currentColor, 32px 16px 0 var(--ink), 40px 16px 0 var(--cyan),
+    8px 24px 0 currentColor, 16px 24px 0 currentColor, 24px 24px 0 currentColor, 32px 24px 0 currentColor,
+    8px 32px 0 currentColor, 16px 32px 0 var(--yellow), 24px 32px 0 var(--yellow), 32px 32px 0 currentColor,
+    8px 40px 0 var(--pink), 16px 40px 0 var(--pink), 24px 40px 0 var(--pink), 32px 40px 0 var(--pink);
+}
+.avatar-rex {
+  color: #f2c9a0;
+  box-shadow:
+    8px 0 0 var(--orange), 16px 0 0 var(--orange), 24px 0 0 var(--orange), 32px 0 0 var(--orange),
+    0 8px 0 var(--orange), 8px 8px 0 currentColor, 16px 8px 0 currentColor, 24px 8px 0 currentColor, 32px 8px 0 currentColor, 40px 8px 0 var(--orange),
+    0 16px 0 var(--orange), 8px 16px 0 var(--ink), 16px 16px 0 var(--ink), 24px 16px 0 var(--ink), 32px 16px 0 var(--ink), 40px 16px 0 var(--orange),
+    8px 24px 0 currentColor, 16px 24px 0 currentColor, 24px 24px 0 currentColor, 32px 24px 0 currentColor,
+    8px 32px 0 currentColor, 16px 32px 0 var(--orange), 24px 32px 0 var(--orange), 32px 32px 0 currentColor,
+    8px 40px 0 var(--panel-2), 16px 40px 0 var(--panel-2), 24px 40px 0 var(--panel-2), 32px 40px 0 var(--panel-2);
+}
+.avatar-suki {
+  color: #ffd9c2;
+  box-shadow:
+    8px 0 0 var(--yellow), 16px 0 0 var(--yellow), 24px 0 0 var(--yellow), 32px 0 0 var(--yellow),
+    0 8px 0 var(--yellow), 8px 8px 0 currentColor, 16px 8px 0 currentColor, 24px 8px 0 currentColor, 32px 8px 0 currentColor, 40px 8px 0 var(--yellow),
+    0 16px 0 var(--cyan), 8px 16px 0 currentColor, 16px 16px 0 var(--ink), 24px 16px 0 currentColor, 32px 16px 0 var(--ink), 40px 16px 0 var(--cyan),
+    8px 24px 0 currentColor, 16px 24px 0 currentColor, 24px 24px 0 currentColor, 32px 24px 0 currentColor,
+    8px 32px 0 currentColor, 16px 32px 0 var(--pink), 24px 32px 0 var(--pink), 32px 32px 0 currentColor,
+    8px 40px 0 var(--panel-2), 16px 40px 0 var(--panel-2), 24px 40px 0 var(--panel-2), 32px 40px 0 var(--panel-2);
+}
+
+/* ---------- footer ---------- */
+
+.footer {
+  border-top: 3px solid var(--pink);
+  padding: 2.2rem clamp(1rem, 4vw, 2.5rem) 2.6rem;
+  text-align: center;
+  color: #d9c9f2;
+}
+.footer-mark { color: var(--pink); letter-spacing: 0.3em; margin: 0 0 0.8rem; }
+.footer p { margin: 0.3rem 0; font-size: 0.92rem; }
+.footer-fine { color: #9b86bf; font-size: 0.8rem !important; letter-spacing: 0.08em; }
+
+/* ---------- animation ---------- */
+
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .blink, .sprite, .ticker-track { animation: none; }
+  .game-card, .game-card:hover { transition: none; translate: none; }
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 46rem) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-art { min-height: 180px; }
+  .sprite-ship { left: 12%; top: 12%; }
+  .sprite-heart { right: 30%; top: 55%; }
+}

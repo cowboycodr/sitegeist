@@ -4,11 +4,12 @@
 
 Sitegeist is a visual benchmark for a simple question: **when leading coding agents receive the same set of website briefs, how often do their design instincts converge?**
 
-The project contains 100 neutral briefs and 300 complete, self-contained websites generated across three model collections:
+The project contains 100 neutral briefs and 400 complete, self-contained websites generated across four model collections:
 
 - **5.6 Sol**
 - **Opus 4.8**
 - **Grok 4.5**
+- **Fable 5**
 
 The gallery lets you move through every result, switch models, and compare up to three generations side by side.
 
