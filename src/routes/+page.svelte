@@ -1335,7 +1335,6 @@
 		let lastRawProgress = -1;
 		let lastViewportWidth = -1;
 		let collectionTop = 1;
-		let isMobileLayout = window.innerWidth <= 720;
 		let listeningForScroll = false;
 		let mounted = true;
 		const shellSides = Array.from(collectionElement.querySelectorAll<HTMLElement>('.collection-shell-side'));
@@ -1344,10 +1343,9 @@
 		const supportsNativeScrollTimeline =
 			CSS.supports('animation-timeline: scroll(root block)') &&
 			CSS.supports('animation-range: 0px 1px');
-		const usesNativeScrollTimeline = () =>
-			isMobileLayout && !prefersReducedMotion && supportsNativeScrollTimeline;
+		const usesNativeScrollTimeline = !prefersReducedMotion && supportsNativeScrollTimeline;
 
-		const setMobileShellProgress = (rawProgress: number) => {
+		const setShellProgress = (rawProgress: number) => {
 			const clampedProgress = Math.min(1, Math.max(0, rawProgress));
 			if (Math.abs(clampedProgress - lastRawProgress) <= 0.0001) return;
 			const easedProgress = clampedProgress * clampedProgress * (3 - 2 * clampedProgress);
@@ -1357,33 +1355,21 @@
 			lastRawProgress = clampedProgress;
 		};
 
-		const setDesktopShellProgress = (rawProgress: number) => {
-			const clampedProgress = Math.min(1, Math.max(0, rawProgress));
-			if (Math.abs(clampedProgress - lastRawProgress) <= 0.0001) return;
-			const easedProgress = clampedProgress * clampedProgress * (3 - 2 * clampedProgress);
-			const maximumInset = Math.min(36, Math.max(24, window.innerWidth * 0.02));
-			const maximumRadius = Math.min(34, Math.max(22, window.innerWidth * 0.02));
-			collectionElement.style.setProperty('--collection-inset', `${maximumInset * (1 - easedProgress)}px`);
-			collectionElement.style.setProperty('--collection-radius', `${maximumRadius * (1 - easedProgress)}px`);
-			lastRawProgress = clampedProgress;
-		};
-
 		const updateShell = () => {
 			framePending = false;
 			const rawProgress = Math.max(0, window.scrollY) / Math.max(collectionTop, 1);
-			if (isMobileLayout) setMobileShellProgress(rawProgress);
-			else setDesktopShellProgress(rawProgress);
+			setShellProgress(rawProgress);
 		};
 
 		const requestShellUpdate = () => {
-			if (framePending || usesNativeScrollTimeline() || (prefersReducedMotion && isMobileLayout)) return;
+			if (framePending || usesNativeScrollTimeline || prefersReducedMotion) return;
 			if (window.scrollY >= collectionTop && lastRawProgress >= 1) return;
 			framePending = true;
 			frame = requestAnimationFrame(updateShell);
 		};
 
 		const syncScrollListener = () => {
-			const shouldListen = !usesNativeScrollTimeline() && (!prefersReducedMotion || !isMobileLayout);
+			const shouldListen = !usesNativeScrollTimeline && !prefersReducedMotion;
 			if (shouldListen && !listeningForScroll) {
 				window.addEventListener('scroll', requestShellUpdate, { passive: true });
 				listeningForScroll = true;
@@ -1407,7 +1393,6 @@
 			framePending = false;
 			collectionTop = Math.max(1, measuredCollectionTop);
 			lastViewportWidth = viewportWidth;
-			isMobileLayout = viewportWidth <= 720;
 			filterRowElement.style.setProperty('--sticky-brand-shift', `${stickyBrandWidth + 8}px`);
 			shellMasksElement.style.setProperty('--shell-scroll-end', `${collectionTop}px`);
 			showReturnToTop = scrollPosition > collectionTop;
@@ -1415,16 +1400,10 @@
 			filtersPinned = scrollPosition >= filterStickyStart;
 			lastRawProgress = -1;
 
-			if (isMobileLayout) {
-				collectionElement.style.removeProperty('--collection-inset');
-				collectionElement.style.removeProperty('--collection-radius');
-			}
-			if (usesNativeScrollTimeline()) {
+			if (usesNativeScrollTimeline) {
 				for (const mask of [...shellSides, ...shellCorners]) mask.style.removeProperty('transform');
 			} else {
-				const initialProgress = prefersReducedMotion && isMobileLayout ? 1 : scrollPosition / collectionTop;
-				if (isMobileLayout) setMobileShellProgress(initialProgress);
-				else setDesktopShellProgress(initialProgress);
+				setShellProgress(prefersReducedMotion ? 1 : scrollPosition / collectionTop);
 			}
 			syncScrollListener();
 		};
@@ -1941,8 +1920,8 @@
 	.avatar-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
 	.profile-divider { opacity: 0.32; font-weight: 500; }
 
-	.collection { --shell-inset-max: clamp(24px, 2vw, 36px); --shell-radius-max: clamp(22px, 2vw, 34px); position: relative; margin: 0 var(--collection-inset, clamp(24px, 2vw, 36px)); padding: clamp(24px, 3vw, 34px) clamp(24px, 3vw, 34px) 0; border-radius: var(--collection-radius, clamp(22px, 2vw, 34px)) var(--collection-radius, clamp(22px, 2vw, 34px)) 0 0; background: #111210; color: #f3f1e9; }
-	.collection-shell-masks { position: absolute; z-index: 50; inset: 0 0 auto; display: none; height: 100vh; height: 100lvh; overflow: hidden; pointer-events: none; }
+	.collection { --shell-inset-max: clamp(24px, 2vw, 36px); --shell-radius-max: clamp(22px, 2vw, 34px); position: relative; margin: 0; padding: clamp(24px, 3vw, 34px) clamp(24px, 3vw, 34px) 0; background: #111210; color: #f3f1e9; }
+	.collection-shell-masks { position: absolute; z-index: 50; inset: 0 0 auto; display: block; height: 100vh; height: 100lvh; overflow: hidden; pointer-events: none; }
 	.collection-shell-side, .collection-shell-corner { position: absolute; top: 0; display: block; margin: 0; will-change: transform; backface-visibility: hidden; }
 	.collection-shell-side { width: var(--shell-inset-max); height: 100%; background: var(--gallery-page); }
 	.collection-shell-side.left { left: 0; transform: scaleX(1); transform-origin: left center; }
@@ -2099,8 +2078,7 @@
 	}
 
 	@media (max-width: 720px) {
-		.collection { --shell-inset-max: clamp(8px, 3vw, 12px); --shell-radius-max: 20px; margin: 0; border-radius: 0; }
-		.collection-shell-masks { display: block; }
+		.collection { --shell-inset-max: clamp(8px, 3vw, 12px); --shell-radius-max: 20px; }
 		.intro-grid { gap: 24px; padding: 42px 0 30px; }
 		.intro h1 { font-size: clamp(48px, 12vw, 64px); line-height: 0.86; }
 		.intro-aside { gap: 18px; }
