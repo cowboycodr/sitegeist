@@ -21,9 +21,9 @@
 	type BenchmarkFilter = BenchmarkModel;
 	const filters: Array<{ name: BenchmarkFilter; available: boolean }> = [
 		{ name: '5.6 Sol', available: true },
-		{ name: 'Opus 4.8', available: true },
+		{ name: 'Fable 5', available: true },
 		{ name: 'Grok 4.5', available: true },
-		{ name: 'Fable 5', available: true }
+		{ name: 'Opus 4.8', available: true }
 	];
 	const PAGE_THEME_COLOR = 'rgb(242, 240, 233)';
 	const SHELL_THEME_COLOR = 'rgb(17, 18, 16)';
