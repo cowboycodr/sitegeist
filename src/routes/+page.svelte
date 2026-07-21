@@ -1339,6 +1339,7 @@
 		let mounted = true;
 		const shellSides = Array.from(collectionElement.querySelectorAll<HTMLElement>('.collection-shell-side'));
 		const shellCorners = Array.from(collectionElement.querySelectorAll<HTMLElement>('.collection-shell-corner'));
+		const collectionHead = collectionElement.querySelector<HTMLElement>('.collection-head');
 		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 		const supportsNativeScrollTimeline =
 			CSS.supports('animation-timeline: scroll(root block)') &&
@@ -1350,8 +1351,10 @@
 			if (Math.abs(clampedProgress - lastRawProgress) <= 0.0001) return;
 			const easedProgress = clampedProgress * clampedProgress * (3 - 2 * clampedProgress);
 			const remaining = 1 - easedProgress;
+			const maximumInset = Math.min(36, Math.max(24, window.innerWidth * 0.02));
 			for (const side of shellSides) side.style.transform = `scaleX(${remaining})`;
 			for (const corner of shellCorners) corner.style.transform = `scale(${remaining})`;
+			collectionHead?.style.setProperty('transform', `translate3d(${-maximumInset * easedProgress}px, 0, 0)`);
 			lastRawProgress = clampedProgress;
 		};
 
@@ -1402,6 +1405,7 @@
 
 			if (usesNativeScrollTimeline) {
 				for (const mask of [...shellSides, ...shellCorners]) mask.style.removeProperty('transform');
+				collectionHead?.style.removeProperty('transform');
 			} else {
 				setShellProgress(prefersReducedMotion ? 1 : scrollPosition / collectionTop);
 			}
@@ -1932,11 +1936,13 @@
 	@supports (animation-timeline: scroll(root block)) and (animation-range: 0px 1px) {
 		.collection-shell-side { animation: shell-side-open 1ms cubic-bezier(.333333,0,.666667,1) both; animation-timeline: scroll(root block); animation-range: 0px var(--shell-scroll-end, 1px); }
 		.collection-shell-corner { animation: shell-corner-open 1ms cubic-bezier(.333333,0,.666667,1) both; animation-timeline: scroll(root block); animation-range: 0px var(--shell-scroll-end, 1px); }
+		.collection-head { animation: shell-head-settle 1ms cubic-bezier(.333333,0,.666667,1) both; animation-timeline: scroll(root block); animation-range: 0px var(--shell-scroll-end, 1px); }
 	}
 	@keyframes shell-side-open { from { transform: scaleX(1); } to { transform: scaleX(0); } }
 	@keyframes shell-corner-open { from { transform: scale(1); } to { transform: scale(0); } }
+	@keyframes shell-head-settle { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(calc(var(--shell-inset-max) * -1), 0, 0); } }
 	.collection-top-sentinel { position: absolute; top: 0; left: 0; width: 1px; height: 1px; pointer-events: none; }
-	.collection-head { padding-bottom: 22px; }
+	.collection-head { padding-bottom: 22px; will-change: transform; transform: translate3d(0, 0, 0); }
 	.collection h2 { margin: 0; font-size: clamp(36px, 3.7vw, 58px); font-weight: 610; line-height: 0.9; letter-spacing: -0.065em; }
 
 	.filter-sticky-sentinel { height: 1px; margin-bottom: -1px; pointer-events: none; }
@@ -2108,6 +2114,7 @@
 		.preview-button-wrap:hover .preview-window, .preview-button-wrap:focus-visible .preview-window { transform: none; }
 		.collection-shell-side { animation: none !important; transform: scaleX(0) !important; }
 		.collection-shell-corner { animation: none !important; transform: scale(0) !important; }
+		.collection-head { animation: none !important; transform: translate3d(calc(var(--shell-inset-max) * -1), 0, 0) !important; }
 		.viewer.from-card .viewer-entry, .viewer.from-card .viewer-controls, .viewer-toast { animation: none; }
 	}
 </style>
