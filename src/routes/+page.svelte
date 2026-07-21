@@ -1920,7 +1920,7 @@
 	.avatar-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
 	.profile-divider { opacity: 0.32; font-weight: 500; }
 
-	.collection { --shell-inset-max: clamp(24px, 2vw, 36px); --shell-radius-max: clamp(22px, 2vw, 34px); position: relative; margin: 0; padding: clamp(24px, 3vw, 34px) clamp(24px, 3vw, 34px) 0; background: #111210; color: #f3f1e9; }
+	.collection { --shell-inset-max: clamp(24px, 2vw, 36px); --shell-radius-max: clamp(22px, 2vw, 34px); --shell-content-gutter: clamp(24px, 3vw, 34px); position: relative; margin: 0; padding: var(--shell-content-gutter) calc(var(--shell-inset-max) + var(--shell-content-gutter)) 0; background: #111210; color: #f3f1e9; }
 	.collection-shell-masks { position: absolute; z-index: 50; inset: 0 0 auto; display: block; height: 100vh; height: 100lvh; overflow: hidden; pointer-events: none; }
 	.collection-shell-side, .collection-shell-corner { position: absolute; top: 0; display: block; margin: 0; will-change: transform; backface-visibility: hidden; }
 	.collection-shell-side { width: var(--shell-inset-max); height: 100%; background: var(--gallery-page); }
@@ -1940,7 +1940,7 @@
 	.collection h2 { margin: 0; font-size: clamp(36px, 3.7vw, 58px); font-weight: 610; line-height: 0.9; letter-spacing: -0.065em; }
 
 	.filter-sticky-sentinel { height: 1px; margin-bottom: -1px; pointer-events: none; }
-	.filter-row { position: relative; z-index: 40; display: block; margin: 0 clamp(-34px, -3vw, -24px); padding: 12px clamp(24px, 3vw, 34px) 14px; overflow: hidden; background: #111210; }
+	.filter-row { position: relative; z-index: 40; display: block; margin: 0 calc((var(--shell-inset-max) + var(--shell-content-gutter)) * -1); padding: 12px calc(var(--shell-inset-max) + var(--shell-content-gutter)) 14px; overflow: hidden; background: #111210; }
 	.filter-row.pinned { position: sticky; top: 0; }
 	.filter-track { position: relative; display: flex; width: 100%; min-width: 0; align-items: center; }
 	.filter-scroll { min-width: 0; flex: 1; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
