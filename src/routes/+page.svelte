@@ -26,6 +26,10 @@
 	const SITE_TITLE = 'Sitegeist';
 	const SITE_DESCRIPTION = 'One hundred generated websites testing how well leading models maintain visual quality, consistency, and originality.';
 	const SITE_IMAGE = 'https://sitegeist.kian.im/og.jpg';
+	const compactNumberFormatter = new Intl.NumberFormat('en-US', {
+		notation: 'compact',
+		maximumFractionDigits: 1
+	});
 	const structuredData = JSON.stringify({
 		'@context': 'https://schema.org',
 		'@type': 'WebSite',
@@ -1552,7 +1556,7 @@
 						<span class="github-repo-label">
 							<span>sitegeist</span>
 							{#if githubStars !== null}
-								<span class="github-star-count" aria-hidden="true">{githubStars.toLocaleString('en-US')}</span>
+								<span class="github-star-count" aria-hidden="true">{compactNumberFormatter.format(githubStars)}</span>
 							{/if}
 						</span>
 					</a>
