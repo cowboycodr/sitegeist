@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { ArrowUp, BookOpen, ChevronDown, ChevronLeft, ChevronRight, Plus, Share2, Star, X } from '@lucide/svelte';
+	import { ArrowUp, BookOpen, ChevronDown, ChevronLeft, ChevronRight, Plus, Share2, X } from '@lucide/svelte';
 	import { flip } from 'svelte/animate';
 	import { quintOut } from 'svelte/easing';
 	import { onMount, tick } from 'svelte';
@@ -1546,16 +1546,15 @@
 						aria-label={githubStars === null
 							? 'View Sitegeist on GitHub'
 							: `View Sitegeist on GitHub, ${githubStars.toLocaleString('en-US')} stars`}
-					>
+						>
 						<span class="profile-icon"><svg class="github-mark" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.51-.01-.52.63-.01 1.08.58 1.23.81.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.5 7.5 0 0 1 8 4.58c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" /></svg></span>
 						<span class="profile-divider" aria-hidden="true">/</span>
-						<span>sitegeist</span>
-						{#if githubStars !== null}
-							<span class="github-star-count" aria-hidden="true">
-								<Star size={12} strokeWidth={2.2} />
-								<span>{githubStars.toLocaleString('en-US')}</span>
-							</span>
-						{/if}
+						<span class="github-repo-label">
+							<span>sitegeist</span>
+							{#if githubStars !== null}
+								<span class="github-star-count" aria-hidden="true">{githubStars.toLocaleString('en-US')}</span>
+							{/if}
+						</span>
 					</a>
 					<a class="profile-pill site-profile" href="https://kian.im" target="_blank" rel="noreferrer" aria-label="Visit Kian McKenna's personal website">
 						<span class="profile-icon avatar-icon"><img src="/kian-avatar.png" alt="" /></span>
@@ -1968,7 +1967,8 @@
 	.profile-pill:hover { filter: brightness(1.1); transform: scale(1.035); }
 	.profile-pill:focus-visible { outline: 2px solid var(--gallery-accent); outline-offset: 2px; }
 	.github-profile { background: #1b1c19; }
-	.github-star-count { display: inline-flex; align-items: center; gap: 4px; margin-left: 2px; color: rgba(255, 255, 255, 0.68); font: 700 10px/1 ui-monospace, monospace; }
+	.github-repo-label { display: inline-flex; align-items: baseline; gap: 5px; white-space: nowrap; }
+	.github-star-count { color: rgba(255, 255, 255, 0.48); font-size: 10px; font-weight: 650; }
 	.site-profile { background: var(--gallery-accent); }
 	.profile-icon { display: grid; width: 16px; flex: none; place-items: center; }
 	.profile-icon .github-mark { width: 15px; height: 15px; fill: currentColor; }
