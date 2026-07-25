@@ -1855,7 +1855,7 @@
 		</div>
 		{#if comparisonRequested && !desktopCompareAvailable}
 			<div class="mobile-compare-notice" role="note">
-				<Monitor size={14} strokeWidth={2.1} aria-hidden="true" />
+				<Monitor size={15} strokeWidth={2.1} aria-hidden="true" />
 				<span>Open on desktop to compare models</span>
 			</div>
 		{/if}
@@ -2198,10 +2198,10 @@
 	.menu-dismiss-layer { position: fixed; z-index: 1095; inset: 0; margin: 0; padding: 0; border: 0; background: transparent; cursor: default; }
 	.model-tab-drag-ghost { position: fixed; z-index: 1200; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 0; border-radius: 999px; background: #2b2b29; color: #fff; box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 2px 8px rgba(0, 0, 0, 0.24); font: 700 10px/1 'Inter Variable', Inter, sans-serif; letter-spacing: -0.01em; white-space: nowrap; transform: translateZ(0); pointer-events: none; -webkit-user-select: none; user-select: none; }
 	.model-tab-drag-ghost span { overflow: hidden; padding-inline: 10px; text-overflow: ellipsis; }
-	.mobile-compare-notice { position: fixed; z-index: 1090; left: 50%; bottom: 74px; display: flex; width: max-content; max-width: calc(100vw - 32px); min-height: 38px; align-items: center; gap: 8px; padding: 0 14px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 999px; background: rgba(20, 20, 19, 0.96); color: rgba(255, 255, 255, 0.88); box-shadow: 0 14px 44px rgba(0, 0, 0, 0.34), inset 0 1px rgba(255, 255, 255, 0.06); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%); font: 650 11px/1.2 'Inter Variable', Inter, sans-serif; text-align: center; transform: translateX(-50%); animation: viewer-toast-enter 220ms cubic-bezier(.22,1,.36,1) both; pointer-events: none; -webkit-user-select: none; user-select: none; }
+	.mobile-compare-notice { position: fixed; z-index: 1090; left: 50%; bottom: 66px; display: flex; width: max-content; max-width: calc(100vw - 32px); height: 44px; align-items: center; gap: 7px; padding: 0 15px; border: 1px solid rgba(255, 255, 255, 0.13); border-radius: 999px; background: rgba(20, 20, 19, 0.96); color: rgba(255, 255, 255, 0.88); box-shadow: 0 14px 44px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%); font: 650 11px/1.2 'Inter Variable', Inter, sans-serif; letter-spacing: -0.01em; text-align: center; transform: translateX(-50%); animation: viewer-toast-enter 220ms cubic-bezier(.22,1,.36,1) both; pointer-events: none; -webkit-user-select: none; user-select: none; }
 	.mobile-compare-notice :global(svg) { flex: none; color: rgba(255, 255, 255, 0.58); }
 	.viewer-toast { position: fixed; z-index: 1090; left: 50%; bottom: 74px; width: max-content; max-width: min(440px, calc(100vw - 32px)); padding: 11px 15px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 999px; background: #141413; color: rgba(255, 255, 255, 0.9); box-shadow: 0 14px 44px rgba(0, 0, 0, 0.34); font: 650 11px/1.35 'Inter Variable', Inter, sans-serif; text-align: center; transform: translateX(-50%); animation: viewer-toast-enter 220ms cubic-bezier(.22,1,.36,1) both; pointer-events: none; -webkit-user-select: none; user-select: none; }
-	.viewer-toast.above-mobile-compare { bottom: 122px; }
+	.viewer-toast.above-mobile-compare { bottom: 118px; }
 	@keyframes viewer-toast-enter { from { opacity: 0; transform: translate(-50%, 8px) scale(.97); } to { opacity: 1; transform: translate(-50%, 0) scale(1); } }
 	.viewer-controls-cluster { display: flex; max-width: 100%; align-items: center; justify-content: center; gap: 8px; pointer-events: auto; }
 	.close-control-pill, .model-control-wrap, .navigation-control-pill { position: relative; display: flex; align-items: center; gap: 2px; padding: 4px; border: 1px solid rgba(255, 255, 255, 0.13); border-radius: 999px; background: rgba(20, 20, 19, 0.96); box-shadow: 0 14px 44px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%); }
@@ -2266,6 +2266,8 @@
 	@media (max-width: 430px) {
 		.card-caption p { display: none; }
 		.viewer-controls { bottom: 8px; max-width: calc(100vw - 12px); }
+		.mobile-compare-notice { bottom: 60px; }
+		.viewer-toast.above-mobile-compare { bottom: 112px; }
 		.brief-control { width: 34px; padding: 0; }
 		.brief-control span { display: none; }
 		.model-control-wrap.mobile-model-only .model-segment { max-width: min(112px, calc(100vw - 270px)); }
