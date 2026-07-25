@@ -146,6 +146,7 @@
 	let addMenuOpen = $state(false);
 	let comparisonMenu = $state<'second' | 'third' | null>(null);
 	let briefOpen = $state(false);
+	let comparisonRequested = $state(false);
 	let compareModel = $state<BenchmarkModel | null>(null);
 	let thirdModel = $state<BenchmarkModel | null>(null);
 	let draggedModelOrder = $state<BenchmarkModel[] | null>(null);
@@ -203,6 +204,9 @@
 			? siteArtifactByModel[compareModel].get(selected.slug) ?? null
 			: null
 	);
+	let comparisonChooserVisible = $derived(
+		desktopCompareAvailable && comparisonRequested && !compareModel
+	);
 	let thirdArtifact = $derived(
 		tripleCompareAvailable && thirdModel && selected
 			? siteArtifactByModel[thirdModel].get(selected.slug) ?? null
@@ -217,7 +221,11 @@
 
 	function updateViewerUrl(mode: 'push' | 'replace') {
 		if (!browser || !selected) return;
-		const hash = serializeViewerHash({ slug: selected.slug, models: roleOrderedModels });
+		const hash = serializeViewerHash({
+			slug: selected.slug,
+			models: roleOrderedModels,
+			compareMode: comparisonRequested
+		});
 		const url = `${window.location.pathname}${window.location.search}${hash}`;
 		if (mode === 'push') history.pushState(null, '', url);
 		else history.replaceState(null, '', url);
@@ -387,8 +395,10 @@
 				...requestedModels.filter((model) => model !== primaryModel)
 			].slice(0, 3)
 			: [];
+		const nextComparisonRequested = Boolean(nextSite && requested?.compareMode);
 		if (
 			nextSite?.slug === selected?.slug &&
+			nextComparisonRequested === comparisonRequested &&
 			nextModels.length === roleOrderedModels.length &&
 			nextModels.every((model, index) => model === roleOrderedModels[index])
 		) return;
@@ -405,6 +415,7 @@
 		addMenuOpen = false;
 		comparisonMenu = null;
 		briefOpen = false;
+		comparisonRequested = nextComparisonRequested;
 		compareModel = nextModels[1] ?? null;
 		thirdModel = nextModels[2] ?? null;
 		if (primaryModel) filter = primaryModel;
@@ -440,6 +451,7 @@
 			scaleX: rect.width / window.innerWidth,
 			scaleY: rect.height / window.innerHeight
 		};
+		comparisonRequested = false;
 		selected = site;
 		updateViewerUrl('push');
 	}
@@ -501,6 +513,7 @@
 		addMenuOpen = false;
 		comparisonMenu = null;
 		briefOpen = false;
+		comparisonRequested = false;
 		compareModel = null;
 		thirdModel = null;
 		viewerToast = null;
@@ -529,7 +542,11 @@
 
 	async function shareSelectedSite() {
 		if (!browser || !selected) return;
-		const hash = serializeViewerHash({ slug: selected.slug, models: roleOrderedModels });
+		const hash = serializeViewerHash({
+			slug: selected.slug,
+			models: roleOrderedModels,
+			compareMode: comparisonRequested
+		});
 		const url = new URL(
 			`${window.location.pathname}${window.location.search}${hash}`,
 			window.location.href
@@ -566,6 +583,7 @@
 	function selectComparisonModel(model: BenchmarkModel, updateHistory = true) {
 		if (model === compareModel) return;
 		comparisonArtifactReady = false;
+		comparisonRequested = true;
 		compareModel = model;
 		modelMenuOpen = false;
 		addMenuOpen = false;
@@ -576,6 +594,7 @@
 	function selectThirdComparisonModel(model: BenchmarkModel, updateHistory = true) {
 		if (model === thirdModel) return;
 		thirdArtifactReady = false;
+		comparisonRequested = true;
 		thirdModel = model;
 		modelMenuOpen = false;
 		addMenuOpen = false;
@@ -621,6 +640,12 @@
 		briefOpen = false;
 		modelMenuOpen = false;
 		comparisonMenu = null;
+		if (!compareModel) {
+			addMenuOpen = false;
+			comparisonRequested = true;
+			updateViewerUrl('push');
+			return;
+		}
 		if (availableComparisonModels.length > 1) {
 			addMenuOpen = !addMenuOpen;
 			return;
@@ -649,6 +674,7 @@
 		comparisonMenu = null;
 		compareModel = thirdModel;
 		thirdModel = null;
+		comparisonRequested = Boolean(compareModel);
 		comparisonArtifactReady = false;
 		thirdArtifactReady = false;
 		if (updateHistory) updateViewerUrl('push');
@@ -662,6 +688,7 @@
 		filter = compareModel;
 		compareModel = thirdModel;
 		thirdModel = null;
+		comparisonRequested = Boolean(compareModel);
 		viewerArtifactReady = false;
 		comparisonArtifactReady = false;
 		thirdArtifactReady = false;
@@ -674,6 +701,7 @@
 		addMenuOpen = false;
 		comparisonMenu = null;
 		thirdModel = null;
+		comparisonRequested = Boolean(compareModel);
 		thirdArtifactReady = false;
 		if (updateHistory) updateViewerUrl('push');
 	}
@@ -815,6 +843,7 @@
 		filter = order[0];
 		compareModel = order[1] ?? null;
 		if (tripleCompareAvailable) thirdModel = order[2] ?? null;
+		comparisonRequested = Boolean(compareModel);
 		viewerArtifactReady = false;
 		comparisonArtifactReady = false;
 		thirdArtifactReady = false;
@@ -1719,7 +1748,7 @@
 			<div class="viewer-surface" bind:this={viewerSurfaceElement}>
 				<div
 					class="viewer-content"
-					class:comparing={Boolean(comparisonArtifact)}
+					class:comparing={Boolean(comparisonArtifact || comparisonChooserVisible)}
 					class:triple={Boolean(comparisonArtifact && thirdArtifact)}
 					bind:this={viewerContentElement}
 				>
@@ -1756,7 +1785,10 @@
 						{/if}
 					</div>
 					{#if desktopCompareAvailable}
-						<div class="viewer-pane comparison-pane" aria-hidden={!comparisonArtifact}>
+						<div
+							class="viewer-pane comparison-pane"
+							aria-hidden={!comparisonArtifact && !comparisonChooserVisible}
+						>
 							{#if comparisonArtifact && compareModel}
 								<div class="viewer-site artifact-shell" class:ready={comparisonArtifactReady} role="document">
 									<img
@@ -1775,6 +1807,23 @@
 										loading="eager"
 										onload={() => (comparisonArtifactReady = true)}
 									></iframe>
+								</div>
+							{:else if comparisonChooserVisible}
+								<div class="comparison-choice-screen">
+									<div class="comparison-choice-panel" role="group" aria-label="Choose a model to compare">
+										<p>Compare with</p>
+										<div class="comparison-choice-list">
+											{#each availableComparisonModels as model}
+												<button
+													onclick={() => selectComparisonModel(model)}
+													aria-label={`Compare with ${model}`}
+												>
+													<span>{model}</span>
+													<Plus size={16} strokeWidth={2.2} aria-hidden="true" />
+												</button>
+											{/each}
+										</div>
+									</div>
 								</div>
 							{/if}
 						</div>
@@ -1904,7 +1953,7 @@
 								{/if}
 							</div>
 						{/each}
-						{#if desktopCompareAvailable && !thirdModel && availableComparisonModels.length > 0}
+						{#if desktopCompareAvailable && !thirdModel && availableComparisonModels.length > 0 && !(comparisonRequested && !compareModel)}
 							<div class="add-model-slot" transition:pillSegment>
 								<button
 									class="compare-control"
@@ -2099,6 +2148,14 @@
 	.viewer-content.comparing .comparison-pane { flex-basis: 50%; opacity: 1; transform: translate3d(0, 0, 0); box-shadow: inset 1px 0 rgba(255, 255, 255, 0.18); pointer-events: auto; }
 	.viewer-content.triple .comparison-pane, .viewer-content.triple .third-pane { flex-basis: 33.3333%; opacity: 1; transform: translate3d(0, 0, 0); box-shadow: inset 1px 0 rgba(255, 255, 255, 0.18); pointer-events: auto; }
 	.viewer-site { height: 100%; overflow: auto; overscroll-behavior: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; }
+	.comparison-choice-screen { display: grid; height: 100%; padding: 32px; place-items: center; background: #1b1b1a; color: #fff; }
+	.comparison-choice-panel { display: grid; width: min(300px, 100%); gap: 15px; }
+	.comparison-choice-panel > p { margin: 0; color: rgba(255, 255, 255, 0.45); font: 700 10px/1 'Inter Variable', Inter, sans-serif; letter-spacing: 0.08em; text-align: center; text-transform: uppercase; }
+	.comparison-choice-list { display: grid; gap: 7px; }
+	.comparison-choice-list button { display: flex; width: 100%; height: 48px; align-items: center; justify-content: space-between; padding: 0 15px 0 17px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; background: rgba(255, 255, 255, 0.055); color: rgba(255, 255, 255, 0.86); box-shadow: inset 0 1px rgba(255, 255, 255, 0.035); font: 700 12px/1 'Inter Variable', Inter, sans-serif; cursor: pointer; transition: border-color 160ms ease, background 160ms ease, color 160ms ease, transform 160ms ease; }
+	.comparison-choice-list button:hover, .comparison-choice-list button:focus-visible { border-color: rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.1); color: #fff; outline: none; transform: translateY(-1px); }
+	.comparison-choice-list button:active { transform: translateY(0); }
+	.comparison-choice-list button :global(svg) { color: rgba(255, 255, 255, 0.48); }
 	.artifact-shell { position: relative; overflow: hidden; background: #07090d; }
 	.artifact-viewer-poster, .artifact-frame { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
 	.artifact-viewer-poster { z-index: 2; background: #06110f; object-fit: contain; opacity: 1; pointer-events: none; transition: opacity 220ms ease; }

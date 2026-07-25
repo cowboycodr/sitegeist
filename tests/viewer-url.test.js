@@ -11,24 +11,46 @@ import {
 test('legacy site links retain the default model', () => {
 	assert.deepEqual(parseViewerHash('#site/aurora-labs'), {
 		slug: 'aurora-labs',
-		models: [defaultViewerModel]
+		models: [defaultViewerModel],
+		compareMode: false
 	});
 });
 
 test('one-, two-, and three-model links parse in order', () => {
 	assert.deepEqual(parseViewerHash('#site/aurora?model=fable-5'), {
 		slug: 'aurora',
-		models: ['Fable 5']
+		models: ['Fable 5'],
+		compareMode: false
 	});
 	assert.deepEqual(
 		parseViewerHash('#site/aurora?model=grok-4.5&compare=5.6-sol'),
-		{ slug: 'aurora', models: ['Grok 4.5', '5.6 Sol'] }
+		{ slug: 'aurora', models: ['Grok 4.5', '5.6 Sol'], compareMode: true }
 	);
 	assert.deepEqual(
 		parseViewerHash(
 			'#site/aurora?model=opus-4.8&compare=fable-5&compare=grok-4.5'
 		),
-		{ slug: 'aurora', models: ['Opus 4.8', 'Fable 5', 'Grok 4.5'] }
+		{
+			slug: 'aurora',
+			models: ['Opus 4.8', 'Fable 5', 'Grok 4.5'],
+			compareMode: true
+		}
+	);
+});
+
+test('a bare compare marker restores the empty comparison chooser', () => {
+	assert.deepEqual(parseViewerHash('#site/aurora?model=opus-4.8&compare'), {
+		slug: 'aurora',
+		models: ['Opus 4.8'],
+		compareMode: true
+	});
+	assert.equal(
+		serializeViewerHash({
+			slug: 'aurora',
+			models: ['Opus 4.8'],
+			compareMode: true
+		}),
+		'#site/aurora?model=opus-4.8&compare'
 	);
 });
 
@@ -37,8 +59,17 @@ test('unknown and duplicate model values are ignored safely', () => {
 		parseViewerHash(
 			'#site/aurora?model=unknown&model=fable-5&compare=fable-5&compare=nope&compare=grok-4.5&compare=grok-4.5&compare=opus-4.8&compare=5.6-sol'
 		),
-		{ slug: 'aurora', models: ['Fable 5', 'Grok 4.5', 'Opus 4.8'] }
+		{
+			slug: 'aurora',
+			models: ['Fable 5', 'Grok 4.5', 'Opus 4.8'],
+			compareMode: true
+		}
 	);
+	assert.deepEqual(parseViewerHash('#site/aurora?model=fable-5&compare=nope'), {
+		slug: 'aurora',
+		models: ['Fable 5'],
+		compareMode: false
+	});
 });
 
 test('gallery and malformed viewer hashes are not parsed as viewer state', () => {

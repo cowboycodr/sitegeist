@@ -39,7 +39,7 @@ export function modelsForViewport(models, comparisonAvailable, tripleComparisonA
  * models are de-duplicated in URL order, and no more than two are returned.
  *
  * @param {string} hash
- * @returns {{ slug: string; models: BenchmarkModel[] } | null}
+ * @returns {{ slug: string; models: BenchmarkModel[]; compareMode: boolean } | null}
  */
 export function parseViewerHash(hash) {
 	if (!hash.startsWith('#site/')) return null;
@@ -58,26 +58,28 @@ export function parseViewerHash(hash) {
 	if (!slug) return null;
 
 	const params = new URLSearchParams(queryStart === -1 ? '' : route.slice(queryStart + 1));
+	const comparisonIds = params.getAll('compare');
 	const primary = params
 		.getAll('model')
 		.map((id) => modelByUrlId[id])
 		.find((model) => model !== undefined) ?? defaultViewerModel;
 	const models = [primary];
+	const compareMode = comparisonIds.some((id) => id === '' || modelByUrlId[id] !== undefined);
 
-	for (const id of params.getAll('compare')) {
+	for (const id of comparisonIds) {
 		const model = modelByUrlId[id];
 		if (!model || models.includes(model)) continue;
 		models.push(model);
 		if (models.length === 3) break;
 	}
 
-	return { slug, models };
+	return { slug, models, compareMode };
 }
 
 /**
- * @param {{ slug: string; models: BenchmarkModel[] }} state
+ * @param {{ slug: string; models: BenchmarkModel[]; compareMode?: boolean }} state
  */
-export function serializeViewerHash({ slug, models }) {
+export function serializeViewerHash({ slug, models, compareMode = false }) {
 	const uniqueModels = models.filter(
 		(model, index) => modelUrlIds[model] && models.indexOf(model) === index
 	);
@@ -88,5 +90,6 @@ export function serializeViewerHash({ slug, models }) {
 		params.append('compare', modelUrlIds[model]);
 	}
 
-	return `#site/${encodeURIComponent(slug)}?${params.toString()}`;
+	const compareMarker = compareMode && uniqueModels.length === 1 ? '&compare' : '';
+	return `#site/${encodeURIComponent(slug)}?${params.toString()}${compareMarker}`;
 }
