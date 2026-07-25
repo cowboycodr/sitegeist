@@ -14,6 +14,11 @@
 	} from '$lib/generated/site-artifacts';
 	import { sitesByModel } from '$lib/sites';
 	import type { ShowcaseSite } from '$lib/site-types';
+	import {
+		modelsForViewport,
+		parseViewerHash,
+		serializeViewerHash
+	} from '$lib/viewer-url.js';
 	type BenchmarkFilter = BenchmarkModel;
 	const filters: Array<{ name: BenchmarkFilter; available: boolean }> = [
 		{ name: '5.6 Sol', available: true },
@@ -178,7 +183,10 @@
 	let roleOrderedModels = $derived(
 		[activeModel, compareModel, thirdModel].filter((model): model is BenchmarkModel => Boolean(model))
 	);
-	let displayedModels = $derived(draggedModelOrder ?? roleOrderedModels);
+	let viewportModels = $derived(
+		modelsForViewport(roleOrderedModels, desktopCompareAvailable, tripleCompareAvailable)
+	);
+	let displayedModels = $derived(draggedModelOrder ?? viewportModels);
 	let availableComparisonModels = $derived(
 		viewerModels.filter(
 			(model) => model !== activeModel && model !== compareModel && model !== thirdModel
@@ -191,12 +199,12 @@
 		viewerModels.filter((model) => model !== activeModel && model !== compareModel)
 	);
 	let comparisonArtifact = $derived(
-		compareModel && selected
+		desktopCompareAvailable && compareModel && selected
 			? siteArtifactByModel[compareModel].get(selected.slug) ?? null
 			: null
 	);
 	let thirdArtifact = $derived(
-		thirdModel && selected
+		tripleCompareAvailable && thirdModel && selected
 			? siteArtifactByModel[thirdModel].get(selected.slug) ?? null
 			: null
 	);
@@ -206,6 +214,14 @@
 		Math.min(maximum, Math.max(minimum, value));
 	const lerp = (start: number, end: number, progress: number) =>
 		start + (end - start) * progress;
+
+	function updateViewerUrl(mode: 'push' | 'replace') {
+		if (!browser || !selected) return;
+		const hash = serializeViewerHash({ slug: selected.slug, models: roleOrderedModels });
+		const url = `${window.location.pathname}${window.location.search}${hash}`;
+		if (mode === 'push') history.pushState(null, '', url);
+		else history.replaceState(null, '', url);
+	}
 
 	function pillSegment(node: HTMLElement) {
 		const width = node.getBoundingClientRect().width;
@@ -353,19 +369,47 @@
 
 	function syncFromHash() {
 		if (!browser) return;
-		const slug = window.location.hash.startsWith('#site/') ? window.location.hash.slice(6) : '';
-		const nextSite = slug ? visibleSites.find((site) => site.slug === slug) ?? null : null;
-		if (nextSite?.slug === selected?.slug) return;
+		const requested = parseViewerHash(window.location.hash);
+		const requestedModels = requested
+			? requested.models.filter((model) => siteArtifactByModel[model].has(requested.slug))
+			: [];
+		const primaryModel = requested
+			? requestedModels[0] ?? filters
+				.map((item) => item.name)
+				.find((model) => siteArtifactByModel[model].has(requested.slug)) ?? null
+			: null;
+		const nextSite = requested && primaryModel
+			? sitesByModel[primaryModel].find((site) => site.slug === requested.slug) ?? null
+			: null;
+		const nextModels = nextSite && primaryModel
+			? [
+				primaryModel,
+				...requestedModels.filter((model) => model !== primaryModel)
+			].slice(0, 3)
+			: [];
+		if (
+			nextSite?.slug === selected?.slug &&
+			nextModels.length === roleOrderedModels.length &&
+			nextModels.every((model, index) => model === roleOrderedModels[index])
+		) return;
+
 		resetViewerGesture();
+		resetModelTabDrag();
 		returnPreviewElement = null;
 		returnPreviewOrigin = null;
 		expandOrigin = null;
 		viewerArtifactReady = false;
 		comparisonArtifactReady = false;
 		thirdArtifactReady = false;
+		modelMenuOpen = false;
+		addMenuOpen = false;
+		comparisonMenu = null;
 		briefOpen = false;
-		artifactChannel = createArtifactChannel(nextSite);
+		compareModel = nextModels[1] ?? null;
+		thirdModel = nextModels[2] ?? null;
+		if (primaryModel) filter = primaryModel;
 		selected = nextSite;
+		artifactChannel = createArtifactChannel(nextSite);
 	}
 
 	function openSite(site: ShowcaseSite, event: MouseEvent) {
@@ -397,7 +441,7 @@
 			scaleY: rect.height / window.innerHeight
 		};
 		selected = site;
-		if (browser) history.pushState(null, '', `#site/${site.slug}`);
+		updateViewerUrl('push');
 	}
 
 	function handlePreviewPointerDown(event: PointerEvent) {
@@ -485,7 +529,11 @@
 
 	async function shareSelectedSite() {
 		if (!browser || !selected) return;
-		const url = window.location.href;
+		const hash = serializeViewerHash({ slug: selected.slug, models: roleOrderedModels });
+		const url = new URL(
+			`${window.location.pathname}${window.location.search}${hash}`,
+			window.location.href
+		).href;
 		const title = `${selected.name} — Sitegeist`;
 		if (typeof navigator.share === 'function') {
 			try {
@@ -515,25 +563,27 @@
 		briefOpen = !briefOpen;
 	}
 
-	function selectComparisonModel(model: BenchmarkModel) {
+	function selectComparisonModel(model: BenchmarkModel, updateHistory = true) {
 		if (model === compareModel) return;
 		comparisonArtifactReady = false;
 		compareModel = model;
 		modelMenuOpen = false;
 		addMenuOpen = false;
 		comparisonMenu = null;
+		if (updateHistory) updateViewerUrl('push');
 	}
 
-	function selectThirdComparisonModel(model: BenchmarkModel) {
+	function selectThirdComparisonModel(model: BenchmarkModel, updateHistory = true) {
 		if (model === thirdModel) return;
 		thirdArtifactReady = false;
 		thirdModel = model;
 		modelMenuOpen = false;
 		addMenuOpen = false;
 		comparisonMenu = null;
+		if (updateHistory) updateViewerUrl('push');
 	}
 
-	function selectPrimaryModel(model: BenchmarkModel) {
+	function selectPrimaryModel(model: BenchmarkModel, updateHistory = true) {
 		if (model === activeModel) {
 			modelMenuOpen = false;
 			return;
@@ -549,6 +599,7 @@
 		addMenuOpen = false;
 		comparisonMenu = null;
 		artifactChannel = createArtifactChannel(selected);
+		if (updateHistory) updateViewerUrl('push');
 	}
 
 	function toggleModelMenu() {
@@ -592,7 +643,7 @@
 		selectThirdComparisonModel(model);
 	}
 
-	function stopComparison() {
+	function stopComparison(updateHistory = true) {
 		modelMenuOpen = false;
 		addMenuOpen = false;
 		comparisonMenu = null;
@@ -600,9 +651,10 @@
 		thirdModel = null;
 		comparisonArtifactReady = false;
 		thirdArtifactReady = false;
+		if (updateHistory) updateViewerUrl('push');
 	}
 
-	function stopPrimaryComparison() {
+	function stopPrimaryComparison(updateHistory = true) {
 		if (!compareModel) return;
 		modelMenuOpen = false;
 		addMenuOpen = false;
@@ -614,25 +666,16 @@
 		comparisonArtifactReady = false;
 		thirdArtifactReady = false;
 		artifactChannel = createArtifactChannel(selected);
+		if (updateHistory) updateViewerUrl('push');
 	}
 
-	function stopThirdComparison() {
+	function stopThirdComparison(updateHistory = true) {
 		modelMenuOpen = false;
 		addMenuOpen = false;
 		comparisonMenu = null;
 		thirdModel = null;
 		thirdArtifactReady = false;
-	}
-
-	function clearComparisons() {
-		resetModelTabDrag();
-		modelMenuOpen = false;
-		addMenuOpen = false;
-		comparisonMenu = null;
-		compareModel = null;
-		thirdModel = null;
-		comparisonArtifactReady = false;
-		thirdArtifactReady = false;
+		if (updateHistory) updateViewerUrl('push');
 	}
 
 	function dismissModelMenus() {
@@ -764,18 +807,19 @@
 
 	function commitDraggedModelOrder(order: BenchmarkModel[]) {
 		if (
-			order.length !== roleOrderedModels.length ||
-			order.every((model, index) => model === roleOrderedModels[index])
+			order.length !== viewportModels.length ||
+			order.every((model, index) => model === viewportModels[index])
 		) return;
 
 		const nextArtifactChannel = createArtifactChannel(selected);
 		filter = order[0];
 		compareModel = order[1] ?? null;
-		thirdModel = order[2] ?? null;
+		if (tripleCompareAvailable) thirdModel = order[2] ?? null;
 		viewerArtifactReady = false;
 		comparisonArtifactReady = false;
 		thirdArtifactReady = false;
 		artifactChannel = nextArtifactChannel;
+		updateViewerUrl('push');
 	}
 
 	function finishModelTabDrag(event: PointerEvent, cancelled = false) {
@@ -1211,11 +1255,11 @@
 		thirdArtifactReady = false;
 		const current = visibleSites.findIndex((site) => site.id === selected?.id);
 		const next = visibleSites[(current + direction + visibleSites.length) % visibleSites.length];
-		if (compareModel && !siteArtifactByModel[compareModel].has(next.slug)) stopComparison();
-		if (thirdModel && !siteArtifactByModel[thirdModel].has(next.slug)) stopThirdComparison();
+		if (compareModel && !siteArtifactByModel[compareModel].has(next.slug)) stopComparison(false);
+		if (thirdModel && !siteArtifactByModel[thirdModel].has(next.slug)) stopThirdComparison(false);
 		artifactChannel = createArtifactChannel(next);
 		selected = next;
-		if (browser) history.replaceState(null, '', `#site/${next.slug}`);
+		updateViewerUrl('replace');
 	}
 
 	function handleViewerShortcut(key: string) {
@@ -1264,11 +1308,8 @@
 		const syncDesktopCompare = () => {
 			desktopCompareAvailable = desktopCompareMedia.matches;
 			tripleCompareAvailable = desktopCompareAvailable && tripleCompareMedia.matches;
-			if (!desktopCompareAvailable) clearComparisons();
-			else if (!tripleCompareAvailable && thirdModel) {
-				stopThirdComparison();
-				showViewerToast(TRIPLE_COMPARE_LIMIT_MESSAGE);
-			}
+			resetModelTabDrag();
+			dismissModelMenus();
 		};
 		syncDesktopCompare();
 		desktopCompareMedia.addEventListener('change', syncDesktopCompare);
@@ -1905,7 +1946,7 @@
 										<span>{model}</span>
 									</button>
 								{/each}
-								<button class="compare-option" role="menuitem" onclick={stopComparison}>
+								<button class="compare-option" role="menuitem" onclick={() => stopComparison()}>
 									<span>Remove model</span>
 								</button>
 							</div>
@@ -1924,7 +1965,7 @@
 										<span>{model}</span>
 									</button>
 								{/each}
-								<button class="compare-option" role="menuitem" onclick={stopThirdComparison}>
+								<button class="compare-option" role="menuitem" onclick={() => stopThirdComparison()}>
 									<span>Remove model</span>
 								</button>
 							</div>
