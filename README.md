@@ -1,3 +1,5 @@
+
+
 # Sitegeist
 
 ![Sitegeist — Can AI create without repeating itself?](static/og.jpg)
@@ -41,7 +43,7 @@ Raw worker homes, credentials, logs, and temporary evaluator workspaces are not 
 
 ## Run the gallery locally
 
-Requirements: Node.js and pnpm.
+Requirements: Node.js and pnpm (`pnpm@10.11.1` is pinned in `package.json`).
 
 ```sh
 pnpm install
